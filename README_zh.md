@@ -25,6 +25,10 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 
 ## �🚀 快速开始
 
+> **📚 想要更详细的操作指南？**
+> 我们为您准备了详尽的图文教程，带您从零开始玩转红楼梦沙盘世界：
+> 👉 [点击查看 OpenStory 红楼梦互动教程](tutorial/Story_Of_Stone/tutorial_zh.md)
+
 ### 1. 环境准备
 
 - **Python 版本**：推荐 Python 3.10 或以上。

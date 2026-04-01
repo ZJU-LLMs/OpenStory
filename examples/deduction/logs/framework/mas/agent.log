@@ -1,0 +1,678 @@
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_0] AgentManager: Initializing 5 agents...
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_0] AgentManager: All agents initialized.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_1] AgentManager: Initializing 5 agents...
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_1] AgentManager: All agents initialized.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_2] AgentManager: Initializing 5 agents...
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_2] AgentManager: All agents initialized.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_3] AgentManager: Initializing 5 agents...
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_3] AgentManager: All agents initialized.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_4] AgentManager: Initializing 5 agents...
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_4] AgentManager: All agents initialized.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_5] AgentManager: Initializing 2 agents...
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_5] AgentManager: All agents initialized.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_1] Saving state for 5 agents...
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_3] Saving state for 5 agents...
+2026-04-01 15:07:39 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '林黛玉'...
+2026-04-01 15:07:39 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾惜春'...
+2026-04-01 15:07:39 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '王夫人'...
+2026-04-01 15:07:39 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾探春'...
+2026-04-01 15:07:39 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '王熙凤'...
+2026-04-01 15:07:39 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾政'...
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_2] Saving state for 5 agents...
+2026-04-01 15:07:39 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '薛姨妈'...
+2026-04-01 15:07:39 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾母'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾环'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '薛蟠'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '袭人'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾宝玉'...
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_0] Saving state for 5 agents...
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+g.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+g.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_5] Saving state for 2 agents...
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipp2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+pping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:52508 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '鸳鸯'...
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾珍'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '妙玉'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent 2026-04-01 15:07:39 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '平儿'...
+'薛宝钗'.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾探春'.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '薛蟠'.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾政'.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾母'.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾蓉'...
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '王夫人'.
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾环'.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾元春'.
+2026-04-01 15:07:39 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '晴雯'...
+2026-04-01 15:07:39 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾迎春'...
+2026-04-01 15:07:39 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_3] All agent states saved successfully.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾宝玉'.
+2026-04-01 15:07:39 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '赵姨娘'...
+�熙凤'.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_2] All agent states saved successfully.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_1] All agent states saved successfully.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '鸳鸯'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '麝月'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾珍'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾琏'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾蓉'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾迎春'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '赵姨娘'.
+2026-04-01 15:07:39 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_4] All agent states saved successfully.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '史湘云'.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '妙玉'.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '平儿'.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '晴雯'.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '李纨'.
+2026-04-01 15:07:39 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_0] All agent states saved successfully.
+2026-04-01 15:07:43 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:43 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+n.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾惜春' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾探春' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '麝月' successfully completed post-initialization for all components.
+
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾母' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+es.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+ents.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.agent.agent_manager:post_init:81 - [pod_3] AgentManager: All agents post-initialized with dependencies.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+n.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '林黛玉' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+ components.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '史湘云' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '王熙凤' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '妙玉' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '紫鹃' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+ents.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '薛姨妈' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '晴雯' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.agent.agent_manager:post_init:81 - [pod_1] AgentManager: All agents post-initialized with dependencies.
+
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾珍' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾琏' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.agent.agent_manager:post_init:81 - [pod_0] AgentManager: All agents post-initialized with dependencies.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾蓉' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '薛宝钗' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾迎春' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '薛蟠' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '赵姨娘' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '袭人' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.agent.agent_manager:post_init:81 - [pod_4] AgentManager: All agents post-initialized with dependencies.
+nts.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '贾宝玉' successfully completed post-initialization for all components.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.agent.agent_manager:post_init:81 - [pod_2] AgentManager: All agents post-initialized with dependencies.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:_generate_single_agent_config:208 - No template name provided, using default template 'DeductionAgent'.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:add_agent:295 - [pod_5] Adding new agent '孙悟空'...
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'profile' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'state' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'perceive' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'plan' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'invoke' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.base.component_base:post_init:96 - Component 'reflect' completed plugin post-initialization.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent:post_init:119 - Agent '孙悟空' successfully completed post-initialization for all components.
+2026-04-01 15:08:09 | INFO     | PID:52508 | agentkernel_distributed.mas.agent.agent_manager:add_agent:307 - [pod_5] Successfully added agent '孙悟空'. Total agents: 3
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '林黛玉' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '王夫人' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '史湘云' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '王熙凤' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '紫鹃' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '妙玉' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '薛姨妈' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '平儿' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '晴雯' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾惜春' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '李纨' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '薛宝钗' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾探春' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '薛蟠' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '袭人' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾政' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾珍' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾元春' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾母' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾琏' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾宝玉' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾环' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:52508 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '鸳鸯' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾蓉' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:52508 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '麝月' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '贾迎春' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '赵姨娘' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:08:35 | DEBUG    | PID:52508 | agentkernel_distributed.mas.agent.agent:run:210 - Agent '孙悟空' run method called. Component order: ['perceive', 'plan', 'invoke', 'state', 'reflect']
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_0] AgentManager: Initializing 5 agents...
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_0] AgentManager: All agents initialized.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_1] AgentManager: Initializing 5 agents...
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_1] AgentManager: All agents initialized.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_2] AgentManager: Initializing 5 agents...
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_2] AgentManager: All agents initialized.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_4] AgentManager: Initializing 5 agents...
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_4] AgentManager: All agents initialized.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_3] AgentManager: Initializing 5 agents...
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_3] AgentManager: All agents initialized.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent_manager:init:57 - [pod_5] AgentManager: Initializing 2 agents...
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent:init:103 - Successfully initialized Agent components concurrently.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent_manager:init:65 - [pod_5] AgentManager: All agents initialized.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_0] Saving state for 5 agents...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_1] Saving state for 5 agents...
+2026-04-01 15:30:42 | DEBUG    | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '林黛玉'...
+2026-04-01 15:30:42 | DEBUG    | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '史湘云'...
+2026-04-01 15:30:42 | DEBUG    | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '王夫人'...
+2026-04-01 15:30:42 | DEBUG    | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '妙玉'...
+2026-04-01 15:30:42 | DEBUG    | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '王熙凤'...
+2026-04-01 15:30:42 | DEBUG    | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '平儿'...
+2026-04-01 15:30:42 | DEBUG    | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '紫鹃'...
+2026-04-01 15:30:42 | DEBUG    | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '晴雯'...
+2026-04-01 15:30:42 | DEBUG    | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '薛姨妈'...
+2026-04-01 15:30:42 | DEBUG    | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '李纨'...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_2] Saving state for 5 agents...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '薛宝钗'...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_3] Saving state for 5 agents...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_4] Saving state for 5 agents...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾惜春'...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾探春'...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾政'...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾蓉'...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾母'...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin'2026-04-01 15:30:42 | DEBUG    | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾环'...
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:246 - [pod_5] Saving state for 2 agents...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '赵姨娘'...
+2026-04-01 15:30:42 | DEBUG    | PID:124292 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '鸳鸯'...
+2026-04-01 15:30:42 | DEBUG    | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '袭人'...
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:124292 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '麝月'...
+ugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾元春'...
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | DEBUG    | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:184 - Saving state for agent '贾宝玉'...
+n' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+ing.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+g.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+6-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+ng.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+.
+
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+ng.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '麝月'.
+onent 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '林黛玉'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '王夫人'.
+ent 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '紫鹃'.
+component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾惜春'.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+ing.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '薛姨妈'.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾探春'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicProfilePlugin' on component 'profile' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾政'.
+2026-04-01 15:30:42 | INFO     | PID:128936 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_1] All agent states saved successfully.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾母'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicStatePlugin' on component 'state' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾环'.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾珍'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPerceivePlugin' on component 'perceive' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:98192 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_3] All agent states saved successfully.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾琏'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicPlanPlugin' on component 'plan' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾蓉'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicInvokePlugin' on component 'invoke' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾迎春'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.base.component_base:save_to_db:155 - Plugin 'BasicReflectPlugin' on component 'reflect' does not implement 'save_to_db'. Skipping.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '赵姨娘'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '薛宝钗'.
+2026-04-01 15:30:42 | INFO     | PID:101552 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_4] All agent states saved successfully.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '薛蟠'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '袭人'.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '史湘云'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾元春'.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '妙玉'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '贾宝玉'.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '平儿'.
+2026-04-01 15:30:42 | INFO     | PID:129844 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_2] All agent states saved successfully.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '晴雯'.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent:save_to_db:188 - Successfully saved state for agent '李纨'.
+2026-04-01 15:30:42 | INFO     | PID:68848 | agentkernel_distributed.mas.agent.agent_manager:save_to_db:251 - [pod_0] All agent states saved successfully.

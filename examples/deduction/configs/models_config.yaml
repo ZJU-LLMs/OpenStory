@@ -1,11 +1,6 @@
-# ===================================================================
-# Model Configuration
-# Please fill in your API keys and model configurations here.
-# Example:
-# - name: OpenAIProvider
-#   model: qwen-plus
-#   api_key: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
-#   capabilities:
-#   - chat
-# ===================================================================
+- name: OpenAIProvider
+  model: qwen3.5-flash
+  api_key: sk-45105dd33adb4bf099fa854cf4d929f5
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  capabilities:
+  - chat

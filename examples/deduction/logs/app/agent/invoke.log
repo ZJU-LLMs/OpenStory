@@ -1,0 +1,166 @@
+2026-04-01 15:07:44 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾惜春][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [林黛玉][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [史湘云][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾探春][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [王夫人][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾政][N/A] BasicInvokePlugin initialization completed2026-04-01 15:07:44 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [鸳鸯][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [王熙凤][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [平儿][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾母][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾琏][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [薛蟠][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾环][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [麝月][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [紫鹃][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [晴雯][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾蓉][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [袭人][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾迎春][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾元春][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [薛姨妈][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [李纨][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [赵姨娘][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:07:44 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾宝玉][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:08:09 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:init:30 - [孙悟空][N/A] BasicInvokePlugin initialization completed
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [王熙凤][0] Self occupied (importance 8, action: 子时独坐清点库房暗账)
+2026-04-01 15:08:43 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [王熙凤][0] Executing plan for hour 0: 子时独坐清点库房暗账
+2026-04-01 15:08:43 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [王熙凤][0] Generated and saved execution description
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [林黛玉][0] Self occupied (importance 8, action: 子时难眠，独对孤灯沉思命运)
+2026-04-01 15:08:43 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [林黛玉][0] Executing plan for hour 0: 子时难眠，独对孤灯沉思命运
+2026-04-01 15:08:43 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [林黛玉][0] Generated and saved execution description
+2026-04-01 15:08:43 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾珍][0] Self occupied (importance 7, action: 子时独坐沉思，推演转移金银细软之策)
+2026-04-01 15:08:43 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾珍][0] Executing plan for hour 0: 子时独坐沉思，推演转移金银细软之策
+2026-04-01 15:08:43 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾珍][0] Generated and saved execution description
+2026-04-01 15:08:45 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾琏][0] Self occupied (importance 7, action: 在贾赦外书房清点私银账目)
+2026-04-01 15:08:45 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾琏][0] Executing plan for hour 0: 在贾赦外书房清点私银账目
+2026-04-01 15:08:45 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾琏][0] Generated and saved execution description
+2026-04-01 15:08:46 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾元春][0] Self occupied (importance 7, action: 子时独坐沉思，规划宫中旧部整顿之策)
+2026-04-01 15:08:46 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾元春][0] Executing plan for hour 0: 子时独坐沉思，规划宫中旧部整顿之策
+2026-04-01 15:08:46 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾元春][0] Generated and saved execution description
+2026-04-01 15:08:47 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:83 - [贾宝玉][0] Detected highest priority plan set by user!
+2026-04-01 15:08:47 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾宝玉][0] Self occupied (importance 999, action: 邀请林黛玉赏月)
+2026-04-01 15:08:47 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾宝玉][0] Executing plan for hour 0: 邀请林黛玉赏月
+2026-04-01 15:08:47 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_try_occupy_target:410 - [贾宝玉][0] Overwrote occupation of target 林黛玉 (self 999 > 林黛玉 8, action: 邀请林黛玉赏月)
+2026-04-01 15:08:47 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [鸳鸯][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:47 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [鸳鸯][0] Self occupied (importance 2, action: 子时静卧，独思守节之志)
+2026-04-01 15:08:47 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [鸳鸯][0] Executing plan for hour 0: 子时静卧，独思守节之志
+2026-04-01 15:08:47 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [鸳鸯][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:47 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [鸳鸯][0] Generated and saved execution description
+2026-04-01 15:08:47 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 1: 贾宝玉：[轻摇折扇，步履轻盈地穿过丛绿堂的月洞门，来到林黛玉身旁] 颦儿，今夜月色如洗，清辉满地，我特来邀你共赏这良辰美景，莫要辜负了这天赐的银盘。
+2026-04-01 15:08:48 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾政][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:48 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾政][0] Self occupied (importance 4, action: 子时静坐，沉思整顿家风之策)
+2026-04-01 15:08:48 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾政][0] Executing plan for hour 0: 子时静坐，沉思整顿家风之策
+2026-04-01 15:08:48 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾政][0] Generated description using simple template (importance 4)
+2026-04-01 15:08:48 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾政][0] Generated and saved execution description
+2026-04-01 15:08:48 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾蓉][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:48 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾蓉][0] Self occupied (importance 3, action: 子时静卧，推演明日联络权贵之策)
+2026-04-01 15:08:48 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾蓉][0] Executing plan for hour 0: 子时静卧，推演明日联络权贵之策
+2026-04-01 15:08:48 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾蓉][0] Generated description using simple template (importance 3)
+2026-04-01 15:08:48 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾蓉][0] Generated and saved execution description
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [薛蟠][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [薛蟠][0] Self occupied (importance 2, action: 在薛姨妈院中独自整理旧账册)
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [薛蟠][0] Executing plan for hour 0: 在薛姨妈院中独自整理旧账册
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [薛蟠][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [薛蟠][0] Generated and saved execution description
+2026-04-01 15:08:48 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [孙悟空][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:48 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [孙悟空][0] Self occupied (importance 2, action: 隐去神通，在荣国府后巷静坐思辨)
+2026-04-01 15:08:48 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [孙悟空][0] Executing plan for hour 0: 隐去神通，在荣国府后巷静坐思辨
+2026-04-01 15:08:48 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [孙悟空][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:48 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [孙悟空][0] Generated and saved execution description
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [袭人][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [袭人][0] Self occupied (importance 2, action: 在怡红院静坐，整理宝玉换下的衣物)
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [袭人][0] Executing plan for hour 0: 在怡红院静坐，整理宝玉换下的衣物
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [袭人][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:48 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [袭人][0] Generated and saved execution description
+2026-04-01 15:08:49 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 2: 林黛玉：[轻蹙蛾眉，将手中茶盏微微放下，转身望向窗外清冷的月影] 宝玉哥哥，这月色虽好，却照得人心更添几分凄凉，我身子本弱，只怕受不住这般寒露，还是回潇湘馆歇息罢。
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [史湘云][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [史湘云][0] Self occupied (importance 2, action: 子时安寝，养精蓄锐待雪至)
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [史湘云][0] Executing plan for hour 0: 子时安寝，养精蓄锐待雪至
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [史湘云][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [史湘云][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [麝月][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [麝月][0] Self occupied (importance 3, action: 子时静坐，整理心中对宝玉的忧虑)
+2026-04-01 15:08:49 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [麝月][0] Executing plan for hour 0: 子时静坐，整理心中对宝玉的忧虑
+2026-04-01 15:08:49 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [麝月][0] Generated description using simple template (importance 3)
+2026-04-01 15:08:49 | INFO     | PID:52508 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [麝月][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾惜春][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾惜春][0] Self occupied (importance 2, action: 子时安寝，静思家族兴衰之局)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾惜春][0] Executing plan for hour 0: 子时安寝，静思家族兴衰之局
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾惜春][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾惜春][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [薛宝钗][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [薛宝钗][0] Self occupied (importance 3, action: 在蘅芜院静坐，整理劝谏宝玉的策论草稿)
+2026-04-01 15:08:49 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [薛宝钗][0] Executing plan for hour 0: 在蘅芜院静坐，整理劝谏宝玉的策论草稿
+2026-04-01 15:08:49 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [薛宝钗][0] Generated description using simple template (importance 3)
+2026-04-01 15:08:49 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [薛宝钗][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [王夫人][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [王夫人][0] Self occupied (importance 2, action: 子时安寝，静待次日行动)
+2026-04-01 15:08:49 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [王夫人][0] Executing plan for hour 0: 子时安寝，静待次日行动
+2026-04-01 15:08:49 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [王夫人][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [王夫人][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾母][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾探春][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾母][0] Self occupied (importance 2, action: 子时安寝，养精蓄锐)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾母][0] Executing plan for hour 0: 子时安寝，养精蓄锐
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾母][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾母][0] Generated and saved execution description
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾探春][0] Self occupied (importance 2, action: 子时安寝，养精蓄锐以待明日)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾探春][0] Executing plan for hour 0: 子时安寝，养精蓄锐以待明日
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾探春][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾探春][0] Generated and saved execution description
+2026-04-01 15:08:49 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 3: 贾宝玉：[急忙上前轻轻握住黛玉的手腕，将披在她肩上的狐裘拢紧] 颦儿莫怕，我这就命人取来暖炉与热茶，咱们只坐在廊下看月，绝不让你沾半分寒气，你若嫌冷，我便背你回潇湘馆去。
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [晴雯][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [晴雯][0] Self occupied (importance 2, action: 静卧病榻，调息养神，暂歇疲惫)
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [晴雯][0] Executing plan for hour 0: 静卧病榻，调息养神，暂歇疲惫
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [晴雯][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:49 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [晴雯][0] Generated and saved execution description
+2026-04-01 15:08:50 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾环][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:50 | DEBUG    | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾环][0] Self occupied (importance 5, action: 子时静卧，暗中谋划夺权大计)
+2026-04-01 15:08:50 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾环][0] Executing plan for hour 0: 子时静卧，暗中谋划夺权大计
+2026-04-01 15:08:50 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾环][0] Generated description using simple template (importance 5)
+2026-04-01 15:08:50 | INFO     | PID:124676 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾环][0] Generated and saved execution description
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [赵姨娘][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [赵姨娘][0] Self occupied (importance 5, action: 在房中独坐，反复推敲魇胜之术的谋划)
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [赵姨娘][0] Executing plan for hour 0: 在房中独坐，反复推敲魇胜之术的谋划
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [赵姨娘][0] Generated description using simple template (importance 5)
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [赵姨娘][0] Generated and saved execution description
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [贾迎春][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [贾迎春][0] Self occupied (importance 2, action: 子时安寝，静思嫁妆事宜)
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [贾迎春][0] Executing plan for hour 0: 子时安寝，静思嫁妆事宜
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾迎春][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:50 | INFO     | PID:33944 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾迎春][0] Generated and saved execution description
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [妙玉][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [妙玉][0] Self occupied (importance 2, action: 子时静坐参禅，心守栊翠清净)
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [妙玉][0] Executing plan for hour 0: 子时静坐参禅，心守栊翠清净
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [妙玉][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [妙玉][0] Generated and saved execution description
+2026-04-01 15:08:50 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 4: 林黛玉：[轻轻抽回手腕，将狐裘一角拢得更紧，眼中泛起一丝无奈与感动] 罢了，既然哥哥如此盛情，我便陪你坐片刻，只盼这月光莫要太冷，别惊扰了这难得的清静。
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [平儿][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [平儿][0] Self occupied (importance 2, action: 子时安寝，养精蓄锐待明日事务)
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [平儿][0] Executing plan for hour 0: 子时安寝，养精蓄锐待明日事务
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [平儿][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:50 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [平儿][0] Generated and saved execution description
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [紫鹃][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [紫鹃][0] Self occupied (importance 2, action: 子时安寝，静候天亮)
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [紫鹃][0] Executing plan for hour 0: 子时安寝，静候天亮
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [紫鹃][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [紫鹃][0] Generated and saved execution description
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [薛姨妈][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [薛姨妈][0] Self occupied (importance 2, action: 子时安寝，静思金玉良缘大局)
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [薛姨妈][0] Executing plan for hour 0: 子时安寝，静思金玉良缘大局
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [薛姨妈][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:51 | INFO     | PID:112852 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [薛姨妈][0] Generated and saved execution description
+2026-04-01 15:08:51 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 5: 贾宝玉：[欣喜地牵起黛玉的手，引她至廊下铺好的软垫旁坐下，又亲手为她斟上一杯温热的碧螺春] 颦儿既肯赏脸，这月色便不再凄清，反倒成了咱们二人的知己；快喝口热茶暖暖身子，咱们且看那月华如水，静静流淌在心头。
+2026-04-01 15:08:52 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:121 - [李纨][0] Low priority task waiting 5 seconds before execution
+2026-04-01 15:08:52 | DEBUG    | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_occupy:340 - [李纨][0] Self occupied (importance 2, action: 子时安寝，养精蓄锐待天明)
+2026-04-01 15:08:52 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:162 - [李纨][0] Executing plan for hour 0: 子时安寝，养精蓄锐待天明
+2026-04-01 15:08:52 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [李纨][0] Generated description using simple template (importance 2)
+2026-04-01 15:08:52 | INFO     | PID:54124 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [李纨][0] Generated and saved execution description
+2026-04-01 15:08:52 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 6: 林黛玉：[微微垂眸，轻啜一口热茶，目光掠过廊外清辉] 这茶倒是暖得人心头一松，只是这月色太亮，反倒衬得人影儿孤单，哥哥且莫要再提那“知己”二字，免得惹我想起那些无端的愁绪。
+2026-04-01 15:08:54 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 7: 贾宝玉：[急忙伸手轻轻覆在黛玉微蹙的眉间，柔声劝慰] 颦儿莫要再想那些愁绪了，这月色虽亮，却也是咱们此刻唯一的伴儿；只要你在我身边，便是那最冷的寒露，也化作了心头最暖的春水，咱们只当是共守这一方清净，可好？
+2026-04-01 15:08:55 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 8: 林黛玉：[将茶盏轻轻搁在石桌上，目光流转间似有泪光隐现，轻叹一声] 哥哥既如此说，我便暂且收起那些无端的愁绪，只当是借这月色，偷得半日清闲罢。
+2026-04-01 15:08:56 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 9: 贾宝玉：[见黛玉眉间愁绪稍解，心中大慰，便顺势从袖中取出一枚温润的玉佩轻轻置于她掌心] 颦儿既肯暂歇愁怀，这月色便真个温柔了；这枚通灵宝玉虽俗，却沾着我的心意，你且收好，往后无论寒暑，它便替我守着这份清闲。
+2026-04-01 15:08:57 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:612 - [0] Dialogue round 10: 林黛玉：[指尖轻触那枚温润的玉佩，眼眶微红却强作镇定，将玉佩紧紧攥在手心] 哥哥这心意我收下了，只是这通灵宝玉终究是俗物，莫要再提什么“守着”，若真能守得住，又何来这满心的凄凉？
+2026-04-01 15:08:58 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:_generate_execution_description:636 - [0] Dialogue summary: 宝玉邀黛玉赏月，虽黛玉初嫌寒凉欲归，终被其温情打动同坐廊下。二人品茶共话，宝玉赠玉佩表心意，黛玉虽感温暖却仍叹身世凄凉，双方暂且收起愁绪，共度片刻清闲时光。
+2026-04-01 15:08:58 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾宝玉][0] Generated and saved execution description
+2026-04-01 15:08:58 | INFO     | PID:101868 | examples.deduction.plugins.agent.invoke.BasicInvokePlugin:execute:274 - [贾宝玉][0] Added execution description and dialogue history to participant 林黛玉's state

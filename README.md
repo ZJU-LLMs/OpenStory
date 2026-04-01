@@ -26,6 +26,10 @@ We are actively developing new stories, stay tuned!
 
 ## 🚀 Quick Start
 
+> **📚 Looking for a more detailed guide?**
+> We have prepared a comprehensive step-by-step tutorial with images to help you explore the sandbox world of *The Story of the Stone*:
+> 👉 [Click here for the OpenStory Tutorial](tutorial/Story_Of_Stone/tutorial_en.md)
+
 ### 1. Environment Preparation
 
 - **Python Version**: Python 3.10 or above is recommended.

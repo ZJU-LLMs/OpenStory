@@ -1,0 +1,166 @@
+2026-04-01 15:07:26 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:_init_adapters:57 - PodManager: Initializing data adapters for initial data loading...
+2026-04-01 15:07:28 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:_init_adapters:89 - PodManager: Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:28 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:init:142 - Created 6 MasPod handles.
+2026-04-01 15:07:35 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_0] Actor process created with PID 54124.
+2026-04-01 15:07:35 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_0] Starting full internal initialization...
+2026-04-01 15:07:35 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_0] Initializing data adapters...
+2026-04-01 15:07:35 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_1] Actor process created with PID 112852.
+2026-04-01 15:07:35 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_1] Starting full internal initialization...
+2026-04-01 15:07:35 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_1] Initializing data adapters...
+2026-04-01 15:07:35 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_2] Actor process created with PID 101868.
+2026-04-01 15:07:35 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_2] Starting full internal initialization...
+2026-04-01 15:07:35 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_2] Initializing data adapters...
+2026-04-01 15:07:35 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_3] Actor process created with PID 124676.
+2026-04-01 15:07:35 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_3] Starting full internal initialization...
+2026-04-01 15:07:35 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_3] Initializing data adapters...
+2026-04-01 15:07:35 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_4] Actor process created with PID 33944.
+2026-04-01 15:07:35 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_4] Starting full internal initialization...
+2026-04-01 15:07:35 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_4] Initializing data adapters...
+2026-04-01 15:07:35 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_5] Actor process created with PID 52508.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_0] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_0] Adapters initialized.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_0] Environment proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_0] Action proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_0] AgentManager initialized with 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_0] Controller instance created.
+2026-04-01 15:07:37 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_0] Full initialization complete. Managing 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_1] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_1] Adapters initialized.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_1] Environment proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_1] Action proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_1] AgentManager initialized with 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_1] Controller instance created.
+2026-04-01 15:07:37 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_1] Full initialization complete. Managing 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_2] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_2] Adapters initialized.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_2] Environment proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_2] Action proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_2] AgentManager initialized with 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_2] Controller instance created.
+2026-04-01 15:07:37 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_2] Full initialization complete. Managing 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_3] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_3] Adapters initialized.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_3] Environment proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_3] Action proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_3] AgentManager initialized with 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_3] Controller instance created.
+2026-04-01 15:07:37 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_3] Full initialization complete. Managing 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_4] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_4] Adapters initialized.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_4] Environment proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_4] Action proxy initialized.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_4] AgentManager initialized with 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_4] Controller instance created.
+2026-04-01 15:07:37 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_4] Full initialization complete. Managing 5 agents.
+2026-04-01 15:07:37 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:init:150 - Initialized Pod batch 1...
+2026-04-01 15:07:37 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_5] Starting full internal initialization...
+2026-04-01 15:07:37 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_5] Initializing data adapters...
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_5] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_5] Adapters initialized.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_5] Environment proxy initialized.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_5] Action proxy initialized.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_5] AgentManager initialized with 2 agents.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_5] Controller instance created.
+2026-04-01 15:07:39 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_5] Full initialization complete. Managing 2 agents.
+2026-04-01 15:07:39 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:init:150 - Initialized Pod batch 2...
+2026-04-01 15:07:39 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:init:158 - Agent to Pod map initialized.
+2026-04-01 15:07:39 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:save_to_db:216 - All data saved to database successfully.
+2026-04-01 15:07:44 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_5] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_3] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_1] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_0] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_4] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:post_init:125 - [pod_2] External dependencies injected.
+2026-04-01 15:07:44 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:post_init:177 - All MasPods post-initialized with ModelRouter and System handles.
+2026-04-01 15:08:09 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:add_agent:350 - Agent '孙悟空' successfully added to its pod.
+2026-04-01 15:29:43 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:54124 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_0 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:112852 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_1 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:124676 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_3 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:101868 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_2 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:33944 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_4 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:508 - Closed Pod batch 1...
+2026-04-01 15:29:43 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:close:313 - RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:close:321 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:52508 | agentkernel_distributed.mas.pod.mas_pod:close:325 - MasPod pod_5 has been closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:508 - Closed Pod batch 2...
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:509 - All MasPods have been closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:516 - ModelRouter has been closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:523 - PodManager's RedisKVAdapter adapter client has been closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.mas.pod.pod_manager:close:525 - PodManager's database connection pools have been closed.
+2026-04-01 15:30:29 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:_init_adapters:57 - PodManager: Initializing data adapters for initial data loading...
+2026-04-01 15:30:31 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:_init_adapters:89 - PodManager: Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:31 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:init:142 - Created 6 MasPod handles.
+2026-04-01 15:30:38 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_0] Actor process created with PID 68848.
+2026-04-01 15:30:38 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_0] Starting full internal initialization...
+2026-04-01 15:30:38 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_0] Initializing data adapters...
+2026-04-01 15:30:38 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_1] Actor process created with PID 128936.
+2026-04-01 15:30:38 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_1] Starting full internal initialization...
+2026-04-01 15:30:38 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_1] Initializing data adapters...
+2026-04-01 15:30:38 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_2] Actor process created with PID 129844.
+2026-04-01 15:30:38 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_2] Starting full internal initialization...
+2026-04-01 15:30:38 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_2] Initializing data adapters...
+2026-04-01 15:30:38 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_4] Actor process created with PID 101552.
+2026-04-01 15:30:38 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_4] Starting full internal initialization...
+2026-04-01 15:30:38 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_4] Initializing data adapters...
+2026-04-01 15:30:38 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_5] Actor process created with PID 124292.
+2026-04-01 15:30:38 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:__init__:67 - [pod_3] Actor process created with PID 98192.
+2026-04-01 15:30:38 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_3] Starting full internal initialization...
+2026-04-01 15:30:38 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_3] Initializing data adapters...
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_0] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_0] Adapters initialized.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_0] Environment proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_0] Action proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_0] AgentManager initialized with 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_0] Controller instance created.
+2026-04-01 15:30:40 | INFO     | PID:68848 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_0] Full initialization complete. Managing 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_1] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_1] Adapters initialized.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_1] Environment proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_1] Action proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_1] AgentManager initialized with 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_1] Controller instance created.
+2026-04-01 15:30:40 | INFO     | PID:128936 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_1] Full initialization complete. Managing 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_2] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_2] Adapters initialized.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_2] Environment proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_2] Action proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_2] AgentManager initialized with 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_2] Controller instance created.
+2026-04-01 15:30:40 | INFO     | PID:129844 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_2] Full initialization complete. Managing 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_4] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_4] Adapters initialized.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_4] Environment proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_4] Action proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_4] AgentManager initialized with 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_4] Controller instance created.
+2026-04-01 15:30:40 | INFO     | PID:101552 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_4] Full initialization complete. Managing 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_3] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_3] Adapters initialized.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_3] Environment proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_3] Action proxy initialized.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_3] AgentManager initialized with 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_3] Controller instance created.
+2026-04-01 15:30:40 | INFO     | PID:98192 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_3] Full initialization complete. Managing 5 agents.
+2026-04-01 15:30:40 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:init:150 - Initialized Pod batch 1...
+2026-04-01 15:30:40 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:init:79 - [pod_5] Starting full internal initialization...
+2026-04-01 15:30:40 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:187 - [pod_5] Initializing data adapters...
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_adapters:221 - [pod_5] Adapter 'RedisKVAdapter' initialized successfully.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:init:85 - [pod_5] Adapters initialized.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_environment:283 - [pod_5] Environment proxy initialized.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_action:264 - [pod_5] Action proxy initialized.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_agent_manager:241 - [pod_5] AgentManager initialized with 2 agents.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:_init_controller:298 - [pod_5] Controller instance created.
+2026-04-01 15:30:42 | INFO     | PID:124292 | agentkernel_distributed.mas.pod.mas_pod:init:96 - [pod_5] Full initialization complete. Managing 2 agents.
+2026-04-01 15:30:42 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:init:150 - Initialized Pod batch 2...
+2026-04-01 15:30:42 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:init:158 - Agent to Pod map initialized.
+2026-04-01 15:30:42 | INFO     | PID:58604 | agentkernel_distributed.mas.pod.pod_manager:save_to_db:216 - All data saved to database successfully.

@@ -1,0 +1,296 @@
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+l -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:35 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:35 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:35 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:36 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 138 | Total Tokens: 423
+2026-04-01 15:08:36 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 148 | Total Tokens: 434
+2026-04-01 15:08:36 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 139 | Total Tokens: 425
+2026-04-01 15:08:36 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 287 | Completion Tokens: 138 | Total Tokens: 425
+2026-04-01 15:08:37 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 284 | Completion Tokens: 123 | Total Tokens: 407
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:37 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:37 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 133 | Total Tokens: 418
+2026-04-01 15:08:38 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 405 | Completion Tokens: 131 | Total Tokens: 536
+2026-04-01 15:08:38 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:38 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:38 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 117 | Total Tokens: 403
+2026-04-01 15:08:38 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:38 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:38 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 147 | Total Tokens: 433
+2026-04-01 15:08:39 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 111 | Total Tokens: 396
+2026-04-01 15:08:39 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 145 | Total Tokens: 430
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 123 | Total Tokens: 408
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 133 | Total Tokens: 418
+2026-04-01 15:08:39 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 133 | Total Tokens: 418
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 125 | Total Tokens: 411
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 136 | Total Tokens: 422
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:39 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 140 | Total Tokens: 425
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:39 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:40 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 133 | Total Tokens: 419
+2026-04-01 15:08:40 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:40 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:40 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 132 | Total Tokens: 417
+2026-04-01 15:08:40 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:40 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:40 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 131 | Total Tokens: 416
+2026-04-01 15:08:40 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:40 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:40 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 135 | Total Tokens: 420
+2026-04-01 15:08:40 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 125 | Total Tokens: 410
+2026-04-01 15:08:40 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:40 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 129 | Total Tokens: 414
+2026-04-01 15:08:41 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 133 | Total Tokens: 418
+2026-04-01 15:08:41 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 286 | Completion Tokens: 141 | Total Tokens: 427
+2026-04-01 15:08:41 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 130 | Total Tokens: 415
+2026-04-01 15:08:41 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:41 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 144 | Total Tokens: 429
+2026-04-01 15:08:41 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:41 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:42 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 285 | Completion Tokens: 136 | Total Tokens: 421
+2026-04-01 15:08:42 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:42 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:42 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1180 | Completion Tokens: 522 | Total Tokens: 1702
+2026-04-01 15:08:43 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1181 | Completion Tokens: 555 | Total Tokens: 1736
+2026-04-01 15:08:43 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1169 | Completion Tokens: 555 | Total Tokens: 1724
+2026-04-01 15:08:43 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1195 | Completion Tokens: 524 | Total Tokens: 1719
+2026-04-01 15:08:43 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1206 | Completion Tokens: 524 | Total Tokens: 1730
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:43 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1309 | Completion Tokens: 560 | Total Tokens: 1869
+2026-04-01 15:08:43 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1196 | Completion Tokens: 557 | Total Tokens: 1753
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:43 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:43 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1191 | Completion Tokens: 544 | Total Tokens: 1735
+2026-04-01 15:08:43 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1191 | Completion Tokens: 568 | Total Tokens: 1759
+2026-04-01 15:08:43 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:43 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:44 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1207 | Completion Tokens: 550 | Total Tokens: 1757
+2026-04-01 15:08:44 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1176 | Completion Tokens: 543 | Total Tokens: 1719
+2026-04-01 15:08:44 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 388 | Completion Tokens: 2 | Total Tokens: 390
+2026-04-01 15:08:44 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 382 | Completion Tokens: 29 | Total Tokens: 411
+2026-04-01 15:08:44 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1198 | Completion Tokens: 534 | Total Tokens: 1732
+2026-04-01 15:08:44 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 388 | Completion Tokens: 34 | Total Tokens: 422
+2026-04-01 15:08:44 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1198 | Completion Tokens: 575 | Total Tokens: 1773
+2026-04-01 15:08:44 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1197 | Completion Tokens: 511 | Total Tokens: 1708
+2026-04-01 15:08:44 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1189 | Completion Tokens: 510 | Total Tokens: 1699
+2026-04-01 15:08:44 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1184 | Completion Tokens: 536 | Total Tokens: 1720
+2026-04-01 15:08:44 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1192 | Completion Tokens: 537 | Total Tokens: 1729
+2026-04-01 15:08:45 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1183 | Completion Tokens: 535 | Total Tokens: 1718
+2026-04-01 15:08:45 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1191 | Completion Tokens: 559 | Total Tokens: 1750
+2026-04-01 15:08:45 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1190 | Completion Tokens: 521 | Total Tokens: 1711
+2026-04-01 15:08:45 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1192 | Completion Tokens: 522 | Total Tokens: 1714
+2026-04-01 15:08:45 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:45 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:45 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1191 | Completion Tokens: 541 | Total Tokens: 1732
+2026-04-01 15:08:45 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1203 | Completion Tokens: 546 | Total Tokens: 1749
+2026-04-01 15:08:45 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 390 | Completion Tokens: 2 | Total Tokens: 392
+2026-04-01 15:08:46 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1188 | Completion Tokens: 509 | Total Tokens: 1697
+2026-04-01 15:08:46 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1199 | Completion Tokens: 598 | Total Tokens: 1797
+2026-04-01 15:08:46 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:46 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:46 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1202 | Completion Tokens: 555 | Total Tokens: 1757
+2026-04-01 15:08:46 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 394 | Completion Tokens: 2 | Total Tokens: 396
+2026-04-01 15:08:47 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1194 | Completion Tokens: 543 | Total Tokens: 1737
+2026-04-01 15:08:47 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:47 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:47 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:47 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:47 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 1187 | Completion Tokens: 530 | Total Tokens: 1717
+2026-04-01 15:08:47 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 376 | Completion Tokens: 32 | Total Tokens: 408
+
+2026-04-01 15:08:47 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:47 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:48 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:48 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:48 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:48 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:48 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 383 | Completion Tokens: 29 | Total Tokens: 412
+2026-04-01 15:08:48 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:48 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:48 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 339 | Completion Tokens: 60 | Total Tokens: 399
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 385 | Completion Tokens: 28 | Total Tokens: 413
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:52508 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 389 | Completion Tokens: 29 | Total Tokens: 418
+2026-04-01 15:08:49 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 384 | Completion Tokens: 29 | Total Tokens: 413
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 379 | Completion Tokens: 50 | Total Tokens: 429
+2026-04-01 15:08:49 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 392 | Completion Tokens: 31 | Total Tokens: 423
+2026-04-01 15:08:49 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 390 | Completion Tokens: 33 | Total Tokens: 423
+
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:49 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 390 | Completion Tokens: 34 | Total Tokens: 424
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:49 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 404 | Completion Tokens: 29 | Total Tokens: 433
+2026-04-01 15:08:50 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:124676 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 381 | Completion Tokens: 29 | Total Tokens: 410
+2026-04-01 15:08:50 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 381 | Completion Tokens: 30 | Total Tokens: 411
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:33944 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 385 | Completion Tokens: 33 | Total Tokens: 418
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 383 | Completion Tokens: 24 | Total Tokens: 407
+2026-04-01 15:08:50 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 382 | Completion Tokens: 2 | Total Tokens: 384
+2026-04-01 15:08:50 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 471 | Completion Tokens: 53 | Total Tokens: 524
+2026-04-01 15:08:50 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:50 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:50 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 386 | Completion Tokens: 38 | Total Tokens: 424
+2026-04-01 15:08:50 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 390 | Completion Tokens: 30 | Total Tokens: 420
+2026-04-01 15:08:51 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 385 | Completion Tokens: 28 | Total Tokens: 413
+2026-04-01 15:08:51 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 385 | Completion Tokens: 36 | Total Tokens: 421
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:51 | DEBUG    | PID:112852 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:51 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 492 | Completion Tokens: 75 | Total Tokens: 567
+2026-04-01 15:08:51 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:51 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:51 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 379 | Completion Tokens: 29 | Total Tokens: 408
+2026-04-01 15:08:52 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 383 | Completion Tokens: 29 | Total Tokens: 412
+2026-04-01 15:08:52 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:52 | DEBUG    | PID:54124 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:52 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 607 | Completion Tokens: 65 | Total Tokens: 672
+2026-04-01 15:08:52 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:52 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:53 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 383 | Completion Tokens: 29 | Total Tokens: 412
+2026-04-01 15:08:54 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 640 | Completion Tokens: 79 | Total Tokens: 719
+2026-04-01 15:08:54 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:54 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:55 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 759 | Completion Tokens: 55 | Total Tokens: 814
+2026-04-01 15:08:55 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:55 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:56 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 782 | Completion Tokens: 83 | Total Tokens: 865
+2026-04-01 15:08:56 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:56 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:57 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 905 | Completion Tokens: 67 | Total Tokens: 972
+2026-04-01 15:08:57 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:57 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:58 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 856 | Completion Tokens: 59 | Total Tokens: 915
+2026-04-01 15:08:58 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:_get_target_providers:87 - Filtering for capability 'chat': 1 total -> 1 capable.
+2026-04-01 15:08:58 | DEBUG    | PID:101868 | agentkernel_distributed.toolkit.models.async_router:chat:140 - Attempting chat request with provider: qwen3.5-flash
+2026-04-01 15:08:59 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.api.openai:parse_response:127 - 【LLM API Metric】Model: qwen3.5-flash | Prompt Tokens: 420 | Completion Tokens: 46 | Total Tokens: 466
+2026-04-01 15:29:43 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:54124 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:112852 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:124676 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:101868 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:33944 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:52508 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.toolkit.models.router:close:109 - Closing ModelRouter (backend: Local)...
+2026-04-01 15:29:43 | INFO     | PID:72352 | agentkernel_distributed.toolkit.models.router:close:112 - ModelRouter closed.
