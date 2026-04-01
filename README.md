@@ -1,4 +1,3 @@
-![Cover](assets/cover.png)
 <h1 align="center">
   <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
   OpenStory (Wanxiangpu)
@@ -8,14 +7,21 @@ OpenStory is a multi-agent deduction and simulation framework developed based on
 
 **✨ We sincerely invite everyone to co-create stories with us!** Whether you want to continue a classic, break the original plot, or create a parallel universe entirely your own, as long as your story idea is interesting and imaginative enough, feel free to submit a PR! We will merge brilliant deduction scripts and custom configurations into the project, letting more people see your masterpiece.
 
-The `examples/deduction` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, it simulates the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden.
-
 ## 🌟 Core Features
 
 - **Dynamic Framework based on Agent-Kernel**: Built on the powerful Agent-Kernel architecture, it supports **dynamic addition and removal of agents** during the simulation. Say goodbye to rigid static settings, endowing the system with infinite expansibility, and letting your imagination run wild!
 - **1:1 Replicated Grand View Garden Frontend**: A meticulously crafted 1:1 simulated visual interactive interface. Not only can you intuitively observe the dynamic trajectories of agents on the map, but you can also click at any time to view detailed character information, status changes, and interaction archives.
 - **Impactful Story Deduction**: Breaking away from conventional, rigid dialogues, agents will generate profound chemical reactions with each other. The system can automatically generate a deduction story full of ups and downs, brilliance, dramatic tension, and impact, based on character traits and environmental changes!
 - **Rich Plugin Mechanism & High Configurability**: Covers the complete lifecycle plugins of agents including perception, planning, execution, and reflection. It also supports flexible management of system, environment, action, and agent configurations through YAML files.
+
+## 📖 Story 1: Dream of the Red Chamber
+
+As the first official implemented story of the OpenStory framework, the `examples/deduction` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, we vividly simulate the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden. Here, you can witness Lin Daiyu's sensitive thoughtfulness, Jia Baoyu's rebellious affection, and the intertwined destiny of the entire Jia mansion under the wheel of history.
+![Cover](assets/cover.png)
+
+## 🚀 Story 2: Coming Soon
+![Cover](assets/Story2.png)
+We are actively developing new stories, stay tuned!
 
 ## 🚀 Quick Start
 

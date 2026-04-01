@@ -1,4 +1,3 @@
-![Cover](assets/cover.png)
 <h1 align="center">
   <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
   OpenStory (万象谱)
@@ -8,8 +7,6 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 
 **✨ 我们诚挚地邀请大家一起来共创故事！** 无论你是想续写经典、打破原著框架，还是创造一个完全属于你的平行宇宙，只要你的故事创意足够有趣、脑洞足够大，欢迎提交 PR！我们会将精彩的推演剧本和自定义配置合并到项目中，让更多人看到你的杰作。
 
-本项目中的 `examples/deduction` 示例以中国古典名著《红楼梦》为背景，利用多智能体系统（Multi-Agent System, MAS）技术，在一比一仿真的红楼梦地图中模拟书中人物的日常行为、社交互动与故事推演。
-
 ## 🌟 核心特性
 
 - **基于 Agent-Kernel 的动态框架**：底层采用强大的 Agent-Kernel 架构，支持在推演过程中**动态增删智能体**。告别僵化的静态设定，赋予系统无限的扩展能力，让你尽情发挥想象力！
@@ -17,7 +14,15 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 - **富有冲击力的推演剧情**：打破常规的刻板对话，智能体之间将产生深度的化学反应。系统能够根据性格设定与环境变化，自动生成跌宕起伏、精彩绝伦且极具戏剧张力与冲击力的推演剧情！
 - **丰富的插件化机制与高可配性**：涵盖智能体感知、计划、执行、反思等完整生命周期插件，并支持通过 YAML 文件灵活管理系统、环境、动作与智能体配置。
 
-## 🚀 快速开始
+## � Story 1: 红楼梦 (Dream of the Red Chamber)
+![Cover](assets/cover.png)
+作为 OpenStory 框架的第一个官方落地故事，本项目中的 `examples/deduction` 示例以中国古典名著《红楼梦》为背景。我们利用多智能体系统（MAS）技术，在一比一仿真的红楼梦大观园地图中，生动模拟了书中人物的日常行为、社交互动与故事推演。在这里，你可以看到林黛玉的敏感多思、贾宝玉的叛逆多情，以及整个贾府在历史车轮下的命运交织。
+
+## � Story 2: Coming Soon
+![Cover](assets/Story2.png)
+我们正在积极开发新的故事，敬请期待！
+
+## �🚀 快速开始
 
 ### 1. 环境准备
 
