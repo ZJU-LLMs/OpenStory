@@ -363,20 +363,20 @@ class AgentGenerator:
             output_format_lines.append(line)
         output_format = "{\n" + "\n".join(output_format_lines) + "\n}"
 
-        system_prompt = f"""You are an expert character profiler.
-        Based on a character's intrinsic attributes and social relationships,
-        INFER a consistent and detailed character profile.
+        system_prompt = f"""你是一位专业的人物档案设定专家。
+        请根据角色的内在属性和社会关系，
+        推理并生成一份连贯且详细的人物档案。
 
-        ## Input format:
+        ## 输入格式：
         {{
-            "world_name": (string),          // environment where the character lives
-            "world_description": (string),   // general setting, culture, or background
-            "name": (string),                // unique identifier
-            "role": (string),                // functional/social role
-            "attributes": {{ ... }}          // intrinsic properties
+            "world_name": (string),          // 角色所处的世界/环境
+            "world_description": (string),   // 总体背景设定、文化或故事背景
+            "name": (string),                // 唯一标识名
+            "role": (string),                // 功能/社会角色
+            "attributes": {{ ... }}          // 内在属性
         }}
 
-        ## Output format:
+        ## 输出格式：
         {output_format}"""
 
         user_prompt = json.dumps(
@@ -415,15 +415,15 @@ class AgentGenerator:
         Returns:
             Optional[str]: The compressed description, or None on failure.
         """
-        system_prompt = """You are an expert editor.
-        Given a character description, compress it into a short summary of  **only 1 sentence**,
-        while keeping the core traits and motivations.
+        system_prompt = """你是一位专业的文本编辑。
+        给定一段人物描述，请将其压缩成**仅包含1句话**的简短总结，
+        同时保留其核心特征和动机。
 
-        ## Input:
-        A long description text.
+        ## 输入：
+        一段较长的人物描述文本。
 
-        ## Output:
-        A short summary in **only 1 sentence**."""
+        ## 输出：
+        **仅包含1句话**的简短总结。"""
 
         response = None
         for attempt in range(max_retries):

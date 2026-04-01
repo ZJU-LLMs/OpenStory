@@ -201,7 +201,7 @@ class BasicPlanPlugin(PlanPlugin):
             motivation=motivation,
             plan=plan,
             created_tick=current_tick,
-            status="pending"
+            status="待执行"  # <--- 修改了这里，由 "pending" 改为 "待执行"
         )
 
         # Log generated LongTask

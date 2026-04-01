@@ -10,7 +10,7 @@ class BasicStatePlugin(StatePlugin):
     Agent state plugin.
     """
 
-    def __init__(self, adapter: Callable, state_data: Optional[Dict[str, Any]] = None, agent_id: str = "Unknown") -> None:
+    def __init__(self, adapter: Callable, state_data: Optional[Dict[str, Any]] = None, agent_id: str = "未知") -> None:
         super().__init__()
         self.adapter = adapter
         # If state_data is a string (config key), initialize as empty dictionary
@@ -157,8 +157,8 @@ class BasicStatePlugin(StatePlugin):
             tick: Tick number, if None uses current tick
         """
         # Ignore memory operation for Unknown person
-        if self.agent_id == "Unknown":
-            logger.debug(f"[Unknown] Ignored short-term memory operation")
+        if self.agent_id == "未知":
+            logger.debug(f"[未知] Ignored short-term memory operation")
             return
 
         if tick is None:
@@ -208,8 +208,8 @@ class BasicStatePlugin(StatePlugin):
             memory: Memory content
         """
         # Ignore memory operation for Unknown person
-        if self.agent_id == "Unknown":
-            logger.debug(f"[Unknown] Ignored long-term memory operation")
+        if self.agent_id == "未知":
+            logger.debug(f"[未知] Ignored long-term memory operation")
             return
 
         if 'long_term_memory' not in self.state_data:
@@ -238,7 +238,7 @@ class BasicStatePlugin(StatePlugin):
             tick: Tick number
             history: Dialogue history list
         """
-        if self.agent_id == "Unknown":
+        if self.agent_id == "未知":
             return
 
         if 'dialogues' not in self.state_data:

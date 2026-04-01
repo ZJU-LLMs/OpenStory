@@ -100,10 +100,10 @@ class BasicPodManager(PodManagerImpl):
                         current_location = occupied_by["location"]
 
                     return agent_id, {
-                        "long_task": long_task or "No long-term task",
+                        "long_task": long_task or "暂无长期任务",
                         "current_plan": current_plan,
                         "current_plan_note": current_plan_note,
-                        "current_action": current_action or "No current action",
+                        "current_action": current_action or "暂无当前行动",
                         "occupied_by": occupied_by,
                         "dialogues": dialogues or {},
                         "hourly_plans": hourly_plans or {},
@@ -185,10 +185,10 @@ class BasicPodManager(PodManagerImpl):
                 current_location = occupied_by["location"]
 
             return {
-                "long_task": long_task or "No long-term task",
+                "long_task": long_task or "暂无长期任务",
                 "current_plan": current_plan,
                 "current_plan_note": current_plan_note,
-                "current_action": current_action or "No current action",
+                "current_action": current_action or "暂无当前行动",
                 "occupied_by": occupied_by,
                 "dialogues": dialogues or {},
                 "hourly_plans": hourly_plans or {},

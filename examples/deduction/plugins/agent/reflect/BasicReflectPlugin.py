@@ -89,19 +89,19 @@ class BasicReflectPlugin(ReflectPlugin):
 
             # Build prompt for LLM summary
             memories_text = "\n".join([f"{m.get('tick', i)}: {m.get('content', m)}" for i, m in enumerate(short_memories)])
-            prompt = f"""You are an agent's memory summary assistant. Please concisely summarize the following short-term memories and extract key information.
+            prompt = f"""你是一个智能体的记忆总结助手。请简明扼要地总结以下短期记忆，并提取关键信息。
 
-Short-term memory list:
+短期记忆列表：
 {memories_text}
 
-Requirements:
-1. Extract the most important events and information
-2. Maintain chronological order
-3. Remove redundant and unimportant details
-4. Keep the summary length between 100-200 words
-5. Only return the summary content, do not include any prefixes or explanations
+要求：
+1. 提取最重要的事件和信息
+2. 保持时间顺序
+3. 去除冗余和不重要的细节
+4. 总结长度控制在100-200字之间
+5. 只返回总结内容，不要包含任何前缀或解释
 
-Please summarize:"""
+请总结："""
 
             # Call LLM
             if not self.model:
@@ -157,27 +157,27 @@ Please summarize:"""
                 long_context = "\n".join([f"- {mem['content']}" for mem in long_memories])
 
             # Build prompt for LLM to determine completion
-            prompt = f"""You are an agent's task completion judgment assistant. Please judge whether the LongTask has been completed based on the following information.
+            prompt = f"""你是一个智能体的任务完成度判定助手。请根据以下信息，判断长期任务（LongTask）是否已经完成。
 
-Current LongTask:
+当前长期任务：
 {long_task_str}
 
-All short-term memories:
-{short_context if short_context else "(None)"}
+所有短期记忆：
+{short_context if short_context else "(无)"}
 
-All long-term memories:
-{long_context if long_context else "(None)"}
+所有长期记忆：
+{long_context if long_context else "(无)"}
 
-Current tick: {current_tick}
+当前回合(tick)：{current_tick}
 
-Requirements:
-1. Judge whether the LongTask is roughly completed based on events in short-term and long-term memory
-2. As long as the core goal of the task has been achieved, it is considered completed even if details don't match perfectly
-3. If memory shows the main content of the task has been executed, return "Completed"
-4. Only return "Not Completed" when there is absolutely no progress on the task
-5. Only return "Completed" or "Not Completed", do not include any other text
+要求：
+1. 根据长短期记忆中发生的事件，判断该长期任务是否已基本完成
+2. 只要任务的核心目标已达成，即使细节不完全一致，也算完成
+3. 如果记忆显示任务的主要内容已经执行完毕，请返回"已完成"
+4. 只有当任务完全没有进展时，才返回"未完成"
+5. 【严格限制】只能返回"已完成"或"未完成"五个字以内，绝不能包含任何其他文字
 
-Please judge:"""
+请判断："""
 
             # Call LLM
             if not self.model:
@@ -194,24 +194,24 @@ Please judge:"""
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask is completed, starting summary")
 
                 # Build summary prompt
-                summary_prompt = f"""You are an agent's task summary assistant. Please summarize the following completed LongTask.
+                summary_prompt = f"""你是一个智能体的任务总结助手。请总结以下已完成的长期任务。
 
-Completed LongTask:
+已完成的长期任务：
 {long_task_str}
 
-Related short-term memories:
-{short_context if short_context else "(None)"}
+相关短期记忆：
+{short_context if short_context else "(无)"}
 
-Related long-term memories:
-{long_context if long_context else "(None)"}
+相关长期记忆：
+{long_context if long_context else "(无)"}
 
-Requirements:
-1. Briefly summarize the completion of the task
-2. Extract key outcomes and impacts
-3. Keep the summary length between 50-100 words
-4. Only return the summary content, do not include any prefixes or explanations
+要求：
+1. 简要总结任务的完成情况
+2. 提取关键结果和影响
+3. 总结长度控制在50-100字之间
+4. 只返回总结内容，不要包含任何前缀或解释
 
-Please summarize:"""
+请总结："""
 
                 summary = await self.model.chat(summary_prompt)
                 summary = summary.strip()
@@ -219,7 +219,7 @@ Please summarize:"""
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask summary completed: {summary[:50]}...")
 
                 # Add summary to long-term memory
-                await state_plugin.add_long_term_memory(f"[Completed Task] {summary}")
+                await state_plugin.add_long_term_memory(f"[已完成任务] {summary}")
 
                 # Clear LongTask
                 await state_plugin.set_long_task(None)
@@ -254,32 +254,32 @@ Please summarize:"""
             recent_memories = short_memories[-5:] if len(short_memories) > 5 else short_memories
             memories_text = "\n".join([f"- {m.get('tick', '?')}: {m.get('content', m)}" for m in recent_memories])
 
-            prompt = f"""You are an agent survival status analysis assistant. Please determine if the character is currently in a state where they "cannot continue participating in subsequent actions" based on the following recent memories.
+            prompt = f"""你是一个智能体生存状态分析助手。请根据以下最近的记忆，判断该角色目前是否处于"无法继续参与后续行动"的状态。
 
-These states include but are not limited to:
-1. Death (suicide, murdered, died of illness, beaten to death, killed, etc.)
-2. Completely disappeared/missing
-3. Ran away from home/went far away/never coming back
-4. Imprisoned/detained
-5. [END] tag appears in memory, indicating character departure
+这些状态包括但不限于：
+1. 死亡（自杀、被谋杀、病故、被打死、被杀等）
+2. 彻底消失/失踪
+3. 离家出走/远走高飞/再也不回来
+4. 被囚禁/收押
+5. 记忆中出现[END]标记，表示角色离场
 
-Current character: {self.agent_id}
+当前角色：{self.agent_id}
 
-Recent memories:
+近期记忆：
 {memories_text}
 
-[Important Judgment Rules]:
-1. If memory mentions "{self.agent_id} died", "{self.agent_id} was beaten to death", "{self.agent_id} was killed", "{self.agent_id} passed away", etc., must determine as "Departed"
-2. If memory mentions someone "killed {self.agent_id}" or similar fatal description, must determine as "Departed"
-3. If the character is still present, just resting temporarily, or injured but not dead, should determine as "Active"
-4. Only determine as "Departed" when the above departure events clearly occurred in memory
-5. Strictly follow the return format: Judgment Result | Departure Reason (must include core cause and effect leading to departure, e.g., "Because...")
+【重要判定规则】：
+1. 如果记忆中提到"{self.agent_id}死亡"、"{self.agent_id}被打死"、"{self.agent_id}被杀"、"{self.agent_id}去世"等，必须判定为"已离场"
+2. 如果记忆中提到某人"杀死了{self.agent_id}"或类似的致命描述，必须判定为"已离场"
+3. 如果角色仍然存在、只是暂时休息、或者受伤但未死亡，应判定为"活跃"
+4. 只有当记忆中明确发生了上述离场事件时，才判定为"已离场"
+5. 严格遵守返回格式：判定结果 | 离场原因（必须包含导致离场的核心因果关系，例如"因为..."）
 
-Example return: Departed | The character was beaten to death by Sun Wukong because they stole immortal pills
-Example return: Departed | The character died of grief and indignation upon hearing Jia Baoyu married Xue Baochai
-Example return: Active |
+返回示例：已离场 | 角色因为偷吃仙丹被孙悟空打死
+返回示例：已离场 | 角色听到贾宝玉迎娶薛宝钗的消息后悲愤交加而死
+返回示例：活跃 |
 
-Please analyze and return the result:"""
+请分析并返回结果："""
 
             result = await self.model.chat(prompt)
             result = result.strip()
@@ -289,16 +289,16 @@ Please analyze and return the result:"""
 
             if "Departed" in result or "已离场" in result:
                 parts = result.split('|')
-                reason = parts[1].strip() if len(parts) > 1 else "A departure event occurred"
+                reason = parts[1].strip() if len(parts) > 1 else "发生了离场事件"
                 logger.warning(f"[{self.agent_id}][{current_tick}] {reason}, marked as inactive")
                 await state_plugin.set_active_status(False, reason)
-                await state_plugin.add_long_term_memory(f"[Final Ending] {reason}")
+                await state_plugin.add_long_term_memory(f"[最终结局] {reason}")
 
                 # Broadcast to other agents
                 try:
                     controller = self._component.agent.controller
                     all_agent_ids = await controller.get_all_agent_ids()
-                    broadcast_msg = f"[Bad News] {self.agent_id} has departed. Reason: {reason}"
+                    broadcast_msg = f"[噩耗] {self.agent_id} 已离场。原因：{reason}"
                     for target_id in all_agent_ids:
                         if target_id != self.agent_id:
                             await controller.run_agent_method(
@@ -335,37 +335,37 @@ Please analyze and return the result:"""
             if not short_memories and not long_memories:
                 return False
 
-            short_context = "\n".join([f"- {m.get('content', m)}" for m in short_memories]) if short_memories else "(None)"
-            long_context = "\n".join([f"- {m['content']}" for m in long_memories]) if long_memories else "(None)"
+            short_context = "\n".join([f"- {m.get('content', m)}" for m in short_memories]) if short_memories else "(无)"
+            long_context = "\n".join([f"- {m['content']}" for m in long_memories]) if long_memories else "(无)"
 
-            prompt = f"""You are an agent survival status analysis assistant. Please determine if the character is currently in a state where they "cannot continue participating in subsequent actions" based on the following memories.
+            prompt = f"""你是一个智能体生存状态分析助手。请根据以下记忆，判断该角色目前是否处于"无法继续参与后续行动"的状态。
 
-These states include but are not limited to:
-1. Death (suicide, murdered, died of illness, beaten to death, killed, etc.)
-2. Completely disappeared/missing (with no sign of recovery in memory)
-3. Ran away from home/went far away (clearly stated never returning or left simulation scene)
-4. Imprisoned/detained (long-term loss of freedom of movement)
+这些状态包括但不限于：
+1. 死亡（自杀、被谋杀、病故、被打死、被杀等）
+2. 彻底消失/失踪（记忆中没有恢复的迹象）
+3. 离家出走/远走高飞（明确表示再也不回来或离开了模拟场景）
+4. 被囚禁/收押（长期失去行动自由）
 
-Current character: {self.agent_id}
+当前角色：{self.agent_id}
 
-Recent memories:
+近期记忆：
 {short_context}
 
-Historical long-term memories:
+历史长期记忆：
 {long_context}
 
-[Important Judgment Rules]:
-1. If memory mentions "{self.agent_id} died", "{self.agent_id} was beaten to death", "{self.agent_id} was killed", "{self.agent_id} passed away", etc., must determine as "Departed"
-2. If memory mentions someone "killed {self.agent_id}" or similar fatal description, must determine as "Departed"
-3. If the character is still present, just resting temporarily, sick but not dead, or just depressed, should determine as "Active"
-4. Only determine as "Departed" when the above departure events clearly occurred in memory
-5. Strictly follow the return format: Judgment Result | Departure Reason (must include core cause and effect leading to departure, e.g., "Because...")
+【重要判定规则】：
+1. 如果记忆中提到"{self.agent_id}死亡"、"{self.agent_id}被打死"、"{self.agent_id}被杀"、"{self.agent_id}去世"等，必须判定为"已离场"
+2. 如果记忆中提到某人"杀死了{self.agent_id}"或类似的致命描述，必须判定为"已离场"
+3. 如果角色仍然存在、只是暂时休息、生病但未死亡、或者只是心情低落，应判定为"活跃"
+4. 只有当记忆中明确发生了上述离场事件时，才判定为"已离场"
+5. 严格遵守返回格式：判定结果 | 离场原因（必须包含导致离场的核心因果关系，例如"因为..."）
 
-Example return: Departed | The character was beaten to death by Sun Wukong because they stole immortal pills
-Example return: Departed | The character died of grief and indignation upon hearing Jia Baoyu married Xue Baochai
-Example return: Active |
+返回示例：已离场 | 角色因为偷吃仙丹被孙悟空打死
+返回示例：已离场 | 角色听到贾宝玉迎娶薛宝钗的消息后悲愤交加而死
+返回示例：活跃 |
 
-Please analyze and return the result:"""
+请分析并返回结果："""
 
             if not self.model:
                 return False
@@ -378,18 +378,18 @@ Please analyze and return the result:"""
             
             if "Departed" in result or "已离场" in result:
                 parts = result.split('|')
-                reason = parts[1].strip() if len(parts) > 1 else "An irreversible departure event occurred"
+                reason = parts[1].strip() if len(parts) > 1 else "发生了不可逆的离场事件"
                 await state_plugin.set_active_status(False, reason)
                 
                 # Record own final long-term memory
-                final_memory = f"[Final Ending] {reason}"
+                final_memory = f"[最终结局] {reason}"
                 await state_plugin.add_long_term_memory(final_memory)
                 
                 # Broadcast offline message to all other online agents
                 try:
                     controller = self._component.agent.controller
                     all_agent_ids = await controller.get_all_agent_ids()
-                    broadcast_msg = f"[Bad News] {self.agent_id} has departed. Reason: {reason}"
+                    broadcast_msg = f"[噩耗] {self.agent_id} 已离场。原因：{reason}"
                     
                     for target_id in all_agent_ids:
                         if target_id != self.agent_id:
@@ -434,30 +434,30 @@ Please analyze and return the result:"""
             short_memories = await state_plugin.get_short_term_memory()
             long_memories = await state_plugin.get_long_term_memory()
 
-            short_context = "\n".join([f"- {mem}" for mem in short_memories]) if short_memories else "(None)"
-            long_context = "\n".join([f"- {mem['content']}" for mem in long_memories]) if long_memories else "(None)"
+            short_context = "\n".join([f"- {mem}" for mem in short_memories]) if short_memories else "(无)"
+            long_context = "\n".join([f"- {mem['content']}" for mem in long_memories]) if long_memories else "(无)"
 
             # Build prompt for judgment and adjustment
-            prompt = f"""You are an agent's strategic planning assistant. Please determine if the current LongTask needs to be adjusted based on the following memories and current situation.
+            prompt = f"""你是一个智能体的战略规划助手。请根据以下记忆和当前情况，判断当前的长期任务（LongTask）是否需要调整。
 
-Current LongTask:
+当前长期任务：
 {long_task_str}
 
-Recent short-term memories:
+近期短期记忆：
 {short_context}
 
-Historical long-term memories:
+历史长期记忆：
 {long_context}
 
-Current tick: {current_tick}
+当前回合(tick)：{current_tick}
 
-Requirements:
-1. Evaluate if the current task still fits the current situation. If the environment has changed significantly, the goal has deviated, or a more urgent alternative has appeared, suggest an adjustment.
-2. If no adjustment is needed, only return "No Adjustment Needed".
-3. If adjustment is needed, return the adjusted new task content. The new task should be clear, specific, and have phased goals.
-4. Only return the conclusion ("No Adjustment Needed" or full text of the new task), do not include any prefixes, explanations, or extra text.
+要求：
+1. 评估当前任务是否仍然符合当前局势。如果环境发生了重大变化、目标已经偏离、或者出现了更紧急的替代方案，请建议调整。
+2. 如果不需要调整，请仅返回"无需调整"。
+3. 如果需要调整，请返回调整后的新任务内容。新任务应该清晰、具体，并具有阶段性目标。
+4. 只返回结论（"无需调整"或新任务的完整文本），不要包含任何前缀、解释或多余的文字。
 
-Please judge and give result:"""
+请判断并给出结果："""
 
             # Call LLM
             if not self.model:
@@ -477,7 +477,7 @@ Please judge and give result:"""
                 # Directly update state
                 await state_plugin.set_long_task(result)
                 # Record an adjustment memory
-                await state_plugin.add_long_term_memory(f"[Task Adjustment] Due to environmental changes, LongTask adjusted to: {result}")
+                await state_plugin.add_long_term_memory(f"[任务调整] 由于环境变化，长期任务调整为：{result}")
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask successfully adjusted and recorded")
 
         except Exception as e:

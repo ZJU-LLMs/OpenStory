@@ -1,4 +1,4 @@
-from typing import Dict, List, Any, Optional, Callable
+from typing import List, Dict, Any, Optional, Callable
 
 from agentkernel_distributed.mas.agent.base.plugin_base import ProfilePlugin
 from agentkernel_distributed.toolkit.logger import get_logger
@@ -26,7 +26,8 @@ class BasicProfilePlugin(ProfilePlugin):
             self.profile_data = {}
         else:
             self.profile_data = profile_data or {}
-        self.agent_id = self.profile_data.get('id', 'Unknown')
+        # 修复英文默认值内鬼
+        self.agent_id = self.profile_data.get('id', '未知')
         self.long_memories: List[str] = []
 
     async def init(self) -> None:
