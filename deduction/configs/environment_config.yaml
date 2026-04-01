@@ -1,0 +1,19 @@
+name: DeductionEnvironment
+components:
+  relation:
+    plugin:
+      BasicRelationPlugin:
+        adapters: {}
+        relations: "agents_relation"
+
+  space:
+    plugin:
+      BasicSpacePlugin:
+        adapters: {}
+        # Note: deduction/data/map currently only provides objects.jsonl.
+        # We pass agent_states (id -> dict) as the initial agents payload; BasicSpacePlugin
+        # will start with empty positions and positions will be populated as agents move.
+        agents: "agents"
+        objects: "objects"
+        cell_size: 5
+

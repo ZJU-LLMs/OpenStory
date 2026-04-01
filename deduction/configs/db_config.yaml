@@ -1,0 +1,16 @@
+pools:
+  default_redis:
+    type: "redis"
+    settings:
+      host: "localhost"
+      port: 6379
+      db: 0
+      decode_responses: true
+    pool_settings:
+      max_connections: 50
+
+adapters:
+  RedisKVAdapter:
+    class_name: "RedisKVAdapter"
+    use_pool: "default_redis"
+

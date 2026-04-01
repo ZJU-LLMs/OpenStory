@@ -1,0 +1,14 @@
+Chinese Garden Tileset v1.0.0 - BiteMe Games
+
+About
+---
+This asset comes with the source .aseprite files, as well as exported PNG spritesheets.
+
+If using this asset with Unity, you can import the asset and use pre-configured Prefab files which include animations for the various lights, as well as pre-made tile palettes. 
+
+
+Changelog
+---
+
+v1.0.0 (28/02/2024)
+- Initial Release

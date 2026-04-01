@@ -1,0 +1,18 @@
+- name: OpenAIProvider
+  model: qwen3.5-flash-2026-02-23
+  api_key: sk-9782c8072921457da243decaa3ae43c2
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  capabilities:
+  - chat
+- name: OpenAIProvider
+  model: qwen3.5-flash-2026-02-23
+  api_key: sk-9782c8072921457da243decaa3ae43c2
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  capabilities:
+  - chat
+- name: OpenAIProvider
+  model: qwen3.5-flash-2026-02-23
+  api_key: sk-9782c8072921457da243decaa3ae43c2
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  capabilities:
+  - chat
