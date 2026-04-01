@@ -1,7 +1,12 @@
 ![Cover](assets/cover.png)
-<h1 align="center">OpenStory (Wanxiangpu)</h1>
+<h1 align="center">
+  <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
+  OpenStory (Wanxiangpu)
+</h1>
 
-OpenStory is a multi-agent deduction and simulation framework based on Large Language Models (LLMs) and Agent-Kernel.
+OpenStory is a multi-agent deduction and simulation framework developed based on Large Language Models (LLMs) and [Agent-Kernel](https://github.com/ZJU-LLMs/Agent-Kernel).
+
+**✨ We sincerely invite everyone to co-create stories with us!** Whether you want to continue a classic, break the original plot, or create a parallel universe entirely your own, as long as your story idea is interesting and imaginative enough, feel free to submit a PR! We will merge brilliant deduction scripts and custom configurations into the project, letting more people see your masterpiece.
 
 The `examples/deduction` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, it simulates the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden.
 

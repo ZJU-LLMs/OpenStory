@@ -1,7 +1,12 @@
 ![Cover](assets/cover.png)
-<h1 align="center">OpenStory (万象谱)</h1>
+<h1 align="center">
+  <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
+  OpenStory (万象谱)
+</h1>
 
-OpenStory 是一个基于大语言模型（LLM）和 Agnet-Kernel 的多智能体推演与模拟框架。
+OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://github.com/ZJU-LLMs/Agent-Kernel) 开发的多智能体推演与模拟框架。
+
+**✨ 我们诚挚地邀请大家一起来共创故事！** 无论你是想续写经典、打破原著框架，还是创造一个完全属于你的平行宇宙，只要你的故事创意足够有趣、脑洞足够大，欢迎提交 PR！我们会将精彩的推演剧本和自定义配置合并到项目中，让更多人看到你的杰作。
 
 本项目中的 `examples/deduction` 示例以中国古典名著《红楼梦》为背景，利用多智能体系统（Multi-Agent System, MAS）技术，在一比一仿真的红楼梦地图中模拟书中人物的日常行为、社交互动与故事推演。
 
