@@ -1,0 +1,34 @@
+# ===================================================================
+# Main Simulator Configuration File (Entry Point)
+#
+# This folder follows the same convention as Agent-Kernel examples:
+# - configs/simulation_config.yaml is the entry
+# - other module configs are referenced by relative paths below
+# - data paths are relative to the project root: /root/SOS/examples/deduction
+
+simulation:
+  pod_size: 5
+  init_batch_size: 5
+  max_ticks: 12
+
+configs:
+  environment: "environment_config.yaml"
+  actions: "actions_config.yaml"
+  agent_templates: "agents_config.yaml"
+  system: "system_config.yaml"
+  database: "db_config.yaml"
+  models: "models_config.yaml"
+
+data:
+  # Agent data (jsonl with "id" per row)
+  agent_profiles: "data/agents/profiles_test.jsonl"
+  agent_states: "data/agents/states.jsonl"
+
+  # Environment data
+  agents_relation: "data/relations/relations.jsonl"
+
+# Optional API server (used by some examples / society-panel)
+api_server:
+  host: "0.0.0.0"
+  port: 8000
+

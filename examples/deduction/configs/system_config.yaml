@@ -1,0 +1,25 @@
+# System configuration (Timer + Messager are required by deduction plugins)
+name: DeductionSystem
+components:
+  messager:
+    allow_self_messages: false
+    block_empty_content: true
+    max_content_length: 2000
+    blocked_pairs: []
+    blocked_senders: []
+    blocked_receivers: []
+    blocked_keywords: []
+    blocked_regex: []
+
+  timer:
+    start_tick: 0
+    timeout_ticks: 5
+
+  # recorder is optional; uncomment if you have Postgres configured
+  # recorder:
+  #   dbname: "log_recorder"
+  #   user: "postgres"
+  #   password: "123456"
+  #   host: "localhost"
+  #   port: 5432
+

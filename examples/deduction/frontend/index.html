@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>万象谱 · 红楼梦推演</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 新开场动画遮罩 -->
+  <div id="newIntroOverlay" class="new-intro-overlay">
+    <!-- 旋转的角色圈 -->
+    <div class="loading-ring-container" id="loadingRing">
+      <!-- 角色图片将由 JS 动态插入这里 -->
+    </div>
+    <!-- 垂直进度条轨道 -->
+    <div class="vertical-progress-track">
+      <div class="vertical-progress-fill" id="introProgressFill"></div>
+    </div>
+    <!-- 展开后的滑屏容器 -->
+    <div class="intro-slide-panel" id="introSlidePanel">
+      <div class="intro-content">
+        <div class="intro-title" id="newIntroTitle">万象谱</div>
+        <div class="intro-subtitle" id="newIntroSubtitle">红楼梦 · 第八十回推演</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ink-bg"></div>
+  <div class="grain"></div>
+
+  <!-- 重启/断开连接遮罩层 -->
+  <div id="restartingOverlay" class="restarting-overlay">
+    <div class="restarting-content">
+      <div class="restarting-spinner"></div>
+      <div class="restarting-text">系统未连接或正在重启中...</div>
+    </div>
+  </div>
+
+  <!-- 时间流逝全屏大字展示层 -->
+  <div id="timeTransitionOverlay" class="time-transition-overlay">
+    <div class="time-transition-text" id="timeTransitionText"></div>
+  </div>
+
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">万象谱</h1>
+      <span class="header-sub">红楼梦 · 第八十回推演</span>
+    </div>
+    <div class="header-center">
+      <span class="sim-date" id="simDate">乾隆四十九年 正月初一 子时</span>
+    </div>
+    <div class="header-right">
+      <!-- 重置按钮 -->
+      <button id="resetBtn" class="control-btn" onclick="confirmReset()" style="background: rgba(192, 57, 43, 0.6); border-color: #c0392b;" title="重置推演">
+        重置
+      </button>
+      <!-- 设置按钮 -->
+      <button id="settingsBtn" class="control-btn settings-btn" onclick="openSettingsModal()" title="设置">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </button>
+      <button id="addAgentBtn" class="control-btn" onclick="openAddAgentModal()">添加人物</button>
+      <button id="startTickBtn" class="control-btn" onclick="sendStartTick()">开始推演</button>
+      <button id="applyTickBtn" class="control-btn control-btn-apply" onclick="applyPendingTick()" disabled>开始模拟</button>
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">连接中…</span>
+      <div class="tick-nav" style="display: inline-flex; align-items: center; margin-left: 15px;">
+        <button id="prevTickBtn" class="tick-nav-btn" onclick="prevTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 4px 0 0 4px;">&lt;</button>
+        <span class="tick-badge" style="margin-left: 0; border-radius: 0;">Tick <span id="tickNum">—</span></span>
+        <button id="nextTickBtn" class="tick-nav-btn" onclick="nextTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 0 4px 4px 0;">&gt;</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 左侧人物列表 -->
+    <aside class="sidebar">
+      <div class="sidebar-title">人物</div>
+      <div class="agent-list" id="agentList">
+        <div class="agent-placeholder">等待数据…</div>
+      </div>
+    </aside>
+
+    <!-- 右侧主界面：地图视图 -->
+    <main class="main-content" id="mainContent">
+      <div id="mapContainer" class="map-container">
+        <!-- 地图画布 -->
+        <canvas id="mapCanvas"></canvas>
+        <div class="map-loading" id="mapLoading">正在加载地图…</div>
+      </div>
+
+      <!-- 悬浮的人物详情框 -->
+      <div id="agentDetailBox" class="agent-detail-box">
+        <div class="detail-box-header">
+          <span class="detail-box-title">人物档案</span>
+          <button class="detail-box-close" onclick="closeAgentDetail()">&times;</button>
+        </div>
+        <div id="detailPanel" class="detail-panel-content">
+          <div class="empty-state">
+            <div class="empty-icon">卷</div>
+            <p>请从左侧选择人物</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 对话弹窗 -->
+  <div id="dialogueModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title">对话详录</span>
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+      </div>
+      <div id="dialogueSummary" class="modal-summary" style="display:none"></div>
+      <div id="dialogueContent" class="modal-body">
+        <!-- 对话内容动态插入 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加人物弹窗 -->
+  <div id="addAgentModal" class="modal">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <span class="modal-title">添加新人物</span>
+        <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div class="add-agent-form">
+          <!-- 角色头像选择 -->
+          <div class="form-group">
+            <label>角色头像</label>
+            <div class="avatar-selector">
+              <div class="avatar-preview" id="avatarPreview">
+                <img id="selectedAvatarImg" src="../map/sprite/普通人.png" alt="头像预览" />
+              </div>
+              <div class="avatar-options">
+                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/普通人.png', '普通人', this)">
+                  <img src="../map/sprite/普通人.png" alt="普通人" />
+                  <span>普通人</span>
+                </button>
+                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/孙悟空.png', '孙悟空', this)">
+                  <img src="../map/sprite/孙悟空.png" alt="孙悟空" />
+                  <span>孙悟空</span>
+                </button>
+                <label class="avatar-upload-btn">
+                  <input type="file" id="customAvatarInput" accept="image/*" onchange="handleAvatarUpload(event)" style="display:none" />
+                  <span class="upload-icon">+</span>
+                  <span>上传图片</span>
+                </label>
+              </div>
+            </div>
+            <input type="hidden" id="avatarType" value="builtin" />
+            <input type="hidden" id="avatarSource" value="../map/sprite/普通人.png" />
+          </div>
+
+          <!-- 预设模板选择 -->
+          <div class="form-group preset-templates">
+            <label>预设模板 <span class="hint-text">(点击选择，可快速填充人物信息)</span></label>
+            <div class="preset-grid" id="presetGrid">
+              <!-- 预设按钮将由 JS 动态生成 -->
+            </div>
+          </div>
+
+          <div class="form-divider"><span>或自定义</span></div>
+
+          <div class="form-group">
+            <label for="agentId">人物名称 <span class="required">*</span></label>
+            <input type="text" id="agentId" />
+          </div>
+          <div class="form-group">
+            <label for="templateName">模板</label>
+            <input type="text" id="templateName" placeholder="DeductionAgent" />
+          </div>
+          <div class="form-group">
+            <label for="profileFamily">家族</label>
+            <input type="text" id="profileFamily" />
+          </div>
+          <div class="form-group">
+            <label for="profilePersonality">性格</label>
+            <input type="text" id="profilePersonality" />
+          </div>
+          <div class="form-group">
+            <label for="profileDrive">核心驱动</label>
+            <input type="text" id="profileDrive" />
+          </div>
+          <div class="form-group">
+            <label for="profileStyle">语言风格</label>
+            <input type="text" id="profileStyle" />
+          </div>
+          <div class="form-group">
+            <label for="profileBackground">背景经历</label>
+            <textarea id="profileBackground" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="agentMemory">初始记忆（每行一条）</label>
+            <textarea id="agentMemory" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" onclick="saveAsPreset()">存为预设</button>
+            <button class="btn-secondary" onclick="closeAddAgentModal()">取消</button>
+            <button class="btn-primary" onclick="submitAddAgent()">确认添加</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 管理预设弹窗 -->
+  <div id="managePresetModal" class="modal">
+    <div class="modal-content" style="max-width: 500px;">
+      <div class="modal-header">
+        <span class="modal-title">管理预设</span>
+        <span class="close-btn" onclick="closeManagePresetModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div class="preset-list" id="managePresetList">
+          <!-- 预设列表将由 JS 动态生成 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 设置弹窗 -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content" style="max-width: 500px;">
+      <div class="modal-header">
+        <span class="modal-title">模型配置</span>
+        <span class="close-btn" onclick="closeSettingsModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div class="add-agent-form">
+          <div class="form-group">
+            <label for="settingsBaseUrl">API Base URL</label>
+            <input type="text" id="settingsBaseUrl" placeholder="https://api.openai.com/v1" />
+          </div>
+          <div class="form-group">
+            <label for="settingsApiKey">API Key</label>
+            <input type="password" id="settingsApiKey" placeholder="sk-..." />
+          </div>
+          <div class="form-group">
+            <label for="settingsModel">Model</label>
+            <input type="text" id="settingsModel" placeholder="gpt-4o" />
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" onclick="closeSettingsModal()">取消</button>
+            <button class="btn-primary" onclick="saveSettings()">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
