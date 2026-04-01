@@ -1,3 +1,4 @@
+![Cover](assets/Cover.jpg)
 <h1 align="center">
   <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
   OpenStory (万象谱)
@@ -15,7 +16,7 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 - **丰富的插件化机制与高可配性**：涵盖智能体感知、计划、执行、反思等完整生命周期插件，并支持通过 YAML 文件灵活管理系统、环境、动作与智能体配置。
 
 ## � Story 1: 红楼梦 (Dream of the Red Chamber)
-![Cover](assets/cover.png)
+![Cover](assets/Story1.png)
 作为 OpenStory 框架的第一个官方落地故事，本项目中的 `examples/deduction` 示例以中国古典名著《红楼梦》为背景。我们利用多智能体系统（MAS）技术，在一比一仿真的红楼梦大观园地图中，生动模拟了书中人物的日常行为、社交互动与故事推演。在这里，你可以看到林黛玉的敏感多思、贾宝玉的叛逆多情，以及整个贾府在历史车轮下的命运交织。
 
 ## � Story 2: Coming Soon

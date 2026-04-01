@@ -1,3 +1,4 @@
+![Cover](assets/Cover.jpg)
 <h1 align="center">
   <img src="assets/logo.png" height="70" alt="Logo" style="vertical-align: middle; margin-right: 0px;">
   OpenStory (Wanxiangpu)
@@ -17,7 +18,7 @@ OpenStory is a multi-agent deduction and simulation framework developed based on
 ## 📖 Story 1: Dream of the Red Chamber
 
 As the first official implemented story of the OpenStory framework, the `examples/deduction` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, we vividly simulate the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden. Here, you can witness Lin Daiyu's sensitive thoughtfulness, Jia Baoyu's rebellious affection, and the intertwined destiny of the entire Jia mansion under the wheel of history.
-![Cover](assets/cover.png)
+![Cover](assets/Story1.png)
 
 ## 🚀 Story 2: Coming Soon
 ![Cover](assets/Story2.png)
