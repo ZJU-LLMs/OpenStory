@@ -912,6 +912,26 @@ body {
 
 .dialogue-text { color: var(--ink-light); }
 
+.tts-speaker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-left: 8px;
+  vertical-align: middle;
+  padding: 0;
+  transition: transform 0.2s;
+}
+
+.tts-speaker-btn:hover {
+  transform: scale(1.2);
+}
+
+.tts-speaker-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .dialogue-action {
   color: var(--jade);
   font-style: italic;

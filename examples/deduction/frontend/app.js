@@ -998,6 +998,113 @@ function switchDay(event, id, day) {
   renderDetail(id);
 }
 
+// ===== TTS 功能 =====
+function getSpeakerGender(speaker) {
+  const speakerName = String(speaker || '').trim();
+  if (!speakerName) return '';
+
+  for (const [id, data] of Object.entries(agentsData || {})) {
+    const profile = data && data.profile ? data.profile : {};
+    const candidateNames = [
+      id,
+      formatAgentName(id),
+      profile.id,
+      profile.name,
+      profile['姓名']
+    ].filter(Boolean).map(v => String(v).trim());
+
+    if (!candidateNames.includes(speakerName)) continue;
+
+    return String(
+      profile['性别'] ??
+      profile.gender ??
+      profile['gender'] ??
+      ''
+    ).trim();
+  }
+
+  return '';
+}
+
+async function playTts(btnElement, speaker, text) {
+  const apiKey = localStorage.getItem('dashscope_tts_api_key');
+  if (!apiKey) {
+    alert('请先在设置中配置 DashScope API Key');
+    return;
+  }
+
+  // 避免重复点击
+  if (btnElement.disabled) return;
+  
+  const originalText = btnElement.innerText;
+  btnElement.innerText = '⏳';
+  btnElement.disabled = true;
+
+  try {
+    const gender = getSpeakerGender(speaker);
+
+    // 通过本地后端代理请求，后端会按人物先设计/缓存音色，再执行合成
+    const response = await fetch('http://localhost:8000/api/tts', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'qwen-voice-design',
+        input: {
+          text: text,
+          speaker: speaker,
+          gender: gender
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`TTS 请求失败: ${response.status} ${errText}`);
+    }
+
+    const contentType = response.headers.get('content-type') || '';
+    let audioUrl;
+    let isBlob = false;
+
+    if (contentType.includes('application/json')) {
+      const data = await response.json();
+      if (data.output && data.output.audio && data.output.audio.url) {
+        audioUrl = data.output.audio.url;
+      } else {
+        throw new Error('未获取到音频 URL');
+      }
+    } else {
+      const audioBlob = await response.blob();
+      audioUrl = URL.createObjectURL(audioBlob);
+      isBlob = true;
+    }
+    
+    const audio = new Audio(audioUrl);
+    audio.onended = () => {
+      btnElement.innerText = originalText;
+      btnElement.disabled = false;
+      if (isBlob) URL.revokeObjectURL(audioUrl);
+    };
+    audio.onerror = () => {
+      alert('音频播放失败');
+      btnElement.innerText = originalText;
+      btnElement.disabled = false;
+      if (isBlob) URL.revokeObjectURL(audioUrl);
+    };
+    
+    await audio.play();
+    btnElement.innerText = '🔊'; // 播放中保持小喇叭图标，直到播放完毕
+  } catch (error) {
+    console.error('TTS Error:', error);
+    alert(error.message);
+    btnElement.innerText = originalText;
+    btnElement.disabled = false;
+  }
+}
+
 // ===== Modal Handlers =====
 function openBubbleModal(bubble) {
   const id = bubble.agentId;
@@ -1046,16 +1153,22 @@ function openModal(event, agentId, tick) {
     summaryEl.style.display = 'none';
   }
 
-  content.innerHTML = history.map(line => {
+  content.innerHTML = history.map((line, index) => {
     const match = line.match(/^(.+?)：(?:\[(.+?)\])?(.*)$/);
     if (!match) return `<div class="dialogue-line">${escHtml(line)}</div>`;
 
     const [_, speaker, action, text] = match;
+    const ttsApiKey = localStorage.getItem('dashscope_tts_api_key');
+    const safeSpeaker = encodeURIComponent(speaker).replace(/'/g, "%27");
+    const safeText = encodeURIComponent(text).replace(/'/g, "%27");
+    const speakerBtn = ttsApiKey ? `<button class="tts-speaker-btn" onclick="playTts(this, decodeURIComponent('${safeSpeaker}'), decodeURIComponent('${safeText}'))">🔊</button>` : '';
+
     return `
       <div class="dialogue-line">
         <span class="dialogue-speaker">${escHtml(speaker)}</span>
         ${action ? `<span class="dialogue-action">[${escHtml(action)}]</span>` : ''}
         <span class="dialogue-text">${escHtml(text)}</span>
+        ${speakerBtn}
       </div>
     `;
   }).join('');
@@ -3355,8 +3468,11 @@ async function openSettingsModal() {
       document.getElementById('settingsApiKey').value = api_key;
       document.getElementById('settingsModel').value = model;
       
+      const ttsApiKey = localStorage.getItem('dashscope_tts_api_key') || '';
+      document.getElementById('settingsTtsApiKey').value = ttsApiKey;
+
       // 记录初始状态以便比较
-      initialConfigState = { base_url, api_key, model };
+      initialConfigState = { base_url, api_key, model, ttsApiKey };
     }
   } catch (e) {
     console.error('Failed to fetch settings:', e);
@@ -3372,15 +3488,33 @@ async function saveSettings() {
   const baseUrl = document.getElementById('settingsBaseUrl').value.trim();
   const apiKey = document.getElementById('settingsApiKey').value.trim();
   const model = document.getElementById('settingsModel').value.trim();
+  const ttsApiKey = document.getElementById('settingsTtsApiKey').value.trim();
 
   // 检查是否发生变化
   const hasChanges = !initialConfigState || 
                      initialConfigState.base_url !== baseUrl || 
                      initialConfigState.api_key !== apiKey || 
-                     initialConfigState.model !== model;
+                     initialConfigState.model !== model ||
+                     initialConfigState.ttsApiKey !== ttsApiKey;
 
   // 如果没有修改配置，直接关闭弹窗即可，避免重启后端
   if (!hasChanges) {
+    closeSettingsModal();
+    return;
+  }
+
+  // 立即保存前端特有配置
+  localStorage.setItem('dashscope_tts_api_key', ttsApiKey);
+
+  // 检查后端相关配置是否发生变化
+  const hasBackendChanges = !initialConfigState || 
+                     initialConfigState.base_url !== baseUrl || 
+                     initialConfigState.api_key !== apiKey || 
+                     initialConfigState.model !== model;
+
+  if (!hasBackendChanges) {
+    // 只有前端配置发生变化，不需要重启后端
+    alert(t('save_settings_success') || '保存成功！');
     closeSettingsModal();
     return;
   }

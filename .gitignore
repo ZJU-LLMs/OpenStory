@@ -5,5 +5,3 @@ __pycache__/
 *.log
 
 .DS_Store
-
-examples/deduction/configs/models_config.yaml

@@ -40,6 +40,7 @@ const translations = {
     "system_operations": "系统操作",
     "language_settings": "界面语言",
     "model_config": "模型配置",
+    "tts_config": "语音合成 (TTS) 配置",
     "btn_save": "保存",
     
     // Dynamic content from app.js
@@ -108,6 +109,7 @@ const translations = {
     "system_operations": "System Operations",
     "language_settings": "Interface Language",
     "model_config": "Model Config",
+    "tts_config": "TTS Config",
     "btn_save": "Save",
     
     // Dynamic content from app.js
