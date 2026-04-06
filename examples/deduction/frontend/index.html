@@ -106,14 +106,30 @@
 
   <!-- 对话弹窗 -->
   <div id="dialogueModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content dialogue-modal-content">
       <div class="modal-header">
         <span class="modal-title" data-i18n="dialogue_title">对话详录</span>
         <span class="close-btn" onclick="closeModal()">&times;</span>
       </div>
       <div id="dialogueSummary" class="modal-summary" style="display:none"></div>
-      <div id="dialogueContent" class="modal-body">
-        <!-- 对话内容动态插入 -->
+      <div class="dialogue-layout">
+        <div id="dialogueContent" class="modal-body dialogue-body">
+          <!-- 对话内容动态插入 -->
+        </div>
+        <aside class="dialogue-side-panel">
+          <section class="dream-thumbnail-card">
+            <div class="dialogue-side-title" data-i18n="dialogue_thumbnail_title">红楼梦略缩图</div>
+            <div class="dream-thumbnail-frame dream-thumbnail-frame-portrait">
+              <canvas id="dialogueMiniMapCanvas" class="dream-thumbnail-canvas" aria-label="对话地点略缩地图"></canvas>
+              <div class="dream-map-vignette"></div>
+              <div class="dream-location-overlay">
+                <span class="dream-location-label" data-i18n="dialogue_location_title">对话地点</span>
+                <strong id="dialogueLocationName" class="dream-location-name">待定位</strong>
+              </div>
+            </div>
+            <div id="dialogueLocationMeta" class="dialogue-location-meta" data-i18n="dialogue_location_hint">打开对话后会在地图中以红点标记对应地点。</div>
+          </section>
+        </aside>
       </div>
     </div>
   </div>

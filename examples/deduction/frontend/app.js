@@ -12,6 +12,7 @@ let viewDays = {}; // 记录每个智能体当前查看的是第几天的计划
 let pendingTickData = null; // 缓存后端推理完成的数据，等待用户手动触发展示
 let agentsWithNewAction = new Set(); // 有未读新行动的 agent，头顶显示感叹号
 let eventBubbles = []; // 当前 tick 的事件气泡列表 [{participants, text, createdAt}]
+let activeDialogueContext = null; // 当前打开的对话对应的地图地点与侧栏信息
 
 let tickHistory = []; // 记录已经模拟的 tick 数据历史
 let currentHistoryIndex = -1; // 当前展示的历史索引
@@ -1130,7 +1131,120 @@ function openBubbleModal(bubble) {
   summaryEl.textContent = mem ? mem.content : bubble.text;
   summaryEl.style.display = 'block';
   content.innerHTML = '<div class="empty-text" style="padding:16px;opacity:0.5;">暂无对话记录</div>';
+  setActiveDialogueContext(id, tick);
   modal.style.display = 'block';
+}
+
+function getHourlyPlanForTick(hourlyPlans, tick) {
+  if (tick === null || tick === undefined) return null;
+
+  const day = Math.floor(Number(tick) / 12) + 1;
+  const hour = Number(tick) % 12;
+
+  if (Array.isArray(hourlyPlans)) {
+    return hourlyPlans.find(plan => Array.isArray(plan) && Number(plan[1]) === hour) || null;
+  }
+
+  if (hourlyPlans && typeof hourlyPlans === 'object') {
+    const dayPlans = hourlyPlans[day] || hourlyPlans[String(day)] || [];
+    if (Array.isArray(dayPlans)) {
+      return dayPlans.find(plan => Array.isArray(plan) && Number(plan[1]) === hour) || null;
+    }
+  }
+
+  return null;
+}
+
+function normalizeLocationName(name) {
+  return String(name || '')
+    .trim()
+    .replace(/[，。、“”‘’《》〈〉（）()【】\[\]\s\-_,.;:：]/g, '');
+}
+
+function findMapLocationByName(locationName) {
+  const targetLocName = String(locationName || '').trim();
+  if (!targetLocName || !mapData || !Array.isArray(mapData.locations)) return null;
+
+  const normalizedTarget = normalizeLocationName(targetLocName);
+  let matched = mapData.locations.find(l => normalizeLocationName(l.name) === normalizedTarget);
+  if (!matched) {
+    matched = mapData.locations.find(l => {
+      const normalizedName = normalizeLocationName(l.name);
+      return normalizedName.includes(normalizedTarget) || normalizedTarget.includes(normalizedName);
+    });
+  }
+
+  return matched || null;
+}
+
+function getDialogueLocationContext(agentId, tick) {
+  const d = agentsData[agentId];
+  if (!d) return null;
+
+  const hourlyPlan = getHourlyPlanForTick(d.hourly_plans, tick);
+  let rawLocation = Array.isArray(hourlyPlan) ? String(hourlyPlan[3] || '').trim() : '';
+  let sourceKey = rawLocation ? 'dialogue_location_source_plan' : '';
+
+  if (!rawLocation && Array.isArray(d.current_plan) && Number(d.current_tick) === Number(tick)) {
+    rawLocation = String(d.current_plan[3] || '').trim();
+    sourceKey = rawLocation ? 'dialogue_location_source_plan' : '';
+  }
+
+  const matchedLocation = findMapLocationByName(rawLocation);
+
+  return {
+    agentId,
+    tick,
+    rawLocation,
+    displayName: matchedLocation ? matchedLocation.name : rawLocation,
+    matchedLocation,
+    sourceKey
+  };
+}
+
+function refreshDialogueSidebar() {
+  const nameEl = document.getElementById('dialogueLocationName');
+  const metaEl = document.getElementById('dialogueLocationMeta');
+  if (!nameEl || !metaEl) return;
+
+  if (!activeDialogueContext) {
+    nameEl.textContent = t('dialogue_location_pending');
+    metaEl.textContent = t('dialogue_location_hint');
+    return;
+  }
+
+  nameEl.textContent = activeDialogueContext.displayName || t('dialogue_location_unknown');
+
+  if (activeDialogueContext.matchedLocation) {
+    const sourceText = activeDialogueContext.sourceKey ? ` ${t(activeDialogueContext.sourceKey)}` : '';
+    metaEl.textContent = `${t('dialogue_location_marked')}${sourceText}`;
+    return;
+  }
+
+  if (activeDialogueContext.rawLocation) {
+    metaEl.textContent = t('dialogue_location_unmatched');
+    return;
+  }
+
+  metaEl.textContent = t('dialogue_location_unknown');
+}
+
+function focusCameraOnLocation(location) {
+  if (!location || !mapData) return;
+
+  camera.targetX = location.x + mapData.tileWidth / 2;
+  camera.targetY = location.y + mapData.tileHeight / 2;
+}
+
+function setActiveDialogueContext(agentId, tick) {
+  activeDialogueContext = getDialogueLocationContext(agentId, tick);
+  refreshDialogueSidebar();
+
+  if (activeDialogueContext && activeDialogueContext.matchedLocation) {
+    focusCameraOnLocation(activeDialogueContext.matchedLocation);
+  }
+
+  renderDialogueMiniMap(Date.now());
 }
 
 function openModal(event, agentId, tick) {
@@ -1173,10 +1287,14 @@ function openModal(event, agentId, tick) {
     `;
   }).join('');
 
+  setActiveDialogueContext(agentId, tick);
   modal.style.display = 'block';
 }
 
 function closeModal() {
+  activeDialogueContext = null;
+  refreshDialogueSidebar();
+  renderDialogueMiniMap(Date.now());
   document.getElementById('dialogueModal').style.display = 'none';
 }
 
@@ -2679,6 +2797,8 @@ function renderLoop() {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  renderDialogueMiniMap(Date.now());
+
   if (!mapData || layerCanvases.length === 0) return;
 
   // 相机平滑追随逻辑 (阻尼移动)
@@ -3012,6 +3132,9 @@ function renderLoop() {
   // 2.7 绘制事件气泡
   drawEventBubbles(ctx);
 
+  // 2.8 绘制当前打开对话对应的地点标记
+  drawDialogueLocationMarker(ctx);
+
   // 3. 绘制地点名称 (当缩放到接近最小时)
   if (camera.zoom <= camera.minZoom * 1.2) {
     drawLocationLabels(ctx);
@@ -3062,6 +3185,172 @@ function drawLocationLabels(ctx) {
     ctx.fillText(loc.name, loc.x, loc.y);
     ctx.shadowBlur = 0;
   });
+}
+
+function drawAnimatedSignalMarker(ctx, markerX, markerY, options = {}) {
+  const now = options.now ?? Date.now();
+  const coreRadius = options.coreRadius ?? 8;
+  const ringRadius = options.ringRadius ?? 28;
+  const label = options.label || '';
+  const showLabel = !!options.showLabel;
+  const font = options.font || 'bold 16px "Noto Serif SC", serif';
+  const lineWidth = options.lineWidth ?? 2;
+  const crosshairWidth = options.crosshairWidth ?? lineWidth;
+
+  const waveA = (Math.sin(now / 260) + 1) / 2;
+  const waveB = (Math.sin(now / 420 + 1.4) + 1) / 2;
+
+  ctx.save();
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  ctx.beginPath();
+  ctx.fillStyle = `rgba(192, 57, 43, ${0.10 + waveA * 0.14})`;
+  ctx.arc(markerX, markerY, ringRadius * (1.45 + waveA * 0.35), 0, Math.PI * 2);
+  ctx.fill();
+
+  const ringConfigs = [
+    { radius: ringRadius * (0.95 + waveA * 0.28), alpha: 0.95, width: lineWidth * 1.2 },
+    { radius: ringRadius * (1.45 + waveB * 0.34), alpha: 0.52 - waveB * 0.16, width: lineWidth },
+    { radius: ringRadius * (1.95 + waveA * 0.42), alpha: 0.28 - waveA * 0.1, width: lineWidth * 0.9 }
+  ];
+
+  for (const ring of ringConfigs) {
+    if (ring.alpha <= 0) continue;
+    ctx.beginPath();
+    ctx.lineWidth = ring.width;
+    ctx.strokeStyle = `rgba(192, 57, 43, ${ring.alpha})`;
+    ctx.arc(markerX, markerY, ring.radius, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+
+  const crossGap = coreRadius * 1.7;
+  const crossLen = ringRadius * 0.9 + waveA * ringRadius * 0.25;
+  ctx.beginPath();
+  ctx.lineWidth = crosshairWidth;
+  ctx.strokeStyle = 'rgba(255, 248, 220, 0.95)';
+  ctx.moveTo(markerX - crossLen, markerY);
+  ctx.lineTo(markerX - crossGap, markerY);
+  ctx.moveTo(markerX + crossGap, markerY);
+  ctx.lineTo(markerX + crossLen, markerY);
+  ctx.moveTo(markerX, markerY - crossLen);
+  ctx.lineTo(markerX, markerY - crossGap);
+  ctx.moveTo(markerX, markerY + crossGap);
+  ctx.lineTo(markerX, markerY + crossLen);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.fillStyle = '#c0392b';
+  ctx.arc(markerX, markerY, coreRadius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.fillStyle = 'rgba(255, 248, 220, 0.96)';
+  ctx.arc(markerX, markerY, coreRadius * 0.38, 0, Math.PI * 2);
+  ctx.fill();
+
+  if (showLabel && label) {
+    const labelY = markerY - ringRadius * 1.55;
+    ctx.beginPath();
+    ctx.moveTo(markerX, markerY - coreRadius - 4 * (lineWidth / 2));
+    ctx.lineTo(markerX, labelY + ringRadius * 0.35);
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = 'rgba(192, 57, 43, 0.92)';
+    ctx.stroke();
+
+    ctx.font = font;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const textWidth = ctx.measureText(label).width;
+    const boxWidth = textWidth + ringRadius * 0.9;
+    const boxHeight = ringRadius * 0.95;
+
+    ctx.fillStyle = 'rgba(26, 20, 16, 0.9)';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(markerX - boxWidth / 2, labelY - boxHeight / 2, boxWidth, boxHeight, ringRadius * 0.22);
+      ctx.fill();
+    } else {
+      ctx.fillRect(markerX - boxWidth / 2, labelY - boxHeight / 2, boxWidth, boxHeight);
+    }
+
+    ctx.fillStyle = '#f7d794';
+    ctx.fillText(label, markerX, labelY);
+  }
+
+  ctx.restore();
+}
+
+function drawDialogueLocationMarker(ctx) {
+  if (!activeDialogueContext || !activeDialogueContext.matchedLocation || !mapData) return;
+
+  const loc = activeDialogueContext.matchedLocation;
+  const markerX = loc.x + mapData.tileWidth / 2;
+  const markerY = loc.y + mapData.tileHeight / 2;
+  const scaleUnit = 1 / camera.zoom;
+
+  drawAnimatedSignalMarker(ctx, markerX, markerY, {
+    now: Date.now(),
+    coreRadius: 8 * scaleUnit,
+    ringRadius: 32 * scaleUnit,
+    lineWidth: 2.8 * scaleUnit,
+    crosshairWidth: 2.4 * scaleUnit,
+    label: activeDialogueContext.displayName || loc.name,
+    showLabel: true,
+    font: `bold ${16 * scaleUnit}px "Noto Serif SC", serif`
+  });
+}
+
+function renderDialogueMiniMap(now = Date.now()) {
+  const canvas = document.getElementById('dialogueMiniMapCanvas');
+  if (!canvas) return;
+
+  const cssWidth = Math.max(canvas.clientWidth || 0, 1);
+  const cssHeight = Math.max(canvas.clientHeight || 0, 1);
+  const dpr = window.devicePixelRatio || 1;
+
+  if (canvas.width !== Math.round(cssWidth * dpr) || canvas.height !== Math.round(cssHeight * dpr)) {
+    canvas.width = Math.round(cssWidth * dpr);
+    canvas.height = Math.round(cssHeight * dpr);
+  }
+
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+  ctx.fillStyle = '#efe4d2';
+  ctx.fillRect(0, 0, cssWidth, cssHeight);
+
+  if (!mapData || !layerCanvases.length) return;
+
+  const scale = Math.min(cssHeight / mapData.pixelWidth, cssWidth / mapData.pixelHeight);
+  const drawWidth = mapData.pixelWidth * scale;
+  const drawHeight = mapData.pixelHeight * scale;
+  const drawX = (cssHeight - drawWidth) / 2;
+  const drawY = (cssWidth - drawHeight) / 2;
+
+  ctx.save();
+  ctx.translate(0, cssHeight);
+  ctx.rotate(-Math.PI / 2);
+
+  for (const layerCanvas of layerCanvases) {
+    ctx.drawImage(layerCanvas, 0, 0, mapData.pixelWidth, mapData.pixelHeight, drawX, drawY, drawWidth, drawHeight);
+  }
+
+  if (activeDialogueContext && activeDialogueContext.matchedLocation) {
+    const loc = activeDialogueContext.matchedLocation;
+    const markerX = drawX + loc.x * scale;
+    const markerY = drawY + loc.y * scale;
+    drawAnimatedSignalMarker(ctx, markerX, markerY, {
+      now,
+      coreRadius: 5.2,
+      ringRadius: 16,
+      lineWidth: 2,
+      crosshairWidth: 1.8
+    });
+  }
+
+  ctx.restore();
 }
 
 function drawTile(ctx, gid, x, y) {

@@ -837,6 +837,11 @@ body {
   animation: modalFadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+.dialogue-modal-content {
+  width: min(92vw, 1240px);
+  max-width: 1240px;
+}
+
 .modal-header {
   padding: 24px 36px;
   background: linear-gradient(90deg, var(--ink) 0%, var(--ink-light) 100%);
@@ -892,6 +897,124 @@ body {
   line-height: 2;
   background-image: linear-gradient(rgba(180,140,80,0.04) 1px, transparent 1px);
   background-size: 100% 2.4em;
+}
+
+.dialogue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  min-height: 460px;
+}
+
+.dialogue-body {
+  border-right: 1px solid var(--border);
+}
+
+.dialogue-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 24px;
+  background:
+    linear-gradient(180deg, rgba(38, 26, 18, 0.05) 0%, rgba(180, 140, 80, 0.08) 100%),
+    radial-gradient(circle at top, rgba(192, 57, 43, 0.08) 0%, transparent 52%);
+}
+
+.dialogue-side-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 2px;
+}
+
+.dream-thumbnail-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.dream-thumbnail-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dream-thumbnail-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #efe4d2;
+}
+
+.dream-thumbnail-frame-portrait {
+  height: min(72vh, 620px);
+  min-height: 500px;
+}
+
+.dream-thumbnail-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #efe4d2;
+}
+
+.dream-thumbnail-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(26,20,16,0.18) 100%);
+  pointer-events: none;
+}
+
+.dream-map-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 45%, rgba(26,20,16,0.12) 100%);
+  pointer-events: none;
+}
+
+.dream-location-overlay {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(26, 20, 16, 0.76);
+  color: var(--paper);
+  backdrop-filter: blur(6px);
+}
+
+.dream-location-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.75);
+}
+
+.dream-location-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: #f7d794;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+.dialogue-location-meta {
+  color: var(--ink-light);
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(192, 57, 43, 0.06);
+  border-left: 4px solid var(--vermillion);
 }
 
 .dialogue-line {
@@ -958,6 +1081,30 @@ body {
   text-align: right;
   font-style: italic;
   font-weight: bold;
+}
+
+@media (max-width: 960px) {
+  .dialogue-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dialogue-body {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dialogue-side-panel {
+    padding-top: 20px;
+  }
+
+  .dream-thumbnail-frame-portrait {
+    height: 440px;
+    min-height: 440px;
+  }
+
+  .dream-location-name {
+    font-size: 24px;
+  }
 }
 
 /* ===== Add Agent Form Styles ===== */

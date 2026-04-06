@@ -17,6 +17,18 @@ const translations = {
     "profile_title": "人物档案",
     "profile_empty": "请从左侧选择人物",
     "dialogue_title": "对话详录",
+    "dialogue_thumbnail_title": "红楼梦略缩图",
+    "dialogue_thumbnail_alt": "红楼梦场景略缩图",
+    "dialogue_thumbnail_badge": "大观园",
+    "dialogue_thumbnail_caption": "以大观园总图作为对话场景参照。",
+    "dialogue_location_title": "对话地点",
+    "dialogue_location_pending": "待定位",
+    "dialogue_location_hint": "打开对话后会在地图中以红点标记对应地点。",
+    "dialogue_location_marked": "地图已以红点标出该地点。",
+    "dialogue_location_unmatched": "已提取地点名，但暂未匹配到地图图层。",
+    "dialogue_location_unknown": "未能从该条记录中确定地点",
+    "dialogue_location_source_plan": "地点依据：该时辰计划",
+    "dialogue_location_source_current": "地点依据：当前所在位置",
     "add_agent_title": "添加新人物",
     "avatar_label": "角色头像",
     "avatar_preview_alt": "头像预览",
@@ -86,6 +98,18 @@ const translations = {
     "profile_title": "Character Profile",
     "profile_empty": "Please select a character from the left",
     "dialogue_title": "Dialogue Log",
+    "dialogue_thumbnail_title": "Red Chamber Thumbnail",
+    "dialogue_thumbnail_alt": "Dream of the Red Chamber scene thumbnail",
+    "dialogue_thumbnail_badge": "Grand View Garden",
+    "dialogue_thumbnail_caption": "Uses the Grand View Garden overview as the dialogue scene reference.",
+    "dialogue_location_title": "Dialogue Location",
+    "dialogue_location_pending": "Pending",
+    "dialogue_location_hint": "Opening a dialogue marks the related place on the map with a red dot.",
+    "dialogue_location_marked": "This place is marked on the map with a red dot.",
+    "dialogue_location_unmatched": "A location name was extracted, but it does not match any map layer yet.",
+    "dialogue_location_unknown": "Unable to determine the location from this record",
+    "dialogue_location_source_plan": "Source: scheduled location for this shichen",
+    "dialogue_location_source_current": "Source: current live location",
     "add_agent_title": "Add New Character",
     "avatar_label": "Avatar",
     "avatar_preview_alt": "Avatar Preview",
@@ -200,6 +224,7 @@ function updateI18nDOM() {
   if (typeof renderPresetButtons === 'function') renderPresetButtons();
   if (typeof renderManagePresetList === 'function') renderManagePresetList();
   if (typeof updateTickNavButtons === 'function') updateTickNavButtons();
+  if (typeof refreshDialogueSidebar === 'function') refreshDialogueSidebar();
   
   // Also translate time if displayed
   if (typeof currentTick !== 'undefined' && currentTick >= 0 && typeof tickToChineseDate === 'function') {
