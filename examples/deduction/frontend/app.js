@@ -1181,13 +1181,13 @@ function getDialogueLocationContext(agentId, tick) {
   const d = agentsData[agentId];
   if (!d) return null;
 
-  const hourlyPlan = getHourlyPlanForTick(d.hourly_plans, tick);
-  let rawLocation = Array.isArray(hourlyPlan) ? String(hourlyPlan[3] || '').trim() : '';
-  let sourceKey = rawLocation ? 'dialogue_location_source_plan' : '';
+  let rawLocation = '';
+  let sourceKey = '';
 
-  if (!rawLocation && Array.isArray(d.current_plan) && Number(d.current_tick) === Number(tick)) {
-    rawLocation = String(d.current_plan[3] || '').trim();
-    sourceKey = rawLocation ? 'dialogue_location_source_plan' : '';
+  // 仅在当前 tick 有明确实时位置时，才认为拿到了“实际执行地点”
+  if (Number(d.current_tick) === Number(tick) && d.current_location) {
+    rawLocation = String(d.current_location).trim();
+    sourceKey = rawLocation ? 'dialogue_location_source_current' : '';
   }
 
   const matchedLocation = findMapLocationByName(rawLocation);
@@ -1205,9 +1205,14 @@ function getDialogueLocationContext(agentId, tick) {
 function refreshDialogueSidebar() {
   const nameEl = document.getElementById('dialogueLocationName');
   const metaEl = document.getElementById('dialogueLocationMeta');
-  if (!nameEl || !metaEl) return;
+  const overlayEl = document.querySelector('.dream-location-overlay');
+  if (!nameEl || !metaEl || !overlayEl) return;
 
-  if (!activeDialogueContext) {
+  const hasActualLocation = !!(activeDialogueContext && activeDialogueContext.matchedLocation && activeDialogueContext.rawLocation);
+  overlayEl.classList.toggle('is-hidden', !hasActualLocation);
+  metaEl.classList.toggle('is-hidden', !hasActualLocation);
+
+  if (!activeDialogueContext || !hasActualLocation) {
     nameEl.textContent = t('dialogue_location_pending');
     metaEl.textContent = t('dialogue_location_hint');
     return;
@@ -1215,18 +1220,8 @@ function refreshDialogueSidebar() {
 
   nameEl.textContent = activeDialogueContext.displayName || t('dialogue_location_unknown');
 
-  if (activeDialogueContext.matchedLocation) {
-    const sourceText = activeDialogueContext.sourceKey ? ` ${t(activeDialogueContext.sourceKey)}` : '';
-    metaEl.textContent = `${t('dialogue_location_marked')}${sourceText}`;
-    return;
-  }
-
-  if (activeDialogueContext.rawLocation) {
-    metaEl.textContent = t('dialogue_location_unmatched');
-    return;
-  }
-
-  metaEl.textContent = t('dialogue_location_unknown');
+  const sourceText = activeDialogueContext.sourceKey ? ` ${t(activeDialogueContext.sourceKey)}` : '';
+  metaEl.textContent = `${t('dialogue_location_marked')}${sourceText}`;
 }
 
 function focusCameraOnLocation(location) {

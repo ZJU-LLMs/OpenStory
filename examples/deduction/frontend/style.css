@@ -993,6 +993,11 @@ body {
   backdrop-filter: blur(6px);
 }
 
+.dream-location-overlay.is-hidden,
+.dialogue-location-meta.is-hidden {
+  display: none;
+}
+
 .dream-location-label {
   font-size: 11px;
   letter-spacing: 2px;
