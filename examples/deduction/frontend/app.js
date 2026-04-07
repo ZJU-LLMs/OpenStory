@@ -13,6 +13,7 @@ let pendingTickData = null; // 缓存后端推理完成的数据，等待用户�
 let agentsWithNewAction = new Set(); // 有未读新行动的 agent，头顶显示感叹号
 let eventBubbles = []; // 当前 tick 的事件气泡列表 [{participants, text, createdAt}]
 let activeDialogueContext = null; // 当前打开的对话对应的地图地点与侧栏信息
+let activeDialogueReplay = null; // 当前地图上的自动循环对话回放状态
 
 let tickHistory = []; // 记录已经模拟的 tick 数据历史
 let currentHistoryIndex = -1; // 当前展示的历史索引
@@ -801,6 +802,8 @@ function buildEventBubbles() {
       createdAt: performance.now(),
     });
   }
+
+  syncAutoDialogueReplay();
 }
 
 // 推断角色当前状态文字，优先使用后端数据，兜底用前端移动状态
@@ -1265,6 +1268,122 @@ function getSpeakerAvatarSource(speakerName) {
   }
 
   return `../map/sprite/${speakerName}.png`;
+}
+
+function parseDialogueHistoryEntries(history) {
+  return (history || []).map(line => {
+    const rawLine = String(line || '');
+    const match = rawLine.match(/^(.+?)：(?:\[(.+?)\])?(.*)$/);
+    if (!match) {
+      return {
+        raw: rawLine,
+        speaker: '',
+        action: '',
+        text: rawLine.trim(),
+        speakerId: null
+      };
+    }
+
+    const [, speaker, action, text] = match;
+    return {
+      raw: rawLine,
+      speaker: String(speaker || '').trim(),
+      action: String(action || '').trim(),
+      text: String(text || '').trim(),
+      speakerId: findAgentIdBySpeakerName(speaker)
+    };
+  }).filter(entry => entry.text);
+}
+
+function createDialogueReplayScene({ sceneKey, agentId, tick, history, participantIds = [], lastSwitchAt = Date.now(), currentIndex = 0, intervalMs = 2600 }) {
+  const entries = parseDialogueHistoryEntries(history);
+  if (!entries.length) return null;
+
+  const resolvedParticipantIds = participantIds.length
+    ? [...new Set(participantIds.filter(Boolean))]
+    : [...new Set(entries.map(entry => entry.speakerId).filter(Boolean))];
+  if (!resolvedParticipantIds.length && agentId) {
+    resolvedParticipantIds.push(agentId);
+  }
+
+  return {
+    sceneKey,
+    agentId,
+    tick,
+    entries,
+    participantIds: resolvedParticipantIds,
+    currentIndex,
+    lastSwitchAt,
+    intervalMs
+  };
+}
+
+function getDialogueTickForAgent(agentId) {
+  const d = agentsData[agentId];
+  if (!d || !d.dialogues) return null;
+
+  if (currentTick !== null && currentTick !== undefined && d.dialogues[currentTick]) {
+    return currentTick;
+  }
+
+  const mems = d.short_term_memory;
+  const mem = mems && mems.length ? mems[mems.length - 1] : null;
+  if (mem && mem.tick !== null && d.dialogues[mem.tick]) {
+    return mem.tick;
+  }
+
+  return null;
+}
+
+function syncAutoDialogueReplay() {
+  const previousScenes = new Map((activeDialogueReplay?.scenes || []).map(scene => [scene.sceneKey, scene]));
+  const scenes = [];
+  const seen = new Set();
+  const now = Date.now();
+
+  for (const bubble of eventBubbles) {
+    if (!bubble.hasDialogue) continue;
+
+    const participantIds = [...new Set((bubble.participants || []).filter(Boolean))];
+    const candidates = [bubble.agentId, ...participantIds].filter(Boolean);
+
+    let sourceAgentId = null;
+    let dialogueTick = null;
+    let history = null;
+
+    for (const candidateId of candidates) {
+      const tick = getDialogueTickForAgent(candidateId);
+      const candidateHistory = tick !== null ? agentsData[candidateId]?.dialogues?.[tick] : null;
+      if (tick !== null && Array.isArray(candidateHistory) && candidateHistory.length) {
+        sourceAgentId = candidateId;
+        dialogueTick = tick;
+        history = candidateHistory;
+        break;
+      }
+    }
+
+    if (!sourceAgentId || dialogueTick === null || !history) continue;
+
+    const sceneKey = `${participantIds.slice().sort().join('|')}|${dialogueTick}`;
+    if (seen.has(sceneKey)) continue;
+    seen.add(sceneKey);
+
+    const prev = previousScenes.get(sceneKey);
+    const scene = createDialogueReplayScene({
+      sceneKey,
+      agentId: sourceAgentId,
+      tick: dialogueTick,
+      history,
+      participantIds,
+      currentIndex: prev ? prev.currentIndex % Math.max(parseDialogueHistoryEntries(history).length, 1) : 0,
+      lastSwitchAt: prev ? prev.lastSwitchAt : now + scenes.length * 500,
+      intervalMs: prev ? prev.intervalMs : 2600
+    });
+
+    if (scene) scenes.push(scene);
+  }
+
+  activeDialogueReplay = scenes.length ? { scenes } : null;
 }
 
 function setActiveDialogueSpeaker(speakerName) {
@@ -3259,7 +3378,10 @@ function renderLoop() {
   // 2.7 绘制事件气泡
   drawEventBubbles(ctx);
 
-  // 2.8 绘制当前打开对话对应的地点标记
+  // 2.8 绘制当前打开对话在地图上的循环气泡
+  drawDialogueReplayBubble(ctx, now);
+
+  // 2.9 绘制当前打开对话对应的地点标记
   drawDialogueLocationMarker(ctx);
 
   // 3. 绘制地点名称 (当缩放到接近最小时)
@@ -3617,6 +3739,136 @@ function drawEventBubbles(ctx) {
   }
 
   ctx.restore();
+}
+
+function drawDialogueReplayScene(ctx, replay, now = Date.now()) {
+  if (!replay || !mapData || !replay.entries.length) return;
+
+  if (now - replay.lastSwitchAt >= replay.intervalMs) {
+    replay.currentIndex = (replay.currentIndex + 1) % replay.entries.length;
+    replay.lastSwitchAt = now;
+  }
+
+  const entry = replay.entries[replay.currentIndex];
+  if (!entry) return;
+
+  const tileW = mapData.tileWidth;
+  const tileH = mapData.tileHeight;
+  const fontSize = Math.max(11, 14 / camera.zoom);
+  const nameSize = Math.max(10, 12 / camera.zoom);
+  const paddingX = 14 / camera.zoom;
+  const paddingY = 12 / camera.zoom;
+  const maxBubbleW = 220 / camera.zoom;
+  const lineH = fontSize * 1.35;
+  const cornerR = 10 / camera.zoom;
+  const pulse = (Math.sin(now / 260) + 1) / 2;
+
+  let anchor = null;
+  if (entry.speakerId && agentScreenPositions[entry.speakerId]) {
+    const pos = agentScreenPositions[entry.speakerId];
+    anchor = { x: pos.worldX + tileW / 2, y: pos.worldY + tileH - tileH * 2 };
+  }
+
+  if (!anchor && replay.participantIds.length) {
+    const anchors = replay.participantIds
+      .map(id => agentScreenPositions[id])
+      .filter(Boolean)
+      .map(pos => ({ x: pos.worldX + tileW / 2, y: pos.worldY + tileH - tileH * 2 }));
+    if (anchors.length === 1) {
+      anchor = anchors[0];
+    } else if (anchors.length > 1) {
+      anchor = {
+        x: anchors.reduce((sum, item) => sum + item.x, 0) / anchors.length,
+        y: anchors.reduce((sum, item) => sum + item.y, 0) / anchors.length
+      };
+    }
+  }
+
+  if (!anchor) return;
+
+  const displayText = entry.text.length > 28 ? entry.text.slice(0, 28) + '…' : entry.text;
+
+  ctx.save();
+  ctx.font = `${fontSize}px "ZCOOL XiaoWei", "Noto Serif SC", serif`;
+  const lines = wrapText(ctx, displayText, maxBubbleW - paddingX * 2);
+  ctx.font = `bold ${nameSize}px "Noto Serif SC", serif`;
+  const speakerLabel = entry.speaker || '对话';
+  const speakerWidth = ctx.measureText(speakerLabel).width;
+  ctx.font = `${fontSize}px "ZCOOL XiaoWei", "Noto Serif SC", serif`;
+
+  const contentWidth = Math.max(
+    ...lines.map(line => ctx.measureText(line).width),
+    speakerWidth + 28 / camera.zoom
+  );
+  const bubbleW = Math.min(maxBubbleW, contentWidth + paddingX * 2);
+  const bubbleH = paddingY * 2 + lines.length * lineH + nameSize + 12 / camera.zoom;
+  const bx = anchor.x - bubbleW / 2;
+  const by = anchor.y - bubbleH - 52 / camera.zoom;
+  const tailX = anchor.x;
+  const tailTopY = by + bubbleH - 2 / camera.zoom;
+  const tailTipY = anchor.y - 8 / camera.zoom;
+
+  ctx.beginPath();
+  ctx.moveTo(tailX - 10 / camera.zoom, tailTopY);
+  ctx.lineTo(tailX, tailTipY);
+  ctx.lineTo(tailX + 10 / camera.zoom, tailTopY);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(36, 22, 12, 0.9)';
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(bx + cornerR, by);
+  ctx.lineTo(bx + bubbleW - cornerR, by);
+  ctx.arcTo(bx + bubbleW, by, bx + bubbleW, by + cornerR, cornerR);
+  ctx.lineTo(bx + bubbleW, by + bubbleH - cornerR);
+  ctx.arcTo(bx + bubbleW, by + bubbleH, bx + bubbleW - cornerR, by + bubbleH, cornerR);
+  ctx.lineTo(bx + cornerR, by + bubbleH);
+  ctx.arcTo(bx, by + bubbleH, bx, by + bubbleH - cornerR, cornerR);
+  ctx.lineTo(bx, by + cornerR);
+  ctx.arcTo(bx, by, bx + cornerR, by, cornerR);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(36, 22, 12, 0.9)';
+  ctx.shadowColor = 'rgba(0,0,0,0.42)';
+  ctx.shadowBlur = 16 / camera.zoom;
+  ctx.fill();
+  ctx.shadowBlur = 0;
+
+  ctx.strokeStyle = `rgba(210, 168, 84, ${0.75 + pulse * 0.2})`;
+  ctx.lineWidth = 1.4 / camera.zoom;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(bx + 12 / camera.zoom, by + 26 / camera.zoom);
+  ctx.lineTo(bx + bubbleW - 12 / camera.zoom, by + 26 / camera.zoom);
+  ctx.strokeStyle = 'rgba(210, 168, 84, 0.34)';
+  ctx.lineWidth = 1 / camera.zoom;
+  ctx.stroke();
+
+  ctx.font = `bold ${nameSize}px "Noto Serif SC", serif`;
+  ctx.fillStyle = '#f7d794';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  ctx.fillText(speakerLabel, anchor.x, by + 8 / camera.zoom);
+
+  ctx.font = `${fontSize}px "ZCOOL XiaoWei", "Noto Serif SC", serif`;
+  ctx.fillStyle = 'rgba(255, 244, 220, 0.97)';
+  lines.forEach((line, i) => {
+    ctx.fillText(line, anchor.x, by + 18 / camera.zoom + nameSize + i * lineH);
+  });
+
+  ctx.beginPath();
+  ctx.arc(anchor.x, anchor.y - 2 / camera.zoom, (9 + pulse * 3) / camera.zoom, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(255, 210, 120, ${0.08 + pulse * 0.08})`;
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawDialogueReplayBubble(ctx, now = Date.now()) {
+  if (!activeDialogueReplay || !mapData || !Array.isArray(activeDialogueReplay.scenes)) return;
+
+  for (const scene of activeDialogueReplay.scenes) {
+    drawDialogueReplayScene(ctx, scene, now);
+  }
 }
 
 // 将鼠标事件坐标转换为世界坐标
