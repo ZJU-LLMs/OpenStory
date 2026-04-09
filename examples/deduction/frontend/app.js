@@ -358,6 +358,14 @@ function connect() {
 
         document.getElementById('startTickBtn').disabled = true;
         document.getElementById('applyTickBtn').disabled = false;
+
+        // 推演完成，更新状态文本提示用户可以开始模拟
+        const statusTxt = document.getElementById('statusText');
+        if (statusTxt) statusTxt.textContent = '推演完成';
+        const statusDot = document.getElementById('statusDot');
+        if (statusDot) {
+          statusDot.className = 'status-dot connected';
+        }
       } else if (msg.type === 'add_agent_response') {
         // 处理添加人物的响应
         handleAddAgentResponse(msg);

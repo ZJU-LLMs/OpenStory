@@ -1,6 +1,6 @@
 - name: OpenAIProvider
-  model: qwen3.5-flash
-  api_key: 
-  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: deepseek-chat
+  api_key: sk-8491d1e1ab684f0eb40ee31d864e8c31
+  base_url: https://api.deepseek.com/v1
   capabilities:
   - chat
