@@ -87,3 +87,5 @@ In the `configs/` directory, you can customize the deduction rules:
 
 If you need to modify or regenerate the character data of *Dream of the Red Chamber*, you can refer to the generation scripts in the `data/raw/` directory. For example:
 - `profile_generator.py`: Filters surviving characters based on `database.jsonl` and generates unique encoded IDs and basic profiles.
+
+[LINUX.DO](https://linux.do)
