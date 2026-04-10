@@ -1,4 +1,4 @@
-'python -m examples.deduction.run_simulation'
+'python -m examples.deduction_en.run_simulation'
 # http://localhost:8000/frontend/index.html
 import os
 import sys

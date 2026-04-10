@@ -507,3 +507,13 @@ ValueError: Adapter 'RedisKVAdapter' not found in resource_maps for plugin 'Basi
 2026-04-08 22:33:39 | INFO     | PID:530144 | __main__:main:215 - 【Performance】-----------------------------------------
 2026-04-08 22:33:39 | INFO     | PID:530144 | __main__:main:216 - 【System】Tick 2 data broadcasted to frontend.
 2026-04-08 22:33:39 | INFO     | PID:530144 | __main__:main:161 - 【System】Waiting for frontend signal to start Tick 3...
+2026-04-10 14:36:12 | INFO     | PID:485708 | __main__:main:65 - 【System】Project path set to D:\Research\OpenStory\examples\deduction_en.
+2026-04-10 14:36:12 | INFO     | PID:485708 | __main__:main:71 - 【System】Loaded 50 locations from map.
+2026-04-10 14:36:12 | INFO     | PID:485708 | __main__:main:103 - 【System】Init Ray with runtime env: {'working_dir': 'D:\\Research\\OpenStory\\examples\\deduction_en', 'env_vars': {'MAS_EVENT_LOG_DIR': 'D:\\Research\\OpenStory\\examples\\deduction_en', 'PYTHONPATH': 'D:\\Research\\OpenStory;D:\\Research\\OpenStory\\packages\\agentkernel-distributed;D:\\Research\\OpenStory\\packages\\agentkernel-standalone'}, 'excludes': ['*.pyc', '__pycache__', 'docs', 'info_extraction']}.
+2026-04-10 14:36:50 | INFO     | PID:485708 | __main__:main:107 - 【System】Ray is initialized.
+2026-04-10 14:36:50 | INFO     | PID:485708 | __main__:main:110 - 【System】Initialize the builder...
+2026-04-10 14:36:50 | INFO     | PID:485708 | __main__:main:117 - 【System】Start all the simulation components...
+2026-04-10 14:37:00 | INFO     | PID:485708 | __main__:main:153 - 【System】API Server started at http://0.0.0.0:8000
+2026-04-10 14:37:00 | INFO     | PID:485708 | __main__:main:161 - 【System】Waiting for frontend signal to start Tick 0...
+2026-04-10 15:15:46 | ERROR    | PID:485708 | __main__:main:235 - 【System】Failed to run the simulation: The actor 13e37504fd65a7382e88077901000000 is unavailable: The actor is temporarily unavailable: RpcError: RPC Error message: Connection reset; RPC Error details:  rpc_code: 14. The task may or may not have been executed on the actor..
+2026-04-10 15:15:50 | INFO     | PID:485708 | __main__:<module>:257 - 【System】Simulation ended.

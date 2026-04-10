@@ -1,4 +1,4 @@
-/* ===== OmniStory · app.js (English Version with Bi-Directional Translator) ===== */
+/* ===== OpenStory · app.js (English Version + Latest Features Merged) ===== */
 
 const WS_URL = 'ws://localhost:8000/ws';
 const HOURS_DISPLAY = ['23:00', '01:00', '03:00', '05:00', '07:00', '09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'];
@@ -79,7 +79,7 @@ function t_rev_name(enName) {
   for (const [cn, en] of Object.entries(EN_NAMES)) {
     if (en.toLowerCase() === lowerEn) return cn;
   }
-  return enName; // 找不到对应的就原样返回
+  return enName;
 }
 
 function t_rev_loc(enLoc) {
@@ -88,7 +88,7 @@ function t_rev_loc(enLoc) {
   for (const [cn, en] of Object.entries(EN_LOCATIONS)) {
     if (en.toLowerCase() === lowerEn) return cn;
   }
-  return enLoc; // 找不到对应的就原样返回
+  return enLoc;
 }
 // ==========================================
 
@@ -352,7 +352,8 @@ function tickToEnglishDate(tick) {
   const period = hour >= 12 ? 'PM' : 'AM';
   let displayHour = hour % 12;
   if (displayHour === 0) displayHour = 12;
-  return `Year ${year}, M${month}-D${day} | ${displayHour}:00 ${period}`;
+  // Use '|' so the overlay logic can split it perfectly into beautiful lines
+  return `Year ${year} | M${month}-D${day} | ${displayHour}:00 ${period}`;
 }
 
 let citizens = []; 
@@ -539,7 +540,8 @@ function applyPendingTick() {
   const textEl = document.getElementById('timeTransitionText');
   
   if (overlay && textEl && timeString) {
-    const parts = timeString.split('|');
+    // 👇 修改的地方在这里：使用带空格的坚杠切割，去除多余空格
+    const parts = timeString.split(' | ');
     textEl.innerHTML = parts.join('<br/>');
     overlay.classList.add('active');
     setTimeout(() => {
@@ -769,6 +771,7 @@ function openModal(event, agentId, tick) {
   else { summaryEl.style.display = 'none'; }
   
   content.innerHTML = history.map(line => {
+    // We preserve the new regex splitting for colored dialogues, and wrap the translation securely!
     const match = line.match(/^(.+?)：(?:\[(.+?)\])?(.*)$/);
     if (!match) return `<div class="dialogue-line">${escHtml(t_text(line))}</div>`;
     const [_, speaker, action, text] = match;
@@ -776,7 +779,7 @@ function openModal(event, agentId, tick) {
       <div class="dialogue-line">
         <span class="dialogue-speaker">${escHtml(t_name(speaker))}</span> 
         ${action ? `<span class="dialogue-action">[${escHtml(t_text(action))}]</span>` : ''}
-        <span class="dialogue-text">${escHtml(text)}</span>
+        <span class="dialogue-text">${escHtml(t_text(text))}</span>
       </div>
     `;
   }).join('');
@@ -898,7 +901,7 @@ function renderDetail(id) {
 
 function renderSetPlan(id) {
   return `<section class="info-section">
-    <div class="section-title"><span class="section-icon">❖</span>Assign Task (Next Tick)</div>
+    <div class="section-title"><span class="section-icon">命</span>Assign Task (Next Tick)</div>
     <div class="set-plan-box">
       <div class="form-group" style="margin-bottom:8px">
         <input type="text" id="customPlanAction_${id}" placeholder="Action (e.g. Garden Tour)" style="width:100%; padding:6px; font-family: inherit; background: rgba(255,255,255,0.85); border: 1px solid rgba(207,168,94,0.4); color: #1a1410; border-radius: 4px; box-sizing: border-box;" />
@@ -912,7 +915,6 @@ function renderSetPlan(id) {
   </section>`;
 }
 
-// 🌟 REVERSE TRANSLATION FOR USER INPUTS 🌟
 function sendCustomPlan(id) {
   const action = document.getElementById(`customPlanAction_${id}`).value.trim();
   const rawLocation = document.getElementById(`customPlanLocation_${id}`).value.trim();
@@ -943,7 +945,7 @@ function renderProfile(profile) {
     return `<div class="profile-item"><span class="profile-label">${f.label}: </span><span class="profile-value">${escHtml(t_text(val))}</span></div>`;
   }).join('');
   return `<section class="info-section">
-    <div class="section-title"><span class="section-icon">❖</span>Profile</div>
+    <div class="section-title"><span class="section-icon">志</span>Profile</div>
     <div class="profile-grid">${items}</div>
     ${profile['背景经历'] ? `<div class="profile-bio"><strong>Background: </strong>${escHtml(t_text(profile['背景经历']))}</div>` : ''}
   </section>`;
@@ -964,7 +966,7 @@ function renderExperiences(dialogues, shortTermMemory, agentId) {
   return `<section class="info-section"><div class="section-title">Experiences</div><div class="experience-list">${items}</div></section>`;
 }
 
-function renderLongTask(task) { return `<section class="info-section"><div class="section-title"><span class="section-icon">❖</span>Long-Term Goal</div><div class="long-task-box">${task ? escHtml(t_text(task)) : '<span class="empty-text">No long-term goal.</span>'}</div></section>`; }
+function renderLongTask(task) { return `<section class="info-section"><div class="section-title"><span class="section-icon">志</span>Long-Term Goal</div><div class="long-task-box">${task ? escHtml(t_text(task)) : '<span class="empty-text">No long-term goal.</span>'}</div></section>`; }
 
 function renderCurrentPlan(plan, actionDetail, occupiedBy, dialogues, agentId, planNote, tick) {
   let content = '';
@@ -994,7 +996,7 @@ function renderCurrentPlan(plan, actionDetail, occupiedBy, dialogues, agentId, p
   } else if (actionDetail || typeof plan === 'string') {
     content = `<div class="${clickableClass}" onclick="openModal(event, '${agentId.replace(/'/g, "\\'")}', ${tick})">${escHtml(t_text(actionDetail || plan))} ${noteHtml} ${dialogueHint}</div>`;
   } else { content = `<pre>${escHtml(JSON.stringify(plan, null, 2))}</pre>`; }
-  return `<section class="info-section"><div class="section-title"><span class="section-icon">❖</span>Current Action</div><div class="current-plan-box">${content}</div></section>`;
+  return `<section class="info-section"><div class="section-title"><span class="section-icon">行</span>Current Action</div><div class="current-plan-box">${content}</div></section>`;
 }
 
 function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, currentPlanNote, tick) {
@@ -1043,10 +1045,11 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
 }
 
 function renderMemory(title, memories, type) {
-  if (!memories || !memories.length) { return `<section class="info-section"><div class="section-title"><span class="section-icon">❖</span>${title}</div><div class="empty-text" style="padding:12px 0">No records.</div></section>`; }
+  const icon = type === 'short' ? '念' : '忆';
+  if (!memories || !memories.length) { return `<section class="info-section"><div class="section-title"><span class="section-icon">${icon}</span>${title}</div><div class="empty-text" style="padding:12px 0">No records.</div></section>`; }
   const sorted = [...memories].sort((a, b) => (b.tick ?? 0) - (a.tick ?? 0));
   const items = sorted.map(m => `<div class="memory-card ${type}-memory"><span class="memory-tick">Tick ${m.tick ?? '?'}</span><div class="memory-content">${escHtml(t_text(m.content ?? ''))}</div></div>`).join('');
-  return `<section class="info-section"><div class="section-title"><span class="section-icon">❖</span>${title}</div><div class="memory-list">${items}</div></section>`;
+  return `<section class="info-section"><div class="section-title"><span class="section-icon">${icon}</span>${title}</div><div class="memory-list">${items}</div></section>`;
 }
 
 function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -1547,48 +1550,59 @@ function wrapText(ctx, text, maxWidth) {
 
 function drawEventBubbles(ctx) {
   if (!eventBubbles.length || !mapData) return;
+  const tileW = mapData.tileWidth; const tileH = mapData.tileHeight;
   const fontSize = Math.max(11, 13 / camera.zoom); const padding = 10 / camera.zoom; const maxBubbleW = 160 / camera.zoom; const lineH = fontSize * 1.4; const cornerR = 6 / camera.zoom;
   ctx.save(); ctx.font = `${fontSize}px "ZCOOL XiaoWei", sans-serif`;
   for (const bubble of eventBubbles) {
     const posA = agentScreenPositions[bubble.participants[0]]; const posB = agentScreenPositions[bubble.participants[1]];
-    const anchorA = posA ? { x: posA.worldX + mapData.tileWidth / 2, y: posA.worldY - mapData.tileHeight } : null;
-    const anchorB = posB ? { x: posB.worldX + mapData.tileWidth / 2, y: posB.worldY - mapData.tileHeight } : null;
+    const anchorA = posA ? { x: posA.worldX + tileW / 2, y: posA.worldY + tileH - tileH * 2 } : null;
+    const anchorB = posB ? { x: posB.worldX + tileW / 2, y: posB.worldY + tileH - tileH * 2 } : null;
     if (!anchorA && !anchorB) continue;
-    let cx = anchorA && anchorB ? (anchorA.x + anchorB.x) / 2 : (anchorA || anchorB).x;
-    let cy = (anchorA && anchorB ? (anchorA.y + anchorB.y) / 2 : (anchorA || anchorB).y) - 40 / camera.zoom;
+    let cx, cy;
+    if (anchorA && anchorB) { cx = (anchorA.x + anchorB.x) / 2; cy = (anchorA.y + anchorB.y) / 2 - 40 / camera.zoom; } 
+    else { const anchor = anchorA || anchorB; cx = anchor.x; cy = anchor.y - 40 / camera.zoom; }
+    
     const displayText = bubble.text.length > 12 ? bubble.text.slice(0, 12) + '...' : bubble.text;
     const lines = wrapText(ctx, displayText, maxBubbleW - padding * 2);
-    const bubbleH = lines.length * lineH + padding * 2; const bx = cx - maxBubbleW / 2; const by = cy - bubbleH / 2;
+    const bubbleW = maxBubbleW; const bubbleH = lines.length * lineH + padding * 2; const bx = cx - bubbleW / 2; const by = cy - bubbleH / 2;
     
     ctx.strokeStyle = 'rgba(200,180,120,0.55)'; ctx.lineWidth = 1.2 / camera.zoom; ctx.setLineDash([4 / camera.zoom, 3 / camera.zoom]);
-    if (anchorA) { ctx.beginPath(); ctx.moveTo(cx, by + bubbleH); ctx.lineTo(anchorA.x, anchorA.y); ctx.stroke(); }
-    if (anchorB) { ctx.beginPath(); ctx.moveTo(cx, by + bubbleH); ctx.lineTo(anchorB.x, anchorB.y); ctx.stroke(); }
+    const bubbleBottomX = cx; const bubbleBottomY = by + bubbleH;
+    if (anchorA) { ctx.beginPath(); ctx.moveTo(bubbleBottomX, bubbleBottomY); ctx.lineTo(anchorA.x, anchorA.y); ctx.stroke(); }
+    if (anchorB) { ctx.beginPath(); ctx.moveTo(bubbleBottomX, bubbleBottomY); ctx.lineTo(anchorB.x, anchorB.y); ctx.stroke(); }
     ctx.setLineDash([]);
-    ctx.fillStyle = bubble.hasDialogue ? 'rgba(30, 20, 10, 0.82)' : 'rgba(60, 55, 45, 0.82)';
-    ctx.fillRect(bx, by, maxBubbleW, bubbleH);
-    ctx.strokeStyle = bubble.hasDialogue ? 'rgba(200,170,90,0.7)' : 'rgba(160,155,140,0.7)'; ctx.strokeRect(bx, by, maxBubbleW, bubbleH);
-    bubble._rect = { bx, by, bw: maxBubbleW, bh: bubbleH };
+    
+    ctx.beginPath(); ctx.moveTo(bx + cornerR, by); ctx.lineTo(bx + bubbleW - cornerR, by); ctx.arcTo(bx + bubbleW, by, bx + bubbleW, by + cornerR, cornerR); ctx.lineTo(bx + bubbleW, by + bubbleH - cornerR); ctx.arcTo(bx + bubbleW, by + bubbleH, bx + bubbleW - cornerR, by + bubbleH, cornerR); ctx.lineTo(bx + cornerR, by + bubbleH); ctx.arcTo(bx, by + bubbleH, bx, by + bubbleH - cornerR, cornerR); ctx.lineTo(bx, by + cornerR); ctx.arcTo(bx, by, bx + cornerR, by, cornerR); ctx.closePath();
+    ctx.fillStyle = bubble.hasDialogue ? 'rgba(30, 20, 10, 0.82)' : 'rgba(60, 55, 45, 0.82)'; ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 8 / camera.zoom; ctx.fill(); ctx.shadowBlur = 0; ctx.strokeStyle = bubble.hasDialogue ? 'rgba(200,170,90,0.7)' : 'rgba(160,155,140,0.7)'; ctx.lineWidth = 1 / camera.zoom; ctx.stroke();
+    
+    bubble._rect = { bx, by, bw: bubbleW, bh: bubbleH };
     ctx.fillStyle = bubble.hasDialogue ? 'rgba(240,220,170,0.95)' : 'rgba(190,185,175,0.95)'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-    lines.forEach((line, i) => ctx.fillText(line, cx, by + padding + i * lineH)); ctx.textBaseline = 'alphabetic';
+    lines.forEach((line, i) => { ctx.fillText(line, cx, by + padding + i * lineH); }); ctx.textBaseline = 'alphabetic';
   }
   ctx.restore();
 }
 
 function screenToWorld(e, canvas) {
   const rect = canvas.getBoundingClientRect();
-  return { worldX: (e.clientX - rect.left - canvas.width / 2) / camera.zoom + camera.x, worldY: (e.clientY - rect.top - canvas.height / 2) / camera.zoom + camera.y };
+  const sx = e.clientX - rect.left; const sy = e.clientY - rect.top;
+  const worldX = (sx - canvas.width / 2) / camera.zoom + camera.x;
+  const worldY = (sy - canvas.height / 2) / camera.zoom + camera.y;
+  return { worldX, worldY };
 }
 
 function handleCanvasClick(e, canvas) {
   const { worldX, worldY } = screenToWorld(e, canvas);
+  const tileW = mapData ? mapData.tileWidth : 32; const tileH = mapData ? mapData.tileHeight : 32;
   for (const bubble of eventBubbles) {
     const r = bubble._rect;
-    if (r && bubble.hasDialogue && worldX >= r.bx && worldX <= r.bx + r.bw && worldY >= r.by && worldY <= r.by + r.bh) { openBubbleModal(bubble); return; }
+    if (!r || !bubble.hasDialogue) continue;
+    if (worldX >= r.bx && worldX <= r.bx + r.bw && worldY >= r.by && worldY <= r.by + r.bh) { openBubbleModal(bubble); return; }
   }
-  let hitId = null; let hitDist = Infinity;
+  const hitRadius = tileH * 1.5; let hitId = null; let hitDist = Infinity;
   for (const [id, pos] of Object.entries(agentScreenPositions)) {
-    const dist = Math.hypot(worldX - (pos.worldX + (mapData ? mapData.tileWidth : 32) / 2), worldY - (pos.worldY + (mapData ? mapData.tileHeight : 32) / 2));
-    if (dist < 48 && dist < hitDist) { hitDist = dist; hitId = id; }
+    const cx = pos.worldX + tileW / 2; const cy = pos.worldY + tileH / 2;
+    const dist = Math.hypot(worldX - cx, worldY - cy);
+    if (dist < hitRadius && dist < hitDist) { hitDist = dist; hitId = id; }
   }
   if (hitId) selectAgent(hitId);
 }
@@ -1597,19 +1611,22 @@ function drawAgentOnMap(ctx, id, x, y, facingLeft = false, isNpc = false) {
   let name, sprite, isActive;
   if (isNpc) { name = 'Servant'; sprite = agentSprites['小厮']; isActive = true; }
   else {
-    name = formatAgentName(id); // name is raw Chinese, e.g. "贾宝玉"
+    name = formatAgentName(id);
     const customAvatar = customAgentAvatars[id];
-    sprite = customAvatar && customAvatar.type === 'custom' ? agentSprites[id] : agentSprites[name];
+    if (customAvatar && customAvatar.type === 'custom') {
+      sprite = agentSprites[id];
+      if (!sprite) { sprite = new Image(); sprite.src = customAvatar.source; agentSprites[id] = sprite; }
+    } else { sprite = agentSprites[name]; }
     isActive = agentsData[id] && agentsData[id].is_active !== false;
   }
   
-  const targetHeight = mapData.tileHeight * 2;
+  const targetHeight = mapData.tileHeight * 2; let drawW, drawH;
   if (sprite && sprite.complete && sprite.naturalWidth > 0) {
-    const drawW = targetHeight * (sprite.naturalWidth / sprite.naturalHeight);
-    const drawX = x + mapData.tileWidth / 2 - drawW / 2; const drawY = y + mapData.tileHeight - targetHeight;
-    if (facingLeft) { ctx.save(); ctx.translate(drawX + drawW / 2, drawY); ctx.scale(-1, 1); ctx.drawImage(sprite, -drawW / 2, 0, drawW, targetHeight); ctx.restore(); }
-    else ctx.drawImage(sprite, drawX, drawY, drawW, targetHeight);
-    if (selectedAgent === id) { ctx.strokeStyle = '#f1c40f'; ctx.lineWidth = 3 / camera.zoom; ctx.strokeRect(drawX - 2, drawY - 2, drawW + 4, targetHeight + 4); }
+    const aspectRatio = sprite.naturalWidth / sprite.naturalHeight; drawH = targetHeight; drawW = targetHeight * aspectRatio;
+    const drawX = x + mapData.tileWidth / 2 - drawW / 2; const drawY = y + mapData.tileHeight - drawH;
+    if (facingLeft) { ctx.save(); ctx.translate(drawX + drawW / 2, drawY); ctx.scale(-1, 1); ctx.drawImage(sprite, -drawW / 2, 0, drawW, drawH); ctx.restore(); }
+    else { ctx.drawImage(sprite, drawX, drawY, drawW, drawH); }
+    if (selectedAgent === id) { ctx.strokeStyle = '#f1c40f'; ctx.lineWidth = 3 / camera.zoom; ctx.strokeRect(drawX - 2, drawY - 2, drawW + 4, drawH + 4); }
   } else {
     ctx.beginPath(); ctx.arc(x + mapData.tileWidth / 2, y + mapData.tileHeight / 2, 10, 0, Math.PI * 2);
     ctx.fillStyle = selectedAgent === id ? '#f1c40f' : (isActive ? '#e74c3c' : '#777'); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2 / camera.zoom; ctx.stroke();
@@ -1618,33 +1635,40 @@ function drawAgentOnMap(ctx, id, x, y, facingLeft = false, isNpc = false) {
   if (!isNpc) {
     agentScreenPositions[id] = { worldX: x, worldY: y };
     if (agentsWithNewAction.has(id)) {
-      const cx = x + mapData.tileWidth / 2; const badgeY = y - 10 / camera.zoom;
-      ctx.beginPath(); ctx.arc(cx, badgeY, Math.max(8, 10 / camera.zoom), 0, Math.PI * 2); ctx.fillStyle = '#ffffff'; ctx.fill(); ctx.strokeStyle = '#111'; ctx.stroke();
-      ctx.font = `bold ${Math.max(10, 12 / camera.zoom)}px sans-serif`; ctx.fillStyle = '#111'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('!', cx, badgeY); ctx.textBaseline = 'alphabetic';
+      const spriteTop = (sprite && sprite.complete && sprite.naturalWidth > 0) ? (y + mapData.tileHeight - targetHeight) : (y + mapData.tileHeight / 2 - 10);
+      const cx = x + mapData.tileWidth / 2; const badgeR = Math.max(8, 10 / camera.zoom); const badgeY = spriteTop - badgeR - 4 / camera.zoom;
+      ctx.save(); ctx.beginPath(); ctx.arc(cx, badgeY, badgeR, 0, Math.PI * 2); ctx.fillStyle = '#ffffff'; ctx.shadowColor = 'rgba(0,0,0,0.35)'; ctx.shadowBlur = 5 / camera.zoom; ctx.shadowOffsetY = 2 / camera.zoom; ctx.fill(); ctx.shadowBlur = 0; ctx.shadowOffsetY = 0; ctx.strokeStyle = '#111'; ctx.lineWidth = 1.5 / camera.zoom; ctx.stroke();
+      const excFontSize = Math.max(10, 12 / camera.zoom); ctx.font = `bold ${excFontSize}px sans-serif`; ctx.fillStyle = '#111'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('!', cx, badgeY); ctx.textBaseline = 'alphabetic'; ctx.restore();
     }
-    // 🌟 Translated Map Character Name 🌟
-    ctx.font = `bold ${Math.max(12, 14 / camera.zoom)}px "ZCOOL XiaoWei"`; ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; 
-    ctx.fillText(t_name(name), x + mapData.tileWidth / 2, y + mapData.tileHeight + 25 / camera.zoom);
+    const fontSize = Math.max(12, 14 / camera.zoom);
+    ctx.font = `bold ${fontSize}px "ZCOOL XiaoWei"`; ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 4 / camera.zoom;
+    const labelY = (sprite && sprite.complete) ? (y + mapData.tileHeight + 15 / camera.zoom) : (y + mapData.tileHeight + 25 / camera.zoom);
+    ctx.fillText(t_name(name), x + mapData.tileWidth / 2, labelY); ctx.shadowBlur = 0;
   }
 }
 
 function spawnCitizen() {
   if (!mapData || citizens.length >= MAX_CITIZENS) return;
+  const side = Math.random() < 0.5 ? 'left' : 'right';
+  const col = side === 'left' ? Math.floor(Math.random() * 5) : mapData.width - 1 - Math.floor(Math.random() * 5);
   const goingDown = Math.random() < 0.5;
-  citizens.push({ id: `cit_${Date.now()}_${Math.random()}`, spriteName: citizenSpriteNames[Math.floor(Math.random() * citizenSpriteNames.length)], currentX: (Math.random() < 0.5 ? Math.floor(Math.random() * 5) : mapData.width - 1 - Math.floor(Math.random() * 5)) * mapData.tileWidth, currentY: (goingDown ? 0 : mapData.height - 1) * mapData.tileHeight, targetY: (goingDown ? mapData.height - 1 : 0) * mapData.tileHeight, speed: 0.8 + Math.random() * 0.8, facingLeft: Math.random() < 0.5, done: false });
+  const startRow = goingDown ? 0 : mapData.height - 1; const endRow = goingDown ? mapData.height - 1 : 0;
+  const spriteName = citizenSpriteNames[Math.floor(Math.random() * citizenSpriteNames.length)];
+  const speed = 0.8 + Math.random() * 0.8;
+  citizens.push({ id: `citizen_${Date.now()}_${Math.random()}`, spriteName, currentX: col * mapData.tileWidth, currentY: startRow * mapData.tileHeight, targetY: endRow * mapData.tileHeight, speed, facingLeft: Math.random() < 0.5, done: false });
 }
 
 function updateAndDrawCitizens(ctx, now) {
-  if (now - lastCitizenSpawnTime > CITIZEN_SPAWN_INTERVAL) { lastCitizenSpawnTime = now; for (let i = 0; i < Math.floor(Math.random() * 2) + 1; i++) spawnCitizen(); }
+  if (now - lastCitizenSpawnTime > CITIZEN_SPAWN_INTERVAL) { lastCitizenSpawnTime = now; const count = Math.floor(Math.random() * 2) + 1; for (let i = 0; i < count; i++) spawnCitizen(); }
   citizens = citizens.filter(c => !c.done);
   citizens.forEach(c => {
-    const dy = c.targetY - c.currentY; if (Math.abs(dy) < 2) { c.done = true; return; } c.currentY += (dy > 0 ? 1 : -1) * Math.min(c.speed, Math.abs(dy));
+    const dy = c.targetY - c.currentY; const dist = Math.abs(dy); if (dist < 2) { c.done = true; return; } c.currentY += (dy > 0 ? 1 : -1) * Math.min(c.speed, dist);
     const vw = ctx.canvas.width / camera.zoom; const vh = ctx.canvas.height / camera.zoom; const viewLeft = camera.x - vw / 2; const viewTop = camera.y - vh / 2;
     if (c.currentX < viewLeft - 100 || c.currentX > viewLeft + vw + 100 || c.currentY < viewTop - 100 || c.currentY > viewTop + vh + 100) return;
-    const sprite = agentSprites[c.spriteName];
+    const sprite = agentSprites[c.spriteName]; const targetHeight = mapData.tileHeight * 2;
     if (sprite && sprite.complete && sprite.naturalWidth > 0) {
-      const drawH = mapData.tileHeight * 2; const drawW = drawH * (sprite.naturalWidth / sprite.naturalHeight); const drawX = c.currentX + mapData.tileWidth / 2 - drawW / 2; const drawY = c.currentY + mapData.tileHeight - drawH;
-      if (c.facingLeft) { ctx.save(); ctx.translate(drawX + drawW / 2, drawY); ctx.scale(-1, 1); ctx.drawImage(sprite, -drawW / 2, 0, drawW, drawH); ctx.restore(); } else ctx.drawImage(sprite, drawX, drawY, drawW, drawH);
+      const drawH = targetHeight; const drawW = drawH * (sprite.naturalWidth / sprite.naturalHeight); const drawX = c.currentX + mapData.tileWidth / 2 - drawW / 2; const drawY = c.currentY + mapData.tileHeight - drawH;
+      if (c.facingLeft) { ctx.save(); ctx.translate(drawX + drawW / 2, drawY); ctx.scale(-1, 1); ctx.drawImage(sprite, -drawW / 2, 0, drawW, drawH); ctx.restore(); } else { ctx.drawImage(sprite, drawX, drawY, drawW, drawH); }
     } else { ctx.beginPath(); ctx.arc(c.currentX + mapData.tileWidth / 2, c.currentY + mapData.tileHeight / 2, 8, 0, Math.PI * 2); ctx.fillStyle = '#aaa'; ctx.fill(); }
   });
 }
@@ -1663,17 +1687,17 @@ async function saveSettings() {
   if (!apiKey) { alert('API Key required'); return; }
   try {
     const res = await fetch('http://localhost:8000/api/config/model', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ base_url: baseUrl, api_key: apiKey, model: model }) });
-    if (res.ok) { alert('Saved! Backend is restarting.'); isReconnectingAfterRestart = true; closeSettingsModal(); } else alert('Save failed: ' + (await res.text()));
+    if (res.ok) { alert('Saved! Backend is restarting.'); isReconnectingAfterRestart = true; closeSettingsModal(); } else { alert('Save failed: ' + (await res.text())); }
   } catch (e) { alert('Network error'); }
 }
 
-window.addEventListener('click', (e) => { if (e.target === document.getElementById('settingsModal')) closeSettingsModal(); });
+window.addEventListener('click', (event) => { const settingsModal = document.getElementById('settingsModal'); if (event.target === settingsModal) { closeSettingsModal(); } });
 
 async function confirmReset() {
   if (confirm('Warning: You are about to reset the simulation.\n\nAll agent memories, plans, and states will be deleted, and the backend will restart.\nAre you sure you want to proceed?')) {
     try {
-      const res = await fetch('http://localhost:8000/api/reset', { method: 'POST' });
-      if (res.ok) { alert('Reset command sent! Please wait.'); isReconnectingAfterRestart = true; } else alert('Reset failed: ' + (await res.text()));
+      const res = await fetch('http://localhost:8000/api/reset', { method: 'POST', });
+      if (res.ok) { alert('Reset command sent! Please wait.'); isReconnectingAfterRestart = true; } else { alert('Reset failed: ' + (await res.text())); }
     } catch (e) { alert('Network error'); }
   }
 }

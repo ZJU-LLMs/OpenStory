@@ -3200,3 +3200,29 @@ rontation. at 怡红院.
 2026-04-08 22:33:38 | DEBUG    | PID:521728 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:set_state:88 - [李纨][1] State updated: current_action = 李纨 is doing Rising at dawn to prepare simple tea for the day. at 李纨院.
 2026-04-08 22:33:38 | INFO     | PID:521312 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:add_short_term_memory:176 - [贾环][2] Added short-term memory: 贾环 is doing Meditating quietly on the family's structural weaknesses. at 仆役群房.
 2026-04-08 22:33:38 | DEBUG    | PID:521312 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:set_state:88 - [贾环][1] State updated: current_action = 贾环 is doing Meditating quietly on the family's structural weaknesses. at 仆役群房.
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [史湘云] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [林黛玉] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾惜春] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [薛宝钗] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568780 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [鸳鸯] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾珍] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [妙玉] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [王夫人] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [平儿] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾探春] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [王熙凤] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [晴雯] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾政] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [薛姨妈] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾母] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [李纨] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾环] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [薛蟠] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568780 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [麝月] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾琏] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [袭人] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾元春] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾蓉] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾宝玉] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [贾迎春] StatePlugin initialized
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.state.BasicStatePlugin:init:58 - [赵姨娘] StatePlugin initialized

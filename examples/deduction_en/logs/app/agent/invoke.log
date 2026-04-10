@@ -2762,3 +2762,29 @@ rough the garden to observe family movements discreetly.
 2026-04-08 22:33:38 | WARNING  | PID:521312 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:execute:174 - [贾环][2] Unable to retrieve profile for target Self
 2026-04-08 22:33:38 | INFO     | PID:521312 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:execute:215 - [贾环][2] Generated description using simple template (importance 3)
 2026-04-08 22:33:38 | INFO     | PID:521312 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:execute:221 - [贾环][2] Generated and saved execution description
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [史湘云][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [林黛玉][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [妙玉][N/A] BasicInvokePlugin initialization completed
+d
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [王夫人][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [平儿][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾探春][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568780 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [鸳鸯][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [薛宝钗][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾珍][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [紫鹃][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾政][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [晴雯][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568664 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [薛姨妈][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾母][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568628 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [李纨][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568716 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾环][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [薛蟠][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568780 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [麝月][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [袭人][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾琏][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾元春][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568672 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾宝玉][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾蓉][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [贾迎春][N/A] BasicInvokePlugin initialization completed
+2026-04-10 14:37:00 | INFO     | PID:568748 | examples.deduction_en.plugins.agent.invoke.BasicInvokePlugin:init:30 - [赵姨娘][N/A] BasicInvokePlugin initialization completed

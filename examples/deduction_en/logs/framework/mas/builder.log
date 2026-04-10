@@ -230,3 +230,27 @@
 2026-04-08 21:58:05 | INFO     | PID:530144 | agentkernel_distributed.mas.builder:_init_system:334 - Initializing system components (Timer, Messager, Recorder)...
 2026-04-08 21:58:05 | INFO     | PID:530144 | agentkernel_distributed.mas.builder:_init_system:368 - System object created and populated with all configured components.
 2026-04-08 21:58:08 | INFO     | PID:530144 | agentkernel_distributed.mas.builder:post_init:378 - Post-initialization of system and pod manager complete.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:__init__:126 - Initializing Simulation Engine (Builder)...
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:36 - Loading configuration from project path: D:\Research\OpenStory\examples\deduction_en
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'environment' config from: D:\Research\OpenStory\examples\deduction_en\configs\environment_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'actions' config from: D:\Research\OpenStory\examples\deduction_en\configs\actions_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'agent_templates' config from: D:\Research\OpenStory\examples\deduction_en\configs\agents_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'system' config from: D:\Research\OpenStory\examples\deduction_en\configs\system_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'database' config from: D:\Research\OpenStory\examples\deduction_en\configs\db_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:56 - Loading 'models' config from: D:\Research\OpenStory\examples\deduction_en\configs\models_config.yaml
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:67 - Loading data source 'agent_profiles' from: D:\Research\OpenStory\examples\deduction_en\data/agents/profiles_test.jsonl
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:67 - Loading data source 'agent_states' from: D:\Research\OpenStory\examples\deduction_en\data/agents/states.jsonl
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:67 - Loading data source 'agents_relation' from: D:\Research\OpenStory\examples\deduction_en\data/relations/relations.jsonl
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:load_config:101 - Configuration loaded and validated successfully.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:__init__:141 - Using custom controller 'BasicController' from resource_maps.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:__init__:151 - Using custom pod manager 'BasicPodManager' from resource_maps.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:init:198 - Ray is initialized.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:init:203 - ModelRouter Actor and Proxy are created.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_load_data_into_config:221 - Injecting loaded data into agent and environment configurations...
+2026-04-10 14:36:50 | DEBUG    | PID:485708 | agentkernel_distributed.mas.builder:_load_data_into_config:234 - Injecting data for 'agents_relation' into env plugin 'BasicRelationPlugin'.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_load_data_into_config:241 - Data injection complete.
+2026-04-10 14:36:50 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_init_pod_manager:314 - PodManager Actor is being created with the name: 'global_pod_manager'
+2026-04-10 14:36:57 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_init_pod_manager:322 - MasPodManager and MasPods are created and initialized.
+2026-04-10 14:36:57 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_init_system:334 - Initializing system components (Timer, Messager, Recorder)...
+2026-04-10 14:36:57 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:_init_system:368 - System object created and populated with all configured components.
+2026-04-10 14:37:00 | INFO     | PID:485708 | agentkernel_distributed.mas.builder:post_init:378 - Post-initialization of system and pod manager complete.

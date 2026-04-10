@@ -358,3 +358,50 @@ been initialized.
 2026-04-08 21:58:08 | INFO     | PID:520216 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
 2026-04-08 21:58:08 | INFO     | PID:520216 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
 2026-04-08 21:58:08 | INFO     | PID:520216 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:36:57 | INFO     | PID:568628 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568628 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568664 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568664 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568672 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568672 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568716 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568716 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568748 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568748 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568780 | agentkernel_distributed.mas.action.action:init:38 - Action Proxy: Initializing all managed components concurrently...
+2026-04-10 14:36:57 | ERROR    | PID:568780 | agentkernel_distributed.mas.action.action:init:51 - Action Proxy: Error during concurrent component initialization: Can't instantiate abstract class BasicCommunicationPlugin with abstract method _log_action
+2026-04-10 14:36:57 | INFO     | PID:568628 | agentkernel_distributed.mas.action.action:save_to_db:160 - Action Proxy: Saving state for all managed components...
+2026-04-10 14:36:57 | WARNING  | PID:568628 | agentkernel_distributed.mas.action.action:save_to_db:176 - Action Proxy: A component failed to save state: Method 'save_to_db' not found in component 'communication'.
+2026-04-10 14:36:57 | WARNING  | PID:568628 | agentkernel_distributed.mas.action.action:save_to_db:176 - Action Proxy: A component failed to save state: Method 'save_to_db' not found in component 'otheractions'.
+2026-04-10 14:36:57 | WARNING  | PID:568628 | agentkernel_distributed.mas.action.action:save_to_db:176 - Action Proxy: A component failed to save state: Method 'save_to_db' not found in component 'otheractions'.
+2026-04-10 14:36:57 | WARNING  | PID:568628 | agentkernel_distributed.mas.action.action:save_to_db:182 - Action Proxy: Some components failed to save state.
+2026-04-10 14:37:00 | INFO     | PID:568628 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568628 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'communication' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568628 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568628 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568664 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568628 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:37:00 | INFO     | PID:568664 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'communication' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568664 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568664 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568716 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568664 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:37:00 | INFO     | PID:568716 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'communication' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568716 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568672 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568780 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568716 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568672 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'communication' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568780 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'communication' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568716 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:37:00 | INFO     | PID:568748 | agentkernel_distributed.mas.action.action:post_init:61 - Action Proxy: Post initializing all managed components...
+2026-04-10 14:37:00 | INFO     | PID:568672 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568780 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568672 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568780 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+
+2026-04-10 14:37:00 | INFO     | PID:568672 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:37:00 | INFO     | PID:568780 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.
+2026-04-10 14:37:00 | INFO     | PID:568748 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568748 | agentkernel_distributed.mas.action.base.component_base:post_init:74 - All plugins in component 'otheractions' have been initialized.
+2026-04-10 14:37:00 | INFO     | PID:568748 | agentkernel_distributed.mas.action.action:post_init:70 - Action Proxy: All components initialized.

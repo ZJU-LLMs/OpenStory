@@ -238,9 +238,27 @@ body {
   content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
   height: 2px; background: rgba(207, 168, 94, 0.1);
 }
+
 .header-left { display: flex; align-items: center; gap: 12px; }
-.header-center { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; }
-.sim-date { font-family: var(--font-display); font-size: 18px; color: var(--gold-light); letter-spacing: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+/* =========== 👇 修复区域：取消屏幕居中，改为固定左侧距离 =========== */
+.header-center { 
+  position: absolute; 
+  left: 350px; /* 改为固定左侧偏移，避免长英文向两边野蛮生长 */
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+}
+.sim-date { 
+  font-family: var(--font-display); 
+  font-size: 17px; /* 略微缩小 */
+  color: var(--gold-light); 
+  letter-spacing: 1px; /* 缩小英文字间距（原为4px） */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+  white-space: nowrap; /* 强制不换行 */
+}
+/* =========== 👆 修复区域结束 =========== */
+
 .header-right { display: flex; align-items: center; gap: 16px; }
 .header-ornament { color: var(--vermillion); font-size: 22px; opacity: 0.9; text-shadow: 0 0 8px rgba(192,57,43,0.4); }
 .header-title { font-family: var(--font-display); font-size: 28px; color: var(--paper); letter-spacing: 8px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
