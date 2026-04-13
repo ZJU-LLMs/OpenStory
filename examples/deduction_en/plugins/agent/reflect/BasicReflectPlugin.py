@@ -489,6 +489,9 @@ Please judge and give result:"""
                 await state_plugin.set_long_task(result)
                 # Record an adjustment memory
                 await state_plugin.add_long_term_memory(f"[Task Adjustment] Due to environmental changes, LongTask adjusted to: {result}")
+                # Record adjustment event so frontend can mark future days' plans
+                current_day = (current_tick // 12) + 1
+                await state_plugin.add_long_task_adjustment(tick=current_tick, from_day=current_day + 1)
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask successfully adjusted and recorded")
 
         except Exception as e:

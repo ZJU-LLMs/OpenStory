@@ -53,6 +53,9 @@ class BasicStatePlugin(StatePlugin):
         # Initialize replan log (records each time plans are dynamically changed mid-day)
         if 'replan_log' not in self.state_data:
             self.state_data['replan_log'] = []
+        # Initialize long-task adjustment log (records each time LongTask is adjusted, affecting future days)
+        if 'long_task_adj_log' not in self.state_data:
+            self.state_data['long_task_adj_log'] = []
 
     async def init(self) -> None:
         """Initialize StatePlugin, get agent_id from component"""
@@ -163,6 +166,29 @@ class BasicStatePlugin(StatePlugin):
         Return the full list of replan events.
         """
         return self.state_data.get('replan_log', [])
+
+    async def add_long_task_adjustment(self, tick: int, from_day: int) -> None:
+        """
+        Record a LongTask adjustment event so the frontend can mark future days' plans
+        as regenerated due to this change.
+
+        Args:
+            tick: The tick at which the adjustment occurred
+            from_day: The first day whose plans are affected (typically current_day + 1)
+        """
+        if 'long_task_adj_log' not in self.state_data:
+            self.state_data['long_task_adj_log'] = []
+        self.state_data['long_task_adj_log'].append({
+            'tick': tick,
+            'from_day': from_day,
+        })
+        logger.info(f"[{self.agent_id}][{tick}] LongTask adjustment recorded: plans from day {from_day} onward will be regenerated")
+
+    async def get_long_task_adjustment_log(self) -> list:
+        """
+        Return the full list of LongTask adjustment events.
+        """
+        return self.state_data.get('long_task_adj_log', [])
 
     async def get_hourly_plans(self, day: int = None) -> Optional[Any]:
         """

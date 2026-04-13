@@ -73,9 +73,10 @@ class BasicPodManager(PodManagerImpl):
                         remote_call("state", "get_inactive_reason"),
                         remote_call("state", "get_state", "current_tick"),
                         remote_call("state", "get_replan_log"),
+                        remote_call("state", "get_long_task_adjustment_log"),
                     )
 
-                    long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log = results
+                    long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log = results
 
                     # Calculate time index based on current tick and extract target location from the day's plan
                     tick_val = current_tick or 0
@@ -116,6 +117,7 @@ class BasicPodManager(PodManagerImpl):
                         "current_tick": current_tick or 0,
                         "current_location": current_location,
                         "replan_log": replan_log or [],
+                        "long_task_adj_log": long_task_adj_log or [],
                     }
                 except Exception as exc:
                     logger.error("collect_agents_data: failed for agent %s: %s", agent_id, exc)
@@ -163,9 +165,10 @@ class BasicPodManager(PodManagerImpl):
                 remote_call("state", "get_inactive_reason"),
                 remote_call("state", "get_state", "current_tick"),
                 remote_call("state", "get_replan_log"),
+                remote_call("state", "get_long_task_adjustment_log"),
             )
 
-            long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log = results
+            long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log = results
 
             tick_val = current_tick or 0
             current_location = None
@@ -203,6 +206,7 @@ class BasicPodManager(PodManagerImpl):
                 "current_tick": current_tick or 0,
                 "current_location": current_location,
                 "replan_log": replan_log or [],
+                "long_task_adj_log": long_task_adj_log or [],
             }
         except Exception as exc:
             logger.error(f"collect_single_agent_data: failed for agent {agent_id}: {exc}")

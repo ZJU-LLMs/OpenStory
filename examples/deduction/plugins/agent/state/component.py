@@ -86,3 +86,15 @@ class BasicStateComponent(StateComponent):
         if not self._plugin:
             return []
         return await self._plugin.get_replan_log()
+
+    async def add_long_task_adjustment(self, tick: int, from_day: int) -> None:
+        """Delegate add_long_task_adjustment to plugin."""
+        if not self._plugin:
+            return
+        return await self._plugin.add_long_task_adjustment(tick, from_day)
+
+    async def get_long_task_adjustment_log(self) -> List[Any]:
+        """Delegate get_long_task_adjustment_log to plugin."""
+        if not self._plugin:
+            return []
+        return await self._plugin.get_long_task_adjustment_log()

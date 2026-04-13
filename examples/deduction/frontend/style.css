@@ -739,6 +739,15 @@ body {
   line-height: 1.6;
 }
 
+/* 长期目标调整 banner（蓝紫色调，与当日重规划橙色区分） */
+.longtask-adj-banner {
+  background: rgba(80, 60, 160, 0.07);
+  border-left-color: #5a3eaa;
+}
+.longtask-adj-banner .replan-notice-item {
+  color: #5a3eaa;
+}
+
 /* 重规划 badge，显示在时辰标签旁 */
 .replan-badge {
   display: block;

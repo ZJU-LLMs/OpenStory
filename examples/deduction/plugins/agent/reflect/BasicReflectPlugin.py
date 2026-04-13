@@ -494,6 +494,9 @@ class BasicReflectPlugin(ReflectPlugin):
                 await state_plugin.set_long_task(result)
                 # Record an adjustment memory
                 await state_plugin.add_long_term_memory(f"[任务调整] 由于环境变化，长期任务调整为：{result}")
+                # Record adjustment event so frontend can mark future days' plans
+                current_day = (current_tick // 12) + 1
+                await state_plugin.add_long_task_adjustment(tick=current_tick, from_day=current_day + 1)
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask successfully adjusted and recorded")
 
         except Exception as e:
