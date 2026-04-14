@@ -1780,7 +1780,7 @@ function renderDetail(id) {
     <div class="section-divider"><span>✧</span></div>
     ${renderExperiences(d.dialogues, d.short_term_memory, id)}
     <div class="section-divider"><span>✧</span></div>
-    ${renderHourlyPlans(d.hourly_plans, d.dialogues, id, d.occupied_by, d.current_plan_note, d.current_tick)}
+    ${renderHourlyPlans(d.hourly_plans, d.dialogues, id, d.occupied_by, d.current_plan_note, d.current_tick, d.replan_log, d.long_task_adj_log)}
     <div class="section-divider"><span>✧</span></div>
     ${renderMemory('长期记忆', d.long_term_memory, 'long')}
   `;
@@ -1955,10 +1955,20 @@ function renderCurrentPlan(plan, actionDetail, occupiedBy, dialogues, agentId, p
   </section>`;
 }
 
-function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, currentPlanNote, tick) {
+function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, currentPlanNote, tick, replanLog, longTaskAdjLog) {
   const currentDay = Math.floor((tick || 0) / 12) + 1;
   const viewingDay = viewDays[agentId] || currentDay;
   const currentHour = (tick || 0) % 12;
+
+  // Build a lookup: day -> list of replan events, for quick access in rendering
+  const replanByDay = {};
+  if (Array.isArray(replanLog)) {
+    for (const ev of replanLog) {
+      const d = ev.day;
+      if (!replanByDay[d]) replanByDay[d] = [];
+      replanByDay[d].push(ev);
+    }
+  }
 
   // 获取特定天的计划
   let dayPlans = [];
@@ -1985,12 +1995,46 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
     daySelector = `<div class="day-selector">${dayButtons}</div>`;
   }
 
+  // Build replan notice banner for the day being viewed (mid-day replans)
+  const dayReplanEvents = replanByDay[viewingDay] || [];
+  let replanBanner = '';
+  if (dayReplanEvents.length > 0) {
+    const notices = dayReplanEvents.map(ev =>
+      `<div class="replan-notice-item">⚡ 第${ev.from_hour}时辰起重新规划：${escHtml(ev.reason)}</div>`
+    ).join('');
+    replanBanner = `<div class="replan-banner">${notices}</div>`;
+  }
+
+  // Build long-task adjustment banner: show when viewing a day affected by a prior LongTask change
+  let longTaskAdjBanner = '';
+  if (Array.isArray(longTaskAdjLog)) {
+    // Find all adjustment events that affect this day (from_day <= viewingDay)
+    const affectingAdjs = longTaskAdjLog.filter(ev => ev.from_day <= viewingDay);
+    if (affectingAdjs.length > 0) {
+      // Use the latest adjustment that affects this day
+      const ev = affectingAdjs[affectingAdjs.length - 1];
+      const adjDay = Math.floor(ev.tick / 12) + 1;
+      const adjHour = ev.tick % 12;
+      longTaskAdjBanner = `<div class="replan-banner longtask-adj-banner">
+        <div class="replan-notice-item">🔄 自第${ev.from_day}天起重新制定计划（因长期目标于第${adjDay}天第${adjHour}时辰调整）</div>
+      </div>`;
+    }
+  }
+
   if (!dayPlans || !dayPlans.length) {
     return `<section class="info-section">
       <div class="section-title">一日计划</div>
       ${daySelector}
+      ${longTaskAdjBanner}
+      ${replanBanner}
       <div class="empty-text" style="padding:12px 0">第 ${viewingDay} 天暂无计划</div>
     </section>`;
+  }
+
+  // Build set of hours that were replanned (for badge display)
+  const replanedHours = new Set();
+  for (const ev of dayReplanEvents) {
+    for (let h = ev.from_hour; h < 12; h++) replanedHours.add(h);
   }
 
   const items = dayPlans.map(p => {
@@ -1999,7 +2043,10 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
     const imp = parseInt(importance) || 1;
     const impClass = imp <= 3 ? 'imp-low' : imp <= 6 ? 'imp-mid' : imp <= 8 ? 'imp-high' : 'imp-crit';
     const targetStr = target && target !== '无' && target !== '自己' ? `→ ${escHtml(target)}` : '';
-    
+
+    // Badge shown on replanned hours
+    const replanBadge = replanedHours.has(time) ? '<span class="replan-badge">重规划</span>' : '';
+
     // 检查该时辰是否被占用
     const isCurrentlyOccupied = (viewingDay === currentDay && time === currentHour) && currentOccupiedBy;
     // 检查该时辰是否有注释
@@ -2045,7 +2092,7 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
     const isNow = (viewingDay === currentDay && time === currentHour);
 
     return `<div class="hourly-item${clickableClass}${isNow ? ' current-hour' : ''}" ${clickHandler}>
-      <div class="hourly-time"><span class="shichen">${shi}时</span></div>
+      <div class="hourly-time"><span class="shichen">${shi}时</span>${replanBadge}</div>
       <div class="hourly-line"><div class="hourly-dot ${impClass}"></div></div>
       <div class="hourly-content">
         ${contentHtml}
@@ -2057,6 +2104,8 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
   return `<section class="info-section">
     <div class="section-title">一日计划</div>
     ${daySelector}
+    ${longTaskAdjBanner}
+    ${replanBanner}
     <div class="hourly-list">${items}</div>
   </section>`;
 }

@@ -725,6 +725,43 @@ body {
   padding: 4px 8px;
 }
 
+/* 重规划提示 banner */
+.replan-banner {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(180, 90, 30, 0.08);
+  border-left: 3px solid #b45a1e;
+  border-radius: 0 4px 4px 0;
+}
+.replan-notice-item {
+  font-size: 12px;
+  color: #b45a1e;
+  line-height: 1.6;
+}
+
+/* 长期目标调整 banner（蓝紫色调，与当日重规划橙色区分） */
+.longtask-adj-banner {
+  background: rgba(80, 60, 160, 0.07);
+  border-left-color: #5a3eaa;
+}
+.longtask-adj-banner .replan-notice-item {
+  color: #5a3eaa;
+}
+
+/* 重规划 badge，显示在时辰标签旁 */
+.replan-badge {
+  display: block;
+  margin-top: 4px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: var(--font-body);
+  color: #fff;
+  background: #b45a1e;
+  border-radius: 3px;
+  letter-spacing: 0;
+  font-weight: bold;
+}
+
 /* 时辰计划列表 */
 /* 每日计划切换 */
 .day-selector {

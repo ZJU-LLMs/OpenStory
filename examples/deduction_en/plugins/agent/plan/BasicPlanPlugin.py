@@ -148,7 +148,8 @@ class BasicPlanPlugin(PlanPlugin):
                     long_task=current_long_task
                 )
 
-                await state_plugin.set_hourly_plans(hourly_plans)
+                # Pass current_tick explicitly for correct day calculation
+                await state_plugin.set_hourly_plans(hourly_plans, tick=current_tick)
                 logger.info(f"[{self.agent_id}][{current_tick}] Generated and stored 12 hourly plans")
             else:
                 logger.debug(f"[{self.agent_id}][{current_tick}] Not a plan generation cycle, skipping hourly plan generation")
@@ -402,3 +403,149 @@ Please return the 12-hour plan in the following JSON format:
             logger.info(f"[{agent_id}][{current_tick}] No plans interacting with other characters in a day")
 
         return hourly_plans
+
+    async def replan_remaining_plans(self, agent_id: str, current_tick: int,
+                                     profile: Dict[str, Any], long_task: str = None,
+                                     start_hour: int = 0) -> List[List[Any]]:
+        """
+        Regenerate remaining hourly plans (starting from start_hour)
+
+        Args:
+            agent_id: Agent ID
+            current_tick: Current tick number
+            profile: Agent profile data
+            long_task: Agent long-term task
+            start_hour: Starting hour (which hour to start generating from)
+
+        Returns:
+            List[List[Any]]: Regenerated hourly plans list
+        """
+        if not profile:
+            logger.warning(f"[{agent_id}][{current_tick}] No profile provided, using default configuration")
+            profile = {}
+
+        # Format character profile
+        formatted_profile = self._format_profile_for_prompt(profile)
+
+        # Get all characters info
+        all_agent_ids = await self._get_all_agent_ids()
+        characters_info = self._format_characters_info(all_agent_ids)
+
+        # Build prompt - only generate remaining hours
+        remaining_hours = 12 - start_hour
+        long_task_info = f"\n\n【Long-term Goal】\n{long_task}" if long_task else ""
+
+        # Build location constraint text
+        if self._available_locations:
+            locations_str = "、".join(self._available_locations)
+            location_rule = f"6. 【Strict Limit】Location must be chosen from the following list:\n   {locations_str}"
+        else:
+            location_rule = "6. Location must be a specific place (e.g., 怡红院, 潇湘馆, 荣庆堂)"
+
+        # Build hour mapping
+        hour_names = ["Zi(23-1)", "Chou(1-3)", "Yin(3-5)", "Mao(5-7)",
+                      "Chen(7-9)", "Si(9-11)", "Wu(11-13)", "Wei(13-15)",
+                      "Shen(15-17)", "You(17-19)", "Xu(19-21)", "Hai(21-23)"]
+        hour_context = "\n".join([f"{i}-{hour_names[i]}" for i in range(start_hour, 12)])
+
+        prompt = f"""You are an agent hour plan generator. Based on the following character profile, generate detailed action plans for the remaining {remaining_hours} hours.
+
+【Important Background】
+- You are currently at Dream of the Red Chamber Chapter 80
+- Please generate plans that fit the current plot context
+- 【Important】This is replanning, only need to generate plans for hours after hour {start_hour}
+
+【Current World Characters】
+{characters_info}
+
+{formatted_profile}{long_task_info}
+
+Remaining hours:
+{hour_context}
+
+Requirements:
+1. Only generate plans for hours after hour {start_hour} (total {remaining_hours} hours)
+2. Actions must match character personality, status, and core motivation
+3. Actions must be specific, including action, target character, and location
+4. 【Important Suggestion】Most time should be spent on personal matters
+   - Suggest only 1-2 hours involve interaction with specific characters
+   - Other hours: target should be "self" or "none"
+5. 【Critical】Target character must use full name, not nickname
+{location_rule}
+7. Action description should be 10-20 characters
+8. Evaluate importance score (1-10) for each action
+9. Return strictly in JSON format, no other text
+10. Must use English for plan content
+
+Return in the following JSON format for {remaining_hours} hours:
+[
+  {{"action": "action description", "time": {start_hour}, "target": "target character", "location": "location", "importance": score}},
+  {{"action": "action description", "time": {start_hour+1}, "target": "target character", "location": "location", "importance": score}},
+  ...
+  {{"action": "action description", "time": 11, "target": "target character", "location": "location", "importance": score}}
+]"""
+
+        try:
+            if not self.model:
+                logger.error(f"[{agent_id}][{current_tick}] Model not initialized, cannot replan")
+                raise Exception("Model not initialized")
+
+            response = await self.model.chat(prompt)
+            response = response.strip()
+
+            # Parse JSON response
+            import json
+            start_idx = response.find('[')
+            end_idx = response.rfind(']') + 1
+            if start_idx != -1 and end_idx > start_idx:
+                json_str = response[start_idx:end_idx]
+                plans_data = json.loads(json_str)
+            else:
+                plans_data = json.loads(response)
+
+            # Merge old and new plans: keep executed, update remaining
+            state_component = self._component.agent.get_component("state")
+            state_plugin = state_component.get_plugin()
+            current_day = (current_tick // 12) + 1
+            hourly_plans = await state_plugin.get_hourly_plans(day=current_day)
+
+            # Build new plan list
+            new_plans = []
+            for hour in range(12):
+                if hour < start_hour:
+                    # Keep executed plans
+                    if hourly_plans:
+                        for plan in hourly_plans:
+                            if len(plan) >= 5 and plan[1] == hour:
+                                new_plans.append(plan)
+                                break
+                    else:
+                        # Create empty placeholder if no existing plan
+                        new_plans.append(["", hour, "self", "", 1])
+                else:
+                    # Add newly generated plans
+                    found = False
+                    for plan_data in plans_data:
+                        if plan_data['time'] == hour:
+                            hourly_plan = HourlyPlan(
+                                action=plan_data['action'],
+                                time=plan_data['time'],
+                                target=plan_data['target'],
+                                location=plan_data['location'],
+                                importance=plan_data['importance']
+                            )
+                            new_plans.append(hourly_plan.to_list())
+                            found = True
+                            break
+                    if not found:
+                        # Create default plan if no corresponding hour plan found
+                        new_plans.append(["Rest", hour, "self", "", 1])
+
+            # Save new plans (pass current_tick explicitly for correct day calculation)
+            await state_plugin.set_hourly_plans(new_plans, tick=current_tick)
+            logger.info(f"[{agent_id}][{current_tick}] Remaining plans replanning completed, total {len(new_plans)} hours")
+            return new_plans
+
+        except Exception as e:
+            logger.error(f"[{agent_id}][{current_tick}] Failed to replan remaining plans: {e}")
+            raise

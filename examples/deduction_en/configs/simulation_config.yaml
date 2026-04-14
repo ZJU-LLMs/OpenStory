@@ -9,7 +9,7 @@
 simulation:
   pod_size: 5
   init_batch_size: 5
-  max_ticks: 12
+  max_ticks: 100
 
 configs:
   environment: "environment_config.yaml"

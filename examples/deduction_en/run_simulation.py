@@ -224,7 +224,7 @@ async def main():
         logger.info(f'【System】Simulation finished.')
 
         # ===== Step4 : Split logs by character =====
-        from examples.deduction_en.scripts.split_logs_by_character import process_log_directory
+        from examples.deduction_en.map.scripts.split_logs_by_character import process_log_directory
         log_dir = Path(project_path) / "logs"
         output_dir = log_dir / "character"
         logger.info(f'【System】Splitting logs by character...')

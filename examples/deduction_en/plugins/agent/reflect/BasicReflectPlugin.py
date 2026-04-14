@@ -1,4 +1,4 @@
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 from agentkernel_distributed.types.schemas.message import Message
 from agentkernel_distributed.mas.agent.base.plugin_base import ReflectPlugin
 from agentkernel_distributed.toolkit.logger import get_logger
@@ -22,15 +22,26 @@ class BasicReflectPlugin(ReflectPlugin):
 
     async def execute(self, current_tick: int) -> None:
         """
-        Perform a lightweight survival check every tick, and a full reflection logic every 12 ticks
+        Perform a lightweight survival check every tick.
+        Full reflection logic (summary, task check, adjustment) every 12 ticks.
+        Replan check every tick based on last tick's short-term memory.
         """
         # Perform lightweight survival check every tick (read-only short-term memory)
         if await self._check_life_status_lightweight(current_tick):
             return
 
-        # Check if it's a reflection cycle (executed every 12 ticks)
+        # Check if replanning is needed based on last tick's memory (every tick)
+        # Only check if there are remaining hours (not the last hour of the day)
+        current_hour = current_tick % 12
+        if current_hour < 11:  # Only replan if there are remaining hours in the day
+            should_replan, replan_reason = await self._should_replan(current_tick)
+            if should_replan:
+                logger.info(f"[{self.agent_id}][{current_tick}] Detected need to replan: {replan_reason}")
+                await self._replan_remaining(current_tick, replan_reason)
+
+        # Full reflection logic every 12 ticks
         if (current_tick + 1) % 12 == 0:
-            logger.info(f"[{self.agent_id}][{current_tick}] Starting reflection logic")
+            logger.info(f"[{self.agent_id}][{current_tick}] Starting full reflection logic")
 
             try:
                 # 1. Summarize short-term memory
@@ -47,9 +58,9 @@ class BasicReflectPlugin(ReflectPlugin):
                 # 4. Dynamically adjust LongTask (if not completed)
                 await self._adjust_long_task(current_tick)
 
-                logger.info(f"[{self.agent_id}][{current_tick}] Reflection logic execution completed")
+                logger.info(f"[{self.agent_id}][{current_tick}] Full reflection logic execution completed")
             except Exception as e:
-                logger.error(f"[{self.agent_id}][{current_tick}] Error executing reflection logic: {e}")
+                logger.error(f"[{self.agent_id}][{current_tick}] Error executing full reflection logic: {e}")
 
     async def reflect_task(self, task: LongTask, type: str, current_tick: int = None) -> None:
         """
@@ -478,7 +489,142 @@ Please judge and give result:"""
                 await state_plugin.set_long_task(result)
                 # Record an adjustment memory
                 await state_plugin.add_long_term_memory(f"[Task Adjustment] Due to environmental changes, LongTask adjusted to: {result}")
+                # Record adjustment event so frontend can mark future days' plans
+                current_day = (current_tick // 12) + 1
+                await state_plugin.add_long_task_adjustment(tick=current_tick, from_day=current_day + 1)
                 logger.info(f"[{self.agent_id}][{current_tick}] LongTask successfully adjusted and recorded")
 
         except Exception as e:
             logger.error(f"[{self.agent_id}][{current_tick}] Error adjusting LongTask: {e}")
+
+    async def _should_replan(self, current_tick: int) -> Tuple[bool, str]:
+        """
+        Determine if remaining hourly plans need to be replanned
+
+        Returns:
+            Tuple[bool, str]: (whether needs replanning, reason)
+        """
+        try:
+            state_component = self._component.agent.get_component("state")
+            state_plugin = state_component.get_plugin()
+
+            # Get current LongTask
+            long_task = await state_plugin.get_long_task()
+            if not long_task:
+                return (False, "No long-term task")
+
+            # Get short-term memory from last tick
+            short_memories = await state_plugin.get_short_term_memory()
+            if not short_memories:
+                return (False, "No short-term memory")
+
+            last_memory = short_memories[-1]
+            last_memory_text = last_memory.get('content', str(last_memory))
+
+            # Get current hour and remaining plans
+            current_hour = current_tick % 12
+            remaining_hours = 12 - current_hour - 1
+
+            # Get remaining unexecuted hourly plans
+            current_day = (current_tick // 12) + 1
+            hourly_plans = await state_plugin.get_hourly_plans(day=current_day)
+
+            remaining_plans = []
+            if hourly_plans:
+                for plan in hourly_plans:
+                    if len(plan) >= 5 and plan[1] > current_hour:
+                        remaining_plans.append(plan)
+
+            remaining_plans_text = "\n".join([
+                f"- Hour {plan[1]}: {plan[0]} (target:{plan[2]}, location:{plan[3]})"
+                for plan in remaining_plans
+            ]) if remaining_plans else "No remaining plans"
+
+            # Build Prompt
+            prompt = f"""You are an agent plan evaluation assistant. Based on recent memory, determine whether the remaining time needs to be replanned.
+
+Current long-term task: {long_task}
+
+Last tick event: {last_memory_text}
+
+Current time: Day {current_day}, Hour {current_hour} (remaining {remaining_hours} hours)
+
+Remaining unexecuted plans:
+{remaining_plans_text}
+
+Evaluation criteria:
+1. Did any major change occur in the last tick (e.g., character death, task completion, unexpected event)?
+2. Has the current task become invalid or deviated?
+3. Is it reasonable to continue executing the original plan?
+
+Please return (conclusion only):
+- Needs replanning: "Needs Replanning | reason"
+- No replanning needed: "No Replanning | reason"
+"""
+
+            result = await self.model.chat(prompt)
+            result = result.strip()
+
+            logger.info(f"[{self.agent_id}][{current_tick}] Plan replanning decision result: {result}")
+
+            if "Needs Replanning" in result or "需要重新规划" in result:
+                parts = result.split('|')
+                reason = parts[1].strip() if len(parts) > 1 else "Major change occurred"
+                return (True, reason)
+            else:
+                return (False, result)
+
+        except Exception as e:
+            logger.error(f"[{self.agent_id}][{current_tick}] Error determining replanning: {e}")
+            return (False, f"Error: {str(e)}")
+
+    async def _replan_remaining(self, current_tick: int, reason: str) -> None:
+        """
+        Regenerate remaining hourly plans
+
+        Args:
+            current_tick: current tick
+            reason: replanning reason
+        """
+        try:
+            state_component = self._component.agent.get_component("state")
+            state_plugin = state_component.get_plugin()
+
+            profile_component = self._component.agent.get_component("profile")
+            profile_plugin = profile_component.get_plugin()
+            profile = profile_plugin.get_agent_profile()
+
+            # Get current LongTask
+            long_task = await state_plugin.get_long_task()
+
+            # Calculate current hour and remaining hours
+            current_hour = current_tick % 12
+            current_day = (current_tick // 12) + 1
+
+            logger.info(f"[{self.agent_id}][{current_tick}] Starting to regenerate remaining plans, current hour {current_hour}, remaining {12-current_hour-1} hours")
+
+            # Call PlanPlugin to regenerate remaining plans
+            plan_component = self._component.agent.get_component("plan")
+            if plan_component:
+                plan_plugin = plan_component.get_plugin()
+                # Call the new replan method
+                await plan_plugin.replan_remaining_plans(
+                    agent_id=self.agent_id,
+                    current_tick=current_tick,
+                    profile=profile,
+                    long_task=long_task,
+                    start_hour=current_hour + 1
+                )
+                logger.info(f"[{self.agent_id}][{current_tick}] Remaining plans replanning completed")
+                # Record the replan event so the frontend can highlight changed plan items
+                await state_plugin.add_replan_event(
+                    tick=current_tick,
+                    reason=reason,
+                    day=current_day,
+                    from_hour=current_hour + 1,
+                )
+            else:
+                logger.warning(f"[{self.agent_id}][{current_tick}] Cannot get plan component")
+
+        except Exception as e:
+            logger.error(f"[{self.agent_id}][{current_tick}] Error replanning remaining plans: {e}")
