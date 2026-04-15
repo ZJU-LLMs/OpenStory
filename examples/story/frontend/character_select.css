@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1a0f07;
+  color: #d4c4a8;
+  font-family: 'Noto Serif SC', serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.bg-texture {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(139,90,43,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(80,40,10,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.select-header {
+  text-align: center;
+  padding: 24px 20px 12px;
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+}
+
+.select-header h1 {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 2.2rem;
+  color: #c8a96e;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 20px rgba(200,169,110,0.4);
+}
+
+.select-header p {
+  color: #8a7560;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  letter-spacing: 0.1em;
+}
+
+.select-layout {
+  display: flex;
+  height: calc(100vh - 90px);
+}
+
+/* 左侧角色网格 */
+.char-grid-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  border-right: 1px solid rgba(180,140,60,0.2);
+}
+
+.char-grid-panel::-webkit-scrollbar { width: 4px; }
+.char-grid-panel::-webkit-scrollbar-thumb { background: rgba(180,140,60,0.4); border-radius: 2px; }
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 12px;
+}
+
+.char-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(180,140,60,0.2);
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.char-card:hover {
+  border-color: rgba(200,169,110,0.5);
+  background: rgba(200,169,110,0.08);
+  transform: translateY(-2px);
+}
+
+.char-card.selected {
+  border-color: #c8a96e;
+  background: rgba(200,169,110,0.15);
+  box-shadow: 0 0 12px rgba(200,169,110,0.3);
+}
+
+.char-card img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.char-card .char-name {
+  font-size: 0.75rem;
+  color: #c8a96e;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* 自定义角色卡 */
+.char-card.custom-card img {
+  opacity: 0.6;
+  filter: none;
+}
+
+/* 右侧详情面板 */
+.char-detail-panel {
+  width: 320px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.detail-portrait {
+  text-align: center;
+}
+
+.detail-portrait img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 12px rgba(200,169,110,0.4));
+}
+
+.detail-portrait .detail-name {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 1.6rem;
+  color: #c8a96e;
+  margin-top: 8px;
+}
+
+.detail-info {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(180,140,60,0.2);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.detail-info .info-row {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid rgba(180,140,60,0.1);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.detail-info .info-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-label {
+  color: #8a7560;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  color: #d4c4a8;
+}
+
+.detail-bg {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(180,140,60,0.2);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #a89880;
+  flex: 1;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(180,120,30,0.8), rgba(140,80,20,0.8));
+  border: 1px solid rgba(200,169,110,0.5);
+  border-radius: 8px;
+  color: #f0e0c0;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(200,140,40,0.9), rgba(160,100,30,0.9));
+  box-shadow: 0 0 20px rgba(200,169,110,0.4);
+}
+
+.start-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.empty-hint {
+  text-align: center;
+  color: #6a5a40;
+  font-size: 0.85rem;
+  margin-top: 40px;
+}
