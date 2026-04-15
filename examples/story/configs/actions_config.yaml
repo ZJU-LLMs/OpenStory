@@ -1,0 +1,20 @@
+name: DeductionActions
+components:
+  communication:
+    plugins:
+      BasicCommunicationPlugin:
+        adapters:
+          adapter: RedisKVAdapter
+          redis: RedisKVAdapter
+  move:
+    plugins:
+      BasicMovePlugin:
+        adapters:
+          adapter: RedisKVAdapter
+          redis: RedisKVAdapter
+  otheractions:
+    plugins:
+      BasicOtherActionPlugin:
+        adapters:
+          adapter: RedisKVAdapter
+          redis: RedisKVAdapter
