@@ -88,6 +88,16 @@ In the `configs/` directory, you can customize the deduction rules:
 If you need to modify or regenerate the character data of *Dream of the Red Chamber*, you can refer to the generation scripts in the `data/raw/` directory. For example:
 - `profile_generator.py`: Filters surviving characters based on `database.jsonl` and generates unique encoded IDs and basic profiles.
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=ZJU-LLMs%2FOpenStory&type=date&logscale=&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ZJU-LLMs/OpenStory&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ZJU-LLMs/OpenStory&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ZJU-LLMs/OpenStory&type=date&legend=top-left" />
+ </picture>
+</a>
+
 QQ交流群:1091827223
 
 [友链:LINUX.DO](https://linux.do)
