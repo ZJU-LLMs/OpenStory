@@ -145,16 +145,8 @@ async def main():
         server_module._tick_start_event = tick_start_event
         # Pass the pod_manager reference to the server module to support dynamically adding agents
         server_module._pod_manager = pod_manager
-        
-        server_thread = threading.Thread(
-            target=start_server,
-            args=[server_config],
-            daemon=True,
-        )
-        server_thread.start()
-        logger.info(f"【System】API Server started at http://{server_config['host']}:{server_config['port']}")
 
-        # ===== 注册 story 专用端点 =====
+        # ===== 注册 story 专用端点（必须在 server_thread.start() 之前注册）=====
         from fastapi import Request as _Request
         import redis.asyncio as _aioredis
 
@@ -166,6 +158,14 @@ async def main():
                 rc = _aioredis.Redis(connection_pool=server_module.redis_pool)
                 await rc.set('story:player_character', _json_global.dumps(data, ensure_ascii=False))
             return {"status": "ok"}
+
+        server_thread = threading.Thread(
+            target=start_server,
+            args=[server_config],
+            daemon=True,
+        )
+        server_thread.start()
+        logger.info(f"【System】API Server started at http://{server_config['host']}:{server_config['port']}")
 
         # 等待 FastAPI server lifespan 完成（含 flushdb），给 1 秒缓冲
         import time as _time

@@ -479,13 +479,7 @@ function connect() {
         // 缓存后端数据，等待用户点击”开始模拟”后再展示
         pendingTickData = msg;
 
-        // Hide settings button when simulation has started (tick > 0)
-        if (msg.tick && msg.tick > 0) {
-          const settingsBtn = document.getElementById('settingsBtn');
-          if (settingsBtn) {
-            settingsBtn.style.display = 'none';
-          }
-        }
+        // 剧情模式：不隐藏设置按钮
 
         document.getElementById('startTickBtn').disabled = true;
         document.getElementById('applyTickBtn').disabled = false;

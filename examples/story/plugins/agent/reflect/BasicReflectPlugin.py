@@ -25,9 +25,9 @@ class BasicReflectPlugin(ReflectPlugin):
             try:
                 state_component = self._component.agent.get_component("state")
                 state_plugin = state_component.get_plugin()
-                self.redis = state_plugin.redis
-            except Exception:
-                pass
+                self.redis = state_plugin.adapter  # BasicStatePlugin 用 .adapter 不是 .redis
+            except Exception as _e:
+                logger.warning(f"[{self.agent_id}] Failed to get redis adapter: {_e}")
         logger.info(f"[{self.agent_id}][N/A] BasicReflectPlugin (story) initialized")
 
     async def execute(self, current_tick: int) -> None:

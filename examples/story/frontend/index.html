@@ -13,6 +13,11 @@
   <div class="ink-bg"></div>
   <div class="grain"></div>
 
+  <!-- 时间流逝全屏大字展示层 -->
+  <div id="timeTransitionOverlay" class="time-transition-overlay">
+    <div class="time-transition-text" id="timeTransitionText"></div>
+  </div>
+
   <!-- 胜负结局覆盖层 -->
   <div id="gameResultOverlay" class="game-result-overlay">
     <div class="game-result-title" id="gameResultTitle">复兴成功</div>
@@ -203,6 +208,19 @@
             <button class="btn-primary" onclick="saveSettings()">保存</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加人物弹窗（供 app.js 引用，剧情模式下不对外开放入口） -->
+  <div id="addAgentModal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width:600px;">
+      <div class="modal-header">
+        <span class="modal-title">添加新人物</span>
+        <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding:20px;">
+        <p style="color:#8a7560;text-align:center;">剧情模式不支持动态添加人物</p>
       </div>
     </div>
   </div>
