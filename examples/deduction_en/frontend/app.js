@@ -1780,3 +1780,122 @@ function updateHistoryModeBanner() {
     if (innerBanner) innerBanner.style.display = 'none';
   }
 }
+
+function renderBranchTree() {
+  const svg = document.getElementById('branchTreeSvg');
+  if (!svg) return;
+  if (!branchTree || branchTree.length === 0) {
+    svg.innerHTML = '<text x="10" y="30" fill="#555" font-size="12">No data</text>';
+    return;
+  }
+
+  const NODE_R = 10;
+  const H_GAP = 64;
+  const V_GAP = 56;
+  const PAD_X = 40;
+  const PAD_Y = 36;
+
+  const allTicks = [...new Set(branchTree.flatMap(b => b.ticks || []))].sort((a, b) => a - b);
+  if (allTicks.length === 0) {
+    svg.innerHTML = '<text x="10" y="30" fill="#555" font-size="12">No data</text>';
+    return;
+  }
+
+  const tickToX = {};
+  allTicks.forEach((t, i) => { tickToX[t] = PAD_X + i * H_GAP; });
+
+  const branchToY = {};
+  branchTree.forEach((b, i) => { branchToY[b.id] = PAD_Y + i * V_GAP; });
+
+  const svgWidth = PAD_X * 2 + (allTicks.length - 1) * H_GAP;
+  const svgHeight = PAD_Y * 2 + (branchTree.length - 1) * V_GAP;
+  svg.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
+  svg.setAttribute('height', Math.max(svgHeight, 80));
+
+  const forkTicks = new Set(branchTree.filter(b => b.parent_branch_id !== null && b.parent_branch_id !== undefined).map(b => b.fork_tick));
+
+  let html = '';
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = (branch.ticks || []).slice().sort((a, b) => a - b);
+    const y = branchToY[branch.id];
+
+    if (branch.parent_branch_id !== null && branch.parent_branch_id !== undefined && ticks.length > 0) {
+      const parentY = branchToY[branch.parent_branch_id];
+      const forkX = tickToX[branch.fork_tick] ?? PAD_X;
+      const firstX = tickToX[ticks[0]] ?? forkX;
+      html += `<line x1="${forkX}" y1="${parentY}" x2="${firstX}" y2="${y}" stroke="${color}" stroke-width="2" opacity="0.7"/>`;
+    }
+
+    if (ticks.length > 1) {
+      const x1 = tickToX[ticks[0]];
+      const x2 = tickToX[ticks[ticks.length - 1]];
+      html += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${color}" stroke-width="2"/>`;
+    }
+  });
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = (branch.ticks || []).slice().sort((a, b) => a - b);
+    const y = branchToY[branch.id];
+
+    const currentBranch = branchTree.find(b => b.id === currentBranchId);
+    const lastTickOfCurrentBranch = currentBranch ? Math.max(...(currentBranch.ticks.length ? currentBranch.ticks : [0])) : -1;
+
+    ticks.forEach(tick => {
+      const x = tickToX[tick];
+      const isViewing = isViewingHistory && tick === viewingTick && branch.id === viewingBranchId;
+      const isLiveCurrentTick = branch.id === currentBranchId && tick === lastTickOfCurrentBranch && !isViewingHistory;
+
+      const clickHandler = `onClickTreeNode(${branch.id}, ${tick})`;
+
+      if (isViewing) {
+        html += `<circle cx="${x}" cy="${y}" r="${NODE_R + 5}" fill="none" stroke="#a0a0ff" stroke-width="2" stroke-dasharray="4 2"/>`;
+      }
+      if (isLiveCurrentTick) {
+        html += `<circle cx="${x}" cy="${y}" r="${NODE_R + 4}" fill="none" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2" opacity="0.8"/>`;
+      }
+
+      const nodeStroke = isLiveCurrentTick ? '#fff' : 'rgba(255,255,255,0.4)';
+      const nodeStrokeW = isLiveCurrentTick ? 2 : 1;
+      const nodeFill = isLiveCurrentTick ? '#e94560' : color;
+      html += `<circle cx="${x}" cy="${y}" r="${NODE_R}" fill="${nodeFill}" stroke="${nodeStroke}" stroke-width="${nodeStrokeW}" style="cursor:pointer" onclick="${clickHandler}"/>`;
+      html += `<text x="${x}" y="${y + NODE_R + 14}" text-anchor="middle" fill="${color}" font-size="10" style="cursor:pointer" onclick="${clickHandler}">T${tick}</text>`;
+    });
+  });
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = branch.ticks || [];
+    if (ticks.length === 0) return;
+    const lastTick = Math.max(...ticks);
+    const x = tickToX[lastTick] + NODE_R + 8;
+    const y = branchToY[branch.id];
+    const label = branch.id === 0 ? 'Main' : `Branch ${branch.id}`;
+    html += `<text x="${x}" y="${y + 4}" fill="${color}" font-size="9" opacity="0.7">${label}</text>`;
+  });
+
+  svg.innerHTML = html;
+  renderBranchLegend();
+}
+
+function onClickTreeNode(branchId, tick) {
+  if (!ws || ws.readyState !== WebSocket.OPEN) return;
+  ws.send(JSON.stringify({ type: 'view_tick', tick, branch_id: branchId }));
+  if (memoryTreeOpen) toggleMemoryTree();
+}
+
+function renderBranchLegend() {
+  const legend = document.getElementById('branchLegend');
+  if (!legend || !branchTree) return;
+  legend.innerHTML = branchTree.map(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const label = branch.id === 0 ? 'Main' : `Branch ${branch.id}`;
+    const active = branch.id === currentBranchId ? ' (current)' : '';
+    return `<div class="branch-legend-item">
+      <div class="branch-legend-dot" style="background:${color}"></div>
+      <span>${label}${active}</span>
+    </div>`;
+  }).join('');
+}
