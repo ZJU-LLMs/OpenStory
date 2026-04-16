@@ -345,3 +345,10 @@ class BasicStatePlugin(StatePlugin):
             str: Reason description
         """
         return self.state_data.get('inactive_reason', "")
+
+    async def restore_state(self, snapshot: dict) -> None:
+        """Restore agent state from a tick snapshot dict (used for branching/rollback)."""
+        self.state_data.update(snapshot)
+        if 'current_tick' in snapshot:
+            self.current_tick = snapshot['current_tick']
+        logger.info(f"[{self.agent_id}] State restored to tick {self.current_tick}")
