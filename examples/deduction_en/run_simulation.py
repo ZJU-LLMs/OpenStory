@@ -26,7 +26,8 @@ import ray
 import time
 from pathlib import Path
 from agentkernel_distributed.mas.builder import Builder
-from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data
+from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data, broadcast_branch_event
+import agentkernel_distributed.mas.interface.server as server_module
 from examples.deduction_en.registry import RESOURCES_MAPS
 from agentkernel_distributed.toolkit.logger import get_logger
 from examples.deduction_en.plugins.agent.plan.BasicPlanPlugin import BasicPlanPlugin
@@ -162,7 +163,39 @@ async def main():
             loop = asyncio.get_event_loop()
             await loop.run_in_executor(None, tick_start_event.wait)
             tick_start_event.clear()  # Reset the event, ready for the next tick
-            
+
+            # ── Branch fork detection ─────────────────────────────────────────────────
+            if server_module._viewing_tick != -1:
+                viewing_tick = server_module._viewing_tick
+                viewing_branch_id = server_module._viewing_branch_id
+                current_branch = server_module._branches[server_module._current_branch_id]
+                max_branch_tick = max(current_branch["ticks"], default=-1)
+
+                if viewing_tick <= max_branch_tick:
+                    snapshot_key = (viewing_branch_id, viewing_tick)
+                    if snapshot_key in server_module._tick_snapshots:
+                        logger.info(f"【Branch】Forking new branch from tick {viewing_tick} on branch {viewing_branch_id}")
+                        await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
+                        await system.run('timer', 'set_tick', viewing_tick)
+
+                        new_branch = {
+                            "id": len(server_module._branches),
+                            "parent_branch_id": server_module._current_branch_id,
+                            "fork_tick": viewing_tick,
+                            "ticks": [],
+                        }
+                        server_module._branches.append(new_branch)
+                        server_module._current_branch_id = new_branch["id"]
+                        logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick}")
+
+                        await broadcast_branch_event("branch_created", {"new_branch_id": new_branch["id"], "fork_tick": viewing_tick})
+                    else:
+                        logger.warning(f"【Branch】Snapshot ({viewing_branch_id}, {viewing_tick}) not found — skipping fork")
+
+                server_module._viewing_tick = -1
+                server_module._viewing_branch_id = -1
+            # ── Branch fork detection end ─────────────────────────────────────────────
+
             tick_start_time = time.time()
             phase_timestamps = {"start": tick_start_time}
 
