@@ -79,7 +79,9 @@ const translations = {
     "confirm_save_settings": "修改模型配置将会重启后端服务，当前进度可能会中断。\n\n确定要保存并重启吗？",
     "save_settings_success": "保存成功！后端正在自动重启以应用新配置，请稍候。",
     "save_settings_error": "保存失败：",
-    "save_settings_network_error": "保存失败，请检查网络连接"
+    "save_settings_network_error": "保存失败，请检查网络连接",
+    "btn_memory_tree": "记忆树",
+    "memory_tree_hint": "点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支"
   },
   "en": {
     "html_title": "OpenStory · Dream of the Red Chamber",
@@ -161,7 +163,9 @@ const translations = {
     "confirm_save_settings": "Changing model configuration will restart the backend service. Current progress may be interrupted.\n\nAre you sure you want to save and restart?",
     "save_settings_success": "Saved successfully! The backend is restarting to apply the new configuration. Please wait.",
     "save_settings_error": "Failed to save: ",
-    "save_settings_network_error": "Failed to save, please check your network connection"
+    "save_settings_network_error": "Failed to save, please check your network connection",
+    "btn_memory_tree": "Memory Tree",
+    "memory_tree_hint": "Click a node to view it · Advancing from an old tick auto-creates a new branch"
   }
 };
 

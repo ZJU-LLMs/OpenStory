@@ -1855,7 +1855,7 @@ function renderBranchTree() {
       const isViewing = isViewingHistory && tick === viewingTick && branch.id === viewingBranchId;
       const isLiveCurrentTick = branch.id === currentBranchId && tick === lastTickOfCurrentBranch && !isViewingHistory;
 
-      const clickHandler = `onClickTreeNode(${branch.id}, ${tick})`;
+      const nodeAttr = `data-bid="${branch.id}" data-t="${tick}"`;
 
       if (isViewing) {
         html += `<circle cx="${x}" cy="${y}" r="${NODE_R + 5}" fill="none" stroke="#a0a0ff" stroke-width="2" stroke-dasharray="4 2"/>`;
@@ -1867,8 +1867,8 @@ function renderBranchTree() {
       const nodeStroke = isLiveCurrentTick ? '#fff' : 'rgba(255,255,255,0.4)';
       const nodeStrokeW = isLiveCurrentTick ? 2 : 1;
       const nodeFill = isLiveCurrentTick ? '#e94560' : color;
-      html += `<circle cx="${x}" cy="${y}" r="${NODE_R}" fill="${nodeFill}" stroke="${nodeStroke}" stroke-width="${nodeStrokeW}" style="cursor:pointer" onclick="${clickHandler}"/>`;
-      html += `<text x="${x}" y="${y + NODE_R + 14}" text-anchor="middle" fill="${color}" font-size="10" style="cursor:pointer" onclick="${clickHandler}">T${tick}</text>`;
+      html += `<circle cx="${x}" cy="${y}" r="${NODE_R}" fill="${nodeFill}" stroke="${nodeStroke}" stroke-width="${nodeStrokeW}" style="cursor:pointer" ${nodeAttr}/>`;
+      html += `<text x="${x}" y="${y + NODE_R + 14}" text-anchor="middle" fill="${color}" font-size="10" style="cursor:pointer" ${nodeAttr}>T${tick}</text>`;
     });
   });
 
@@ -1884,6 +1884,16 @@ function renderBranchTree() {
   });
 
   svg.innerHTML = html;
+
+  // Event delegation: handle node clicks centrally
+  svg.onclick = function(e) {
+    const el = e.target.closest('[data-bid]');
+    if (!el) return;
+    const branchId = parseInt(el.getAttribute('data-bid'));
+    const tick = parseInt(el.getAttribute('data-t'));
+    onClickTreeNode(branchId, tick);
+  };
+
   renderBranchLegend();
 }
 
