@@ -1739,7 +1739,12 @@ function toggleMemoryTree() {
   memoryTreeOpen = !memoryTreeOpen;
   const overlay = document.getElementById('memoryTreeOverlay');
   if (overlay) overlay.style.display = memoryTreeOpen ? 'flex' : 'none';
-  if (memoryTreeOpen) renderBranchTree();
+  if (memoryTreeOpen) {
+    renderBranchTree();
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({ type: 'get_branch_tree' }));
+    }
+  }
 }
 
 function handleMemoryTreeOverlayClick(event) {

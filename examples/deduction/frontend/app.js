@@ -4332,7 +4332,13 @@ function toggleMemoryTree() {
   memoryTreeOpen = !memoryTreeOpen;
   const overlay = document.getElementById('memoryTreeOverlay');
   if (overlay) overlay.style.display = memoryTreeOpen ? 'flex' : 'none';
-  if (memoryTreeOpen) renderBranchTree();
+  if (memoryTreeOpen) {
+    // 先用现有数据渲染一次，再向服务器请求最新分支树
+    renderBranchTree();
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({ type: 'get_branch_tree' }));
+    }
+  }
 }
 
 function handleMemoryTreeOverlayClick(event) {

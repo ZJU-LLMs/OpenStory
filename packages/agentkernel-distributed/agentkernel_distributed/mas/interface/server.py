@@ -675,6 +675,15 @@ async def broadcast_tick_data(tick: int, agents_data: Dict[str, Any]) -> None:
     }, ensure_ascii=False, default=str)
     await manager.broadcast(payload)
 
+    # 同步广播最新分支树，确保前端 branchTree 始终包含最新 ticks
+    branch_payload = json.dumps({
+        "type": "branch_tree",
+        "branches": _branches,
+        "current_branch_id": _current_branch_id,
+        "current_tick": tick,
+    }, ensure_ascii=False)
+    await manager.broadcast(branch_payload)
+
 
 async def broadcast_branch_event(event_type: str, extra: dict = None) -> None:
     """
