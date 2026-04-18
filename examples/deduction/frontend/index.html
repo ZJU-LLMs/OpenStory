@@ -11,8 +11,7 @@
 </head>
 <body>
   <div id="newIntroOverlay" class="new-intro-overlay">
-    <div class="loading-ring-container" id="loadingRing">
-      </div>
+    <div class="loading-ring-container" id="loadingRing"></div>
     <div class="vertical-progress-track">
       <div class="vertical-progress-fill" id="introProgressFill"></div>
     </div>
@@ -25,14 +24,13 @@
   </div>
 
   <div id="modeSelectionScreen" class="mode-selection-screen hidden">
-
-    <div class="mode-menu-container">
+    <div class="mode-menu-container" id="modeMenuContainer">
       <h1 class="mode-title" data-i18n="title_main">万象谱</h1>
       <h2 class="mode-subtitle" data-i18n="title_sub">红楼梦 · 第八十回推演</h2>
+      
       <div class="mode-buttons-group">
-        <button class="mode-btn mode-btn-disabled" onclick="alert(t('coming_soon'))">
-          <span class="mode-btn-text" data-i18n="mode_story">剧情模式</span>
-          <span class="mode-badge" data-i18n="badge_wip">开发中</span>
+        <button class="mode-btn" onclick="enterStoryModeSetup()" style="border-color: var(--jade); box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(59,92,84,0.3);">
+          <span class="mode-btn-text" data-i18n="mode_story" style="color: #fff; text-shadow: 0 0 10px rgba(59,92,84,0.8);">剧情模式</span>
         </button>
         <button class="mode-btn mode-btn-primary" onclick="enterFreeMode()">
           <span class="mode-btn-text" data-i18n="mode_free">自由模式</span>
@@ -44,6 +42,12 @@
           <span class="mode-btn-text" data-i18n="btn_exit">退出</span>
         </button>
       </div>
+    </div>
+
+    <div id="characterSelectionScreen" class="character-selection-screen hidden">
+      <h2 class="char-sel-title" data-i18n="choose_your_character">请选择你的化身</h2>
+      <div class="char-grid" id="playerCharGrid"></div>
+      <button class="char-sel-back" onclick="backToModeSelection()" data-i18n="btn_cancel">返回</button>
     </div>
   </div>
 
@@ -90,6 +94,9 @@
     <div class="layout">
       <aside class="sidebar">
         <div class="sidebar-title" data-i18n="sidebar_title">人物</div>
+        
+        <div id="playerControlPanel" class="player-control-panel hidden">
+          </div>
         <div class="agent-list" id="agentList">
           <div class="agent-placeholder" data-i18n="agent_placeholder">等待数据…</div>
         </div>
@@ -101,6 +108,10 @@
           <div class="map-loading" id="mapLoading" data-i18n="map_loading">正在加载地图…</div>
         </div>
 
+        <div id="storyObjectiveBox" class="story-objective-box hidden">
+          <div class="objective-header" data-i18n="current_objective">当前剧情目标</div>
+          <div class="objective-content" id="storyObjectiveText">初入大观园，请自由探索，并尝试与其他角色发生互动。</div>
+        </div>
         <div id="agentDetailBox" class="agent-detail-box">
           <div class="detail-box-header">
             <span class="detail-box-title" data-i18n="profile_title">人物档案</span>
@@ -291,7 +302,26 @@
         </div>
       </div>
     </div>
-  </div>
+
+    <div id="playerTaskModal" class="modal">
+      <div class="modal-content" style="max-width: 400px; border-color: var(--jade); box-shadow: 0 0 40px rgba(59,92,84,0.3);">
+        <div class="modal-header" style="border-bottom-color: var(--jade);">
+          <span class="modal-title" style="font-size: 24px;">下达主角指令</span>
+          <span class="close-btn" onclick="document.getElementById('playerTaskModal').style.display='none'">&times;</span>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+          <div class="form-group">
+            <label style="color: var(--jade); font-weight: bold;">本回合您想做什么？</label>
+            <textarea id="playerTaskInput" rows="3" placeholder="例如：去潇湘馆找黛玉聊天..." style="border:color: var(--jade); margin-top: 8px;"></textarea>
+          </div>
+          <div class="form-actions" style="margin-top: 16px;">
+            <button class="btn-secondary" onclick="document.getElementById('playerTaskModal').style.display='none'">取消</button>
+            <button class="btn-primary" style="background: var(--jade);" onclick="submitPlayerTask()">确定并执行回合</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 
   <script src="i18n.js"></script>
   <script src="app.js"></script>

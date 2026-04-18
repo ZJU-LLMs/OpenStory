@@ -1,6 +1,6 @@
 - name: OpenAIProvider
   model: qwen3.5-flash
-  api_key: 
+  api_key: sk-26a679f826bb431084fe3074c301f2e2
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
   capabilities:
   - chat

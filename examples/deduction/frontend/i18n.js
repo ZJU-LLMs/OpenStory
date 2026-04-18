@@ -55,6 +55,7 @@ const translations = {
     "model_config": "模型配置",
     "tts_config": "语音合成 (TTS) 配置",
     "btn_save": "保存",
+    "choose_your_character": "请选择你的化身",
     
     // Dynamic content from app.js
     "official": "官方",
@@ -82,6 +83,7 @@ const translations = {
     "save_settings_network_error": "保存失败，请检查网络连接",
 
     // 新增：模式选择界面
+    "current_objective": "当前剧情目标",
     "mode_story": "剧情模式",
     "mode_free": "自由模式",
     "badge_wip": "开发中",
@@ -145,6 +147,7 @@ const translations = {
     "model_config": "Model Config",
     "tts_config": "TTS Config",
     "btn_save": "Save",
+    "choose_your_character": "Choose Your Avatar",
     
     // Dynamic content from app.js
     "official": "Official",
