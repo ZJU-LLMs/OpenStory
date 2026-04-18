@@ -2205,8 +2205,16 @@ function finishLoadingAnimation() {
   setTimeout(() => {
     if (slidePanel) slidePanel.classList.add('open');
     
-    // 标题展示一段时间后，整个遮罩淡出进入主界面
+    // 标题展示一段时间后，显示模式选择界面，而不是直接进入地图
     setTimeout(() => {
+      // 1. 显示模式选择界面 (移除 hidden 类)
+      const modeScreen = document.getElementById('modeSelectionScreen');
+      if (modeScreen) {
+        modeScreen.classList.remove('hidden');
+      }
+
+      // 2. 淡出开场动画遮罩
+      const introOverlay = document.getElementById('newIntroOverlay');
       if (introOverlay) {
         introOverlay.classList.add('hidden');
         setTimeout(() => {
@@ -2219,21 +2227,48 @@ function finishLoadingAnimation() {
 }
 
 // ===== Init =====
+// ======== 新增：进入自由模式的逻辑 ========
+async function enterFreeMode() {
+  // 1. 隐藏模式选择界面
+  const modeScreen = document.getElementById('modeSelectionScreen');
+  if (modeScreen) {
+    modeScreen.classList.add('hidden');
+  }
+
+  // 2. 显示真正的应用主界面
+  const appCoreUI = document.getElementById('appCoreUI');
+  if (appCoreUI) {
+    appCoreUI.classList.remove('hidden');
+  }
+
+  // 3. 此时才真正初始化地图和 WebSocket 连接
+  await initMap();
+  if (typeof mapData !== 'undefined' && mapData) {
+    initializeAgentPositions();
+  }
+  connect();
+}
+
+// 确保该函数能在 HTML 的 onclick 中被调用
+window.enterFreeMode = enterFreeMode;
+
+// ======== 修改后的 startApp ========
 async function startApp() {
   // 加载自定义头像
   loadCustomAvatars();
 
   // 开始播放新加载动画
+  const introOverlay = document.getElementById('newIntroOverlay');
   if (introOverlay) {
     initLoadingRing();
     startLoadingProgress();
   }
 
-  await initMap();
+  // 加载初始人物配置
   await loadInitialProfiles();
-  // 再次确保位置初始化（在地图和数据都加载完后）
-  if (mapData) initializeAgentPositions();
-  connect();
+  
+  // 注意：原有的 initMap() 和 connect() 已移至 enterFreeMode() 中，
+  // 确保只有在用户点击“自由模式”后才进行渲染和建立连接。
 }
 
 startApp();

@@ -1724,3 +1724,201 @@ body {
   background: var(--vermillion);
   color: white;
 }
+
+/* ================== 模式选择界面 (静态底图 + 动态分层) ================== */
+.mode-selection-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 8000; /* 层级低于开场动画，高于主界面 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%; 
+  
+  /* 1. 设置你的高清古画为最底层 */
+  background-image: url('../map/sprite/start_bg.png'); 
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+  transition: opacity 0.8s ease, visibility 0.8s;
+  overflow: hidden;
+}
+
+/* 2. 动态花瓣/云雾层 */
+.mode-selection-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* 👈 把这里改成 2，原来是 0 */
+  pointer-events: none; 
+  background-image: url('../map/sprite/petals.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; 
+}
+
+/* 3. 纯 CSS 动画：夕阳呼吸光晕层 */
+.mode-selection-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  /* 调整圆心位置对准太阳 (约横向 40%, 纵向 32%)，增加亮度 */
+  background: radial-gradient(circle at 40% 32%, rgba(255, 230, 150, 0.7), transparent 30%);
+  mix-blend-mode: overlay; /* 让光晕与下层图片自然叠加 */
+  animation: sunGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* 确保菜单层在最上面，不会被特效挡住 */
+.mode-menu-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mode-selection-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#appCoreUI {
+  transition: opacity 1s ease;
+}
+#appCoreUI.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mode-menu-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mode-title {
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--ink); /* 改为墨黑色 */
+  letter-spacing: 16px;
+  /* 改为浅色发光描边，去掉沉重的黑影 */
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.mode-subtitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--ink); /* 改为墨黑色 */
+  font-weight: bold; /* 加粗提升辨识度 */
+  letter-spacing: 8px;
+  margin-bottom: 60px;
+  margin-left: 8px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9); /* 浅色底阴影 */
+}
+
+.mode-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* PvZ 风格互动木牌按钮 */
+.mode-btn {
+  position: relative;
+  width: 280px;
+  padding: 18px 0;
+  background: linear-gradient(180deg, rgba(48, 38, 32, 0.9) 0%, rgba(26, 20, 16, 0.95) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 弹性动画 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(207,168,94,0.2);
+  overflow: hidden;
+}
+
+/* 按钮内发光边框效果 */
+.mode-btn::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed rgba(207, 168, 94, 0.4);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.mode-btn-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 6px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  position: relative;
+  z-index: 2;
+}
+
+/* 悬停放大发光 */
+.mode-btn:hover {
+  transform: scale(1.1) translateX(15px);
+  background: linear-gradient(180deg, rgba(80, 60, 45, 0.95) 0%, rgba(38, 26, 18, 0.95) 100%);
+  border-color: var(--gold-light);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8), 0 0 20px rgba(207,168,94,0.6);
+}
+
+.mode-btn:active {
+  transform: scale(1.05) translateX(10px);
+}
+
+/* 自由模式特别高亮 */
+.mode-btn-primary {
+  border-color: var(--vermillion);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(192,57,43,0.3);
+}
+.mode-btn-primary .mode-btn-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(192,57,43,0.8);
+}
+.mode-btn-primary:hover {
+  border-color: #ff5252;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8), 0 0 25px rgba(192,57,43,0.7);
+}
+
+/* 未开放模式置灰 */
+.mode-btn-disabled {
+  filter: grayscale(1);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.mode-btn-disabled:hover {
+  transform: none; /* 禁用状态不放大不移动 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(48, 38, 32, 0.9) 0%, rgba(26, 20, 16, 0.95) 100%);
+  border-color: var(--gold);
+}
+
+.mode-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--vermillion);
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  transform: rotate(15deg);
+  z-index: 3;
+}

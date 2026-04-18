@@ -79,7 +79,15 @@ const translations = {
     "confirm_save_settings": "修改模型配置将会重启后端服务，当前进度可能会中断。\n\n确定要保存并重启吗？",
     "save_settings_success": "保存成功！后端正在自动重启以应用新配置，请稍候。",
     "save_settings_error": "保存失败：",
-    "save_settings_network_error": "保存失败，请检查网络连接"
+    "save_settings_network_error": "保存失败，请检查网络连接",
+
+    // 新增：模式选择界面
+    "mode_story": "剧情模式",
+    "mode_free": "自由模式",
+    "badge_wip": "开发中",
+    "btn_exit": "退 出",
+    "coming_soon": "剧情模式正在紧锣密鼓开发中，敬请期待！",
+    "exit_hint": "暂未实现客户端退出逻辑。"
   },
   "en": {
     "html_title": "OpenStory · Dream of the Red Chamber",
@@ -161,7 +169,15 @@ const translations = {
     "confirm_save_settings": "Changing model configuration will restart the backend service. Current progress may be interrupted.\n\nAre you sure you want to save and restart?",
     "save_settings_success": "Saved successfully! The backend is restarting to apply the new configuration. Please wait.",
     "save_settings_error": "Failed to save: ",
-    "save_settings_network_error": "Failed to save, please check your network connection"
+    "save_settings_network_error": "Failed to save, please check your network connection",
+
+    // 新增：模式选择界面
+    "mode_story": "Story Mode",
+    "mode_free": "Free Mode",
+    "badge_wip": "WIP",
+    "btn_exit": "Exit",
+    "coming_soon": "Story Mode is under development. Stay tuned!",
+    "exit_hint": "Client exit logic is not implemented yet."
   }
 };
 
