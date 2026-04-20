@@ -8,6 +8,8 @@ let reconnectTimer = null;
 let agentsData = {};
 let selectedAgent = null;
 let currentTick = -1;
+let currentMode = 'free'; // 当前模式: 'free' 或 'story'
+let playerAgentId = null; // 剧情模式下，玩家扮演的智能体 ID
 let viewDays = {}; // 记录每个智能体当前查看的是第几天的计划
 let pendingTickData = null; // 缓存后端推理完成的数据，等待用户手动触发展示
 let agentsWithNewAction = new Set(); // 有未读新行动的 agent，头顶显示感叹号
@@ -929,10 +931,24 @@ function renderAgentList() {
   const ids = Object.keys(agentsData);
   if (!ids.length) { list.innerHTML = '<div class="agent-placeholder">等待数据…</div>'; return; }
 
-  // 清空列表
+  // ======== 新增：剧情模式玩家面板剥离逻辑 ========
+  const playerPanel = document.getElementById('playerControlPanel');
+  if (currentMode === 'story' && playerAgentId && agentsData[playerAgentId]) {
+    if (playerPanel) {
+      playerPanel.classList.remove('hidden');
+      renderPlayerPanel(); // 单独渲染玩家控制区
+    }
+  } else {
+    if (playerPanel) playerPanel.classList.add('hidden');
+  }
+  // ===============================================
+
   list.innerHTML = '';
 
   ids.forEach(id => {
+    // 剧情模式下，玩家本人不再出现在下方的普通 NPC 列表中
+    if (currentMode === 'story' && id === playerAgentId) return;
+
     const d = agentsData[id];
     const active = id === selectedAgent;
     const name = formatAgentName(id);
@@ -943,7 +959,6 @@ function renderAgentList() {
     card.className = `agent-card${active ? ' active' : ''}${inactiveClass}`;
     card.onclick = () => selectAgent(id);
 
-    // 头像
     const avatar = document.createElement('img');
     avatar.className = 'agent-card-avatar';
     avatar.alt = name;
@@ -952,7 +967,6 @@ function renderAgentList() {
       avatar.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23888" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/%3E%3C/svg%3E';
     };
 
-    // 检查是否有自定义头像
     const customAvatar = customAgentAvatars[id];
     if (customAvatar && customAvatar.type === 'custom') {
       avatar.src = customAvatar.source;
@@ -2323,8 +2337,16 @@ function finishLoadingAnimation() {
   setTimeout(() => {
     if (slidePanel) slidePanel.classList.add('open');
     
-    // 标题展示一段时间后，整个遮罩淡出进入主界面
+    // 标题展示一段时间后，显示模式选择界面，而不是直接进入地图
     setTimeout(() => {
+      // 1. 显示模式选择界面 (移除 hidden 类)
+      const modeScreen = document.getElementById('modeSelectionScreen');
+      if (modeScreen) {
+        modeScreen.classList.remove('hidden');
+      }
+
+      // 2. 淡出开场动画遮罩
+      const introOverlay = document.getElementById('newIntroOverlay');
       if (introOverlay) {
         introOverlay.classList.add('hidden');
         setTimeout(() => {
@@ -2337,21 +2359,106 @@ function finishLoadingAnimation() {
 }
 
 // ===== Init =====
+// ======== 新增：剧情模式选人逻辑 ========
+function enterStoryModeSetup() {
+  // 隐藏左侧主菜单，显示选人浮层
+  document.getElementById('modeMenuContainer').style.display = 'none';
+  document.getElementById('characterSelectionScreen').classList.remove('hidden');
+  renderPlayerSelection();
+}
+
+function backToModeSelection() {
+  // 隐藏选人浮层，恢复左侧主菜单
+  document.getElementById('characterSelectionScreen').classList.add('hidden');
+  document.getElementById('modeMenuContainer').style.display = 'flex';
+}
+
+function renderPlayerSelection() {
+  const grid = document.getElementById('playerCharGrid');
+  grid.innerHTML = '';
+  
+  // 核心可选主角列表（可根据需要增删）
+  const mainChars = ['贾宝玉', '林黛玉', '薛宝钗', '王熙凤', '史湘云', '贾探春'];
+  
+  mainChars.forEach(name => {
+    const card = document.createElement('div');
+    card.className = 'char-card';
+    card.onclick = () => selectPlayerCharacter(name);
+    card.innerHTML = `
+      <img src="../map/sprite/${name}.png" onerror="this.src='../map/sprite/普通人.png'">
+      <span>${name}</span>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+async function selectPlayerCharacter(name) {
+  // 1. 设置全局模式变量
+  playerAgentId = name;
+  currentMode = 'story';
+
+  // 2. 隐藏整个开始界面大容器
+  const modeScreen = document.getElementById('modeSelectionScreen');
+  if (modeScreen) modeScreen.classList.add('hidden');
+
+  // 3. 显示主界面
+  const appCoreUI = document.getElementById('appCoreUI');
+  if (appCoreUI) appCoreUI.classList.remove('hidden');
+
+  // 4. 初始化地图与连接
+  await initMap();
+  if (typeof mapData !== 'undefined' && mapData) {
+    initializeAgentPositions();
+  }
+  connect();
+
+  // 5. 【关键】延迟一小段时间等待数据加载后，强制选中玩家并聚焦相机
+  setTimeout(() => {
+    selectAgent(name);
+  }, 2000); 
+}
+
+// ======== 修改：进入自由模式的逻辑 ========
+async function enterFreeMode() {
+  currentMode = 'free';
+  playerAgentId = null;
+
+  const modeScreen = document.getElementById('modeSelectionScreen');
+  if (modeScreen) modeScreen.classList.add('hidden');
+
+  const appCoreUI = document.getElementById('appCoreUI');
+  if (appCoreUI) appCoreUI.classList.remove('hidden');
+
+  await initMap();
+  if (typeof mapData !== 'undefined' && mapData) {
+    initializeAgentPositions();
+  }
+  connect();
+}
+
+// 确保函数绑定到 window 供 HTML 调用
+window.enterFreeMode = enterFreeMode;
+window.enterStoryModeSetup = enterStoryModeSetup;
+window.backToModeSelection = backToModeSelection;
+window.selectPlayerCharacter = selectPlayerCharacter;
+
+// ======== 修改后的 startApp ========
 async function startApp() {
   // 加载自定义头像
   loadCustomAvatars();
 
   // 开始播放新加载动画
+  const introOverlay = document.getElementById('newIntroOverlay');
   if (introOverlay) {
     initLoadingRing();
     startLoadingProgress();
   }
 
-  await initMap();
+  // 加载初始人物配置
   await loadInitialProfiles();
-  // 再次确保位置初始化（在地图和数据都加载完后）
-  if (mapData) initializeAgentPositions();
-  connect();
+  
+  // 注意：原有的 initMap() 和 connect() 已移至 enterFreeMode() 中，
+  // 确保只有在用户点击“自由模式”后才进行渲染和建立连接。
 }
 
 startApp();
@@ -4551,4 +4658,108 @@ function renderBranchLegend() {
       <span>${label}${active}</span>
     </div>`;
   }).join('');
+}
+// ==========================================
+// ======== 剧情模式：玩家专属交互逻辑 ========
+// ==========================================
+
+// 渲染左侧最上方的玩家专属面板 (规整区块版)
+function renderPlayerPanel() {
+  const panel = document.getElementById('playerControlPanel');
+  if (!panel || !playerAgentId) return;
+  
+  const name = formatAgentName(playerAgentId);
+  let avatarSrc = `../map/sprite/${name}.png`;
+  
+  const customAvatar = customAgentAvatars[playerAgentId];
+  if (customAvatar && customAvatar.type === 'custom') {
+    avatarSrc = customAvatar.source;
+  }
+
+  // 严格按照图1线框图输出：头像块 -> 下达任务块 -> 跳过块
+  panel.innerHTML = `
+    <div class="player-avatar-box">
+      <img src="${avatarSrc}" class="player-avatar-img" onerror="this.src='../map/sprite/普通人.png'">
+      <div class="player-name-label">${name}</div>
+    </div>
+    <button class="btn-player-action btn-issue" onclick="openPlayerTaskModal()">下达任务</button>
+    <button class="btn-player-action btn-skip" onclick="skipPlayerTurn()">跳过下达任务</button>
+  `;
+}
+
+// 打开下达指令的弹窗
+function openPlayerTaskModal() {
+  const modal = document.getElementById('playerTaskModal');
+  const input = document.getElementById('playerTaskInput');
+  if (modal && input) {
+    input.value = ''; // 清空上次的输入
+    modal.style.display = 'block';
+    input.focus();
+  }
+}
+
+// 提交玩家指令并推进回合
+function submitPlayerTask() {
+  const input = document.getElementById('playerTaskInput');
+  const action = input ? input.value.trim() : '';
+  
+  if (!action) {
+    alert("行动不能为空！请告诉系统您想做什么。");
+    return;
+  }
+
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    // 1. 发送计划给后端
+    ws.send(JSON.stringify({
+      type: "set_plan",
+      agent_id: playerAgentId,
+      action: action,
+      location: "自动", // 暂设为自动，可由后端大模型推理具体地点
+      target: "无"
+    }));
+    
+    document.getElementById('playerTaskModal').style.display = 'none';
+    
+    // 2. 强制触发全局 tick，推进时间线
+    setTimeout(() => {
+      sendStartTick();
+    }, 500); // 稍微延迟，确保 set_plan 先被后端接收
+  } else {
+    alert("网络连接已断开！");
+  }
+}
+
+// 玩家选择跳过回合
+function skipPlayerTurn() {
+  if (confirm("确定要随波逐流（跳过本回合），让系统根据您的性格自动行动吗？")) {
+    sendStartTick();
+  }
+}
+
+// ==========================================
+// 修改现有的 enterStoryModeSetup 和 enterFreeMode 逻辑
+// 控制全局推演按钮的显示与隐藏
+// ==========================================
+
+const originalEnterStoryModeSetup = window.enterStoryModeSetup;
+window.enterStoryModeSetup = function() {
+  if(originalEnterStoryModeSetup) originalEnterStoryModeSetup();
+};
+
+const originalSelectPlayerCharacter = window.selectPlayerCharacter;
+window.selectPlayerCharacter = async function(name) {
+  if(originalSelectPlayerCharacter) await originalSelectPlayerCharacter(name);
+  
+  // 剧情模式：隐藏顶部的“开始推演”上帝视角按钮，显示目标框
+  document.getElementById('startTickBtn').style.display = 'none';
+  document.getElementById('storyObjectiveBox').classList.remove('hidden');
+}
+
+const originalEnterFreeMode = window.enterFreeMode;
+window.enterFreeMode = async function() {
+  if(originalEnterFreeMode) await originalEnterFreeMode();
+  
+  // 自由模式：显示顶部的“开始推演”按钮，隐藏目标框
+  document.getElementById('startTickBtn').style.display = 'inline-block';
+  document.getElementById('storyObjectiveBox').classList.add('hidden');
 }

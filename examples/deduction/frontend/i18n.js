@@ -55,6 +55,7 @@ const translations = {
     "model_config": "模型配置",
     "tts_config": "语音合成 (TTS) 配置",
     "btn_save": "保存",
+    "choose_your_character": "请选择你的化身",
     
     // Dynamic content from app.js
     "official": "官方",
@@ -81,7 +82,14 @@ const translations = {
     "save_settings_error": "保存失败：",
     "save_settings_network_error": "保存失败，请检查网络连接",
     "btn_memory_tree": "记忆树",
-    "memory_tree_hint": "点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支"
+    "memory_tree_hint": "点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支",
+    "current_objective": "当前剧情目标",
+    "mode_story": "剧情模式",
+    "mode_free": "自由模式",
+    "badge_wip": "开发中",
+    "btn_exit": "退 出",
+    "coming_soon": "剧情模式正在紧锣密鼓开发中，敬请期待！",
+    "exit_hint": "暂未实现客户端退出逻辑。"
   },
   "en": {
     "html_title": "OpenStory · Dream of the Red Chamber",
@@ -139,6 +147,7 @@ const translations = {
     "model_config": "Model Config",
     "tts_config": "TTS Config",
     "btn_save": "Save",
+    "choose_your_character": "Choose Your Avatar",
     
     // Dynamic content from app.js
     "official": "Official",
@@ -165,7 +174,13 @@ const translations = {
     "save_settings_error": "Failed to save: ",
     "save_settings_network_error": "Failed to save, please check your network connection",
     "btn_memory_tree": "Memory Tree",
-    "memory_tree_hint": "Click a node to view it · Advancing from an old tick auto-creates a new branch"
+    "memory_tree_hint": "Click a node to view it · Advancing from an old tick auto-creates a new branch",
+    "mode_story": "Story Mode",
+    "mode_free": "Free Mode",
+    "badge_wip": "WIP",
+    "btn_exit": "Exit",
+    "coming_soon": "Story Mode is under development. Stay tuned!",
+    "exit_hint": "Client exit logic is not implemented yet."
   }
 };
 
