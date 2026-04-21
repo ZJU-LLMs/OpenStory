@@ -4634,6 +4634,19 @@ async function confirmReset() {
   }
 }
 
+async function returnToMainMenu() {
+  if (!confirm('确认返回主菜单？\n当前剧情推演进度将重置。')) return;
+  try {
+    const res = await fetch('http://localhost:8001/api/reset', { method: 'POST' });
+    if (!res.ok) { alert('重置失败：' + (await res.text())); return; }
+  } catch (e) {
+    alert('重置请求发送失败，请检查网络连接');
+    return;
+  }
+  window.location.href = 'http://localhost:8000/frontend/index.html';
+}
+window.returnToMainMenu = returnToMainMenu;
+
 // ── 回溯树函数 ─────────────────────────────────────────────────────────────────
 
 function toggleMemoryTree() {
