@@ -101,8 +101,20 @@ let viewDays = {};
 let pendingTickData = null; 
 let agentsWithNewAction = new Set(); 
 let eventBubbles = []; 
-let tickHistory = []; 
-let currentHistoryIndex = -1; 
+let tickHistory = [];
+let currentHistoryIndex = -1;
+
+// ── Memory Tree / Branch State ─────────────────────────────────────────────
+const BRANCH_COLORS = [
+  '#ffd700','#4fc3f7','#81c784','#ff8a65',
+  '#ce93d8','#80deea','#ffb74d','#f48fb1',
+];
+let branchTree = [];          // branch metadata list from backend
+let currentBranchId = 0;      // which branch is actively simulating
+let viewingTick = -1;         // tick being viewed in history mode (-1 = latest)
+let viewingBranchId = -1;     // branch of the viewed tick
+let isViewingHistory = false; // true when user has jumped to a past tick
+let memoryTreeOpen = false;   // modal visibility
 
 const OFFICIAL_PRESETS = {
   sunwukong: {
@@ -293,6 +305,7 @@ function connect() {
   ws.onopen = () => {
     setStatus('connected');
     if (isReconnectingAfterRestart) { isReconnectingAfterRestart = false; window.location.reload(); }
+    ws.send(JSON.stringify({ type: 'get_branch_tree' }));
   };
 
   ws.onmessage = (e) => {
@@ -300,10 +313,6 @@ function connect() {
       const msg = JSON.parse(e.data);
       if (msg.type === 'snapshot' || msg.type === 'tick_update') {
         pendingTickData = msg;
-        if (msg.tick && msg.tick > 0) {
-          const settingsBtn = document.getElementById('settingsBtn');
-          if (settingsBtn) settingsBtn.style.display = 'none';
-        }
         document.getElementById('startTickBtn').disabled = true;
         document.getElementById('applyTickBtn').disabled = false;
       } else if (msg.type === 'add_agent_response') {
@@ -326,6 +335,29 @@ function connect() {
             if (!agentSprites[name]) { const img = new Image(); img.src = `../map/sprite/${name}.png`; agentSprites[name] = img; }
           }
           renderAgentList();
+        }
+      } else if (msg.type === 'branch_tree') {
+        branchTree = msg.branches || [];
+        currentBranchId = msg.current_branch_id ?? 0;
+        renderBranchTree();
+
+      } else if (msg.type === 'branch_created') {
+        branchTree = msg.branches || [];
+        currentBranchId = msg.current_branch_id ?? 0;
+        isViewingHistory = false;
+        viewingTick = -1;
+        viewingBranchId = -1;
+        updateHistoryModeBanner();
+        renderBranchTree();
+
+      } else if (msg.type === 'view_tick_ack') {
+        if (msg.data) {
+          viewingTick = msg.tick;
+          viewingBranchId = msg.branch_id;
+          isViewingHistory = true;
+          applyAgentsData(msg.data, msg.tick);
+          updateHistoryModeBanner();
+          renderBranchTree();
         }
       }
     } catch (err) { console.error('parse error', err); }
@@ -1699,4 +1731,196 @@ async function confirmReset() {
       if (res.ok) { alert('Reset command sent! Please wait.'); isReconnectingAfterRestart = true; } else { alert('Reset failed: ' + (await res.text())); }
     } catch (e) { alert('Network error'); }
   }
+}
+
+// ── Memory Tree Functions ──────────────────────────────────────────────────
+
+function toggleMemoryTree() {
+  memoryTreeOpen = !memoryTreeOpen;
+  const overlay = document.getElementById('memoryTreeOverlay');
+  if (overlay) overlay.style.display = memoryTreeOpen ? 'flex' : 'none';
+  if (memoryTreeOpen) {
+    renderBranchTree();
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({ type: 'get_branch_tree' }));
+    }
+  }
+}
+
+function handleMemoryTreeOverlayClick(event) {
+  if (event.target === document.getElementById('memoryTreeOverlay')) {
+    toggleMemoryTree();
+  }
+}
+
+function exitHistoryView() {
+  isViewingHistory = false;
+  viewingTick = -1;
+  viewingBranchId = -1;
+  updateHistoryModeBanner();
+  // Re-apply the latest live tick from history
+  if (tickHistory.length > 0) {
+    applyHistoryTick(tickHistory[tickHistory.length - 1]);
+  }
+  renderBranchTree();
+}
+
+// Alias so view_tick_ack handler can call a consistent function
+function applyAgentsData(data, tick) {
+  applyHistoryTick({ tick, data });
+}
+
+function updateHistoryModeBanner() {
+  const banner = document.getElementById('historyModeBanner');
+  const bannerText = document.getElementById('historyModeBannerText');
+  const innerBanner = document.getElementById('historyViewBanner');
+  const innerText = document.getElementById('historyViewText');
+
+  if (!banner) return;
+
+  if (isViewingHistory && viewingTick !== -1) {
+    banner.style.display = 'flex';
+    if (bannerText) bannerText.textContent = `⏪ Viewing Tick ${viewingTick} · Click "Apply Tick" to fork a new branch`;
+    if (innerBanner) innerBanner.style.display = 'flex';
+    if (innerText) innerText.textContent = `Viewing Tick ${viewingTick}`;
+  } else {
+    banner.style.display = 'none';
+    if (innerBanner) innerBanner.style.display = 'none';
+  }
+}
+
+function renderBranchTree() {
+  const svg = document.getElementById('branchTreeSvg');
+  if (!svg) return;
+  if (!branchTree || branchTree.length === 0) {
+    svg.innerHTML = '<text x="10" y="30" fill="#555" font-size="12">No data</text>';
+    return;
+  }
+
+  const NODE_R = 10;
+  const H_GAP = 64;
+  const V_GAP = 56;
+  const PAD_X = 40;
+  const PAD_Y = 36;
+
+  const allTicks = [...new Set(branchTree.flatMap(b => b.ticks || []))].sort((a, b) => a - b);
+  if (allTicks.length === 0) {
+    svg.innerHTML = '<text x="10" y="30" fill="#555" font-size="12">No data</text>';
+    return;
+  }
+
+  const tickToX = {};
+  allTicks.forEach((t, i) => { tickToX[t] = PAD_X + i * H_GAP; });
+
+  const branchToY = {};
+  branchTree.forEach((b, i) => { branchToY[b.id] = PAD_Y + i * V_GAP; });
+
+  const svgWidth = PAD_X * 2 + (allTicks.length - 1) * H_GAP;
+  const svgHeight = PAD_Y * 2 + (branchTree.length - 1) * V_GAP;
+  svg.setAttribute('viewBox', `0 0 ${svgWidth} ${svgHeight}`);
+  svg.setAttribute('height', Math.max(svgHeight, 80));
+
+  const forkTicks = new Set(branchTree.filter(b => b.parent_branch_id !== null && b.parent_branch_id !== undefined).map(b => b.fork_tick));
+
+  let html = '';
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = (branch.ticks || []).slice().sort((a, b) => a - b);
+    const y = branchToY[branch.id];
+
+    if (branch.parent_branch_id !== null && branch.parent_branch_id !== undefined && ticks.length > 0) {
+      const parentY = branchToY[branch.parent_branch_id];
+      const forkX = tickToX[branch.fork_tick] ?? PAD_X;
+      const firstX = tickToX[ticks[0]] ?? forkX;
+      html += `<line x1="${forkX}" y1="${parentY}" x2="${firstX}" y2="${y}" stroke="${color}" stroke-width="2" opacity="0.7"/>`;
+    }
+
+    if (ticks.length > 1) {
+      const x1 = tickToX[ticks[0]];
+      const x2 = tickToX[ticks[ticks.length - 1]];
+      html += `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${color}" stroke-width="2"/>`;
+    }
+  });
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = (branch.ticks || []).slice().sort((a, b) => a - b);
+    const y = branchToY[branch.id];
+
+    const currentBranch = branchTree.find(b => b.id === currentBranchId);
+    const lastTickOfCurrentBranch = currentBranch ? Math.max(...(currentBranch.ticks.length ? currentBranch.ticks : [0])) : -1;
+
+    ticks.forEach(tick => {
+      const x = tickToX[tick];
+      const isViewing = isViewingHistory && tick === viewingTick && branch.id === viewingBranchId;
+      const isLiveCurrentTick = branch.id === currentBranchId && tick === lastTickOfCurrentBranch && !isViewingHistory;
+
+      // Decorative rings (no pointer events)
+      if (isViewing) {
+        html += `<circle cx="${x}" cy="${y}" r="${NODE_R + 5}" fill="none" stroke="#a0a0ff" stroke-width="2" stroke-dasharray="4 2" pointer-events="none"/>`;
+      }
+      if (isLiveCurrentTick) {
+        html += `<circle cx="${x}" cy="${y}" r="${NODE_R + 4}" fill="none" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2" opacity="0.8" pointer-events="none"/>`;
+      }
+
+      const nodeStroke = isLiveCurrentTick ? '#fff' : 'rgba(255,255,255,0.4)';
+      const nodeStrokeW = isLiveCurrentTick ? 2 : 1;
+      const nodeFill = isLiveCurrentTick ? '#e94560' : color;
+      html += `<circle cx="${x}" cy="${y}" r="${NODE_R}" fill="${nodeFill}" stroke="${nodeStroke}" stroke-width="${nodeStrokeW}" pointer-events="none"/>`;
+      html += `<text x="${x}" y="${y + NODE_R + 14}" text-anchor="middle" fill="${color}" font-size="10" pointer-events="none">T${tick}</text>`;
+      // Transparent large circle as unified hit area covering node + label
+      html += `<circle cx="${x}" cy="${y + 8}" r="${NODE_R + 14}" fill="transparent" style="cursor:pointer" data-bid="${branch.id}" data-t="${tick}"/>`;
+    });
+  });
+
+  branchTree.forEach(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const ticks = branch.ticks || [];
+    if (ticks.length === 0) return;
+    const lastTick = Math.max(...ticks);
+    const x = tickToX[lastTick] + NODE_R + 8;
+    const y = branchToY[branch.id];
+    const label = branch.id === 0 ? 'Main' : `Branch ${branch.id}`;
+    html += `<text x="${x}" y="${y + 4}" fill="${color}" font-size="9" opacity="0.7" pointer-events="none">${label}</text>`;
+  });
+
+  svg.innerHTML = html;
+
+  // Bind directly — no closest() dependency
+  svg.querySelectorAll('[data-bid]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      onClickTreeNode(
+        parseInt(el.getAttribute('data-bid')),
+        parseInt(el.getAttribute('data-t'))
+      );
+    });
+  });
+
+  renderBranchLegend();
+}
+
+function onClickTreeNode(branchId, tick) {
+  if (!ws || ws.readyState !== WebSocket.OPEN) {
+    console.warn('Memory Tree: WS not connected');
+    return;
+  }
+  console.log('Memory Tree: jump to branch=' + branchId + ' tick=' + tick);
+  ws.send(JSON.stringify({ type: 'view_tick', tick: tick, branch_id: branchId }));
+  if (memoryTreeOpen) toggleMemoryTree();
+}
+
+function renderBranchLegend() {
+  const legend = document.getElementById('branchLegend');
+  if (!legend || !branchTree) return;
+  legend.innerHTML = branchTree.map(branch => {
+    const color = BRANCH_COLORS[branch.id % BRANCH_COLORS.length];
+    const label = branch.id === 0 ? 'Main' : `Branch ${branch.id}`;
+    const active = branch.id === currentBranchId ? ' (current)' : '';
+    return `<div class="branch-legend-item">
+      <div class="branch-legend-dot" style="background:${color}"></div>
+      <span>${label}${active}</span>
+    </div>`;
+  }).join('');
 }

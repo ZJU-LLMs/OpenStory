@@ -55,7 +55,6 @@ const translations = {
     "model_config": "模型配置",
     "tts_config": "语音合成 (TTS) 配置",
     "btn_save": "保存",
-    "choose_your_character": "请选择你的化身",
     
     // Dynamic content from app.js
     "official": "官方",
@@ -80,16 +79,7 @@ const translations = {
     "confirm_save_settings": "修改模型配置将会重启后端服务，当前进度可能会中断。\n\n确定要保存并重启吗？",
     "save_settings_success": "保存成功！后端正在自动重启以应用新配置，请稍候。",
     "save_settings_error": "保存失败：",
-    "save_settings_network_error": "保存失败，请检查网络连接",
-    "btn_memory_tree": "记忆树",
-    "memory_tree_hint": "点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支",
-    "current_objective": "当前剧情目标",
-    "mode_story": "剧情模式",
-    "mode_free": "自由模式",
-    "badge_wip": "开发中",
-    "btn_exit": "退 出",
-    "coming_soon": "剧情模式正在紧锣密鼓开发中，敬请期待！",
-    "exit_hint": "暂未实现客户端退出逻辑。"
+    "save_settings_network_error": "保存失败，请检查网络连接"
   },
   "en": {
     "html_title": "OpenStory · Dream of the Red Chamber",
@@ -147,7 +137,6 @@ const translations = {
     "model_config": "Model Config",
     "tts_config": "TTS Config",
     "btn_save": "Save",
-    "choose_your_character": "Choose Your Avatar",
     
     // Dynamic content from app.js
     "official": "Official",
@@ -172,15 +161,7 @@ const translations = {
     "confirm_save_settings": "Changing model configuration will restart the backend service. Current progress may be interrupted.\n\nAre you sure you want to save and restart?",
     "save_settings_success": "Saved successfully! The backend is restarting to apply the new configuration. Please wait.",
     "save_settings_error": "Failed to save: ",
-    "save_settings_network_error": "Failed to save, please check your network connection",
-    "btn_memory_tree": "Memory Tree",
-    "memory_tree_hint": "Click a node to view it · Advancing from an old tick auto-creates a new branch",
-    "mode_story": "Story Mode",
-    "mode_free": "Free Mode",
-    "badge_wip": "WIP",
-    "btn_exit": "Exit",
-    "coming_soon": "Story Mode is under development. Stay tuned!",
-    "exit_hint": "Client exit logic is not implemented yet."
+    "save_settings_network_error": "Failed to save, please check your network connection"
   }
 };
 

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>万象谱 · 复兴大观园</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ink-bg"></div>
+  <div class="grain"></div>
+
+  <!-- 时间流逝全屏大字展示层 -->
+  <div id="timeTransitionOverlay" class="time-transition-overlay">
+    <div class="time-transition-text" id="timeTransitionText"></div>
+  </div>
+
+  <!-- 胜负结局覆盖层 -->
+  <div id="gameResultOverlay" class="game-result-overlay">
+    <div class="game-result-title" id="gameResultTitle">复兴成功</div>
+    <div class="game-result-desc" id="gameResultDesc">大观园在众人努力下重焕生机，往日繁荣再现。</div>
+    <div class="game-result-actions">
+      <button class="game-result-btn" onclick="restartGame()">重新开始</button>
+      <button class="game-result-btn game-result-btn-report" id="reportBtn" onclick="requestStoryReport()" style="display:none;">生成故事报告</button>
+      <button class="game-result-btn game-result-btn-export" id="exportReportBtn" onclick="exportStoryReport()" style="display:none;">导出 txt</button>
+    </div>
+    <div id="storyReportPanel" class="story-report-panel" style="display:none;">
+      <div class="story-report-loading" id="storyReportLoading">正在续写红楼梦故事，请稍候…</div>
+      <div class="story-report-content" id="storyReportContent"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1 class="header-title">万象谱</h1>
+      <span class="header-sub">复兴大观园 · 剧情模式</span>
+    </div>
+    <div class="header-center">
+      <span class="sim-date" id="simDate">乾隆四十九年 正月初一 子时</span>
+    </div>
+    <div class="header-right">
+      <!-- 回溯树按钮 -->
+      <button id="memoryTreeBtn" class="control-btn memory-tree-btn" onclick="toggleMemoryTree()" title="回溯树">
+        🌳 回溯树
+      </button>
+      <button id="returnHomeBtn" class="control-btn" onclick="returnToMainMenu()" title="返回主菜单">🏠</button>
+      <button id="settingsBtn" class="control-btn settings-btn" onclick="openSettingsModal()" title="设置">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+      <button id="startTickBtn" class="control-btn" onclick="sendStartTick()">开始推演</button>
+      <button id="applyTickBtn" class="control-btn control-btn-apply" onclick="applyPendingTick()" disabled>开始模拟</button>
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">连接中…</span>
+      <div class="tick-nav" style="display:inline-flex;align-items:center;margin-left:15px;">
+        <button id="prevTickBtn" class="tick-nav-btn" onclick="prevTick()" disabled style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#d4c4a8;cursor:pointer;padding:2px 8px;border-radius:4px 0 0 4px;">&lt;</button>
+        <span class="tick-badge" style="margin-left:0;border-radius:0;">Tick <span id="tickNum">—</span></span>
+        <button id="nextTickBtn" class="tick-nav-btn" onclick="nextTick()" disabled style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#d4c4a8;cursor:pointer;padding:2px 8px;border-radius:0 4px 4px 0;">&gt;</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 左侧边栏：玩家角色区 + 其他角色列表 -->
+    <aside class="sidebar">
+      <!-- 玩家角色区 -->
+      <div class="player-zone" id="playerZone">
+        <div class="player-portrait">
+          <img id="playerSprite" src="/map/sprite/普通人.png" alt="玩家角色" />
+          <div>
+            <div class="player-name" id="playerName">—</div>
+            <div class="player-role-tag">扮演中</div>
+          </div>
+        </div>
+        <div class="player-actions">
+          <button class="btn-view-profile" onclick="openPlayerDetail()">查看档案</button>
+          <button class="btn-assign-task" onclick="openAssignTaskModal()">下达任务</button>
+          <button class="btn-skip-task" onclick="skipTask()">跳过下达任务</button>
+        </div>
+      </div>
+
+      <!-- 其他角色列表 -->
+      <div class="sidebar-title">其他人物</div>
+      <div class="agent-list" id="agentList">
+        <div class="agent-placeholder">等待数据…</div>
+      </div>
+    </aside>
+
+    <!-- 主内容：地图 -->
+    <main class="main-content" id="mainContent">
+      <div id="mapContainer" class="map-container">
+        <canvas id="mapCanvas"></canvas>
+        <div class="map-loading" id="mapLoading">正在加载地图…</div>
+      </div>
+
+      <!-- 目标面板（右上角浮层） -->
+      <div class="goal-panel" id="goalPanel">
+        <div class="goal-panel-title">复兴大观园 · 稳定度</div>
+        <div class="goal-score-row">
+          <span class="goal-score-num" id="goalScoreNum">50</span>
+          <span class="goal-score-max">/ 100</span>
+        </div>
+        <div class="goal-progress-track">
+          <div class="goal-progress-fill" id="goalProgressFill" style="width:50%"></div>
+        </div>
+        <div class="goal-events-title">历史事件</div>
+        <div class="goal-events-list" id="goalEventsList">
+          <div class="goal-event-item goal-event-placeholder">
+            <span class="event-delta" style="color:#8a7560">—</span>
+            <span class="event-text">等待推演开始…</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 人物详情悬浮框 -->
+      <div id="agentDetailBox" class="agent-detail-box">
+        <div class="detail-box-header">
+          <span class="detail-box-title">人物档案</span>
+          <button class="detail-box-close" onclick="closeAgentDetail()">&times;</button>
+        </div>
+        <div id="detailPanel" class="detail-panel-content">
+          <div class="empty-state">
+            <div class="empty-icon">卷</div>
+            <p>请从左侧选择人物</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 对话侧边栏（同deduction） -->
+  <div id="dialogueModal" class="dialogue-sidebar">
+    <div class="sidebar-header">
+      <span class="modal-title">对话详录</span>
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+    </div>
+    <div id="dialogueSummary" class="modal-summary" style="display:none"></div>
+    <div class="sidebar-content">
+      <section id="dialogueParticipantsCard" class="dialogue-participants-card">
+        <div class="dialogue-side-title">对话人物</div>
+        <div id="dialogueParticipants" class="dialogue-participants"></div>
+      </section>
+      <div id="dialogueContent" class="dialogue-body"></div>
+      <section class="dream-thumbnail-card">
+        <div class="dialogue-side-title">红楼梦略缩图</div>
+        <div class="dream-thumbnail-frame dream-thumbnail-frame-portrait">
+          <canvas id="dialogueMiniMapCanvas" class="dream-thumbnail-canvas"></canvas>
+          <div class="dream-map-vignette"></div>
+          <div class="dream-location-overlay">
+            <span class="dream-location-label">对话地点</span>
+            <strong id="dialogueLocationName" class="dream-location-name">待定位</strong>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 下达任务弹窗 -->
+  <div id="assignTaskModal" class="modal">
+    <div class="modal-content" style="max-width:460px;">
+      <div class="modal-header">
+        <span class="modal-title">为 <span id="assignTaskCharName">—</span> 下达任务</span>
+        <span class="close-btn" onclick="closeAssignTaskModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding:20px;">
+        <div class="add-agent-form">
+          <div class="form-group">
+            <label>行动内容 <span class="required">*</span></label>
+            <textarea id="assignTaskAction" rows="3" placeholder="例如：前往怡红院，召集众人商议修缮计划"></textarea>
+          </div>
+          <div class="form-group">
+            <label>目标人物（可选）</label>
+            <input type="text" id="assignTaskTarget" placeholder="例如：贾探春" />
+          </div>
+          <div class="form-group">
+            <label>目标地点（可选）</label>
+            <input type="text" id="assignTaskLocation" placeholder="例如：怡红院" />
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" onclick="closeAssignTaskModal()">取消</button>
+            <button class="btn-primary" onclick="submitAssignTask()">确认下达</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 设置弹窗（同deduction） -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content" style="max-width:500px;">
+      <div class="modal-header">
+        <span class="modal-title">系统设置</span>
+        <span class="close-btn" onclick="closeSettingsModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding:20px;">
+        <div class="add-agent-form">
+          <div class="form-divider"><span>系统操作</span></div>
+          <div class="form-group">
+            <button id="resetBtn" class="control-btn" onclick="confirmReset()" style="background:rgba(192,57,43,0.8);border-color:#c0392b;width:100%;padding:10px;">重置系统</button>
+          </div>
+          <div class="form-divider"><span>模型配置</span></div>
+          <div class="form-group">
+            <label>API Base URL</label>
+            <input type="text" id="settingsBaseUrl" placeholder="https://api.openai.com/v1" />
+          </div>
+          <div class="form-group">
+            <label>API Key</label>
+            <input type="password" id="settingsApiKey" placeholder="sk-..." />
+          </div>
+          <div class="form-group">
+            <label>Model</label>
+            <input type="text" id="settingsModel" placeholder="gpt-4o" />
+          </div>
+          <div class="form-actions">
+            <button class="btn-secondary" onclick="closeSettingsModal()">取消</button>
+            <button class="btn-primary" onclick="saveSettings()">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加人物弹窗（供 app.js 引用，剧情模式下不对外开放入口） -->
+  <div id="addAgentModal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width:600px;">
+      <div class="modal-header">
+        <span class="modal-title">添加新人物</span>
+        <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
+      </div>
+      <div class="modal-body" style="padding:20px;">
+        <p style="color:#8a7560;text-align:center;">剧情模式不支持动态添加人物</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 回溯树浮动弹窗 ──────────────────────────────────────────────────────── -->
+  <div id="memoryTreeOverlay" class="memory-tree-overlay" style="display:none" onclick="handleMemoryTreeOverlayClick(event)">
+    <div class="memory-tree-modal" onclick="event.stopPropagation()">
+      <div class="memory-tree-header">
+        <span class="memory-tree-title">🌳 回溯树</span>
+        <button class="memory-tree-close" onclick="toggleMemoryTree()">✕</button>
+      </div>
+      <div class="memory-tree-body">
+        <!-- 历史查看 banner（查看旧 tick 时显示） -->
+        <div id="historyViewBanner" class="history-view-banner" style="display:none">
+          ⏪ <span id="historyViewText">正在查看 Tick —</span>
+          <span class="history-view-hint">· 点击"开始推演"将从此处创建新分支</span>
+        </div>
+        <!-- 图例 -->
+        <div class="branch-legend" id="branchLegend"></div>
+        <!-- SVG 树形图 -->
+        <div class="branch-tree-container">
+          <svg id="branchTreeSvg" width="100%" height="200"></svg>
+        </div>
+        <div class="branch-tree-hint">点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支</div>
+      </div>
+    </div>
+  </div>
+  <!-- ── 历史查看提示条（模拟界面顶部） ─────────────────────────────────────────── -->
+  <div id="historyModeBanner" class="history-mode-banner" style="display:none">
+    <span id="historyModeBannerText">⏪ 正在查看 Tick — · 点击"开始推演"将从此处创建新分支</span>
+    <button class="history-mode-banner-close" onclick="exitHistoryView()">✕ 返回最新</button>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

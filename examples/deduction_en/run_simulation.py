@@ -26,7 +26,8 @@ import ray
 import time
 from pathlib import Path
 from agentkernel_distributed.mas.builder import Builder
-from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data
+from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data, broadcast_branch_event
+import agentkernel_distributed.mas.interface.server as server_module
 from examples.deduction_en.registry import RESOURCES_MAPS
 from agentkernel_distributed.toolkit.logger import get_logger
 from examples.deduction_en.plugins.agent.plan.BasicPlanPlugin import BasicPlanPlugin
@@ -162,7 +163,49 @@ async def main():
             loop = asyncio.get_event_loop()
             await loop.run_in_executor(None, tick_start_event.wait)
             tick_start_event.clear()  # Reset the event, ready for the next tick
-            
+
+            # ── Branch fork detection ─────────────────────────────────────────────────
+            if server_module._viewing_tick != -1:
+                viewing_tick = server_module._viewing_tick
+                viewing_branch_id = server_module._viewing_branch_id
+                # Validate tick range against the viewed branch (not the current active branch)
+                viewing_branch = server_module._branches[viewing_branch_id]
+                max_viewing_tick = max(viewing_branch["ticks"], default=-1)
+
+                # Skip fork if user is just viewing the latest node of their current active branch
+                # (i.e. no real historical rollback requested — just continue normally)
+                is_current_tip = (
+                    viewing_branch_id == server_module._current_branch_id
+                    and viewing_tick == max_viewing_tick
+                )
+
+                if viewing_tick <= max_viewing_tick and not is_current_tip:
+                    snapshot_key = (viewing_branch_id, viewing_tick)
+                    if snapshot_key in server_module._tick_snapshots:
+                        logger.info(f"【Branch】Forking new branch from tick {viewing_tick} on branch {viewing_branch_id}")
+                        await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
+                        await system.run('timer', 'set_tick', viewing_tick)
+
+                        new_branch = {
+                            "id": len(server_module._branches),
+                            # parent is the viewed branch, not the current active branch
+                            "parent_branch_id": viewing_branch_id,
+                            "fork_tick": viewing_tick,
+                            "ticks": [],
+                        }
+                        server_module._branches.append(new_branch)
+                        server_module._current_branch_id = new_branch["id"]
+                        server_module._first_tick_after_fork = True
+                        logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
+
+                        await broadcast_branch_event("branch_created", {"new_branch_id": new_branch["id"], "fork_tick": viewing_tick})
+                    else:
+                        logger.warning(f"【Branch】Snapshot ({viewing_branch_id}, {viewing_tick}) not found — skipping fork")
+
+                server_module._viewing_tick = -1
+                server_module._viewing_branch_id = -1
+            # ── Branch fork detection end ─────────────────────────────────────────────
+
             tick_start_time = time.time()
             phase_timestamps = {"start": tick_start_time}
 
@@ -185,35 +228,42 @@ async def main():
             total_duration += tick_duration
 
             await system.run('timer', 'add_tick', duration_seconds = tick_duration)
-            
+
+            # After fork, first broadcast tick = fork_tick + 1 to avoid overlapping with parent branch nodes
+            if server_module._first_tick_after_fork:
+                server_module._first_tick_after_fork = False
+                broadcast_tick = current_tick + 1
+            else:
+                broadcast_tick = current_tick
+
             # ===== Performance / Latency Metrics Calculation =====
             agent_step_latency = phase_timestamps[f'Agent_Step_{i}'] - phase_timestamps['start']
             msg_dispatch_latency = phase_timestamps[f'Message_Dispatch_{i}'] - phase_timestamps[f'Agent_Step_{i}']
             status_update_latency = phase_timestamps[f'Status_Update_{i}'] - phase_timestamps[f'Message_Dispatch_{i}']
-            
-            logger.info(f"【Performance】--- Tick {current_tick} Performance Report ---")
+
+            logger.info(f"【Performance】--- Tick {broadcast_tick} Performance Report ---")
             logger.info(f"【Performance】Total Tick Latency: {tick_duration:.4f}s")
             logger.info(f"【Performance】 - Agent Step Latency (Concurrency Execution): {agent_step_latency:.4f}s ({(agent_step_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Message Dispatch Latency: {msg_dispatch_latency:.4f}s ({(msg_dispatch_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Status Update Latency: {status_update_latency:.4f}s ({(status_update_latency/tick_duration)*100:.1f}%)")
-            logger.info(f"【System】--- Tick {current_tick} finished in {tick_duration:.4f} seconds ---")
+            logger.info(f"【System】--- Tick {broadcast_tick} finished in {tick_duration:.4f} seconds ---")
 
             # ===== Collect agent data and broadcast to frontend =====
             try:
-                logger.info(f"【System】Collecting agents data for Tick {current_tick}...")
+                logger.info(f"【System】Collecting agents data for Tick {broadcast_tick}...")
                 data_collect_start = time.time()
                 agents_data = await pod_manager.collect_agents_data.remote()
                 data_collect_latency = time.time() - data_collect_start
-                
-                logger.info(f"【System】Broadcasting data for Tick {current_tick} (agents count: {len(agents_data)})...")
+
+                logger.info(f"【System】Broadcasting data for Tick {broadcast_tick} (agents count: {len(agents_data)})...")
                 broadcast_start = time.time()
-                await broadcast_tick_data(current_tick, agents_data)
+                await broadcast_tick_data(broadcast_tick, agents_data)
                 broadcast_latency = time.time() - broadcast_start
-                
+
                 logger.info(f"【Performance】 - Data Collection Latency: {data_collect_latency:.4f}s")
                 logger.info(f"【Performance】 - WS Broadcast Latency: {broadcast_latency:.4f}s")
                 logger.info(f"【Performance】-----------------------------------------")
-                logger.info(f"【System】Tick {current_tick} data broadcasted to frontend.")
+                logger.info(f"【System】Tick {broadcast_tick} data broadcasted to frontend.")
             except Exception as broadcast_exc:
                 logger.error(f"【System】Failed to collect or broadcast tick data: {broadcast_exc}", exc_info=True)
 

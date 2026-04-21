@@ -26,7 +26,8 @@ import ray
 import time
 from pathlib import Path
 from agentkernel_distributed.mas.builder import Builder
-from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data
+from agentkernel_distributed.mas.interface.server import start_server, broadcast_tick_data, broadcast_branch_event
+import agentkernel_distributed.mas.interface.server as server_module
 from examples.deduction.registry import RESOURCES_MAPS
 from agentkernel_distributed.toolkit.logger import get_logger
 from examples.deduction.plugins.agent.plan.BasicPlanPlugin import BasicPlanPlugin
@@ -143,7 +144,51 @@ async def main():
         server_module._tick_start_event = tick_start_event
         # Pass the pod_manager reference to the server module to support dynamically adding agents
         server_module._pod_manager = pod_manager
-        
+
+        # ── Story server launcher endpoint ────────────────────────────────────────
+        import subprocess as _subprocess
+        import socket as _socket
+        import atexit as _atexit
+        _story_process = None
+
+        def _is_port_open(port, host="127.0.0.1", timeout=0.5):
+            try:
+                with _socket.create_connection((host, port), timeout=timeout):
+                    return True
+            except OSError:
+                return False
+
+        def _kill_story_process():
+            if _story_process is not None and _story_process.poll() is None:
+                _story_process.terminate()
+                try:
+                    _story_process.wait(timeout=5)
+                except Exception:
+                    _story_process.kill()
+
+        _atexit.register(_kill_story_process)
+
+        from fastapi.responses import JSONResponse as _JSONResponse
+
+        @server_module.app.post("/api/launch-story")
+        async def launch_story():
+            nonlocal _story_process
+            if _is_port_open(8001):
+                return _JSONResponse({"status": "already_running"})
+            if _story_process is None or _story_process.poll() is not None:
+                _story_process = _subprocess.Popen(
+                    [sys.executable, "-m", "examples.story.run_simulation"],
+                    cwd=project_root,
+                )
+            # Wait up to 30s for story server to be ready
+            import asyncio as _asyncio
+            for _ in range(60):
+                if _is_port_open(8001):
+                    return _JSONResponse({"status": "ready"})
+                await _asyncio.sleep(0.5)
+            return _JSONResponse({"status": "timeout"}, status_code=503)
+        # ─────────────────────────────────────────────────────────────────────────
+
         server_thread = threading.Thread(
             target=start_server,
             args=[server_config],
@@ -162,10 +207,58 @@ async def main():
             loop = asyncio.get_event_loop()
             await loop.run_in_executor(None, tick_start_event.wait)
             tick_start_event.clear()  # Reset the event, ready for the next tick
-            
+
+            # ── 回溯分支检测 ─────────────────────────────────────────────────────────────
+            if server_module._viewing_tick != -1:
+                viewing_tick = server_module._viewing_tick
+                viewing_branch_id = server_module._viewing_branch_id
+                # 使用被查看的分支（而非当前活跃分支）来校验 tick 范围
+                viewing_branch = next(
+                    (b for b in server_module._branches if b["id"] == viewing_branch_id), None
+                )
+                if viewing_branch is None:
+                    logger.warning(f"【Branch】Branch {viewing_branch_id} not found — skipping fork")
+                else:
+                    max_viewing_tick = max(viewing_branch["ticks"], default=-1)
+
+                    # Skip fork if user is just viewing the latest node of their current active branch
+                    # (i.e. no real historical rollback requested — just continue normally)
+                    is_current_tip = (
+                        viewing_branch_id == server_module._current_branch_id
+                        and viewing_tick == max_viewing_tick
+                    )
+
+                    if viewing_tick <= max_viewing_tick and not is_current_tip:
+                        snapshot_key = (viewing_branch_id, viewing_tick)
+                        if snapshot_key in server_module._tick_snapshots:
+                            logger.info(f"【Branch】Forking new branch from tick {viewing_tick} on branch {viewing_branch_id}")
+                            await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
+                            await system.run('timer', 'set_tick', viewing_tick)
+
+                            new_branch = {
+                                "id": len(server_module._branches),
+                                # parent 是被查看的分支，而非当前活跃分支
+                                "parent_branch_id": viewing_branch_id,
+                                "fork_tick": viewing_tick,
+                                "ticks": [],
+                            }
+                            server_module._branches.append(new_branch)
+                            server_module._current_branch_id = new_branch["id"]
+                            server_module._first_tick_after_fork = True
+                            logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
+
+                            await broadcast_branch_event("branch_created", {"new_branch_id": new_branch["id"], "fork_tick": viewing_tick})
+                        else:
+                            logger.warning(f"【Branch】Snapshot ({viewing_branch_id}, {viewing_tick}) not found — skipping fork")
+
+                server_module._viewing_tick = -1
+                server_module._viewing_branch_id = -1
+            # ── 回溯分支检测结束 ──────────────────────────────────────────────────────────
+
             tick_start_time = time.time()
             phase_timestamps = {"start": tick_start_time}
 
+            # add_tick 之前获取 tick（主线从 T0 开始）
             current_tick = await system.run('timer', 'get_tick')
 
             # ===== Agent Step =====
@@ -185,35 +278,42 @@ async def main():
             total_duration += tick_duration
 
             await system.run('timer', 'add_tick', duration_seconds = tick_duration)
-            
+
+            # fork 后第一次广播：tick 编号 = fork_tick + 1，避免与父分支节点重叠
+            if server_module._first_tick_after_fork:
+                server_module._first_tick_after_fork = False
+                broadcast_tick = current_tick + 1
+            else:
+                broadcast_tick = current_tick
+
             # ===== Performance / Latency Metrics Calculation =====
             agent_step_latency = phase_timestamps[f'Agent_Step_{i}'] - phase_timestamps['start']
             msg_dispatch_latency = phase_timestamps[f'Message_Dispatch_{i}'] - phase_timestamps[f'Agent_Step_{i}']
             status_update_latency = phase_timestamps[f'Status_Update_{i}'] - phase_timestamps[f'Message_Dispatch_{i}']
-            
-            logger.info(f"【Performance】--- Tick {current_tick} Performance Report ---")
+
+            logger.info(f"【Performance】--- Tick {broadcast_tick} Performance Report ---")
             logger.info(f"【Performance】Total Tick Latency: {tick_duration:.4f}s")
             logger.info(f"【Performance】 - Agent Step Latency (Concurrency Execution): {agent_step_latency:.4f}s ({(agent_step_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Message Dispatch Latency: {msg_dispatch_latency:.4f}s ({(msg_dispatch_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Status Update Latency: {status_update_latency:.4f}s ({(status_update_latency/tick_duration)*100:.1f}%)")
-            logger.info(f"【System】--- Tick {current_tick} finished in {tick_duration:.4f} seconds ---")
+            logger.info(f"【System】--- Tick {broadcast_tick} finished in {tick_duration:.4f} seconds ---")
 
             # ===== Collect agent data and broadcast to frontend =====
             try:
-                logger.info(f"【System】Collecting agents data for Tick {current_tick}...")
+                logger.info(f"【System】Collecting agents data for Tick {broadcast_tick}...")
                 data_collect_start = time.time()
                 agents_data = await pod_manager.collect_agents_data.remote()
                 data_collect_latency = time.time() - data_collect_start
-                
-                logger.info(f"【System】Broadcasting data for Tick {current_tick} (agents count: {len(agents_data)})...")
+
+                logger.info(f"【System】Broadcasting data for Tick {broadcast_tick} (agents count: {len(agents_data)})...")
                 broadcast_start = time.time()
-                await broadcast_tick_data(current_tick, agents_data)
+                await broadcast_tick_data(broadcast_tick, agents_data)
                 broadcast_latency = time.time() - broadcast_start
-                
+
                 logger.info(f"【Performance】 - Data Collection Latency: {data_collect_latency:.4f}s")
                 logger.info(f"【Performance】 - WS Broadcast Latency: {broadcast_latency:.4f}s")
                 logger.info(f"【Performance】-----------------------------------------")
-                logger.info(f"【System】Tick {current_tick} data broadcasted to frontend.")
+                logger.info(f"【System】Tick {broadcast_tick} data broadcasted to frontend.")
             except Exception as broadcast_exc:
                 logger.error(f"【System】Failed to collect or broadcast tick data: {broadcast_exc}", exc_info=True)
 

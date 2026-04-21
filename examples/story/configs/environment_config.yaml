@@ -1,0 +1,8 @@
+name: DeductionEnvironment
+components:
+  relation:
+    plugin:
+      BasicRelationPlugin:
+        adapters: {}
+        relations: "agents_relation"
+

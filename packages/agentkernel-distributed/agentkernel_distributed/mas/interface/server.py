@@ -29,8 +29,26 @@ api_config: Dict[str, Any] = {}
 _agents_snapshot: Dict[str, Any] = {}
 _snapshot_tick: int = -1
 
+# ── 回溯 / 分支树状态 ──────────────────────────────────────────────────────────
+# 每个 (branch_id, tick) 的完整 agent 状态快照
+_tick_snapshots: Dict[tuple, Dict[str, Any]] = {}
+# 每个 (branch_id, tick) 的分数快照：{"score": int, "events": [raw_json_str, ...]}
+_score_snapshots: Dict[tuple, Dict[str, Any]] = {}
+# 分支元数据列表
+_branches: List[dict] = [
+    {"id": 0, "parent_branch_id": None, "fork_tick": 0, "ticks": []}
+]
+_current_branch_id: int = 0
+# 用户当前查看的历史 tick（-1 = 查看最新）
+_viewing_tick: int = -1
+_viewing_branch_id: int = -1
+# fork 后第一次 tick 广播需要加偏移（使新分支首节点 = fork_tick + 1）
+_first_tick_after_fork: bool = False
+
 # 用于控制主循环的事件对象（由外部注入，threading.Event）
 _tick_start_event: Optional[threading.Event] = None
+# 主循环当前是否正在等待 tick_start 信号（用于新 WS 连接时推送 simulation_ready）
+_waiting_for_tick: bool = False
 
 # Pod Manager 引用（由外部注入，用于动态添加 agent）
 _pod_manager: Optional[Any] = None
@@ -388,13 +406,22 @@ async def redis_listener() -> None:
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket) -> None:
     await manager.connect(websocket)
-    # 新连接时推送当前快照
+    # 新连接时推送当前快照 + 分支树
     if _agents_snapshot:
         await websocket.send_text(json.dumps({
             "type": "snapshot",
             "tick": _snapshot_tick,
             "data": _agents_snapshot,
         }))
+    await websocket.send_text(json.dumps({
+        "type": "branch_tree",
+        "branches": _branches,
+        "current_branch_id": _current_branch_id,
+        "current_tick": _snapshot_tick,
+    }, ensure_ascii=False))
+    # 若主循环正在等待 tick_start 信号，通知新连接的客户端可以开始推演
+    if _waiting_for_tick:
+        await websocket.send_text(json.dumps({"type": "simulation_ready"}, ensure_ascii=False))
     try:
         while True:
             data = await websocket.receive_text()
@@ -446,6 +473,63 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                             "success": False,
                             "error": "agent_id missing or redis_pool not initialized"
                         }))
+
+                elif msg_type == "view_tick":
+                    global _viewing_tick, _viewing_branch_id
+                    tick = msg.get("tick")
+                    branch_id = msg.get("branch_id")
+                    if tick is None or branch_id is None:
+                        continue
+                    key = (branch_id, tick)
+                    all_keys = sorted(_tick_snapshots.keys())
+                    print(f"[view_tick] requested key={key}, available keys={all_keys}")
+                    if key in _tick_snapshots:
+                        snap = _tick_snapshots[key]
+                        sample_agent = next(iter(snap), None)
+                        if sample_agent:
+                            stm = snap[sample_agent].get('short_term_memory', [])
+                            print(f"[view_tick] key={key} sample_agent={sample_agent} stm_len={len(stm)} last_stm={stm[-1] if stm else None}")
+                        _viewing_tick = tick
+                        _viewing_branch_id = branch_id
+                        # Attach score snapshot if available
+                        score_snap = _score_snapshots.get(key)
+                        restored_score = score_snap["score"] if score_snap else None
+                        restored_events = []
+                        if score_snap:
+                            for e_raw in score_snap.get("events", []):
+                                try:
+                                    restored_events.append(json.loads(e_raw))
+                                except Exception:
+                                    pass
+                        await websocket.send_text(json.dumps({
+                            "type": "view_tick_ack",
+                            "tick": tick,
+                            "branch_id": branch_id,
+                            "data": _tick_snapshots[key],
+                            "score": restored_score,
+                            "score_events": restored_events,
+                        }, ensure_ascii=False, default=str))
+                    else:
+                        await websocket.send_text(json.dumps({
+                            "type": "view_tick_ack",
+                            "tick": tick,
+                            "branch_id": branch_id,
+                            "data": None,
+                            "error": "Snapshot not found",
+                        }))
+
+                elif msg_type == "reset_view":
+                    _viewing_tick = -1
+                    _viewing_branch_id = -1
+                    print("[reset_view] _viewing_tick and _viewing_branch_id reset to -1")
+
+                elif msg_type == "get_branch_tree":
+                    await websocket.send_text(json.dumps({
+                        "type": "branch_tree",
+                        "branches": _branches,
+                        "current_branch_id": _current_branch_id,
+                        "current_tick": _snapshot_tick,
+                    }, ensure_ascii=False))
 
                 elif msg_type == "add_agent":
                     # 动态添加 agent
@@ -605,9 +689,22 @@ async def broadcast_tick_data(tick: int, agents_data: Dict[str, Any]) -> None:
         tick: 当前 tick 编号。
         agents_data: collect_agents_data() 返回的字典。
     """
-    global _agents_snapshot, _snapshot_tick
+    import copy
+    global _agents_snapshot, _snapshot_tick, _tick_snapshots, _branches, _current_branch_id
     _agents_snapshot = agents_data
     _snapshot_tick = tick
+
+    # 保存快照：以 (branch_id, tick) 为 key
+    snap_key = (_current_branch_id, tick)
+    _tick_snapshots[snap_key] = copy.deepcopy(agents_data)
+    sample_agent = next(iter(agents_data), None)
+    if sample_agent:
+        stm = agents_data[sample_agent].get('short_term_memory', [])
+        print(f"[broadcast_tick_data] stored key={snap_key} sample_agent={sample_agent} stm_len={len(stm)}")
+    # 记录当前分支的 tick 列表
+    branch = _branches[_current_branch_id]
+    if tick not in branch["ticks"]:
+        branch["ticks"].append(tick)
 
     payload = json.dumps({
         "type": "tick_update",
@@ -615,6 +712,29 @@ async def broadcast_tick_data(tick: int, agents_data: Dict[str, Any]) -> None:
         "data": agents_data,
     }, ensure_ascii=False, default=str)
     await manager.broadcast(payload)
+
+    # 同步广播最新分支树，确保前端 branchTree 始终包含最新 ticks
+    branch_payload = json.dumps({
+        "type": "branch_tree",
+        "branches": _branches,
+        "current_branch_id": _current_branch_id,
+        "current_tick": tick,
+    }, ensure_ascii=False)
+    await manager.broadcast(branch_payload)
+
+
+async def broadcast_branch_event(event_type: str, extra: dict = None) -> None:
+    """
+    广播分支树状态给所有前端，用于 branch_created 和 branch_tree 消息。
+
+    Args:
+        event_type: 消息 type 字段，如 'branch_tree' 或 'branch_created'
+        extra: 附加字段，合并进广播消息
+    """
+    payload = {"type": event_type, "branches": _branches, "current_branch_id": _current_branch_id, "current_tick": _snapshot_tick}
+    if extra:
+        payload.update(extra)
+    await manager.broadcast(json.dumps(payload, ensure_ascii=False))
 
 
 # ── 服务器启动 ─────────────────────────────────────────────────────────────────

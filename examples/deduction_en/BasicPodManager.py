@@ -216,3 +216,32 @@ class BasicPodManager(PodManagerImpl):
             logger.info("Update agent status completed across all pods.")
         except Exception as exc:
             logger.error("Failed to update agent status: %s", exc, exc_info=True)
+
+    async def restore_all_agents(self, snapshot: Dict[str, Any]) -> None:
+        """
+        Restore all agents to a previously saved state snapshot.
+        Called during branch fork to roll back Ray actor state.
+
+        Args:
+            snapshot: dict of { agent_id -> agent_state_dict } as saved by collect_agents_data
+        """
+        sem = asyncio.Semaphore(10)
+
+        async def restore_one(agent_id: str, state: dict) -> None:
+            async with sem:
+                pod = self._agent_id_to_pod.get(agent_id)
+                if pod is None:
+                    logger.warning(f"restore_all_agents: agent '{agent_id}' not found in pod map")
+                    return
+                try:
+                    await asyncio.wait_for(
+                        pod.forward.remote("run_agent_method", agent_id, "state", "restore_state", state),
+                        timeout=30.0
+                    )
+                except asyncio.TimeoutError:
+                    logger.warning(f"restore_all_agents: timeout restoring agent '{agent_id}'")
+                except Exception as exc:
+                    logger.error(f"restore_all_agents: failed for '{agent_id}': {exc}")
+
+        await asyncio.gather(*(restore_one(aid, state) for aid, state in snapshot.items()))
+        logger.info(f"restore_all_agents: restored {len(snapshot)} agents")

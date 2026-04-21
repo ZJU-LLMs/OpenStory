@@ -229,9 +229,6 @@ class BasicPodManager(PodManagerImpl):
         """
         Restore all agents to a previously saved state snapshot.
         Called during branch fork to roll back Ray actor state.
-
-        Args:
-            snapshot: dict of { agent_id -> agent_state_dict } as saved by collect_agents_data
         """
         sem = asyncio.Semaphore(10)
 

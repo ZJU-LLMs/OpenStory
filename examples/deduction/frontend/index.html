@@ -10,17 +10,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- 新开场动画遮罩 -->
   <div id="newIntroOverlay" class="new-intro-overlay">
-    <!-- 旋转的角色圈 -->
-    <div class="loading-ring-container" id="loadingRing">
-      <!-- 角色图片将由 JS 动态插入这里 -->
-    </div>
-    <!-- 垂直进度条轨道 -->
+    <div class="loading-ring-container" id="loadingRing"></div>
     <div class="vertical-progress-track">
       <div class="vertical-progress-fill" id="introProgressFill"></div>
     </div>
-    <!-- 展开后的滑屏容器 -->
     <div class="intro-slide-panel" id="introSlidePanel">
       <div class="intro-content">
         <div class="intro-title" id="newIntroTitle" data-i18n="title_main">万象谱</div>
@@ -29,268 +23,339 @@
     </div>
   </div>
 
-  <div class="ink-bg"></div>
-  <div class="grain"></div>
+  <div id="modeSelectionScreen" class="mode-selection-screen hidden">
+    <div class="mode-menu-container" id="modeMenuContainer">
+      <h1 class="mode-title" data-i18n="title_main">万象谱</h1>
+      <h2 class="mode-subtitle" data-i18n="title_sub">红楼梦 · 第八十回推演</h2>
+      
+      <div class="mode-buttons-group">
+        <button class="mode-btn" onclick="enterStoryModeSetup()" style="border-color: var(--jade); box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(59,92,84,0.3);">
+          <span class="mode-btn-text" data-i18n="mode_story" style="color: #fff; text-shadow: 0 0 10px rgba(59,92,84,0.8);">剧情模式</span>
+        </button>
+        <button class="mode-btn mode-btn-primary" onclick="enterFreeMode()">
+          <span class="mode-btn-text" data-i18n="mode_free">自由模式</span>
+        </button>
+        <button class="mode-btn" onclick="openSettingsModal()">
+          <span class="mode-btn-text" data-i18n="btn_settings">设置</span>
+        </button>
+        <button class="mode-btn mode-btn-exit" onclick="alert(t('exit_hint'))">
+          <span class="mode-btn-text" data-i18n="btn_exit">退出</span>
+        </button>
+      </div>
+    </div>
 
-  <!-- 重启/断开连接遮罩层 -->
-  <div id="restartingOverlay" class="restarting-overlay">
-    <div class="restarting-content">
-      <div class="restarting-spinner"></div>
-      <div class="restarting-text" data-i18n="system_restarting">系统未连接或正在重启中...</div>
+    <div id="characterSelectionScreen" class="character-selection-screen hidden">
+      <h2 class="char-sel-title" data-i18n="choose_your_character">请选择你的化身</h2>
+      <div class="char-grid" id="playerCharGrid"></div>
+      <button class="char-sel-back" onclick="backToModeSelection()" data-i18n="btn_cancel">返回</button>
     </div>
   </div>
 
-  <!-- 时间流逝全屏大字展示层 -->
-  <div id="timeTransitionOverlay" class="time-transition-overlay">
-    <div class="time-transition-text" id="timeTransitionText"></div>
-  </div>
+  <div id="appCoreUI" class="hidden">
+    <div class="ink-bg"></div>
+    <div class="grain"></div>
 
-  <header class="header">
-    <div class="header-left">
-      <h1 class="header-title" data-i18n="title_main">万象谱</h1>
-      <span class="header-sub" data-i18n="title_sub">红楼梦 · 第八十回推演</span>
-    </div>
-    <div class="header-center">
-      <span class="sim-date" id="simDate">乾隆四十九年 正月初一 子时</span>
-    </div>
-    <div class="header-right">
-      <!-- 设置按钮 -->
-      <button id="settingsBtn" class="control-btn settings-btn" onclick="openSettingsModal()" title="设置" data-i18n-title="btn_settings">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-      </button>
-      <button id="addAgentBtn" class="control-btn" onclick="openAddAgentModal()" data-i18n="btn_add_character">添加人物</button>
-      <button id="startTickBtn" class="control-btn" onclick="sendStartTick()" data-i18n="btn_start_deduction">开始推演</button>
-      <button id="applyTickBtn" class="control-btn control-btn-apply" onclick="applyPendingTick()" disabled data-i18n="btn_start_simulation">开始模拟</button>
-      <div class="status-dot" id="statusDot"></div>
-      <span class="status-text" id="statusText" data-i18n="status_connecting">连接中…</span>
-      <div class="tick-nav" style="display: inline-flex; align-items: center; margin-left: 15px;">
-        <button id="prevTickBtn" class="tick-nav-btn" onclick="prevTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 4px 0 0 4px;">&lt;</button>
-        <span class="tick-badge" style="margin-left: 0; border-radius: 0;"><span data-i18n="time_tick">Tick</span> <span id="tickNum">—</span></span>
-        <button id="nextTickBtn" class="tick-nav-btn" onclick="nextTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 0 4px 4px 0;">&gt;</button>
+    <div id="restartingOverlay" class="restarting-overlay">
+      <div class="restarting-content">
+        <div class="restarting-spinner"></div>
+        <div class="restarting-text" data-i18n="system_restarting">系统未连接或正在重启中...</div>
       </div>
     </div>
-  </header>
 
-  <div class="layout">
-    <!-- 左侧人物列表 -->
-    <aside class="sidebar">
-      <div class="sidebar-title" data-i18n="sidebar_title">人物</div>
-      <div class="agent-list" id="agentList">
-        <div class="agent-placeholder" data-i18n="agent_placeholder">等待数据…</div>
+    <div id="timeTransitionOverlay" class="time-transition-overlay">
+      <div class="time-transition-text" id="timeTransitionText"></div>
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <h1 class="header-title" data-i18n="title_main">万象谱</h1>
+        <span class="header-sub" data-i18n="title_sub">红楼梦 · 第八十回推演</span>
       </div>
-    </aside>
-
-    <!-- 右侧主界面：地图视图 -->
-    <main class="main-content" id="mainContent">
-      <div id="mapContainer" class="map-container">
-        <!-- 地图画布 -->
-        <canvas id="mapCanvas"></canvas>
-        <div class="map-loading" id="mapLoading" data-i18n="map_loading">正在加载地图…</div>
+      <div class="header-center">
+        <span class="sim-date" id="simDate">乾隆四十九年 正月初一 子时</span>
       </div>
-
-      <!-- 悬浮的人物详情框 -->
-      <div id="agentDetailBox" class="agent-detail-box">
-        <div class="detail-box-header">
-          <span class="detail-box-title" data-i18n="profile_title">人物档案</span>
-          <button class="detail-box-close" onclick="closeAgentDetail()">&times;</button>
+      <div class="header-right">
+        <!-- 记忆树按钮 -->
+        <button id="memoryTreeBtn" class="control-btn memory-tree-btn" onclick="toggleMemoryTree()" title="记忆树">
+          🌳 <span data-i18n="btn_memory_tree">记忆树</span>
+        </button>
+        <button id="returnHomeBtn" class="control-btn" onclick="returnToMainMenu()" title="返回主菜单">🏠</button>
+        <!-- 设置按钮 -->
+        <button id="settingsBtn" class="control-btn settings-btn" onclick="openSettingsModal()" title="设置" data-i18n-title="btn_settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <button id="addAgentBtn" class="control-btn" onclick="openAddAgentModal()" data-i18n="btn_add_character">添加人物</button>
+        <button id="startTickBtn" class="control-btn" onclick="sendStartTick()" data-i18n="btn_start_deduction">开始推演</button>
+        <button id="applyTickBtn" class="control-btn control-btn-apply" onclick="applyPendingTick()" disabled data-i18n="btn_start_simulation">开始模拟</button>
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText" data-i18n="status_connecting">连接中…</span>
+        <div class="tick-nav" style="display: inline-flex; align-items: center; margin-left: 15px;">
+          <button id="prevTickBtn" class="tick-nav-btn" onclick="prevTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 4px 0 0 4px;">&lt;</button>
+          <span class="tick-badge" style="margin-left: 0; border-radius: 0;"><span data-i18n="time_tick">Tick</span> <span id="tickNum">—</span></span>
+          <button id="nextTickBtn" class="tick-nav-btn" onclick="nextTick()" disabled style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #d4c4a8; cursor: pointer; padding: 2px 8px; border-radius: 0 4px 4px 0;">&gt;</button>
         </div>
-        <div id="detailPanel" class="detail-panel-content">
-          <div class="empty-state">
-            <div class="empty-icon">卷</div>
-            <p data-i18n="profile_empty">请从左侧选择人物</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-title" data-i18n="sidebar_title">人物</div>
+        
+        <div id="playerControlPanel" class="player-control-panel hidden">
           </div>
+        <div class="agent-list" id="agentList">
+          <div class="agent-placeholder" data-i18n="agent_placeholder">等待数据…</div>
         </div>
-      </div>
-    </main>
-  </div>
+      </aside>
 
-  <!-- 对话侧边栏 -->
-  <div id="dialogueModal" class="dialogue-sidebar">
-    <div class="sidebar-header">
-      <span class="modal-title" data-i18n="dialogue_title">对话详录</span>
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-    </div>
-    <div id="dialogueSummary" class="modal-summary" style="display:none"></div>
-    <div class="sidebar-content">
-      <section id="dialogueParticipantsCard" class="dialogue-participants-card">
-        <div class="dialogue-side-title" data-i18n="dialogue_participants_title">对话人物</div>
-        <div id="dialogueParticipants" class="dialogue-participants"></div>
-      </section>
-      <div id="dialogueContent" class="dialogue-body">
-        <!-- 对话内容动态插入 -->
-      </div>
-      <section class="dream-thumbnail-card">
-        <div class="dialogue-side-title" data-i18n="dialogue_thumbnail_title">红楼梦略缩图</div>
-        <div class="dream-thumbnail-frame dream-thumbnail-frame-portrait">
-          <canvas id="dialogueMiniMapCanvas" class="dream-thumbnail-canvas" aria-label="对话地点略缩地图"></canvas>
-          <div class="dream-map-vignette"></div>
-          <div class="dream-location-overlay">
-            <span class="dream-location-label" data-i18n="dialogue_location_title">对话地点</span>
-            <strong id="dialogueLocationName" class="dream-location-name">待定位</strong>
-          </div>
+      <main class="main-content" id="mainContent">
+        <div id="mapContainer" class="map-container">
+          <canvas id="mapCanvas"></canvas>
+          <div class="map-loading" id="mapLoading" data-i18n="map_loading">正在加载地图…</div>
         </div>
-        <div id="dialogueLocationMeta" class="dialogue-location-meta" data-i18n="dialogue_location_hint">打开对话后会在地图中以红点标记对应地点。</div>
-      </section>
-    </div>
-  </div>
 
-  <!-- 添加人物弹窗 -->
-  <div id="addAgentModal" class="modal">
-    <div class="modal-content" style="max-width: 600px;">
-      <div class="modal-header">
-        <span class="modal-title" data-i18n="add_agent_title">添加新人物</span>
-        <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
-      </div>
-      <div class="modal-body" style="padding: 20px;">
-        <div class="add-agent-form">
-          <!-- 角色头像选择 -->
-          <div class="form-group">
-            <label data-i18n="avatar_label">角色头像</label>
-            <div class="avatar-selector">
-              <div class="avatar-preview" id="avatarPreview">
-                <img id="selectedAvatarImg" src="../map/sprite/普通人.png" alt="头像预览" data-i18n-alt="avatar_preview_alt" />
-              </div>
-              <div class="avatar-options">
-                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/普通人.png', '普通人', this)">
-                  <img src="../map/sprite/普通人.png" alt="普通人" />
-                  <span>普通人</span>
-                </button>
-                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/孙悟空.png', '孙悟空', this)">
-                  <img src="../map/sprite/孙悟空.png" alt="孙悟空" />
-                  <span>孙悟空</span>
-                </button>
-                <label class="avatar-upload-btn">
-                  <input type="file" id="customAvatarInput" accept="image/*" onchange="handleAvatarUpload(event)" style="display:none" />
-                  <span class="upload-icon">+</span>
-                  <span data-i18n="upload_image">上传图片</span>
-                </label>
-              </div>
-            </div>
-            <input type="hidden" id="avatarType" value="builtin" />
-            <input type="hidden" id="avatarSource" value="../map/sprite/普通人.png" />
+        <div id="storyObjectiveBox" class="story-objective-box hidden">
+          <div class="objective-header" data-i18n="current_objective">当前剧情目标</div>
+          <div class="objective-content" id="storyObjectiveText">初入大观园，请自由探索，并尝试与其他角色发生互动。</div>
+        </div>
+        <div id="agentDetailBox" class="agent-detail-box">
+          <div class="detail-box-header">
+            <span class="detail-box-title" data-i18n="profile_title">人物档案</span>
+            <button class="detail-box-close" onclick="closeAgentDetail()">&times;</button>
           </div>
-
-          <!-- 预设模板选择 -->
-          <div class="form-group preset-templates">
-            <label><span data-i18n="preset_label">预设模板</span> <span class="hint-text" data-i18n="preset_hint">(点击选择，可快速填充人物信息)</span></label>
-            <div class="preset-grid" id="presetGrid">
-              <!-- 预设按钮将由 JS 动态生成 -->
+          <div id="detailPanel" class="detail-panel-content">
+            <div class="empty-state">
+              <div class="empty-icon">卷</div>
+              <p data-i18n="profile_empty">请从左侧选择人物</p>
             </div>
           </div>
+        </div>
+      </main>
+    </div>
 
-          <div class="form-divider"><span data-i18n="or_custom">或自定义</span></div>
+    <div id="dialogueModal" class="dialogue-sidebar">
+      <div class="sidebar-header">
+        <span class="modal-title" data-i18n="dialogue_title">对话详录</span>
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+      </div>
+      <div id="dialogueSummary" class="modal-summary" style="display:none"></div>
+      <div class="sidebar-content">
+        <section id="dialogueParticipantsCard" class="dialogue-participants-card">
+          <div class="dialogue-side-title" data-i18n="dialogue_participants_title">对话人物</div>
+          <div id="dialogueParticipants" class="dialogue-participants"></div>
+        </section>
+        <div id="dialogueContent" class="dialogue-body">
+          </div>
+        <section class="dream-thumbnail-card">
+          <div class="dialogue-side-title" data-i18n="dialogue_thumbnail_title">红楼梦略缩图</div>
+          <div class="dream-thumbnail-frame dream-thumbnail-frame-portrait">
+            <canvas id="dialogueMiniMapCanvas" class="dream-thumbnail-canvas" aria-label="对话地点略缩地图"></canvas>
+            <div class="dream-map-vignette"></div>
+            <div class="dream-location-overlay">
+              <span class="dream-location-label" data-i18n="dialogue_location_title">对话地点</span>
+              <strong id="dialogueLocationName" class="dream-location-name">待定位</strong>
+            </div>
+          </div>
+          <div id="dialogueLocationMeta" class="dialogue-location-meta" data-i18n="dialogue_location_hint">打开对话后会在地图中以红点标记对应地点。</div>
+        </section>
+      </div>
+    </div>
 
-          <div class="form-group">
-            <label for="agentId"><span data-i18n="agent_name_label">人物名称</span> <span class="required">*</span></label>
-            <input type="text" id="agentId" />
-          </div>
-          <div class="form-group">
-            <label for="templateName" data-i18n="template_label">模板</label>
-            <input type="text" id="templateName" placeholder="DeductionAgent" />
-          </div>
-          <div class="form-group">
-            <label for="profileFamily" data-i18n="family_label">家族</label>
-            <input type="text" id="profileFamily" />
-          </div>
-          <div class="form-group">
-            <label for="profilePersonality" data-i18n="personality_label">性格</label>
-            <input type="text" id="profilePersonality" />
-          </div>
-          <div class="form-group">
-            <label for="profileDrive" data-i18n="drive_label">核心驱动</label>
-            <input type="text" id="profileDrive" />
-          </div>
-          <div class="form-group">
-            <label for="profileStyle" data-i18n="style_label">语言风格</label>
-            <input type="text" id="profileStyle" />
-          </div>
-          <div class="form-group">
-            <label for="profileBackground" data-i18n="background_label">背景经历</label>
-            <textarea id="profileBackground" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="agentMemory" data-i18n="memory_label">初始记忆（每行一条）</label>
-            <textarea id="agentMemory" rows="3"></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="btn-secondary" onclick="saveAsPreset()" data-i18n="btn_save_preset">存为预设</button>
-            <button class="btn-secondary" onclick="closeAddAgentModal()" data-i18n="btn_cancel">取消</button>
-            <button class="btn-primary" onclick="submitAddAgent()" data-i18n="btn_confirm">确认添加</button>
+    <div id="addAgentModal" class="modal">
+      <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+          <span class="modal-title" data-i18n="add_agent_title">添加新人物</span>
+          <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+          <div class="add-agent-form">
+            <div class="form-group">
+              <label data-i18n="avatar_label">角色头像</label>
+              <div class="avatar-selector">
+                <div class="avatar-preview" id="avatarPreview">
+                  <img id="selectedAvatarImg" src="../map/sprite/普通人.png" alt="头像预览" data-i18n-alt="avatar_preview_alt" />
+                </div>
+                <div class="avatar-options">
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/普通人.png', '普通人', this)">
+                    <img src="../map/sprite/普通人.png" alt="普通人" />
+                    <span>普通人</span>
+                  </button>
+                  <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '../map/sprite/孙悟空.png', '孙悟空', this)">
+                    <img src="../map/sprite/孙悟空.png" alt="孙悟空" />
+                    <span>孙悟空</span>
+                  </button>
+                  <label class="avatar-upload-btn">
+                    <input type="file" id="customAvatarInput" accept="image/*" onchange="handleAvatarUpload(event)" style="display:none" />
+                    <span class="upload-icon">+</span>
+                    <span data-i18n="upload_image">上传图片</span>
+                  </label>
+                </div>
+              </div>
+              <input type="hidden" id="avatarType" value="builtin" />
+              <input type="hidden" id="avatarSource" value="../map/sprite/普通人.png" />
+            </div>
+
+            <div class="form-group preset-templates">
+              <label><span data-i18n="preset_label">预设模板</span> <span class="hint-text" data-i18n="preset_hint">(点击选择，可快速填充人物信息)</span></label>
+              <div class="preset-grid" id="presetGrid">
+                </div>
+            </div>
+
+            <div class="form-divider"><span data-i18n="or_custom">或自定义</span></div>
+
+            <div class="form-group">
+              <label for="agentId"><span data-i18n="agent_name_label">人物名称</span> <span class="required">*</span></label>
+              <input type="text" id="agentId" />
+            </div>
+            <div class="form-group">
+              <label for="templateName" data-i18n="template_label">模板</label>
+              <input type="text" id="templateName" placeholder="DeductionAgent" />
+            </div>
+            <div class="form-group">
+              <label for="profileFamily" data-i18n="family_label">家族</label>
+              <input type="text" id="profileFamily" />
+            </div>
+            <div class="form-group">
+              <label for="profilePersonality" data-i18n="personality_label">性格</label>
+              <input type="text" id="profilePersonality" />
+            </div>
+            <div class="form-group">
+              <label for="profileDrive" data-i18n="drive_label">核心驱动</label>
+              <input type="text" id="profileDrive" />
+            </div>
+            <div class="form-group">
+              <label for="profileStyle" data-i18n="style_label">语言风格</label>
+              <input type="text" id="profileStyle" />
+            </div>
+            <div class="form-group">
+              <label for="profileBackground" data-i18n="background_label">背景经历</label>
+              <textarea id="profileBackground" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="agentMemory" data-i18n="memory_label">初始记忆（每行一条）</label>
+              <textarea id="agentMemory" rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn-secondary" onclick="saveAsPreset()" data-i18n="btn_save_preset">存为预设</button>
+              <button class="btn-secondary" onclick="closeAddAgentModal()" data-i18n="btn_cancel">取消</button>
+              <button class="btn-primary" onclick="submitAddAgent()" data-i18n="btn_confirm">确认添加</button>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div id="managePresetModal" class="modal">
+      <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+          <span class="modal-title" data-i18n="manage_preset_title">管理预设</span>
+          <span class="close-btn" onclick="closeManagePresetModal()">&times;</span>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+          <div class="preset-list" id="managePresetList">
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="modal">
+      <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+          <span class="modal-title" data-i18n="settings_title">系统设置</span>
+          <span class="close-btn" onclick="closeSettingsModal()">&times;</span>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+          <div class="add-agent-form">
+            <div class="form-divider"><span data-i18n="system_operations">系统操作</span></div>
+            <div class="form-group" style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
+              <button id="resetBtn" class="control-btn" onclick="confirmReset()" style="background: rgba(192, 57, 43, 0.8); border-color: #c0392b; margin-right: 0; width: 100%; padding: 10px;" title="重置整个推演系统和数据" data-i18n-title="btn_reset_title" data-i18n="btn_reset">
+                重置系统
+              </button>
+            </div>
+
+            <div class="form-divider"><span data-i18n="language_settings">界面语言</span></div>
+            <div class="form-group" style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
+              <button id="langToggleBtn" class="control-btn" onclick="toggleLanguage()" title="Switch Language" data-i18n="lang_toggle" style="background: rgba(41, 128, 185, 0.8); border-color: #2980b9; margin-right: 0; width: 100%; padding: 10px;">
+                English
+              </button>
+            </div>
+
+            <div class="form-divider"><span data-i18n="model_config">模型配置</span></div>
+            <div class="form-group">
+              <label for="settingsBaseUrl">API Base URL</label>
+              <input type="text" id="settingsBaseUrl" placeholder="https://api.openai.com/v1" />
+            </div>
+            <div class="form-group">
+              <label for="settingsApiKey">API Key</label>
+              <input type="password" id="settingsApiKey" placeholder="sk-..." />
+            </div>
+            <div class="form-group">
+              <label for="settingsModel">Model</label>
+              <input type="text" id="settingsModel" placeholder="gpt-4o" />
+            </div>
+
+            <div class="form-divider"><span data-i18n="tts_config">语音合成 (TTS) 配置</span></div>
+            <div class="form-group">
+              <label for="settingsTtsApiKey">DashScope API Key (阿里云)</label>
+              <input type="password" id="settingsTtsApiKey" placeholder="sk-..." />
+            </div>
+
+            <div class="form-actions">
+              <button class="btn-secondary" onclick="closeSettingsModal()" data-i18n="btn_cancel">取消</button>
+              <button class="btn-primary" onclick="saveSettings()" data-i18n="btn_save">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="playerTaskModal" class="modal">
+      <div class="modal-content" style="max-width: 400px; border-color: var(--jade); box-shadow: 0 0 40px rgba(59,92,84,0.3);">
+        <div class="modal-header" style="border-bottom-color: var(--jade);">
+          <span class="modal-title" style="font-size: 24px;">下达主角指令</span>
+          <span class="close-btn" onclick="document.getElementById('playerTaskModal').style.display='none'">&times;</span>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+          <div class="form-group">
+            <label style="color: var(--jade); font-weight: bold;">本回合您想做什么？</label>
+            <textarea id="playerTaskInput" rows="3" placeholder="例如：去潇湘馆找黛玉聊天..." style="border:color: var(--jade); margin-top: 8px;"></textarea>
+          </div>
+          <div class="form-actions" style="margin-top: 16px;">
+            <button class="btn-secondary" onclick="document.getElementById('playerTaskModal').style.display='none'">取消</button>
+            <button class="btn-primary" style="background: var(--jade);" onclick="submitPlayerTask()">确定并执行回合</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <!-- ── 记忆树浮动弹窗 ─────────────────────────────────────────────────────── -->
+  <div id="memoryTreeOverlay" class="memory-tree-overlay" style="display:none" onclick="handleMemoryTreeOverlayClick(event)">
+    <div class="memory-tree-modal" onclick="event.stopPropagation()">
+      <div class="memory-tree-header">
+        <span class="memory-tree-title">🌳 <span data-i18n="btn_memory_tree">记忆树</span></span>
+        <button class="memory-tree-close" onclick="toggleMemoryTree()">✕</button>
+      </div>
+      <div class="memory-tree-body">
+        <!-- 历史查看 banner（查看旧 tick 时显示） -->
+        <div id="historyViewBanner" class="history-view-banner" style="display:none">
+          ⏪ <span id="historyViewText">正在查看 Tick —</span>
+          <span class="history-view-hint">· 点击"开始模拟"将从此处创建新分支</span>
+        </div>
+        <!-- 图例 -->
+        <div class="branch-legend" id="branchLegend"></div>
+        <!-- SVG 树形图 -->
+        <div class="branch-tree-container">
+          <svg id="branchTreeSvg" width="100%" height="200"></svg>
+        </div>
+        <div class="branch-tree-hint" data-i18n="memory_tree_hint">点击节点可跳转查看 · 从旧 Tick 推进时自动创建新分支</div>
       </div>
     </div>
   </div>
-
-  <!-- 管理预设弹窗 -->
-  <div id="managePresetModal" class="modal">
-    <div class="modal-content" style="max-width: 500px;">
-      <div class="modal-header">
-        <span class="modal-title" data-i18n="manage_preset_title">管理预设</span>
-        <span class="close-btn" onclick="closeManagePresetModal()">&times;</span>
-      </div>
-      <div class="modal-body" style="padding: 20px;">
-        <div class="preset-list" id="managePresetList">
-          <!-- 预设列表将由 JS 动态生成 -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 设置弹窗 -->
-  <div id="settingsModal" class="modal">
-    <div class="modal-content" style="max-width: 500px;">
-      <div class="modal-header">
-        <span class="modal-title" data-i18n="settings_title">系统设置</span>
-        <span class="close-btn" onclick="closeSettingsModal()">&times;</span>
-      </div>
-      <div class="modal-body" style="padding: 20px;">
-        <div class="add-agent-form">
-          <!-- 系统操作区 -->
-          <div class="form-divider"><span data-i18n="system_operations">系统操作</span></div>
-          <div class="form-group" style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
-            <button id="resetBtn" class="control-btn" onclick="confirmReset()" style="background: rgba(192, 57, 43, 0.8); border-color: #c0392b; margin-right: 0; width: 100%; padding: 10px;" title="重置整个推演系统和数据" data-i18n-title="btn_reset_title" data-i18n="btn_reset">
-              重置系统
-            </button>
-          </div>
-
-          <!-- 语言设置区 -->
-          <div class="form-divider"><span data-i18n="language_settings">界面语言</span></div>
-          <div class="form-group" style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
-            <button id="langToggleBtn" class="control-btn" onclick="toggleLanguage()" title="Switch Language" data-i18n="lang_toggle" style="background: rgba(41, 128, 185, 0.8); border-color: #2980b9; margin-right: 0; width: 100%; padding: 10px;">
-              English
-            </button>
-          </div>
-
-          <!-- 模型配置区 -->
-          <div class="form-divider"><span data-i18n="model_config">模型配置</span></div>
-          <div class="form-group">
-            <label for="settingsBaseUrl">API Base URL</label>
-            <input type="text" id="settingsBaseUrl" placeholder="https://api.openai.com/v1" />
-          </div>
-          <div class="form-group">
-            <label for="settingsApiKey">API Key</label>
-            <input type="password" id="settingsApiKey" placeholder="sk-..." />
-          </div>
-          <div class="form-group">
-            <label for="settingsModel">Model</label>
-            <input type="text" id="settingsModel" placeholder="gpt-4o" />
-          </div>
-
-          <!-- 语音合成配置区 -->
-          <div class="form-divider"><span data-i18n="tts_config">语音合成 (TTS) 配置</span></div>
-          <div class="form-group">
-            <label for="settingsTtsApiKey">DashScope API Key (阿里云)</label>
-            <input type="password" id="settingsTtsApiKey" placeholder="sk-..." />
-          </div>
-
-          <div class="form-actions">
-            <button class="btn-secondary" onclick="closeSettingsModal()" data-i18n="btn_cancel">取消</button>
-            <button class="btn-primary" onclick="saveSettings()" data-i18n="btn_save">保存</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- ── 历史查看提示条（模拟界面顶部） ──────────────────────────────────────── -->
+  <div id="historyModeBanner" class="history-mode-banner" style="display:none">
+    <span id="historyModeBannerText">⏪ 正在查看 Tick — · 点击"开始模拟"将从此处创建新分支</span>
+    <button class="history-mode-banner-close" onclick="exitHistoryView()">✕ 返回最新</button>
   </div>
 
   <script src="i18n.js"></script>

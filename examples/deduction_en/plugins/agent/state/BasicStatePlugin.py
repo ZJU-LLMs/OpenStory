@@ -345,3 +345,36 @@ class BasicStatePlugin(StatePlugin):
             str: Reason description
         """
         return self.state_data.get('inactive_reason', "")
+
+    async def restore_state(self, snapshot: dict) -> None:
+        """Restore agent state from a tick snapshot dict (used for branching/rollback).
+
+        The snapshot comes from collect_agents_data(), which uses different formats for some
+        fields than what state_data stores internally. This method handles the conversions.
+        """
+        # These fields are computed or come from other plugins — do not write them into state_data
+        skip_keys = {'profile', 'current_location'}
+
+        for key, value in snapshot.items():
+            if key in skip_keys:
+                continue
+            if key == 'short_term_memory':
+                # collect_agents_data stores this as LIST [{tick, content}]
+                # but state_data must hold a DICT {tick_int: content_str}
+                if isinstance(value, list):
+                    self.state_data['short_term_memory'] = {
+                        item['tick']: item['content']
+                        for item in value
+                        if isinstance(item, dict) and 'tick' in item and 'content' in item
+                    }
+                elif isinstance(value, dict):
+                    self.state_data['short_term_memory'] = value
+                else:
+                    self.state_data['short_term_memory'] = {}
+            else:
+                self.state_data[key] = value
+
+        if 'current_tick' in snapshot:
+            self.current_tick = snapshot['current_tick']
+            self.state_data['current_tick'] = self.current_tick
+        logger.info(f"[{self.agent_id}] State restored to tick {self.current_tick}")

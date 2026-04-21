@@ -1,0 +1,45 @@
+templates:
+  - name: "StoryAgent"
+    component_order:
+      - "perceive"
+      - "plan"
+      - "invoke"
+      - "state"
+      - "reflect"
+    components:
+      profile:
+        plugin:
+          BasicProfilePlugin:
+            adapters:
+              redis: "RedisKVAdapter"
+            profile_data: "agent_profiles"
+
+      state:
+        plugin:
+          BasicStatePlugin:
+            adapters:
+              adapter: "RedisKVAdapter"
+            state_data: "agent_states"
+
+      perceive:
+        plugin:
+          BasicPerceivePlugin:
+            adapters:
+              redis: "RedisKVAdapter"
+
+      plan:
+        plugin:
+          BasicPlanPlugin:
+            adapters:
+              redis: "RedisKVAdapter"
+
+      invoke:
+        plugin:
+          BasicInvokePlugin:
+            adapters:
+              redis: "RedisKVAdapter"
+
+      reflect:
+        plugin:
+          BasicReflectPlugin:
+            adapters: {}

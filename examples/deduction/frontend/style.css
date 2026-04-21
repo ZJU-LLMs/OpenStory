@@ -1761,3 +1761,560 @@ body {
   background: var(--vermillion);
   color: white;
 }
+
+/* ── 记忆树 Memory Tree ───────────────────────────────────────────────────── */
+
+.memory-tree-btn {
+  background: linear-gradient(135deg, #2a1f4e, #3d2a6e);
+  border: 1px solid #7c5cbf !important;
+  color: #c9a9f0 !important;
+}
+.memory-tree-btn:hover {
+  background: linear-gradient(135deg, #3d2a6e, #5a3d9e);
+}
+
+.memory-tree-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-tree-modal {
+  background: #16233a;
+  border: 1px solid #4a6a9a;
+  border-radius: 12px;
+  width: min(620px, 92vw);
+  max-height: 80vh;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.memory-tree-header {
+  background: #1e2f47;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #2a3f5a;
+  flex-shrink: 0;
+}
+.memory-tree-title {
+  color: #c9a9f0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.memory-tree-close {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.memory-tree-close:hover { color: #ccc; background: rgba(255,255,255,0.08); }
+
+.memory-tree-body {
+  padding: 14px 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.history-view-banner {
+  background: rgba(180, 130, 0, 0.15);
+  border: 1px solid #a07800;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 12px;
+  color: #e4c97e;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.history-view-hint { color: #a09060; font-size: 11px; }
+
+.branch-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.branch-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #aaa;
+}
+.branch-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.branch-tree-container {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+#branchTreeSvg { display: block; min-height: 60px; }
+
+.branch-tree-hint {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+}
+
+/* 顶部历史查看横幅（悬浮在模拟界面上方） */
+.history-mode-banner {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1500;
+  background: rgba(140, 100, 0, 0.92);
+  border: 1px solid #c8a020;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #f5e090;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  max-width: 90vw;
+}
+.history-mode-banner-close {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #f5e090;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.history-mode-banner-close:hover { background: rgba(255,255,255,0.22); }
+/* ================== 模式选择界面 (静态底图 + 动态分层) ================== */
+.mode-selection-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 8000; /* 层级低于开场动画，高于主界面 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%; 
+  
+  /* 1. 设置你的高清古画为最底层 */
+  background-image: url('../map/sprite/start_bg.png'); 
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+  transition: opacity 0.8s ease, visibility 0.8s;
+  overflow: hidden;
+}
+
+/* 2. 动态花瓣/云雾层 */
+.mode-selection-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* 👈 把这里改成 2，原来是 0 */
+  pointer-events: none; 
+  background-image: url('../map/sprite/petals.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; 
+}
+
+/* 3. 纯 CSS 动画：夕阳呼吸光晕层 */
+.mode-selection-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  /* 调整圆心位置对准太阳 (约横向 40%, 纵向 32%)，增加亮度 */
+  background: radial-gradient(circle at 40% 32%, rgba(255, 230, 150, 0.7), transparent 30%);
+  mix-blend-mode: overlay; /* 让光晕与下层图片自然叠加 */
+  animation: sunGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* 确保菜单层在最上面，不会被特效挡住 */
+.mode-menu-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mode-selection-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#appCoreUI {
+  transition: opacity 1s ease;
+}
+#appCoreUI.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mode-menu-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mode-title {
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--ink); /* 改为墨黑色 */
+  letter-spacing: 16px;
+  /* 改为浅色发光描边，去掉沉重的黑影 */
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.mode-subtitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--ink); /* 改为墨黑色 */
+  font-weight: bold; /* 加粗提升辨识度 */
+  letter-spacing: 8px;
+  margin-bottom: 60px;
+  margin-left: 8px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9); /* 浅色底阴影 */
+}
+
+.mode-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* PvZ 风格互动木牌按钮 */
+.mode-btn {
+  position: relative;
+  width: 280px;
+  padding: 18px 0;
+  background: linear-gradient(180deg, rgba(48, 38, 32, 0.9) 0%, rgba(26, 20, 16, 0.95) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 弹性动画 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(207,168,94,0.2);
+  overflow: hidden;
+}
+
+/* 按钮内发光边框效果 */
+.mode-btn::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed rgba(207, 168, 94, 0.4);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.mode-btn-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 6px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  position: relative;
+  z-index: 2;
+}
+
+/* 悬停放大发光 */
+.mode-btn:hover {
+  transform: scale(1.1) translateX(15px);
+  background: linear-gradient(180deg, rgba(80, 60, 45, 0.95) 0%, rgba(38, 26, 18, 0.95) 100%);
+  border-color: var(--gold-light);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8), 0 0 20px rgba(207,168,94,0.6);
+}
+
+.mode-btn:active {
+  transform: scale(1.05) translateX(10px);
+}
+
+/* 自由模式特别高亮 */
+.mode-btn-primary {
+  border-color: var(--vermillion);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(192,57,43,0.3);
+}
+.mode-btn-primary .mode-btn-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(192,57,43,0.8);
+}
+.mode-btn-primary:hover {
+  border-color: #ff5252;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.8), 0 0 25px rgba(192,57,43,0.7);
+}
+
+/* 未开放模式置灰 */
+.mode-btn-disabled {
+  filter: grayscale(1);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.mode-btn-disabled:hover {
+  transform: none; /* 禁用状态不放大不移动 */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(48, 38, 32, 0.9) 0%, rgba(26, 20, 16, 0.95) 100%);
+  border-color: var(--gold);
+}
+
+.mode-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--vermillion);
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  transform: rotate(15deg);
+  z-index: 3;
+}
+
+/* ================== 选人界面浮层 ================== */
+.character-selection-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(26, 20, 16, 0.75); /* 半透明暗底 */
+  backdrop-filter: blur(8px); /* 毛玻璃效果，透出大观园背景 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.character-selection-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.char-sel-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  color: var(--gold-light);
+  margin-bottom: 50px;
+  letter-spacing: 12px;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.8);
+}
+
+.char-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.char-card {
+  width: 160px;
+  padding: 24px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.char-card:hover {
+  background: linear-gradient(180deg, rgba(207, 168, 94, 0.2) 0%, rgba(207, 168, 94, 0.05) 100%);
+  border-color: var(--gold);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(207,168,94,0.3);
+}
+
+.char-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+  transition: transform 0.3s;
+}
+
+.char-card:hover img {
+  transform: scale(1.1);
+}
+
+.char-card span {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--paper);
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.char-sel-back {
+  margin-top: 60px;
+  padding: 12px 40px;
+  font-size: 18px;
+  font-family: var(--font-serif);
+  letter-spacing: 4px;
+  background: transparent;
+  border: 1px solid var(--muted);
+  color: var(--paper-dark);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.char-sel-back:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ================== 剧情模式：玩家控制面板 (图1规整区块版) ================== */
+.player-control-panel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 控制头像块、按钮块之间的留白间距 */
+  border-bottom: 2px solid var(--border);
+  background: rgba(20, 15, 12, 0.6);
+  flex-shrink: 0;
+}
+
+.player-control-panel.hidden {
+  display: none;
+}
+
+/* 1. 角色头像与名称区块 */
+.player-avatar-box {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.player-avatar-img {
+  width: 80px; /* 正常清晰的头像大小 */
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated; /* 保持像素图清晰 */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+.player-name-label {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--gold-light);
+  letter-spacing: 4px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* 2. 操作按钮基础样式 */
+.btn-player-action {
+  width: 100%;
+  padding: 14px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+/* 下达任务按钮 */
+.btn-issue {
+  background: #4a756b;
+  color: white;
+  border: 1px solid #5c8f83;
+}
+.btn-issue:hover {
+  background: #5c8f83;
+  transform: translateY(-2px);
+}
+
+/* 跳过任务按钮 */
+.btn-skip {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-skip:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* ================== 剧情模式：目标悬浮窗 ================== */
+.story-objective-box {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 320px;
+  background: rgba(26, 20, 16, 0.85);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 0 15px rgba(207,168,94,0.1);
+  z-index: 90;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+.story-objective-box.hidden {
+  display: none;
+}
+.objective-header {
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--ink);
+  font-weight: bold;
+  padding: 8px 16px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.objective-content {
+  padding: 16px;
+  color: var(--paper);
+  font-size: 15px;
+  line-height: 1.8;
+  font-family: var(--font-body);
+}

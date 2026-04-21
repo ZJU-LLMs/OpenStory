@@ -352,7 +352,6 @@ class BasicStatePlugin(StatePlugin):
         The snapshot comes from collect_agents_data(), which uses different formats for some
         fields than what state_data stores internally. This method handles the conversions.
         """
-        # These fields are computed or come from other plugins — do not write them into state_data
         skip_keys = {'profile', 'current_location'}
 
         for key, value in snapshot.items():

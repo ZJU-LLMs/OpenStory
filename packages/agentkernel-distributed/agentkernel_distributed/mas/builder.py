@@ -304,6 +304,14 @@ class Builder:
             return
 
         POD_MANAGER_ACTOR_NAME = "global_pod_manager"
+        # Kill stale actor if it exists (e.g., from a previous crashed session)
+        try:
+            existing = ray.get_actor(POD_MANAGER_ACTOR_NAME)
+            ray.kill(existing, no_restart=True)
+            logger.info(f"Killed stale actor '{POD_MANAGER_ACTOR_NAME}' from previous session.")
+        except ValueError:
+            pass  # Actor doesn't exist, proceed normally
+
         pod_manager = self._pod_manager_class.options(
             name=POD_MANAGER_ACTOR_NAME,
         ).remote(
