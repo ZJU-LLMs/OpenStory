@@ -2,6 +2,7 @@
 # http://localhost:8000/frontend/index.html
 import os
 import sys
+import signal
 
 # Add project root and packages directory to Python path to allow running the script directly
 project_path = os.path.dirname(os.path.abspath(__file__))
@@ -150,6 +151,7 @@ async def main():
         import socket as _socket
         import atexit as _atexit
         _story_process = None
+        _story_pid_file = os.path.join(project_root, ".story_server.pid")
 
         def _is_port_open(port, host="127.0.0.1", timeout=0.5):
             try:
@@ -165,6 +167,26 @@ async def main():
                     _story_process.wait(timeout=5)
                 except Exception:
                     _story_process.kill()
+            if os.path.exists(_story_pid_file):
+                try:
+                    os.remove(_story_pid_file)
+                except OSError:
+                    pass
+
+        def _kill_story_pid_from_file():
+            if not os.path.exists(_story_pid_file):
+                return
+            try:
+                with open(_story_pid_file, "r", encoding="utf-8") as f:
+                    pid = int(f.read().strip())
+                os.kill(pid, signal.SIGTERM)
+            except (OSError, ValueError):
+                pass
+            finally:
+                try:
+                    os.remove(_story_pid_file)
+                except OSError:
+                    pass
 
         _atexit.register(_kill_story_process)
 
@@ -173,13 +195,29 @@ async def main():
         @server_module.app.post("/api/launch-story")
         async def launch_story():
             nonlocal _story_process
+            # Always relaunch the story subprocess we own so each entry starts from
+            # a clean session instead of inheriting stale story state.
+            if _story_process is not None and _story_process.poll() is None:
+                _kill_story_process()
+                _story_process = None
+            else:
+                _kill_story_pid_from_file()
+
             if _is_port_open(8001):
-                return _JSONResponse({"status": "already_running"})
-            if _story_process is None or _story_process.poll() is not None:
-                _story_process = _subprocess.Popen(
-                    [sys.executable, "-m", "examples.story.run_simulation"],
-                    cwd=project_root,
+                return _JSONResponse(
+                    {
+                        "status": "port_busy",
+                        "message": "Port 8001 is already occupied by another process."
+                    },
+                    status_code=409,
                 )
+
+            _story_process = _subprocess.Popen(
+                [sys.executable, "-m", "examples.deduction.story.run_simulation"],
+                cwd=project_root,
+            )
+            with open(_story_pid_file, "w", encoding="utf-8") as f:
+                f.write(str(_story_process.pid))
             # Wait up to 30s for story server to be ready
             import asyncio as _asyncio
             for _ in range(60):

@@ -1,0 +1,6 @@
+- name: OpenAIProvider
+  model: deepseek-chat
+  api_key: 
+  base_url: https://api.deepseek.com/v1
+  capabilities:
+  - chat

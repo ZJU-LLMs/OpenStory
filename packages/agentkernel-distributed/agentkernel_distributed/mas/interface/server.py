@@ -67,12 +67,20 @@ def _stable_hash(text: str) -> int:
     return abs(value)
 
 
-def _load_primary_model_config() -> Dict[str, str]:
+def _get_models_config_path() -> str:
     project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
     if not project_abs_path:
-        return {}
+        return ""
 
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    project_rel_path = os.environ.get("MAS_PROJECT_REL_PATH", "")
+    if project_rel_path == "examples.deduction.story":
+        return os.path.join(project_abs_path, "..", "configs", "models_config.yaml")
+
+    return os.path.join(project_abs_path, "configs", "models_config.yaml")
+
+
+def _load_primary_model_config() -> Dict[str, str]:
+    config_path = _get_models_config_path()
     if not os.path.exists(config_path):
         return {}
 
@@ -195,10 +203,9 @@ class ModelConfigUpdate(BaseModel):
 
 @app.get("/api/config/model", summary="Get model configuration")
 async def get_model_config() -> Dict[str, Any]:
-    project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
-    if not project_abs_path:
-        raise HTTPException(status_code=500, detail="MAS_PROJECT_ABS_PATH environment variable is not set")
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    config_path = _get_models_config_path()
+    if not config_path:
+        raise HTTPException(status_code=500, detail="Model config path is not available")
     if not os.path.exists(config_path):
         raise HTTPException(status_code=404, detail="models_config.yaml not found")
     
@@ -216,10 +223,9 @@ async def get_model_config() -> Dict[str, Any]:
 
 @app.post("/api/config/model", summary="Update model configuration")
 async def update_model_config(config: ModelConfigUpdate) -> Dict[str, Any]:
-    project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
-    if not project_abs_path:
-        raise HTTPException(status_code=500, detail="MAS_PROJECT_ABS_PATH environment variable is not set")
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    config_path = _get_models_config_path()
+    if not config_path:
+        raise HTTPException(status_code=500, detail="Model config path is not available")
     if not os.path.exists(config_path):
         raise HTTPException(status_code=404, detail="models_config.yaml not found")
     

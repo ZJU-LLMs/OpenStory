@@ -144,6 +144,16 @@ class AsyncModelRouter:
                         json=params["json"],
                         timeout=timeout,
                     ) as response:
+                        if response.status >= 400:
+                            error_body = (await response.text())[:500]
+                            logger.warning(
+                                "%s chat request failed with %s: HTTP %s - %s",
+                                self,
+                                provider.model,
+                                response.status,
+                                error_body,
+                            )
+                            continue
                         response.raise_for_status()
                         return provider.parse_response(await response.text())
                 except Exception as exc:
