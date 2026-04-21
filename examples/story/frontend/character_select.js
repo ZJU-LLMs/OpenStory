@@ -104,9 +104,14 @@ function openCustomModal() {
   selectCharacter(customChar);
 }
 
-function startGame() {
+async function startGame() {
   if (!selectedCharacter) return;
   localStorage.setItem('story_player_character', JSON.stringify(selectedCharacter));
+  try {
+    await fetch('/story/game_restart', { method: 'POST' });
+  } catch (e) {
+    console.warn('game_restart failed:', e);
+  }
   window.location.href = 'index.html';
 }
 
