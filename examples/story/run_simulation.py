@@ -64,7 +64,7 @@ async def main():
     logger.info(f'【System】Project path set to {project_path}.')
 
     # ===== Parse map locations and inject into PlanPlugin =====
-    tmx_path = os.path.join(project_path, "map", "sos.tmx")
+    tmx_path = os.path.join(project_path, "..", "deduction", "map", "sos.tmx")
     locations = parse_tmx_locations(tmx_path)
     BasicPlanPlugin.set_locations(locations)
     logger.info(f'【System】Loaded {len(locations)} locations from map.')
@@ -108,7 +108,7 @@ async def main():
     api_cfg = _config_builder.config.api_server if hasattr(_config_builder.config, "api_server") else {}
     server_config = {
         "host": getattr(api_cfg, "host", "0.0.0.0") if api_cfg else "0.0.0.0",
-        "port": getattr(api_cfg, "port", 8000) if api_cfg else 8000,
+        "port": getattr(api_cfg, "port", 8001) if api_cfg else 8001,
         "redis_settings": {
             "host": "localhost",
             "port": 6379,
@@ -182,7 +182,7 @@ async def main():
     _story_redis = _aioredis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
 
     # Log splitter import (done once)
-    from examples.story.map.scripts.split_logs_by_character import process_log_directory
+    from examples.deduction.map.scripts.split_logs_by_character import process_log_directory
 
     # ===== Game loop: each iteration is one full game session =====
     while True:
