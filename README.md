@@ -11,10 +11,10 @@
 
 ## 🌟 Key News
 
-**✨ New Story Mode for *Dream of the Red Chamber* is now available!**  
-In this new mode, you will enter the world of "Dream of the Red Chamber" with an overall goal: to restore the Grand View Garden. You can give any instructions to the AI, and the AI will simulate the consequences of your actions and decide how they affect the restoration plans.
+**✨ The plot mode of *Dream of the Red Chamber* is now online!**  
+In this entirely new story mode, you will step into the world of "Dream of the Red Chamber," taking on a clear and grand objective: to revive the Grand View Garden. You can issue any action commands to the character you play, and the AI will simulate the subsequent developments based on your choices, determining how these actions will advance or alter this revival plan.
 
-We also introduced a story replay feature, allowing you to return to any previous moment and make different choices. Over time, your decisions will form a branching narrative tree, turning the entire experience into a playable, replayable story evolution.
+We have also added a story rollback feature, allowing you to return to any past point and make different choices. As the story continuously progresses, each of your decisions will branch out into new paths, ultimately forming a playable, replayable narrative tree, making the entire experience a truly evolving story adventure.
 ##
   OpenStory is a multi-agent deduction and simulation framework developed based on Large Language Models (LLMs) and [Agent-Kernel](https://github.com/ZJU-LLMs/Agent-Kernel).
 
