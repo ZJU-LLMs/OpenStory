@@ -134,6 +134,11 @@ async def main():
     server_module._tick_start_event = tick_start_event
     server_module._story_report_cache = None
     server_module._story_report_outcome = None
+    server_module._story_report_status = "idle"
+    server_module._story_report_error = None
+    server_module._story_report_meta = None
+    server_module._story_report_session_id = 0
+    story_report_lock = asyncio.Lock()
 
     # ===== Register FastAPI endpoints ONCE (before server starts) =====
 
@@ -166,6 +171,123 @@ async def main():
             headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename.encode().hex()}"}
         )
 
+    @server_module.app.post("/story/generate_report")
+    async def generate_story_report_on_demand():
+        from fastapi import HTTPException
+
+        meta = getattr(server_module, '_story_report_meta', None)
+        if not meta:
+            raise HTTPException(status_code=400, detail="simulation_not_finished")
+
+        status = getattr(server_module, '_story_report_status', 'idle')
+        cached_report = getattr(server_module, '_story_report_cache', None)
+
+        if status == "generating":
+            return {"status": "generating"}
+
+        if status == "ready" and cached_report:
+            report_payload = _json_global.dumps({
+                'type': 'story_report',
+                'report': cached_report,
+                'outcome': getattr(server_module, '_story_report_outcome', ''),
+                'final_score': meta.get('final_score')
+            }, ensure_ascii=False)
+            await server_module.manager.broadcast(report_payload)
+            return {"status": "ready"}
+
+        server_module._story_report_status = "generating"
+        server_module._story_report_error = None
+        request_session_id = getattr(server_module, '_story_report_session_id', 0)
+
+        async def _generate_story_report():
+            async with story_report_lock:
+                current_meta = getattr(server_module, '_story_report_meta', None)
+                if not current_meta:
+                    server_module._story_report_status = "failed"
+                    server_module._story_report_error = "story report metadata is missing"
+                    return
+
+                try:
+                    final_score = int(current_meta.get('final_score', 50))
+                    is_victory = bool(current_meta.get('is_victory', False))
+
+                    invoke_log_path = Path(project_path) / "logs" / "app" / "agent" / "invoke.log"
+                    dialogue_excerpts = []
+                    if invoke_log_path.exists():
+                        with open(invoke_log_path, 'r', encoding='utf-8', errors='ignore') as f:
+                            for line in f:
+                                if '对话摘要' in line or 'dialogue' in line.lower() or '说：' in line or '道：' in line:
+                                    dialogue_excerpts.append(line.strip())
+                    dialogue_text = '\n'.join(dialogue_excerpts[-200:]) if dialogue_excerpts else '（无对话记录）'
+
+                    outcome_text = '大观园在众人努力下重焕生机，稳定度达到顶峰。' if is_victory else '大观园稳定度跌至谷底，终究走向衰败。'
+                    report_prompt = f"""你是一位精通《红楼梦》的文学家。以下是一段大观园模拟推演的交互日志摘录：
+
+{dialogue_text}
+
+推演结局：{outcome_text}（最终稳定度：{final_score}/100）
+
+请根据以上日志，以《红楼梦》的文风续写一段故事（800-1200字），描绘大观园中人物的命运走向与情感纠葛，呼应推演结局。文风典雅，富有诗意，可引用诗词。"""
+
+                    import httpx as _httpx
+                    import yaml as _yaml
+                    models_cfg_path = Path(STORY_MODELS_CONFIG_PATH)
+                    with open(models_cfg_path, 'r', encoding='utf-8') as f:
+                        models_cfg = _yaml.safe_load(f)
+                    m = models_cfg[0]
+                    base_url = m.get('base_url', '').rstrip('/')
+                    api_key = m.get('api_key', '')
+                    model_name = m.get('model', 'gpt-4o')
+
+                    logger.info("【Story】Generating story report via LLM...")
+                    async with _httpx.AsyncClient(timeout=120) as client:
+                        resp = await client.post(
+                            f"{base_url}/chat/completions",
+                            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                            json={"model": model_name, "messages": [{"role": "user", "content": report_prompt}], "temperature": 0.9}
+                        )
+                        resp.raise_for_status()
+                        report_text = resp.json()['choices'][0]['message']['content']
+
+                    if getattr(server_module, '_story_report_session_id', 0) != request_session_id:
+                        logger.info("【Story】Discarded stale story report result from a previous session.")
+                        return
+
+                    server_module._story_report_cache = report_text
+                    server_module._story_report_outcome = '胜利' if is_victory else '失败'
+                    server_module._story_report_status = "ready"
+                    server_module._story_report_error = None
+
+                    report_payload = _json_global.dumps({
+                        'type': 'story_report',
+                        'report': report_text,
+                        'outcome': server_module._story_report_outcome,
+                        'final_score': final_score
+                    }, ensure_ascii=False)
+                    await server_module.manager.broadcast(report_payload)
+                    logger.info("【Story】Story report generated and broadcasted.")
+                except Exception as report_exc:
+                    logger.error(f"【Story】Failed to generate story report: {report_exc}", exc_info=True)
+                    if getattr(server_module, '_story_report_session_id', 0) != request_session_id:
+                        logger.info("【Story】Discarded stale story report failure from a previous session.")
+                        return
+                    fallback_report = "故事生成失败。请检查模型配置、网络连通性以及 story 日志文件编码后重试。"
+                    server_module._story_report_cache = fallback_report
+                    server_module._story_report_outcome = '生成失败'
+                    server_module._story_report_status = "failed"
+                    server_module._story_report_error = str(report_exc)
+                    failure_payload = _json_global.dumps({
+                        'type': 'story_report',
+                        'report': fallback_report,
+                        'outcome': '生成失败',
+                        'final_score': current_meta.get('final_score'),
+                        'error': str(report_exc)
+                    }, ensure_ascii=False)
+                    await server_module.manager.broadcast(failure_payload)
+
+        asyncio.create_task(_generate_story_report())
+        return {"status": "started"}
+
     # ===== Start API server thread ONCE =====
     server_thread = threading.Thread(
         target=start_server,
@@ -197,6 +319,10 @@ async def main():
             logger.info('【System】=== Starting new game session ===')
             server_module._story_report_cache = None
             server_module._story_report_outcome = None
+            server_module._story_report_status = "idle"
+            server_module._story_report_error = None
+            server_module._story_report_meta = None
+            server_module._story_report_session_id += 1
             server_module._agents_snapshot = {}
             server_module._snapshot_tick = -1
             # Reset branch / backtrack state for new session
@@ -517,69 +643,19 @@ async def main():
             server_module._score_snapshots.clear()
             logger.info('【System】Cleared broadcast state (snapshot/branches) after game end.')
 
-            # ===== Step3.5 : Generate story report =====
-            try:
-                story_score_raw = await _story_redis.get('story:score')
-                final_score = int(story_score_raw or 50)
-                is_victory = final_score >= 100
-
-                # Collect dialogue logs from invoke.log
-                invoke_log_path = Path(project_path) / "logs" / "app" / "agent" / "invoke.log"
-                dialogue_excerpts = []
-                if invoke_log_path.exists():
-                    with open(invoke_log_path, 'r', encoding='utf-8') as f:
-                        for line in f:
-                            if '对话摘要' in line or 'dialogue' in line.lower() or '说：' in line or '道：' in line:
-                                dialogue_excerpts.append(line.strip())
-                # Limit to last 200 lines to avoid token overflow
-                dialogue_text = '\n'.join(dialogue_excerpts[-200:]) if dialogue_excerpts else '（无对话记录）'
-
-                outcome_text = '大观园在众人努力下重焕生机，稳定度达到顶峰。' if is_victory else '大观园稳定度跌至谷底，终究走向衰败。'
-
-                report_prompt = f"""你是一位精通《红楼梦》的文学家。以下是一段大观园模拟推演的交互日志摘录：
-
-{dialogue_text}
-
-推演结局：{outcome_text}（最终稳定度：{final_score}/100）
-
-请根据以上日志，以《红楼梦》的文风续写一段故事（800-1200字），描绘大观园中人物的命运走向与情感纠葛，呼应推演结局。文风典雅，富有诗意，可引用诗词。"""
-
-                # Call LLM via httpx using primary model config
-                import httpx as _httpx
-                import yaml as _yaml
-                models_cfg_path = Path(STORY_MODELS_CONFIG_PATH)
-                with open(models_cfg_path, 'r', encoding='utf-8') as f:
-                    models_cfg = _yaml.safe_load(f)
-                m = models_cfg[0]
-                base_url = m.get('base_url', '').rstrip('/')
-                api_key = m.get('api_key', '')
-                model_name = m.get('model', 'gpt-4o')
-
-                logger.info("【Story】Generating story report via LLM...")
-                async with _httpx.AsyncClient(timeout=120) as client:
-                    resp = await client.post(
-                        f"{base_url}/chat/completions",
-                        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                        json={"model": model_name, "messages": [{"role": "user", "content": report_prompt}], "temperature": 0.9}
-                    )
-                    resp.raise_for_status()
-                    report_text = resp.json()['choices'][0]['message']['content']
-
-                # Cache report for download
-                server_module._story_report_cache = report_text
-                server_module._story_report_outcome = '胜利' if is_victory else '失败'
-
-                # Broadcast to frontend
-                report_payload = _json_global.dumps({
-                    'type': 'story_report',
-                    'report': report_text,
-                    'outcome': '胜利' if is_victory else '失败',
-                    'final_score': final_score
-                }, ensure_ascii=False)
-                await server_module.manager.broadcast(report_payload)
-                logger.info("【Story】Story report generated and broadcasted.")
-            except Exception as report_exc:
-                logger.error(f"【Story】Failed to generate story report: {report_exc}", exc_info=True)
+            # ===== Step3.5 : Mark story report as available for on-demand generation =====
+            story_score_raw = await _story_redis.get('story:score')
+            final_score = int(story_score_raw or 50)
+            is_victory = final_score >= 100
+            server_module._story_report_cache = None
+            server_module._story_report_outcome = None
+            server_module._story_report_status = "idle"
+            server_module._story_report_error = None
+            server_module._story_report_meta = {
+                "final_score": final_score,
+                "is_victory": is_victory,
+            }
+            logger.info("【Story】Story report is ready for on-demand generation.")
 
             # ===== Step4 : Split logs by character =====
             log_dir = Path(project_path) / "logs"

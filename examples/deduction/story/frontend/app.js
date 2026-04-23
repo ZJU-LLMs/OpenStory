@@ -156,6 +156,7 @@ function showGameResult(isWin) {
   const overlay = document.getElementById('gameResultOverlay');
   const title = document.getElementById('gameResultTitle');
   const desc = document.getElementById('gameResultDesc');
+  resetStoryReportUI();
 
   if (isWin) {
     title.textContent = '复兴成功';
@@ -171,21 +172,66 @@ function showGameResult(isWin) {
 }
 
 let _storyReportText = '';
+let _storyReportRequestInFlight = false;
+
+function resetStoryReportUI() {
+  _storyReportText = '';
+  _storyReportRequestInFlight = false;
+  document.getElementById('storyReportPanel').style.display = 'none';
+  document.getElementById('storyReportLoading').style.display = 'none';
+  document.getElementById('storyReportContent').textContent = '';
+  document.getElementById('exportReportBtn').style.display = 'none';
+  document.getElementById('reportBtn').style.display = 'none';
+}
 
 function requestStoryReport() {
+  if (_storyReportRequestInFlight) return;
+
+  _storyReportRequestInFlight = true;
   document.getElementById('reportBtn').style.display = 'none';
+  document.getElementById('exportReportBtn').style.display = 'none';
   document.getElementById('storyReportPanel').style.display = 'block';
   document.getElementById('storyReportLoading').style.display = 'block';
   document.getElementById('storyReportContent').textContent = '';
+
+  fetch('http://localhost:8001/story/generate_report', {
+    method: 'POST'
+  }).then(async (res) => {
+    if (!res.ok) {
+      const message = await res.text();
+      throw new Error(message || 'generate_report_failed');
+    }
+    return res.json();
+  }).then((data) => {
+    if (data.status === 'generating' || data.status === 'started' || data.status === 'ready') {
+      return;
+    }
+    throw new Error(`unexpected_status:${data.status}`);
+  }).catch((e) => {
+    console.error('Failed to request story report:', e);
+    _storyReportRequestInFlight = false;
+    document.getElementById('storyReportLoading').style.display = 'none';
+    document.getElementById('storyReportPanel').style.display = 'none';
+    document.getElementById('reportBtn').style.display = 'inline-block';
+    showToast('故事生成请求失败，请稍后重试');
+  });
 }
 
-function showStoryReport(report, outcome, finalScore) {
+function showStoryReport(report, outcome, finalScore, error = null) {
+  _storyReportRequestInFlight = false;
   _storyReportText = report;
   document.getElementById('storyReportLoading').style.display = 'none';
   document.getElementById('storyReportPanel').style.display = 'block';
   const content = document.getElementById('storyReportContent');
   content.textContent = report;
-  document.getElementById('exportReportBtn').style.display = 'inline-block';
+  if (outcome === '生成失败') {
+    document.getElementById('reportBtn').style.display = 'inline-block';
+    document.getElementById('exportReportBtn').style.display = 'none';
+    if (error) console.warn('Story report generation failed:', error);
+  } else {
+    document.getElementById('reportBtn').style.display = 'none';
+    document.getElementById('exportReportBtn').style.display = 'inline-block';
+  }
 }
 
 function exportStoryReport() {
@@ -599,6 +645,7 @@ function connect() {
           statusDot.className = 'status-dot connected';
         }
       } else if (msg.type === 'game_reset') {
+        resetStoryReportUI();
         // Backend flushed Redis for a new game session (may have wiped the player character
         // that was registered before the flush). Re-register so the backend can proceed.
         if (playerCharacter) {
@@ -620,7 +667,7 @@ function connect() {
         // 剧情模式：稳定度分数更新
         updateGoalPanel(msg.story_score, msg.score_events || []);
       } else if (msg.type === 'story_report') {
-        showStoryReport(msg.report, msg.outcome, msg.final_score);
+        showStoryReport(msg.report, msg.outcome, msg.final_score, msg.error || null);
       } else if (msg.type === 'add_agent_response') {
         // 处理添加人物的响应
         handleAddAgentResponse(msg);
