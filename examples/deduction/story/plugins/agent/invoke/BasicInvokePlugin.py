@@ -59,11 +59,13 @@ class BasicInvokePlugin(InvokePlugin):
 
             # Find the plan for the current hour
             current_plan = None
+            scheduled_plan = None
             if hourly_plans:
                 for plan in hourly_plans:
                     # plan format: [action, time, target, location, importance]
                     if len(plan) >= 5 and plan[1] == current_hour:
                         current_plan = plan
+                        scheduled_plan = list(plan)
                         break
             else:
                 logger.debug(f"[{self.agent_id}][{current_tick}] No hourly plan for day {current_day}")
@@ -107,6 +109,17 @@ class BasicInvokePlugin(InvokePlugin):
                             user_plan_data.get('location', ''),
                             999  # Highest priority
                         ]
+                        user_override_action = str(current_plan[0] or "")
+                        scheduled_action = str(scheduled_plan[0] or "") if scheduled_plan else ""
+                        if scheduled_action and scheduled_action != user_override_action:
+                            await state_plugin.add_plan_conflict_event(
+                                tick=current_tick,
+                                day=current_day,
+                                hour=current_hour,
+                                original_action=scheduled_action,
+                                new_action=user_override_action,
+                                occupier="玩家指令",
+                            )
                         # Delete the plan after execution to avoid repetition
                         await self.redis.delete(user_plan_key)
                 except Exception as e:

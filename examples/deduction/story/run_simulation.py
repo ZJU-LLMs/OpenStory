@@ -60,6 +60,71 @@ def parse_tmx_locations(tmx_path: str) -> list:
                         locations.append(name)
     return locations
 
+
+async def _clear_user_plans_for_branch_restore(redis_client, target_tick: int) -> None:
+    """
+    Remove stale user plans when switching/forking branches, but keep commands
+    explicitly queued for the first tick of the restored branch.
+    """
+    preserved_plans = []
+    keys_to_delete = []
+
+    async for key in redis_client.scan_iter('user_plan:*'):
+        raw_value = await redis_client.get(key)
+        keep_for_target_tick = False
+        if raw_value:
+            try:
+                parsed = _json_global.loads(raw_value) if isinstance(raw_value, str) else raw_value
+                keep_for_target_tick = parsed.get("tick") == target_tick
+            except Exception:
+                keep_for_target_tick = False
+
+        if keep_for_target_tick:
+            preserved_plans.append((key, raw_value))
+        keys_to_delete.append(key)
+
+    if keys_to_delete:
+        await redis_client.delete(*keys_to_delete)
+
+    for key, raw_value in preserved_plans:
+        await redis_client.set(key, raw_value)
+
+    logger.info(
+        f"【Branch】Cleared stale user_plan:* keys, preserved {len(preserved_plans)} plan(s) for tick {target_tick}"
+    )
+
+
+async def _restore_staged_history_user_plans(
+    redis_client,
+    source_branch_id: int,
+    source_tick: int,
+) -> int:
+    """
+    Re-inject user plans that were assigned while the user was viewing a
+    historical node. These staged plans must survive the rollback-to-snapshot
+    step, so they are stored in server memory until the branch resume/fork
+    actually happens.
+    """
+    restored_count = 0
+    staged_keys = [
+        key for key in list(server_module._staged_history_user_plans.keys())
+        if len(key) == 3 and key[0] == source_branch_id and key[1] == source_tick
+    ]
+    for staged_key in staged_keys:
+        _branch_id, _tick, agent_id = staged_key
+        plan_data = server_module._staged_history_user_plans.pop(staged_key, None)
+        if not plan_data:
+            continue
+        await redis_client.set(f"user_plan:{agent_id}", _json_global.dumps(plan_data, ensure_ascii=False))
+        restored_count += 1
+
+    if restored_count:
+        logger.info(
+            f"【Branch】Restored {restored_count} staged history user plan(s) "
+            f"for branch {source_branch_id} tick {source_tick}"
+        )
+    return restored_count
+
 async def main():
     # ===== One-time setup =====
     logger.info(f'【System】Project path set to {project_path}.')
@@ -331,7 +396,7 @@ async def main():
             server_module._current_branch_id = 0
             server_module._viewing_tick = -1
             server_module._viewing_branch_id = -1
-            server_module._first_tick_after_fork = False
+            server_module._staged_history_user_plans.clear()
             server_module._score_snapshots.clear()
             server_module._waiting_for_tick = False
             game_restart_event.clear()
@@ -414,6 +479,7 @@ async def main():
                 if server_module._viewing_tick != -1:
                     viewing_tick = server_module._viewing_tick
                     viewing_branch_id = server_module._viewing_branch_id
+                    execution_tick = viewing_tick + 1
                     viewing_branch = next(
                         (b for b in server_module._branches if b["id"] == viewing_branch_id), None
                     )
@@ -437,10 +503,7 @@ async def main():
                                 if not rollback_ok:
                                     logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while switching branch")
                                 await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                                # Timer only supports rollback to an already recorded tick.
-                                # Restore to the viewed tick first, then offset the first
-                                # post-restore broadcast to viewing_tick + 1.
-                                await system.run('timer', 'set_tick', viewing_tick)
+                                await system.run('timer', 'set_tick', execution_tick)
                                 restored_score = None
                                 restored_events_parsed = []
                                 if snapshot_key in server_module._score_snapshots:
@@ -456,11 +519,16 @@ async def main():
                                             restored_events_parsed.append(_json_global.loads(e_raw))
                                         except Exception:
                                             pass
-                                async for key in _story_redis.scan_iter('user_plan:*'):
-                                    await _story_redis.delete(key)
-                                logger.info("【Branch】Cleared all user_plan:* keys")
+                                await _clear_user_plans_for_branch_restore(
+                                    _story_redis,
+                                    target_tick=execution_tick,
+                                )
+                                await _restore_staged_history_user_plans(
+                                    _story_redis,
+                                    source_branch_id=viewing_branch_id,
+                                    source_tick=viewing_tick,
+                                )
                                 server_module._current_branch_id = viewing_branch_id
-                                server_module._first_tick_after_fork = True
                                 logger.info(f"【Branch】Switched current to branch {viewing_branch_id}")
                                 await broadcast_branch_event("branch_created", {
                                     "new_branch_id": viewing_branch_id,
@@ -480,10 +548,9 @@ async def main():
                                     logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while forking branch")
                                 # 1. Restore agent states
                                 await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                                # 2. Timer rollback must target an existing recorded tick.
-                                #    The first post-fork broadcast is offset below so the new
-                                #    branch starts at viewing_tick + 1 without replaying the old node.
-                                await system.run('timer', 'set_tick', viewing_tick)
+                                # 2. Resume from the *next* execution tick so the first node on
+                                #    the new branch is the child of the viewed parent tick.
+                                await system.run('timer', 'set_tick', execution_tick)
                                 # 3. Restore score + score_events to Redis
                                 restored_score = None
                                 restored_events_parsed = []
@@ -501,9 +568,15 @@ async def main():
                                         except Exception:
                                             pass
                                 # 4. Clear all player-assigned tasks
-                                async for key in _story_redis.scan_iter('user_plan:*'):
-                                    await _story_redis.delete(key)
-                                logger.info("【Branch】Cleared all user_plan:* keys")
+                                await _clear_user_plans_for_branch_restore(
+                                    _story_redis,
+                                    target_tick=execution_tick,
+                                )
+                                await _restore_staged_history_user_plans(
+                                    _story_redis,
+                                    source_branch_id=viewing_branch_id,
+                                    source_tick=viewing_tick,
+                                )
                                 # 5. Create new branch metadata
                                 new_branch = {
                                     "id": len(server_module._branches),
@@ -513,7 +586,6 @@ async def main():
                                 }
                                 server_module._branches.append(new_branch)
                                 server_module._current_branch_id = new_branch["id"]
-                                server_module._first_tick_after_fork = True
                                 logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
                                 await broadcast_branch_event("branch_created", {
                                     "new_branch_id": new_branch["id"],
@@ -557,12 +629,7 @@ async def main():
                     logger.warning(f"【System】Adapter snapshot for Tick {current_tick} reported failure")
 
                 await system.run('timer', 'add_tick', duration_seconds=tick_duration)
-
-                if server_module._first_tick_after_fork:
-                    server_module._first_tick_after_fork = False
-                    broadcast_tick = current_tick + 1
-                else:
-                    broadcast_tick = current_tick
+                broadcast_tick = current_tick
 
                 # ===== Performance / Latency Metrics Calculation =====
                 agent_step_latency = phase_timestamps[f'Agent_Step_{i}'] - phase_timestamps['start']
@@ -654,6 +721,7 @@ async def main():
             server_module._tick_snapshots = {}
             server_module._branches = [{"id": 0, "parent_branch_id": None, "fork_tick": 0, "ticks": []}]
             server_module._current_branch_id = 0
+            server_module._staged_history_user_plans.clear()
             server_module._score_snapshots.clear()
             logger.info('【System】Cleared broadcast state (snapshot/branches) after game end.')
 

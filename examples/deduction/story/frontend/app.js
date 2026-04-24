@@ -40,7 +40,18 @@ function initPlayerCharacter() {
 }
 
 // ===== 下达任务 =====
+function getPendingUserPlanTick() {
+  if (isViewingHistory && viewingTick !== -1) {
+    return viewingTick + 1;
+  }
+  if (currentTick >= 0) {
+    return currentTick + 1;
+  }
+  return 0;
+}
+
 function openAssignTaskModal() {
+  pendingTaskTick = getPendingUserPlanTick();
   document.getElementById('assignTaskAction').value = '';
   document.getElementById('assignTaskTarget').value = '';
   document.getElementById('assignTaskLocation').value = '';
@@ -63,10 +74,11 @@ async function submitAssignTask() {
       agent_id: playerCharacter.id,
       action: action,
       target: target || null,
-      location: location || ''
+      location: location || '',
+      tick: pendingTaskTick
     }));
     closeAssignTaskModal();
-    showToast(`已为 ${playerCharacter.id} 下达任务`);
+    showToast(`已为 ${playerCharacter.id} 下达任务（Tick ${pendingTaskTick}）`);
   } else {
     alert('WebSocket 未连接，请检查服务器状态');
   }
@@ -307,6 +319,13 @@ let viewingTick = -1;
 let viewingBranchId = -1;
 let isViewingHistory = false;
 let memoryTreeOpen = false;
+let historyNavigationLocked = false;
+
+function setHistoryViewState({ enabled, tick = -1, branchId = -1 }) {
+  isViewingHistory = enabled;
+  viewingTick = enabled ? tick : -1;
+  viewingBranchId = enabled ? branchId : -1;
+}
 
 // ===== 预设人物模板 =====
 // 官方预设（不可删除）
@@ -647,6 +666,7 @@ function connect() {
       } else if (msg.type === 'tick_update') {
         // 缓存后端数据，等待用户点击“开始推演”后再展示
         if (Number.isInteger(msg.current_branch_id)) currentBranchId = msg.current_branch_id;
+        historyNavigationLocked = true;
         pendingTickData = msg;
 
         document.getElementById('startTickBtn').disabled = true;
@@ -750,10 +770,9 @@ function connect() {
       } else if (msg.type === 'branch_created') {
         branchTree = msg.branches || [];
         currentBranchId = msg.current_branch_id ?? 0;
+        historyNavigationLocked = true;
         pendingTickData = null;
-        isViewingHistory = false;
-        viewingTick = -1;
-        viewingBranchId = -1;
+        setHistoryViewState({ enabled: false });
         // 重置稳定度面板到 fork 点的历史分数
         if (msg.restored_score !== null && msg.restored_score !== undefined) {
           restoreGoalPanelFromSnapshot(msg.restored_score, msg.restored_events || []);
@@ -769,12 +788,14 @@ function connect() {
         }
       } else if (msg.type === 'view_tick_ack') {
         if (msg.data) {
+          if (historyNavigationLocked || pendingTickData) {
+            console.log(`[view_tick_ack] ignored while branch transition is active: branch=${msg.branch_id}, tick=${msg.tick}`);
+            return;
+          }
           pendingTickData = null;
           const applyBtn = document.getElementById('applyTickBtn');
           if (applyBtn) applyBtn.disabled = true;
-          viewingTick = msg.tick;
-          viewingBranchId = msg.branch_id;
-          isViewingHistory = true;
+          setHistoryViewState({ enabled: true, tick: msg.tick, branchId: msg.branch_id });
           const newData = msg.data;
           Object.keys(agentsData).forEach(id => {
             if (!newData[id]) delete agentsData[id];
@@ -1044,7 +1065,8 @@ function sendStartTick() {
     if (!isViewingHistory && currentHistoryIndex !== -1) {
       restoreLatestHistoryForBranch(currentBranchId);
     }
-    
+
+    historyNavigationLocked = true;
     ws.send(JSON.stringify({ type: 'start_tick' }));
     // 禁用开始推演按钮，表示正在推演中
     document.getElementById('startTickBtn').disabled = true;
@@ -1171,6 +1193,8 @@ function applyPendingTick() {
   if (!pendingTickData) return;
   const msg = pendingTickData;
   pendingTickData = null;
+  historyNavigationLocked = false;
+  setHistoryViewState({ enabled: false });
   
   const msgCopy = JSON.parse(JSON.stringify(msg));
   if (!Number.isInteger(msgCopy.current_branch_id)) msgCopy.current_branch_id = currentBranchId;
@@ -1181,6 +1205,8 @@ function applyPendingTick() {
   const btn = document.getElementById('applyTickBtn');
   btn.disabled = true;
   document.getElementById('startTickBtn').disabled = false;
+  updateHistoryModeBanner();
+  renderBranchTree();
 
   // 获取即将应用的新时间字符串
   const timeString = msg.tick >= 0 ? tickToChineseDate(msg.tick) : null;
@@ -1220,6 +1246,8 @@ function applyPendingTick() {
         if (applyBtn) {
           applyBtn.disabled = true;
         }
+        updateHistoryModeBanner();
+        renderBranchTree();
       }, 1500); // 大字展示 1.5 秒后淡出
       
     }, 800); // 等待遮罩淡入 0.8 秒
@@ -1241,6 +1269,8 @@ function applyPendingTick() {
     if (applyBtn) {
       applyBtn.disabled = true;
     }
+    updateHistoryModeBanner();
+    renderBranchTree();
   }
 }
 
@@ -4820,9 +4850,8 @@ function handleMemoryTreeOverlayClick(event) {
 }
 
 function exitHistoryView() {
-  isViewingHistory = false;
-  viewingTick = -1;
-  viewingBranchId = -1;
+  historyNavigationLocked = false;
+  setHistoryViewState({ enabled: false });
   // Notify backend to clear _viewing_tick so next Start Simulation continues
   // the current branch rather than forking from the previously viewed tick.
   if (ws && ws.readyState === WebSocket.OPEN) {
@@ -4987,6 +5016,10 @@ function renderBranchTree() {
 function onClickTreeNode(branchId, tick) {
   if (!ws || ws.readyState !== WebSocket.OPEN) {
     console.warn('回溯树：WS 未连接');
+    return;
+  }
+  if (historyNavigationLocked || pendingTickData) {
+    showToast('请先完成当前推演结果，再切换回溯节点');
     return;
   }
   console.log('回溯树：跳转到 branch=' + branchId + ' tick=' + tick);
