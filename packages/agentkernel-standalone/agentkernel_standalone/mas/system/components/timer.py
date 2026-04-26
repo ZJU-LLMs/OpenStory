@@ -50,30 +50,35 @@ class Timer(SystemComponent):
 
     def set_tick(self, tick: int) -> None:
         """
-        Set the current simulation tick to a specific value.
+        Set the current simulation tick to a specific recorded value.
 
-        This method rolls back the timestamp history to the specified tick.
+        The timer supports moving backward and forward within the already
+        recorded history so branch switching can revisit older frontiers
+        without losing the timestamp timeline. Diverging from an older tick is
+        handled in ``add_tick()``, which overwrites the next timestamp and
+        truncates any now-stale future history.
 
         Args:
             tick (int): The tick number to set as the current tick. Must be
-                within the range [0, current_tick].
+                within the range [0, max_recorded_tick].
 
         Raises:
-            ValueError: If the requested tick is negative or greater than the
-                current tick.
+            ValueError: If the requested tick is negative or outside the
+                recorded range.
         """
-        if not (0 <= tick <= self._current_tick):
+        max_recorded_tick = self._start_tick + len(self._tick_timestamps) - 1
+        if not (0 <= tick <= max_recorded_tick):
             raise ValueError(
-                f"Can only set tick to a value between 0 and the " f"current tick ({self._current_tick}). Got {tick}."
+                f"Can only set tick to a value between 0 and the "
+                f"max recorded tick ({max_recorded_tick}). Got {tick}."
             )
 
         if tick == self._current_tick:
             return
 
         self._current_tick = tick
-        self._tick_timestamps = self._tick_timestamps[: (self._current_tick - self._start_tick) + 1]
-
-        logger.info(f"Timer state restored to tick {tick} at " f"{self._tick_timestamps[-1].isoformat()}")
+        tick_index = self._current_tick - self._start_tick
+        logger.info(f"Timer state restored to tick {tick} at " f"{self._tick_timestamps[tick_index].isoformat()}")
 
     def add_tick(self, duration_seconds: float) -> None:
         """
@@ -88,9 +93,17 @@ class Timer(SystemComponent):
         if duration_seconds < 0:
             raise ValueError("duration_seconds must be a non-negative number.")
 
-        last_timestamp = self._tick_timestamps[-1]
+        current_index = self._current_tick - self._start_tick
+        last_timestamp = self._tick_timestamps[current_index]
         new_timestamp = last_timestamp + datetime.timedelta(seconds=duration_seconds)
-        self._tick_timestamps.append(new_timestamp)
+        next_index = current_index + 1
+
+        if next_index < len(self._tick_timestamps):
+            # Keep the furthest recorded horizon so other existing branches can
+            # still jump back to their older frontier ticks later.
+            self._tick_timestamps[next_index] = new_timestamp
+        else:
+            self._tick_timestamps.append(new_timestamp)
 
         self._current_tick += 1
 

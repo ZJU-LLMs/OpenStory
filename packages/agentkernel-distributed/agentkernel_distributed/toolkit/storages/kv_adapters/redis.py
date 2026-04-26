@@ -458,7 +458,11 @@ class RedisKVAdapter(BaseKVAdapter):
             logger.info("Snapshot %s was empty. State cleared.", snapshot_to_restore_key)
             return True
 
-        restoration_data = {key.decode("utf-8"): json.loads(value) for key, value in snapshot_data.items()}
+        restoration_data = {}
+        for key, value in snapshot_data.items():
+            normalized_key = key.decode("utf-8") if isinstance(key, (bytes, bytearray)) else str(key)
+            normalized_value = value.decode("utf-8") if isinstance(value, (bytes, bytearray)) else value
+            restoration_data[normalized_key] = json.loads(normalized_value)
 
         await self.import_data(restoration_data)
 
