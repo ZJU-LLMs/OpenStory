@@ -721,11 +721,10 @@ function setStatus(state) {
 // 发送开始推演信号给后端
 function sendStartTick() {
   if (ws && ws.readyState === WebSocket.OPEN) {
-    // Keep explicit memory-tree selection intact so the backend can fork/switch
-    // from that node. Only restore the live frontier when the user is merely
-    // scrubbing history with the prev/next controls.
-    if (!isViewingHistory && currentHistoryIndex !== -1) {
-      restoreLatestHistoryForBranch(currentBranchId);
+    // If we are viewing history, jump to latest before starting next tick
+    if (currentHistoryIndex !== -1 && currentHistoryIndex < tickHistory.length - 1) {
+      currentHistoryIndex = tickHistory.length - 1;
+      applyHistoryTick(tickHistory[currentHistoryIndex]);
     }
     
     ws.send(JSON.stringify({ type: 'start_tick' }));
@@ -767,41 +766,8 @@ function upsertTickHistory(msg) {
   return { index: tickHistory.length - 1, inserted: true };
 }
 
-function getLatestHistoryIndexForBranch(branchId) {
-  if (!Number.isInteger(branchId)) return -1;
-
-  const branch = branchTree.find(b => b.id === branchId);
-  const branchTicks = (branch?.ticks || []).slice().sort((a, b) => b - a);
-  for (const tick of branchTicks) {
-    const idx = tickHistory.findIndex(item => {
-      const itemBranchId = Number.isInteger(item.current_branch_id) ? item.current_branch_id : currentBranchId;
-      return itemBranchId === branchId && item.tick === tick;
-    });
-    if (idx !== -1) return idx;
-  }
-
-  for (let i = tickHistory.length - 1; i >= 0; i--) {
-    const itemBranchId = Number.isInteger(tickHistory[i].current_branch_id)
-      ? tickHistory[i].current_branch_id
-      : currentBranchId;
-    if (itemBranchId === branchId) return i;
-  }
-
-  return -1;
-}
-
-function restoreLatestHistoryForBranch(branchId) {
-  const idx = getLatestHistoryIndexForBranch(branchId);
-  if (idx === -1) return false;
-  currentHistoryIndex = idx;
-  applyHistoryTick(tickHistory[idx], { syncCurrentBranch: true });
-  updateTickNavButtons();
-  return true;
-}
-
-function applyHistoryTick(msg, options = {}) {
-  const { syncCurrentBranch = false } = options;
-  if (syncCurrentBranch && Number.isInteger(msg.current_branch_id)) {
+function applyHistoryTick(msg) {
+  if (Number.isInteger(msg.current_branch_id)) {
     currentBranchId = msg.current_branch_id;
   }
   currentTick = msg.tick;
@@ -4677,7 +4643,10 @@ function exitHistoryView() {
     ws.send(JSON.stringify({ type: 'reset_view' }));
   }
   updateHistoryModeBanner();
-  restoreLatestHistoryForBranch(currentBranchId);
+  // Re-apply the latest live tick from history
+  if (tickHistory.length > 0) {
+    applyHistoryTick(tickHistory[tickHistory.length - 1]);
+  }
   renderBranchTree();
 }
 
@@ -4691,7 +4660,7 @@ function applyAgentsData(data, tick, branchId = null) {
     currentHistoryIndex = index;
     updateTickNavButtons();
   }
-  applyHistoryTick(msg, { syncCurrentBranch: false });
+  applyHistoryTick(msg);
 }
 
 function updateHistoryModeBanner() {

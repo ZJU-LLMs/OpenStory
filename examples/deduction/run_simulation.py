@@ -406,11 +406,9 @@ async def main():
                             if not rollback_ok:
                                 logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while switching branch")
                             await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                            # Timer only supports restoring to an already recorded tick.
-                            # Offset the first post-restore broadcast instead of advancing
-                            # the timer to an unseen future tick.
                             await system.run('timer', 'set_tick', viewing_tick + 1)
                             server_module._current_branch_id = viewing_branch_id
+                            server_module._first_tick_after_fork = False
                             logger.info(f"【Branch】Switched current to branch {viewing_branch_id}")
                             await broadcast_branch_event("branch_created", {
                                 "new_branch_id": viewing_branch_id,
@@ -427,8 +425,7 @@ async def main():
                             if not rollback_ok:
                                 logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while forking branch")
                             await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                            # Restore to the viewed tick first; the first broadcast after
-                            # resume from the first child tick of the viewed parent node
+                            # Resume from next tick to avoid replaying the viewed tick.
                             await system.run('timer', 'set_tick', viewing_tick + 1)
 
                             new_branch = {
@@ -440,6 +437,7 @@ async def main():
                             }
                             server_module._branches.append(new_branch)
                             server_module._current_branch_id = new_branch["id"]
+                            server_module._first_tick_after_fork = False
                             logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
 
                             await broadcast_branch_event("branch_created", {"new_branch_id": new_branch["id"], "fork_tick": viewing_tick})

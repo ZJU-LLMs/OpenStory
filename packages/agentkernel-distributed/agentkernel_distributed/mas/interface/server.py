@@ -42,9 +42,8 @@ _current_branch_id: int = 0
 # 用户当前查看的历史 tick（-1 = 查看最新）
 _viewing_tick: int = -1
 _viewing_branch_id: int = -1
-# 用户在历史节点上临时下达的任务。键为 (branch_id, parent_tick, agent_id)，
-# 值为会在该历史节点继续推演时注入到首个子节点执行的 plan_data。
-_staged_history_user_plans: Dict[tuple, Dict[str, Any]] = {}
+# fork 后第一次 tick 广播需要加偏移（使新分支首节点 = fork_tick + 1）
+_first_tick_after_fork: bool = False
 
 # 用于控制主循环的事件对象（由外部注入，threading.Event）
 _tick_start_event: Optional[threading.Event] = None
@@ -412,7 +411,6 @@ async def redis_listener() -> None:
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket) -> None:
-    global _viewing_tick, _viewing_branch_id
     await manager.connect(websocket)
     # 新连接时推送当前快照 + 分支树
     if _agents_snapshot:
@@ -450,36 +448,19 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                     action = msg.get("action")
                     location = msg.get("location")
                     target = msg.get("target")
-                    explicit_tick = msg.get("tick")
-                    viewing_history = _viewing_tick != -1 and _viewing_branch_id != -1
-                    if explicit_tick is not None:
-                        tick = explicit_tick
-                    elif viewing_history:
-                        tick = _viewing_tick + 1
-                    else:
-                        tick = _snapshot_tick + 1 if _snapshot_tick >= 0 else 0
+                    tick = _snapshot_tick + 1 if _snapshot_tick >= 0 else 0
 
                     if agent_id and redis_pool:
                         try:
+                            redis_client = aioredis.Redis(connection_pool=redis_pool)
                             plan_data = {
                                 "action": action,
                                 "location": location,
                                 "target": target,
                                 "tick": tick
                             }
-                            if viewing_history:
-                                _staged_history_user_plans[(_viewing_branch_id, _viewing_tick, agent_id)] = plan_data
-                                print(
-                                    f"Staged history user plan for '{agent_id}' at tick {tick} "
-                                    f"(view_branch={_viewing_branch_id}, view_tick={_viewing_tick})."
-                                )
-                            else:
-                                redis_client = aioredis.Redis(connection_pool=redis_pool)
-                                await redis_client.set(f"user_plan:{agent_id}", json.dumps(plan_data))
-                                print(
-                                    f"Successfully set user plan for '{agent_id}' at tick {tick} "
-                                    f"(viewing_tick={_viewing_tick}, snapshot_tick={_snapshot_tick})."
-                                )
+                            await redis_client.set(f"user_plan:{agent_id}", json.dumps(plan_data))
+                            print(f"Successfully set user plan for '{agent_id}' at tick {tick}.")
                             
                             await websocket.send_text(json.dumps({
                                 "type": "set_plan_response",
@@ -501,6 +482,7 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                         }))
 
                 elif msg_type == "view_tick":
+                    global _viewing_tick, _viewing_branch_id
                     tick = msg.get("tick")
                     branch_id = msg.get("branch_id")
                     if tick is None or branch_id is None:

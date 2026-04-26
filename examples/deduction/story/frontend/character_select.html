@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="character_select.css?v=20260424b" />
+  <link rel="stylesheet" href="character_select.css" />
 </head>
 <body>
   <div class="bg-texture"></div>
@@ -35,89 +35,6 @@
     </div>
   </div>
 
-  <div id="addAgentModal" class="modal">
-    <div class="modal-content" style="max-width: 600px;">
-      <div class="modal-header">
-        <span class="modal-title">添加新人物</span>
-        <span class="close-btn" onclick="closeAddAgentModal()">&times;</span>
-      </div>
-      <div class="modal-body" style="padding: 20px;">
-        <div class="add-agent-form">
-          <div class="form-group">
-            <label>角色头像</label>
-            <div class="avatar-selector">
-              <div class="avatar-preview" id="avatarPreview">
-                <img id="selectedAvatarImg" src="/map/sprite/普通人.png" alt="头像预览" />
-              </div>
-              <div class="avatar-options">
-                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '/map/sprite/普通人.png', '普通人', this)">
-                  <img src="/map/sprite/普通人.png" alt="普通人" />
-                  <span>普通人</span>
-                </button>
-                <button type="button" class="avatar-option-btn" onclick="selectAvatar('builtin', '/map/sprite/孙悟空.png', '孙悟空', this)">
-                  <img src="/map/sprite/孙悟空.png" alt="孙悟空" />
-                  <span>孙悟空</span>
-                </button>
-                <label class="avatar-upload-btn">
-                  <input type="file" id="customAvatarInput" accept="image/*" onchange="handleAvatarUpload(event)" style="display:none" />
-                  <span class="upload-icon">+</span>
-                  <span>上传图片</span>
-                </label>
-              </div>
-            </div>
-            <input type="hidden" id="avatarType" value="builtin" />
-            <input type="hidden" id="avatarSource" value="/map/sprite/普通人.png" />
-          </div>
-
-          <div class="form-group preset-templates">
-            <label>预设模板 <span class="hint-text">(点击选择，可快速填充人物信息)</span></label>
-            <div class="preset-grid" id="presetGrid"></div>
-          </div>
-
-          <div class="form-divider"><span>或自定义</span></div>
-
-          <div class="form-group">
-            <label for="agentId">人物名称 <span class="required">*</span></label>
-            <input type="text" id="agentId" />
-          </div>
-          <div class="form-group">
-            <label for="templateName">模板</label>
-            <input type="text" id="templateName" placeholder="DeductionAgent" />
-          </div>
-          <div class="form-group">
-            <label for="profileFamily">家族</label>
-            <input type="text" id="profileFamily" />
-          </div>
-          <div class="form-group">
-            <label for="profilePersonality">性格</label>
-            <input type="text" id="profilePersonality" />
-          </div>
-          <div class="form-group">
-            <label for="profileDrive">核心驱动</label>
-            <input type="text" id="profileDrive" />
-          </div>
-          <div class="form-group">
-            <label for="profileStyle">语言风格</label>
-            <input type="text" id="profileStyle" />
-          </div>
-          <div class="form-group">
-            <label for="profileBackground">背景经历</label>
-            <textarea id="profileBackground" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="agentMemory">初始记忆（每行一条）</label>
-            <textarea id="agentMemory" rows="3"></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="btn-secondary" onclick="saveAsPreset()">存为预设</button>
-            <button class="btn-secondary" onclick="closeAddAgentModal()">取消</button>
-            <button class="btn-primary" onclick="submitAddAgent()">确认添加</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="character_select.js?v=20260424b"></script>
+  <script src="character_select.js"></script>
 </body>
 </html>

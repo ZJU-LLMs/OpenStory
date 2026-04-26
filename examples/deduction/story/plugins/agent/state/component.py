@@ -87,26 +87,6 @@ class BasicStateComponent(StateComponent):
             return []
         return await self._plugin.get_replan_log()
 
-    async def add_plan_conflict_event(
-        self,
-        tick: int,
-        day: int,
-        hour: int,
-        original_action: str,
-        new_action: str,
-        occupier: str,
-    ) -> None:
-        """Delegate add_plan_conflict_event to plugin."""
-        if not self._plugin:
-            return
-        return await self._plugin.add_plan_conflict_event(tick, day, hour, original_action, new_action, occupier)
-
-    async def get_plan_conflict_log(self) -> List[Any]:
-        """Delegate get_plan_conflict_log to plugin."""
-        if not self._plugin:
-            return []
-        return await self._plugin.get_plan_conflict_log()
-
     async def add_long_task_adjustment(self, tick: int, from_day: int) -> None:
         """Delegate add_long_task_adjustment to plugin."""
         if not self._plugin:

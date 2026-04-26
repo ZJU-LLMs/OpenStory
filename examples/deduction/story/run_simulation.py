@@ -60,71 +60,6 @@ def parse_tmx_locations(tmx_path: str) -> list:
                         locations.append(name)
     return locations
 
-
-async def _clear_user_plans_for_branch_restore(redis_client, target_tick: int) -> None:
-    """
-    Remove stale user plans when switching/forking branches, but keep commands
-    explicitly queued for the first tick of the restored branch.
-    """
-    preserved_plans = []
-    keys_to_delete = []
-
-    async for key in redis_client.scan_iter('user_plan:*'):
-        raw_value = await redis_client.get(key)
-        keep_for_target_tick = False
-        if raw_value:
-            try:
-                parsed = _json_global.loads(raw_value) if isinstance(raw_value, str) else raw_value
-                keep_for_target_tick = parsed.get("tick") == target_tick
-            except Exception:
-                keep_for_target_tick = False
-
-        if keep_for_target_tick:
-            preserved_plans.append((key, raw_value))
-        keys_to_delete.append(key)
-
-    if keys_to_delete:
-        await redis_client.delete(*keys_to_delete)
-
-    for key, raw_value in preserved_plans:
-        await redis_client.set(key, raw_value)
-
-    logger.info(
-        f"【Branch】Cleared stale user_plan:* keys, preserved {len(preserved_plans)} plan(s) for tick {target_tick}"
-    )
-
-
-async def _restore_staged_history_user_plans(
-    redis_client,
-    source_branch_id: int,
-    source_tick: int,
-) -> int:
-    """
-    Re-inject user plans that were assigned while the user was viewing a
-    historical node. These staged plans must survive the rollback-to-snapshot
-    step, so they are stored in server memory until the branch resume/fork
-    actually happens.
-    """
-    restored_count = 0
-    staged_keys = [
-        key for key in list(server_module._staged_history_user_plans.keys())
-        if len(key) == 3 and key[0] == source_branch_id and key[1] == source_tick
-    ]
-    for staged_key in staged_keys:
-        _branch_id, _tick, agent_id = staged_key
-        plan_data = server_module._staged_history_user_plans.pop(staged_key, None)
-        if not plan_data:
-            continue
-        await redis_client.set(f"user_plan:{agent_id}", _json_global.dumps(plan_data, ensure_ascii=False))
-        restored_count += 1
-
-    if restored_count:
-        logger.info(
-            f"【Branch】Restored {restored_count} staged history user plan(s) "
-            f"for branch {source_branch_id} tick {source_tick}"
-        )
-    return restored_count
-
 async def main():
     # ===== One-time setup =====
     logger.info(f'【System】Project path set to {project_path}.')
@@ -199,11 +134,6 @@ async def main():
     server_module._tick_start_event = tick_start_event
     server_module._story_report_cache = None
     server_module._story_report_outcome = None
-    server_module._story_report_status = "idle"
-    server_module._story_report_error = None
-    server_module._story_report_meta = None
-    server_module._story_report_session_id = 0
-    story_report_lock = asyncio.Lock()
 
     # ===== Register FastAPI endpoints ONCE (before server starts) =====
 
@@ -236,123 +166,6 @@ async def main():
             headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename.encode().hex()}"}
         )
 
-    @server_module.app.post("/story/generate_report")
-    async def generate_story_report_on_demand():
-        from fastapi import HTTPException
-
-        meta = getattr(server_module, '_story_report_meta', None)
-        if not meta:
-            raise HTTPException(status_code=400, detail="simulation_not_finished")
-
-        status = getattr(server_module, '_story_report_status', 'idle')
-        cached_report = getattr(server_module, '_story_report_cache', None)
-
-        if status == "generating":
-            return {"status": "generating"}
-
-        if status == "ready" and cached_report:
-            report_payload = _json_global.dumps({
-                'type': 'story_report',
-                'report': cached_report,
-                'outcome': getattr(server_module, '_story_report_outcome', ''),
-                'final_score': meta.get('final_score')
-            }, ensure_ascii=False)
-            await server_module.manager.broadcast(report_payload)
-            return {"status": "ready"}
-
-        server_module._story_report_status = "generating"
-        server_module._story_report_error = None
-        request_session_id = getattr(server_module, '_story_report_session_id', 0)
-
-        async def _generate_story_report():
-            async with story_report_lock:
-                current_meta = getattr(server_module, '_story_report_meta', None)
-                if not current_meta:
-                    server_module._story_report_status = "failed"
-                    server_module._story_report_error = "story report metadata is missing"
-                    return
-
-                try:
-                    final_score = int(current_meta.get('final_score', 50))
-                    is_victory = bool(current_meta.get('is_victory', False))
-
-                    invoke_log_path = Path(project_path) / "logs" / "app" / "agent" / "invoke.log"
-                    dialogue_excerpts = []
-                    if invoke_log_path.exists():
-                        with open(invoke_log_path, 'r', encoding='utf-8', errors='ignore') as f:
-                            for line in f:
-                                if '对话摘要' in line or 'dialogue' in line.lower() or '说：' in line or '道：' in line:
-                                    dialogue_excerpts.append(line.strip())
-                    dialogue_text = '\n'.join(dialogue_excerpts[-200:]) if dialogue_excerpts else '（无对话记录）'
-
-                    outcome_text = '大观园在众人努力下重焕生机，稳定度达到顶峰。' if is_victory else '大观园稳定度跌至谷底，终究走向衰败。'
-                    report_prompt = f"""你是一位精通《红楼梦》的文学家。以下是一段大观园模拟推演的交互日志摘录：
-
-{dialogue_text}
-
-推演结局：{outcome_text}（最终稳定度：{final_score}/100）
-
-请根据以上日志，以《红楼梦》的文风续写一段故事（800-1200字），描绘大观园中人物的命运走向与情感纠葛，呼应推演结局。文风典雅，富有诗意，可引用诗词。"""
-
-                    import httpx as _httpx
-                    import yaml as _yaml
-                    models_cfg_path = Path(STORY_MODELS_CONFIG_PATH)
-                    with open(models_cfg_path, 'r', encoding='utf-8') as f:
-                        models_cfg = _yaml.safe_load(f)
-                    m = models_cfg[0]
-                    base_url = m.get('base_url', '').rstrip('/')
-                    api_key = m.get('api_key', '')
-                    model_name = m.get('model', 'gpt-4o')
-
-                    logger.info("【Story】Generating story report via LLM...")
-                    async with _httpx.AsyncClient(timeout=120) as client:
-                        resp = await client.post(
-                            f"{base_url}/chat/completions",
-                            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                            json={"model": model_name, "messages": [{"role": "user", "content": report_prompt}], "temperature": 0.9}
-                        )
-                        resp.raise_for_status()
-                        report_text = resp.json()['choices'][0]['message']['content']
-
-                    if getattr(server_module, '_story_report_session_id', 0) != request_session_id:
-                        logger.info("【Story】Discarded stale story report result from a previous session.")
-                        return
-
-                    server_module._story_report_cache = report_text
-                    server_module._story_report_outcome = '胜利' if is_victory else '失败'
-                    server_module._story_report_status = "ready"
-                    server_module._story_report_error = None
-
-                    report_payload = _json_global.dumps({
-                        'type': 'story_report',
-                        'report': report_text,
-                        'outcome': server_module._story_report_outcome,
-                        'final_score': final_score
-                    }, ensure_ascii=False)
-                    await server_module.manager.broadcast(report_payload)
-                    logger.info("【Story】Story report generated and broadcasted.")
-                except Exception as report_exc:
-                    logger.error(f"【Story】Failed to generate story report: {report_exc}", exc_info=True)
-                    if getattr(server_module, '_story_report_session_id', 0) != request_session_id:
-                        logger.info("【Story】Discarded stale story report failure from a previous session.")
-                        return
-                    fallback_report = "故事生成失败。请检查模型配置、网络连通性以及 story 日志文件编码后重试。"
-                    server_module._story_report_cache = fallback_report
-                    server_module._story_report_outcome = '生成失败'
-                    server_module._story_report_status = "failed"
-                    server_module._story_report_error = str(report_exc)
-                    failure_payload = _json_global.dumps({
-                        'type': 'story_report',
-                        'report': fallback_report,
-                        'outcome': '生成失败',
-                        'final_score': current_meta.get('final_score'),
-                        'error': str(report_exc)
-                    }, ensure_ascii=False)
-                    await server_module.manager.broadcast(failure_payload)
-
-        asyncio.create_task(_generate_story_report())
-        return {"status": "started"}
-
     # ===== Start API server thread ONCE =====
     server_thread = threading.Thread(
         target=start_server,
@@ -384,10 +197,6 @@ async def main():
             logger.info('【System】=== Starting new game session ===')
             server_module._story_report_cache = None
             server_module._story_report_outcome = None
-            server_module._story_report_status = "idle"
-            server_module._story_report_error = None
-            server_module._story_report_meta = None
-            server_module._story_report_session_id += 1
             server_module._agents_snapshot = {}
             server_module._snapshot_tick = -1
             # Reset branch / backtrack state for new session
@@ -396,7 +205,7 @@ async def main():
             server_module._current_branch_id = 0
             server_module._viewing_tick = -1
             server_module._viewing_branch_id = -1
-            server_module._staged_history_user_plans.clear()
+            server_module._first_tick_after_fork = False
             server_module._score_snapshots.clear()
             server_module._waiting_for_tick = False
             game_restart_event.clear()
@@ -441,20 +250,14 @@ async def main():
                 resource_maps=RESOURCES_MAPS
             )
 
-            # Exclude special on-demand agents unless the player selected them.
+            # Exclude 孙悟空 unless the player selected them.
             # Custom characters (CUSTOM_*) are not in profiles.jsonl and never enter the pool.
-            _ON_DEMAND_AGENT_IDS = {'孙悟空', '甄嬛'}
-            if sim_builder.config.agent_templates:
+            _SWK_ID = '孙悟空'
+            if player_agent_id != _SWK_ID and sim_builder.config.agent_templates:
                 for _tmpl in sim_builder.config.agent_templates.templates:
-                    excluded_agents = [
-                        agent_id for agent_id in _ON_DEMAND_AGENT_IDS
-                        if agent_id != player_agent_id and agent_id in _tmpl.agents
-                    ]
-                    if excluded_agents:
-                        _tmpl.agents = [a for a in _tmpl.agents if a not in excluded_agents]
-                        logger.info(
-                            f"【System】Excluded on-demand agents from pool (not selected by player): {excluded_agents}"
-                        )
+                    if _SWK_ID in _tmpl.agents:
+                        _tmpl.agents = [a for a in _tmpl.agents if a != _SWK_ID]
+                        logger.info(f"【System】Excluded {_SWK_ID} from agent pool (not selected by player).")
 
             logger.info(f'【System】Start all the simulation components...')
             pod_manager, system = await sim_builder.init()
@@ -479,7 +282,6 @@ async def main():
                 if server_module._viewing_tick != -1:
                     viewing_tick = server_module._viewing_tick
                     viewing_branch_id = server_module._viewing_branch_id
-                    execution_tick = viewing_tick + 1
                     viewing_branch = next(
                         (b for b in server_module._branches if b["id"] == viewing_branch_id), None
                     )
@@ -503,7 +305,7 @@ async def main():
                                 if not rollback_ok:
                                     logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while switching branch")
                                 await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                                await system.run('timer', 'set_tick', execution_tick)
+                                await system.run('timer', 'set_tick', viewing_tick + 1)
                                 restored_score = None
                                 restored_events_parsed = []
                                 if snapshot_key in server_module._score_snapshots:
@@ -519,16 +321,11 @@ async def main():
                                             restored_events_parsed.append(_json_global.loads(e_raw))
                                         except Exception:
                                             pass
-                                await _clear_user_plans_for_branch_restore(
-                                    _story_redis,
-                                    target_tick=execution_tick,
-                                )
-                                await _restore_staged_history_user_plans(
-                                    _story_redis,
-                                    source_branch_id=viewing_branch_id,
-                                    source_tick=viewing_tick,
-                                )
+                                async for key in _story_redis.scan_iter('user_plan:*'):
+                                    await _story_redis.delete(key)
+                                logger.info("【Branch】Cleared all user_plan:* keys")
                                 server_module._current_branch_id = viewing_branch_id
+                                server_module._first_tick_after_fork = False
                                 logger.info(f"【Branch】Switched current to branch {viewing_branch_id}")
                                 await broadcast_branch_event("branch_created", {
                                     "new_branch_id": viewing_branch_id,
@@ -548,9 +345,9 @@ async def main():
                                     logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while forking branch")
                                 # 1. Restore agent states
                                 await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                                # 2. Resume from the *next* execution tick so the first node on
-                                #    the new branch is the child of the viewed parent tick.
-                                await system.run('timer', 'set_tick', execution_tick)
+                                # 2. Reset simulation timer to viewing_tick+1 so the next tick
+                                #    broadcasts as viewing_tick+1 (no double-broadcast of the same number).
+                                await system.run('timer', 'set_tick', viewing_tick + 1)
                                 # 3. Restore score + score_events to Redis
                                 restored_score = None
                                 restored_events_parsed = []
@@ -568,15 +365,9 @@ async def main():
                                         except Exception:
                                             pass
                                 # 4. Clear all player-assigned tasks
-                                await _clear_user_plans_for_branch_restore(
-                                    _story_redis,
-                                    target_tick=execution_tick,
-                                )
-                                await _restore_staged_history_user_plans(
-                                    _story_redis,
-                                    source_branch_id=viewing_branch_id,
-                                    source_tick=viewing_tick,
-                                )
+                                async for key in _story_redis.scan_iter('user_plan:*'):
+                                    await _story_redis.delete(key)
+                                logger.info("【Branch】Cleared all user_plan:* keys")
                                 # 5. Create new branch metadata
                                 new_branch = {
                                     "id": len(server_module._branches),
@@ -586,6 +377,7 @@ async def main():
                                 }
                                 server_module._branches.append(new_branch)
                                 server_module._current_branch_id = new_branch["id"]
+                                server_module._first_tick_after_fork = False
                                 logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
                                 await broadcast_branch_event("branch_created", {
                                     "new_branch_id": new_branch["id"],
@@ -604,6 +396,8 @@ async def main():
                 phase_timestamps = {"start": tick_start_time}
 
                 current_tick = await system.run('timer', 'get_tick')
+
+                broadcast_tick = current_tick
 
                 # ===== Agent Step =====
                 await pod_manager.step_agent.remote()
@@ -629,7 +423,6 @@ async def main():
                     logger.warning(f"【System】Adapter snapshot for Tick {current_tick} reported failure")
 
                 await system.run('timer', 'add_tick', duration_seconds=tick_duration)
-                broadcast_tick = current_tick
 
                 # ===== Performance / Latency Metrics Calculation =====
                 agent_step_latency = phase_timestamps[f'Agent_Step_{i}'] - phase_timestamps['start']
@@ -721,23 +514,72 @@ async def main():
             server_module._tick_snapshots = {}
             server_module._branches = [{"id": 0, "parent_branch_id": None, "fork_tick": 0, "ticks": []}]
             server_module._current_branch_id = 0
-            server_module._staged_history_user_plans.clear()
             server_module._score_snapshots.clear()
             logger.info('【System】Cleared broadcast state (snapshot/branches) after game end.')
 
-            # ===== Step3.5 : Mark story report as available for on-demand generation =====
-            story_score_raw = await _story_redis.get('story:score')
-            final_score = int(story_score_raw or 50)
-            is_victory = final_score >= 100
-            server_module._story_report_cache = None
-            server_module._story_report_outcome = None
-            server_module._story_report_status = "idle"
-            server_module._story_report_error = None
-            server_module._story_report_meta = {
-                "final_score": final_score,
-                "is_victory": is_victory,
-            }
-            logger.info("【Story】Story report is ready for on-demand generation.")
+            # ===== Step3.5 : Generate story report =====
+            try:
+                story_score_raw = await _story_redis.get('story:score')
+                final_score = int(story_score_raw or 50)
+                is_victory = final_score >= 100
+
+                # Collect dialogue logs from invoke.log
+                invoke_log_path = Path(project_path) / "logs" / "app" / "agent" / "invoke.log"
+                dialogue_excerpts = []
+                if invoke_log_path.exists():
+                    with open(invoke_log_path, 'r', encoding='utf-8') as f:
+                        for line in f:
+                            if '对话摘要' in line or 'dialogue' in line.lower() or '说：' in line or '道：' in line:
+                                dialogue_excerpts.append(line.strip())
+                # Limit to last 200 lines to avoid token overflow
+                dialogue_text = '\n'.join(dialogue_excerpts[-200:]) if dialogue_excerpts else '（无对话记录）'
+
+                outcome_text = '大观园在众人努力下重焕生机，稳定度达到顶峰。' if is_victory else '大观园稳定度跌至谷底，终究走向衰败。'
+
+                report_prompt = f"""你是一位精通《红楼梦》的文学家。以下是一段大观园模拟推演的交互日志摘录：
+
+{dialogue_text}
+
+推演结局：{outcome_text}（最终稳定度：{final_score}/100）
+
+请根据以上日志，以《红楼梦》的文风续写一段故事（800-1200字），描绘大观园中人物的命运走向与情感纠葛，呼应推演结局。文风典雅，富有诗意，可引用诗词。"""
+
+                # Call LLM via httpx using primary model config
+                import httpx as _httpx
+                import yaml as _yaml
+                models_cfg_path = Path(STORY_MODELS_CONFIG_PATH)
+                with open(models_cfg_path, 'r', encoding='utf-8') as f:
+                    models_cfg = _yaml.safe_load(f)
+                m = models_cfg[0]
+                base_url = m.get('base_url', '').rstrip('/')
+                api_key = m.get('api_key', '')
+                model_name = m.get('model', 'gpt-4o')
+
+                logger.info("【Story】Generating story report via LLM...")
+                async with _httpx.AsyncClient(timeout=120) as client:
+                    resp = await client.post(
+                        f"{base_url}/chat/completions",
+                        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                        json={"model": model_name, "messages": [{"role": "user", "content": report_prompt}], "temperature": 0.9}
+                    )
+                    resp.raise_for_status()
+                    report_text = resp.json()['choices'][0]['message']['content']
+
+                # Cache report for download
+                server_module._story_report_cache = report_text
+                server_module._story_report_outcome = '胜利' if is_victory else '失败'
+
+                # Broadcast to frontend
+                report_payload = _json_global.dumps({
+                    'type': 'story_report',
+                    'report': report_text,
+                    'outcome': '胜利' if is_victory else '失败',
+                    'final_score': final_score
+                }, ensure_ascii=False)
+                await server_module.manager.broadcast(report_payload)
+                logger.info("【Story】Story report generated and broadcasted.")
+            except Exception as report_exc:
+                logger.error(f"【Story】Failed to generate story report: {report_exc}", exc_info=True)
 
             # ===== Step4 : Split logs by character =====
             log_dir = Path(project_path) / "logs"

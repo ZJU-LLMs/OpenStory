@@ -1,5 +1,4 @@
-import json
-from typing import List, Dict, Any, Optional, TYPE_CHECKING
+from typing import List, Dict, Any, TYPE_CHECKING
 
 from agentkernel_distributed.mas.agent.base.plugin_base import InvokePlugin
 from agentkernel_distributed.toolkit.logger import get_logger
@@ -59,13 +58,11 @@ class BasicInvokePlugin(InvokePlugin):
 
             # Find the plan for the current hour
             current_plan = None
-            scheduled_plan = None
             if hourly_plans:
                 for plan in hourly_plans:
                     # plan format: [action, time, target, location, importance]
                     if len(plan) >= 5 and plan[1] == current_hour:
                         current_plan = plan
-                        scheduled_plan = list(plan)
                         break
             else:
                 logger.debug(f"[{self.agent_id}][{current_tick}] No hourly plan for day {current_day}")
@@ -109,17 +106,6 @@ class BasicInvokePlugin(InvokePlugin):
                             user_plan_data.get('location', ''),
                             999  # Highest priority
                         ]
-                        user_override_action = str(current_plan[0] or "")
-                        scheduled_action = str(scheduled_plan[0] or "") if scheduled_plan else ""
-                        if scheduled_action and scheduled_action != user_override_action:
-                            await state_plugin.add_plan_conflict_event(
-                                tick=current_tick,
-                                day=current_day,
-                                hour=current_hour,
-                                original_action=scheduled_action,
-                                new_action=user_override_action,
-                                occupier="玩家指令",
-                            )
                         # Delete the plan after execution to avoid repetition
                         await self.redis.delete(user_plan_key)
                 except Exception as e:
@@ -256,42 +242,11 @@ class BasicInvokePlugin(InvokePlugin):
             if target_participated:
                 try:
                     controller = self._component.agent.controller
-                    target_current_plan = await self._get_target_current_plan(
-                        target_agent_id=target,
-                        current_day=current_day,
-                        current_hour=current_hour,
-                    )
-                    target_adjustment = await self._resolve_target_plan_adjustment(
-                        current_tick=current_tick,
-                        executor_action=action,
-                        executor_location=location,
-                        target_agent_id=target,
-                        target_profile=target_profile or {},
-                        target_current_plan=target_current_plan,
-                    )
-                    participant_action = target_adjustment.get("replacement_action") or action
-                    participant_description = target_adjustment.get("replacement_description") or description
-                    has_conflict = bool(target_adjustment.get("conflict"))
-                    original_target_action = ""
-                    if target_current_plan and len(target_current_plan) >= 1:
-                        original_target_action = str(target_current_plan[0] or "")
-
-                    await self._update_target_occupation(
-                        tick=current_tick,
-                        target_id=target,
-                        importance=importance,
-                        action=participant_action,
-                        location=location,
-                        conflict=has_conflict,
-                    )
-
                     # Set occupied_by for participant, ensuring frontend can show occupied status
                     occupation_info = {
                         "occupier": self.agent_id,
                         "importance": importance,
-                        "action": participant_action,
-                        "location": location,
-                        "conflict": has_conflict,
+                        "action": action
                     }
                     await controller.run_agent_method(
                         target,
@@ -300,43 +255,30 @@ class BasicInvokePlugin(InvokePlugin):
                         "occupied_by",
                         occupation_info
                     )
-                    # Preserve the participant's own current-hour plan so the frontend can show
-                    # the original plan in gray and the rewritten plan in red.
-                    if target_current_plan:
-                        await controller.run_agent_method(
-                            target,
-                            "state",
-                            "set_state",
-                            "current_plan",
-                            target_current_plan
-                        )
-                    if has_conflict:
-                        await controller.run_agent_method(
-                            target,
-                            "state",
-                            "add_plan_conflict_event",
-                            current_tick,
-                            current_day,
-                            current_hour,
-                            original_target_action,
-                            participant_action,
-                            self.agent_id,
-                        )
+                    # Set current_plan for participant (including location info), ensuring frontend shows correct location
+                    target_plan = [action, time, self.agent_id, location, importance]
+                    await controller.run_agent_method(
+                        target,
+                        "state",
+                        "set_state",
+                        "current_plan",
+                        target_plan
+                    )
                     # Add memory to participant
                     await controller.run_agent_method(
                         target,
                         "state",
                         "add_short_term_memory",
-                        participant_description,
+                        description,
                         current_tick
                     )
-                    # Use the participant-view description as the current action text.
+                    # Also set current action description for participant, ensuring frontend can see it
                     await controller.run_agent_method(
                         target,
                         "state",
                         "set_state",
                         "current_action",
-                        participant_description
+                        description
                     )
                     # Also save dialogue history for participant
                     if dialogue_history:
@@ -353,124 +295,6 @@ class BasicInvokePlugin(InvokePlugin):
 
         except Exception as e:
             logger.error(f"[{self.agent_id}][{current_tick}] Error executing InvokePlugin: {e}")
-
-    async def _get_target_current_plan(
-        self,
-        target_agent_id: str,
-        current_day: int,
-        current_hour: int,
-    ) -> Optional[List[Any]]:
-        """Fetch the target's original plan for the current hour."""
-        try:
-            controller = self._component.agent.controller
-            target_hourly_plans = await controller.run_agent_method(
-                target_agent_id,
-                "state",
-                "get_hourly_plans",
-                current_day,
-            )
-            if not target_hourly_plans:
-                return None
-
-            for plan in target_hourly_plans:
-                if isinstance(plan, (list, tuple)) and len(plan) >= 5 and plan[1] == current_hour:
-                    return list(plan)
-            return None
-        except Exception as e:
-            logger.warning(f"[{self.agent_id}] Failed to get current plan for target {target_agent_id}: {e}")
-            return None
-
-    async def _resolve_target_plan_adjustment(
-        self,
-        current_tick: int,
-        executor_action: str,
-        executor_location: str,
-        target_agent_id: str,
-        target_profile: Dict[str, Any],
-        target_current_plan: Optional[List[Any]],
-    ) -> Dict[str, Any]:
-        """
-        Decide whether the target's current plan conflicts with the executor's action.
-        If it conflicts, rewrite a short plan in the target's own perspective.
-        """
-        original_action = ""
-        original_target = ""
-        original_location = ""
-        if target_current_plan and len(target_current_plan) >= 4:
-            original_action = str(target_current_plan[0] or "")
-            original_target = str(target_current_plan[2] or "")
-            original_location = str(target_current_plan[3] or "")
-
-        fallback_action = f"在{executor_location}配合{self.agent_id}处理“{executor_action}”"
-        fallback_description = f"{target_agent_id}当前在{executor_location}配合{self.agent_id}处理“{executor_action}”。"
-
-        if not self.model:
-            conflict = bool(original_action and original_action != executor_action)
-            return {
-                "conflict": conflict,
-                "replacement_action": fallback_action if conflict else (original_action or fallback_action),
-                "replacement_description": fallback_description if conflict else fallback_description,
-            }
-
-        prompt = f"""你是多智能体叙事系统中的计划协调器。请判断“执行者当前计划”与“被涉对象原计划”在当前时辰是否存在计划冲突。
-
-执行者：{self.agent_id}
-执行者当前计划：{executor_action}
-执行地点：{executor_location}
-
-被涉对象：{target_agent_id}
-被涉对象性格：{target_profile.get('性格', '未知')}
-被涉对象语言风格：{target_profile.get('语言风格', '未知')}
-被涉对象原计划：{original_action or '无'}
-被涉对象原计划对象：{original_target or '无'}
-被涉对象原计划地点：{original_location or '无'}
-
-判定标准：
-1. 若被涉对象原计划与执行者行动在目标、地点、行动意图或时间安排上明显不一致，判定为冲突。
-2. 若本次参与本来就是被涉对象原计划的一部分或自然延续，判定为不冲突。
-3. 若冲突，请改写成“被涉对象视角”的当前计划短句，不能直接复述执行者视角。
-
-请严格输出单行 JSON，不要加代码块，不要解释：
-{{"conflict": true/false, "replacement_action": "用于前端红色标题的20-40字短句", "replacement_description": "用于当前行动的30-70字说明"}}"""
-
-        try:
-            result = await self.model.chat(prompt)
-            parsed = json.loads(result.strip())
-            conflict = bool(parsed.get("conflict"))
-            replacement_action = str(parsed.get("replacement_action") or "").strip()
-            replacement_description = str(parsed.get("replacement_description") or "").strip()
-            return {
-                "conflict": conflict,
-                "replacement_action": replacement_action or (fallback_action if conflict else original_action or fallback_action),
-                "replacement_description": replacement_description or (fallback_description if conflict else fallback_description),
-            }
-        except Exception as e:
-            logger.warning(f"[{self.agent_id}][{current_tick}] Failed to resolve target plan adjustment for {target_agent_id}: {e}")
-            conflict = bool(original_action and original_action != executor_action)
-            return {
-                "conflict": conflict,
-                "replacement_action": fallback_action if conflict else (original_action or fallback_action),
-                "replacement_description": fallback_description,
-            }
-
-    async def _update_target_occupation(
-        self,
-        tick: int,
-        target_id: str,
-        importance: int,
-        action: str,
-        location: str,
-        conflict: bool,
-    ) -> None:
-        """Keep Redis occupation data aligned with the participant-facing action."""
-        key = f"occupation:{tick}:{target_id}"
-        await self.redis.set(key, json.dumps({
-            "occupier": self.agent_id,
-            "importance": importance,
-            "action": action,
-            "location": location,
-            "conflict": conflict,
-        }))
 
     async def _is_occupied_by_others(self, tick: int, my_importance: int) -> bool:
         """

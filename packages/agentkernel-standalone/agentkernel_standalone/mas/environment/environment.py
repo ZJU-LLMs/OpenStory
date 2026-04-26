@@ -60,7 +60,7 @@ class Environment:
     async def save_to_db(self) -> None:
         """Save the state of all environment components to the database."""
         logger.info(f"Environment Proxy: Saving state for {len(self.components)} components...")
-        save_tasks = [component.save_to_db() for component in self.components.values()]
+        save_tasks = [component.forward("save_to_db") for component in self.components.values()]
         if save_tasks:
             try:
                 await asyncio.gather(*save_tasks)
@@ -73,7 +73,7 @@ class Environment:
     async def load_from_db(self) -> None:
         """Load the state of all environment components from the database."""
         logger.info(f"Environment Proxy: Loading state for {len(self.components)} components...")
-        load_tasks = [component.load_from_db() for component in self.components.values()]
+        load_tasks = [component.forward("load_from_db") for component in self.components.values()]
         if load_tasks:
             try:
                 await asyncio.gather(*load_tasks)

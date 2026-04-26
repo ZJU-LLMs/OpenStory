@@ -3,29 +3,12 @@
 // ===== 剧情模式：玩家角色初始化 =====
 let playerCharacter = null;
 let pendingTaskTick = null; // 玩家等待下达任务的 tick
-const ON_DEMAND_AGENT_IDS = new Set(['孙悟空', '甄嬛']);
-let playerCharacterRegistrationPromise = null;
-
-function registerPlayerCharacterOnServer() {
-  if (!playerCharacter) return Promise.resolve();
-  if (!playerCharacterRegistrationPromise) {
-    playerCharacterRegistrationPromise = fetch('http://localhost:8001/story/set_player', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(playerCharacter)
-    }).catch(e => {
-      console.warn('Failed to set player character on server:', e);
-    });
-  }
-  return playerCharacterRegistrationPromise;
-}
 
 function initPlayerCharacter() {
-  if (playerCharacter) return playerCharacter;
   const stored = localStorage.getItem('story_player_character');
   if (!stored) {
     window.location.href = 'character_select.html';
-    return null;
+    return;
   }
   playerCharacter = JSON.parse(stored);
   document.getElementById('playerName').textContent = playerCharacter.id;
@@ -35,23 +18,15 @@ function initPlayerCharacter() {
   document.getElementById('assignTaskCharName').textContent = playerCharacter.id;
 
   // 通知服务器记录玩家角色（用于 InvokePlugin 校验）
-  registerPlayerCharacterOnServer();
-  return playerCharacter;
+  fetch('http://localhost:8001/story/set_player', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(playerCharacter)
+  }).catch(e => console.warn('Failed to set player character on server:', e));
 }
 
 // ===== 下达任务 =====
-function getPendingUserPlanTick() {
-  if (isViewingHistory && viewingTick !== -1) {
-    return viewingTick + 1;
-  }
-  if (currentTick >= 0) {
-    return currentTick + 1;
-  }
-  return 0;
-}
-
 function openAssignTaskModal() {
-  pendingTaskTick = getPendingUserPlanTick();
   document.getElementById('assignTaskAction').value = '';
   document.getElementById('assignTaskTarget').value = '';
   document.getElementById('assignTaskLocation').value = '';
@@ -74,11 +49,10 @@ async function submitAssignTask() {
       agent_id: playerCharacter.id,
       action: action,
       target: target || null,
-      location: location || '',
-      tick: pendingTaskTick
+      location: location || ''
     }));
     closeAssignTaskModal();
-    showToast(`已为 ${playerCharacter.id} 下达任务（Tick ${pendingTaskTick}）`);
+    showToast(`已为 ${playerCharacter.id} 下达任务`);
   } else {
     alert('WebSocket 未连接，请检查服务器状态');
   }
@@ -182,7 +156,6 @@ function showGameResult(isWin) {
   const overlay = document.getElementById('gameResultOverlay');
   const title = document.getElementById('gameResultTitle');
   const desc = document.getElementById('gameResultDesc');
-  resetStoryReportUI();
 
   if (isWin) {
     title.textContent = '复兴成功';
@@ -198,66 +171,21 @@ function showGameResult(isWin) {
 }
 
 let _storyReportText = '';
-let _storyReportRequestInFlight = false;
-
-function resetStoryReportUI() {
-  _storyReportText = '';
-  _storyReportRequestInFlight = false;
-  document.getElementById('storyReportPanel').style.display = 'none';
-  document.getElementById('storyReportLoading').style.display = 'none';
-  document.getElementById('storyReportContent').textContent = '';
-  document.getElementById('exportReportBtn').style.display = 'none';
-  document.getElementById('reportBtn').style.display = 'none';
-}
 
 function requestStoryReport() {
-  if (_storyReportRequestInFlight) return;
-
-  _storyReportRequestInFlight = true;
   document.getElementById('reportBtn').style.display = 'none';
-  document.getElementById('exportReportBtn').style.display = 'none';
   document.getElementById('storyReportPanel').style.display = 'block';
   document.getElementById('storyReportLoading').style.display = 'block';
   document.getElementById('storyReportContent').textContent = '';
-
-  fetch('http://localhost:8001/story/generate_report', {
-    method: 'POST'
-  }).then(async (res) => {
-    if (!res.ok) {
-      const message = await res.text();
-      throw new Error(message || 'generate_report_failed');
-    }
-    return res.json();
-  }).then((data) => {
-    if (data.status === 'generating' || data.status === 'started' || data.status === 'ready') {
-      return;
-    }
-    throw new Error(`unexpected_status:${data.status}`);
-  }).catch((e) => {
-    console.error('Failed to request story report:', e);
-    _storyReportRequestInFlight = false;
-    document.getElementById('storyReportLoading').style.display = 'none';
-    document.getElementById('storyReportPanel').style.display = 'none';
-    document.getElementById('reportBtn').style.display = 'inline-block';
-    showToast('故事生成请求失败，请稍后重试');
-  });
 }
 
-function showStoryReport(report, outcome, finalScore, error = null) {
-  _storyReportRequestInFlight = false;
+function showStoryReport(report, outcome, finalScore) {
   _storyReportText = report;
   document.getElementById('storyReportLoading').style.display = 'none';
   document.getElementById('storyReportPanel').style.display = 'block';
   const content = document.getElementById('storyReportContent');
   content.textContent = report;
-  if (outcome === '生成失败') {
-    document.getElementById('reportBtn').style.display = 'inline-block';
-    document.getElementById('exportReportBtn').style.display = 'none';
-    if (error) console.warn('Story report generation failed:', error);
-  } else {
-    document.getElementById('reportBtn').style.display = 'none';
-    document.getElementById('exportReportBtn').style.display = 'inline-block';
-  }
+  document.getElementById('exportReportBtn').style.display = 'inline-block';
 }
 
 function exportStoryReport() {
@@ -319,13 +247,6 @@ let viewingTick = -1;
 let viewingBranchId = -1;
 let isViewingHistory = false;
 let memoryTreeOpen = false;
-let historyNavigationLocked = false;
-
-function setHistoryViewState({ enabled, tick = -1, branchId = -1 }) {
-  isViewingHistory = enabled;
-  viewingTick = enabled ? tick : -1;
-  viewingBranchId = enabled ? branchId : -1;
-}
 
 // ===== 预设人物模板 =====
 // 官方预设（不可删除）
@@ -666,7 +587,6 @@ function connect() {
       } else if (msg.type === 'tick_update') {
         // 缓存后端数据，等待用户点击“开始推演”后再展示
         if (Number.isInteger(msg.current_branch_id)) currentBranchId = msg.current_branch_id;
-        historyNavigationLocked = true;
         pendingTickData = msg;
 
         document.getElementById('startTickBtn').disabled = true;
@@ -679,13 +599,14 @@ function connect() {
           statusDot.className = 'status-dot connected';
         }
       } else if (msg.type === 'game_reset') {
-        resetStoryReportUI();
         // Backend flushed Redis for a new game session (may have wiped the player character
         // that was registered before the flush). Re-register so the backend can proceed.
         if (playerCharacter) {
-          playerCharacterRegistrationPromise = null;
-          registerPlayerCharacterOnServer()
-            .catch(e => console.warn('Re-register player after game_reset failed:', e));
+          fetch('http://localhost:8001/story/set_player', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(playerCharacter)
+          }).catch(e => console.warn('Re-register player after game_reset failed:', e));
         }
       } else if (msg.type === 'simulation_ready') {
         // Backend tick loop is now waiting for user input — enable the start button.
@@ -699,7 +620,7 @@ function connect() {
         // 剧情模式：稳定度分数更新
         updateGoalPanel(msg.story_score, msg.score_events || []);
       } else if (msg.type === 'story_report') {
-        showStoryReport(msg.report, msg.outcome, msg.final_score, msg.error || null);
+        showStoryReport(msg.report, msg.outcome, msg.final_score);
       } else if (msg.type === 'add_agent_response') {
         // 处理添加人物的响应
         handleAddAgentResponse(msg);
@@ -770,9 +691,10 @@ function connect() {
       } else if (msg.type === 'branch_created') {
         branchTree = msg.branches || [];
         currentBranchId = msg.current_branch_id ?? 0;
-        historyNavigationLocked = true;
         pendingTickData = null;
-        setHistoryViewState({ enabled: false });
+        isViewingHistory = false;
+        viewingTick = -1;
+        viewingBranchId = -1;
         // 重置稳定度面板到 fork 点的历史分数
         if (msg.restored_score !== null && msg.restored_score !== undefined) {
           restoreGoalPanelFromSnapshot(msg.restored_score, msg.restored_events || []);
@@ -788,14 +710,12 @@ function connect() {
         }
       } else if (msg.type === 'view_tick_ack') {
         if (msg.data) {
-          if (historyNavigationLocked || pendingTickData) {
-            console.log(`[view_tick_ack] ignored while branch transition is active: branch=${msg.branch_id}, tick=${msg.tick}`);
-            return;
-          }
           pendingTickData = null;
           const applyBtn = document.getElementById('applyTickBtn');
           if (applyBtn) applyBtn.disabled = true;
-          setHistoryViewState({ enabled: true, tick: msg.tick, branchId: msg.branch_id });
+          viewingTick = msg.tick;
+          viewingBranchId = msg.branch_id;
+          isViewingHistory = true;
           const newData = msg.data;
           Object.keys(agentsData).forEach(id => {
             if (!newData[id]) delete agentsData[id];
@@ -1059,14 +979,12 @@ function setStatus(state) {
 // 发送开始推演信号给后端
 function sendStartTick() {
   if (ws && ws.readyState === WebSocket.OPEN) {
-    // Keep explicit memory-tree selection intact so the backend can fork/switch
-    // from that node. Only restore the live frontier when the user is merely
-    // scrubbing history with the prev/next controls.
-    if (!isViewingHistory && currentHistoryIndex !== -1) {
-      restoreLatestHistoryForBranch(currentBranchId);
+    // If we are viewing history, jump to latest before starting next tick
+    if (currentHistoryIndex !== -1 && currentHistoryIndex < tickHistory.length - 1) {
+      currentHistoryIndex = tickHistory.length - 1;
+      applyHistoryTick(tickHistory[currentHistoryIndex]);
     }
-
-    historyNavigationLocked = true;
+    
     ws.send(JSON.stringify({ type: 'start_tick' }));
     // 禁用开始推演按钮，表示正在推演中
     document.getElementById('startTickBtn').disabled = true;
@@ -1106,41 +1024,8 @@ function upsertTickHistory(msg) {
   return { index: tickHistory.length - 1, inserted: true };
 }
 
-function getLatestHistoryIndexForBranch(branchId) {
-  if (!Number.isInteger(branchId)) return -1;
-
-  const branch = branchTree.find(b => b.id === branchId);
-  const branchTicks = (branch?.ticks || []).slice().sort((a, b) => b - a);
-  for (const tick of branchTicks) {
-    const idx = tickHistory.findIndex(item => {
-      const itemBranchId = Number.isInteger(item.current_branch_id) ? item.current_branch_id : currentBranchId;
-      return itemBranchId === branchId && item.tick === tick;
-    });
-    if (idx !== -1) return idx;
-  }
-
-  for (let i = tickHistory.length - 1; i >= 0; i--) {
-    const itemBranchId = Number.isInteger(tickHistory[i].current_branch_id)
-      ? tickHistory[i].current_branch_id
-      : currentBranchId;
-    if (itemBranchId === branchId) return i;
-  }
-
-  return -1;
-}
-
-function restoreLatestHistoryForBranch(branchId) {
-  const idx = getLatestHistoryIndexForBranch(branchId);
-  if (idx === -1) return false;
-  currentHistoryIndex = idx;
-  applyHistoryTick(tickHistory[idx], { syncCurrentBranch: true });
-  updateTickNavButtons();
-  return true;
-}
-
-function applyHistoryTick(msg, options = {}) {
-  const { syncCurrentBranch = false } = options;
-  if (syncCurrentBranch && Number.isInteger(msg.current_branch_id)) {
+function applyHistoryTick(msg) {
+  if (Number.isInteger(msg.current_branch_id)) {
     currentBranchId = msg.current_branch_id;
   }
   currentTick = msg.tick;
@@ -1193,8 +1078,6 @@ function applyPendingTick() {
   if (!pendingTickData) return;
   const msg = pendingTickData;
   pendingTickData = null;
-  historyNavigationLocked = false;
-  setHistoryViewState({ enabled: false });
   
   const msgCopy = JSON.parse(JSON.stringify(msg));
   if (!Number.isInteger(msgCopy.current_branch_id)) msgCopy.current_branch_id = currentBranchId;
@@ -1205,8 +1088,6 @@ function applyPendingTick() {
   const btn = document.getElementById('applyTickBtn');
   btn.disabled = true;
   document.getElementById('startTickBtn').disabled = false;
-  updateHistoryModeBanner();
-  renderBranchTree();
 
   // 获取即将应用的新时间字符串
   const timeString = msg.tick >= 0 ? tickToChineseDate(msg.tick) : null;
@@ -1246,8 +1127,6 @@ function applyPendingTick() {
         if (applyBtn) {
           applyBtn.disabled = true;
         }
-        updateHistoryModeBanner();
-        renderBranchTree();
       }, 1500); // 大字展示 1.5 秒后淡出
       
     }, 800); // 等待遮罩淡入 0.8 秒
@@ -1269,8 +1148,6 @@ function applyPendingTick() {
     if (applyBtn) {
       applyBtn.disabled = true;
     }
-    updateHistoryModeBanner();
-    renderBranchTree();
   }
 }
 
@@ -2280,7 +2157,7 @@ function renderDetail(id) {
     <div class="section-divider"><span>✧</span></div>
     ${renderExperiences(d.dialogues, d.short_term_memory, id)}
     <div class="section-divider"><span>✧</span></div>
-${renderHourlyPlans(d.hourly_plans, d.dialogues, id, d.occupied_by, d.current_plan_note, d.current_tick, d.replan_log, d.long_task_adj_log, d.plan_conflict_log)}
+    ${renderHourlyPlans(d.hourly_plans, d.dialogues, id, d.occupied_by, d.current_plan_note, d.current_tick, d.replan_log, d.long_task_adj_log)}
     <div class="section-divider"><span>✧</span></div>
     ${renderMemory('长期记忆', d.long_term_memory, 'long')}
   `;
@@ -2401,14 +2278,13 @@ function renderCurrentPlan(plan, actionDetail, occupiedBy, dialogues, agentId, p
   let content = '';
   const hasDialogue = dialogues && dialogues[tick];
   const clickableClass = hasDialogue ? ' clickable-plan' : '';
-  const hasPlanConflict = !!(occupiedBy && occupiedBy.conflict);
   const dialogueHint = hasDialogue ? '<span class="dialogue-hint">点击查看对话详录 ❧</span>' : '';
   
   const noteHtml = planNote ? `<div class="plan-note-fail">⚠️ ${escHtml(planNote)}</div>` : '';
 
   if (!plan && !actionDetail && !occupiedBy) {
     content = '<span class="empty-text">暂无行动</span>';
-  } else if (hasPlanConflict) {
+  } else if (occupiedBy) {
     // 处理被占用的情况
     const originalAction = Array.isArray(plan) ? plan[0] : (plan || '原计划');
     const occupierName = formatAgentName(occupiedBy.occupier);
@@ -2456,18 +2332,10 @@ function renderCurrentPlan(plan, actionDetail, occupiedBy, dialogues, agentId, p
   </section>`;
 }
 
-function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, currentPlanNote, tick, replanLog, longTaskAdjLog, planConflictLog) {
+function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, currentPlanNote, tick, replanLog, longTaskAdjLog) {
   const currentDay = Math.floor((tick || 0) / 12) + 1;
   const viewingDay = viewDays[agentId] || currentDay;
   const currentHour = (tick || 0) % 12;
-  const planConflictByHour = {};
-  if (Array.isArray(planConflictLog)) {
-    for (const ev of planConflictLog) {
-      if (ev && ev.day === viewingDay) {
-        planConflictByHour[ev.hour] = ev;
-      }
-    }
-  }
 
   // Build a lookup: day -> list of replan events, for quick access in rendering
   const replanByDay = {};
@@ -2557,8 +2425,7 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
     const replanBadge = replanedHours.has(time) ? '<span class="replan-badge">重规划</span>' : '';
 
     // 检查该时辰是否被占用
-    const hourConflict = planConflictByHour[time] || null;
-    const isCurrentlyOccupied = !!hourConflict || ((viewingDay === currentDay && time === currentHour) && currentOccupiedBy && currentOccupiedBy.conflict);
+    const isCurrentlyOccupied = (viewingDay === currentDay && time === currentHour) && currentOccupiedBy;
     // 检查该时辰是否有注释
     const hasNote = (viewingDay === currentDay && time === currentHour) && currentPlanNote;
     
@@ -2581,11 +2448,10 @@ function renderHourlyPlans(plans, dialogues, agentId, currentOccupiedBy, current
 
     let contentHtml = '';
     if (isCurrentlyOccupied) {
-      const occupierName = formatAgentName((hourConflict && hourConflict.occupier) || currentOccupiedBy.occupier);
-      const newAction = (hourConflict && hourConflict.new_action) || currentOccupiedBy.action || '协助他人';
-      const originalAction = (hourConflict && hourConflict.original_action) || action;
+      const occupierName = formatAgentName(currentOccupiedBy.occupier);
+      const newAction = currentOccupiedBy.action || '协助他人';
       contentHtml = `
-        <div class="hourly-action original-plan-crossed">${escHtml(originalAction)}</div>
+        <div class="hourly-action original-plan-crossed">${escHtml(action)}</div>
         <div class="hourly-conflict-desc">
           <span class="conflict-arrow">↓</span> 
           <strong>${escHtml(newAction)}</strong>
@@ -2662,9 +2528,9 @@ async function loadInitialProfiles() {
     characters.forEach(char => {
       const id = char.id;
       if (!id) return;
-      // Skip on-demand agents unless the player selected them — backend excludes them
-      // from the simulation when not selected, so preloading would show ghost characters.
-      if (ON_DEMAND_AGENT_IDS.has(id) && (!playerCharacter || playerCharacter.id !== id)) return;
+      // Skip 孙悟空 unless the player selected them — backend excludes them from the simulation
+      // when not selected, so preloading would show a ghost character until first tick_update.
+      if (id === '孙悟空' && (!playerCharacter || playerCharacter.id !== id)) return;
       initialData[id] = {
         profile: {
           ...char,
@@ -2788,9 +2654,6 @@ function finishLoadingAnimation() {
 
 // ===== Init =====
 async function startApp() {
-  if (!initPlayerCharacter()) return;
-  await registerPlayerCharacterOnServer();
-
   // 加载自定义头像
   loadCustomAvatars();
 
@@ -4686,6 +4549,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // if (currentTick <= 0) {
   //   setTimeout(openSettingsModal, 500);
   // }
+  initPlayerCharacter();
 });
 
 // 保存弹窗打开时的初始配置状态
@@ -4850,15 +4714,18 @@ function handleMemoryTreeOverlayClick(event) {
 }
 
 function exitHistoryView() {
-  historyNavigationLocked = false;
-  setHistoryViewState({ enabled: false });
+  isViewingHistory = false;
+  viewingTick = -1;
+  viewingBranchId = -1;
   // Notify backend to clear _viewing_tick so next Start Simulation continues
   // the current branch rather than forking from the previously viewed tick.
   if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({ type: 'reset_view' }));
   }
   updateHistoryModeBanner();
-  restoreLatestHistoryForBranch(currentBranchId);
+  if (tickHistory.length > 0) {
+    applyHistoryTick(tickHistory[tickHistory.length - 1]);
+  }
   renderBranchTree();
 }
 
@@ -4871,7 +4738,7 @@ function applyAgentsData(data, tick, branchId = null) {
     currentHistoryIndex = index;
     updateTickNavButtons();
   }
-  applyHistoryTick(msg, { syncCurrentBranch: false });
+  applyHistoryTick(msg);
 }
 
 function updateHistoryModeBanner() {
@@ -5016,10 +4883,6 @@ function renderBranchTree() {
 function onClickTreeNode(branchId, tick) {
   if (!ws || ws.readyState !== WebSocket.OPEN) {
     console.warn('回溯树：WS 未连接');
-    return;
-  }
-  if (historyNavigationLocked || pendingTickData) {
-    showToast('请先完成当前推演结果，再切换回溯节点');
     return;
   }
   console.log('回溯树：跳转到 branch=' + branchId + ' tick=' + tick);
