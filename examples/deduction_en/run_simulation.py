@@ -62,6 +62,7 @@ async def main():
     pod_manager = None
     system = None
     total_duration = 0
+    cumulative_tokens = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     try:
         logger.info(f'【System】Project path set to {project_path}.')
 
@@ -215,6 +216,9 @@ async def main():
             await pod_manager.step_agent.remote()
             phase_timestamps[f'Agent_Step_{i}'] = time.time()
 
+            # ===== Collect token usage for this tick =====
+            tick_token_usage = await pod_manager.collect_and_reset_token_usage.remote()
+
             # ===== Message Dispatch =====
             await system.run('messager', 'dispatch_messages')
             phase_timestamps[f'Message_Dispatch_{i}'] = time.time()
@@ -246,7 +250,11 @@ async def main():
             logger.info(f"【Performance】 - Agent Step Latency (Concurrency Execution): {agent_step_latency:.4f}s ({(agent_step_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Message Dispatch Latency: {msg_dispatch_latency:.4f}s ({(msg_dispatch_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Status Update Latency: {status_update_latency:.4f}s ({(status_update_latency/tick_duration)*100:.1f}%)")
+            logger.info(f"【Performance】Token Usage - Prompt: {tick_token_usage['prompt_tokens']} | Completion: {tick_token_usage['completion_tokens']} | Total: {tick_token_usage['total_tokens']}")
             logger.info(f"【System】--- Tick {broadcast_tick} finished in {tick_duration:.4f} seconds ---")
+
+            for k in cumulative_tokens:
+                cumulative_tokens[k] += tick_token_usage.get(k, 0)
 
             # ===== Collect agent data and broadcast to frontend =====
             try:
@@ -270,6 +278,7 @@ async def main():
 
         if running_ticks > 0:
             logger.info(f'【System】Ran {running_ticks} ticks in total, average tick duration: {total_duration / running_ticks:.4f} seconds.')
+            logger.info(f'【Performance】Total Token Usage - Prompt: {cumulative_tokens["prompt_tokens"]} | Completion: {cumulative_tokens["completion_tokens"]} | Total: {cumulative_tokens["total_tokens"]}')
 
         logger.info(f'【System】Simulation finished.')
 

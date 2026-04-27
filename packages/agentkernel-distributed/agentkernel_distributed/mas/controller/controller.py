@@ -74,6 +74,16 @@ class ControllerImpl(BaseController):
         current_tick = await self.run_system("timer", "get_tick")
         await self._agent_manager.run_tick(current_tick)
 
+    def get_token_usage(self) -> Dict[str, int]:
+        if self._model_router is None:
+            return {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        return self._model_router.get_token_usage()
+
+    def reset_token_usage(self) -> Dict[str, int]:
+        if self._model_router is None:
+            return {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        return self._model_router.reset_token_usage()
+
     async def run_agent_method(
         self, agent_id: str, component_name: str, method_name: str, *args: Any, **kwargs: Any
     ) -> Any:

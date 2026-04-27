@@ -2,6 +2,7 @@
 # http://localhost:8000/frontend/index.html
 import os
 import sys
+import signal
 
 # Add project root and packages directory to Python path to allow running the script directly
 project_path = os.path.dirname(os.path.abspath(__file__))
@@ -62,6 +63,7 @@ async def main():
     pod_manager = None
     system = None
     total_duration = 0
+    cumulative_tokens = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     try:
         logger.info(f'【System】Project path set to {project_path}.')
 
@@ -149,7 +151,10 @@ async def main():
         import subprocess as _subprocess
         import socket as _socket
         import atexit as _atexit
+        import errno as _errno
         _story_process = None
+        _story_pid_file = os.path.join(project_root, ".story_server.pid")
+        _story_launch_lock = asyncio.Lock()
 
         def _is_port_open(port, host="127.0.0.1", timeout=0.5):
             try:
@@ -158,36 +163,201 @@ async def main():
             except OSError:
                 return False
 
+        def _is_pid_alive(pid):
+            if not pid or pid <= 0:
+                return False
+            try:
+                os.kill(pid, 0)
+                return True
+            except OSError as exc:
+                if exc.errno == _errno.ESRCH:
+                    return False
+                return True
+
+        def _read_story_pid():
+            if not os.path.exists(_story_pid_file):
+                return None
+            try:
+                with open(_story_pid_file, "r", encoding="utf-8") as f:
+                    return int(f.read().strip())
+            except (OSError, ValueError):
+                return None
+
+        def _owned_story_running():
+            nonlocal _story_process
+            if _story_process is not None and _story_process.poll() is None:
+                return True
+            pid = _read_story_pid()
+            return _is_pid_alive(pid)
+
+        async def _wait_for_story_ready(timeout_seconds=30.0):
+            deadline = time.time() + timeout_seconds
+            while time.time() < deadline:
+                if _is_port_open(8001):
+                    return True
+                if _story_process is not None and _story_process.poll() is not None:
+                    return False
+                await asyncio.sleep(0.25)
+            return _is_port_open(8001)
+
+        async def _wait_for_port_closed(port, timeout_seconds=10.0):
+            deadline = time.time() + timeout_seconds
+            while time.time() < deadline:
+                if not _is_port_open(port):
+                    return True
+                await asyncio.sleep(0.25)
+            return not _is_port_open(port)
+
         def _kill_story_process():
+            nonlocal _story_process
             if _story_process is not None and _story_process.poll() is None:
                 _story_process.terminate()
                 try:
                     _story_process.wait(timeout=5)
                 except Exception:
                     _story_process.kill()
+            _story_process = None
+            if os.path.exists(_story_pid_file):
+                try:
+                    os.remove(_story_pid_file)
+                except OSError:
+                    pass
+
+        def _kill_story_pid_from_file():
+            if not os.path.exists(_story_pid_file):
+                return
+            try:
+                with open(_story_pid_file, "r", encoding="utf-8") as f:
+                    pid = int(f.read().strip())
+                os.kill(pid, signal.SIGTERM)
+            except (OSError, ValueError):
+                pass
+            finally:
+                try:
+                    os.remove(_story_pid_file)
+                except OSError:
+                    pass
 
         _atexit.register(_kill_story_process)
 
         from fastapi.responses import JSONResponse as _JSONResponse
 
+        async def _shutdown_story_server():
+            nonlocal _story_process
+            if _story_process is not None and _story_process.poll() is None:
+                _kill_story_process()
+            else:
+                _kill_story_pid_from_file()
+                _story_process = None
+            await _wait_for_port_closed(8001, timeout_seconds=10.0)
+            return not _is_port_open(8001)
+
         @server_module.app.post("/api/launch-story")
         async def launch_story():
             nonlocal _story_process
-            if _is_port_open(8001):
-                return _JSONResponse({"status": "already_running"})
-            if _story_process is None or _story_process.poll() is not None:
+            async with _story_launch_lock:
+                # Reuse an existing story process we own. This avoids double-clicks or
+                # repeated requests killing a server that is already starting normally.
+                if _owned_story_running():
+                    if await _wait_for_story_ready(timeout_seconds=30.0):
+                        return _JSONResponse({"status": "ready"})
+                    return _JSONResponse(
+                        {
+                            "status": "timeout",
+                            "message": "Story service did not become ready in time."
+                        },
+                        status_code=503,
+                    )
+
+                # Clean stale pid bookkeeping from a previous crash/exit.
+                _kill_story_pid_from_file()
+
+                if _is_port_open(8001):
+                    return _JSONResponse(
+                        {
+                            "status": "port_busy",
+                            "message": "Port 8001 is already occupied by another process."
+                        },
+                        status_code=409,
+                    )
+
                 _story_process = _subprocess.Popen(
-                    [sys.executable, "-m", "examples.story.run_simulation"],
+                    [sys.executable, "-m", "examples.deduction.story.run_simulation"],
                     cwd=project_root,
                 )
-            # Wait up to 30s for story server to be ready
-            import asyncio as _asyncio
-            for _ in range(60):
-                if _is_port_open(8001):
+                with open(_story_pid_file, "w", encoding="utf-8") as f:
+                    f.write(str(_story_process.pid))
+
+                if await _wait_for_story_ready(timeout_seconds=30.0):
                     return _JSONResponse({"status": "ready"})
-                await _asyncio.sleep(0.5)
-            return _JSONResponse({"status": "timeout"}, status_code=503)
+
+                if _story_process is not None and _story_process.poll() is not None:
+                    return _JSONResponse(
+                        {
+                            "status": "failed",
+                            "message": f"Story service exited early with code {_story_process.poll()}."
+                        },
+                        status_code=500,
+                    )
+
+                return _JSONResponse(
+                    {
+                        "status": "timeout",
+                        "message": "Story service startup timed out."
+                    },
+                    status_code=503,
+                )
+
+        @server_module.app.post("/api/shutdown-story")
+        async def shutdown_story():
+            async with _story_launch_lock:
+                ok = await _shutdown_story_server()
+                if ok:
+                    return _JSONResponse({"status": "stopped"})
+                return _JSONResponse(
+                    {
+                        "status": "timeout",
+                        "message": "Story service did not stop in time."
+                    },
+                    status_code=503,
+                )
+
+        @server_module.app.get("/api/story-status")
+        async def story_status():
+            async with _story_launch_lock:
+                pid = _read_story_pid()
+                process_running = _owned_story_running()
+                port_open = _is_port_open(8001)
+
+                if process_running and port_open:
+                    status = "running"
+                    message = "剧情模式服务运行中"
+                elif process_running and not port_open:
+                    status = "starting"
+                    message = "剧情模式服务启动中"
+                elif (not process_running) and port_open:
+                    status = "port_busy"
+                    message = "8001 端口被其他进程占用"
+                else:
+                    status = "stopped"
+                    message = "剧情模式服务未启动"
+
+                return _JSONResponse({
+                    "status": status,
+                    "message": message,
+                    "pid": pid,
+                    "port_open": port_open,
+                })
         # ─────────────────────────────────────────────────────────────────────────
+
+        # Main service startup should always reclaim any leftover story subprocess
+        # from an earlier session before exposing the launcher endpoint again.
+        async with _story_launch_lock:
+            startup_shutdown_ok = await _shutdown_story_server()
+            if startup_shutdown_ok:
+                logger.info("【System】Cleaned up any stale story service on port 8001 during startup.")
+            elif _is_port_open(8001):
+                logger.warning("【System】Port 8001 is still occupied after startup cleanup attempt.")
 
         server_thread = threading.Thread(
             target=start_server,
@@ -221,19 +391,45 @@ async def main():
                 else:
                     max_viewing_tick = max(viewing_branch["ticks"], default=-1)
 
-                    # Skip fork if user is just viewing the latest node of their current active branch
-                    # (i.e. no real historical rollback requested — just continue normally)
-                    is_current_tip = (
-                        viewing_branch_id == server_module._current_branch_id
-                        and viewing_tick == max_viewing_tick
-                    )
+                    is_frontier = (viewing_tick == max_viewing_tick)
+                    is_current_branch = (viewing_branch_id == server_module._current_branch_id)
 
-                    if viewing_tick <= max_viewing_tick and not is_current_tip:
+                    if is_frontier and is_current_branch:
+                        # Frontier of the current branch — continue normally, no action.
+                        pass
+                    elif is_frontier and not is_current_branch:
+                        # Frontier of another branch: switch to that branch and continue.
+                        snapshot_key = (viewing_branch_id, viewing_tick)
+                        if snapshot_key in server_module._tick_snapshots:
+                            logger.info(f"【Branch】Switching to branch {viewing_branch_id} frontier (tick {viewing_tick}) — no new branch")
+                            rollback_ok = await pod_manager.rollback_to_tick.remote(viewing_tick)
+                            if not rollback_ok:
+                                logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while switching branch")
+                            await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
+                            # Timer only supports restoring to an already recorded tick.
+                            # Offset the first post-restore broadcast instead of advancing
+                            # the timer to an unseen future tick.
+                            await system.run('timer', 'set_tick', viewing_tick + 1)
+                            server_module._current_branch_id = viewing_branch_id
+                            logger.info(f"【Branch】Switched current to branch {viewing_branch_id}")
+                            await broadcast_branch_event("branch_created", {
+                                "new_branch_id": viewing_branch_id,
+                                "fork_tick": viewing_tick
+                            })
+                        else:
+                            logger.warning(f"【Branch】Snapshot {snapshot_key} not found — cannot switch to branch {viewing_branch_id}")
+                    elif viewing_tick <= max_viewing_tick:
+                        # Historical (non-frontier) tick: fork a new branch.
                         snapshot_key = (viewing_branch_id, viewing_tick)
                         if snapshot_key in server_module._tick_snapshots:
                             logger.info(f"【Branch】Forking new branch from tick {viewing_tick} on branch {viewing_branch_id}")
+                            rollback_ok = await pod_manager.rollback_to_tick.remote(viewing_tick)
+                            if not rollback_ok:
+                                logger.warning(f"【Branch】Environment rollback to tick {viewing_tick} reported failure while forking branch")
                             await pod_manager.restore_all_agents.remote(server_module._tick_snapshots[snapshot_key])
-                            await system.run('timer', 'set_tick', viewing_tick)
+                            # Restore to the viewed tick first; the first broadcast after
+                            # resume from the first child tick of the viewed parent node
+                            await system.run('timer', 'set_tick', viewing_tick + 1)
 
                             new_branch = {
                                 "id": len(server_module._branches),
@@ -244,7 +440,6 @@ async def main():
                             }
                             server_module._branches.append(new_branch)
                             server_module._current_branch_id = new_branch["id"]
-                            server_module._first_tick_after_fork = True
                             logger.info(f"【Branch】Created branch {new_branch['id']} forking at tick {viewing_tick} from branch {viewing_branch_id}")
 
                             await broadcast_branch_event("branch_created", {"new_branch_id": new_branch["id"], "fork_tick": viewing_tick})
@@ -265,6 +460,9 @@ async def main():
             await pod_manager.step_agent.remote()
             phase_timestamps[f'Agent_Step_{i}'] = time.time()
 
+            # ===== Collect token usage for this tick =====
+            tick_token_usage = await pod_manager.collect_and_reset_token_usage.remote()
+
             # ===== Message Dispatch =====
             await system.run('messager', 'dispatch_messages')
             phase_timestamps[f'Message_Dispatch_{i}'] = time.time()
@@ -277,14 +475,14 @@ async def main():
             tick_duration = tick_end_time - tick_start_time
             total_duration += tick_duration
 
+            snapshot_ok = await pod_manager.make_snapshot.remote()
+            if not snapshot_ok:
+                logger.warning(f"【System】Adapter snapshot for Tick {current_tick} reported failure")
+
             await system.run('timer', 'add_tick', duration_seconds = tick_duration)
 
-            # fork 后第一次广播：tick 编号 = fork_tick + 1，避免与父分支节点重叠
-            if server_module._first_tick_after_fork:
-                server_module._first_tick_after_fork = False
-                broadcast_tick = current_tick + 1
-            else:
-                broadcast_tick = current_tick
+            # current_tick 已在 fork/switch 时设置为 viewing_tick+1；直接广播即可。
+            broadcast_tick = current_tick
 
             # ===== Performance / Latency Metrics Calculation =====
             agent_step_latency = phase_timestamps[f'Agent_Step_{i}'] - phase_timestamps['start']
@@ -296,7 +494,11 @@ async def main():
             logger.info(f"【Performance】 - Agent Step Latency (Concurrency Execution): {agent_step_latency:.4f}s ({(agent_step_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Message Dispatch Latency: {msg_dispatch_latency:.4f}s ({(msg_dispatch_latency/tick_duration)*100:.1f}%)")
             logger.info(f"【Performance】 - Status Update Latency: {status_update_latency:.4f}s ({(status_update_latency/tick_duration)*100:.1f}%)")
+            logger.info(f"【Performance】Token Usage - Prompt: {tick_token_usage['prompt_tokens']} | Completion: {tick_token_usage['completion_tokens']} | Total: {tick_token_usage['total_tokens']}")
             logger.info(f"【System】--- Tick {broadcast_tick} finished in {tick_duration:.4f} seconds ---")
+
+            for k in cumulative_tokens:
+                cumulative_tokens[k] += tick_token_usage.get(k, 0)
 
             # ===== Collect agent data and broadcast to frontend =====
             try:
@@ -320,6 +522,7 @@ async def main():
 
         if running_ticks > 0:
             logger.info(f'【System】Ran {running_ticks} ticks in total, average tick duration: {total_duration / running_ticks:.4f} seconds.')
+            logger.info(f'【Performance】Total Token Usage - Prompt: {cumulative_tokens["prompt_tokens"]} | Completion: {cumulative_tokens["completion_tokens"]} | Total: {cumulative_tokens["total_tokens"]}')
 
         logger.info(f'【System】Simulation finished.')
 

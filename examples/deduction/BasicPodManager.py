@@ -225,6 +225,27 @@ class BasicPodManager(PodManagerImpl):
         except Exception as exc:
             logger.error("Failed to update agent status: %s", exc, exc_info=True)
 
+    async def collect_and_reset_token_usage(self) -> Dict[str, int]:
+        """
+        Collect and reset token usage from all pods, returning aggregated totals.
+        """
+        total = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        try:
+            results = await asyncio.gather(
+                *(pod.forward.remote("get_token_usage") for pod in self._pod_id_to_pod.values())
+            )
+            for usage in results:
+                if usage:
+                    total["prompt_tokens"] += usage.get("prompt_tokens", 0)
+                    total["completion_tokens"] += usage.get("completion_tokens", 0)
+                    total["total_tokens"] += usage.get("total_tokens", 0)
+            await asyncio.gather(
+                *(pod.forward.remote("reset_token_usage") for pod in self._pod_id_to_pod.values())
+            )
+        except Exception as exc:
+            logger.error("Failed to collect token usage: %s", exc)
+        return total
+
     async def restore_all_agents(self, snapshot: Dict[str, Any]) -> None:
         """
         Restore all agents to a previously saved state snapshot.

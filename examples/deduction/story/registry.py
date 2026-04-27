@@ -4,21 +4,21 @@ from agentkernel_distributed.mas.action.components import CommunicationComponent
 from agentkernel_distributed.mas.agent.components import *
 from agentkernel_distributed.mas.environment.components import RelationComponent
 from agentkernel_distributed.toolkit.storages import RedisKVAdapter
-from examples.story.BasicController import BasicController
-from examples.story.BasicPodManager import BasicPodManager
+from examples.deduction.story.BasicController import BasicController
+from examples.deduction.story.BasicPodManager import BasicPodManager
 
-from examples.story.plugins.agent.invoke.BasicInvokePlugin import BasicInvokePlugin
-from examples.story.plugins.agent.perceive.BasicPerceivePlugin import BasicPerceivePlugin
-from examples.story.plugins.agent.profile.BasicProfilePlugin import BasicProfilePlugin
-from examples.story.plugins.agent.state.BasicStatePlugin import BasicStatePlugin
-from examples.story.plugins.agent.state.component import BasicStateComponent
-from examples.story.plugins.agent.plan.BasicPlanPlugin import BasicPlanPlugin
-from examples.story.plugins.agent.reflect.BasicReflectPlugin import BasicReflectPlugin
+from examples.deduction.story.plugins.agent.invoke.BasicInvokePlugin import BasicInvokePlugin
+from examples.deduction.story.plugins.agent.perceive.BasicPerceivePlugin import BasicPerceivePlugin
+from examples.deduction.story.plugins.agent.profile.BasicProfilePlugin import BasicProfilePlugin
+from examples.deduction.story.plugins.agent.state.BasicStatePlugin import BasicStatePlugin
+from examples.deduction.story.plugins.agent.state.component import BasicStateComponent
+from examples.deduction.story.plugins.agent.plan.BasicPlanPlugin import BasicPlanPlugin
+from examples.deduction.story.plugins.agent.reflect.BasicReflectPlugin import BasicReflectPlugin
 
-from examples.story.plugins.action.communication.BasicCommunicationPlugin import BasicCommunicationPlugin
-from examples.story.plugins.action.move.BasicMovePlugin import BasicMovePlugin
-from examples.story.plugins.action.other.BasicOtherActionPlugin import BasicOtherActionPlugin
-from examples.story.plugins.environment.relation.BasicRelationPlugin import BasicRelationPlugin
+from examples.deduction.story.plugins.action.communication.BasicCommunicationPlugin import BasicCommunicationPlugin
+from examples.deduction.story.plugins.action.move.BasicMovePlugin import BasicMovePlugin
+from examples.deduction.story.plugins.action.other.BasicOtherActionPlugin import BasicOtherActionPlugin
+from examples.deduction.story.plugins.environment.relation.BasicRelationPlugin import BasicRelationPlugin
 
 # Agent plugin and component registry
 agent_plugin_class_map = {

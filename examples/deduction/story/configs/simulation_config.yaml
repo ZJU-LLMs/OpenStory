@@ -9,7 +9,7 @@ configs:
   agent_templates: "agents_config.yaml"
   system: "system_config.yaml"
   database: "db_config.yaml"
-  models: "models_config.yaml"
+  models: "../../configs/models_config.yaml"
 
 data:
   agent_profiles: "data/agents/profiles.jsonl"

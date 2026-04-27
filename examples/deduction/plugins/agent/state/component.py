@@ -98,3 +98,9 @@ class BasicStateComponent(StateComponent):
         if not self._plugin:
             return []
         return await self._plugin.get_long_task_adjustment_log()
+
+    async def restore_state(self, snapshot: Dict[str, Any]) -> None:
+        """Delegate restore_state to plugin for branch rollback."""
+        if not self._plugin:
+            return
+        return await self._plugin.restore_state(snapshot)

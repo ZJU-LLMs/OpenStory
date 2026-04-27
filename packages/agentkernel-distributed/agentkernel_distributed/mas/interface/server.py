@@ -42,8 +42,9 @@ _current_branch_id: int = 0
 # 用户当前查看的历史 tick（-1 = 查看最新）
 _viewing_tick: int = -1
 _viewing_branch_id: int = -1
-# fork 后第一次 tick 广播需要加偏移（使新分支首节点 = fork_tick + 1）
-_first_tick_after_fork: bool = False
+# 用户在历史节点上临时下达的任务。键为 (branch_id, parent_tick, agent_id)，
+# 值为会在该历史节点继续推演时注入到首个子节点执行的 plan_data。
+_staged_history_user_plans: Dict[tuple, Dict[str, Any]] = {}
 
 # 用于控制主循环的事件对象（由外部注入，threading.Event）
 _tick_start_event: Optional[threading.Event] = None
@@ -67,12 +68,20 @@ def _stable_hash(text: str) -> int:
     return abs(value)
 
 
-def _load_primary_model_config() -> Dict[str, str]:
+def _get_models_config_path() -> str:
     project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
     if not project_abs_path:
-        return {}
+        return ""
 
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    project_rel_path = os.environ.get("MAS_PROJECT_REL_PATH", "")
+    if project_rel_path == "examples.deduction.story":
+        return os.path.join(project_abs_path, "..", "configs", "models_config.yaml")
+
+    return os.path.join(project_abs_path, "configs", "models_config.yaml")
+
+
+def _load_primary_model_config() -> Dict[str, str]:
+    config_path = _get_models_config_path()
     if not os.path.exists(config_path):
         return {}
 
@@ -195,10 +204,9 @@ class ModelConfigUpdate(BaseModel):
 
 @app.get("/api/config/model", summary="Get model configuration")
 async def get_model_config() -> Dict[str, Any]:
-    project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
-    if not project_abs_path:
-        raise HTTPException(status_code=500, detail="MAS_PROJECT_ABS_PATH environment variable is not set")
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    config_path = _get_models_config_path()
+    if not config_path:
+        raise HTTPException(status_code=500, detail="Model config path is not available")
     if not os.path.exists(config_path):
         raise HTTPException(status_code=404, detail="models_config.yaml not found")
     
@@ -216,10 +224,9 @@ async def get_model_config() -> Dict[str, Any]:
 
 @app.post("/api/config/model", summary="Update model configuration")
 async def update_model_config(config: ModelConfigUpdate) -> Dict[str, Any]:
-    project_abs_path = os.environ.get("MAS_PROJECT_ABS_PATH", "")
-    if not project_abs_path:
-        raise HTTPException(status_code=500, detail="MAS_PROJECT_ABS_PATH environment variable is not set")
-    config_path = os.path.join(project_abs_path, "configs", "models_config.yaml")
+    config_path = _get_models_config_path()
+    if not config_path:
+        raise HTTPException(status_code=500, detail="Model config path is not available")
     if not os.path.exists(config_path):
         raise HTTPException(status_code=404, detail="models_config.yaml not found")
     
@@ -405,12 +412,14 @@ async def redis_listener() -> None:
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket) -> None:
+    global _viewing_tick, _viewing_branch_id
     await manager.connect(websocket)
     # 新连接时推送当前快照 + 分支树
     if _agents_snapshot:
         await websocket.send_text(json.dumps({
             "type": "snapshot",
             "tick": _snapshot_tick,
+            "current_branch_id": _current_branch_id,
             "data": _agents_snapshot,
         }))
     await websocket.send_text(json.dumps({
@@ -441,19 +450,36 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                     action = msg.get("action")
                     location = msg.get("location")
                     target = msg.get("target")
-                    tick = _snapshot_tick + 1 if _snapshot_tick >= 0 else 0
+                    explicit_tick = msg.get("tick")
+                    viewing_history = _viewing_tick != -1 and _viewing_branch_id != -1
+                    if explicit_tick is not None:
+                        tick = explicit_tick
+                    elif viewing_history:
+                        tick = _viewing_tick + 1
+                    else:
+                        tick = _snapshot_tick + 1 if _snapshot_tick >= 0 else 0
 
                     if agent_id and redis_pool:
                         try:
-                            redis_client = aioredis.Redis(connection_pool=redis_pool)
                             plan_data = {
                                 "action": action,
                                 "location": location,
                                 "target": target,
                                 "tick": tick
                             }
-                            await redis_client.set(f"user_plan:{agent_id}", json.dumps(plan_data))
-                            print(f"Successfully set user plan for '{agent_id}' at tick {tick}.")
+                            if viewing_history:
+                                _staged_history_user_plans[(_viewing_branch_id, _viewing_tick, agent_id)] = plan_data
+                                print(
+                                    f"Staged history user plan for '{agent_id}' at tick {tick} "
+                                    f"(view_branch={_viewing_branch_id}, view_tick={_viewing_tick})."
+                                )
+                            else:
+                                redis_client = aioredis.Redis(connection_pool=redis_pool)
+                                await redis_client.set(f"user_plan:{agent_id}", json.dumps(plan_data))
+                                print(
+                                    f"Successfully set user plan for '{agent_id}' at tick {tick} "
+                                    f"(viewing_tick={_viewing_tick}, snapshot_tick={_snapshot_tick})."
+                                )
                             
                             await websocket.send_text(json.dumps({
                                 "type": "set_plan_response",
@@ -475,7 +501,6 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                         }))
 
                 elif msg_type == "view_tick":
-                    global _viewing_tick, _viewing_branch_id
                     tick = msg.get("tick")
                     branch_id = msg.get("branch_id")
                     if tick is None or branch_id is None:
@@ -691,7 +716,9 @@ async def broadcast_tick_data(tick: int, agents_data: Dict[str, Any]) -> None:
     """
     import copy
     global _agents_snapshot, _snapshot_tick, _tick_snapshots, _branches, _current_branch_id
-    _agents_snapshot = agents_data
+    # Keep the latest snapshot detached from the live objects returned by the
+    # running simulation so reconnects/history reads never observe future writes.
+    _agents_snapshot = copy.deepcopy(agents_data)
     _snapshot_tick = tick
 
     # 保存快照：以 (branch_id, tick) 为 key
@@ -709,6 +736,7 @@ async def broadcast_tick_data(tick: int, agents_data: Dict[str, Any]) -> None:
     payload = json.dumps({
         "type": "tick_update",
         "tick": tick,
+        "current_branch_id": _current_branch_id,
         "data": agents_data,
     }, ensure_ascii=False, default=str)
     await manager.broadcast(payload)

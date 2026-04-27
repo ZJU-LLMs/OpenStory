@@ -74,9 +74,10 @@ class BasicPodManager(PodManagerImpl):
                         remote_call("state", "get_state", "current_tick"),
                         remote_call("state", "get_replan_log"),
                         remote_call("state", "get_long_task_adjustment_log"),
+                        remote_call("state", "get_plan_conflict_log"),
                     )
 
-                    long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log = results
+                    long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log, plan_conflict_log = results
 
                     # Calculate time index based on current tick and extract target location from the day's plan
                     tick_val = current_tick or 0
@@ -118,6 +119,7 @@ class BasicPodManager(PodManagerImpl):
                         "current_location": current_location,
                         "replan_log": replan_log or [],
                         "long_task_adj_log": long_task_adj_log or [],
+                        "plan_conflict_log": plan_conflict_log or [],
                     }
                 except Exception as exc:
                     logger.error("collect_agents_data: failed for agent %s: %s", agent_id, exc)
@@ -166,9 +168,10 @@ class BasicPodManager(PodManagerImpl):
                 remote_call("state", "get_state", "current_tick"),
                 remote_call("state", "get_replan_log"),
                 remote_call("state", "get_long_task_adjustment_log"),
+                remote_call("state", "get_plan_conflict_log"),
             )
 
-            long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log = results
+            long_task, current_plan, current_plan_note, current_action, occupied_by, dialogues, hourly_plans, short_mem, long_mem, profile, is_active, inactive_reason, current_tick, replan_log, long_task_adj_log, plan_conflict_log = results
 
             tick_val = current_tick or 0
             current_location = None
@@ -207,6 +210,7 @@ class BasicPodManager(PodManagerImpl):
                 "current_location": current_location,
                 "replan_log": replan_log or [],
                 "long_task_adj_log": long_task_adj_log or [],
+                "plan_conflict_log": plan_conflict_log or [],
             }
         except Exception as exc:
             logger.error(f"collect_single_agent_data: failed for agent {agent_id}: {exc}")
@@ -224,6 +228,27 @@ class BasicPodManager(PodManagerImpl):
             logger.info("Update agent status completed across all pods.")
         except Exception as exc:
             logger.error("Failed to update agent status: %s", exc, exc_info=True)
+
+    async def collect_and_reset_token_usage(self) -> Dict[str, int]:
+        """
+        Collect and reset token usage from all pods, returning aggregated totals.
+        """
+        total = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        try:
+            results = await asyncio.gather(
+                *(pod.forward.remote("get_token_usage") for pod in self._pod_id_to_pod.values())
+            )
+            for usage in results:
+                if usage:
+                    total["prompt_tokens"] += usage.get("prompt_tokens", 0)
+                    total["completion_tokens"] += usage.get("completion_tokens", 0)
+                    total["total_tokens"] += usage.get("total_tokens", 0)
+            await asyncio.gather(
+                *(pod.forward.remote("reset_token_usage") for pod in self._pod_id_to_pod.values())
+            )
+        except Exception as exc:
+            logger.error("Failed to collect token usage: %s", exc)
+        return total
 
     async def restore_all_agents(self, snapshot: Dict[str, Any]) -> None:
         """

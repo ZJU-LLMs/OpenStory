@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import asyncio
 import importlib
+import json
 import random
 import sys
+import threading
 from typing import Dict, List, Optional
 
 import aiohttp
@@ -47,6 +49,9 @@ class AsyncModelRouter:
                     logger.warning("Unable to load provider %s: %s", config, exc)
 
         self.session = aiohttp.ClientSession()
+
+        self._token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        self._token_lock = threading.Lock()
 
     async def _ensure_session(self) -> None:
         """Ensures the aiohttp session is open, recreating it if necessary."""
@@ -144,8 +149,20 @@ class AsyncModelRouter:
                         json=params["json"],
                         timeout=timeout,
                     ) as response:
+                        if response.status >= 400:
+                            error_body = (await response.text())[:500]
+                            logger.warning(
+                                "%s chat request failed with %s: HTTP %s - %s",
+                                self,
+                                provider.model,
+                                response.status,
+                                error_body,
+                            )
+                            continue
                         response.raise_for_status()
-                        return provider.parse_response(await response.text())
+                        response_text = await response.text()
+                        self._accumulate_tokens(response_text)
+                        return provider.parse_response(response_text)
                 except Exception as exc:
                     logger.warning("%s chat request failed with %s: %s", self, provider.model, exc)
                     continue
@@ -153,6 +170,28 @@ class AsyncModelRouter:
             logger.error("All providers failed for chat request. Retrying in %d seconds...", retry_delay)
             await asyncio.sleep(retry_delay)
             retry_delay = min(retry_delay * 2, max_delay)
+
+    def _accumulate_tokens(self, response_text: str) -> None:
+        try:
+            res = json.loads(response_text)
+            usage = res.get("usage", {})
+            if usage:
+                with self._token_lock:
+                    self._token_usage["prompt_tokens"] += usage.get("prompt_tokens", 0)
+                    self._token_usage["completion_tokens"] += usage.get("completion_tokens", 0)
+                    self._token_usage["total_tokens"] += usage.get("total_tokens", 0)
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    def get_token_usage(self) -> Dict[str, int]:
+        with self._token_lock:
+            return dict(self._token_usage)
+
+    def reset_token_usage(self) -> Dict[str, int]:
+        with self._token_lock:
+            usage = dict(self._token_usage)
+            self._token_usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+            return usage
 
     async def embed_documents(
         self,

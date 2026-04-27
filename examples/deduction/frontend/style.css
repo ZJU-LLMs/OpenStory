@@ -2015,6 +2015,42 @@ body {
   gap: 24px;
 }
 
+.story-service-status {
+  margin-top: 18px;
+  width: 280px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgba(207, 168, 94, 0.18);
+  border-radius: 8px;
+  background: rgba(22, 18, 14, 0.82);
+  color: var(--paper-dark);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.story-service-status-running {
+  border-color: rgba(80, 180, 120, 0.35);
+  color: #b9e4b0;
+}
+
+.story-service-status-starting {
+  border-color: rgba(207, 168, 94, 0.35);
+  color: var(--gold-light);
+}
+
+.story-service-status-port_busy {
+  border-color: rgba(200, 110, 110, 0.35);
+  color: #e0a6a6;
+}
+
+.story-service-status-stopped,
+.story-service-status-pending {
+  border-color: rgba(138, 117, 96, 0.28);
+  color: #bca893;
+}
+
 /* PvZ 风格互动木牌按钮 */
 .mode-btn {
   position: relative;

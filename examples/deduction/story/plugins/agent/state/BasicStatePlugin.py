@@ -1,3 +1,4 @@
+import copy
 from typing import Callable, Dict, Any, Optional
 from agentkernel_distributed.toolkit.logger import get_logger
 from agentkernel_distributed.mas.agent.base.plugin_base import StatePlugin
@@ -56,6 +57,9 @@ class BasicStatePlugin(StatePlugin):
         # Initialize long-task adjustment log (records each time LongTask is adjusted, affecting future days)
         if 'long_task_adj_log' not in self.state_data:
             self.state_data['long_task_adj_log'] = []
+        # Record participant-view plan conflicts so the frontend can replay them in daily plans.
+        if 'plan_conflict_log' not in self.state_data:
+            self.state_data['plan_conflict_log'] = []
 
     async def init(self) -> None:
         """Initialize StatePlugin, get agent_id from component"""
@@ -166,6 +170,35 @@ class BasicStatePlugin(StatePlugin):
         Return the full list of replan events.
         """
         return self.state_data.get('replan_log', [])
+
+    async def add_plan_conflict_event(
+        self,
+        tick: int,
+        day: int,
+        hour: int,
+        original_action: str,
+        new_action: str,
+        occupier: str,
+    ) -> None:
+        """Record a participant-side plan override for one hour."""
+        if 'plan_conflict_log' not in self.state_data:
+            self.state_data['plan_conflict_log'] = []
+        self.state_data['plan_conflict_log'].append({
+            'tick': tick,
+            'day': day,
+            'hour': hour,
+            'original_action': original_action,
+            'new_action': new_action,
+            'occupier': occupier,
+        })
+        logger.info(
+            f"[{self.agent_id}][{tick}] Plan conflict event recorded: day {day}, hour {hour}, "
+            f"{original_action} -> {new_action} by {occupier}"
+        )
+
+    async def get_plan_conflict_log(self) -> list:
+        """Return the participant-view plan conflict log."""
+        return self.state_data.get('plan_conflict_log', [])
 
     async def add_long_task_adjustment(self, tick: int, from_day: int) -> None:
         """
@@ -367,11 +400,14 @@ class BasicStatePlugin(StatePlugin):
                         if isinstance(item, dict) and 'tick' in item and 'content' in item
                     }
                 elif isinstance(value, dict):
-                    self.state_data['short_term_memory'] = value
+                    self.state_data['short_term_memory'] = copy.deepcopy(value)
                 else:
                     self.state_data['short_term_memory'] = {}
             else:
-                self.state_data[key] = value
+                # Branch snapshots must never share nested mutable objects with the
+                # live agent state, otherwise later writes on one branch will leak
+                # back into historical snapshots and sibling branches.
+                self.state_data[key] = copy.deepcopy(value)
 
         if 'current_tick' in snapshot:
             self.current_tick = snapshot['current_tick']

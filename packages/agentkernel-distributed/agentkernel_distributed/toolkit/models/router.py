@@ -104,6 +104,12 @@ class ModelRouter:
 
         return embeddings[0] if is_single_string else embeddings
 
+    def get_token_usage(self) -> Dict[str, int]:
+        return self._router.get_token_usage()
+
+    def reset_token_usage(self) -> Dict[str, int]:
+        return self._router.reset_token_usage()
+
     async def close(self) -> None:
         """Release resources held by the underlying backend."""
         logger.info("Closing ModelRouter (backend: %s)...", "Local")

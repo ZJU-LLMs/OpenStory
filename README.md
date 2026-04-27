@@ -9,7 +9,12 @@
 
 </div>
 
-OpenStory is a multi-agent deduction and simulation framework developed based on Large Language Models (LLMs) and [Agent-Kernel](https://github.com/ZJU-LLMs/Agent-Kernel).
+## 🌟 Key News
+
+**✨ The plot mode of *Dream of the Red Chamber* is now online!**  
+A brand new story mode aims to revive the Grand View Garden. You can freely give commands to characters, and the AI will simulate the plot based on your choices, affecting the entire revival process. At the same time, a new story rewind feature allows you to return to previous points and make different choices.
+##
+  OpenStory is a multi-agent deduction and simulation framework developed based on Large Language Models (LLMs) and [Agent-Kernel](https://github.com/ZJU-LLMs/Agent-Kernel).
 
 **✨ We sincerely invite everyone to co-create stories with us!** Whether you want to continue a classic, break the original plot, or create a parallel universe entirely your own, as long as your story idea is interesting and imaginative enough, feel free to submit a PR! We will merge brilliant deduction scripts and custom configurations into the project, letting more people see your masterpiece.
 
