@@ -11,7 +11,7 @@
 
 ## 🌟 Key News
 
-**✨Our project was reported by "New AI Era"!** 
+**✨Our project was reported by "New AI Era"！**  
 https://mp.weixin.qq.com/s/1Z9LAoombuvMGBkpyyMCrg
 
 **✨ The plot mode of *Dream of the Red Chamber* is now online!**  
