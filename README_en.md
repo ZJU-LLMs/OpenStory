@@ -11,6 +11,9 @@
 
 ## 🌟 Key News
 
+**✨Our project was reported by "New AI Era"!** 
+https://mp.weixin.qq.com/s/1Z9LAoombuvMGBkpyyMCrg
+
 **✨ The plot mode of *Dream of the Red Chamber* is now online!**  
 A brand new story mode aims to revive the Grand View Garden. You can freely give commands to characters, and the AI will simulate the plot based on your choices, affecting the entire revival process. At the same time, a new story rewind feature allows you to return to previous points and make different choices.
 ##
