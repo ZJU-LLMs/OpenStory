@@ -95,3 +95,6 @@ python -m examples.deduction.run_simulation
 
 如果您需要修改或重新生成《红楼梦》的人物数据，可以参考 `data/raw/` 目录下的生成脚本。例如：
 - `profile_generator.py`：基于 `database.jsonl` 过滤存活角色并生成唯一的编码 ID 与基础设定。
+
+QQ交流群:1091827223
+[友链:LINUX.DO](https://linux.do)
