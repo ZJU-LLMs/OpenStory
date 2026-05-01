@@ -231,6 +231,7 @@ let agentsWithNewAction = new Set(); // 有未读新行动的 agent，头顶显�
 let eventBubbles = []; // 当前 tick 的事件气泡列表 [{participants, text, createdAt}]
 let activeDialogueContext = null; // 当前打开的对话对应的地图地点与侧栏信息
 let activeDialogueReplay = null; // 当前地图上的自动循环对话回放状态
+let canvasMouseWorld = null; // 世界坐标系鼠标位置，用于气泡悬停暂停
 
 let tickHistory = []; // 记录已经模拟的 tick 数据历史
 let currentHistoryIndex = -1; // 当前展示的历史索引
@@ -1682,7 +1683,7 @@ function parseDialogueHistoryEntries(history) {
   }).filter(entry => entry.text);
 }
 
-function createDialogueReplayScene({ sceneKey, agentId, tick, history, participantIds = [], lastSwitchAt = Date.now(), currentIndex = 0, intervalMs = 2600 }) {
+function createDialogueReplayScene({ sceneKey, agentId, tick, history, participantIds = [], lastSwitchAt = Date.now(), currentIndex = 0, intervalMs = 4500 }) {
   const entries = parseDialogueHistoryEntries(history);
   if (!entries.length) return null;
 
@@ -1764,7 +1765,7 @@ function syncAutoDialogueReplay() {
       participantIds,
       currentIndex: prev ? prev.currentIndex % Math.max(parseDialogueHistoryEntries(history).length, 1) : 0,
       lastSwitchAt: prev ? prev.lastSwitchAt : now + scenes.length * 500,
-      intervalMs: prev ? prev.intervalMs : 2600
+      intervalMs: prev ? prev.intervalMs : 4500
     });
 
     if (scene) scenes.push(scene);
@@ -2861,6 +2862,8 @@ async function initMap() {
       camera.targetY = undefined;
     });
     window.addEventListener('mousemove', e => {
+      const _mc = document.getElementById('mapCanvas');
+      if (_mc) canvasMouseWorld = screenToWorld(e, _mc);
       if (!isDragging) return;
       const dx = e.clientX - lastMousePos.x;
       const dy = e.clientY - lastMousePos.y;
@@ -2869,6 +2872,7 @@ async function initMap() {
       clampCamera();
       lastMousePos = { x: e.clientX, y: e.clientY };
     });
+    container.addEventListener('mouseleave', () => { canvasMouseWorld = null; });
     window.addEventListener('mouseup', e => {
       isDragging = false;
       // 区分点击和拖拽：移动距离小于5px视为点击
@@ -4176,7 +4180,13 @@ function drawEventBubbles(ctx) {
 function drawDialogueReplayScene(ctx, replay, now = Date.now()) {
   if (!replay || !mapData || !replay.entries.length) return;
 
-  if (now - replay.lastSwitchAt >= replay.intervalMs) {
+  // Hover-pause: check against rect stored from previous frame (1-frame lag is imperceptible)
+  const _pr = replay._bubbleRect;
+  const _hovered = _pr && canvasMouseWorld &&
+    canvasMouseWorld.worldX >= _pr.bx && canvasMouseWorld.worldX <= _pr.bx + _pr.bw &&
+    canvasMouseWorld.worldY >= _pr.by && canvasMouseWorld.worldY <= _pr.by + _pr.bh;
+
+  if (!_hovered && now - replay.lastSwitchAt >= replay.intervalMs) {
     replay.currentIndex = (replay.currentIndex + 1) % replay.entries.length;
     replay.lastSwitchAt = now;
   }
@@ -4292,6 +4302,18 @@ function drawDialogueReplayScene(ctx, replay, now = Date.now()) {
   ctx.arc(anchor.x, anchor.y - 2 / camera.zoom, (9 + pulse * 3) / camera.zoom, 0, Math.PI * 2);
   ctx.fillStyle = `rgba(255, 210, 120, ${0.08 + pulse * 0.08})`;
   ctx.fill();
+
+  // Store bubble rect for next frame's hover detection
+  replay._bubbleRect = { bx, by, bw: bubbleW, bh: bubbleH };
+  // Draw pause indicator when hovered
+  if (_hovered) {
+    ctx.font = `bold ${Math.max(9, 11 / camera.zoom)}px sans-serif`;
+    ctx.fillStyle = 'rgba(247,215,148,0.9)';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillText('⏸', bx + bubbleW - 4 / camera.zoom, by + 4 / camera.zoom);
+  }
+
   ctx.restore();
 }
 

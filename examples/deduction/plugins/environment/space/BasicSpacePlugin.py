@@ -41,6 +41,14 @@ class BasicSpacePlugin(SpacePlugin):
         """
         pass
 
+    async def save_to_db(self) -> None:
+        """This example space plugin keeps no runtime state to persist."""
+        return None
+
+    async def load_from_db(self) -> None:
+        """This example space plugin keeps no runtime state to restore."""
+        return None
+
     async def get_agent_position(self, agent_id: str) -> Tuple[int, int]:
         """
         Get the position of a specific agent.
