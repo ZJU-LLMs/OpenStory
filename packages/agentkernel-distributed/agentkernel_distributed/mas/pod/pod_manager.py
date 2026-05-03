@@ -275,7 +275,13 @@ class PodManagerImpl(BasePodManager):
         Returns:
             None
         """
-        await asyncio.gather(*[pod.forward.remote("step_agent") for pod in self._pod_id_to_pod.values()])
+        pods = list(self._pod_id_to_pod.values())
+        if not pods:
+            return
+
+        # Use a global barrier so cross-pod state changes are visible before any pod reflects.
+        await asyncio.gather(*[pod.forward.remote("step_pre_reflect") for pod in pods])
+        await asyncio.gather(*[pod.forward.remote("step_reflect") for pod in pods])
 
     async def deliver_message(self, to_id: str, message: Message) -> bool:
         """

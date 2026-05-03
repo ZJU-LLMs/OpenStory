@@ -57,6 +57,24 @@ class BaseController(ABC):
         """
 
     @abstractmethod
+    async def step_pre_reflect(self) -> Any:
+        """
+        Advance every managed agent through the pre-reflect phase for one tick.
+
+        Returns:
+            Any: Implementation-defined data gathered during the step.
+        """
+
+    @abstractmethod
+    async def step_reflect(self) -> Any:
+        """
+        Advance every managed agent through the reflect phase for one tick.
+
+        Returns:
+            Any: Implementation-defined data gathered during the step.
+        """
+
+    @abstractmethod
     async def run_agent_method(
         self, agent_id: str, component_name: str, method_name: str, *args: Any, **kwargs: Any
     ) -> Any:

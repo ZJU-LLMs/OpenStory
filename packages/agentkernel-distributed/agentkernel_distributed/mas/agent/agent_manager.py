@@ -122,9 +122,37 @@ class AgentManager:
         await perception_component.add_message(message)
         logger.debug(f"[{self._pod_id}] Delivered message to local agent '{to_id}'.")
 
+    async def step_pre_reflect(self, tick: int) -> None:
+        """
+        Run all local agents through the pre-reflect phase for one tick.
+
+        Args:
+            tick (int): Current simulation tick.
+        """
+        pre_reflect_components = ["perceive", "plan", "invoke", "state"]
+        pre_reflect_tasks = [
+            agent.run(tick, components_to_run=pre_reflect_components) for agent in self._agents.values()
+        ]
+        if pre_reflect_tasks:
+            await asyncio.gather(*pre_reflect_tasks)
+
+    async def step_reflect(self, tick: int) -> None:
+        """
+        Run the reflect phase for all local agents for one tick.
+
+        Args:
+            tick (int): Current simulation tick.
+        """
+        reflect_tasks = [agent.run(tick, components_to_run=["reflect"]) for agent in self._agents.values()]
+        if reflect_tasks:
+            await asyncio.gather(*reflect_tasks)
+
     async def run_tick(self, tick: int) -> None:
         """
         Execute a full simulation tick for all agents.
+
+        This runs in two phases to ensure cross-agent state modifications (e.g., death)
+        are visible to all agents' reflect within the same tick.
 
         Args:
             tick (int): Current simulation tick.
@@ -132,9 +160,8 @@ class AgentManager:
         Returns:
             None
         """
-        tasks = [agent.run(tick) for agent in self._agents.values()]
-        if tasks:
-            await asyncio.gather(*tasks)
+        await self.step_pre_reflect(tick)
+        await self.step_reflect(tick)
 
     async def run_agent_method(
         self, agent_id: str, component_name: str, method_name: str, *args: Any, **kwargs: Any

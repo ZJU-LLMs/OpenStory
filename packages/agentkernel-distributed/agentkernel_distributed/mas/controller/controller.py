@@ -74,6 +74,30 @@ class ControllerImpl(BaseController):
         current_tick = await self.run_system("timer", "get_tick")
         await self._agent_manager.run_tick(current_tick)
 
+    async def step_pre_reflect(self) -> None:
+        """
+        Advance the agent manager through the pre-reflect phase for one tick.
+
+        Raises:
+            RuntimeError: If the agent manager is not available.
+        """
+        if not self._agent_manager:
+            raise RuntimeError("AgentManager is not initialized in the System.")
+        current_tick = await self.run_system("timer", "get_tick")
+        await self._agent_manager.step_pre_reflect(current_tick)
+
+    async def step_reflect(self) -> None:
+        """
+        Advance the agent manager through the reflect phase for one tick.
+
+        Raises:
+            RuntimeError: If the agent manager is not available.
+        """
+        if not self._agent_manager:
+            raise RuntimeError("AgentManager is not initialized in the System.")
+        current_tick = await self.run_system("timer", "get_tick")
+        await self._agent_manager.step_reflect(current_tick)
+
     def get_token_usage(self) -> Dict[str, int]:
         if self._model_router is None:
             return {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}

@@ -197,18 +197,21 @@ class Agent:
             await asyncio.gather(*load_tasks)
         logger.info(f"Successfully loaded state for agent '{self._agent_id}'.")
 
-    async def run(self, current_tick: int) -> None:
+    async def run(self, current_tick: int, components_to_run: Optional[List[str]] = None) -> None:
         """
         Execute the component pipeline for a single simulation tick.
 
         Args:
             current_tick (int): Current simulation tick.
+            components_to_run (Optional[List[str]]): If provided, only run these components
+                in the specified order. If None, run all components in _component_order.
 
         Returns:
             None
         """
-        logger.debug("Agent '%s' run method called. Component order: %s", self._agent_id, self._component_order)
-        for component_name in self._component_order:
+        component_list = components_to_run if components_to_run is not None else self._component_order
+        logger.debug("Agent '%s' run method called. Components to run: %s", self._agent_id, component_list)
+        for component_name in component_list:
             component = self.get_component(component_name)
             if component is None:
                 logger.warning("Component '%s' not found in agent '%s'.", component_name, self._agent_id)
