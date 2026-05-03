@@ -31,6 +31,14 @@ class BasicRelationPlugin(RelationPlugin):
         """
         pass
 
+    async def save_to_db(self) -> None:
+        """This example relation plugin keeps no runtime state to persist."""
+        return None
+
+    async def load_from_db(self) -> None:
+        """This example relation plugin keeps no runtime state to restore."""
+        return None
+
     async def get_all_relations(self) -> List[Dict[str, Any]]:
         """
         Get all relations in the environment.

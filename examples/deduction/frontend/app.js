@@ -11,13 +11,16 @@ let currentTick = -1;
 let currentMode = 'free'; // 当前模式: 'free' 或 'story'
 let playerAgentId = null; // 剧情模式下，玩家扮演的智能体 ID
 let viewDays = {}; // 记录每个智能体当前查看的是第几天的计划
+let pinnedAgentIds = []; // 自由模式下新增人物置顶队列（最近新增排最前）
 let pendingTickData = null; // 缓存后端推理完成的数据，等待用户手动触发展示
 let agentsWithNewAction = new Set(); // 有未读新行动的 agent，头顶显示感叹号
 let eventBubbles = []; // 当前 tick 的事件气泡列表 [{participants, text, createdAt}]
 let activeDialogueContext = null; // 当前打开的对话对应的地图地点与侧栏信息
 let activeDialogueReplay = null; // 当前地图上的自动循环对话回放状态
+let canvasMouseWorld = null; // 世界坐标系鼠标位置，用于气泡悬停暂停
 let storyLaunchInFlight = false; // 剧情模式启动中的前端防抖
 let storyStatusPollTimer = null;
+const PINNED_AGENT_IDS_KEY = 'pinnedAgentIds';
 
 let tickHistory = []; // 记录已经模拟的 tick 数据历史
 let currentHistoryIndex = -1; // 当前展示的历史索引
@@ -372,7 +375,7 @@ function connect() {
         const statusTxt = document.getElementById('statusText');
         if (statusTxt) statusTxt.textContent = '已连接';
       } else if (msg.type === 'tick_update') {
-        // tick_update 才是“推演完成，等待前端应用”的新数据。
+        // tick_update 才是”推演完成，等待前端应用”的新数据。
         if (Number.isInteger(msg.current_branch_id)) currentBranchId = msg.current_branch_id;
         pendingTickData = msg;
 
@@ -392,6 +395,8 @@ function connect() {
         // 新 agent 添加成功，更新前端显示
         const newAgentData = msg.data;
         if (newAgentData && msg.agent_id) {
+          // 自由模式：新增人物置顶，方便用户连续操作
+          pinAgentIdToTop(msg.agent_id);
           agentsData[msg.agent_id] = newAgentData;
 
           // 如果有头像信息，保存
@@ -975,7 +980,13 @@ function getAgentStatusColor(id) {
 
 function renderAgentList() {
   const list = document.getElementById('agentList');
-  const ids = Object.keys(agentsData);
+  const allIds = Object.keys(agentsData);
+  const ids = currentMode === 'free'
+    ? [
+      ...pinnedAgentIds.filter(id => allIds.includes(id)),
+      ...allIds.filter(id => !pinnedAgentIds.includes(id))
+    ]
+    : allIds;
   if (!ids.length) { list.innerHTML = '<div class="agent-placeholder">等待数据…</div>'; return; }
 
   // ======== 新增：剧情模式玩家面板剥离逻辑 ========
@@ -1425,7 +1436,7 @@ function parseDialogueHistoryEntries(history) {
   }).filter(entry => entry.text);
 }
 
-function createDialogueReplayScene({ sceneKey, agentId, tick, history, participantIds = [], lastSwitchAt = Date.now(), currentIndex = 0, intervalMs = 2600 }) {
+function createDialogueReplayScene({ sceneKey, agentId, tick, history, participantIds = [], lastSwitchAt = Date.now(), currentIndex = 0, intervalMs = 4500 }) {
   const entries = parseDialogueHistoryEntries(history);
   if (!entries.length) return null;
 
@@ -1507,7 +1518,7 @@ function syncAutoDialogueReplay() {
       participantIds,
       currentIndex: prev ? prev.currentIndex % Math.max(parseDialogueHistoryEntries(history).length, 1) : 0,
       lastSwitchAt: prev ? prev.lastSwitchAt : now + scenes.length * 500,
-      intervalMs: prev ? prev.intervalMs : 2600
+      intervalMs: prev ? prev.intervalMs : 4500
     });
 
     if (scene) scenes.push(scene);
@@ -1779,6 +1790,8 @@ async function submitAddAgent() {
 
   // 发送 WebSocket 消息
   if (ws && ws.readyState === WebSocket.OPEN) {
+    // 先本地置顶并持久化，避免依赖单一后端事件类型
+    pinAgentIdToTop(agentId);
     const message = {
       type: 'add_agent',
       agent_id: agentId,
@@ -1848,9 +1861,47 @@ function saveCustomAvatars() {
   }
 }
 
+function loadPinnedAgentIds() {
+  try {
+    const saved = localStorage.getItem(PINNED_AGENT_IDS_KEY);
+    if (!saved) return;
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed)) return;
+    const uniq = [];
+    const seen = new Set();
+    for (const id of parsed) {
+      if (typeof id !== 'string') continue;
+      const v = id.trim();
+      if (!v || seen.has(v)) continue;
+      seen.add(v);
+      uniq.push(v);
+    }
+    pinnedAgentIds = uniq;
+  } catch (e) {
+    console.error('Failed to load pinned agent ids:', e);
+  }
+}
+
+function savePinnedAgentIds() {
+  try {
+    localStorage.setItem(PINNED_AGENT_IDS_KEY, JSON.stringify(pinnedAgentIds));
+  } catch (e) {
+    console.error('Failed to save pinned agent ids:', e);
+  }
+}
+
+function pinAgentIdToTop(agentId) {
+  if (!agentId) return;
+  pinnedAgentIds = [agentId, ...pinnedAgentIds.filter(id => id !== agentId)];
+  savePinnedAgentIds();
+}
+
 // 处理 add_agent 响应
 function handleAddAgentResponse(msg) {
   if (msg.success) {
+    if (msg.agent_id) {
+      pinAgentIdToTop(msg.agent_id);
+    }
     alert(`人物 "${msg.agent_id}" 添加成功！`);
     closeAddAgentModal();
   } else {
@@ -2568,6 +2619,8 @@ window.selectPlayerCharacter = selectPlayerCharacter;
 async function startApp() {
   // 加载自定义头像
   loadCustomAvatars();
+  // 加载自由模式置顶顺序
+  loadPinnedAgentIds();
 
   // 开始播放新加载动画
   const introOverlay = document.getElementById('newIntroOverlay');
@@ -2774,6 +2827,8 @@ async function initMap() {
       camera.targetY = undefined;
     });
     window.addEventListener('mousemove', e => {
+      const _mc = document.getElementById('mapCanvas');
+      if (_mc) canvasMouseWorld = screenToWorld(e, _mc);
       if (!isDragging) return;
       const dx = e.clientX - lastMousePos.x;
       const dy = e.clientY - lastMousePos.y;
@@ -2782,6 +2837,7 @@ async function initMap() {
       clampCamera();
       lastMousePos = { x: e.clientX, y: e.clientY };
     });
+    container.addEventListener('mouseleave', () => { canvasMouseWorld = null; });
     window.addEventListener('mouseup', e => {
       isDragging = false;
       // 区分点击和拖拽：移动距离小于5px视为点击
@@ -4089,7 +4145,13 @@ function drawEventBubbles(ctx) {
 function drawDialogueReplayScene(ctx, replay, now = Date.now()) {
   if (!replay || !mapData || !replay.entries.length) return;
 
-  if (now - replay.lastSwitchAt >= replay.intervalMs) {
+  // Hover-pause: check against rect stored from previous frame (1-frame lag is imperceptible)
+  const _pr = replay._bubbleRect;
+  const _hovered = _pr && canvasMouseWorld &&
+    canvasMouseWorld.worldX >= _pr.bx && canvasMouseWorld.worldX <= _pr.bx + _pr.bw &&
+    canvasMouseWorld.worldY >= _pr.by && canvasMouseWorld.worldY <= _pr.by + _pr.bh;
+
+  if (!_hovered && now - replay.lastSwitchAt >= replay.intervalMs) {
     replay.currentIndex = (replay.currentIndex + 1) % replay.entries.length;
     replay.lastSwitchAt = now;
   }
@@ -4205,6 +4267,18 @@ function drawDialogueReplayScene(ctx, replay, now = Date.now()) {
   ctx.arc(anchor.x, anchor.y - 2 / camera.zoom, (9 + pulse * 3) / camera.zoom, 0, Math.PI * 2);
   ctx.fillStyle = `rgba(255, 210, 120, ${0.08 + pulse * 0.08})`;
   ctx.fill();
+
+  // Store bubble rect for next frame's hover detection
+  replay._bubbleRect = { bx, by, bw: bubbleW, bh: bubbleH };
+  // Draw pause indicator when hovered
+  if (_hovered) {
+    ctx.font = `bold ${Math.max(9, 11 / camera.zoom)}px sans-serif`;
+    ctx.fillStyle = 'rgba(247,215,148,0.9)';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    ctx.fillText('⏸', bx + bubbleW - 4 / camera.zoom, by + 4 / camera.zoom);
+  }
+
   ctx.restore();
 }
 
