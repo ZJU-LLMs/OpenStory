@@ -375,7 +375,7 @@ function connect() {
         const statusTxt = document.getElementById('statusText');
         if (statusTxt) statusTxt.textContent = '已连接';
       } else if (msg.type === 'tick_update') {
-        // tick_update 才是“推演完成，等待前端应用”的新数据。
+        // tick_update 才是”推演完成，等待前端应用”的新数据。
         if (Number.isInteger(msg.current_branch_id)) currentBranchId = msg.current_branch_id;
         pendingTickData = msg;
 
@@ -1864,21 +1864,34 @@ function saveCustomAvatars() {
 function loadPinnedAgentIds() {
   try {
     const saved = localStorage.getItem(PINNED_AGENT_IDS_KEY);
-    const parsed = saved ? JSON.parse(saved) : [];
-    const uniq = [...new Set(parsed)];
+    if (!saved) return;
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed)) return;
+    const uniq = [];
+    const seen = new Set();
+    for (const id of parsed) {
+      if (typeof id !== 'string') continue;
+      const v = id.trim();
+      if (!v || seen.has(v)) continue;
+      seen.add(v);
+      uniq.push(v);
+    }
     pinnedAgentIds = uniq;
   } catch (e) {
-    pinnedAgentIds = [];
+    console.error('Failed to load pinned agent ids:', e);
   }
 }
 
 function savePinnedAgentIds() {
   try {
     localStorage.setItem(PINNED_AGENT_IDS_KEY, JSON.stringify(pinnedAgentIds));
-  } catch (e) {}
+  } catch (e) {
+    console.error('Failed to save pinned agent ids:', e);
+  }
 }
 
 function pinAgentIdToTop(agentId) {
+  if (!agentId) return;
   pinnedAgentIds = [agentId, ...pinnedAgentIds.filter(id => id !== agentId)];
   savePinnedAgentIds();
 }
@@ -1886,6 +1899,9 @@ function pinAgentIdToTop(agentId) {
 // 处理 add_agent 响应
 function handleAddAgentResponse(msg) {
   if (msg.success) {
+    if (msg.agent_id) {
+      pinAgentIdToTop(msg.agent_id);
+    }
     alert(`人物 "${msg.agent_id}" 添加成功！`);
     closeAddAgentModal();
   } else {
