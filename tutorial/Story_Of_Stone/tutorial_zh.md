@@ -9,7 +9,7 @@
 在按照快速入门 (QuickStart) 的步骤完成环境配置与 API 设置后，请激活您的虚拟环境，并运行以下命令启动项目：
 
 ```bash
-python -m examples.deduction.run_simulation
+python -m examples.story_of_the_stone.run_simulation
 ```
 
 当您在终端看到以下提示信息时，说明服务已成功启动：

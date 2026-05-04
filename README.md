@@ -31,7 +31,7 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 
 ## � Story 1: 红楼梦 (Dream of the Red Chamber)
 ![Cover](assets/Story1.png)
-作为 OpenStory 框架的第一个官方落地故事，本项目中的 `examples/deduction` 示例以中国古典名著《红楼梦》为背景。我们利用多智能体系统（MAS）技术，在一比一仿真的红楼梦大观园地图中，生动模拟了书中人物的日常行为、社交互动与故事推演。在这里，你可以看到林黛玉的敏感多思、贾宝玉的叛逆多情，以及整个贾府在历史车轮下的命运交织。
+作为 OpenStory 框架的第一个官方落地故事，本项目中的 `examples/story_of_the_stone` 示例以中国古典名著《红楼梦》为背景。我们利用多智能体系统（MAS）技术，在一比一仿真的红楼梦大观园地图中，生动模拟了书中人物的日常行为、社交互动与故事推演。在这里，你可以看到林黛玉的敏感多思、贾宝玉的叛逆多情，以及整个贾府在历史车轮下的命运交织。
 
 ## � Story 2: Coming Soon
 ![Cover](assets/Story2.png)
@@ -64,7 +64,7 @@ cd ../../..
 在项目根目录下，执行以下命令启动模拟引擎：
 
 ```bash
-python -m examples.deduction.run_simulation
+python -m examples.story_of_the_stone.run_simulation
 ```
 
 启动过程中：
