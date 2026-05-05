@@ -69,22 +69,7 @@ class BasicInvokePlugin(InvokePlugin):
 
             # Check if there is a highest priority plan set by the user
             user_plan_key = f"user_plan:{self.agent_id}"
-            user_plan_data_str = None
-
-            # 剧情模式：只有玩家角色才接受 user_plan 干预
-            player_char_raw = await self.redis.get('story:player_character')
-            if player_char_raw:
-                try:
-                    import json as _json
-                    player_char_id = _json.loads(player_char_raw).get('id') if isinstance(player_char_raw, str) else player_char_raw.get('id')
-                    if player_char_id == self.agent_id:
-                        user_plan_data_str = await self.redis.get(user_plan_key)
-                        logger.info(f"[{self.agent_id}][{current_tick}] [user_plan_debug] IS player char; user_plan={repr(user_plan_data_str)}")
-                except Exception as _e:
-                    logger.warning(f"[{self.agent_id}] Failed to check player character: {_e}")
-            else:
-                if current_tick == 0:
-                    logger.warning(f"[{self.agent_id}][{current_tick}] [user_plan_debug] story:player_character NOT found in Redis!")
+            user_plan_data_str = await self.redis.get(user_plan_key)
 
             if user_plan_data_str:
                 try:
