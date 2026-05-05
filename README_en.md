@@ -30,7 +30,7 @@ A brand new story mode aims to revive the Grand View Garden. You can freely give
 
 ## 📖 Story 1: Dream of the Red Chamber
 
-As the first official implemented story of the OpenStory framework, the `examples/deduction` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, we vividly simulate the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden. Here, you can witness Lin Daiyu's sensitive thoughtfulness, Jia Baoyu's rebellious affection, and the intertwined destiny of the entire Jia mansion under the wheel of history.
+As the first official implemented story of the OpenStory framework, the `examples/story_of_the_stone` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, we vividly simulate the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden. Here, you can witness Lin Daiyu's sensitive thoughtfulness, Jia Baoyu's rebellious affection, and the intertwined destiny of the entire Jia mansion under the wheel of history.
 ![Cover](assets/Story1.png)
 
 ## 🚀 Story 2: Coming Soon
@@ -64,7 +64,7 @@ cd ../../..
 In the project root directory, execute the following command to start the simulation engine:
 
 ```bash
-python -m examples.deduction.run_simulation
+python -m examples.story_of_the_stone.run_simulation
 ```
 
 During startup:

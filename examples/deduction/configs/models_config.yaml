@@ -1,6 +1,0 @@
-- name: OpenAIProvider
-  model: your-model-name
-  api_key: your-api-key
-  base_url: your-base-url
-  capabilities:
-  - chat

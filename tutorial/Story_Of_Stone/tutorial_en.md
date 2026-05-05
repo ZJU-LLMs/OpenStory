@@ -9,7 +9,7 @@ Welcome to the **OpenStory: The Story of the Stone Tutorial**! This guide will t
 After configuring your environment and API according to the QuickStart guide, activate your virtual environment and run the following command to start the project:
 
 ```bash
-python -m examples.deduction.run_simulation
+python -m examples.story_of_the_stone.run_simulation
 ```
 
 Once you see the following message in your terminal, the server has started successfully:

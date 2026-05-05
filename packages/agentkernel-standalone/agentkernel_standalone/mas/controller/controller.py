@@ -67,6 +67,30 @@ class ControllerImpl(BaseController):
         current_tick = await self.run_system("timer", "get_tick")
         await self._agent_manager.run_tick(current_tick)
 
+    async def step_pre_reflect(self) -> None:
+        """
+        Advance the agent manager through the pre-reflect phase for one tick.
+
+        Raises:
+            RuntimeError: If the agent manager is not available.
+        """
+        if not self._agent_manager:
+            raise RuntimeError("AgentManager is not initialized in the System.")
+        current_tick = await self.run_system("timer", "get_tick")
+        await self._agent_manager.step_pre_reflect(current_tick)
+
+    async def step_reflect(self) -> None:
+        """
+        Advance the agent manager through the reflect phase for one tick.
+
+        Raises:
+            RuntimeError: If the agent manager is not available.
+        """
+        if not self._agent_manager:
+            raise RuntimeError("AgentManager is not initialized in the System.")
+        current_tick = await self.run_system("timer", "get_tick")
+        await self._agent_manager.step_reflect(current_tick)
+
     async def run_agent_method(
         self, agent_id: str, component_name: str, method_name: str, *args: Any, **kwargs: Any
     ) -> Any:

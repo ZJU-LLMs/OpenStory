@@ -73,7 +73,7 @@ def _get_models_config_path() -> str:
         return ""
 
     project_rel_path = os.environ.get("MAS_PROJECT_REL_PATH", "")
-    if project_rel_path == "examples.deduction.story":
+    if project_rel_path == "examples.story_of_the_stone.story":
         return os.path.join(project_abs_path, "..", "configs", "models_config.yaml")
 
     return os.path.join(project_abs_path, "configs", "models_config.yaml")
