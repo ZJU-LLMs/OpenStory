@@ -1,0 +1,25 @@
+world_template:
+  type: market_world
+  tags: [market, trade, economy, social, commerce]
+  default_locations:
+    - 中心广场
+    - 货摊区
+    - 仓库
+    - 休息区
+    - 信息板
+  default_roles: [vendor, buyer, broker, guard]
+  default_rules:
+    - 定价规则
+    - 公平交易规则
+    - 仲裁规则
+
+character_template:
+  role_options: [vendor, buyer, broker, guard]
+  personality_pool: [精明, 热情, 谨慎, 善谈]
+  goal_templates:
+    vendor: [售出商品, 建立口碑, 获利]
+    buyer: [找到所需物品, 以最优价格购买]
+    broker: [促成交易, 赚取佣金]
+
+location_template:
+  types: [square, stall, warehouse, rest_area, notice_board]

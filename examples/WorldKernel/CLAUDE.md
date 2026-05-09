@@ -174,58 +174,72 @@ Top-level fields:
 
 ```
 examples/WorldKernel/
-├── CLAUDE.md                    ← this file
-├── pyproject.toml               ← package definition, depends on agentkernel_standalone
-├── .env.example                 ← LLM API key template
+├── CLAUDE.md                         ← this file
+├── pyproject.toml                    ← package: depends on agentkernel_standalone
+├── .env.example                      ← WORLDKERNEL_API_KEY template
 │
 ├── src/worldkernel/
 │   ├── __init__.py
-│   ├── server.py                ← FastAPI entry point (Stage 1 API)
+│   ├── server.py                     ← FastAPI entry point, mounts routes + static
 │   │
-│   ├── stage1/                  ← Stage 1 pipeline modules
+│   ├── stage1/                       ← Stage 1: 前置理解与约束准备区
 │   │   ├── __init__.py
-│   │   ├── pipeline.py          ← orchestrates the 5 modules, returns WorldSpec
-│   │   ├── intent_parser.py
-│   │   ├── world_type_classifier.py
-│   │   ├── generation_planner.py
-│   │   ├── template_retriever.py
-│   │   └── ontology_selector.py
+│   │   ├── pipeline.py               ← 串联5个模块，持久化并返回 WorldSpec
+│   │   ├── intent_parser.py          ← 模块1: 意图解析 (LLM)
+│   │   ├── world_type_classifier.py  ← 模块2: 世界类型识别 (LLM)
+│   │   ├── generation_planner.py     ← 模块3: 生成计划制定 (LLM)
+│   │   ├── template_retriever.py     ← 模块4: 模板检索 (规则匹配，不用LLM)
+│   │   └── ontology_selector.py      ← 模块5: Schema选择 (LLM)
 │   │
-│   ├── models/
+│   ├── prompts/                      ← 所有阶段的 prompt 模板 (.md)
+│   │   ├── stage1_parse_intent.md
+│   │   ├── stage1_classify_world.md
+│   │   ├── stage1_plan_generation.md
+│   │   └── stage1_select_schema.md
+│   │   (stage2+ prompts 后续加到这里)
+│   │
+│   ├── models/                       ← Pydantic 数据模型
 │   │   ├── __init__.py
-│   │   ├── world_spec.py        ← Pydantic models for WorldSpec
-│   │   └── llm_client.py        ← thin wrapper for OpenAI-compatible API calls
+│   │   ├── world_spec.py             ← WorldSpec + WorldSpecMeta
+│   │   └── stage1_types.py           ← 各模块中间产物类型
 │   │
-│   └── architect/               ← Stage 2+ (future)
-│       └── prompts/             ← prompt templates (.md files)
+│   ├── llm/                          ← LLM 调用层，所有阶段共用
+│   │   ├── __init__.py
+│   │   ├── client.py                 ← async chat()，唯一 LLM 调用入口
+│   │   └── config_loader.py          ← 读取 configs/models.yaml + env var
+│   │
+│   └── architect/                    ← Stage 2+ 预留，暂不实现
+│       ├── __init__.py
+│       └── prompts_stage2/           ← generate_world_patch.md, repair_patch.md
 │
 ├── configs/
-│   ├── models.yaml              ← LLM endpoint config (OpenAI-compatible)
-│   ├── architect.yaml           ← Stage 2+ architect config
-│   ├── simulation.yaml          ← Stage 4 simulation defaults
-│   ├── storage.yaml             ← storage backend config
-│   └── world_types/             ← world-type template library
-│       ├── campus.yaml
-│       ├── closed_space.yaml
-│       ├── hospital.yaml
-│       ├── market.yaml
-│       └── town.yaml
+│   ├── models.yaml                   ← LLM 配置 (OpenAI-compatible format)
+│   ├── stage1_schemas.yaml           ← 各实体类型的默认 schema 定义
+│   ├── world_types/                  ← 模板检索库，template_retriever 读取
+│   │   ├── campus.yaml
+│   │   ├── closed_space.yaml
+│   │   ├── hospital.yaml
+│   │   ├── market.yaml
+│   │   └── town.yaml
+│   ├── architect.yaml                ← Stage 2+ 预留
+│   ├── simulation.yaml               ← Stage 4 预留
+│   └── storage.yaml                  ← Stage 4 预留
 │
 ├── templates/
-│   └── agent_kernel_project/    ← scaffold for generated AK projects (Stage 3+)
+│   └── agent_kernel_project/         ← Stage 3+ AK 项目脚手架
 │       └── configs/
 │
-├── frontend/                    ← Stage 1 UI: text input + WorldSpec viewer
+├── frontend/                         ← Stage 1 UI：输入框 + WorldSpec 展示
 │   ├── index.html
 │   ├── style.css
 │   └── app.js
 │
 └── worlds/
-    └── generated/               ← output dir for world_spec.json and future worlds
+    └── generated/                    ← 每次生成写 <session_id>/world_spec.json
         └── .gitkeep
 ```
 
-> Note: `frontend/` uses Vite for development but the final serve is static HTML/CSS/JS, same as the reference example. Do not add a build step to the runtime server.
+> 前端为静态 HTML/CSS/JS，由 FastAPI 直接 serve，无需构建步骤。`frontend/vite.config.ts` 仅用于本地开发热重载，不影响运行时。
 
 ---
 
@@ -261,11 +275,11 @@ LLM endpoints are configured in `configs/models.yaml` using the same OpenAI-comp
   capabilities: [chat]
 ```
 
-The `llm_client.py` wrapper:
-- Reads `configs/models.yaml` at startup
-- Exposes a single async function: `async def chat(prompt: str, system: str = "") -> str`
-- Returns plain text or raises a typed error — no streaming in Stage 1
-- All five Stage 1 modules call through this wrapper; never instantiate the SDK directly in pipeline code
+The `llm/` layer:
+- `config_loader.py` reads `configs/models.yaml` and merges `WORLDKERNEL_API_KEY` from env
+- `client.py` exposes `init(config_path)` called at server startup, and `async def chat(prompt, system="") -> str`
+- All five Stage 1 modules import `from worldkernel.llm.client import chat` — never instantiate the SDK directly
+- No streaming in Stage 1; returns plain text string
 
 Use the LLM for: NL understanding, type classification, plan generation, schema selection, uncertainty extraction.
 Use rule/tag matching for: template retrieval (v1).
