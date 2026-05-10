@@ -1,0 +1,182 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+header { text-align: center; margin-bottom: 2rem; }
+header h1 { font-size: 2rem; font-weight: 700; color: #a78bfa; }
+.subtitle { color: #94a3b8; margin-top: 0.4rem; }
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #1e2130;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+textarea:focus { border-color: #a78bfa; }
+
+button#submitBtn {
+  align-self: flex-end;
+  padding: 0.65rem 1.6rem;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button#submitBtn:hover { background: #6d28d9; }
+button#submitBtn:disabled { background: #4c1d95; cursor: not-allowed; }
+
+.status-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  color: #94a3b8;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #334155;
+  border-top-color: #a78bfa;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-section {
+  background: #1e2130;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #334155;
+}
+.result-header h2 { font-size: 1.1rem; color: #a78bfa; }
+.session-id { font-size: 0.75rem; color: #64748b; font-family: monospace; }
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #334155;
+  overflow-x: auto;
+}
+.tab {
+  padding: 0.6rem 1.1rem;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.tab.active { color: #a78bfa; border-bottom-color: #a78bfa; }
+.tab:hover:not(.active) { color: #e2e8f0; }
+
+.tab-content {
+  padding: 1.25rem;
+  overflow: auto;
+  max-height: 60vh;
+}
+
+pre {
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #e2e8f0;
+}
+
+.kv-table { width: 100%; border-collapse: collapse; }
+.kv-table td { padding: 0.4rem 0.6rem; vertical-align: top; }
+.kv-table td:first-child { color: #94a3b8; width: 160px; white-space: nowrap; }
+.kv-table td:last-child { color: #e2e8f0; }
+
+.step-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.step-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.5rem 0.75rem;
+  background: #252840;
+  border-radius: 6px;
+}
+.step-num {
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.step-name { font-family: monospace; color: #a78bfa; font-size: 0.85rem; }
+.step-target { color: #94a3b8; font-size: 0.85rem; }
+
+.error-section {
+  padding: 1rem;
+  background: #2d1515;
+  border: 1px solid #7f1d1d;
+  border-radius: 8px;
+  color: #fca5a5;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: #312e81;
+  color: #a5b4fc;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  margin: 0.2rem 0.2rem 0 0;
+}
+
+.confidence-bar {
+  height: 6px;
+  background: #334155;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+.confidence-fill {
+  height: 100%;
+  background: #7c3aed;
+  border-radius: 3px;
+}

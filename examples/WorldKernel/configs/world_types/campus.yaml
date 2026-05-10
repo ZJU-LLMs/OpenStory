@@ -1,0 +1,25 @@
+world_template:
+  type: fictional_institution_world
+  tags: [school, campus, fantasy_school, magic]
+  default_locations:
+    - 大厅
+    - 图书馆
+    - 教室
+    - 宿舍
+    - 食堂
+    - 训练场
+  default_roles: [student, teacher, administrator, staff]
+  default_rules:
+    - 课程规则
+    - 纪律规则
+    - 考试规则
+
+character_template:
+  role_options: [student, teacher, administrator, staff]
+  personality_pool: [勤奋, 好奇, 叛逆, 温和, 严谨]
+  goal_templates:
+    student: [通过考试, 提升技能, 交友, 探索秘密]
+    teacher: [传授知识, 维护秩序, 研究课题]
+
+location_template:
+  types: [classroom, dormitory, library, hall, training_ground, cafeteria]

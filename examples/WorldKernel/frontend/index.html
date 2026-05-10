@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorldKernel — 世界生成</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WorldKernel</h1>
+      <p class="subtitle">输入一句话，生成你的世界</p>
+    </header>
+
+    <section class="input-section">
+      <textarea id="worldInput" placeholder="例如：创建最后一部中的霍格沃茨魔法学院" rows="3"></textarea>
+      <button id="submitBtn" onclick="submitInput()">生成 WorldSpec</button>
+    </section>
+
+    <section class="status-section" id="statusSection" style="display:none">
+      <div class="spinner"></div>
+      <span id="statusText">解析中…</span>
+    </section>
+
+    <section class="result-section" id="resultSection" style="display:none">
+      <div class="result-header">
+        <h2>WorldSpec</h2>
+        <span class="session-id" id="sessionId"></span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('intent')">意图</button>
+        <button class="tab" onclick="showTab('world_type')">世界类型</button>
+        <button class="tab" onclick="showTab('generation_plan')">生成计划</button>
+        <button class="tab" onclick="showTab('ontology')">Schema</button>
+        <button class="tab" onclick="showTab('raw')">完整 JSON</button>
+      </div>
+
+      <div class="tab-content" id="tabContent"></div>
+    </section>
+
+    <section class="error-section" id="errorSection" style="display:none">
+      <p id="errorText"></p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

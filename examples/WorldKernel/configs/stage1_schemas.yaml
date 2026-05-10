@@ -1,0 +1,70 @@
+World:
+  id: string
+  name: string
+  source: string
+  theme: string
+  time_period: string
+  macro_rules: list[string]
+
+Character:
+  id: string
+  name: string
+  role: string
+  personality: list[string]
+  goals: list[string]
+  location_id: string
+  group_id: string
+  permissions: list[string]
+  constraints: list[string]
+
+Location:
+  id: string
+  name: string
+  description: string
+  type: string
+  connected_to: list[string]
+
+Group:
+  id: string
+  name: string
+  type: string
+  members: list[string]
+  rules: list[string]
+
+Relation:
+  id: string
+  from_id: string
+  to_id: string
+  type: string
+  strength: number
+  attributes: dict
+
+Institution:
+  id: string
+  name: string
+  type: string
+  members: list[string]
+  rules: list[string]
+  locations: list[string]
+
+Rule:
+  id: string
+  name: string
+  scope: string
+  description: string
+  enforced_by: string
+
+Event:
+  id: string
+  name: string
+  trigger: string
+  effects: list[string]
+  participants: list[string]
+
+Action:
+  id: string
+  name: string
+  description: string
+  preconditions: list[string]
+  effects: list[string]
+  cost: dict

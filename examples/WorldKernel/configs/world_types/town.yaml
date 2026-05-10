@@ -1,0 +1,25 @@
+world_template:
+  type: city_world
+  tags: [city, town, society, historical, community]
+  default_locations:
+    - 市集
+    - 居民区
+    - 官府
+    - 酒馆
+    - 城门
+    - 广场
+  default_roles: [merchant, official, commoner, guard, craftsman]
+  default_rules:
+    - 交易规则
+    - 法律规则
+    - 社会等级规则
+
+character_template:
+  role_options: [merchant, official, commoner, guard, craftsman]
+  personality_pool: [精明, 保守, 热情, 谨慎]
+  goal_templates:
+    merchant: [积累财富, 建立人脉, 扩大生意]
+    official: [维护秩序, 完成政务, 升迁]
+
+location_template:
+  types: [market, residence, government, tavern, gate, square]

@@ -1,0 +1,24 @@
+world_template:
+  type: survival_world
+  tags: [survival, closed_space, thriller, crisis, post_apocalyptic]
+  default_locations:
+    - 避难所
+    - 废墟
+    - 走廊
+    - 储藏室
+    - 出口
+  default_roles: [survivor, leader, scavenger, medic]
+  default_rules:
+    - 资源分配规则
+    - 生存规则
+    - 冲突解决规则
+
+character_template:
+  role_options: [survivor, leader, scavenger, medic]
+  personality_pool: [坚韧, 恐慌, 自私, 利他, 冷静]
+  goal_templates:
+    survivor: [存活, 逃离, 寻找物资]
+    leader: [带领团队, 维持秩序, 找到出路]
+
+location_template:
+  types: [shelter, ruin, corridor, storage, exit]
