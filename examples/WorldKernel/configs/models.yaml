@@ -1,6 +1,6 @@
 - name: OpenAIProvider
-  model: qwen-plus
-  api_key:          # 通过 .env 文件中的 WORLDKERNEL_API_KEY 设置
-  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  model: deepseek/deepseek-v4-flash
+  api_key: sk-of-xLjtbqinHQkZdOmuOLKNTpiSttlCojQtbaTjLWcbMDhzhWBKTYowCQLUSxjphhIv         # 通过 .env 文件中的 WORLDKERNEL_API_KEY 设置
+  base_url: https://api.ofox.ai/v1
   capabilities:
     - chat

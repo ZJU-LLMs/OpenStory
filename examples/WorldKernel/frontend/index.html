@@ -15,7 +15,7 @@
 
     <section class="input-section">
       <textarea id="worldInput" placeholder="例如：创建最后一部中的霍格沃茨魔法学院" rows="3"></textarea>
-      <button id="submitBtn" onclick="submitInput()">生成 WorldSpec</button>
+      <button id="submitBtn" onclick="submitInput()">开始生成</button>
     </section>
 
     <section class="status-section" id="statusSection" style="display:none">
@@ -25,19 +25,10 @@
 
     <section class="result-section" id="resultSection" style="display:none">
       <div class="result-header">
-        <h2>WorldSpec</h2>
+        <h2>Stage 1 完成</h2>
         <span class="session-id" id="sessionId"></span>
       </div>
-
-      <div class="tabs">
-        <button class="tab active" onclick="showTab('intent')">意图</button>
-        <button class="tab" onclick="showTab('world_type')">世界类型</button>
-        <button class="tab" onclick="showTab('generation_plan')">生成计划</button>
-        <button class="tab" onclick="showTab('ontology')">Schema</button>
-        <button class="tab" onclick="showTab('raw')">完整 JSON</button>
-      </div>
-
-      <div class="tab-content" id="tabContent"></div>
+      <p id="resultMsg" style="color:#94a3b8;margin-top:.5rem"></p>
     </section>
 
     <section class="error-section" id="errorSection" style="display:none">

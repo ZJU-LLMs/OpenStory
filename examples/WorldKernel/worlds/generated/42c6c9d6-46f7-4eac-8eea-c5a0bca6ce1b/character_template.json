@@ -1,0 +1,88 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "role"
+      ],
+      "special": [
+        "jinling_twelve_or_subsidiary_rank",
+        "judgment_couplet",
+        "flower_sign_symbol",
+        "lineage_legitimacy",
+        "fate_outcome_type",
+        "thin_life_registry"
+      ]
+    },
+    "personality": {
+      "fixed": [
+        "traits",
+        "values",
+        "speech_style"
+      ],
+      "special": [
+        "judgment_character_trait",
+        "typical_behavior_pattern",
+        "poetic_talent_personality",
+        "flower_sign_personality",
+        "qing_orientation"
+      ]
+    },
+    "capabilities": {
+      "fixed": [
+        "skills",
+        "level",
+        "weaknesses"
+      ],
+      "special": [
+        "poetry_society_rank",
+        "embroidery_needlework_level",
+        "household_management_skill",
+        "operatic_ability",
+        "medical_skill",
+        "arcane_or_spiritual_gift"
+      ]
+    },
+    "social": {
+      "fixed": [
+        "group_id",
+        "allies",
+        "rivals",
+        "reputation"
+      ],
+      "special": [
+        "poetry_society_affiliation",
+        "romantic_relationship_marker",
+        "servant_hierarchy_rank",
+        "economic_dependency",
+        "family_faction_alignment",
+        "predestined_relationship_type"
+      ]
+    },
+    "goals": {
+      "fixed": [
+        "short_term_goal",
+        "long_term_goal",
+        "motivation"
+      ],
+      "special": [
+        "judgment_fate_goal",
+        "innermost_yearning",
+        "family_obligation_driven_goal"
+      ]
+    },
+    "constraints": {
+      "fixed": [
+        "forbidden_actions",
+        "taboos"
+      ],
+      "special": [
+        "feudal_etiquette_restriction",
+        "concubinage_legitimacy_limitation",
+        "marriage_family_interest_bound",
+        "transgression_penalty_risk"
+      ]
+    }
+  }
+}

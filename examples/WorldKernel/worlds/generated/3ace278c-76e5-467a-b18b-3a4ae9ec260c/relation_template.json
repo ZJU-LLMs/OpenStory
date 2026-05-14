@@ -1,0 +1,72 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "from_id",
+        "to_id",
+        "type"
+      ],
+      "special": [
+        "has_secret_allegiance",
+        "is_pureblood_bias",
+        "is_da_member_connection",
+        "is_spy_or_mole",
+        "is_family_bond_ignored"
+      ]
+    },
+    "nature": {
+      "fixed": [
+        "direction",
+        "strength",
+        "public_or_secret"
+      ],
+      "special": [
+        "based_on_fear_or_coercion",
+        "bound_by_unbreakable_vow",
+        "is_secret_resistance_tie",
+        "is_exploitative_power_dynamic",
+        "public_facade_vs_private_truth"
+      ]
+    },
+    "history": {
+      "fixed": [
+        "origin",
+        "duration"
+      ],
+      "special": [
+        "originated_from_war_events",
+        "marked_by_dumbledore_death",
+        "influenced_by_ministry_fall",
+        "started_under_snape_regime",
+        "duration_tied_to_battle_phase"
+      ]
+    },
+    "dynamics": {
+      "fixed": [
+        "change_triggers",
+        "stability"
+      ],
+      "special": [
+        "volatile_under_terror_threat",
+        "triggered_by_snitch_or_betrayal",
+        "destabilized_by_carro_brother_rule",
+        "subject_to_outside_faction_action",
+        "shifts_with_voldemort_advance"
+      ]
+    },
+    "effects": {
+      "fixed": [
+        "behavioral_impact",
+        "mutual_obligations"
+      ],
+      "special": [
+        "entails_protection_or_harm_duty",
+        "implies_magical_contract_sanction",
+        "causes_reputation_and_safety_risk",
+        "determines_da_network_access",
+        "affects_loyalty_in_battle"
+      ]
+    }
+  }
+}
