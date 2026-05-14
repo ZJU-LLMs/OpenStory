@@ -1,17 +1,17 @@
 from __future__ import annotations
 
-import json
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 import uvicorn
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from worldkernel.llm import client as llm_client
-from worldkernel.stage1.pipeline import run_stage1
+from worldkernel.stage1.pipeline import Stage1Error, run_stage1
 
 BASE_DIR = Path(__file__).parent.parent.parent
 CONFIGS_DIR = BASE_DIR / "configs"
@@ -29,21 +29,39 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="WorldKernel Stage 1", lifespan=lifespan)
 
 
+@app.exception_handler(Stage1Error)
+async def stage1_error_handler(request: Request, exc: Stage1Error) -> JSONResponse:
+    return JSONResponse(
+        status_code=422,
+        content={"error": str(exc), "step": exc.step, "detail": str(exc.cause)},
+    )
+
+
 class ParseRequest(BaseModel):
     input: str
 
 
 @app.post("/api/stage1/parse")
 async def parse(req: ParseRequest):
-    spec = await run_stage1(req.input)
-    return spec
+    session = await run_stage1(req.input)
+    return session
 
 
-@app.get("/api/stage1/spec/{session_id}")
-async def get_spec(session_id: str):
-    path = WORLDS_DIR / session_id / "world_spec.json"
-    if not path.exists():
-        raise HTTPException(status_code=404, detail="spec not found")
+@app.get("/api/stage1/session/{session_id}")
+async def get_session(session_id: str):
+    session_dir = WORLDS_DIR / session_id
+    if not session_dir.exists():
+        raise HTTPException(status_code=404, detail="session not found")
+    files = sorted(f.name for f in session_dir.iterdir() if f.suffix == ".json")
+    return {"session_id": session_id, "files": files}
+
+
+@app.get("/api/stage1/session/{session_id}/{filename}")
+async def get_session_file(session_id: str, filename: str):
+    path = WORLDS_DIR / session_id / filename
+    if not path.exists() or path.suffix != ".json":
+        raise HTTPException(status_code=404, detail="file not found")
+    import json
     return json.loads(path.read_text(encoding="utf-8"))
 
 

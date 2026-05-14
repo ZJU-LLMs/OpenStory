@@ -1,0 +1,62 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "category"
+      ],
+      "special": [
+        "action_type",
+        "ritual_level",
+        "emotional_charge",
+        "power_dynamic"
+      ]
+    },
+    "preconditions": {
+      "fixed": [
+        "required_state",
+        "required_items"
+      ],
+      "special": [
+        "required_identity_rank",
+        "required_setting",
+        "required_relationship",
+        "required_target_disposition",
+        "required_time_or_festival",
+        "required_ritual_items"
+      ]
+    },
+    "effects": {
+      "fixed": [
+        "on_actor",
+        "on_target",
+        "on_environment"
+      ],
+      "special": [
+        "social_reputation_change",
+        "relationship_change",
+        "trigger_later_event",
+        "karma_accumulation",
+        "poetry_talent_impact",
+        "rule_violation_risk",
+        "family_honor_impact"
+      ]
+    },
+    "costs": {
+      "fixed": [
+        "time",
+        "resources",
+        "social_cost"
+      ],
+      "special": [
+        "energy_cost",
+        "etiquette_cost",
+        "face_loss",
+        "loyalty_impact_on_target",
+        "debt_of_gratitude",
+        "resource_waste_risk"
+      ]
+    }
+  }
+}

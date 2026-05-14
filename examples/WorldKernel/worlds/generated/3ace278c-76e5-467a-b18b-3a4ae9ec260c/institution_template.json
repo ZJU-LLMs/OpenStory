@@ -1,0 +1,73 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "type"
+      ],
+      "special": [
+        "publicly_declared_allegiance",
+        "secret_dual_nature",
+        "wartime_legitimacy_status"
+      ]
+    },
+    "purpose": {
+      "fixed": [
+        "mission",
+        "founding_reason"
+      ],
+      "special": [
+        "overt_mission",
+        "covert_agenda",
+        "emergency_fallback_objective"
+      ]
+    },
+    "membership": {
+      "fixed": [
+        "members",
+        "roles",
+        "entry_criteria"
+      ],
+      "special": [
+        "loyalty_screening_process",
+        "secret_member_list",
+        "coerced_membership_policy"
+      ]
+    },
+    "governance": {
+      "fixed": [
+        "leader",
+        "rules",
+        "decision_process"
+      ],
+      "special": [
+        "true_power_holder",
+        "figurehead_leader",
+        "internal_council_structure"
+      ]
+    },
+    "resources": {
+      "fixed": [
+        "assets",
+        "territory"
+      ],
+      "special": [
+        "hidden_safe_house_location",
+        "restricted_magical_supplies",
+        "confiscated_assets_pool"
+      ]
+    },
+    "external": {
+      "fixed": [
+        "relations_to_others",
+        "public_reputation"
+      ],
+      "special": [
+        "official_relationship_with_voldemort_regime",
+        "secret_contact_network",
+        "public_reputation_manipulation"
+      ]
+    }
+  }
+}

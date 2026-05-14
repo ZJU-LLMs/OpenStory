@@ -1,0 +1,68 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "category"
+      ],
+      "special": [
+        "spell_type",
+        "faction",
+        "is_secret",
+        "loyalty_tier",
+        "magical_discipline"
+      ]
+    },
+    "preconditions": {
+      "fixed": [
+        "required_state",
+        "required_items"
+      ],
+      "special": [
+        "required_spell",
+        "required_potion",
+        "required_location_type",
+        "required_curfew_status",
+        "required_house_privilege",
+        "has_witness",
+        "required_patronus",
+        "required_animagus_form"
+      ]
+    },
+    "effects": {
+      "fixed": [
+        "on_actor",
+        "on_target",
+        "on_environment"
+      ],
+      "special": [
+        "magical_effect",
+        "faction_reputation_change",
+        "emotional_state",
+        "memory_modification",
+        "protective_charm",
+        "injury_curse",
+        "detection_risk",
+        "soul_trace"
+      ]
+    },
+    "costs": {
+      "fixed": [
+        "time",
+        "resources",
+        "social_cost"
+      ],
+      "special": [
+        "magical_exhaustion",
+        "soul_damage",
+        "secrecy_risk",
+        "detection_chance",
+        "social_ostracism",
+        "curse_retribution",
+        "time_of_day_penalty",
+        "house_points_loss"
+      ]
+    }
+  }
+}

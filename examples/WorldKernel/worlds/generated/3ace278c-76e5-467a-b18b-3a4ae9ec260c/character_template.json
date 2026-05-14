@@ -1,0 +1,84 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "role"
+      ],
+      "special": [
+        "faction",
+        "house",
+        "secret_identity",
+        "war_death_tendency"
+      ]
+    },
+    "personality": {
+      "fixed": [
+        "traits",
+        "values",
+        "speech_style"
+      ],
+      "special": [
+        "loyalty_trend",
+        "attitude_to_voldemort",
+        "rebelliousness",
+        "fear_of_filch"
+      ]
+    },
+    "capabilities": {
+      "fixed": [
+        "skills",
+        "level",
+        "weaknesses"
+      ],
+      "special": [
+        "specialized_magic",
+        "occlumency_mastery",
+        "animagus_ability",
+        "wand_loyalty",
+        "dark_arts_affinity"
+      ]
+    },
+    "social": {
+      "fixed": [
+        "group_id",
+        "allies",
+        "rivals",
+        "reputation"
+      ],
+      "special": [
+        "organization",
+        "relationship_with_teacher",
+        "relationship_with_peers",
+        "romantic_relation",
+        "spy_network"
+      ]
+    },
+    "goals": {
+      "fixed": [
+        "short_term_goal",
+        "long_term_goal",
+        "motivation"
+      ],
+      "special": [
+        "war_objective",
+        "horcrux_hunt_involvement",
+        "survival_priority",
+        "secret_message_task"
+      ]
+    },
+    "constraints": {
+      "fixed": [
+        "forbidden_actions",
+        "taboos"
+      ],
+      "special": [
+        "school_restrictions",
+        "unbreakable_vow_bound",
+        "blood_purity_taboo_importance",
+        "curfew_violation_risk"
+      ]
+    }
+  }
+}

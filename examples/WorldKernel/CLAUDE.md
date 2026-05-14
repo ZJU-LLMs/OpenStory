@@ -22,7 +22,7 @@ WorldKernel lives inside the larger OpenStory mono-repo (`examples/WorldKernel/`
 
 **Only modify files under `examples/WorldKernel/`.** Files in sibling examples, in `packages/`, or at the repo root are dependencies / reference material only — do not touch them.
 
-Start with the **standalone** package (`agentkernel_standalone`). The distributed variant is a later migration.
+Use the **distributed** package (`agentkernel_distributed`) throughout — this is the only target runtime, not a later migration.
 
 ---
 
@@ -175,7 +175,7 @@ Top-level fields:
 ```
 examples/WorldKernel/
 ├── CLAUDE.md                         ← this file
-├── pyproject.toml                    ← package: depends on agentkernel_standalone
+├── pyproject.toml                    ← package: depends on agentkernel_distributed
 ├── .env.example                      ← WORLDKERNEL_API_KEY template
 │
 ├── src/worldkernel/
@@ -248,8 +248,8 @@ examples/WorldKernel/
 Python >= 3.11 required.
 
 ```bash
-# From repo root — install standalone package + WorldKernel
-pip install -e "packages/agentkernel-standalone[all]"
+# From repo root — install distributed package + WorldKernel
+pip install -e "packages/agentkernel-distributed[all]"
 pip install -e "examples/WorldKernel"
 
 # Copy env file and fill in LLM API key
@@ -303,7 +303,7 @@ Follow the same pattern as `story_of_the_stone`:
 - Prompt templates live in `architect/prompts/*.md`, loaded at runtime by path
 - World type configs in `configs/world_types/` are plain YAML, loaded by `template_retriever.py`
 - `worlds/generated/` is gitignored except for `.gitkeep`
-- Do not import from `agentkernel_distributed` — standalone only for now
+- Always import from `agentkernel_distributed` — this is the only target package
 - No test suite configured; verify manually through the frontend
 
 ---
@@ -315,4 +315,4 @@ Follow the same pattern as `story_of_the_stone`:
 | `examples/story_of_the_stone/run_simulation.py` | Server setup, API mount, tick loop pattern |
 | `examples/story_of_the_stone/registry.py` | Plugin/component registration pattern |
 | `examples/story_of_the_stone/configs/` | Config YAML structure |
-| `packages/agentkernel-standalone/` | Builder API, available components |
+| `packages/agentkernel-distributed/` | Builder API, available components |
