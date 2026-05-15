@@ -1,0 +1,72 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "from_id",
+        "to_id",
+        "type"
+      ],
+      "special": [
+        "family_branch",
+        "generation_difference",
+        "master_servant_class",
+        "kinship_degree",
+        "relation_rank_in_clan"
+      ]
+    },
+    "nature": {
+      "fixed": [
+        "direction",
+        "strength",
+        "public_or_secret"
+      ],
+      "special": [
+        "emotional_tone",
+        "financial_intertwinement",
+        "political_alliance_flag",
+        "literary_companionship",
+        "conflict_level"
+      ]
+    },
+    "history": {
+      "fixed": [
+        "origin",
+        "duration"
+      ],
+      "special": [
+        "origin_circumstance",
+        "established_era",
+        "parental_endorsement",
+        "ritual_basis",
+        "prior_event_nodes"
+      ]
+    },
+    "dynamics": {
+      "fixed": [
+        "change_triggers",
+        "stability"
+      ],
+      "special": [
+        "change_factors",
+        "volatility_drivers",
+        "external_intervention_frequency",
+        "seasonal_or_ritual_cycle",
+        "crisis_sensitivity"
+      ]
+    },
+    "effects": {
+      "fixed": [
+        "behavioral_impact",
+        "mutual_obligations"
+      ],
+      "special": [
+        "obligation_type",
+        "impact_scope",
+        "inheritance_involvement",
+        "social_reputation_effect",
+        "fate_alignment"
+      ]
+    }
+  }
+}

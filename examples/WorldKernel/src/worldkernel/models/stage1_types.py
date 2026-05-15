@@ -75,3 +75,35 @@ class TemplateDimension(BaseModel):
 
 class EntityTemplate(BaseModel):
     dimensions: dict[str, TemplateDimension] = {}
+
+# ==========================================
+# 新增：RAG 知识检索与抽取相关数据结构
+# ==========================================
+
+class ExtractedCharacter(BaseModel):
+    name: str
+    description: str
+    affiliations: list[str] = []    # 所属阵营/家族
+
+class ExtractedLocation(BaseModel):
+    name: str
+    description: str
+    parent_location: str = ""       # 父级区域
+
+class ExtractedEvent(BaseModel):
+    time_node: str                  # 发生时间
+    event_summary: str              # 事件摘要
+    involved_entities: list[str] = [] # 涉及的人或地
+
+class ExtractedRule(BaseModel):
+    category: str                   # 规则分类
+    description: str
+
+class KnowledgeChunk(BaseModel):
+    """
+    一个文本块经过 LLM 抽取后得到的结构化知识集合
+    """
+    characters: list[ExtractedCharacter] = []
+    locations: list[ExtractedLocation] = []
+    events: list[ExtractedEvent] = []
+    global_rules: list[ExtractedRule] = []

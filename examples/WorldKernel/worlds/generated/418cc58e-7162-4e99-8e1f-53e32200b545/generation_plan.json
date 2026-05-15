@@ -1,0 +1,132 @@
+{
+  "steps": [
+    {
+      "name": "generate_world_background",
+      "target": "生成世界概述，包括清代社会背景、四大家族（贾、史、王、薛）简介、核心冲突（爱情与礼教、家族兴衰）、以及基于原著的总体叙事基调"
+    },
+    {
+      "name": "generate_locations_noble_residences",
+      "target": "生成贵族府邸地点：宁国府、荣国府，包括府邸布局、主要厅堂（如荣禧堂、凤姐院、贾母院等）、建筑风格及其在家族中的功能"
+    },
+    {
+      "name": "generate_locations_garden",
+      "target": "生成园林地点：大观园及其内部院落（潇湘馆、蘅芜苑、稻香村、栊翠庵、秋爽斋、暖香坞、缀锦楼等），包括各院落的主人归属与特色"
+    },
+    {
+      "name": "generate_locations_temples",
+      "target": "生成寺庙地点：铁槛寺、馒头庵，包括其宗教功能、与贾府相关的葬礼、停灵等事件场所"
+    },
+    {
+      "name": "generate_locations_daoist_temple",
+      "target": "生成道观地点：清虚观，包括打醮、元妃祈福等事件的场景设置"
+    },
+    {
+      "name": "generate_locations_academy",
+      "target": "生成书院地点：贾家族塾（学堂），包括教学场所、先生（如贾代儒）及学生活动"
+    },
+    {
+      "name": "generate_locations_government_office",
+      "target": "生成衙门/官场地点：应天府、都察院等，包括贾雨村等官员履职的场景及官场规则"
+    },
+    {
+      "name": "generate_locations_street_market",
+      "target": "生成街市地点：集市、茶楼酒肆（如繁华街市、薛家商铺、茶馆等），包括市井生活与人物互动场景"
+    },
+    {
+      "name": "generate_characters_noble_gentlemen",
+      "target": "生成贵族老爷身份人物：贾政、贾赦、贾珍、贾敬（若在世）、贾蓉等，包括他们的性格、官职、家庭地位与关键情节"
+    },
+    {
+      "name": "generate_characters_noble_ladies",
+      "target": "生成贵族太太身份人物：王夫人、邢夫人、尤氏、薛姨妈等，包括她们的出身、性格、在家族中的角色与矛盾"
+    },
+    {
+      "name": "generate_characters_young_masters",
+      "target": "生成少爷身份人物：贾宝玉、贾琏、贾环、贾兰（幼时）、贾瑞等，包括他们的年龄、性格、爱好及与其他角色的关系"
+    },
+    {
+      "name": "generate_characters_young_ladies",
+      "target": "生成小姐身份人物（金陵十二钗及众姐妹）：林黛玉、薛宝钗、贾元春、贾探春、史湘云、妙玉、贾迎春、贾惜春、王熙凤、李纨、巧姐（幼时）、秦可卿（已故？按需），以及姊妹丫鬟等，包括其判词命运与关键事迹"
+    },
+    {
+      "name": "generate_characters_maids",
+      "target": "生成丫鬟身份人物：袭人、晴雯、麝月、秋纹、紫鹃、莺儿、司棋、入画、平儿、鸳鸯、翠缕、雪雁等，包括她们的主子归属、性格与命运"
+    },
+    {
+      "name": "generate_characters_old_women",
+      "target": "生成婆子身份人物：李嬷嬷、赵嬷嬷、王善保家的、赖嬷嬷等，包括她们在贾府中的资历、立场与作用"
+    },
+    {
+      "name": "generate_characters_lackeys",
+      "target": "生成小厮身份人物：焙茗（茗烟）、锄药、扫红、墨雨、引泉等，包括他们的主人归属、日常职责与事件参与"
+    },
+    {
+      "name": "generate_characters_stewards",
+      "target": "生成管家身份人物：赖大、林之孝、吴新登、赖升等，包括他们掌管的事务、家族地位及与主子的关系"
+    },
+    {
+      "name": "generate_characters_nuns",
+      "target": "生成尼姑身份人物：妙玉（兼入十二钗）、智能儿、水月庵尼姑等，包括她们的出身、修行生活与涉入红尘事件"
+    },
+    {
+      "name": "generate_characters_taoist_priests",
+      "target": "生成道士身份人物：张道士（清虚观）、王一贴（膏药道士）等，包括其道术、与贾府的来往"
+    },
+    {
+      "name": "generate_characters_actors",
+      "target": "生成伶人身份人物：龄官、芳官、藕官、蕊官、玉官等，包括她们所属戏班、角色特长以及与主子少爷的情感纠葛"
+    },
+    {
+      "name": "generate_characters_merchants",
+      "target": "生成商人身份人物：薛蟠（虽为少爷也是商人）、薛姨妈、夏金桂（夏家）、桂花夏家等，包括其商业背景、与四大家族的联姻"
+    },
+    {
+      "name": "generate_characters_officials",
+      "target": "生成官员身份人物：贾雨村、王子腾、北静王、忠顺亲王等，包括他们的政治立场、官职升降及对贾府兴衰的影响"
+    },
+    {
+      "name": "generate_relationships_family_marriage",
+      "target": "生成四大家族之间的姻亲关系网、贾府内部的嫡庶关系、主子与仆从的隶属关系、宝玉与黛玉宝钗的三角关系、丫鬟与主子的情感纠葛，以及关键人物之间的恩怨（如王熙凤与尤二姐）"
+    },
+    {
+      "name": "generate_rules_feudal_hierarchy",
+      "target": "生成封建礼教等级制度规则：主子与仆从的言行举止规范（请安、称呼、服侍礼仪）、不同等级间的界限，以及违规后果实例（如金钏投井、晴雯被逐）"
+    },
+    {
+      "name": "generate_rules_clan_patriarchal",
+      "target": "生成家族宗法规则：族长（贾珍为首）的裁决权、长幼尊卑序列（如贾母为最高长辈）、宗祠祭祀、家宴座次、财产处置权等，包括典型事件（如除夕祭宗祠、抄检大观园中族长角色）"
+    },
+    {
+      "name": "generate_rules_marriage_parental_order",
+      "target": "生成婚姻由父母之命规则：子女婚姻须由父母、族长或朝廷（元春省亲后）决定，自由恋爱不被允许，包含实例如宝玉与宝钗‘金玉良缘’、迎春嫁孙绍祖"
+    },
+    {
+      "name": "generate_rules_legitimate_vs_concubine",
+      "target": "生成嫡庶之别规则：嫡出与庶出在继承权（贾赦袭爵、贾政次子）、地位待遇（宝玉与贾环差异）、婚姻选择上的区别，以及家族内部对庶出的歧视实例（如探春因庶出而敏感）"
+    },
+    {
+      "name": "generate_rules_maid_dependency",
+      "target": "生成丫鬟命运依附主子规则：丫鬟的买卖、陪嫁（如平儿随凤姐）、收房为妾（如赵姨娘）、放出去、或殉主（如鸳鸯抗婚）、被撵（如司棋）等，明确人身自由受限的机制"
+    },
+    {
+      "name": "generate_rules_family_rise_fall_political_marriage",
+      "target": "生成家族兴衰与政治联姻规则：四大家族互相联姻的具体关系（如贾政娶王夫人、贾琏娶王熙凤、薛蟠娶夏金桂），以及一荣俱荣、一损俱损的连锁反应案例（如贾家败落牵连史王薛）"
+    },
+    {
+      "name": "generate_rules_poetry_club",
+      "target": "生成诗社雅集规则：海棠诗社、菊花诗会、螃蟹宴等场合的社规（限韵、限题、限时）、评分机制（如李纨评诗）、联句形式（如芦雪庵即景联诗），以及使用钗黛等才女的诗作示例"
+    },
+    {
+      "name": "generate_rules_buddhist_daoist_karma",
+      "target": "生成佛道因果报应规则：甄士隐、贾宝玉（通灵玉）的佛道线索、一僧一道的干预、太虚幻境与判词、因果报应案例（王熙凤弄权铁槛寺后果、刘姥姥救巧姐等），强调轮回与解脱"
+    },
+    {
+      "name": "generate_rules_inheritance",
+      "target": "生成财产继承规则：男子继承权（贾赦袭爵、贾琏管荣国府家产）、女子出嫁后无权干涉娘家财产、庶子继承份额较少、寡嫂守节（李纨）管理私产等，包含贾府内部分配矛盾实例"
+    },
+    {
+      "name": "generate_rules_civil_service_examinations",
+      "target": "生成科举仕途规则：读书应考是贾府子弟振兴家业的正途，但多流于形式（如宝玉厌恶八股、贾兰苦读、贾敬沉迷丹药），包括乡试、会试规则及贾雨村等官员的科举出身例证"
+    }
+  ]
+}

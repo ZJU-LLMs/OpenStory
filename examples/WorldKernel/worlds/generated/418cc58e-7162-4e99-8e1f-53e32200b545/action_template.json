@@ -1,0 +1,59 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "category"
+      ],
+      "special": [
+        "action_type",
+        "required_status_level",
+        "associated_event",
+        "is_ceremonial"
+      ]
+    },
+    "preconditions": {
+      "fixed": [
+        "required_state",
+        "required_items"
+      ],
+      "special": [
+        "required_season",
+        "required_permission",
+        "required_mood_threshold",
+        "required_knowledge_domain",
+        "required_relation_to_target"
+      ]
+    },
+    "effects": {
+      "fixed": [
+        "on_actor",
+        "on_target",
+        "on_environment"
+      ],
+      "special": [
+        "affects_favor_with_master",
+        "affects_karma_score",
+        "triggers_causality_chain",
+        "affects_poem_rank",
+        "affects_marriage_prospect",
+        "affects_reputation_in_family"
+      ]
+    },
+    "costs": {
+      "fixed": [
+        "time",
+        "resources",
+        "social_cost"
+      ],
+      "special": [
+        "social_credit_cost",
+        "karma_point_cost",
+        "health_cost",
+        "reputation_cost",
+        "time_unit_in_days"
+      ]
+    }
+  }
+}

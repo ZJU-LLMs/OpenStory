@@ -1,0 +1,61 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "scope"
+      ],
+      "special": [
+        "target_group_subject",
+        "rule_category_type",
+        "temporal_period_variation",
+        "hierarchical_level",
+        "gender_specificity",
+        "ritual_occasion_binding"
+      ]
+    },
+    "source": {
+      "fixed": [
+        "authority",
+        "legitimacy"
+      ],
+      "special": [
+        "authority_role_title",
+        "legitimacy_basis_type",
+        "documentation_form",
+        "divine_origin_claim",
+        "ancestral_precedent_reference"
+      ]
+    },
+    "enforcement": {
+      "fixed": [
+        "enforcer",
+        "mechanism",
+        "detectability"
+      ],
+      "special": [
+        "enforcer_rank_role",
+        "enforcement_method_typology",
+        "surveillance_mechanism",
+        "public_private_distinction",
+        "appeal_possibility",
+        "third_party_involvement"
+      ]
+    },
+    "consequences": {
+      "fixed": [
+        "penalties",
+        "rewards_for_compliance"
+      ],
+      "special": [
+        "penalty_gradation_level",
+        "reward_type_category",
+        "collateral_family_impact",
+        "redemption_possibility_bool",
+        "social_stigma_degree",
+        "cumulative_effect_pattern"
+      ]
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "type"
+      ],
+      "special": [
+        "belongs_to_family",
+        "lineage_branch",
+        "religious_affiliation",
+        "is_four_great_families_related"
+      ]
+    },
+    "purpose": {
+      "fixed": [
+        "mission",
+        "founding_reason"
+      ],
+      "special": [
+        "cultural_preservation",
+        "religious_practice",
+        "profit_making",
+        "political_alliance",
+        "education_examination",
+        "ritual_maintenance"
+      ]
+    },
+    "membership": {
+      "fixed": [
+        "members",
+        "roles",
+        "entry_criteria"
+      ],
+      "special": [
+        "identity_rank_requirement",
+        "gender_restriction",
+        "age_limit",
+        "recommendation_needed",
+        "family_background",
+        "skill_requirement"
+      ]
+    },
+    "governance": {
+      "fixed": [
+        "leader",
+        "rules",
+        "decision_process"
+      ],
+      "special": [
+        "patriarch_rule",
+        "elder_council",
+        "club_leader",
+        "abbot_or_nun_leader",
+        "steward_governance",
+        "decision_style",
+        "punishment_type"
+      ]
+    },
+    "resources": {
+      "fixed": [
+        "assets",
+        "territory"
+      ],
+      "special": [
+        "land_estates",
+        "real_estate_properties",
+        "monetary_funds",
+        "books_and_artifacts",
+        "artwork_collection",
+        "religious_paraphernalia",
+        "servant_labor"
+      ]
+    },
+    "external": {
+      "fixed": [
+        "relations_to_others",
+        "public_reputation"
+      ],
+      "special": [
+        "relationship_with_four_families",
+        "connections_with_officials",
+        "ties_to_religious_institutions",
+        "inter_poetry_club_relations",
+        "royal_association",
+        "reputation_status"
+      ]
+    }
+  }
+}

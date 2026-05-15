@@ -1,0 +1,87 @@
+{
+  "dimensions": {
+    "identity": {
+      "fixed": [
+        "id",
+        "name",
+        "role"
+      ],
+      "special": [
+        "family_generation_and_rank",
+        "legitimate_or_concubine",
+        "master_or_servant",
+        "relation_to_twelve_beauties",
+        "marital_status",
+        "residence_courtyard",
+        "key_experience"
+      ]
+    },
+    "personality": {
+      "fixed": [
+        "traits",
+        "values",
+        "speech_style"
+      ],
+      "special": [
+        "poetic_talent",
+        "religious_belief",
+        "emotional_sensitivity",
+        "temperament_type"
+      ]
+    },
+    "capabilities": {
+      "fixed": [
+        "skills",
+        "level",
+        "weaknesses"
+      ],
+      "special": [
+        "literary_skill",
+        "instrument_and_chess",
+        "needlework_skill",
+        "game_mastery",
+        "medical_knowledge"
+      ]
+    },
+    "social": {
+      "fixed": [
+        "group_id",
+        "allies",
+        "rivals",
+        "reputation"
+      ],
+      "special": [
+        "family_clan",
+        "patron_relation",
+        "servant_of",
+        "love_interest",
+        "familial_relation"
+      ]
+    },
+    "goals": {
+      "fixed": [
+        "short_term_goal",
+        "long_term_goal",
+        "motivation"
+      ],
+      "special": [
+        "marriage_ambition",
+        "fate_escape_attempt",
+        "family_glory",
+        "love_pursuit"
+      ]
+    },
+    "constraints": {
+      "fixed": [
+        "forbidden_actions",
+        "taboos"
+      ],
+      "special": [
+        "free_love_forbidden",
+        "speaking_out_of_turn",
+        "improper_gift_exchange",
+        "violating_generation_order"
+      ]
+    }
+  }
+}

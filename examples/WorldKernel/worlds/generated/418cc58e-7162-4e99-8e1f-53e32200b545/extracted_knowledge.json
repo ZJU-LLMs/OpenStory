@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "name": "林黛玉",
+      "description": "林如海与贾敏之女",
+      "affiliations": [
+        "荣国府"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "name": "荣国府",
+      "description": "敕造的府邸",
+      "parent_location": ""
+    }
+  ],
+  "events": [
+    {
+      "time_node": "第三回",
+      "event_summary": "林黛玉进贾府",
+      "involved_entities": [
+        "林黛玉",
+        "荣国府"
+      ]
+    }
+  ],
+  "global_rules": [
+    {
+      "category": "家族制度",
+      "description": "家族内部等级森严"
+    }
+  ]
+}
