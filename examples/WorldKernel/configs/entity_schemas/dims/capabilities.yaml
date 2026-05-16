@@ -1,0 +1,13 @@
+# CapabilitiesDim — 技能与能力
+fields:
+  - name: skills
+    type: list_str
+    required: true
+
+  - name: level
+    type: str
+    required: true
+
+  - name: weaknesses
+    type: str
+    required: true

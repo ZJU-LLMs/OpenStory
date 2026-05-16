@@ -1,0 +1,12 @@
+[
+  {
+    "seed_id": "pure_blood_preference",
+    "name": "纯血统优先规则",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "纯血统学生享有免罚和特殊待遇"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "category",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "affiliation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "risk_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_signature",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_permission",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "typical_location",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_state",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "seed_id": "severus_snape",
+    "name": "西弗勒斯·斯内普",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "伪装效忠伏地魔的校长，暗中保护学生"
+  },
+  {
+    "seed_id": "minerva_mcgonagall",
+    "name": "米勒娃·麦格",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "变形术教授，抵抗关键成员，最终领导决战"
+  },
+  {
+    "seed_id": "filius_flitwick",
+    "name": "菲利乌斯·弗立维",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "魔咒教授，暗中支持抵抗，提供庇护"
+  },
+  {
+    "seed_id": "poppy_pomfrey",
+    "name": "波皮·庞弗雷",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "医疗翼护士，治疗所有受伤师生，保持中立"
+  },
+  {
+    "seed_id": "horace_slughorn",
+    "name": "霍拉斯·斯拉格霍恩",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "魔药课教授，与食死徒表面合作，实则摇摆"
+  }
+]

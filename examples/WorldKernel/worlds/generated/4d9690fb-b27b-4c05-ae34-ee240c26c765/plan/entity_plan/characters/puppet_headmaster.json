@@ -1,0 +1,12 @@
+[
+  {
+    "seed_id": "severus_snape_as_headmaster",
+    "name": "斯内普校长",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "名义上效忠伏地魔的傀儡校长，实为双重间谍"
+  }
+]

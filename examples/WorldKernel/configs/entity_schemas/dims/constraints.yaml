@@ -1,0 +1,9 @@
+# ConstraintsDim — 行为禁忌
+fields:
+  - name: forbidden_actions
+    type: list_str
+    required: true
+
+  - name: taboos
+    type: list_str
+    required: true

@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "known_secret_passages",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "security_hotspots",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anti_apparition_wards",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anti_intruder_charms",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "floo_connectivity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "owl_access",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

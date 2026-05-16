@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "scope",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rule_type_category",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "publicity_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "symbolic_representation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

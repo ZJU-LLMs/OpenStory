@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "group_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_communication_method",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "family_political_stance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

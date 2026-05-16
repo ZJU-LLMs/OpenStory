@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "remus_lupin",
+    "name": "莱姆斯·卢平",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "凤凰社成员，校外联络与情报"
+  },
+  {
+    "seed_id": "kingsley_shacklebolt",
+    "name": "金斯莱·沙克尔",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "傲罗，秘密庇护学生逃亡"
+  }
+]

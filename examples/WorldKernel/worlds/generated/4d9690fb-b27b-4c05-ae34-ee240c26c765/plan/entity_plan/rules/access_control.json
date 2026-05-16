@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "curfew_rule",
+    "name": "宵禁规则",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 1,
+    "role_in_world": "禁止学生在夜间离开公共休息室，限制行动"
+  },
+  {
+    "seed_id": "restricted_zones_rule",
+    "name": "禁区规则",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "inferred",
+    "confidence": 0.8,
+    "generation_priority": 2,
+    "role_in_world": "指定某些走廊和塔楼为禁区，由食死徒把守"
+  }
+]

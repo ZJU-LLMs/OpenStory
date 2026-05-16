@@ -1,0 +1,55 @@
+# Agent 全局实体 Schema
+# 声明 Agent 由哪些维度构成，每个维度引用一个独立的类型定义。
+# 维度类型的具体字段由 Stage 1 模版生成（templates/character/{dim}.json），
+# 此处只声明固有结构（全世界通用，不随世界变化）。
+
+name: Agent
+entity_type: character
+
+dimensions:
+  identity:
+    type: IdentityDim
+    required: true
+    description: "角色唯一标识与基本身份"
+
+  personality:
+    type: PersonalityDim
+    required: true
+    description: "性格特质、价值观与言语风格"
+
+  capabilities:
+    type: CapabilitiesDim
+    required: true
+    description: "技能、等级与弱点"
+
+  goals:
+    type: GoalsDim
+    required: true
+    description: "短期目标、长期目标与动机"
+
+  constraints:
+    type: ConstraintsDim
+    required: true
+    description: "禁止行为与禁忌"
+
+  state:
+    type: StateDim
+    required: true
+    mutable: true
+    description: "运行时可变状态（位置、即时属性）"
+
+  visual:
+    type: VisualDim
+    required: false
+    description: "外观描述与视觉生成提示词"
+
+  social_profile:
+    type: SocialProfileDim
+    required: true
+    description: "所属组织与社会声望"
+
+  relations:
+    type: RelationsDim
+    required: true
+    mutable: true
+    description: "与其他实体的关系引用"

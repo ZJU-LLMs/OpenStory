@@ -52,17 +52,20 @@ async def get_session(session_id: str):
     session_dir = WORLDS_DIR / session_id
     if not session_dir.exists():
         raise HTTPException(status_code=404, detail="session not found")
-    files = sorted(f.name for f in session_dir.iterdir() if f.suffix == ".json")
+    files = sorted(
+        str(f.relative_to(session_dir)).replace("\\", "/")
+        for f in session_dir.rglob("*.json")
+    )
     return {"session_id": session_id, "files": files}
 
 
-@app.get("/api/stage1/session/{session_id}/{filename}")
-async def get_session_file(session_id: str, filename: str):
-    path = WORLDS_DIR / session_id / filename
-    if not path.exists() or path.suffix != ".json":
+@app.get("/api/stage1/session/{session_id}/{path:path}")
+async def get_session_file(session_id: str, path: str):
+    file_path = WORLDS_DIR / session_id / path
+    if not file_path.exists() or file_path.suffix != ".json":
         raise HTTPException(status_code=404, detail="file not found")
     import json
-    return json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(file_path.read_text(encoding="utf-8"))
 
 
 app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")

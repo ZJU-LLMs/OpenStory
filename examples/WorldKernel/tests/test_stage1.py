@@ -23,27 +23,21 @@ sys.path.insert(0, str(_ROOT / "src"))
 _WORLDS_DIR = _ROOT / "worlds" / "generated"
 _SERVER_URL = "http://localhost:8100"
 
-_EXPECTED_FILES = [
+_EXPECTED_PATHS = [
     "world_template.json",
-    "generation_plan.json",
-    "character_template.json",
-    "location_template.json",
-    "relation_template.json",
-    "institution_template.json",
-    "rule_template.json",
-    "action_template.json",
+    "plan/steps.json",
+    "plan/ontology_hints.json",
+    "plan/entity_plan/locations",
+    "plan/entity_plan/characters",
+    "plan/entity_plan/institutions",
+    "plan/entity_plan/rules",
+    "templates/character/index.json",
+    "templates/location/index.json",
+    "templates/relation/index.json",
+    "templates/institution/index.json",
+    "templates/rule/index.json",
+    "templates/action/index.json",
 ]
-
-_VALIDATORS: dict[str, list[str]] = {
-    "world_template.json": ["primary", "location_types", "character_roles", "macro_rules"],
-    "generation_plan.json": ["steps"],
-    "character_template.json": ["dimensions"],
-    "location_template.json": ["dimensions"],
-    "relation_template.json": ["dimensions"],
-    "institution_template.json": ["dimensions"],
-    "rule_template.json": ["dimensions"],
-    "action_template.json": ["dimensions"],
-}
 
 
 class _Stats:
@@ -73,13 +67,11 @@ def _sep(title: str = "", width: int = 70) -> None:
         print("─" * width)
 
 
-def _preview(data: dict | list, max_lines: int = 20) -> str:
-    text = json.dumps(data, ensure_ascii=False, indent=2)
-    lines = text.splitlines()
-    if len(lines) <= max_lines:
-        return text
-    half = max_lines // 2
-    return "\n".join(lines[:half] + [f"  ... ({len(lines) - max_lines} lines omitted) ..."] + lines[-half:])
+def _load(session_dir: Path, rel_path: str) -> dict | list | None:
+    p = session_dir / rel_path
+    if not p.exists():
+        return None
+    return json.loads(p.read_text(encoding="utf-8"))
 
 
 def _get_existing_sessions() -> set[str]:
@@ -89,7 +81,6 @@ def _get_existing_sessions() -> set[str]:
 
 
 def _wait_for_new_session(before: set[str], timeout: float = 600.0) -> str | None:
-    """轮询 worlds/generated/ 等待新 session 目录出现。"""
     t0 = time.time()
     while time.time() - t0 < timeout:
         current = _get_existing_sessions()
@@ -100,67 +91,151 @@ def _wait_for_new_session(before: set[str], timeout: float = 600.0) -> str | Non
     return None
 
 
-def _wait_for_files(session_dir: Path, timeout: float = 300.0) -> list[str]:
-    """等待 session 目录中文件数量稳定（pipeline 写完）。"""
+def _wait_for_stable(session_dir: Path, timeout: float = 300.0) -> None:
+    """等待 session 目录文件数量稳定。"""
     t0 = time.time()
     prev_count = 0
     stable_since = 0.0
 
     while time.time() - t0 < timeout:
-        files = [f.name for f in session_dir.iterdir() if f.suffix == ".json"]
-        if len(files) != prev_count:
-            prev_count = len(files)
+        count = sum(1 for _ in session_dir.rglob("*.json"))
+        if count != prev_count:
+            prev_count = count
             stable_since = time.time()
         elif time.time() - stable_since > 5.0 and prev_count > 0:
-            return sorted(files)
+            return
         time.sleep(1.0)
 
-    return sorted(f.name for f in session_dir.iterdir() if f.suffix == ".json")
 
+def _validate_world_template(session_dir: Path, stats: _Stats) -> None:
+    _sep("world_template.json")
+    data = _load(session_dir, "world_template.json")
+    if data is None:
+        stats.fail("world_template.json 不存在")
+        return
 
-def _validate_content(fname: str, data: dict, stats: _Stats) -> None:
-    if fname == "world_template.json":
-        if data.get("primary"):
-            stats.ok(f"{fname}: primary = {data['primary']}")
+    if data.get("primary"):
+        stats.ok(f"primary = {data['primary']}")
+    else:
+        stats.fail("primary 为空")
+
+    for arch_field in ("location_archetypes", "character_archetypes", "rule_archetypes"):
+        val = data.get(arch_field, [])
+        if len(val) >= 2:
+            stats.ok(f"{arch_field} 有 {len(val)} 种类型")
+        elif len(val) == 1:
+            stats.ok(f"{arch_field} 有 1 种类型（偏少）")
         else:
-            stats.fail(f"{fname}: primary 为空")
-
-        for list_field in ("location_types", "character_roles", "macro_rules"):
-            val = data.get(list_field, [])
-            if val and len(val) > 0:
-                stats.ok(f"{fname}: {list_field} 有 {len(val)} 项")
+            stats.fail(f"{arch_field} 为空")
+        if val:
+            first = val[0]
+            seed_keys = [k for k in first if k.startswith("candidate_")]
+            if seed_keys and first.get(seed_keys[0]):
+                stats.ok(f"{arch_field}[0] 含候选 seed")
             else:
-                stats.fail(f"{fname}: {list_field} 为空")
+                stats.fail(f"{arch_field}[0] 缺少候选 seed")
 
-    elif fname == "generation_plan.json":
-        steps = data.get("steps", [])
-        if len(steps) >= 2:
-            stats.ok(f"{fname}: {len(steps)} 个生成步骤")
+    sim = data.get("simulation_start", {})
+    if sim.get("trigger_event"):
+        stats.ok("simulation_start.trigger_event 非空")
+    else:
+        stats.fail("simulation_start.trigger_event 为空")
+
+    constraints = data.get("world_constraints", [])
+    if len(constraints) >= 2:
+        stats.ok(f"world_constraints 有 {len(constraints)} 条")
+    else:
+        stats.fail("world_constraints 不足 2 条")
+
+
+def _validate_plan(session_dir: Path, stats: _Stats) -> None:
+    _sep("plan/")
+
+    steps = _load(session_dir, "plan/steps.json")
+    if steps is None:
+        stats.fail("plan/steps.json 不存在")
+    elif len(steps) >= 2:
+        stats.ok(f"steps.json: {len(steps)} 个步骤")
+        s0 = steps[0]
+        if s0.get("step_id") and s0.get("generator_type"):
+            stats.ok(f"steps[0]: step_id={s0['step_id']}, generator_type={s0['generator_type']}")
         else:
-            stats.fail(f"{fname}: 步骤数不足 ({len(steps)})")
+            stats.fail("steps[0] 缺少 step_id 或 generator_type")
+    else:
+        stats.fail(f"steps.json: 步骤数不足 ({len(steps)})")
 
-        for i, step in enumerate(steps):
-            if not (step.get("name") and step.get("target")):
-                stats.fail(f"{fname}: steps[{i}] 缺少 name 或 target")
+    hints = _load(session_dir, "plan/ontology_hints.json")
+    if hints is None:
+        stats.fail("plan/ontology_hints.json 不存在")
+    elif hints.get("character_hints"):
+        stats.ok("ontology_hints.character_hints 非空")
+    else:
+        stats.fail("ontology_hints.character_hints 为空")
 
-    elif fname.endswith("_template.json"):
-        dims = data.get("dimensions", {})
-        if len(dims) >= 2:
-            stats.ok(f"{fname}: {len(dims)} 个维度")
+    ep_dir = session_dir / "plan" / "entity_plan"
+    for category in ("locations", "characters", "institutions", "rules"):
+        cat_dir = ep_dir / category
+        if not cat_dir.exists():
+            stats.fail(f"entity_plan/{category}/ 不存在")
+            continue
+        archetype_files = list(cat_dir.glob("*.json"))
+        if len(archetype_files) >= 2:
+            stats.ok(f"entity_plan/{category}/: {len(archetype_files)} 个 archetype 文件")
+        elif len(archetype_files) == 1:
+            stats.ok(f"entity_plan/{category}/: 1 个 archetype 文件（偏少）")
         else:
-            stats.fail(f"{fname}: 维度数不足 ({len(dims)})")
+            stats.fail(f"entity_plan/{category}/: 无 archetype 文件")
 
-        for dim_name, dim_data in dims.items():
-            fixed = dim_data.get("fixed", [])
-            special = dim_data.get("special", [])
-            if not fixed:
-                stats.fail(f"{fname}: {dim_name}.fixed 为空")
-            if not special:
-                stats.fail(f"{fname}: {dim_name}.special 为空（LLM 未生成特殊属性）")
+        if archetype_files:
+            seeds = json.loads(archetype_files[0].read_text(encoding="utf-8"))
+            if seeds and seeds[0].get("seed_id"):
+                stats.ok(f"entity_plan/{category}/{archetype_files[0].name}: seed_id 非空")
+            else:
+                stats.fail(f"entity_plan/{category}/{archetype_files[0].name}: 缺少 seed_id")
+
+
+def _validate_templates(session_dir: Path, stats: _Stats) -> None:
+    _sep("templates/")
+    expected_dims = {"character": 9, "location": 5, "institution": 6,
+                     "rule": 4, "action": 4, "relation": 2}
+
+    templates_dir = session_dir / "templates"
+    if not templates_dir.exists():
+        stats.fail("templates/ 目录不存在")
+        return
+
+    for entity, min_dims in expected_dims.items():
+        ent_dir = templates_dir / entity
+        index_path = ent_dir / "index.json"
+        if not index_path.exists():
+            stats.fail(f"templates/{entity}/index.json 不存在")
+            continue
+
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+        dims = index.get("dimensions", [])
+        if len(dims) >= min_dims:
+            stats.ok(f"{entity}: {len(dims)} 个维度")
+        else:
+            stats.fail(f"{entity}: 维度数不足 ({len(dims)}，期望 ≥{min_dims})")
+
+        for dim_name in dims:
+            dim_path = ent_dir / f"{dim_name}.json"
+            if not dim_path.exists():
+                stats.fail(f"{entity}/{dim_name}.json 不存在")
+                continue
+            dim_data = json.loads(dim_path.read_text(encoding="utf-8"))
+            fields = dim_data.get("fields", [])
+            if len(fields) >= 1:
+                f0 = fields[0]
+                if isinstance(f0, dict) and f0.get("name") and "type" in f0:
+                    stats.ok(f"{entity}/{dim_name}: {len(fields)} 个 FieldDef 字段")
+                else:
+                    stats.fail(f"{entity}/{dim_name}: fields[0] 不是 FieldDef 格式")
+            else:
+                stats.fail(f"{entity}/{dim_name}: fields 为空")
 
 
 def _run_validation(session_id: str) -> None:
-    """对一个 session 目录执行完整校验。"""
     stats = _Stats()
     session_dir = _WORLDS_DIR / session_id
     t0 = time.time()
@@ -168,35 +243,26 @@ def _run_validation(session_id: str) -> None:
     _sep(f"检测到新 session: {session_id}")
 
     print("  等待文件写入完成...")
-    files = _wait_for_files(session_dir)
+    _wait_for_stable(session_dir)
     elapsed = time.time() - t0
-    print(f"  生成文件: {files}")
 
-    _sep("文件完整性检查")
-    for expected in _EXPECTED_FILES:
-        if expected in files:
-            stats.ok(f"文件存在: {expected}")
+    all_files = sorted(
+        str(f.relative_to(session_dir)).replace("\\", "/")
+        for f in session_dir.rglob("*.json")
+    )
+    print(f"  共 {len(all_files)} 个文件, 耗时 {elapsed:.1f}s")
+
+    _sep("结构完整性检查")
+    for expected in _EXPECTED_PATHS:
+        p = session_dir / expected
+        if p.exists():
+            stats.ok(f"存在: {expected}")
         else:
-            stats.fail(f"文件缺失: {expected}")
+            stats.fail(f"缺失: {expected}")
 
-    _sep("内容校验")
-    for fname in _EXPECTED_FILES:
-        fpath = session_dir / fname
-        if not fpath.exists():
-            continue
-
-        data = json.loads(fpath.read_text(encoding="utf-8"))
-        required_keys = _VALIDATORS.get(fname, [])
-        missing = [k for k in required_keys if k not in data]
-        if missing:
-            stats.fail(f"{fname} 缺少必需字段: {missing}")
-        else:
-            stats.ok(f"{fname} 字段校验通过")
-
-        _validate_content(fname, data, stats)
-
-        _sep(fname)
-        print(_preview(data))
+    _validate_world_template(session_dir, stats)
+    _validate_plan(session_dir, stats)
+    _validate_templates(session_dir, stats)
 
     _sep("测试结果")
     print(f"  总计: {stats.total}  通过: {stats.passed}  失败: {stats.failed}  耗时: {elapsed:.1f}s")
@@ -212,7 +278,6 @@ def _run_validation(session_id: str) -> None:
 
 
 def _start_server() -> threading.Thread:
-    """在后台线程启动 uvicorn。"""
     import uvicorn
     from worldkernel.server import app
 

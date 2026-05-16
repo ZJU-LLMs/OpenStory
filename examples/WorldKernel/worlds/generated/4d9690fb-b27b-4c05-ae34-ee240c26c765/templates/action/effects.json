@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "on_actor",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_target",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_environment",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "magical_trace",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reputation_change",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_change",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "suspicion_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trigger_alarm",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cast_light",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_modification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "curfew_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forbidden_material_access",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "patrolled_zone_limit",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

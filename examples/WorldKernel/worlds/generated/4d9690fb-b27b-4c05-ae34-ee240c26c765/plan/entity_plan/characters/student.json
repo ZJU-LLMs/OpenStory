@@ -1,0 +1,72 @@
+[
+  {
+    "seed_id": "harry_potter",
+    "name": "哈利·波特",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "寻找魂器、领导抵抗的救世主"
+  },
+  {
+    "seed_id": "hermione_granger",
+    "name": "赫敏·格兰杰",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "情报分析与咒语专家，抵抗组织智囊"
+  },
+  {
+    "seed_id": "ron_weasley",
+    "name": "罗恩·韦斯莱",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "哈利挚友，战斗与情感支持"
+  },
+  {
+    "seed_id": "neville_longbottom",
+    "name": "纳威·隆巴顿",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "在校抵抗组织新生代领袖，破坏食死徒统治"
+  },
+  {
+    "seed_id": "ginny_weasley",
+    "name": "金妮·韦斯莱",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "DA骨干成员，传递情报的关键人物"
+  },
+  {
+    "seed_id": "luna_lovegood",
+    "name": "卢娜·洛夫古德",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "独特视角的抵抗者，提供非常规解决方案"
+  },
+  {
+    "seed_id": "draco_malfoy",
+    "name": "德拉科·马尔福",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "处于夹缝中的学生，被迫执行食死徒任务"
+  }
+]

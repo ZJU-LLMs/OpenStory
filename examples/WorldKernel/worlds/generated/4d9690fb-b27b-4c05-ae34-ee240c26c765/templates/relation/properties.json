@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "strength",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "coercion_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "interdependence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "information_asymmetry",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "betrayal_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "loyalty_conflict",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

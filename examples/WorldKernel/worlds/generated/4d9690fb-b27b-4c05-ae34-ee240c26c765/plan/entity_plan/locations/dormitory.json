@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "gryffindor_tower_girls_dormitory",
+    "name": "格兰芬多塔楼女生宿舍",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 3,
+    "role_in_world": "女性抵抗成员秘密会议场所之一"
+  },
+  {
+    "seed_id": "slytherin_dungeon_dormitory",
+    "name": "斯莱特林地牢宿舍",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.9,
+    "generation_priority": 3,
+    "role_in_world": "食死徒支持者集中的宿舍区，情报来源"
+  }
+]

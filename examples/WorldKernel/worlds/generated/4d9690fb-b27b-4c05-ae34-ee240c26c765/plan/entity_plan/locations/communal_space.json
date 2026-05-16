@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "great_hall",
+    "name": "大礼堂",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "全校集会、用餐、惩罚展示的核心公开场所"
+  },
+  {
+    "seed_id": "entrance_hall",
+    "name": "门厅",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "进出城堡的必经之地，常有食死徒巡逻"
+  },
+  {
+    "seed_id": "hufflepuff_common_room",
+    "name": "赫奇帕奇公共休息室",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.9,
+    "generation_priority": 3,
+    "role_in_world": "赫奇帕奇学生聚集地，抵抗组织潜在成员来源"
+  }
+]

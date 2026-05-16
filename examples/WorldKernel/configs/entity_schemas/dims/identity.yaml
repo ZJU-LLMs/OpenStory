@@ -1,0 +1,13 @@
+# IdentityDim — 角色唯一标识
+fields:
+  - name: id
+    type: str
+    required: true
+
+  - name: name
+    type: str
+    required: true
+
+  - name: role
+    type: str
+    required: true

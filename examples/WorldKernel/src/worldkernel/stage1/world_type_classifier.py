@@ -4,18 +4,21 @@ import json
 from pathlib import Path
 
 from worldkernel.llm.client import chat_json
-from worldkernel.models.stage1_types import IntentResult, OntologyHints, WorldTemplate
+from worldkernel.models.stage1_types import IntentResult, WorldTemplate
 
 _PROMPT_PATH = Path(__file__).parent.parent / "prompts" / "stage1_classify_world.md"
 
 _SYSTEM = (
     "你是一个世界模版构建模块。"
     "你的职责是根据用户意图，构建一个完整的通用世界基础模版，"
-    "包括世界类型识别、地点集合、人物身份集合、宏观规则，"
-    "以及指导后续 Character/Location/Relation/Institution 模版生成的语义提示。"
+    "包括世界类型识别、地点类型集合、人物身份集合、规则类型、"
+    "高层世界约束，以及具体的仿真起始时间节点。"
     "要充分运用世界背景知识补全用户未明确说明但可合理推断的要素。"
     "只输出合法 JSON，不输出任何解释、标注或额外文字。"
 )
+
+_NESTED_KEYS = {"location_archetypes", "character_archetypes", "rule_archetypes",
+                "world_constraints", "simulation_start"}
 
 
 async def build_world_template(intent: IntentResult) -> WorldTemplate:
@@ -37,19 +40,14 @@ async def build_world_template(intent: IntentResult) -> WorldTemplate:
     raw = await chat_json(prompt, system=_SYSTEM)
     data = json.loads(raw)
 
-    # LLM 有时按分节标题嵌套，如 {"type_description": {"primary":...}, "world_identity": {...}}
-    # 自动展平：把不是 ontology_hints 的嵌套 dict 合并到顶层
+    # LLM 有时按分节标题嵌套，把顶层非保护键的嵌套 dict 展平
     if "primary" not in data:
         flat: dict = {}
         for k, v in data.items():
-            if isinstance(v, dict) and k != "ontology_hints":
+            if isinstance(v, dict) and k not in _NESTED_KEYS:
                 flat.update(v)
             else:
                 flat[k] = v
         data = flat
 
-    # 解析嵌套的 ontology_hints
-    hints_data = data.pop("ontology_hints", {})
-    ontology_hints = OntologyHints(**hints_data) if hints_data else OntologyHints()
-
-    return WorldTemplate(**data, ontology_hints=ontology_hints)
+    return WorldTemplate.model_validate(data)

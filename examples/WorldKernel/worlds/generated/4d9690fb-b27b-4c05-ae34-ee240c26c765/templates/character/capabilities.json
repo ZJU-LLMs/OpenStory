@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "magical_specialization",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "special_ability",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_skills",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

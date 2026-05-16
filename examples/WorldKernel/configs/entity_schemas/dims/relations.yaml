@@ -1,0 +1,6 @@
+# RelationsDim — 关系引用
+fields:
+  - name: relation_ids
+    type: list_str
+    required: true
+    ref: relation

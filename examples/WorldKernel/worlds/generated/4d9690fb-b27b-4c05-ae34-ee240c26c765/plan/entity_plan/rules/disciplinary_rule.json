@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "cruciatus_curse_punishment",
+    "name": "钻心咒惩罚",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "对违反规定的学生施加不可饶恕咒，建立恐怖统治"
+  },
+  {
+    "seed_id": "forced_labor_rule",
+    "name": "强制劳动规则",
+    "entity_type": "rule",
+    "importance": "minor",
+    "source_type": "inferred",
+    "confidence": 0.7,
+    "generation_priority": 3,
+    "role_in_world": "对轻微违规者惩罚在校内做苦力"
+  }
+]

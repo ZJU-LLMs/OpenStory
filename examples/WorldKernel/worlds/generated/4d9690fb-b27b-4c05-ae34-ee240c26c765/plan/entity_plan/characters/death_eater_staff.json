@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "amycus_carrow",
+    "name": "阿米库斯·卡罗",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "黑魔法防御术教师，实施酷刑与惩罚"
+  },
+  {
+    "seed_id": "alector_carrow",
+    "name": "阿莱克托·卡罗",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "麻瓜研究教师，监控学生思想与行为"
+  },
+  {
+    "seed_id": "sbrictus_malfoy",
+    "name": "卢修斯·马尔福",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 3,
+    "role_in_world": "食死徒高层，偶尔巡视学校"
+  }
+]

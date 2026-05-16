@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "forbidden_forest_edge",
+    "name": "禁林边缘",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "抵抗组织成员接头和藏匿物品的野地"
+  },
+  {
+    "seed_id": "quidditch_pitch",
+    "name": "魁地奇球场",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 3,
+    "role_in_world": "食死徒举行惩罚性公开活动的场所"
+  }
+]

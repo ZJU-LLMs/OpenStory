@@ -1,0 +1,42 @@
+[
+  {
+    "seed_id": "dark_arts_classroom",
+    "name": "黑魔法防御术教室",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 1,
+    "role_in_world": "卡罗兄妹实施惩罚和强制教学的核心场所"
+  },
+  {
+    "seed_id": "potions_classroom",
+    "name": "魔药课教室",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "斯拉格霍恩教授主持的教室，少数相对安全的课堂"
+  },
+  {
+    "seed_id": "charms_classroom",
+    "name": "魔咒课教室",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.9,
+    "generation_priority": 2,
+    "role_in_world": "弗立维教授仍保持一定教学自主性的地点"
+  },
+  {
+    "seed_id": "defense_against_dark_arts_practice_room",
+    "name": "黑魔法防御练习室",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "inferred",
+    "confidence": 0.7,
+    "generation_priority": 3,
+    "role_in_world": "学生秘密练习抵抗咒语的隐蔽空间"
+  }
+]
