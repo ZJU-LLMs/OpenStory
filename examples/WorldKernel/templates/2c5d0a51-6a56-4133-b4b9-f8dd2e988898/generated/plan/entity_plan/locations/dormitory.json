@@ -1,0 +1,42 @@
+[
+  {
+    "seed_id": "gryffindor_tower",
+    "name": "格兰芬多塔楼",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "格兰芬多学生宿舍，是抵抗运动成员的主要聚集地"
+  },
+  {
+    "seed_id": "slytherin_common_room",
+    "name": "斯莱特林公共休息室",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 2,
+    "role_in_world": "食死徒后代聚集地，部分学生倾向伏地魔"
+  },
+  {
+    "seed_id": "hufflepuff_basement",
+    "name": "赫奇帕奇地下室",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.94,
+    "generation_priority": 3,
+    "role_in_world": "忠诚的赫奇帕奇学生暗中支持抵抗"
+  },
+  {
+    "seed_id": "ravenclaw_tower",
+    "name": "拉文克劳塔楼",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 3,
+    "role_in_world": "智慧派学生为抵抗提供智力支持"
+  }
+]

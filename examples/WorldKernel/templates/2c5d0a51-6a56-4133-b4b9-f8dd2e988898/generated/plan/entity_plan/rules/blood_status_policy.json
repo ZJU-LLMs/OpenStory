@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "muggleborn_persecution_decree",
+    "name": "麻瓜出身者迫害法令",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "强制麻瓜出身学生登记、逮捕或驱逐"
+  },
+  {
+    "seed_id": "pureblood_privilege",
+    "name": "纯血统特权制度",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "给予纯血统学生额外特权，分化学生群体"
+  }
+]

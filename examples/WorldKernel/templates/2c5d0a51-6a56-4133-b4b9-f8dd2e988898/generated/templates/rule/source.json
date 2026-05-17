@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "issuing_body",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "decrees_number",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_approval_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy_level_in_magical_world",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "quidditch_pitch",
+    "name": "魁地奇球场",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 3,
+    "role_in_world": "被食死徒接管作为军事训练场，但学生仍秘密利用"
+  },
+  {
+    "seed_id": "forbidden_forest",
+    "name": "禁林",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "逃亡者和反抗者的藏身处，马人和夜骐的领地"
+  },
+  {
+    "seed_id": "lake",
+    "name": "黑湖",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.92,
+    "generation_priority": 4,
+    "role_in_world": "人鱼领地，偶尔用于秘密会面"
+  }
+]

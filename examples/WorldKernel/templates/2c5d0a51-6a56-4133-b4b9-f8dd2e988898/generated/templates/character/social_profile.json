@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "true_reputation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_identity_name",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "group_stance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trusted_allies_list",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "suspected_spy_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

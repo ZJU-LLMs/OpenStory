@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "great_hall",
+    "name": "大礼堂",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "全校集合、用餐及食死徒发布命令的核心场所"
+  },
+  {
+    "seed_id": "room_of_requirement",
+    "name": "有求必应屋",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 1,
+    "role_in_world": "D.A.秘密训练和藏匿反抗物品的据点"
+  },
+  {
+    "seed_id": "library",
+    "name": "图书馆",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "被禁书区受到严密监视，学生仍秘密学习防御咒语"
+  }
+]

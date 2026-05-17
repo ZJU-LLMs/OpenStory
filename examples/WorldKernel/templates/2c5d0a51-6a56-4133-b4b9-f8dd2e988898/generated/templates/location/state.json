@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "fortification_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "battle_damage_assessment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupation_purpose",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_headquarter_for_faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resource_supply_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

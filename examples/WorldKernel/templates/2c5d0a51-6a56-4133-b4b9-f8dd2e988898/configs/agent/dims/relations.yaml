@@ -1,0 +1,23 @@
+fields:
+- name: relation_ids
+  type: list_str
+  required: true
+  ref: relation
+- name: relationship_type_label
+  type: str
+  required: false
+- name: trust_level
+  type: str
+  required: false
+- name: secret_relation_description
+  type: str
+  required: false
+- name: blood_purity_relation_bond
+  type: str
+  required: false
+- name: shared_da_oath
+  type: str
+  required: false
+- name: hostility_cause
+  type: str
+  required: false

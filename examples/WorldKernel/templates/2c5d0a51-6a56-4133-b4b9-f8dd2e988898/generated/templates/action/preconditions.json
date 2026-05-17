@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "required_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_password",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_blood_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "permission_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fear_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_of_day_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

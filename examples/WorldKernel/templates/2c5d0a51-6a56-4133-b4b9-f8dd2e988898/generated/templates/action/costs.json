@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "wand_fatigue",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "soul_toll",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "faction_favor",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "detection_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "physical_stamina",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

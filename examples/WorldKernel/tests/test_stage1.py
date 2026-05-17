@@ -20,23 +20,25 @@ from pathlib import Path
 _ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(_ROOT / "src"))
 
-_WORLDS_DIR = _ROOT / "worlds" / "generated"
+_TEMPLATES_DIR = _ROOT / "templates"
 _SERVER_URL = "http://localhost:8100"
 
 _EXPECTED_PATHS = [
-    "world_template.json",
-    "plan/steps.json",
-    "plan/ontology_hints.json",
-    "plan/entity_plan/locations",
-    "plan/entity_plan/characters",
-    "plan/entity_plan/institutions",
-    "plan/entity_plan/rules",
-    "templates/character/index.json",
-    "templates/location/index.json",
-    "templates/relation/index.json",
-    "templates/institution/index.json",
-    "templates/rule/index.json",
-    "templates/action/index.json",
+    "generated/world_template.json",
+    "generated/plan/steps.json",
+    "generated/plan/ontology_hints.json",
+    "generated/plan/entity_plan/locations",
+    "generated/plan/entity_plan/characters",
+    "generated/plan/entity_plan/institutions",
+    "generated/plan/entity_plan/rules",
+    "generated/templates/character/index.json",
+    "generated/templates/location/index.json",
+    "generated/templates/relation/index.json",
+    "generated/templates/institution/index.json",
+    "generated/templates/rule/index.json",
+    "generated/templates/action/index.json",
+    "configs/agent/agent.yaml",
+    "configs/agent/dims",
 ]
 
 
@@ -75,9 +77,10 @@ def _load(session_dir: Path, rel_path: str) -> dict | list | None:
 
 
 def _get_existing_sessions() -> set[str]:
-    if not _WORLDS_DIR.exists():
+    if not _TEMPLATES_DIR.exists():
         return set()
-    return {d.name for d in _WORLDS_DIR.iterdir() if d.is_dir()}
+    return {d.name for d in _TEMPLATES_DIR.iterdir()
+            if d.is_dir() and not d.name.startswith("agent_kernel")}
 
 
 def _wait_for_new_session(before: set[str], timeout: float = 600.0) -> str | None:
@@ -109,7 +112,7 @@ def _wait_for_stable(session_dir: Path, timeout: float = 300.0) -> None:
 
 def _validate_world_template(session_dir: Path, stats: _Stats) -> None:
     _sep("world_template.json")
-    data = _load(session_dir, "world_template.json")
+    data = _load(session_dir, "generated/world_template.json")
     if data is None:
         stats.fail("world_template.json 不存在")
         return
@@ -151,7 +154,7 @@ def _validate_world_template(session_dir: Path, stats: _Stats) -> None:
 def _validate_plan(session_dir: Path, stats: _Stats) -> None:
     _sep("plan/")
 
-    steps = _load(session_dir, "plan/steps.json")
+    steps = _load(session_dir, "generated/plan/steps.json")
     if steps is None:
         stats.fail("plan/steps.json 不存在")
     elif len(steps) >= 2:
@@ -164,7 +167,7 @@ def _validate_plan(session_dir: Path, stats: _Stats) -> None:
     else:
         stats.fail(f"steps.json: 步骤数不足 ({len(steps)})")
 
-    hints = _load(session_dir, "plan/ontology_hints.json")
+    hints = _load(session_dir, "generated/plan/ontology_hints.json")
     if hints is None:
         stats.fail("plan/ontology_hints.json 不存在")
     elif hints.get("character_hints"):
@@ -172,7 +175,7 @@ def _validate_plan(session_dir: Path, stats: _Stats) -> None:
     else:
         stats.fail("ontology_hints.character_hints 为空")
 
-    ep_dir = session_dir / "plan" / "entity_plan"
+    ep_dir = session_dir / "generated" / "plan" / "entity_plan"
     for category in ("locations", "characters", "institutions", "rules"):
         cat_dir = ep_dir / category
         if not cat_dir.exists():
@@ -199,7 +202,7 @@ def _validate_templates(session_dir: Path, stats: _Stats) -> None:
     expected_dims = {"character": 9, "location": 5, "institution": 6,
                      "rule": 4, "action": 4, "relation": 2}
 
-    templates_dir = session_dir / "templates"
+    templates_dir = session_dir / "generated" / "templates"
     if not templates_dir.exists():
         stats.fail("templates/ 目录不存在")
         return
@@ -237,7 +240,7 @@ def _validate_templates(session_dir: Path, stats: _Stats) -> None:
 
 def _run_validation(session_id: str) -> None:
     stats = _Stats()
-    session_dir = _WORLDS_DIR / session_id
+    session_dir = _TEMPLATES_DIR / session_id
     t0 = time.time()
 
     _sep(f"检测到新 session: {session_id}")
@@ -302,7 +305,7 @@ def main() -> None:
     webbrowser.open(url)
 
     print("\n在浏览器中输入世界创建需求并点击「开始生成」")
-    print("脚本正在监测 worlds/generated/ 目录，检测到新 session 后自动校验...")
+    print("脚本正在监测 templates/ 目录，检测到新 session 后自动校验...")
     print("按 Ctrl+C 退出\n")
 
     try:

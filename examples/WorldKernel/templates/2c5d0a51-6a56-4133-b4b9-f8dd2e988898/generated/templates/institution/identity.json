@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_year",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "symbol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "motto",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "color_scheme",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "current_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ideology",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_legacy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "internal_classification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

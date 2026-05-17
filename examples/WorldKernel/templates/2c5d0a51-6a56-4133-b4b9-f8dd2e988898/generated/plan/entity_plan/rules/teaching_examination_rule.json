@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "dark_arts_compulsory_course",
+    "name": "黑魔法必修课制度",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 1,
+    "role_in_world": "强迫学生学习黑魔法，违者受罚"
+  },
+  {
+    "seed_id": "muggle_studies_replaced",
+    "name": "麻瓜研究课被取代",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 2,
+    "role_in_world": "麻瓜研究改为纯血统理论课，贬低麻瓜"
+  }
+]

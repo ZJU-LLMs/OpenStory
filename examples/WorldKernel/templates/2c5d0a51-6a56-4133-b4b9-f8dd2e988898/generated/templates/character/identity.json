@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blood_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_da_member",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_death_eater_agent",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "detention_record",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "hospital_wing",
+    "name": "校医院",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "庞弗雷夫人治疗受惩罚或受伤学生的场所"
+  },
+  {
+    "seed_id": "kitchen",
+    "name": "厨房",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 4,
+    "role_in_world": "家养小精灵工作区，也是学生秘密获取食物和信息的渠道"
+  }
+]

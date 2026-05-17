@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "floo_network_restriction",
+    "name": "飞路网使用限制",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "inferred",
+    "confidence": 0.9,
+    "generation_priority": 2,
+    "role_in_world": "关闭霍格沃茨飞路网，防止学生与外界联系"
+  },
+  {
+    "seed_id": "apparition_ban",
+    "name": "幻影移形禁令",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.93,
+    "generation_priority": 2,
+    "role_in_world": "校内严禁幻影移形，但最终大战中被麦格撤销"
+  },
+  {
+    "seed_id": "secret_passage_warding",
+    "name": "秘密通道监控咒语",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "inferred",
+    "confidence": 0.85,
+    "generation_priority": 3,
+    "role_in_world": "食死徒对所有已知秘密通道施加强力监控咒语"
+  }
+]

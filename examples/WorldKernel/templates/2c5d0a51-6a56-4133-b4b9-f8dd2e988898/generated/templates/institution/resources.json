@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "assets",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "territory",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "funding_source",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "communication_methods",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_repository",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "intelligence_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "safe_houses",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "supply_chain",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_artifacts_inventory",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defensive_assets",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

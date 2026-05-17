@@ -4,9 +4,9 @@ import json
 from pathlib import Path
 
 from worldkernel.llm.client import chat_json
-from worldkernel.models.stage1_types import GenerationPlan, IntentResult, WorldTemplate
+from worldkernel.stage1.types import GenerationPlan, IntentResult, WorldTemplate
 
-_PROMPT_PATH = Path(__file__).parent.parent / "prompts" / "stage1_plan_generation.md"
+_PROMPT_PATH = Path(__file__).parent / "prompts" / "plan_generation.md"
 
 _SYSTEM = (
     "你是一个世界生成计划制定模块。"

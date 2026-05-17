@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "enforcer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mechanism",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "detectability",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_spells",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "informer_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enforcement_frequency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "exception_eligibility",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

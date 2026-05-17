@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "special_magic_field",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_skills",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "wand_registration_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forbidden_spell_knowledge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "survival_skills",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_resilience",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "psychological_state",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_alignment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_motivation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "risk_tolerance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_issue_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defiance_style",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

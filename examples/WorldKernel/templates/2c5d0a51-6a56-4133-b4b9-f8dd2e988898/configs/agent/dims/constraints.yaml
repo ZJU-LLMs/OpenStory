@@ -1,0 +1,22 @@
+fields:
+- name: forbidden_actions
+  type: list_str
+  required: true
+- name: taboos
+  type: list_str
+  required: true
+- name: night_curfew_restriction
+  type: str
+  required: false
+- name: pureblood_propaganda_taboo
+  type: str
+  required: false
+- name: blood_treason_forbidden_action
+  type: str
+  required: false
+- name: mind_control_vulnerability
+  type: str
+  required: false
+- name: emotional_blackmail_weakness
+  type: str
+  required: false

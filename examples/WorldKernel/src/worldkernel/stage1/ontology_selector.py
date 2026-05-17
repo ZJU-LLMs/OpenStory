@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from worldkernel.llm.client import chat_json
-from worldkernel.models.stage1_types import (
+from worldkernel.stage1.types import (
     EntityTemplate,
     FieldDef,
     GenerationPlan,
@@ -14,7 +14,7 @@ from worldkernel.models.stage1_types import (
     WorldTemplate,
 )
 
-_PROMPT_PATH = Path(__file__).parent.parent / "prompts" / "stage1_generate_templates.md"
+_PROMPT_PATH = Path(__file__).parent / "prompts" / "generate_templates.md"
 
 _SYSTEM = (
     "你是一个通用实体模版生成模块。"

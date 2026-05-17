@@ -1,0 +1,439 @@
+{
+  "primary": "magic_school",
+  "secondary": "war-era_school",
+  "confidence": 0.97,
+  "tags": [
+    "魔法",
+    "学院",
+    "衍生",
+    "黑暗时期",
+    "抵抗运动",
+    "哈利·波特与死亡圣器"
+  ],
+  "world_name": "霍格沃茨魔法学院",
+  "world_origin_summary": "衍生自《哈利·波特》系列第七部，在食死徒控制的恐怖统治下，霍格沃茨师生秘密抗争，最终爆发霍格沃茨大战。",
+  "scope": "single_location",
+  "simulation_start": {
+    "time_point": "1997-1998学年开学",
+    "trigger_event": "斯内普就任校长，卡罗兄妹入驻，学院进入恐怖统治期",
+    "year": "1997",
+    "narrative_context": "邓布利多去世后，伏地魔架空魔法部控制了霍格沃茨，新校长斯内普与卡罗兄妹推行残酷纪律，学生秘密重建D.A.抵抗力量。"
+  },
+  "location_archetypes": [
+    {
+      "type_id": "teaching_space",
+      "type_name": "教学空间",
+      "description": "承载日常魔法课程授课的教室与讲堂，食死徒将黑魔法防御课改为实战折磨课程。",
+      "common_fields": [
+        "subject",
+        "professor_id",
+        "capacity",
+        "access_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "dark_arts_classroom",
+          "name": "黑魔法防御课教室",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 1,
+          "role_in_world": "卡罗兄妹实施违禁咒语惩罚与暴力教学的主场，学生恐惧之源。"
+        }
+      ]
+    },
+    {
+      "type_id": "communal_space",
+      "type_name": "公共聚集场所",
+      "description": "全校师生日常交流、用餐、集会的开放空间，受食死徒严密监控。",
+      "common_fields": [
+        "capacity",
+        "security_level",
+        "typical_events"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "great_hall",
+          "name": "大礼堂",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "每日用餐、分院仪式、全校训话及最后战役的决战地。"
+        }
+      ]
+    },
+    {
+      "type_id": "dormitory",
+      "type_name": "学院宿舍",
+      "description": "各学院独立生活的私密区域，公共休息室是学生秘密集会与策划反抗的场所。",
+      "common_fields": [
+        "house",
+        "capacity",
+        "security_level",
+        "password_protected"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "gryffindor_tower",
+          "name": "格兰芬多塔楼",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.95,
+          "generation_priority": 2,
+          "role_in_world": "哈利、罗恩、赫敏及D.A.成员的主要据点，秘密藏匿地。"
+        }
+      ]
+    },
+    {
+      "type_id": "outdoor_area",
+      "type_name": "户外场地",
+      "description": "城堡外围的禁林、湖畔、魁地奇球场等区域，既是放松之地也隐藏逃逸通道。",
+      "common_fields": [
+        "terrain",
+        "danger_level",
+        "known_creatures"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "forbidden_forest",
+          "name": "禁林",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.96,
+          "generation_priority": 2,
+          "role_in_world": "哈利寻找魂器的路径之一，也是海格住处及危险生物聚集地。"
+        }
+      ]
+    },
+    {
+      "type_id": "restricted_section",
+      "type_name": "管制的特殊区域",
+      "description": "校长办公室、禁书区、有求必应屋等需要特定许可或秘密才能进入的场所。",
+      "common_fields": [
+        "access_condition",
+        "purpose",
+        "intrinsic_magic"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "room_of_requirement",
+          "name": "有求必应屋",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "D.A.秘密训练基地，后变为藏匿拉文克劳冠冕等物品的地点。"
+        }
+      ]
+    },
+    {
+      "type_id": "infirmary_and_utility",
+      "type_name": "医疗与功能设施",
+      "description": "医院翼楼、厨房、图书馆等保障日常运转但又各有秘密功能的场所。",
+      "common_fields": [
+        "purpose",
+        "staff_id",
+        "access_hours"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "hospital_wing",
+          "name": "医院翼楼",
+          "importance": "minor",
+          "source_type": "canonical",
+          "confidence": 0.94,
+          "generation_priority": 3,
+          "role_in_world": "由庞弗雷夫人负责的医疗区，在冲突中救治受伤学生与反抗者。"
+        }
+      ]
+    },
+    {
+      "type_id": "secret_passage",
+      "type_name": "秘密通道与出口",
+      "description": "霍格沃茨城堡内外隐藏的密道，供学生躲避追捕或逃离学校。",
+      "common_fields": [
+        "start_location",
+        "end_location",
+        "discovery_method"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "one_eyed_passage",
+          "name": "独眼女巫雕像通道",
+          "importance": "minor",
+          "source_type": "canonical",
+          "confidence": 0.93,
+          "generation_priority": 3,
+          "role_in_world": "连接霍格莫德村的密道之一，逃亡时使用。"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "student",
+      "type_name": "学生",
+      "description": "在压迫中成长或沉沦的年轻巫师，部分加入D.A.或食死徒幼苗。",
+      "common_fields": [
+        "house",
+        "year",
+        "blood_status",
+        "da_member",
+        "resistance_activity"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "neville_longbottom",
+          "name": "纳威·隆巴顿",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "D.A.实际领导者，遭受惩罚后成长为反抗领袖。"
+        }
+      ]
+    },
+    {
+      "type_id": "faculty",
+      "type_name": "教职工",
+      "description": "留任或被迫留任的学院教师，忠诚于学校或暗中保护学生。",
+      "common_fields": [
+        "subject",
+        "loyalty",
+        "house",
+        "status_under_death_eaters"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "mcgonagall",
+          "name": "米勒娃·麦格",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "格兰芬多院长、变形术教授，反抗食死徒的幕后推手。"
+        }
+      ]
+    },
+    {
+      "type_id": "death_eater_staff",
+      "type_name": "食死徒管控者",
+      "description": "伏地魔安插在学校的爪牙，以恐怖和体罚实施管制的黑巫师。",
+      "common_fields": [
+        "rank",
+        "assigned_territory",
+        "known_cruelty"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "amycus_carrow",
+          "name": "阿米库斯·卡罗",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.97,
+          "generation_priority": 1,
+          "role_in_world": "黑魔法防御术教师，主导对学生施加钻心咒等惩罚。"
+        }
+      ]
+    },
+    {
+      "type_id": "headmaster",
+      "type_name": "校长",
+      "description": "名义上统领学校、实为伏地魔代言人的重要角色。",
+      "common_fields": [
+        "previous_house",
+        "true_loyalty",
+        "public_face"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "severus_snape",
+          "name": "西弗勒斯·斯内普",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "双面间谍，在食死徒要求下就任校长，暗中保护学生并传递关键情报。"
+        }
+      ]
+    },
+    {
+      "type_id": "support_staff",
+      "type_name": "后勤人员",
+      "description": "家养小精灵、管理员等维持学校基本运转的非教学成员。",
+      "common_fields": [
+        "role",
+        "loyalty_house",
+        "magical_abilities"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "dobby",
+          "name": "多比",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 2,
+          "role_in_world": "自由的家养小精灵，曾帮助哈利监视校园并协助逃脱马尔福庄园。"
+        }
+      ]
+    },
+    {
+      "type_id": "ghost",
+      "type_name": "幽灵",
+      "description": "徘徊在城堡中的昔日巫师灵魂，见证历史并偶尔提供情报。",
+      "common_fields": [
+        "house",
+        "era_of_death",
+        "known_secrets"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "nearly_headless_nick",
+          "name": "差点没头的尼克",
+          "importance": "minor",
+          "source_type": "canonical",
+          "confidence": 0.96,
+          "generation_priority": 3,
+          "role_in_world": "格兰芬多常驻幽灵，传递城堡动态与历史信息。"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "disciplinary_rule",
+      "type_name": "纪律规则",
+      "description": "食死徒政权通过体罚、关禁闭等残酷手段施加的高压纪律条例。",
+      "common_fields": [
+        "enforcer",
+        "punishment_type",
+        "trigger_condition",
+        "severity"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "unforgivable_detention",
+          "name": "滥用不可饶恕咒惩罚",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.97,
+          "generation_priority": 1,
+          "role_in_world": "卡罗兄妹直接对学生使用钻心咒作为纪律手段，制造恐怖氛围。"
+        }
+      ]
+    },
+    {
+      "type_id": "access_control",
+      "type_name": "准入与通行规则",
+      "description": "限制人员流动、信息传播和集会自由的各项规定，如宵禁、禁书、监控飞路网等。",
+      "common_fields": [
+        "restriction_type",
+        "time_range",
+        "detection_method",
+        "penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "curfew",
+          "name": "宵禁令",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.95,
+          "generation_priority": 1,
+          "role_in_world": "学生晚8点后禁止离开公共休息室，否则面临关禁闭或体罚。"
+        }
+      ]
+    },
+    {
+      "type_id": "educational_curriculum",
+      "type_name": "教学考核规则",
+      "description": "食死徒篡改的教学大纲，强调黑魔法实战，取消保护神奇生物等课程。",
+      "common_fields": [
+        "mandatory_subject",
+        "professor_assignment",
+        "grading_basis"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "dark_defense_compulsory",
+          "name": "黑魔法防御术成为必修核心",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "卡罗兄妹强制学生掌握不可饶恕咒，并视表现评估忠诚度。"
+        }
+      ]
+    },
+    {
+      "type_id": "secret_society_rule",
+      "type_name": "地下组织规则",
+      "description": "D.A.等抵抗团体为躲避监视而制定的秘密活动准则。",
+      "common_fields": [
+        "membership_oath",
+        "communication_method",
+        "safe_zones"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "da_coin_messaging",
+          "name": "加隆密语通信",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.96,
+          "generation_priority": 2,
+          "role_in_world": "赫敏改造的加隆币，用于D.A.成员之间传递集会时间和情报。"
+        }
+      ]
+    },
+    {
+      "type_id": "blood_status_rule",
+      "type_name": "血统等级政策",
+      "description": "基于巫师血统（纯血、混血、麻瓜出身）的歧视性制度，压迫麻瓜出身者。",
+      "common_fields": [
+        "classification",
+        "privileges",
+        "penalties"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "muggle_born_registration",
+          "name": "麻瓜出身者登记法",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "强制麻瓜出身学生登记，剥夺魔杖并流放，成为霍格沃茨校园中最残酷的差别对待。"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "magical_secrecy",
+      "name": "魔法世界保密法",
+      "description": "巫师社会必须对麻瓜隐藏魔法的存在，魔法部明面上仍维持这一原则，但食死徒政权正逐步颠覆。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "death_eater_control",
+      "name": "食死徒政权全面掌控",
+      "description": "伏地魔通过斯内普和卡罗兄妹实际控制霍格沃茨，公开对抗将被虐待甚至处决，学校笼罩在恐惧之下。",
+      "scope": "location"
+    },
+    {
+      "constraint_id": "hogwarts_inherent_magic",
+      "name": "霍格沃茨固有魔法限制",
+      "description": "城堡拥有古老的反幻影移形咒禁止校外瞬移，同时城堡本身存在隐秘通道和由历任校长留下的保护机制。",
+      "scope": "location"
+    },
+    {
+      "constraint_id": "blood_hierarchy",
+      "name": "血统至上意识形态",
+      "description": "食死徒政权推行以纯血统为核心的社会等级，麻瓜出身者被视为劣等，混血巫师亦受歧视，这一观念渗透学校政策。",
+      "scope": "faction"
+    }
+  ]
+}

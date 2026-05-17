@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "night_curfew_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "pureblood_propaganda_taboo",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blood_treason_forbidden_action",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mind_control_vulnerability",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_blackmail_weakness",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

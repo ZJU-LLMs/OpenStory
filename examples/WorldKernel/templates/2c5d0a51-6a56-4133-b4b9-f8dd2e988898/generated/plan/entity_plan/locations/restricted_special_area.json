@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "headmasters_office",
+    "name": "校长办公室",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "斯内普担任校长时的权力中心，监控全校"
+  },
+  {
+    "seed_id": "umbridge_former_office",
+    "name": "乌姆里奇前办公室",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "inferred",
+    "confidence": 0.85,
+    "generation_priority": 4,
+    "role_in_world": "被卡罗兄妹用来关押和审讯反抗学生"
+  }
+]

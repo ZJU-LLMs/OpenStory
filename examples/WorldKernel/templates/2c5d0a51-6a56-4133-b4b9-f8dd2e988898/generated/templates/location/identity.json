@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_controller",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_significance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_affiliation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "has_ghost_activity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

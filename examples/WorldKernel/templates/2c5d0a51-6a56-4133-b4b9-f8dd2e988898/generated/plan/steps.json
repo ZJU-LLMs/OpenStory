@@ -1,0 +1,200 @@
+[
+  {
+    "step_id": "generate_world_background",
+    "generator_type": "world_background_generator",
+    "depends_on": [],
+    "target_entity_type": "world_background",
+    "target_seeds": [],
+    "context_refs": [],
+    "batch_size": 1,
+    "priority": 1,
+    "description": "生成1997-1998学年的霍格沃茨世界背景：食死徒统治、伏地魔崛起、魔法部垮台、哈利与魂器任务。"
+  },
+  {
+    "step_id": "generate_locations",
+    "generator_type": "location_generator",
+    "depends_on": [
+      "generate_world_background"
+    ],
+    "target_entity_type": "location",
+    "target_seeds": [
+      "dark_arts_classroom",
+      "potions_classroom",
+      "transfiguration_classroom",
+      "herbology_greenhouses",
+      "great_hall",
+      "room_of_requirement",
+      "library",
+      "gryffindor_tower",
+      "slytherin_common_room",
+      "hufflepuff_basement",
+      "ravenclaw_tower",
+      "quidditch_pitch",
+      "forbidden_forest",
+      "lake",
+      "headmasters_office",
+      "umbridge_former_office",
+      "hospital_wing",
+      "kitchen",
+      "honeydukes_passage",
+      "shrieking_shack_passage"
+    ],
+    "context_refs": [
+      "generate_world_background"
+    ],
+    "batch_size": 8,
+    "priority": 2,
+    "description": "生成所有地点实体，包括教学空间、公共区域、宿舍、户外、禁林、秘密通道等。"
+  },
+  {
+    "step_id": "generate_characters",
+    "generator_type": "character_generator",
+    "depends_on": [
+      "generate_locations"
+    ],
+    "target_entity_type": "character",
+    "target_seeds": [
+      "harry_potter",
+      "ron_weasley",
+      "hermione_granger",
+      "ginny_weasley",
+      "nevile_longbottom",
+      "luna_lovegood",
+      "draco_malfoy",
+      "pansy_parkinson",
+      "hannah_abbott",
+      "minerva_mcgonagall",
+      "severus_snape",
+      "horace_slughorn",
+      "pomona_sprout",
+      "filius_flitwick",
+      "remus_lupin",
+      "siobhan_mccarthy",
+      "alecto_carrow",
+      "amycus_carrow",
+      "dolores_umbridge",
+      "severus_snape_headmaster",
+      "poppy_pomfrey",
+      "argus_filch",
+      "house_elves",
+      "nearly_headless_nick",
+      "bloody_baron",
+      "grey_lady"
+    ],
+    "context_refs": [
+      "generate_locations",
+      "generate_world_background"
+    ],
+    "batch_size": 8,
+    "priority": 2,
+    "description": "生成所有人物实体，包括学生、教职工、食死徒、校长、后勤、幽灵。"
+  },
+  {
+    "step_id": "generate_institutions",
+    "generator_type": "institution_generator",
+    "depends_on": [
+      "generate_characters"
+    ],
+    "target_entity_type": "institution",
+    "target_seeds": [
+      "gryffindor_house",
+      "slytherin_house",
+      "hufflepuff_house",
+      "ravenclaw_house",
+      "dumbledores_army",
+      "order_of_the_phoenix",
+      "inquisitorial_squad",
+      "ministry_muggleborn_registration",
+      "prefect_system"
+    ],
+    "context_refs": [
+      "generate_characters",
+      "generate_locations"
+    ],
+    "batch_size": 5,
+    "priority": 3,
+    "description": "生成学院、抵抗组织、食死徒组织等制度实体。"
+  },
+  {
+    "step_id": "generate_relations",
+    "generator_type": "relation_generator",
+    "depends_on": [
+      "generate_characters",
+      "generate_institutions"
+    ],
+    "target_entity_type": "relation",
+    "target_seeds": [
+      "harry_snape_conflict",
+      "mcgonagall_loyalty",
+      "carrow_brothers_rule",
+      "da_membership",
+      "slytherin_pureblood_alliance",
+      "order_contact_network"
+    ],
+    "context_refs": [
+      "generate_characters",
+      "generate_institutions",
+      "generate_locations"
+    ],
+    "batch_size": 6,
+    "priority": 3,
+    "description": "生成人物之间、人物与机构之间的关键关系，如对抗、忠诚、结盟、监视等。"
+  },
+  {
+    "step_id": "generate_rules",
+    "generator_type": "rule_generator",
+    "depends_on": [
+      "generate_institutions",
+      "generate_relations"
+    ],
+    "target_entity_type": "rule",
+    "target_seeds": [
+      "cruciatus_curse_punishment",
+      "curfew_and_detention",
+      "house_points_system",
+      "floo_network_restriction",
+      "apparition_ban",
+      "secret_passage_warding",
+      "dark_arts_compulsory_course",
+      "muggle_studies_replaced",
+      "dumbledores_army_oath",
+      "safe_houses_and_hidings",
+      "muggleborn_persecution_decree",
+      "pureblood_privilege"
+    ],
+    "context_refs": [
+      "generate_institutions",
+      "generate_relations"
+    ],
+    "batch_size": 6,
+    "priority": 4,
+    "description": "生成所有规则实体，包括纪律、通行、教学、地下组织、血统政策。"
+  },
+  {
+    "step_id": "generate_actions",
+    "generator_type": "action_generator",
+    "depends_on": [
+      "generate_rules",
+      "generate_characters",
+      "generate_locations"
+    ],
+    "target_entity_type": "action",
+    "target_seeds": [
+      "battle_of_hogwarts",
+      "harry_returns_to_hogwarts",
+      "dumbledores_army_reunites",
+      "snape_memory_reveal",
+      "voldemort_kills_snape",
+      "mcgonagall_expels_carrows"
+    ],
+    "context_refs": [
+      "generate_rules",
+      "generate_characters",
+      "generate_locations",
+      "generate_relations"
+    ],
+    "batch_size": 6,
+    "priority": 5,
+    "description": "生成关键叙事动作，包括最终大战、重要事件和转折点。"
+  }
+]

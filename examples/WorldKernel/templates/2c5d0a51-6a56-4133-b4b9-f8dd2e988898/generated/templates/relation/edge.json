@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "from_id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "to_id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "direction",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "subtype",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_agenda",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "communication_method",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blood_status_relation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

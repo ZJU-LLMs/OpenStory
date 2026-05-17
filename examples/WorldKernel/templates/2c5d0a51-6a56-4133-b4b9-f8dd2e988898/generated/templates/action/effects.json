@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "on_actor",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_target",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_environment",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "suspicion_generated",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_change",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magic_trace",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "morale_effect",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reputation_shift",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

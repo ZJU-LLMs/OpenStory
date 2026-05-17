@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "visual_description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "visual_prompt",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "distinctive_mark",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "uniform_identifying_sign",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "disguise_equipment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dark_mark_tattoo",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_prefect_badge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

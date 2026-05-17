@@ -15,7 +15,7 @@ from worldkernel.stage1.pipeline import Stage1Error, run_stage1
 
 BASE_DIR = Path(__file__).parent.parent.parent
 CONFIGS_DIR = BASE_DIR / "configs"
-WORLDS_DIR = BASE_DIR / "worlds" / "generated"
+TEMPLATES_DIR = BASE_DIR / "templates"
 FRONTEND_DIR = BASE_DIR / "frontend"
 
 
@@ -49,7 +49,7 @@ async def parse(req: ParseRequest):
 
 @app.get("/api/stage1/session/{session_id}")
 async def get_session(session_id: str):
-    session_dir = WORLDS_DIR / session_id
+    session_dir = TEMPLATES_DIR / session_id
     if not session_dir.exists():
         raise HTTPException(status_code=404, detail="session not found")
     files = sorted(
@@ -61,10 +61,13 @@ async def get_session(session_id: str):
 
 @app.get("/api/stage1/session/{session_id}/{path:path}")
 async def get_session_file(session_id: str, path: str):
-    file_path = WORLDS_DIR / session_id / path
-    if not file_path.exists() or file_path.suffix != ".json":
+    file_path = TEMPLATES_DIR / session_id / path
+    if not file_path.exists() or file_path.suffix not in (".json", ".yaml"):
         raise HTTPException(status_code=404, detail="file not found")
     import json
+    if file_path.suffix == ".yaml":
+        import yaml
+        return yaml.safe_load(file_path.read_text(encoding="utf-8"))
     return json.loads(file_path.read_text(encoding="utf-8"))
 
 

@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "internal_discipline",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hierarchy_structure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "decision_body",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "succession_rule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "punishment_mechanism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "communication_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "accountability_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

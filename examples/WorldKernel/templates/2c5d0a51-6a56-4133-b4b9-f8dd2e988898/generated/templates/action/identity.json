@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "category",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "action_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_skill",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "allegiance_requirement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_complexity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

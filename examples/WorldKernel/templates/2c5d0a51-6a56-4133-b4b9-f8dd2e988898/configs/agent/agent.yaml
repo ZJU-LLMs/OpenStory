@@ -1,0 +1,30 @@
+name: Agent
+entity_type: character
+dimensions:
+  identity:
+    type: IdentityDim
+    required: true
+  personality:
+    type: PersonalityDim
+    required: true
+  capabilities:
+    type: CapabilitiesDim
+    required: true
+  goals:
+    type: GoalsDim
+    required: true
+  constraints:
+    type: ConstraintsDim
+    required: true
+  state:
+    type: StateDim
+    required: true
+  visual:
+    type: VisualDim
+    required: true
+  social_profile:
+    type: SocialProfileDim
+    required: true
+  relations:
+    type: RelationsDim
+    required: true

@@ -1,0 +1,25 @@
+fields:
+- name: short_term_goal
+  type: str
+  required: true
+- name: long_term_goal
+  type: str
+  required: true
+- name: motivation
+  type: str
+  required: true
+- name: hidden_short_term_goal
+  type: str
+  required: false
+- name: loyalty_goal
+  type: str
+  required: false
+- name: secret_operation_goal
+  type: str
+  required: false
+- name: survival_priority
+  type: str
+  required: false
+- name: betrayal_trigger_condition
+  type: str
+  required: false

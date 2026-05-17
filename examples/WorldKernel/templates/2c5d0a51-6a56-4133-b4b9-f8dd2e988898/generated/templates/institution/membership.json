@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "members",
+      "type": "list_str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "roles",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_criteria",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "member_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "factions_within",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "initiation_rite",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "pledge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "loyalty_oath",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_concealment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "turnover_rate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recruitment_method",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

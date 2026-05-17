@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "dumbledores_army",
+    "name": "邓布利多军",
+    "entity_type": "institution",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "学生秘密抵抗组织，在食死徒统治下继续活动"
+  },
+  {
+    "seed_id": "order_of_the_phoenix",
+    "name": "凤凰社",
+    "entity_type": "institution",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "对抗伏地魔和食死徒的秘密组织，与校内抵抗联络"
+  }
+]

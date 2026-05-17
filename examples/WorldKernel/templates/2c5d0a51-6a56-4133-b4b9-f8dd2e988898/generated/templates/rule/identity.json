@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "scope",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "blood_status_target",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "wartime_special_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_specific_applicability",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "underground_vs_official",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

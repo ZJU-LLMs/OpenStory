@@ -3,19 +3,21 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from worldkernel.models.stage1_types import (
+import yaml
+
+from worldkernel.stage1.types import (
     EntityTemplate,
     GenerationPlan,
     IntentResult,
     WorldTemplate,
 )
-from worldkernel.models.world_spec import SessionInfo
+from worldkernel.stage1.world_spec import SessionInfo
 from worldkernel.stage1.generation_planner import plan_generation
 from worldkernel.stage1.intent_parser import parse_intent
 from worldkernel.stage1.ontology_selector import generate_templates
 from worldkernel.stage1.world_type_classifier import build_world_template
 
-_WORLDS_DIR = Path(__file__).parent.parent.parent.parent / "worlds" / "generated"
+_TEMPLATES_DIR = Path(__file__).parent.parent.parent.parent / "templates"
 
 
 class Stage1Error(Exception):
@@ -27,7 +29,7 @@ class Stage1Error(Exception):
 
 async def run_stage1(raw_input: str) -> SessionInfo:
     session = SessionInfo(source_input=raw_input)
-    out_dir = _WORLDS_DIR / session.session_id
+    out_dir = _TEMPLATES_DIR / session.session_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
     try:
@@ -50,9 +52,10 @@ async def run_stage1(raw_input: str) -> SessionInfo:
     except Exception as e:
         raise Stage1Error("ontology_selector", e) from e
 
-    _save_json(out_dir / "world_template.json", world_type.model_dump())
-    _save_plan(out_dir / "plan", plan)
-    _save_templates(out_dir / "templates", templates)
+    _save_json(out_dir / "generated" / "world_template.json", world_type.model_dump())
+    _save_plan(out_dir / "generated" / "plan", plan)
+    _save_templates(out_dir / "generated" / "templates", templates)
+    _save_agent_config(out_dir / "configs" / "agent", templates)
 
     return session
 
@@ -60,6 +63,14 @@ async def run_stage1(raw_input: str) -> SessionInfo:
 def _save_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _save_yaml(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        yaml.dump(data, allow_unicode=True, default_flow_style=False, sort_keys=False),
+        encoding="utf-8",
+    )
 
 
 def _save_plan(plan_dir: Path, plan: GenerationPlan) -> None:
@@ -86,3 +97,34 @@ def _save_templates(templates_dir: Path, templates: dict[str, EntityTemplate]) -
         _save_json(ent_dir / "index.json", {"dimensions": dim_names})
         for dim_name, dim_data in entity_template.dimensions.items():
             _save_json(ent_dir / f"{dim_name}.json", dim_data.model_dump())
+
+
+def _save_agent_config(configs_dir: Path, templates: dict[str, EntityTemplate]) -> None:
+    """从生成的 character 模版自动导出 Agent config（分层结构）。"""
+    char_template = templates.get("character")
+    if not char_template:
+        return
+
+    dim_names = list(char_template.dimensions.keys())
+    config = {
+        "name": "Agent",
+        "entity_type": "character",
+        "dimensions": {
+            name: {"type": f"{name.title().replace('_', '')}Dim", "required": True}
+            for name in dim_names
+        },
+    }
+
+    configs_dir.mkdir(parents=True, exist_ok=True)
+    _save_yaml(configs_dir / "agent.yaml", config)
+
+    dims_dir = configs_dir / "dims"
+    dims_dir.mkdir(parents=True, exist_ok=True)
+    for dim_name, dim_data in char_template.dimensions.items():
+        dim_fields = []
+        for f in dim_data.fields:
+            field_entry: dict = {"name": f.name, "type": f.type, "required": f.required}
+            if f.ref:
+                field_entry["ref"] = f.ref
+            dim_fields.append(field_entry)
+        _save_yaml(dims_dir / f"{dim_name}.yaml", {"fields": dim_fields})

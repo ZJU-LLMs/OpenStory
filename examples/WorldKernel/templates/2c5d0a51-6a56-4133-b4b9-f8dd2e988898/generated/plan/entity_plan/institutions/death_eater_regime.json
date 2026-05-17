@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "inquisitorial_squad",
+    "name": "调查行动组",
+    "entity_type": "institution",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "由卡罗兄妹组建的学生告密者组织，监控全校"
+  },
+  {
+    "seed_id": "ministry_muggleborn_registration",
+    "name": "魔法部麻瓜出身登记委员会",
+    "entity_type": "institution",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 3,
+    "role_in_world": "负责捕获和审讯麻瓜出身者，对霍格沃茨学生施加威胁"
+  }
+]

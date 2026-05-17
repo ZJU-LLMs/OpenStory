@@ -1,0 +1,42 @@
+[
+  {
+    "seed_id": "dark_arts_classroom",
+    "name": "黑魔法防御术教室",
+    "entity_type": "location",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 1,
+    "role_in_world": "卡罗兄妹实施惩罚和教授黑暗魔法的场所"
+  },
+  {
+    "seed_id": "potions_classroom",
+    "name": "魔药课教室",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "斯拉格霍恩教授主持的教室，部分学生暗中密谋"
+  },
+  {
+    "seed_id": "transfiguration_classroom",
+    "name": "变形课教室",
+    "entity_type": "location",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "麦格教授坚持教学的场所，体现抵抗精神"
+  },
+  {
+    "seed_id": "herbology_greenhouses",
+    "name": "草药学温室",
+    "entity_type": "location",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.93,
+    "generation_priority": 4,
+    "role_in_world": "斯普劳特教授带领学生种植战斗用植物"
+  }
+]

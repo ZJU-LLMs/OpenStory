@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "strength",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "intimacy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "conflict",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dependency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_collaboration",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "loyalty_fracture_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

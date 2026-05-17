@@ -1,0 +1,72 @@
+[
+  {
+    "seed_id": "minerva_mcgonagall",
+    "name": "米勒娃·麦格",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "变形课教授兼格兰芬多院长，暗中保护学生并参与最终决战"
+  },
+  {
+    "seed_id": "severus_snape",
+    "name": "西弗勒斯·斯内普",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "校长兼食死徒，实为邓布利多的卧底，关键情报来源"
+  },
+  {
+    "seed_id": "horace_slughorn",
+    "name": "霍拉斯·斯拉格霍恩",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 2,
+    "role_in_world": "魔药课教授，拥有广泛人脉但明哲保身"
+  },
+  {
+    "seed_id": "pomona_sprout",
+    "name": "波莫娜·斯普劳特",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "草药学教授，为战斗培育攻击性植物"
+  },
+  {
+    "seed_id": "filius_flitwick",
+    "name": "菲利乌斯·弗立维",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 2,
+    "role_in_world": "魔咒课教授，精通决斗，是抵抗的重要战力"
+  },
+  {
+    "seed_id": "remus_lupin",
+    "name": "莱姆斯·卢平",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "凤凰社成员，秘密传递情报并参与最终防御"
+  },
+  {
+    "seed_id": "siobhan_mccarthy",
+    "name": "西沃恩·麦卡锡",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "inferred",
+    "confidence": 0.7,
+    "generation_priority": 4,
+    "role_in_world": "麻瓜研究教授（被食死徒替换前），课前逃走"
+  }
+]

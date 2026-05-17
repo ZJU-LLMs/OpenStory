@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capital_punishment_possible",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_humiliation_component",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "symbolic_rewards",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "alternate_resistance_compensation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

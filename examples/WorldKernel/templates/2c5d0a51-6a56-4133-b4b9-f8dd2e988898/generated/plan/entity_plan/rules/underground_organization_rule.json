@@ -1,0 +1,22 @@
+[
+  {
+    "seed_id": "dumbledores_army_oath",
+    "name": "邓布利多军誓约与加密通信",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 1,
+    "role_in_world": "D.A.成员用加隆币通信，严格遵守保密"
+  },
+  {
+    "seed_id": "safe_houses_and_hidings",
+    "name": "安全屋与藏匿规则",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "inferred",
+    "confidence": 0.85,
+    "generation_priority": 3,
+    "role_in_world": "确立校内安全地点和紧急撤退路线"
+  }
+]

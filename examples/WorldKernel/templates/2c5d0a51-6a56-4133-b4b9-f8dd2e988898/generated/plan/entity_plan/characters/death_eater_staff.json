@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "alecto_carrow",
+    "name": "阿莱克托·卡罗",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "食死徒管控者之一，负责惩罚学生和灌输黑暗魔法"
+  },
+  {
+    "seed_id": "amycus_carrow",
+    "name": "阿米库斯·卡罗",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "食死徒管控者之一，残忍践踏纪律"
+  },
+  {
+    "seed_id": "dolores_umbridge",
+    "name": "多洛雷斯·乌姆里奇",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "魔法部派驻的哈利·波特审查官，回归协助镇压"
+  }
+]

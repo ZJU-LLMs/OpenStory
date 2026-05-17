@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "nearly_headless_nick",
+    "name": "差点没头的尼克",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.94,
+    "generation_priority": 4,
+    "role_in_world": "格兰芬多塔的幽灵，暗中传递消息和士气"
+  },
+  {
+    "seed_id": "bloody_baron",
+    "name": "血人巴罗",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.92,
+    "generation_priority": 4,
+    "role_in_world": "斯莱特林幽灵，受到食死徒学生的敬畏"
+  },
+  {
+    "seed_id": "grey_lady",
+    "name": "灰女士",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.91,
+    "generation_priority": 4,
+    "role_in_world": "拉文克劳的幽灵，拉文克劳学生偶尔向她寻求智慧"
+  }
+]

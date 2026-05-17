@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "visual_description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "visual_prompt",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "dark_decoration_theme",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mist_or_fog_presence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "lighting_quality",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_mark_prominence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "damage_visible",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

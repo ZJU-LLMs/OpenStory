@@ -1,0 +1,12 @@
+[
+  {
+    "seed_id": "prefect_system",
+    "name": "级长系统",
+    "entity_type": "institution",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.94,
+    "generation_priority": 4,
+    "role_in_world": "被食死徒渗透，部分级长成为告密者"
+  }
+]

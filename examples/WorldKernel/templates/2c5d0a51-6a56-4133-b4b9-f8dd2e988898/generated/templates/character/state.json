@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "location_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "position_x",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "position_y",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_state",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "injury_or_poison_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hiding_or_active",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_trace_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

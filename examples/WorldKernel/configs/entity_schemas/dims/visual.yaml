@@ -1,9 +1,0 @@
-# VisualDim — 外观描述
-fields:
-  - name: visual_description
-    type: str
-    required: true
-
-  - name: visual_prompt
-    type: str
-    required: true

@@ -1,0 +1,92 @@
+[
+  {
+    "seed_id": "harry_potter",
+    "name": "哈利·波特",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "反抗领袖，秘密潜入霍格沃茨寻找魂器并领导最终决战"
+  },
+  {
+    "seed_id": "ron_weasley",
+    "name": "罗恩·韦斯莱",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "哈利最好的朋友，共同寻找魂器并参与战斗"
+  },
+  {
+    "seed_id": "hermione_granger",
+    "name": "赫敏·格兰杰",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "智囊，策划抵抗活动并破解魂器线索"
+  },
+  {
+    "seed_id": "ginny_weasley",
+    "name": "金妮·韦斯莱",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "D.A.核心成员，在霍格沃茨内领导抵抗"
+  },
+  {
+    "seed_id": "nevile_longbottom",
+    "name": "纳威·隆巴顿",
+    "entity_type": "character",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "D.A.地下领导人，保护格兰芬多宝剑并在最终决战中杀死纳吉尼"
+  },
+  {
+    "seed_id": "luna_lovegood",
+    "name": "卢娜·洛夫古德",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.98,
+    "generation_priority": 2,
+    "role_in_world": "被食死徒抓走但仍坚守信念，提供独特见解"
+  },
+  {
+    "seed_id": "draco_malfoy",
+    "name": "德拉科·马尔福",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 2,
+    "role_in_world": "在食死徒压力下内心挣扎的斯莱特林学生"
+  },
+  {
+    "seed_id": "pansy_parkinson",
+    "name": "潘西·帕金森",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.92,
+    "generation_priority": 4,
+    "role_in_world": "忠实的食死徒追随者，监视其他学生"
+  },
+  {
+    "seed_id": "hannah_abbott",
+    "name": "汉娜·艾博",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.88,
+    "generation_priority": 4,
+    "role_in_world": "赫奇帕奇学生，协助地下抵抗网络"
+  }
+]

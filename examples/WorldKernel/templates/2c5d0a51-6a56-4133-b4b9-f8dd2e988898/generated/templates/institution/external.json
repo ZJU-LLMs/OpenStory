@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "allies",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enemies",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_perception",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "propaganda_tactics",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "diplomatic_standing",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "conflict_relations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cover_stories",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

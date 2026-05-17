@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "monitoring_spell_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "password_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "curfew_access_restricted",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_entrance_indicator",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blood_status_requirement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

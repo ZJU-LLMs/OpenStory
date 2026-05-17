@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "poppy_pomfrey",
+    "name": "波皮·庞弗雷",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 3,
+    "role_in_world": "校医院护士，治疗所有伤员并在战斗中救助"
+  },
+  {
+    "seed_id": "argus_filch",
+    "name": "阿格斯·费尔奇",
+    "entity_type": "character",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.93,
+    "generation_priority": 4,
+    "role_in_world": "管理员，服从食死徒命令但效率低下"
+  },
+  {
+    "seed_id": "house_elves",
+    "name": "家养小精灵（集体）",
+    "entity_type": "character",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.96,
+    "generation_priority": 3,
+    "role_in_world": "作为后勤人员提供食物和清洁，部分协助抵抗"
+  }
+]

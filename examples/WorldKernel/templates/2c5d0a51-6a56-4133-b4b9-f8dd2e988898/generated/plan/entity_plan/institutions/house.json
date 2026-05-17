@@ -1,0 +1,42 @@
+[
+  {
+    "seed_id": "gryffindor_house",
+    "name": "格兰芬多学院",
+    "entity_type": "institution",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "抵抗运动的主要发源地，以勇气著称"
+  },
+  {
+    "seed_id": "slytherin_house",
+    "name": "斯莱特林学院",
+    "entity_type": "institution",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 1,
+    "role_in_world": "多数成员支持纯血统政策，部分学生加入食死徒"
+  },
+  {
+    "seed_id": "hufflepuff_house",
+    "name": "赫奇帕奇学院",
+    "entity_type": "institution",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "忠诚的学院，许多学生秘密协助抵抗"
+  },
+  {
+    "seed_id": "ravenclaw_house",
+    "name": "拉文克劳学院",
+    "entity_type": "institution",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 1.0,
+    "generation_priority": 2,
+    "role_in_world": "智慧型学院，一些学生提供情报和智力支持"
+  }
+]

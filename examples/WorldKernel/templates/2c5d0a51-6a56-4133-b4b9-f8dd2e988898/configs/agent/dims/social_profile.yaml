@@ -1,0 +1,23 @@
+fields:
+- name: group_id
+  type: str
+  required: true
+  ref: institution
+- name: reputation
+  type: str
+  required: true
+- name: true_reputation
+  type: str
+  required: false
+- name: secret_identity_name
+  type: str
+  required: false
+- name: group_stance
+  type: str
+  required: false
+- name: trusted_allies_list
+  type: str
+  required: false
+- name: suspected_spy_flag
+  type: str
+  required: false

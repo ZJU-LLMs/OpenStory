@@ -1,0 +1,32 @@
+[
+  {
+    "seed_id": "cruciatus_curse_punishment",
+    "name": "钻心咒惩罚制度",
+    "entity_type": "rule",
+    "importance": "core",
+    "source_type": "canonical",
+    "confidence": 0.99,
+    "generation_priority": 1,
+    "role_in_world": "卡罗兄妹对违规学生施以钻心剜骨，制造恐怖统治"
+  },
+  {
+    "seed_id": "curfew_and_detention",
+    "name": "宵禁与关禁闭",
+    "entity_type": "rule",
+    "importance": "major",
+    "source_type": "canonical",
+    "confidence": 0.95,
+    "generation_priority": 2,
+    "role_in_world": "禁止夜间外出，违者重罚，限制抵抗活动"
+  },
+  {
+    "seed_id": "house_points_system",
+    "name": "学院分制度",
+    "entity_type": "rule",
+    "importance": "minor",
+    "source_type": "canonical",
+    "confidence": 0.97,
+    "generation_priority": 4,
+    "role_in_world": "被食死徒滥用，随意扣分打压反抗学院"
+  }
+]

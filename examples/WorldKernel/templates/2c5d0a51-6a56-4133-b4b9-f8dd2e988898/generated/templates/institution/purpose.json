@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "primary_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hidden_agenda",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "core_belief",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "strategic_focus",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_alignment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "immediate_objectives",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}
