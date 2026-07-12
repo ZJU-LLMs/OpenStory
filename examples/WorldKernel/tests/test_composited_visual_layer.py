@@ -25,6 +25,7 @@ def test_manifest_uses_strict_route_and_location_placeholder_layers():
     assert manifest.route_layer.status == "ready"
     assert manifest.location_placeholder_layer.status == "ready"
     assert manifest.location_placeholder_layer.show_names is True
+    assert manifest.canvas["visual_clearance_tiles"] == 2
     assert Path(manifest.background.control_image_path).name == "generation_control.png"
     assert all(slot.safe_padding_px == 0 for slot in manifest.slots)
     assert manifest.decorations == []
@@ -66,9 +67,11 @@ def test_pipeline_writes_layout_preview_base_and_protection_mask():
         assert mask.getpixel((12 * 16, 10 * 16 - 1)) == 0
         assert mask.getpixel((12 * 16, 11 * 16)) == 0
         assert mask.getpixel((240, 300)) == 0
+        assert mask.getpixel((2 * 16, 2 * 16)) == 0
         assert control.getpixel((7 * 16, 6 * 16)) != base.getpixel((7 * 16, 6 * 16))
         assert control.getpixel((12 * 16, 10 * 16)) != base.getpixel((12 * 16, 10 * 16))
         assert control.getpixel((12 * 16, 10 * 16 - 1)) == base.getpixel((12 * 16, 10 * 16 - 1))
+        assert control.getpixel((2 * 16, 2 * 16)) != base.getpixel((2 * 16, 2 * 16))
 
         prompt = json.loads((output_root / "background_prompt.json").read_text(encoding="utf-8"))
         assert prompt["target_size"] == {"width": 480, "height": 320}
@@ -76,7 +79,13 @@ def test_pipeline_writes_layout_preview_base_and_protection_mask():
         assert "地点矩形区域和道路网格已经从可编辑区域中精确扣除" in prompt["prompt"]
         assert "原生 tile/sprite 像素美术语言" in prompt["prompt"]
         assert "不再进行图像采样" not in prompt["prompt"]
-        assert "不要拆成互不关联的独立装饰块" in prompt["prompt"]
+        assert "填满可编辑区域" not in prompt["prompt"]
+        assert "不要求风物覆盖每一处" in prompt["prompt"]
+        assert "装饰保持中等密度" in prompt["prompt"]
+        assert "布局控制参考图共有 2 个带编号的地点体块" in prompt["prompt"]
+        assert "不得遗漏任何编号对应的占用区域" in prompt["prompt"]
+        assert "2 个网格宽的视觉净空环" in prompt["prompt"]
+        assert "不是地点蒙版，也不会改变地点贴片尺寸" in prompt["prompt"]
         assert "先确认其屋顶、墙体、底座、轮廓、附属结构和阴影全部位于可编辑区域" in prompt["prompt"]
         assert "已经被未来建筑、院落或场所占用的位置" in prompt["prompt"]
         assert "与蒙版完全重合，是必须保留的真实空间约束" in prompt["prompt"]
@@ -117,8 +126,16 @@ def test_generated_background_uses_one_global_masked_edit(monkeypatch):
         assert manifest.background.generation_strategy == "single_global_masked_edit"
         assert len(calls) == 1
         assert calls[0]["output"].name == "background_raw.png"
-        assert Path(calls[0]["input_image_path"]).name == "generation_control.png"
+        assert Path(calls[0]["input_image_path"]).name == "generation_base.png"
         assert Path(calls[0]["mask_path"]).name == "generation_mask.png"
+        assert [Path(path).name for path in calls[0]["style_reference_paths"]] == [
+            "pixel_style_reference.png",
+            "generation_control.png",
+        ]
+        assert "第三张图像是布局控制参考图" in calls[0]["prompt"]
+        assert "必须逐一检查控制图中的每个编号体块" in calls[0]["prompt"]
+        assert "不要求风物覆盖每一处" in calls[0]["prompt"]
+        assert "完整性优先于数量" in calls[0]["prompt"]
         final = Image.open(output_root / "background.png").convert("RGB")
         base = Image.open(output_root / "generation_base.png").convert("RGB")
         assert final.getpixel((7 * 16, 6 * 16)) == base.getpixel((7 * 16, 6 * 16))

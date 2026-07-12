@@ -1,0 +1,16 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+维护状况:
+  type: str
+  option: true
+使用频率:
+  type: str
+  option: true
+时间线状态:
+  type: str
+  option: true

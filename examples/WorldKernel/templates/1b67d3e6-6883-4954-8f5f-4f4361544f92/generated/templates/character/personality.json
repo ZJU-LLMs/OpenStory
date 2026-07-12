@@ -1,0 +1,76 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "judgement_verse",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "prophetic_hint",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fate_omin",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_code",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "attitude_towards_ritual",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "intellectual_temper",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_lean",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secrecy_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ambition_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

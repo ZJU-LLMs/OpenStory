@@ -1,0 +1,19 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+needs_announcement:
+  type: str
+  option: true
+time_restriction:
+  type: str
+  option: true
+identity_restriction:
+  type: str
+  option: true
+secret_use_tendency:
+  type: str
+  option: true

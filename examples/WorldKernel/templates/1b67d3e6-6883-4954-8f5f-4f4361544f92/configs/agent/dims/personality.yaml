@@ -1,0 +1,34 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+judgement_verse:
+  type: str
+  option: true
+prophetic_hint:
+  type: str
+  option: true
+fate_omin:
+  type: str
+  option: true
+moral_code:
+  type: str
+  option: true
+attitude_towards_ritual:
+  type: str
+  option: true
+intellectual_temper:
+  type: str
+  option: true
+emotional_lean:
+  type: str
+  option: true
+secrecy_level:
+  type: str
+  option: true
+ambition_type:
+  type: str
+  option: true

@@ -1,0 +1,21 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+府第级别:
+  type: str
+  option: true
+建筑功能:
+  type: str
+  option: true
+关联文学事件:
+  type: str
+  option: true
+象征意义:
+  type: str
+  option: true

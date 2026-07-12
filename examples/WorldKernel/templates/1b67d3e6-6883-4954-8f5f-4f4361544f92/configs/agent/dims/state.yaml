@@ -1,0 +1,37 @@
+dim_name: StateDim
+location:
+  location_id:
+    type: str
+    ref: location
+position:
+  x:
+    type: float
+  y:
+    type: float
+current_health_status:
+  type: str
+  option: true
+emotional_condition:
+  type: str
+  option: true
+financial_state:
+  type: str
+  option: true
+assigned_courtyard:
+  type: str
+  option: true
+current_activity:
+  type: str
+  option: true
+attendance_duty:
+  type: str
+  option: true
+seclusion_status:
+  type: str
+  option: true
+punishment_or_reward:
+  type: str
+  option: true
+time_period_indicator:
+  type: str
+  option: true

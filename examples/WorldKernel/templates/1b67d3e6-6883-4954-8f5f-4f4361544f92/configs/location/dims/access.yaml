@@ -1,0 +1,19 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+内外宅属性:
+  type: str
+  option: true
+等级准入:
+  type: str
+  option: true
+特殊时段开放:
+  type: str
+  option: true
+钥匙管理:
+  type: str
+  option: true

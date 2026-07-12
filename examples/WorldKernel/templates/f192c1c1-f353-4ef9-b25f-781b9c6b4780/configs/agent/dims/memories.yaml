@@ -1,0 +1,24 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+traumatic_events:
+  type: str
+  option: true
+known_secret_passages:
+  type: str
+  option: true
+knowledge_of_forbidden_spells:
+  type: str
+  option: true
+witnessed_crimes:
+  type: str
+  option: true

@@ -1,0 +1,393 @@
+{
+  "world_id": "1b67d3e6-6883-4954-8f5f-4f4361544f92",
+  "canvas": {
+    "grid_width": 160,
+    "grid_height": 100,
+    "tile_size": 16,
+    "width_px": 2560,
+    "height_px": 1600,
+    "visual_clearance_tiles": 2
+  },
+  "mode": "composited_full_map",
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "清代中期江南官宦贵族府邸，传统中式园林与宅院结合，飞檐翘角、粉墙黛瓦、朱门绿窗",
+    "color_palette": [
+      "朱红",
+      "赭石",
+      "黛青",
+      "琉璃黄",
+      "粉白",
+      "石绿",
+      "檀木褐",
+      "湖水蓝"
+    ],
+    "lighting_weather": "柔和的晨光与午后斜阳，偶有细雨，灯笼暖光点缀夜间，整体明亮均匀的卡通光照",
+    "material_texture": [
+      "青砖大色块铺地",
+      "灰瓦屋顶硬边色块",
+      "木质游廊与雕花栏杆簇状像素",
+      "假山石低纹理块面",
+      "平滑水面与荷叶色块",
+      "石板路与鹅卵石小径"
+    ],
+    "environmental_motifs": [
+      "石灯笼与拴马桩",
+      "垂花门与影壁",
+      "曲桥与八角亭",
+      "假山叠石与竹丛",
+      "石桌石凳",
+      "花圃与盆栽",
+      "鱼缸与戏台",
+      "廊下鸟笼与画眉架",
+      "院落中的古槐与芭蕉"
+    ],
+    "atmosphere": "古典、静谧、精致、繁华中透出哀婉与衰败预兆",
+    "edge_blending_style": "柔和像素羽化的地形边缘、草地与石板过渡、游廊与庭院自然遮挡，便于后续地点贴片拼合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "slots": [
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:018",
+      "bounds_px": {
+        "x": 128,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 100,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013",
+      "bounds_px": {
+        "x": 1344,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 101,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:011",
+      "bounds_px": {
+        "x": 1920,
+        "y": 288,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 102,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:007",
+      "bounds_px": {
+        "x": 672,
+        "y": 352,
+        "w": 352,
+        "h": 256
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 103,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:012",
+      "bounds_px": {
+        "x": 304,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 104,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:004",
+      "bounds_px": {
+        "x": 1344,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 105,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:001",
+      "bounds_px": {
+        "x": 1920,
+        "y": 576,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 106,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:010",
+      "bounds_px": {
+        "x": 1408,
+        "y": 720,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 107,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:005",
+      "bounds_px": {
+        "x": 416,
+        "y": 768,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 108,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:002",
+      "bounds_px": {
+        "x": 912,
+        "y": 768,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 109,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:016",
+      "bounds_px": {
+        "x": 1968,
+        "y": 848,
+        "w": 128,
+        "h": 96
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 110,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:008",
+      "bounds_px": {
+        "x": 1392,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 111,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:003",
+      "bounds_px": {
+        "x": 1792,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 112,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:014",
+      "bounds_px": {
+        "x": 2128,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 113,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:006",
+      "bounds_px": {
+        "x": 416,
+        "y": 1088,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 114,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:009",
+      "bounds_px": {
+        "x": 816,
+        "y": 1088,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 115,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:017",
+      "bounds_px": {
+        "x": 1200,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 116,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:015",
+      "bounds_px": {
+        "x": 1920,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 117,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    }
+  ],
+  "background": {
+    "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\background.png",
+    "url": "background.png",
+    "width_px": 2560,
+    "height_px": 1600,
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "status": "ready",
+    "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\background_prompt.json",
+    "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\background_metadata.json",
+    "layout_preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\layout_preview.png",
+    "control_image_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\generation_control.png",
+    "mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1b67d3e6-6883-4954-8f5f-4f4361544f92\\generated\\artifacts\\spatial\\generation_mask.png",
+    "target_size": {
+      "width": 2560,
+      "height": 1600
+    },
+    "generation_strategy": "single_global_masked_edit",
+    "error": ""
+  },
+  "route_layer": {
+    "status": "ready",
+    "source": "spatial_blueprint.road_tiles",
+    "z_index": 30,
+    "style": {
+      "kind": "pixel_ground_path",
+      "base_color": "#b99d5c",
+      "edge_color": "#8f7744",
+      "highlight_color": "#d2bb75",
+      "tile_size_px": 16
+    }
+  },
+  "location_placeholder_layer": {
+    "status": "ready",
+    "z_index": 100,
+    "show_names": true,
+    "style": {
+      "fill_color": "rgba(45, 55, 78, 0.64)",
+      "selected_fill_color": "rgba(232, 199, 102, 0.48)",
+      "border_color": "rgba(230, 235, 245, 0.72)",
+      "selected_border_color": "rgba(215, 162, 74, 0.96)",
+      "label_color": "#f4f6fb"
+    }
+  },
+  "decorations": [],
+  "location_patches": [],
+  "asset_contract": {
+    "layer_order": [
+      "background.png",
+      "route_layer",
+      "location_placeholder_layer",
+      "agents",
+      "selection_tooltip_debug_grid"
+    ],
+    "shared_constraints": {
+      "projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "fixed_art_style": "明亮整洁的俯视卡通像素模拟经营游戏风格",
+      "image_postprocessing": "none",
+      "texture_density": "low",
+      "slot_visual_clearance_tiles": 2,
+      "lighting_weather": "柔和的晨光与午后斜阳，偶有细雨，灯笼暖光点缀夜间，整体明亮均匀的卡通光照",
+      "color_palette": [
+        "朱红",
+        "赭石",
+        "黛青",
+        "琉璃黄",
+        "粉白",
+        "石绿",
+        "檀木褐",
+        "湖水蓝"
+      ],
+      "material_texture": [
+        "青砖大色块铺地",
+        "灰瓦屋顶硬边色块",
+        "木质游廊与雕花栏杆簇状像素",
+        "假山石低纹理块面",
+        "平滑水面与荷叶色块",
+        "石板路与鹅卵石小径"
+      ],
+      "edge_blending_style": "柔和像素羽化的地形边缘、草地与石板过渡、游廊与庭院自然遮挡，便于后续地点贴片拼合"
+    },
+    "background_forbidden": [
+      "道路",
+      "具体地点",
+      "人物",
+      "文字",
+      "界面元素"
+    ]
+  },
+  "provenance": {
+    "source": "spatial_blueprint",
+    "slot_count": 18,
+    "location_patch_generation": "disabled",
+    "layout_control": "stage2_mask"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "world_name": "宁国府·荣国府·大观园",
+  "world_origin_summary": "衍生自《红楼梦》原著，以贾府（宁荣二府及大观园）为核心场景，聚焦封建贵族家族盛极而衰的悲剧与人物命运纠葛",
+  "primary": "feudal_estate",
+  "secondary": "literary_classic",
+  "tags": [
+    "红楼梦",
+    "封建家族",
+    "清代",
+    "贵族府邸",
+    "大观园",
+    "诗词文化",
+    "家族兴衰",
+    "等级制度",
+    "衍生世界"
+  ],
+  "scope": "single_location",
+  "simulation_start": {
+    "time_point": "贾府鼎盛时期，林黛玉初入荣国府",
+    "trigger_event": "林黛玉丧母后投奔外祖母，贾母迎接并安置于碧纱橱",
+    "year": "乾隆年间（约1750年）",
+    "narrative_context": "贾府正值鼎盛，元春尚未省亲，大观园尚未修建，但家族内部已暗藏奢靡腐败与权力斗争"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "清代中期江南官宦贵族府邸，传统中式园林与宅院结合，飞檐翘角、粉墙黛瓦、朱门绿窗",
+    "color_palette": [
+      "朱红",
+      "赭石",
+      "黛青",
+      "琉璃黄",
+      "粉白",
+      "石绿",
+      "檀木褐",
+      "湖水蓝"
+    ],
+    "lighting_weather": "柔和的晨光与午后斜阳，偶有细雨，灯笼暖光点缀夜间，整体明亮均匀的卡通光照",
+    "material_texture": [
+      "青砖大色块铺地",
+      "灰瓦屋顶硬边色块",
+      "木质游廊与雕花栏杆簇状像素",
+      "假山石低纹理块面",
+      "平滑水面与荷叶色块",
+      "石板路与鹅卵石小径"
+    ],
+    "environmental_motifs": [
+      "石灯笼与拴马桩",
+      "垂花门与影壁",
+      "曲桥与八角亭",
+      "假山叠石与竹丛",
+      "石桌石凳",
+      "花圃与盆栽",
+      "鱼缸与戏台",
+      "廊下鸟笼与画眉架",
+      "院落中的古槐与芭蕉"
+    ],
+    "atmosphere": "古典、静谧、精致、繁华中透出哀婉与衰败预兆",
+    "edge_blending_style": "柔和像素羽化的地形边缘、草地与石板过渡、游廊与庭院自然遮挡，便于后续地点贴片拼合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "world_constraints": [
+    {
+      "constraint_id": "feudal_lineage_hierarchy",
+      "name": "封建宗法等级制度",
+      "description": "贾府一切权力、财产、婚姻皆由血缘与辈分决定，嫡庶有别、长幼有序，不得僭越",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "economic_dependence_on_manors",
+      "name": "经济来源依赖田庄与官俸",
+      "description": "贾府的收入主要来自祖产田庄和朝廷官俸，但奢靡无度导致入不敷出，最终崩溃",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "political_alliance_marriage_network",
+      "name": "政治联姻与官场护官网",
+      "description": "家族通过联姻与四大家族（贾王史薛）及朝中权贵结盟，一荣俱荣，一损俱损",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "moral_face_and_public_secrecy",
+      "name": "体面遮丑与家族名声维护",
+      "description": "内部腐朽、矛盾重重，但对外必须维持诗礼簪缨之族的体面，丑事不可外扬",
+      "scope": "location"
+    }
+  ]
+}

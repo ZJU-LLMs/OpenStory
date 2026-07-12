@@ -1,0 +1,34 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+poetry_skill:
+  type: str
+  option: true
+household_management:
+  type: str
+  option: true
+embroidery_proficiency:
+  type: str
+  option: true
+medical_knowledge:
+  type: str
+  option: true
+budget_handling:
+  type: str
+  option: true
+forbidden_knowledge:
+  type: str
+  option: true
+social_manipulation:
+  type: str
+  option: true
+calligraphy_level:
+  type: str
+  option: true
+musical_talent:
+  type: str
+  option: true

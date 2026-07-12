@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "内外宅属性",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "等级准入",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "特殊时段开放",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "钥匙管理",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

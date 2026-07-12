@@ -1,0 +1,339 @@
+{
+  "session_id": "1b67d3e6-6883-4954-8f5f-4f4361544f92",
+  "instance_seeds": {
+    "location": [
+      {
+        "seed_id": "rongguo_mansion",
+        "name": "荣国府",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾府核心居住区域，贾母及众多主子住所，家族礼法与日常叙事主要发生地",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "ningguo_mansion",
+        "name": "宁国府",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "贾珍、贾蓉等居住，宗族祭祀及丑闻事件发生地",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "grand_view_garden",
+        "name": "大观园",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "省亲别墅，园内各院落为主子小姐少爷住处，诗意生活与悲剧命运交织的象征",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "happy_red_court",
+        "name": "怡红院",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "贾宝玉居所，核心剧情场景，体现叛逆与温柔富贵",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "xiaoxiang_pavilion",
+        "name": "潇湘馆",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "林黛玉居所，竹影幽深，象征孤高与泪尽而逝",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "hengwu_garden",
+        "name": "蘅芜苑",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "薛宝钗居所，朴素冷香，体现宝钗的理性与沉静",
+        "archetype_id": "居住院舍"
+      },
+      {
+        "seed_id": "qinfang_bridge",
+        "name": "沁芳桥",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.97,
+        "generation_priority": 2,
+        "role_in_world": "大观园重要景观节点，常作为人物相遇或抒怀场所",
+        "archetype_id": "园林景观"
+      },
+      {
+        "seed_id": "lotus_pond",
+        "name": "藕香榭",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.96,
+        "generation_priority": 2,
+        "role_in_world": "宴饮赏景之地，湘云醉卧芍药花等场景发生处",
+        "archetype_id": "园林景观"
+      },
+      {
+        "seed_id": "green_rain_roof",
+        "name": "滴翠亭",
+        "importance": "minor",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 3,
+        "role_in_world": "宝钗扑蝶听闻小红私话处，体现宝钗心机",
+        "archetype_id": "园林景观"
+      },
+      {
+        "seed_id": "jia_clan_ancestral_temple",
+        "name": "贾氏宗祠",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "祭祀祖先、家族重大典礼之地，象征宗法权威与家族荣耀",
+        "archetype_id": "祠堂与祭礼场所"
+      },
+      {
+        "seed_id": "iron_threshold_temple",
+        "name": "铁槛寺",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.97,
+        "generation_priority": 2,
+        "role_in_world": "贾府停灵超度及寄柩的寺庙，秦可卿出殡等丧事发生地",
+        "archetype_id": "祠堂与祭礼场所"
+      },
+      {
+        "seed_id": "accounting_office",
+        "name": "账房",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.96,
+        "generation_priority": 2,
+        "role_in_world": "管理田庄地租收入、月例发放及日常开支的核心财务部门",
+        "archetype_id": "管家与账房"
+      },
+      {
+        "seed_id": "steward_office",
+        "name": "管家处",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "管家赖大、林之孝等办公调度奴仆听差之处",
+        "archetype_id": "管家与账房"
+      },
+      {
+        "seed_id": "servants_quarters",
+        "name": "下房群",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.85,
+        "generation_priority": 3,
+        "role_in_world": "婆子、小丫头等下级仆人聚居场所，展现底层生活",
+        "archetype_id": "下人居住与劳作区"
+      },
+      {
+        "seed_id": "kitchen",
+        "name": "厨房",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.97,
+        "generation_priority": 2,
+        "role_in_world": "供应主子饮食的食堂，柳嫂子等管事，玫瑰露事件发生地",
+        "archetype_id": "下人居住与劳作区"
+      },
+      {
+        "seed_id": "stable",
+        "name": "马圈",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 3,
+        "role_in_world": "饲养马匹及出行的后勤场所",
+        "archetype_id": "下人居住与劳作区"
+      },
+      {
+        "seed_id": "green_lotus_nunnery",
+        "name": "栊翠庵",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "妙玉修行之地，亦为贾府私家尼庵，体现佛门清冷与妙玉孤傲",
+        "archetype_id": "寺庙道观"
+      },
+      {
+        "seed_id": "water_moon_nunnery",
+        "name": "水月庵",
+        "importance": "minor",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 3,
+        "role_in_world": "贾府常去烧香祈福的尼庵，静虚老尼在此介入张金哥案",
+        "archetype_id": "寺庙道观"
+      }
+    ],
+    "character": [
+      {
+        "seed_id": "lady_jia_mu",
+        "name": "贾母",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾府最高辈分女性家长，溺爱宝玉，维护家族体面，晚年衰败象征",
+        "archetype_id": "祖母辈夫人"
+      },
+      {
+        "seed_id": "jia_baoyu",
+        "name": "贾宝玉",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "全书男主角，厌恶功名利禄、钟情于闺阁，经历家族崩毁与情感幻灭",
+        "archetype_id": "主子小姐与少爷"
+      },
+      {
+        "seed_id": "lin_daiyu",
+        "name": "林黛玉",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "寄居贾府的表小姐，才情孤傲，与宝玉为灵魂知己，泪尽而亡",
+        "archetype_id": "主子小姐与少爷"
+      },
+      {
+        "seed_id": "xue_baochai",
+        "name": "薛宝钗",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "金陵十二钗之首，理性务实，最终嫁给宝玉却独守空闺",
+        "archetype_id": "主子小姐与少爷"
+      },
+      {
+        "seed_id": "jia_tanchun",
+        "name": "贾探春",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "庶出三小姐，精明能干，曾代理管家，后远嫁海疆",
+        "archetype_id": "主子小姐与少爷"
+      },
+      {
+        "seed_id": "madam_wang",
+        "name": "王夫人",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾政正室，宝玉之母，表面慈善实则刚愎，主导抄检大观园",
+        "archetype_id": "当家太太与管家奶奶"
+      },
+      {
+        "seed_id": "wang_xifeng",
+        "name": "王熙凤",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "荣国府实际管家人，泼辣能干，玩权弄势，最后众叛亲离",
+        "archetype_id": "当家太太与管家奶奶"
+      },
+      {
+        "seed_id": "li_wan",
+        "name": "李纨",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "贾珠遗孀，大观园诗社掌坛，守节教子，虽受尊重但边缘化",
+        "archetype_id": "当家太太与管家奶奶"
+      },
+      {
+        "seed_id": "zhao_yiniang",
+        "name": "赵姨娘",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "贾政之妾，探春生母，愚昧自私，处处挑事体现嫡庶矛盾",
+        "archetype_id": "妾室与庶出"
+      },
+      {
+        "seed_id": "xiren",
+        "name": "袭人",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "宝玉首席丫鬟，温柔忠心，最后嫁蒋玉菡，见证贾府没落",
+        "archetype_id": "大丫鬟与贴身侍婢"
+      },
+      {
+        "seed_id": "qingwen",
+        "name": "晴雯",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "宝玉丫鬟，心高气傲，被王夫人撵出屈死，袭人影之反照",
+        "archetype_id": "大丫鬟与贴身侍婢"
+      },
+      {
+        "seed_id": "ping_er",
+        "name": "平儿",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "王熙凤通房丫鬟，善良周全，平衡凤姐与贾琏关系",
+        "archetype_id": "大丫鬟与贴身侍婢"
+      },
+      {
+        "seed_id": "jia_zheng",
+        "name": "贾政",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "荣国府家长，正统封建家长代表，对宝玉严厉，也是家族衰败的无力者",
+        "archetype_id": "男性族亲与清客"
+      },
+      {
+        "seed_id": "jia_lian",
+        "name": "贾琏",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "贾赦之子，凤姐之夫，好色而懦弱，协理宁荣两府事务",
+        "archetype_id": "男性族亲与清客"
+      },
+      {
+        "seed_id": "jia_zhen",
+        "name": "贾珍",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "宁国府当家人，荒淫无度，主导秦可卿之死等丑事",
+        "archetype_id": "男性族亲与清客"
+      }
+    ]
+  }
+}

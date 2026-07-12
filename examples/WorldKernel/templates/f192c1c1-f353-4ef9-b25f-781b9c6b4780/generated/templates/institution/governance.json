@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "de_facto_tyrant_leader",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shadow_council_of_death_eaters",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enforcement_squad_composition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "underground_rule_bypass_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "power_centralization",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "elder_council_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "matriarch_influence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "token_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "female_inner_governance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

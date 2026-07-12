@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "promulgator_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy_contested",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "external_pressure_source",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_counter_rule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_mandate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

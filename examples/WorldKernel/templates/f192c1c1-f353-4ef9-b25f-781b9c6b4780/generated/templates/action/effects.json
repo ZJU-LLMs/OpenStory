@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "on_actor",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_target",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_environment",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "triggers_monitoring_alert",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "activates_trace",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "changes_loyalty_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "impacts_trust_scale",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "may_expose_identity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "grants_dark_mark_bonus",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "causes_suspicion",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "affects_hidden_relationship",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

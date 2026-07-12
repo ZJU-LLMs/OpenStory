@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "magical_exhaustion",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "risk_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "potential_punishment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_relationship_loss",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_sensitivity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_rare_resource",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reputation_damage",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_point_penalty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

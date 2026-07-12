@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "connectivity_description",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_passage_to",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "depth",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "spatial_perception",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "entrance_blocked",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

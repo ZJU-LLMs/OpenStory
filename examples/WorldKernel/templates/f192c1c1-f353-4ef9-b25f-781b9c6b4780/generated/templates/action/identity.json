@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "category",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "magic_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "difficulty_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forbidden_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "monitored_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_wand",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "spell_category",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dark_arts_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

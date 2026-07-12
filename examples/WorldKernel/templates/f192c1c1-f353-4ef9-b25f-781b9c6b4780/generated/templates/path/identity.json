@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "alias",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_signature",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_secret",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_known_to_death_eaters",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_passphrase",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "inventory_item_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

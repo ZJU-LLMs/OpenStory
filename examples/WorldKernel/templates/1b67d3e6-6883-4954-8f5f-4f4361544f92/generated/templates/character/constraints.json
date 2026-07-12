@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "gender_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rank_etiquette",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation_constraint",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "inner_house_boundary",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ancestral_rule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mourning_period_obligation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "imperial_decree_limitation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "financial_dependence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

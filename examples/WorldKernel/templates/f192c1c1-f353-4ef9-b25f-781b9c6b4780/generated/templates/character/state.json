@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "location_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "position_x",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "position_y",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "hidden_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "safety_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "last_seen_location",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "disguise_active",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

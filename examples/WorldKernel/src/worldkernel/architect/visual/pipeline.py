@@ -91,20 +91,26 @@ def _generate_background(
     target_size = f"{target_width}x{target_height}"
     raw_path = root / "background_raw.png"
     style_reference_path = _resolve_style_reference_path(cfg, model_config_path)
-    style_instruction = _style_reference_instruction()
+    reference_paths: list[Path] = []
     if style_reference_path is not None:
-        prompt_payload["prompt"] += style_instruction
+        reference_paths.append(style_reference_path)
         prompt_payload["style_reference"] = str(style_reference_path)
-        _write_json(root / "background_prompt.json", prompt_payload)
+    layout_reference_path = root / "generation_control.png"
+    reference_paths.append(layout_reference_path)
+    prompt_payload["layout_reference"] = str(layout_reference_path)
+    prompt_payload["prompt"] += _reference_image_instruction(
+        has_style_reference=style_reference_path is not None,
+    )
+    _write_json(root / "background_prompt.json", prompt_payload)
 
     model_metadata = client.generate(
         prompt_payload["prompt"],
         raw_path,
         negative_prompt=prompt_payload.get("negative_prompt", ""),
         size=target_size,
-        input_image_path=root / "generation_control.png",
+        input_image_path=root / "generation_base.png",
         mask_path=root / "generation_mask.png",
-        style_reference_paths=[style_reference_path] if style_reference_path is not None else None,
+        style_reference_paths=reference_paths,
     )
     composite_metadata = composite_protected_background(
         raw_path,
@@ -125,12 +131,22 @@ def _generate_background(
     }
 
 
-def _style_reference_instruction() -> str:
+def _reference_image_instruction(*, has_style_reference: bool) -> str:
+    if has_style_reference:
+        ordering = (
+            "第一张图像是无占位体块的中性地形编辑底板；第二张图像只用于参考像素美术语言；"
+            "第三张图像是布局控制参考图。"
+        )
+    else:
+        ordering = "第一张图像是无占位体块的中性地形编辑底板；第二张图像是布局控制参考图。"
     return (
-        "\n\n输入图说明：第一张图像是严格的布局控制底板，其中的完整建筑体块和道路走廊是必须保留的坐标约束；"
-        "只能围绕这些已占用位置生成环境，不得复制或移动这些形状。第二张图像只用于参考像素美术语言。"
-        "仅学习第二张图的较大像素块、有限色阶、清晰硬边轮廓、简化卡通造型和低纹理密度，"
-        "不复制其中的警察局、车辆、道路、文字、具体建筑结构、人物或现代城市内容。"
+        f"\n\n输入图说明：{ordering}"
+        "布局控制参考图中的矩形体块和道路走廊只表达已占用坐标，绝不能复制到输出中，也不能把其灰色、轮廓线、"
+        "矩形外观、编号或道路示意当作背景内容。橙色外框是低装饰视觉净空环，不是要画出的边框。"
+        "必须逐一检查控制图中的每个编号体块，围绕所有已占用位置安排环境，"
+        "并让所有建筑和大型主体完整避开它们。"
+        "画风参考图仅用于学习较大像素块、有限色阶、清晰硬边轮廓、简化卡通造型和低纹理密度，"
+        "不得复制其中的警察局、车辆、道路、文字、具体建筑结构、人物或现代城市内容。"
         "地图题材与风物必须完全服从当前世界设定。"
     )
 

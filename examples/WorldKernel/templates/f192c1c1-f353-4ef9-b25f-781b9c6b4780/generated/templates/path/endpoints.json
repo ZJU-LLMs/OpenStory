@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "from_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "to_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "bidirectional",
+      "type": "bool",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "from_room_security_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "to_room_security_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "start_has_hidden_entrance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "end_has_hidden_entrance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_one_way",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_interference",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

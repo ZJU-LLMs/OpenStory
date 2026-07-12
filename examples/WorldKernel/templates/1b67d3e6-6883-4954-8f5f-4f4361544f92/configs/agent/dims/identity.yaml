@@ -1,0 +1,34 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+role:
+  type: str
+family_branch:
+  type: str
+  option: true
+generation:
+  type: str
+  option: true
+peerage_rank:
+  type: str
+  option: true
+origination_type:
+  type: str
+  option: true
+status_hierarchy:
+  type: str
+  option: true
+lineage_position:
+  type: str
+  option: true
+marital_status:
+  type: str
+  option: true
+clan_membership:
+  type: str
+  option: true
+room_assignment:
+  type: str
+  option: true

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "moral_education_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "education_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ancestral_worship_duty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "festival_banquet_duty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "managing_family_estate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

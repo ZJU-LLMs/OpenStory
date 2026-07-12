@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "step_id": "generate_locations",
+      "generator_type": "location_generator",
+      "target_entity_type": "location",
+      "batch_size": 8,
+      "priority": 1,
+      "description": "生成所有地点实体，包括6类archetype共20个地点，优先核心场所如大礼堂、有求必应屋、黑魔法防御课教室等"
+    },
+    {
+      "step_id": "generate_paths",
+      "generator_type": "path_generator",
+      "target_entity_type": "path",
+      "batch_size": 5,
+      "priority": 2,
+      "description": "生成地点之间的路径和通道，包含密道（如从有求必应屋到尖叫棚屋）、常规走廊、楼梯和户外通道"
+    },
+    {
+      "step_id": "generate_characters",
+      "generator_type": "character_generator",
+      "target_entity_type": "character",
+      "batch_size": 6,
+      "priority": 3,
+      "description": "生成所有角色实体，包括学生、教职工、食死徒管控者、幽灵生物和校长，共14个主要角色"
+    },
+    {
+      "step_id": "generate_relations",
+      "generator_type": "relation_generator",
+      "target_entity_type": "relation",
+      "batch_size": 8,
+      "priority": 4,
+      "description": "生成角色之间的关系，如敌友、师徒、监视、秘密合作等，尤其突出抵抗网络与食死徒统治的对抗关系"
+    }
+  ]
+}

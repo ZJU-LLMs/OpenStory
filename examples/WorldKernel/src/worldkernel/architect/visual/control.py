@@ -21,10 +21,16 @@ def render_layout_control_assets(
     width = int(manifest.canvas["width_px"])
     height = int(manifest.canvas["height_px"])
     tile = int(manifest.canvas["tile_size"])
+    visual_clearance_tiles = int(manifest.canvas.get("visual_clearance_tiles") or 0)
 
     base = _render_neutral_base(width, height, manifest.visual_profile, blueprint.world_id, tile)
     control = base.copy()
-    _render_reserved_layout_context(control, blueprint, tile)
+    _render_reserved_layout_context(
+        control,
+        blueprint,
+        tile,
+        visual_clearance_tiles=visual_clearance_tiles,
+    )
     protection = _render_protection_mask(blueprint, width, height, tile)
     preview = _render_layout_preview(blueprint, width, height, tile)
 
@@ -46,6 +52,7 @@ def render_layout_control_assets(
         "target_size": {"width": width, "height": height},
         "protected_pixels": protected_pixels,
         "editable_pixels": width * height - protected_pixels,
+        "visual_clearance_tiles": visual_clearance_tiles,
     }
 
 
@@ -109,6 +116,8 @@ def _render_reserved_layout_context(
     image: Image.Image,
     blueprint: SpatialBlueprint,
     tile: int,
+    *,
+    visual_clearance_tiles: int,
 ) -> None:
     draw = ImageDraw.Draw(image)
     base_color = image.getpixel((0, 0))
@@ -116,6 +125,7 @@ def _render_reserved_layout_context(
     slot_outer = _blend_color(base_color, (66, 70, 72), 0.62)
     slot_inner = _blend_color(base_color, (168, 158, 142), 0.72)
     slot_highlight = _blend_color(slot_inner, (232, 224, 205), 0.34)
+    clearance_color = (244, 170, 54)
 
     for point in blueprint.road_tiles:
         draw.rectangle(
@@ -130,12 +140,29 @@ def _render_reserved_layout_context(
 
     outline_width = max(2, tile // 4)
     inset = max(outline_width + 1, tile // 2)
-    for region in blueprint.regions:
+    ordered_regions = sorted(
+        blueprint.regions,
+        key=lambda region: (
+            int((region.bounds or {}).get("y", 0)),
+            int((region.bounds or {}).get("x", 0)),
+            region.location_id,
+        ),
+    )
+    marker_font = _load_font(max(14, tile * 2))
+    clearance_px = max(0, visual_clearance_tiles) * tile
+    for index, region in enumerate(ordered_regions, start=1):
         bounds = region.bounds or {}
         x0 = int(bounds.get("x", 0) * tile)
         y0 = int(bounds.get("y", 0) * tile)
         x1 = int((bounds.get("x", 0) + bounds.get("w", 0)) * tile) - 1
         y1 = int((bounds.get("y", 0) + bounds.get("h", 0)) * tile) - 1
+        if clearance_px:
+            clearance_box = _clamp_box(
+                (x0 - clearance_px, y0 - clearance_px, x1 + clearance_px, y1 + clearance_px),
+                image.width,
+                image.height,
+            )
+            draw.rectangle(clearance_box, outline=clearance_color, width=outline_width)
         box = _clamp_box((x0, y0, x1, y1), image.width, image.height)
         draw.rectangle(box, fill=slot_outer)
         inner = _clamp_box((x0 + inset, y0 + inset, x1 - inset, y1 - inset), image.width, image.height)
@@ -143,6 +170,18 @@ def _render_reserved_layout_context(
             draw.rectangle(inner, fill=slot_inner)
             ridge_y = (inner[1] + inner[3]) // 2
             draw.line((inner[0], ridge_y, inner[2], ridge_y), fill=slot_highlight, width=outline_width)
+        marker = str(index)
+        marker_box = draw.textbbox((0, 0), marker, font=marker_font)
+        marker_x = x0 + (x1 - x0 - (marker_box[2] - marker_box[0])) / 2
+        marker_y = y0 + (y1 - y0 - (marker_box[3] - marker_box[1])) / 2
+        draw.text(
+            (marker_x, marker_y),
+            marker,
+            font=marker_font,
+            fill=(255, 230, 72),
+            stroke_width=max(1, tile // 8),
+            stroke_fill=(32, 38, 40),
+        )
 
 
 def _render_protection_mask(

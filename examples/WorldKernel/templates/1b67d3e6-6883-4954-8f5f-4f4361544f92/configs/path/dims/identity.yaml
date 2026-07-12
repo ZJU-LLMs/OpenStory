@@ -1,0 +1,19 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+alias:
+  type: str
+  option: true
+belongs_to:
+  type: str
+  option: true
+primary_use:
+  type: str
+  option: true
+literary_event:
+  type: str
+  option: true

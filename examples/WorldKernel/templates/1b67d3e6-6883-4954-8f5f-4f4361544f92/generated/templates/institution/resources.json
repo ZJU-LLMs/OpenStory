@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "assets",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "territory",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "source_of_income",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "private_property",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "controlled_by_butler",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shared_with_affine",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "tax_exemption",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

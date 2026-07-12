@@ -1,0 +1,21 @@
+dim_name: EndpointsDim
+from_id:
+  type: str
+  ref: location
+to_id:
+  type: str
+  ref: location
+bidirectional:
+  type: bool
+is_main_artery:
+  type: str
+  option: true
+requires_gate:
+  type: str
+  option: true
+path_type:
+  type: str
+  option: true
+symbolic_significance:
+  type: str
+  option: true

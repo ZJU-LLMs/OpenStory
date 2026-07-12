@@ -1,0 +1,16 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+survival_priority:
+  type: str
+  option: true
+secret_mission:
+  type: str
+  option: true
+sacrifice_willingness:
+  type: str
+  option: true

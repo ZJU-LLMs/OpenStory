@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "state_description",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "state_switch_possible",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "state_switch_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "maintenance_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupied_by_death_eaters",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

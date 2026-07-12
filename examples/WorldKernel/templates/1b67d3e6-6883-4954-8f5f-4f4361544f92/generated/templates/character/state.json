@@ -1,0 +1,76 @@
+{
+  "fields": [
+    {
+      "name": "location_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "position_x",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "position_y",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_health_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "financial_state",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "assigned_courtyard",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "current_activity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "attendance_duty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "seclusion_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "punishment_or_reward",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_period_indicator",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

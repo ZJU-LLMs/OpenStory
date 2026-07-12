@@ -1,0 +1,2136 @@
+{
+  "artifact_type": "character_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:006",
+        "name": "贾母",
+        "role": "祖母辈夫人",
+        "family_branch": "荣国府",
+        "generation": "史太君",
+        "peerage_rank": "国公夫人（诰命一品）",
+        "origination_type": "史侯家小姐出嫁",
+        "status_hierarchy": "最高辈分女性族长",
+        "lineage_position": "荣国公贾源之孙媳妇，代善之妻",
+        "marital_status": "寡居",
+        "clan_membership": "贾史王薛四大家族·史家",
+        "room_assignment": "荣庆堂（荣国府正院）"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子阶层",
+        "reputation": "仁慈宽厚、享乐爱热闹的大家长",
+        "social_circle_tags": "金陵世交圈, 诰命夫人圈, 府内主子圈",
+        "intimate_coterie": "贾宝玉, 林黛玉, 王熙凤",
+        "faction_alignment": "宝玉派（溺爱）",
+        "gossip_status": "无人敢公开非议",
+        "matriarchal_favor": "极度宠爱宝玉与黛玉",
+        "peer_regard": "被全府上下尊崇",
+        "servant_relationship": "恩威并施，老仆忠诚",
+        "external_connection": "与南安太妃等侯门交好",
+        "marriage_prospect_rank": "不适用（已寡居）"
+      },
+      "capabilities": {
+        "skills": [
+          "治家掌权",
+          "人情世故",
+          "听戏品茗",
+          "调理人",
+          "审美鉴赏"
+        ],
+        "level": "资深（六十年管家经验）",
+        "weaknesses": "过度溺爱子孙、疏于节俭、晚年精力不济",
+        "poetry_skill": "中等（能赏评，不常作诗）",
+        "household_management": "极强（但逐渐放权给王熙凤）",
+        "embroidery_proficiency": "一般（喜爱但少亲手做）",
+        "medical_knowledge": "粗通（知药性）",
+        "budget_handling": "不善节俭，讲究排场",
+        "forbidden_knowledge": "",
+        "social_manipulation": "高手，善于平衡各方",
+        "calligraphy_level": "中等",
+        "musical_talent": "爱听戏，自己不会唱"
+      },
+      "personality": {
+        "traits": [
+          "享乐主义",
+          "慈爱纵容",
+          "精明世故",
+          "讲究体面",
+          "溺爱子辈"
+        ],
+        "values": [
+          "家族荣耀",
+          "血脉亲情",
+          "长幼有序",
+          "及时行乐",
+          "维护体面"
+        ],
+        "speech_style": "亲切中带威严，常用老辈口吻，疼爱时哄孩子，规矩时严厉",
+        "judgement_verse": "'阿房宫，三百里，住不下金陵一个史'——史家千金底蕴",
+        "prophetic_hint": "府中坍塌始于她离世",
+        "fate_omin": "寿终正寝但目睹家族衰败",
+        "moral_code": "以孝为先，以和为贵，但过分纵容致内腐",
+        "attitude_towards_ritual": "极其维护礼法体面",
+        "intellectual_temper": "活泼开朗，爱热闹",
+        "emotional_lean": "情感优先于理性，偏疼弱者",
+        "secrecy_level": "府中高层秘密知情人",
+        "ambition_type": "守成享乐型"
+      },
+      "goals": {
+        "short_term_goal": "安排好宝玉、黛玉等孙辈的饮食起居与婚事",
+        "long_term_goal": "维系贾府鼎盛不衰，让子孙安享富贵",
+        "motivation": "守着祖辈基业，让儿孙幸福平安",
+        "underlying_wish": "希望宝玉不走仕途也能一生安乐",
+        "fatalistic_push": "对家族危机缺乏预见",
+        "concealed_ambition": "无",
+        "relationship_pursuit": "让黛玉与宝玉两情相悦，但最终败于世俗",
+        "survival_strategy": "放权、享乐、不深究隐患",
+        "honor_restoration": "维持国公府的旧日荣光",
+        "rebellion_impulse": "",
+        "legacy_concern": "担心宁荣二府后继无人"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "金陵四大家族姻亲关系网",
+            "朝中官场与勋贵联姻规则"
+          ],
+          "social_knowledge": [
+            "府内各人隐秘弱点与把柄",
+            "各房经济暗账"
+          ]
+        },
+        "background_summary": "史侯家小姐，嫁入贾府为荣国府冢妇，经历三代繁华，从重孙媳妇熬成老祖宗，见惯风浪但晚年沉浸在享乐中。",
+        "key_events": [
+          "幼年史家闺阁回忆",
+          "嫁入贾府当家时期",
+          "丈夫贾代善去世后独撑荣国府",
+          "接外孙女黛玉进府",
+          "疼爱宝玉并为其张罗一切"
+        ],
+        "secrets": [
+          "知晓宁国府贾珍与秦可卿的丑闻但装作不知",
+          "私下攒有体己银与珍宝，预备不时之需"
+        ],
+        "hidden_family_secret": "贾府入不敷出的真实账目",
+        "childhood_trauma": "幼年庶出姊妹受冷落（侧面影响）",
+        "dream_omen": "梦见大厦将倾，警幻仙姑预示",
+        "taboo_knowledge": "",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "体面高于一切，丑事不可外扬",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "老而硬朗，冬季偶发腿疾",
+        "emotional_condition": "平和愉悦，但偶有对家族隐忧",
+        "financial_state": "个人体己丰厚，府中账目赤字",
+        "assigned_courtyard": "荣庆堂",
+        "current_activity": "正在听戏或在暖阁与孙女们说笑",
+        "attendance_duty": "受全族晨昏定省",
+        "seclusion_status": "否",
+        "punishment_or_reward": "赏赐下人频繁",
+        "time_period_indicator": "元春省亲前夕"
+      },
+      "visual": "一位七十多岁的老太太，头发花白但梳得一丝不苟，盘成圆髻，插一支赤金点翠凤钗，额前勒着绛紫色抹额，正中缀一颗祖母绿。身着蜜合色锦缎对襟褙子，领口袖口绣暗金色团寿纹，内衬珍珠白窄袄，下穿墨绿马面裙。体态微丰，目光慈祥而精明，嘴角常带笑。手执一柄沉香木雕花拐杖，指尖戴着银鎏金护甲，身旁常有一个手炉。气质温和雍容，透着数十年的当家威仪。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:001",
+        "name": "贾宝玉",
+        "role": "主子小姐与少爷",
+        "family_branch": "荣国府",
+        "generation": "玉字辈",
+        "peerage_rank": "无官爵（衔玉而生）",
+        "origination_type": "荣国府嫡孙",
+        "status_hierarchy": "贾母心头肉、荣府继承人（虽不愿）",
+        "lineage_position": "贾政与王夫人次子（兄长贾珠早亡），实为独子",
+        "marital_status": "未婚",
+        "clan_membership": "贾家嫡系",
+        "room_assignment": "怡红院"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子少爷",
+        "reputation": "怪诞懒散、厌恶功名、专在女儿堆里混",
+        "social_circle_tags": "大观园诗社, 闺阁女儿群, 纨绔子弟, 清客流",
+        "intimate_coterie": "林黛玉, 薛宝钗, 袭人, 晴雯, 秦钟",
+        "faction_alignment": "叛逆派（反礼教）",
+        "gossip_status": "府中议论纷纷，母偏袒，父不满",
+        "matriarchal_favor": "最高",
+        "peer_regard": "姐妹们喜爱，兄弟间疏离",
+        "servant_relationship": "亲密无间，视袭人晴雯为友",
+        "external_connection": "北静王、琪官等清客",
+        "marriage_prospect_rank": "极佳（国公府嫡孙）"
+      },
+      "capabilities": {
+        "skills": [
+          "诗词歌赋",
+          "品茶鉴香",
+          "脂粉调弄",
+          "谈情怡性",
+          "偶尔制药"
+        ],
+        "level": "天才级（诗才灵性）",
+        "weaknesses": "厌恶经济学问、任性天真、缺乏责任感",
+        "poetry_skill": "顶尖（灵性飘逸，不循规矩）",
+        "household_management": "零（不屑）",
+        "embroidery_proficiency": "会看不会做",
+        "medical_knowledge": "粗通（为黛玉配药）",
+        "budget_handling": "毫无概念",
+        "forbidden_knowledge": "偷读西厢记、牡丹亭等禁书",
+        "social_manipulation": "低（不愿用心计）",
+        "calligraphy_level": "上等（擅行书）",
+        "musical_talent": "懂琴曲，不擅演奏"
+      },
+      "personality": {
+        "traits": [
+          "痴情",
+          "叛逆",
+          "天真",
+          "温柔",
+          "任性",
+          "多情"
+        ],
+        "values": [
+          "女儿清净",
+          "真情至上",
+          "自由灵性",
+          "厌恶功名",
+          "生命本真"
+        ],
+        "speech_style": "用词新颖带半文半白，常常痴语傻话，对姐姐妹妹极尽温柔敬重，对男人则鄙夷不屑",
+        "judgement_verse": "'纵然生得好皮囊，腹内原来草莽'——自嘲",
+        "prophetic_hint": "衔玉而生，终归大荒",
+        "fate_omin": "悬崖撒手，落发为僧",
+        "moral_code": "以情为法，以女儿为尊",
+        "attitude_towards_ritual": "痛恨虚伪礼教",
+        "intellectual_temper": "敏感、梦幻、偏执",
+        "emotional_lean": "重情至深，情感主导",
+        "secrecy_level": "心中秘密多但对知己不藏",
+        "ambition_type": "反叛解脱型"
+      },
+      "goals": {
+        "short_term_goal": "与黛玉、宝钗等在大观园终日厮守，作诗玩耍",
+        "long_term_goal": "逃避成人责任，希望永远保持女儿世界",
+        "motivation": "对灵秀女儿的真挚爱慕，对污浊仕途的极端排斥",
+        "underlying_wish": "与黛玉永远相守，灵魂纯净不离散",
+        "fatalistic_push": "衔玉而生的宿命暗示",
+        "concealed_ambition": "无，只想超脱",
+        "relationship_pursuit": "追求黛玉的灵魂知己之情，也留恋宝钗之美",
+        "survival_strategy": "装疯卖傻、依赖贾母庇护",
+        "honor_restoration": "根本不在乎",
+        "rebellion_impulse": "极度强烈，对抗一切父权规范",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "太虚幻境与绛珠仙草之约（潜意识）",
+            "贾府表面荣华内里腐朽"
+          ],
+          "social_knowledge": [
+            "各房丫鬟隐情",
+            "姐妹们真实心思"
+          ]
+        },
+        "background_summary": "衔玉而生，被贾母捧在掌心，自幼在闺阁中长大，对女儿世界充满膜拜，厌恶男人功名，经历与黛玉的刻骨爱情、宝钗的理性笼络，最终看破红尘。",
+        "key_events": [
+          "梦见太虚幻境",
+          "与黛玉共读西厢",
+          "挨贾政毒打",
+          "金钏投井、晴雯被逐后的幻灭",
+          "误娶宝钗、黛玉魂归"
+        ],
+        "secrets": [
+          "偷藏禁书私看",
+          "与琪官互赠汗巾（得罪忠顺王府）",
+          "对黛玉表白心意"
+        ],
+        "hidden_family_secret": "贾府为了元春省亲亏空秘密",
+        "childhood_trauma": "秦可卿之死带来的美与幻灭",
+        "dream_omen": "警幻仙子多次托梦",
+        "taboo_knowledge": "西厢记牡丹亭等淫词艳曲",
+        "previous_life_hint": "神瑛侍者转世",
+        "transgressive_encounter": "与秦钟同性之好",
+        "unwritten_rule_understanding": "看透礼教虚伪但无力改变",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "偶有发热，心疾（敏感体质）",
+        "emotional_condition": "欢喜与忧愁不定，此刻正喜悦于新得西洋玩意儿",
+        "financial_state": "零花钱充裕，无经济意识",
+        "assigned_courtyard": "怡红院",
+        "current_activity": "正在廊下逗弄鹦鹉练习黛玉旧诗",
+        "attendance_duty": "每日去贾母处请安",
+        "seclusion_status": "否",
+        "punishment_or_reward": "刚被贾母赏了新衣裳",
+        "time_period_indicator": "大观园刚建成不久，省亲尚未正式举行"
+      },
+      "visual": "一个十五六岁的少年，面如冠玉，眉似墨画，眼含春水，双颊微丰，嘴唇饱满，神情既有少年人的灵动又有莫名的痴意。头发未束冠，只松松编一条三股黑亮发辫，辫梢缀大红穗子和一颗明珠，额前飘几缕碎发。身着银红撒花箭袖袄，外罩石青起花八团倭缎排穗褂，腰束五彩丝攒花结长穗宫绦，挂着一块通灵宝玉——大如雀卵，灿若明霞，五色花纹缠护。脚蹬青缎粉底小朝靴。整体气质如明珠美玉，又带一股风流仙气。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:008",
+        "name": "林黛玉",
+        "role": "主子小姐与少爷",
+        "family_branch": "荣国府（寄居）",
+        "generation": "与宝玉同辈",
+        "peerage_rank": "无（前巡盐御史之女）",
+        "origination_type": "外姓表亲寄住",
+        "status_hierarchy": "贾母特别宠爱，但无实权",
+        "lineage_position": "林如海与贾敏之独女，贾母外孙女",
+        "marital_status": "未婚",
+        "clan_membership": "林家（已凋零）与贾家（外戚）",
+        "room_assignment": "潇湘馆"
+      },
+      "social_profile": {
+        "group_id": "荣国府客居小姐",
+        "reputation": "才高气傲、孤僻善妒、体弱多病",
+        "social_circle_tags": "大观园诗社核心, 闺阁文才圈, 贾母偏心圈",
+        "intimate_coterie": "贾宝玉, 紫鹃, 史湘云（时而亲近）",
+        "faction_alignment": "宝玉派（灵魂伴侣）",
+        "gossip_status": "府中下人背后议论她尖酸小心眼",
+        "matriarchal_favor": "极高，仅次于宝玉",
+        "peer_regard": "宝钗与之友好但竞争，迎春等敬而远之",
+        "servant_relationship": "紫鹃忠心，对其他下人较刻薄",
+        "external_connection": "林家旧交已绝",
+        "marriage_prospect_rank": "中上（无家族支撑，但有贾母支持）"
+      },
+      "capabilities": {
+        "skills": [
+          "作诗填词",
+          "抚琴",
+          "刺绣",
+          "品香",
+          "写意画"
+        ],
+        "level": "诗坛顶尖，余皆中上",
+        "weaknesses": "体弱多病、多疑敏感、不善交际、不理财",
+        "poetry_skill": "天才级（葬花词、秋窗风雨夕等）",
+        "household_management": "弱（不屑亦无机会）",
+        "embroidery_proficiency": "上等（香囊做得好）",
+        "medical_knowledge": "深懂药理（自己常配药）",
+        "budget_handling": "无（靠贾母月例）",
+        "forbidden_knowledge": "与宝玉共读西厢",
+        "social_manipulation": "低（不屑使用）",
+        "calligraphy_level": "上等（一笔小楷清灵娟秀）",
+        "musical_talent": "琴艺精湛，知音律"
+      },
+      "personality": {
+        "traits": [
+          "聪慧",
+          "敏感",
+          "孤傲",
+          "多愁",
+          "至情",
+          "伶牙俐齿"
+        ],
+        "values": [
+          "真情",
+          "诗意",
+          "洁净",
+          "自尊",
+          "灵魂契合"
+        ],
+        "speech_style": "言辞犀利带刺，才华横溢，常用诗词喻人，对宝玉温柔私语，对旁人则刻薄机锋",
+        "judgement_verse": "'质本洁来还洁去，强于污淖陷渠沟'",
+        "prophetic_hint": "泪尽而逝，应誓绛珠仙草",
+        "fate_omin": "花落人亡两不知",
+        "moral_code": "情是唯一准则，不容半点虚伪",
+        "attitude_towards_ritual": "表面遵守，内心蔑视形式",
+        "intellectual_temper": "忧郁而灵敏，追求形上之美",
+        "emotional_lean": "极端深情，占有欲强",
+        "secrecy_level": "心事深藏，只对宝玉表露",
+        "ambition_type": "无世间野心，只求情感完满"
+      },
+      "goals": {
+        "short_term_goal": "与宝玉多相处，吟诗养病，保持清高",
+        "long_term_goal": "与宝玉结成婚姻，灵魂相守一生",
+        "motivation": "对宝玉的刻骨爱恋与自身孤零身世带来的不安全感",
+        "underlying_wish": "还尽一生眼泪，偿还前世灌溉之恩",
+        "fatalistic_push": "警幻仙姑安排的还泪命运",
+        "concealed_ambition": "无",
+        "relationship_pursuit": "独占宝玉的心，胜过宝钗",
+        "survival_strategy": "以病和才情博取贾母怜爱",
+        "honor_restoration": "渴望重振林家清誉，但无能为力",
+        "rebellion_impulse": "",
+        "legacy_concern": "死后诗稿与琴书的托付"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "官场门道（从父亲处听闻）",
+            "江南旧家掌故"
+          ],
+          "social_knowledge": [
+            "荣国府各房暗斗",
+            "宝钗与宝玉金玉姻缘之说"
+          ]
+        },
+        "background_summary": "巡盐御史林如海与贾敏之独女，自幼丧母，外祖母接来荣国府。幼年丧父成为孤女，寄人篱下，养成多疑、自尊又脆弱性格。与宝玉一见如故，木石前盟，注定以泪还债。",
+        "key_events": [
+          "母亲去世，初入荣国府",
+          "父亲病逝，彻底孤身",
+          "与宝玉共读西厢",
+          "题帕三绝",
+          "重建桃花社",
+          "病中焚稿断痴情"
+        ],
+        "secrets": [
+          "与宝玉私下的情意",
+          "知道宝钗有金玉之说",
+          "藏有宝玉送的旧帕题诗"
+        ],
+        "hidden_family_secret": "林家巨额遗产被贾琏贪污（假托外人）",
+        "childhood_trauma": "双亲先后离世，无家可归",
+        "dream_omen": "梦见宝玉剖心而亡",
+        "taboo_knowledge": "偷看《会真记》",
+        "previous_life_hint": "西灵河岸上三生石畔的绛珠仙草",
+        "transgressive_encounter": "与宝玉床前私语，诉肺腑",
+        "unwritten_rule_understanding": "知道庶出、妾室的悲哀，自身难保",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:018"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "咳嗽频频，弱不禁风，常吃人参养荣丸",
+        "emotional_condition": "寂寞而敏感，因宝玉与宝钗亲近而暗暗伤心",
+        "financial_state": "月钱够用，但无积蓄，常叹无家底",
+        "assigned_courtyard": "潇湘馆",
+        "current_activity": "独坐在潇湘馆窗前写《秋窗风雨夕》拟作",
+        "attendance_duty": "每日参拜贾母",
+        "seclusion_status": "否",
+        "punishment_or_reward": "贾母刚送了一两燕窝",
+        "time_period_indicator": "大观园初秋，海棠诗社成立不久"
+      },
+      "visual": "一个十六岁左右的少女，身量纤瘦，弱柳扶风，肩削腰细，脸若银盆但微微苍白，眉尖若蹙，自带一缕烟愁。一双似喜非喜含情目，顾盼间水光潋滟，鼻梁挺秀，嘴唇薄而朱红，常作抿紧姿态。乌黑长发在头顶挽成垂鬟分肖髻，仅簪一支白玉竹节簪，鬓边别一朵秋海棠。身着月白色绣青竹交领长袄，外罩银鼠坎肩，下系水绿百褶裙，腰束鹅黄宫绦，垂着一个亲手做的红色香囊。手上常攥一条白丝帕，帕角绣着几点墨竹。气质清灵孤绝，如幽谷寒兰。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:014",
+        "name": "薛宝钗",
+        "role": "主子小姐与少爷",
+        "family_branch": "薛家",
+        "generation": "与宝玉同辈",
+        "peerage_rank": "商贾之家",
+        "origination_type": "客居",
+        "status_hierarchy": "亲戚家小姐，地位尊贵但非本家",
+        "lineage_position": "外戚",
+        "marital_status": "未婚",
+        "clan_membership": "薛氏",
+        "room_assignment": "梨香院"
+      },
+      "social_profile": {
+        "group_id": "",
+        "reputation": "品德贤淑，端庄稳重，才貌双全",
+        "social_circle_tags": "大观园诗社, 金陵十二钗",
+        "intimate_coterie": "贾宝玉, 林黛玉, 史湘云",
+        "faction_alignment": "王夫人一派（金玉良缘）",
+        "gossip_status": "常被议论为宝玉妻子人选",
+        "matriarchal_favor": "深受贾母喜爱",
+        "peer_regard": "才貌双全，令人敬重",
+        "servant_relationship": "对下人宽厚有原则",
+        "external_connection": "母亲薛姨妈、哥哥薛蟠",
+        "marriage_prospect_rank": "极高"
+      },
+      "capabilities": {
+        "skills": [
+          "诗词",
+          "女红",
+          "医药",
+          "管家",
+          "人际经营",
+          "习字"
+        ],
+        "level": "精通（综合能力强）",
+        "weaknesses": "过于理性，有时显得冷漠",
+        "poetry_skill": "上等",
+        "household_management": "优秀",
+        "embroidery_proficiency": "精通",
+        "medical_knowledge": "有研究",
+        "budget_handling": "擅长",
+        "forbidden_knowledge": "",
+        "social_manipulation": "善于交际但有原则",
+        "calligraphy_level": "上等",
+        "musical_talent": "通音律"
+      },
+      "personality": {
+        "traits": [
+          "稳重",
+          "理性",
+          "博学",
+          "善于忍让",
+          "藏拙",
+          "追求仕途经济"
+        ],
+        "values": [
+          "妇德",
+          "家族责任",
+          "现实利益",
+          "和谐"
+        ],
+        "speech_style": "温和稳重，引经据典，含蓄而有深意",
+        "judgement_verse": "可叹停机德，堪怜咏絮才。玉带林中挂，金簪雪里埋。",
+        "prophetic_hint": "金簪雪里埋暗示最终独守空闺",
+        "fate_omin": "与宝玉有缘无分，独守空闺",
+        "moral_code": "恪守封建礼教",
+        "attitude_towards_ritual": "遵从并维护礼法",
+        "intellectual_temper": "博学而实用",
+        "emotional_lean": "克制情感",
+        "secrecy_level": "较低，表面光明",
+        "ambition_type": "望夫成龙，振兴家族"
+      },
+      "goals": {
+        "short_term_goal": "博得贾府上下好感，稳固自己在贾府的地位",
+        "long_term_goal": "嫁给宝玉，成为贾府未来的当家奶奶",
+        "motivation": "为家族利益和个人终身幸福",
+        "underlying_wish": "希望宝玉能走仕途经济之路",
+        "fatalistic_push": "命运安排最终与宝玉结婚但无子嗣",
+        "concealed_ambition": "",
+        "relationship_pursuit": "与宝玉建立感情",
+        "survival_strategy": "顺应环境，保持中庸",
+        "honor_restoration": "维护薛家声誉",
+        "rebellion_impulse": "",
+        "legacy_concern": "希望薛家后继有人"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "诗书礼仪",
+            "医理药理",
+            "人际世故"
+          ],
+          "social_knowledge": [
+            "贾府内部派系",
+            "四大家族关系"
+          ]
+        },
+        "background_summary": "薛家皇商出身，父亲早逝，母亲溺爱兄长不成器。自幼读书识字，品格端方。",
+        "key_events": [
+          "随母亲进京待选入宫",
+          "寄居贾府",
+          "互看金玉良缘"
+        ],
+        "secrets": [
+          "对宝玉有真实情感但深藏不露",
+          "知道宝玉无意于仕途却仍抱有希望"
+        ],
+        "hidden_family_secret": "薛蟠打死人命",
+        "childhood_trauma": "父亲去世",
+        "dream_omen": "",
+        "taboo_knowledge": "对贾府奢侈浪费有清醒认识",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "懂得以退为进，不争是争",
+        "ancestral_story": "",
+        "lost_letter_content": "曾经写过一封劝宝玉读书的信未送出"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:梨香院"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "健康",
+        "emotional_condition": "平静内敛",
+        "financial_state": "宽裕",
+        "assigned_courtyard": "梨香院",
+        "current_activity": "与母亲共处，或去贾母处请安",
+        "attendance_duty": "",
+        "seclusion_status": "正常",
+        "punishment_or_reward": "",
+        "time_period_indicator": "入府初期"
+      },
+      "visual": "薛宝钗，约十五六岁，体态丰满匀称，脸庞圆润如银盘，肤色白皙，眉目温和平正，一双丹凤眼微含笑意，嘴唇丰润。乌黑长发梳成精致高髻，簪一支素雅点翠凤钗，耳边一对金雕蜻蜓坠子。身着蜜合色半新不旧的棉袄，外罩玫瑰紫二色金银鼠比肩褂，下着葱黄绫棉裙，以稳重素雅为主，珠光内敛。神态端庄，举止从容，透出温厚与机敏。常手持一柄团扇或捧着书卷。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:003",
+        "name": "贾探春",
+        "role": "主子小姐与少爷",
+        "family_branch": "荣国府",
+        "generation": "与宝玉同辈",
+        "peerage_rank": "无爵位",
+        "origination_type": "本家",
+        "status_hierarchy": "庶出小姐",
+        "lineage_position": "贾政之妾赵姨娘所出",
+        "marital_status": "未婚",
+        "clan_membership": "贾氏",
+        "room_assignment": "秋爽斋"
+      },
+      "social_profile": {
+        "group_id": "",
+        "reputation": "精明能干，志向高远，有治家之才，但因庶出身份受歧视",
+        "social_circle_tags": "大观园诗社, 金陵十二钗",
+        "intimate_coterie": "贾宝玉, 林黛玉, 薛宝钗",
+        "faction_alignment": "倾向于王夫人但保持独立",
+        "gossip_status": "常被议论庶出身份",
+        "matriarchal_favor": "贾母喜爱",
+        "peer_regard": "才华出众，受尊重",
+        "servant_relationship": "对下人严格但有威仪",
+        "external_connection": "生母赵姨娘（关系紧张），生父贾政",
+        "marriage_prospect_rank": "较高但受庶出限制"
+      },
+      "capabilities": {
+        "skills": [
+          "书法",
+          "诗词",
+          "管家",
+          "决断",
+          "理账"
+        ],
+        "level": "优秀",
+        "weaknesses": "因庶出身份心结，过于敏感",
+        "poetry_skill": "上等",
+        "household_management": "出色",
+        "embroidery_proficiency": "一般",
+        "medical_knowledge": "",
+        "budget_handling": "",
+        "forbidden_knowledge": "",
+        "social_manipulation": "",
+        "calligraphy_level": "极佳",
+        "musical_talent": "尚可"
+      },
+      "personality": {
+        "traits": [
+          "精明强干",
+          "刚直",
+          "有抱负",
+          "自尊心强",
+          "务实"
+        ],
+        "values": [
+          "家族振兴",
+          "个人尊严",
+          "能力证明"
+        ],
+        "speech_style": "爽利明快，有理有据，不卑不亢",
+        "judgement_verse": "才自精明志自高，生于末世运偏消。清明涕泣江边望，千里东风一梦遥。",
+        "prophetic_hint": "",
+        "fate_omin": "远嫁海疆",
+        "moral_code": "遵守礼法但注重实际",
+        "attitude_towards_ritual": "严格但不盲从",
+        "intellectual_temper": "务实理性",
+        "emotional_lean": "冷静而有情",
+        "secrecy_level": "",
+        "ambition_type": "渴望施展才能，改变家族命运"
+      },
+      "goals": {
+        "short_term_goal": "在管家试练中展示能力",
+        "long_term_goal": "出嫁后能振兴夫家，不辱贾家",
+        "motivation": "证明庶出也能有所作为",
+        "underlying_wish": "得到家族和父亲的认可",
+        "fatalistic_push": "命途多舛，最终远嫁",
+        "concealed_ambition": "暗中希望改变贾府衰败",
+        "relationship_pursuit": "",
+        "survival_strategy": "靠才能结交人脉",
+        "honor_restoration": "洗刷庶出耻辱",
+        "rebellion_impulse": "",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "经史子集",
+            "治家理财",
+            "府中账目"
+          ],
+          "social_knowledge": [
+            "贾府内部关系网",
+            "各人长短"
+          ]
+        },
+        "background_summary": "贾政庶女，生母赵姨娘粗鄙，从小在王夫人膝下长大，养成要强的性格。",
+        "key_events": [
+          "参与创建诗社",
+          "代理管家兴利除弊",
+          "抄检大观园时维护尊严"
+        ],
+        "secrets": [
+          "对自己庶出身份极度敏感却强作不在乎",
+          "暗中仰慕有学问的人，想摆脱原生家庭影响"
+        ],
+        "hidden_family_secret": "赵姨娘曾使坏",
+        "childhood_trauma": "生母的卑微",
+        "dream_omen": "",
+        "taboo_knowledge": "知道贾府败落迹象",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "明白庶出难处，懂得寻找依靠",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:秋爽斋"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "健康",
+        "emotional_condition": "积极进取",
+        "financial_state": "一般",
+        "assigned_courtyard": "秋爽斋",
+        "current_activity": "读书写字或与众姐妹叙谈",
+        "attendance_duty": "",
+        "seclusion_status": "正常",
+        "punishment_or_reward": "",
+        "time_period_indicator": "大观园修建前"
+      },
+      "visual": "贾探春，约十四五岁，身材高挑，削肩细腰，长挑身材，鸭蛋脸面，俊眼修眉，顾盼神飞。肤色微黑，透出健康之色。头发梳成双丫髻，佩戴象征小姐身份的银簪，眉目间英气勃勃。身穿水红色窄褙袄，外罩石青刻丝银鼠披风，下着月白流云裙，利落而有锋芒。手常执一卷书或一管笔，神色庄重中带有傲气，目光坚定。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:009",
+        "name": "王夫人",
+        "role": "当家太太与管家奶奶",
+        "family_branch": "荣国府",
+        "generation": "与贾政平辈",
+        "peerage_rank": "诰命夫人",
+        "origination_type": "本家正室",
+        "status_hierarchy": "荣国府当家太太，二房正室",
+        "lineage_position": "贾政正妻，贾宝玉之母",
+        "marital_status": "已婚",
+        "clan_membership": "贾氏（夫家）",
+        "room_assignment": "荣国府正院东廊上房"
+      },
+      "social_profile": {
+        "group_id": "",
+        "reputation": "表面慈善，实则刚愎，管教子女严厉，独揽大权",
+        "social_circle_tags": "荣国府管家层, 金陵王家势力",
+        "intimate_coterie": "薛姨妈, 王熙凤, 薛宝钗",
+        "faction_alignment": "王派（王家人+亲信）",
+        "gossip_status": "被下人议论冷酷，但地位稳固",
+        "matriarchal_favor": "贾母虽倚重，但不完全信任",
+        "peer_regard": "当家太太，权威",
+        "servant_relationship": "严厉，信任周瑞家的等",
+        "external_connection": "娘家王家，妹妹薛姨妈",
+        "marriage_prospect_rank": "不适用"
+      },
+      "capabilities": {
+        "skills": [
+          "管家",
+          "持家",
+          "礼佛",
+          "读经"
+        ],
+        "level": "经验丰富但格局有限",
+        "weaknesses": "见识狭隘，容易受挑拨，固执",
+        "poetry_skill": "",
+        "household_management": "尚可",
+        "embroidery_proficiency": "",
+        "medical_knowledge": "",
+        "budget_handling": "不懂节流，过度奢侈",
+        "forbidden_knowledge": "知道贾府暗处丑事但选择遮掩",
+        "social_manipulation": "有一定手腕",
+        "calligraphy_level": "",
+        "musical_talent": ""
+      },
+      "personality": {
+        "traits": [
+          "慈善外表",
+          "固执",
+          "重名声",
+          "偏爱宝玉",
+          "厌恶赵姨娘"
+        ],
+        "values": [
+          "礼教",
+          "家族名声",
+          "子嗣前程"
+        ],
+        "speech_style": "说话温和但言辞无情，常用佛家话掩饰",
+        "judgement_verse": "心病终须心药治",
+        "prophetic_hint": "",
+        "fate_omin": "家族彻底败落",
+        "moral_code": "严守妇德",
+        "attitude_towards_ritual": "恪守封建礼法",
+        "intellectual_temper": "",
+        "emotional_lean": "对宝玉溺爱，对他人冷漠",
+        "secrecy_level": "",
+        "ambition_type": "守护宝玉的未来"
+      },
+      "goals": {
+        "short_term_goal": "确保宝玉走仕途之路，维护家族体面",
+        "long_term_goal": "为宝玉娶一个贤内助，延续贾府荣光",
+        "motivation": "母性爱子与家族责任",
+        "underlying_wish": "家族永保富贵",
+        "fatalistic_push": "最终丧失一切",
+        "concealed_ambition": "控制荣国府实权",
+        "relationship_pursuit": "",
+        "survival_strategy": "借重王熙凤、薛家等",
+        "honor_restoration": "",
+        "rebellion_impulse": "",
+        "legacy_concern": "宝玉的科举前途"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "持家规矩",
+            "佛经"
+          ],
+          "social_knowledge": [
+            "四大家族内部关系"
+          ]
+        },
+        "background_summary": "出身金陵王家，嫁入贾府后逐渐掌握管家大权。曾经因长子贾珠夭折而伤心，对次子宝玉溺爱过度。",
+        "key_events": [
+          "撵走金钏",
+          "抄检大观园",
+          "逼死晴雯",
+          "支持金玉良缘"
+        ],
+        "secrets": [
+          "知道贾府财务困境但不处理",
+          "对贾母奉承心里不服"
+        ],
+        "hidden_family_secret": "贾珠之死可能与苛责有关",
+        "childhood_trauma": "幼子在襁褓中夭折（非贾珠）",
+        "dream_omen": "",
+        "taboo_knowledge": "贾府不体面之事如贾琏偷情",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "懂得夫妻关系、婆媳关系",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:正房"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "健康但常有头风",
+        "emotional_condition": "多忧虑",
+        "financial_state": "主持中馈",
+        "assigned_courtyard": "正房",
+        "current_activity": "处理家务或礼佛",
+        "attendance_duty": "",
+        "seclusion_status": "正常",
+        "punishment_or_reward": "",
+        "time_period_indicator": "元春省亲前"
+      },
+      "visual": "王夫人，年近四十，体态丰腴，面容圆润，眉眼慈善但眼神锐利，嘴角常含微笑，却带有威严。头发梳成圆髻，簪一根赤金点翠龙凤钗，气质雍容。身着石青色缂丝对襟褙子，内着月白色立领中衣，下系赭石色织锦马面裙，通身富贵。右手腕戴一串沉香木佛珠，左手持一本经书或家账。神态温和中隐藏强势，不怒自威。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:012",
+        "name": "王熙凤",
+        "role": "当家太太与管家奶奶",
+        "family_branch": "荣国府长房",
+        "generation": "玉字辈媳妇",
+        "peerage_rank": "荣国府当家奶奶，无正式诰命但实际掌权",
+        "origination_type": "明媒正娶，王家嫡女",
+        "status_hierarchy": "太太级（实际权力超越邢夫人）",
+        "lineage_position": "贾琏之妻，贾母孙媳妇，邢夫人儿媳",
+        "marital_status": "已婚",
+        "clan_membership": "贾王联姻，四大家族核心圈",
+        "room_assignment": "荣国府东院（凤姐院）"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子阶层",
+        "reputation": "精明强干却心狠手辣，畏者多敬者少",
+        "social_circle_tags": "管家圈子, 内宅实权派, 利益联盟",
+        "intimate_coterie": "平儿, 贾母, 鸳鸯",
+        "faction_alignment": "贾母派（借势压邢夫人）",
+        "gossip_status": "常被背后议论弄权贪财，但当面无人敢触",
+        "matriarchal_favor": "极高——贾母最宠信的重孙媳妇",
+        "peer_regard": "众姐妹畏惧中带疏远，尤氏表面敷衍内心不满",
+        "servant_relationship": "恩威并施，仆从既怕又服，但积怨渐深",
+        "external_connection": "与王家、薛家、长安节度使等有利益勾连",
+        "marriage_prospect_rank": "已稳固，无需再议"
+      },
+      "capabilities": {
+        "skills": [
+          "管家理财",
+          "内宅统御",
+          "权谋手段",
+          "口才辩辞",
+          "人事调配",
+          "放贷盘剥"
+        ],
+        "level": "核心顶梁",
+        "weaknesses": "贪欲过盛, 不留余地, 树敌太多, 无子嗣支撑, 过度劳累导致小产",
+        "poetry_skill": "1/10",
+        "household_management": "10/10",
+        "embroidery_proficiency": "3/10",
+        "medical_knowledge": "2/10",
+        "budget_handling": "9/10（但中饱私囊）",
+        "forbidden_knowledge": "精通官场贿赂、高利贷、包揽词讼等灰色操作",
+        "social_manipulation": "10/10",
+        "calligraphy_level": "5/10",
+        "musical_talent": "1/10"
+      },
+      "personality": {
+        "traits": [
+          "泼辣果断",
+          "口齿伶俐",
+          "笑里藏刀",
+          "胆大妄为",
+          "争强好胜",
+          "重利轻义"
+        ],
+        "values": [
+          "权力至上",
+          "金钱万能",
+          "家族体面但可利用",
+          "尊卑分明"
+        ],
+        "speech_style": "连珠炮式，爱用俗语谚语，声音爽利，常带笑骂，语速快而锐",
+        "judgement_verse": "机关算尽太聪明，反误了卿卿性命",
+        "prophetic_hint": "哭向金陵事更哀",
+        "fate_omin": "一从二令三人木，最后被休弃",
+        "moral_code": "实用主义，为达目的不择手段",
+        "attitude_towards_ritual": "表面遵从，私下变通利用",
+        "intellectual_temper": "精明务实，不喜诗书空谈",
+        "emotional_lean": "外热内冷，对丈夫有嫉妒但更重利益",
+        "secrecy_level": "极高——坏事瞒得严实",
+        "ambition_type": "扩大家族及个人权势，渴望独揽荣国府大权"
+      },
+      "goals": {
+        "short_term_goal": "巩固管家权，打压赵姨娘等威胁，继续放贷捞钱",
+        "long_term_goal": "为贾琏生下嫡子以固位，同时积累私产以防家族败落",
+        "motivation": "出身王家的骄矜，以及对权力和金钱的贪婪",
+        "underlying_wish": "能摆脱贾琏的控制，真正成为荣国府第一决策人",
+        "fatalistic_push": "贾府经济窟窿越滚越大，必须用危险手段维持",
+        "concealed_ambition": "暗中吞并宁国府部分管理权",
+        "relationship_pursuit": "讨好贾母以压服邢夫人",
+        "survival_strategy": "早做打算，将钱财转移到自己名下",
+        "honor_restoration": "无",
+        "rebellion_impulse": "无——她本就是现有秩序的既得利益者",
+        "legacy_concern": "担心自己无子，死后家产归贾琏新妻"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "贾府内部账目亏空实情",
+            "各房下人贪污暗账",
+            "四大家族联姻护官网条款"
+          ],
+          "social_knowledge": [
+            "各房人际关系弱点",
+            "官场贿赂路子",
+            "王夫人、邢夫人真实态度"
+          ]
+        },
+        "background_summary": "王家嫡女，嫁入荣国府贾琏，凭借贾母信任和自身能力夺得管家大权，治家严酷，暗放月例钱发财，弄权铁槛寺致张金哥夫妇死亡，早已结下许多冤仇。",
+        "key_events": [
+          "管家初期整顿宁国府丧事立威",
+          "弄权铁槛寺逼死张金哥未婚夫妇",
+          "泼醋鲍二媳妇致其自杀",
+          "陷害尤二姐迫使吞金自尽",
+          "抄检大观园时施计推波助澜"
+        ],
+        "secrets": [
+          "长期放高利贷并挪用公中银子",
+          "与贾蓉、贾蔷等有见不得光的利益输送",
+          "曾给张华银子唆使告状",
+          "将贾母等人私房钱偷偷挪为己用"
+        ],
+        "hidden_family_secret": "贾家祖上曾因军功获罪但掩盖，她无意中探知一二",
+        "childhood_trauma": "幼年在家为争宠被胞姐暗算，养成要强性格",
+        "dream_omen": "曾梦见秦可卿劝置祖茔田产，未在意",
+        "taboo_knowledge": "知道贾珍与秦可卿的不伦之事但隐而不发",
+        "previous_life_hint": "无",
+        "transgressive_encounter": "与贾瑞调情致其死亡",
+        "unwritten_rule_understanding": "深刻理解‘阴骘’和‘体面遮丑’的界限",
+        "ancestral_story": "对王家祖上军功有所了解，引以为傲",
+        "lost_letter_content": "无"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "身强力壮，但有小产后遗症，偶尔崩漏",
+        "emotional_condition": "志得意满，带焦虑——怕失去权力",
+        "financial_state": "私库充盈，暗中积蓄万两",
+        "assigned_courtyard": "荣国府东院正房",
+        "current_activity": "正在巡视下人，发落迟到者",
+        "attendance_duty": "每日到贾母处请安，处理各处对牌",
+        "seclusion_status": "无",
+        "punishment_or_reward": "无",
+        "time_period_indicator": "仿真起始阶段，林黛玉初入荣国府后不久"
+      },
+      "visual": "一位二十七八岁的少妇，中等偏高身材，体态丰满匀称，肩颈线条利落。鹅蛋脸，肤白细润，一双丹凤三角眼顾盼间精光四射，两道修长柳叶眉微微上挑，嘴唇薄而有棱角，常带三分笑却冷意暗藏。乌发盘成圆髻，正中簪一支赤金点翠的五凤衔珠钗，鬓边斜插一朵大红绒花。身着石榴红刻丝灰鼠皮褂，内衬蜜合色绫袄，下系石青绣金团花马面裙，腰束金镶玉珠带，挂着一枚通灵玉式样的平安扣（非真通灵）。左手腕叠戴双金镯，右手持一把泥金小扇，扇坠是红玛瑙佛手。周身珠光宝气，神态看似和气实则威压，站姿笔挺，走动时环佩叮当，气势逼人。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:007",
+        "name": "李纨",
+        "role": "当家太太与管家奶奶",
+        "family_branch": "荣国府二房",
+        "generation": "玉字辈媳妇",
+        "peerage_rank": "贾珠遗孀，有诰命封宜人",
+        "origination_type": "明媒正娶，金陵李守中之女",
+        "status_hierarchy": "寡妇太太级（高于赵姨娘但实际权力低）",
+        "lineage_position": "贾珠之妻，贾政王夫人长媳，贾兰生母",
+        "marital_status": "寡居",
+        "clan_membership": "贾李联姻",
+        "room_assignment": "荣国府稻香村（大观园建成前暂居荣国府西跨院）"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子阶层—寡妇边缘层",
+        "reputation": "温厚贤良，教子有方，但被认为古板无趣",
+        "social_circle_tags": "诗社文人, 寡妇圈, 低调派",
+        "intimate_coterie": "李纨之子贾兰, 探春, 宝钗, 黛玉",
+        "faction_alignment": "中立——不参与争权，但暗中维护贾兰利益",
+        "gossip_status": "极少被人背后议论，名声清白",
+        "matriarchal_favor": "中等偏低——贾母怜其寡居但不如凤姐得宠",
+        "peer_regard": "众姐妹尊敬但觉得她恪守规矩少了趣味",
+        "servant_relationship": "宽厚但不紧密，仆从觉得她善但不苛",
+        "external_connection": "娘家李守中已故，与娘家兄弟来往不多",
+        "marriage_prospect_rank": "不可能再婚（守节）"
+      },
+      "capabilities": {
+        "skills": [
+          "女红刺绣",
+          "诗社组织",
+          "教子读书",
+          "冷静观察",
+          "静默忍耐"
+        ],
+        "level": "次要人物但能力扎实",
+        "weaknesses": "缺乏魄力, 事不关己便不开口, 经济拮据, 过于保守",
+        "poetry_skill": "7/10（能评点，作品不算顶尖）",
+        "household_management": "6/10（之前管理过大观园短期）",
+        "embroidery_proficiency": "9/10",
+        "medical_knowledge": "3/10",
+        "budget_handling": "8/10（寡妇月钱固定，量入为出）",
+        "forbidden_knowledge": "对家中阴私有所耳闻但从不沾惹",
+        "social_manipulation": "2/10（不屑此道）",
+        "calligraphy_level": "7/10",
+        "musical_talent": "4/10"
+      },
+      "personality": {
+        "traits": [
+          "沉静内敛",
+          "守礼持重",
+          "温和中带骨气",
+          "不与人争",
+          "疼爱儿子"
+        ],
+        "values": [
+          "妇道贞节",
+          "诗书礼仪",
+          "家族体统",
+          "勤谨节俭",
+          "子嗣前程"
+        ],
+        "speech_style": "言语和缓，用词文雅，不多言，笑不露齿，语速慢而稳",
+        "judgement_verse": "桃李春风结子完，到头谁似一盆兰",
+        "prophetic_hint": "贾兰日后中举，李纨得凤冠霞帔但不久逝世",
+        "fate_omin": "薄命司判词中‘枉与他人作笑谈’",
+        "moral_code": "严格遵循女四书，内心有分寸",
+        "attitude_towards_ritual": "谨遵不悖，视礼法为安身之本",
+        "intellectual_temper": "理性务实，不尚空谈",
+        "emotional_lean": "外冷内柔，对亡夫有情但对宝玉等亲近小辈亦有温暖",
+        "secrecy_level": "中等——藏得住心事但无害",
+        "ambition_type": "全为儿子贾兰的功名前程"
+      },
+      "goals": {
+        "short_term_goal": "照顾好贾兰学业，参与大观园诗社稍作消遣",
+        "long_term_goal": "等待贾兰金榜题名光宗耀祖，自己亦得封诰",
+        "motivation": "母职责任与对亡夫的承诺",
+        "underlying_wish": "希望自己能活得有尊严，不要因寡妇身份被轻视",
+        "fatalistic_push": "家族颓势已显，必须靠儿子科举翻身",
+        "concealed_ambition": "暗中计算存银为贾兰娶亲及赶考所用",
+        "relationship_pursuit": "与宝钗、探春保持友好，为贾兰积攒人脉",
+        "survival_strategy": "降低消费、不惹是非、积攒口碑",
+        "honor_restoration": "期待贾兰高中后光耀门楣",
+        "rebellion_impulse": "无",
+        "legacy_concern": "死后‘稻香村’匾额能否传世，贾兰能否中兴贾府"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "科举制度与八股技巧",
+            "贾府先祖事迹",
+            "女四书精要"
+          ],
+          "social_knowledge": [
+            "各房太太脾性",
+            "贾母喜恶",
+            "薛蟠、王熙凤的负面传闻"
+          ]
+        },
+        "background_summary": "出身书香门第李守中之女，嫁入荣国府贾珠，贾珠早逝后立志守寡，一心教子，在贾府内宅低调生存，靠寡居月钱和娘家有限接济度日，但能将平凡日子过得安稳。",
+        "key_events": [
+          "贾珠病逝，二十岁即成寡妇",
+          "带领儿子贾兰搬入荣国府西跨院",
+          "受邀管理大观园诗社并任社长",
+          "抄检大观园中立保自身",
+          "最终贾兰中举后不久病故"
+        ],
+        "secrets": [
+          "私下存有一些贾珠遗物和几两私房钱",
+          "其实对凤姐贪腐行为心知肚明但从不揭发",
+          "对贾府衰败早有预感，逐渐攒钱转移"
+        ],
+        "hidden_family_secret": "知道贾珠临终前曾警告家族可能会败",
+        "childhood_trauma": "父亲严格教育，不得自由，少年丧夫",
+        "dream_omen": "曾梦见贾珠托梦让她好生教养贾兰",
+        "taboo_knowledge": "无意撞见过凤姐放贷的事，假装不知",
+        "previous_life_hint": "无",
+        "transgressive_encounter": "无",
+        "unwritten_rule_understanding": "深知‘寡妇门前是非多’所以深居简出",
+        "ancestral_story": "父亲李守中曾讲《女诫》道理深入骨髓",
+        "lost_letter_content": "贾珠遗信，劝她勿生怨望，善养幼子"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "体质偏弱，畏寒，但无大病",
+        "emotional_condition": "平静略带忧郁，对贾兰充满希望",
+        "financial_state": "拮据但不窘迫，月钱二十两，省吃俭用有积蓄",
+        "assigned_courtyard": "荣国府西跨院三间小房",
+        "current_activity": "正在灯下督促贾兰温习四书，手旁放着一件半成品的绣品",
+        "attendance_duty": "每日早晚向王夫人请安，偶尔到贾母处",
+        "seclusion_status": "无",
+        "punishment_or_reward": "无",
+        "time_period_indicator": "仿真起始阶段，林黛玉初入荣国府后不久"
+      },
+      "visual": "一位三十出头面容清秀的女子，身量纤瘦，肩背微含，姿态恭谨。皮肤白净，脸型略长，眉眼温顺，双目常带浅浅愁意，嘴角却总抿着克制的微笑。一头青丝简单梳成圆髻，不戴珠翠，只插一支银簪并一朵素色绢花。上身着秋香色素面缂丝夹袄，外罩石青色褙子（寡妇常服），领口纽扣严整。下穿月白棉裙，裙摆无绣纹，腰间系一条青布束腰荷包，用于收纳针线。手指纤细，指间常夹一枚铜顶针。气质文静内敛，走动时无声无息，常低头看路，整体色调素雅低调，唯有手中绣品偶尔露出一抹亮色。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:015",
+        "name": "赵姨娘",
+        "role": "妾室与庶出",
+        "family_branch": "荣国府二房",
+        "generation": "玉字辈妾侍",
+        "peerage_rank": "贾政之妾，无诰命",
+        "origination_type": "家生子收房为妾",
+        "status_hierarchy": "姨娘级（高于丫鬟低于太太）",
+        "lineage_position": "贾政侧室，探春、贾环生母",
+        "marital_status": "妾室",
+        "clan_membership": "原本是贾家家奴，无独立家族背景",
+        "room_assignment": "荣国府梨香院后罩房"
+      },
+      "social_profile": {
+        "group_id": "荣国府妾室阶层",
+        "reputation": "愚蠢自私、挑唆生非，人人厌恶",
+        "social_circle_tags": "底层小妾, 怨妇圈, 搬弄是非者",
+        "intimate_coterie": "马道婆, 贾环",
+        "faction_alignment": "反王夫人派，暗中希望取代王夫人地位",
+        "gossip_status": "众人鄙视且防范，常被背后嘲笑",
+        "matriarchal_favor": "极低——贾母厌恶她",
+        "peer_regard": "众主子看不起，丫鬟婆子表面应付背后轻蔑",
+        "servant_relationship": "刻薄下人，常打骂，不得人心",
+        "external_connection": "仅与市井巫婆马道婆往来",
+        "marriage_prospect_rank": "无（妾室不可能转正）"
+      },
+      "capabilities": {
+        "skills": [
+          "哭闹撒泼",
+          "暗地使坏",
+          "挑拨离间",
+          "低层算计"
+        ],
+        "level": "次要但极具破坏性",
+        "weaknesses": "目光短浅, 愚昧冲动, 口无遮拦, 贪婪但无手段",
+        "poetry_skill": "0/10",
+        "household_management": "1/10",
+        "embroidery_proficiency": "5/10",
+        "medical_knowledge": "1/10",
+        "budget_handling": "2/10（常乱花钱）",
+        "forbidden_knowledge": "略知巫蛊害人方法",
+        "social_manipulation": "3/10（低级手段）",
+        "calligraphy_level": "0/10",
+        "musical_talent": "0/10"
+      },
+      "personality": {
+        "traits": [
+          "愚昧贪心",
+          "暴躁易怒",
+          "斤斤计较",
+          "欺软怕硬",
+          "爱搬弄是非"
+        ],
+        "values": [
+          "自身利益绝对优先",
+          "妒恨嫡系",
+          "迷信鬼神"
+        ],
+        "speech_style": "尖利刻薄，嗓门大，常带脏话，抱怨不停，爱在背后说人坏话",
+        "judgement_verse": "先时起妒忌，后时两败伤",
+        "prophetic_hint": "最终下场惨淡，被王夫人严厉处置",
+        "fate_omin": "死后无人同情，被薄棺草草埋葬",
+        "moral_code": "弱肉强食，无道德底线",
+        "attitude_towards_ritual": "不懂也不遵，私下骂祖宗规矩",
+        "intellectual_temper": "无学识，粗鄙",
+        "emotional_lean": "贪婪偏狭，对子女控制欲强",
+        "secrecy_level": "低——话多容易泄露",
+        "ambition_type": "想让自己和贾环地位提高，谋夺家产"
+      },
+      "goals": {
+        "short_term_goal": "通过巫蛊咒死凤姐和宝玉（同马道婆策划）",
+        "long_term_goal": "让贾环继承家业或至少分得更多财产",
+        "motivation": "对王夫人、凤姐的嫉妒与怨恨",
+        "underlying_wish": "过上和太太一样的尊贵生活",
+        "fatalistic_push": "出身低微，越想往上爬越遭人鄙夷",
+        "concealed_ambition": "想趁贾府败落前捞取银两首饰藏匿",
+        "relationship_pursuit": "拉拢贾环做自己的工具",
+        "survival_strategy": "拼死吵闹以博取关注和可怜",
+        "honor_restoration": "期望庶出的贾环能出人头地替自己争气",
+        "rebellion_impulse": "非常强烈，公开顶撞王夫人",
+        "legacy_concern": "担心女儿探春不站在自己这边，骂探春忘本"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "市井巫术浅识",
+            "贾府奴才之间的八卦"
+          ],
+          "social_knowledge": [
+            "王夫人与凤姐的软肋",
+            "下人间的派系裂缝"
+          ]
+        },
+        "background_summary": "原是贾府家生子，因模样被贾政收为通房丫头，后生子抬为姨娘。但始终遭受王夫人、凤姐等的压制与轻视，内心极度扭曲，常因一点小利与下人冲突，曾因芳官戏弄贾环大闹怡红院，又找马道婆做法害人，是荣国府内宅不安定的重要因素。",
+        "key_events": [
+          "因玫瑰露事件与芳官、藕官大打出手",
+          "联合马道婆做法，暗害凤姐和宝玉（未完全成功）",
+          "被王夫人当众斥责，颜面扫地",
+          "教唆贾环故意烫伤宝玉",
+          "抄检大观园时因形迹可疑被额外搜查"
+        ],
+        "secrets": [
+          "曾从王夫人房中偷走几匹绸缎变卖",
+          "私下买了马道婆的纸人朱砂做魇镇",
+          "还藏有贾政私下给的一些银两未上报"
+        ],
+        "hidden_family_secret": "知道贾政年轻时曾对一个丫鬟动真情但被王夫人撵走，以此要挟过贾政",
+        "childhood_trauma": "幼年被管家婆子打骂，养成攀附强权的性格",
+        "dream_omen": "梦到过祠堂祖宗斥责她不肖，醒来咒骂祖先",
+        "taboo_knowledge": "知道贾政与某位尼姑有旧但不敢声张",
+        "previous_life_hint": "无",
+        "transgressive_encounter": "曾试图勾引贾琏未遂",
+        "unwritten_rule_understanding": "完全不懂体面遮丑，总当面撕破脸",
+        "ancestral_story": "不关心，只知道抱怨祖宗偏心",
+        "lost_letter_content": "无意发现贾政留的一首暗指王夫人善妒的诗，但看不懂"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "体壮声亮，无大病",
+        "emotional_condition": "愤恨不平，一触即怒",
+        "financial_state": "私房钱有限，常靠典当度日，但仍买胭脂水粉",
+        "assigned_courtyard": "梨香院后罩房两间",
+        "current_activity": "正躲在屋角跟马道婆低声商议，桌上摊着黄纸和剪好的纸人",
+        "attendance_duty": "每日需到王夫人房伺候，但经常躲懒",
+        "seclusion_status": "无",
+        "punishment_or_reward": "最近被凤姐罚过月钱，更加怀恨",
+        "time_period_indicator": "仿真起始阶段，林黛玉初入荣国府后不久"
+      },
+      "visual": "一位三十五岁上下的妇人，中等身材偏胖，脸庞圆阔，颧骨微高，肤色偏黄带糙，两道短粗眉毛，眼珠小而灵活，常露算计神色，嘴唇薄而抿，说话时眉毛乱动。头发胡乱编成圆髻，斜插一支鎏金扁簪，并几朵红色绢花，但花已褪色。上身穿着桃红夹绸袄（洗得发白），外罩蓝布比甲，领口敞开一颗扣子显得潦草。下着藏青粗布裙，裙边沾有泥点。腰间系着旧绣花汗巾，手戴一对银镯子已发黑。手里常攥着一方半旧的帕子抹汗。整体形象俗艳邋遢，表情怨毒，站立时常叉腰，走路急匆匆带风，动不动就蹲地哭骂。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:013",
+        "name": "袭人",
+        "role": "大丫鬟与贴身侍婢",
+        "family_branch": "",
+        "generation": "",
+        "peerage_rank": "",
+        "origination_type": "买进",
+        "status_hierarchy": "金陵十二钗又副册",
+        "lineage_position": "",
+        "marital_status": "未婚",
+        "clan_membership": "贾府奴仆",
+        "room_assignment": "怡红院"
+      },
+      "social_profile": {
+        "group_id": "大丫鬟与贴身侍婢",
+        "reputation": "温柔贤惠",
+        "social_circle_tags": "怡红院, 贾母房",
+        "intimate_coterie": "麝月, 秋纹",
+        "faction_alignment": "王夫人派",
+        "gossip_status": "稳重得体",
+        "matriarchal_favor": "贾母赞其温顺，王夫人倚为心腹",
+        "peer_regard": "敬重却觉其心机深",
+        "servant_relationship": "恩威并施",
+        "external_connection": "与蒋玉菡有姻缘前兆",
+        "marriage_prospect_rank": "中等偏上"
+      },
+      "capabilities": {
+        "skills": [
+          "针线活",
+          "劝谏规劝",
+          "管理丫鬟",
+          "察言观色"
+        ],
+        "level": "高级",
+        "weaknesses": "太过忠顺, 缺乏反抗精神",
+        "poetry_skill": "下",
+        "household_management": "优",
+        "embroidery_proficiency": "优",
+        "medical_knowledge": "中",
+        "budget_handling": "中",
+        "forbidden_knowledge": "",
+        "social_manipulation": "高",
+        "calligraphy_level": "一般",
+        "musical_talent": ""
+      },
+      "personality": {
+        "traits": [
+          "温柔和顺",
+          "忠心耿耿",
+          "顾全大局",
+          "功利现实"
+        ],
+        "values": [
+          "忠君孝亲",
+          "安分守己",
+          "顺从命运"
+        ],
+        "speech_style": "温婉细语，常带劝诫",
+        "judgement_verse": "枉自温柔和顺，空云似桂如兰",
+        "prophetic_hint": "将来嫁给优伶，也是暗中注定",
+        "fate_omin": "终陷泥淖之中",
+        "moral_code": "以封建礼法为准绳",
+        "attitude_towards_ritual": "严格遵守",
+        "intellectual_temper": "务实",
+        "emotional_lean": "理性内敛",
+        "secrecy_level": "",
+        "ambition_type": "向上攀附，求稳定归宿"
+      },
+      "goals": {
+        "short_term_goal": "继续服侍好宝玉，得王夫人赏识",
+        "long_term_goal": "成为宝玉姨娘，或嫁个体面人家",
+        "motivation": "求生安命，改善地位",
+        "underlying_wish": "得到家族承认",
+        "fatalistic_push": "命运推手（嫁蒋玉菡）",
+        "concealed_ambition": "暗中为自己筹划",
+        "relationship_pursuit": "与宝玉保持亲密但不逾矩",
+        "survival_strategy": "依仗王夫人，维护规矩",
+        "honor_restoration": "",
+        "rebellion_impulse": "微小",
+        "legacy_concern": "希望自己后代不再为奴"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "贾府内务运作",
+            "金陵十二钗命运"
+          ],
+          "social_knowledge": [
+            "各房主子性格",
+            "丫鬟们的明争暗斗"
+          ]
+        },
+        "background_summary": "自幼因家贫被卖入贾府，先服侍贾母，后赐予宝玉。深受封建礼教影响，处处以规矩行事。",
+        "key_events": [
+          "被贾母赐予宝玉",
+          "偷听宝玉诉衷情却不敢泄露",
+          "向王夫人进言暗示宝玉应搬出园子",
+          "宝玉挨打后向王夫人表忠心",
+          "最后嫁与蒋玉菡"
+        ],
+        "secrets": [
+          "曾与宝玉初试云雨",
+          "向王夫人进言提防黛玉"
+        ],
+        "hidden_family_secret": "自己并非家生子，不知父母为何卖她",
+        "childhood_trauma": "被卖离开家人",
+        "dream_omen": "曾梦到宝玉成亲不是自己",
+        "taboo_knowledge": "宝玉与黛玉之间的情感",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "深知贾府表面风光内里腐朽",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "健康",
+        "emotional_condition": "谨慎守礼",
+        "financial_state": "有积蓄",
+        "assigned_courtyard": "怡红院",
+        "current_activity": "服侍宝玉起居",
+        "attendance_duty": "值夜",
+        "seclusion_status": "",
+        "punishment_or_reward": "曾受王夫人赏赐",
+        "time_period_indicator": "贾府鼎盛时期"
+      },
+      "visual": "年约十五六岁，身段纤细柔美，面如满月，眉目温顺。梳着双鬟髻，两根银簪压鬓。身穿水红色半臂绸袄，外罩月白绫缎比甲，下着青缎子马面裙，腰间系着五彩通灵玉绦。手中常握一方素绸手帕，动作轻柔温婉。气质敦厚和顺，笑容含蓄，眼神沉稳，显出一副安分守己的大丫鬟模样。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:011",
+        "name": "晴雯",
+        "role": "大丫鬟与贴身侍婢",
+        "family_branch": "",
+        "generation": "",
+        "peerage_rank": "",
+        "origination_type": "买进（赖大家买入后孝敬贾母）",
+        "status_hierarchy": "金陵十二钗又副册首位",
+        "lineage_position": "",
+        "marital_status": "未婚",
+        "clan_membership": "贾府奴仆",
+        "room_assignment": "怡红院"
+      },
+      "social_profile": {
+        "group_id": "大丫鬟与贴身侍婢",
+        "reputation": "心比天高",
+        "social_circle_tags": "怡红院, 与麝月交好",
+        "intimate_coterie": "麝月, 秋纹（表面）",
+        "faction_alignment": "宝玉身边人（无明确派系）",
+        "gossip_status": "被王夫人视为妖精",
+        "matriarchal_favor": "贾母曾赏识其针线，王夫人厌恶",
+        "peer_regard": "丫鬟们敬畏其美貌泼辣",
+        "servant_relationship": "对小丫鬟严厉直率",
+        "external_connection": "",
+        "marriage_prospect_rank": "低（因被撵）"
+      },
+      "capabilities": {
+        "skills": [
+          "针线绝活",
+          "识字",
+          "斗嘴",
+          "撒娇撒痴"
+        ],
+        "level": "高级",
+        "weaknesses": "锋芒毕露, 口无遮拦, 不守规矩",
+        "poetry_skill": "下",
+        "household_management": "一般",
+        "embroidery_proficiency": "顶尖",
+        "medical_knowledge": "",
+        "budget_handling": "差",
+        "forbidden_knowledge": "",
+        "social_manipulation": "直来直去",
+        "calligraphy_level": "能认字",
+        "musical_talent": ""
+      },
+      "personality": {
+        "traits": [
+          "灵巧风流",
+          "心高气傲",
+          "率真刚烈",
+          "嫉恶如仇"
+        ],
+        "values": [
+          "人格尊严",
+          "真实不伪",
+          "爱憎分明"
+        ],
+        "speech_style": "尖酸爽利，快人快语",
+        "judgement_verse": "霁月难逢，彩云易散；心比天高，身为下贱",
+        "prophetic_hint": "夭折早逝，含冤莫白",
+        "fate_omin": "风流灵巧招人怨",
+        "moral_code": "凭良心行事，不媚上",
+        "attitude_towards_ritual": "不屑一顾",
+        "intellectual_temper": "聪慧机敏",
+        "emotional_lean": "热烈外露",
+        "secrecy_level": "",
+        "ambition_type": "无攀附野心，只求做自己"
+      },
+      "goals": {
+        "short_term_goal": "与宝玉保持亲密，不被规矩束缚",
+        "long_term_goal": "无长远规划，但求自由快活",
+        "motivation": "追求自我实现与真挚感情",
+        "underlying_wish": "被宝玉真心对待",
+        "fatalistic_push": "",
+        "concealed_ambition": "",
+        "relationship_pursuit": "和宝玉情深但清白",
+        "survival_strategy": "倚靠宝玉和贾母",
+        "honor_restoration": "",
+        "rebellion_impulse": "强，反抗等级压迫",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "贾府丫鬟升迁之路",
+            "王熙凤手段"
+          ],
+          "social_knowledge": [
+            "王夫人对黛玉宝玉亲近的忌讳",
+            "袭人暗中使绊子"
+          ]
+        },
+        "background_summary": "十岁被赖大买来，因贾母喜爱而赐给宝玉。生得标致，针线出众，性格泼辣。",
+        "key_events": [
+          "撕扇子作千金一笑",
+          "病补雀金裘",
+          "被王夫人叫来斥骂",
+          "被撵出大观园后病死"
+        ],
+        "secrets": [
+          "曾在宝玉病中彻夜守护",
+          "与宝玉并无越轨之事，却被冤枉"
+        ],
+        "hidden_family_secret": "自己亲生父母不详",
+        "childhood_trauma": "被卖为奴的屈辱",
+        "dream_omen": "梦见自己变成海棠花，被风刮落",
+        "taboo_knowledge": "知道宝玉喜红不爱女色",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "知道贾府规矩但并不遵守",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "强健",
+        "emotional_condition": "活泼张扬",
+        "financial_state": "清贫无积蓄",
+        "assigned_courtyard": "怡红院",
+        "current_activity": "与宝玉戏耍",
+        "attendance_duty": "贴身近侍",
+        "seclusion_status": "",
+        "punishment_or_reward": "曾被宝玉纵容撕扇",
+        "time_period_indicator": "贾府鼎盛时期"
+      },
+      "visual": "年约十四五岁，身段苗条如柳，削肩细腰，瓜子脸，眉眼风流灵动。一头乌黑油亮的青丝挽成堕马髻，斜插一支金簪。身穿银红色绫罗窄袄，外罩翠蓝色绣花褙子，下着白绫裙。腰佩豆绿色荷包。面容俏丽，眉梢眼角带着三分傲气七分灵气，嘴角常含笑意，但目光犀利。姿态轻盈，行动如风，手中常拿一把团扇或刺绣绷子，显得灵巧洒脱。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:010",
+        "name": "平儿",
+        "role": "通房大丫鬟",
+        "family_branch": "",
+        "generation": "",
+        "peerage_rank": "",
+        "origination_type": "家生子",
+        "status_hierarchy": "通房丫鬟",
+        "lineage_position": "",
+        "marital_status": "未婚（通房）",
+        "clan_membership": "贾府奴仆",
+        "room_assignment": "凤姐院落"
+      },
+      "social_profile": {
+        "group_id": "大丫鬟与贴身侍婢",
+        "reputation": "善良贤良，处事公允",
+        "social_circle_tags": "凤姐院, 荣国府当家丫鬟",
+        "intimate_coterie": "袭人, 鸳鸯",
+        "faction_alignment": "凤姐心腹",
+        "gossip_status": "口碑极好",
+        "matriarchal_favor": "贾母赞其忠厚，王熙凤倚重",
+        "peer_regard": "众人敬服",
+        "servant_relationship": "施恩不图报",
+        "external_connection": "",
+        "marriage_prospect_rank": "低（因通房身份尴尬）"
+      },
+      "capabilities": {
+        "skills": [
+          "周旋调节",
+          "账目管理",
+          "人情世故",
+          "保密"
+        ],
+        "level": "专家",
+        "weaknesses": "太过善良有时吃亏, 不敢违抗凤姐",
+        "poetry_skill": "下",
+        "household_management": "极高",
+        "embroidery_proficiency": "中",
+        "medical_knowledge": "",
+        "budget_handling": "优秀",
+        "forbidden_knowledge": "",
+        "social_manipulation": "高",
+        "calligraphy_level": "能记账",
+        "musical_talent": ""
+      },
+      "personality": {
+        "traits": [
+          "善良温和",
+          "聪明圆滑",
+          "隐忍大度",
+          "公正无私"
+        ],
+        "values": [
+          "公平",
+          "善良",
+          "忠诚",
+          "息事宁人"
+        ],
+        "speech_style": "温柔谦和，善于调解",
+        "judgement_verse": "平儿者，瓶中之水，方圆无棱",
+        "prophetic_hint": "最终成为正室，善终",
+        "fate_omin": "无大凶",
+        "moral_code": "以和为贵，不伤他人",
+        "attitude_towards_ritual": "遵守但灵活",
+        "intellectual_temper": "精明通透",
+        "emotional_lean": "从容淡泊",
+        "secrecy_level": "",
+        "ambition_type": "求安稳与尊严"
+      },
+      "goals": {
+        "short_term_goal": "平衡凤姐与贾琏纷争，维护凤姐权威",
+        "long_term_goal": "摆脱通房身份，成为良妾或扶正",
+        "motivation": "生存并保持善良本性",
+        "underlying_wish": "得遇良人，脱离奴籍",
+        "fatalistic_push": "",
+        "concealed_ambition": "暗中为自己留后路（如帮尤二姐）",
+        "relationship_pursuit": "与贾琏有情但克制",
+        "survival_strategy": "做凤姐贤内助换取信任",
+        "honor_restoration": "",
+        "rebellion_impulse": "有微弱反抗（如放走柳湘莲相关）",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "贾府经济状况",
+            "凤姐财务手段"
+          ],
+          "social_knowledge": [
+            "各房矛盾",
+            "贾琏风流",
+            "贾母对凤姐态度"
+          ]
+        },
+        "background_summary": "自小是王熙凤的丫头，后被贾琏收为通房。在凤姐淫威下左右调停，积德行善。",
+        "key_events": [
+          "帮贾琏藏多姑娘头发",
+          "替尤二姐求情并照顾",
+          "凤姐生日撞破贾琏偷情仍息事宁人",
+          "烧纸祭奠尤二姐"
+        ],
+        "secrets": [
+          "私下资助过一些困难的仆人",
+          "知道凤姐放高利贷却不敢曝露"
+        ],
+        "hidden_family_secret": "自己的卖身契在凤姐手中",
+        "childhood_trauma": "被卖入贾府",
+        "dream_omen": "",
+        "taboo_knowledge": "凤姐用丫鬟顶缸",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "懂得装糊涂才能生存",
+        "ancestral_story": "",
+        "lost_letter_content": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "健康",
+        "emotional_condition": "平和隐忍",
+        "financial_state": "有体己钱",
+        "assigned_courtyard": "凤姐院落",
+        "current_activity": "随侍凤姐料理家务",
+        "attendance_duty": "时刻伺候",
+        "seclusion_status": "",
+        "punishment_or_reward": "",
+        "time_period_indicator": "贾府鼎盛时期"
+      },
+      "visual": "年约二十上下，身段丰腴匀称，圆脸盘，五官端正温润。梳圆髻，插银簪珠花。身穿月白色暗纹绸衫，外罩藕荷色银线绣花对襟坎肩，下着湖蓝马面裙。腰间系着精致绣花汗巾。面容和善，嘴角常带浅浅笑意，眼神稳重平和，一手常抱着凤姐的钥匙或端着茶盏。通身气派不露锋芒，显得既体面又不张扬。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:005",
+        "name": "贾政",
+        "role": "荣国府家长/工部员外郎",
+        "family_branch": "荣国府二房",
+        "generation": "文字辈（玉字辈兄长）",
+        "peerage_rank": "工部员外郎（正五品）",
+        "origination_type": "世袭与科举混合（祖荫入仕）",
+        "status_hierarchy": "荣国府家长（名义掌权者），次于贾母但高于众子孙",
+        "lineage_position": "贾母次子，贾赦之弟",
+        "marital_status": "正妻王夫人，侧室赵姨娘",
+        "clan_membership": "贾氏宗族荣国府二房",
+        "room_assignment": "荣国府东院书房（梦坡斋）、正堂庭院"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子层",
+        "reputation": "刻板迂腐、端方正直，外人眼中恪守礼教的清官，家人眼中严厉无趣的家长",
+        "social_circle_tags": "清客门人, 朝中同僚, 贾雨村等攀附者",
+        "intimate_coterie": "贾母（敬且畏）, 王夫人（貌合神离）, 清客詹光、单聘仁等",
+        "faction_alignment": "正统礼教派，对族中腐败有心无力",
+        "gossip_status": "无人敢当面非议，但私下嫌其古板",
+        "matriarchal_favor": "贾母对其较为喜爱但嫌其乏趣",
+        "peer_regard": "同僚中声誉尚可，但笑其不通世务",
+        "servant_relationship": "规矩极严，下人多畏惧远离",
+        "external_connection": "与官场应酬，但缺乏实权派支持",
+        "marriage_prospect_rank": "已成年已婚，不适用"
+      },
+      "capabilities": {
+        "skills": [
+          "经义策论",
+          "八股文章",
+          "楷书",
+          "官场应酬（表面）",
+          "家务管理（实际无能）"
+        ],
+        "level": "中等官员水平，文学修养尚可但无创新",
+        "weaknesses": "迂腐不知变通、缺乏经济头脑、对家仆欺瞒视而不见、对子女教育失当",
+        "poetry_skill": "合格但平庸，偏好咏史诗与应制诗",
+        "household_management": "理论高于实践，任由下人把持",
+        "embroidery_proficiency": "",
+        "medical_knowledge": "",
+        "budget_handling": "拮据而不愿开源节流",
+        "forbidden_knowledge": "",
+        "social_manipulation": "直板，不屑于权谋",
+        "calligraphy_level": "端正严谨的馆阁体",
+        "musical_talent": ""
+      },
+      "personality": {
+        "traits": [
+          "刻板",
+          "孝道至上",
+          "严父形象",
+          "心虚而色厉",
+          "循规蹈矩",
+          "不善言辞"
+        ],
+        "values": [
+          "忠君孝亲",
+          "科甲功名",
+          "礼法秩序",
+          "家族门楣",
+          "读书明理"
+        ],
+        "speech_style": "老成持重，多用“之乎者也”，训斥时严厉大声，平时寡言",
+        "judgement_verse": "“天然一段愚诚，谁解其中味”",
+        "prophetic_hint": "痴迷功名却屡试不第，终致家族倾覆",
+        "fate_omin": "晚年家道中落，流放遇赦，再兴无望",
+        "moral_code": "严格坚持封建宗法，但自身也有妾室争宠暗斗",
+        "attitude_towards_ritual": "极度推崇，认为礼即天理",
+        "intellectual_temper": "保守、拒绝新意",
+        "emotional_lean": "压抑情感，夫妻冷淡，对宝玉爱之深责之切",
+        "secrecy_level": "低，言行坦荡但受蒙蔽",
+        "ambition_type": "光宗耀祖的保守型野心"
+      },
+      "goals": {
+        "short_term_goal": "督促宝玉读书走科举路，维持家族对外体面",
+        "long_term_goal": "保住荣国府爵位与官声，培养接班人光大门楣",
+        "motivation": "对家族荣誉的责任感与对父母之命的遵从",
+        "underlying_wish": "希望子女能理解自己的苦心，家族延续",
+        "fatalistic_push": "目睹家族奢靡却无力改革，内心充满无力感",
+        "concealed_ambition": "盼望自己能升任更高官职以振兴门第",
+        "relationship_pursuit": "修复与宝玉的父子关系（潜意识）",
+        "survival_strategy": "明哲保身，不与宁府同流合污",
+        "honor_restoration": "视清正廉明为家族荣誉根基",
+        "rebellion_impulse": "偶尔羡慕贾赦的放纵，但立即压服",
+        "legacy_concern": "忧心贾宝玉不成器，恐绝科举传承"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "朝堂典制",
+            "科举八股",
+            "经史子集",
+            "官场潜规则"
+          ],
+          "social_knowledge": [
+            "四大家族联姻脉络",
+            "贾雨村靠贾府起复",
+            "朝中派系斗争（略知皮毛）"
+          ]
+        },
+        "background_summary": "贾代善次子，自幼好读书，原欲以科举出身，因代善临终遗本，蒙恩赐主事之职。娶妻王夫人，育有长子贾珠（早逝）、长女元春、次子贾宝玉。为官平庸，性好诗书，常与清客谈文，对家务经济一窍不通。",
+        "key_events": [
+          "代善临终上遗本，蒙恩赐主事",
+          "贾珠夭折，痛失长子",
+          "因宝玉抓周抓脂粉而大怒，认定其为酒色之徒",
+          "担任工部员外郎期间参与元妃省亲筹备",
+          "因贾雨村攀附而与其交往"
+        ],
+        "secrets": [
+          "私下对贾母的溺爱抱有怨言但不敢明说",
+          "知道赵姨娘曾用魇魔法害凤姐宝玉却隐忍未深究",
+          "对自己无实际治家能力感到羞耻"
+        ],
+        "hidden_family_secret": "疑心贾赦侵吞祖产但无证据",
+        "childhood_trauma": "幼年被父亲代善严苛管教，造成逆来顺受的性格",
+        "dream_omen": "曾梦到先祖贾演痛哭家族将败",
+        "taboo_knowledge": "知道宁府聚麀之乱但刻意回避",
+        "previous_life_hint": "",
+        "transgressive_encounter": "",
+        "unwritten_rule_understanding": "明白家丑不可外扬，对宁府丑闻睁一只眼闭一只眼",
+        "ancestral_story": "常对子孙讲先祖贾源、贾演的创业艰辛",
+        "lost_letter_content": "一封门生劝他清理家奴的信被他烧毁，因怕得罪人"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "体健但常有头痛焦虑之症",
+        "emotional_condition": "焦虑压抑，常发无名火",
+        "financial_state": "俸禄有限，依赖公中开支",
+        "assigned_courtyard": "荣国府东院书房（梦坡斋）",
+        "current_activity": "正在书房与清客詹光讨论宝玉的课业",
+        "attendance_duty": "每日去工部应卯，休沐在家读圣贤书",
+        "seclusion_status": "否",
+        "punishment_or_reward": "无",
+        "time_period_indicator": "乾隆年间，贾府鼎盛时期午时"
+      },
+      "visual": "约四十五岁中年男子，中等偏瘦身材，蓄短须，眉目端正但带愁苦皱纹。面皮白皙略有松弛，双眼细长常半垂，透出古板与倦怠。头戴深青色细缎瓜皮帽，额前缀碧玉帽正。身着石青色团花暗纹对襟长褂，内衬月白色中衣，腰系玄色织金腰带，挂一枚汉玉佩。手边常放一方端砚与狼毫笔，指节分明。姿态拘谨，背微驼，说话时手指轻敲案几。书房背景挂着‘谦受益’匾额，案上置《大学章句》与半杯冷茶。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:002",
+        "name": "贾琏",
+        "role": "荣国府管家/捐官同知",
+        "family_branch": "荣国府大房",
+        "generation": "玉字辈",
+        "peerage_rank": "同知（正五品，捐官）",
+        "origination_type": "世家子弟捐官",
+        "status_hierarchy": "荣国府长孙，协理家务的实权人物",
+        "lineage_position": "贾赦之子，凤姐之夫，贾琮之兄",
+        "marital_status": "正妻王熙凤，纳妾尤二姐（后亡）等",
+        "clan_membership": "贾氏宗族荣国府大房",
+        "room_assignment": "荣国府东院（与凤姐同住）"
+      },
+      "social_profile": {
+        "group_id": "荣国府主子层",
+        "reputation": "风流好色、办事练达但品性不端",
+        "social_circle_tags": "纨绔子弟, 官场应酬圈, 市井商人",
+        "intimate_coterie": "贾蓉（共淫之友）, 小厮兴儿、旺儿, 尤二姐（曾为外室）",
+        "faction_alignment": "无明确派系，靠凤姐联系王家势力",
+        "gossip_status": "偷娶尤二姐、与鲍二媳妇等事为人诟病",
+        "matriarchal_favor": "贾母较为喜爱，因其嘴甜能干",
+        "peer_regard": "同辈中因能办事而受倚仗，但轻视其好色",
+        "servant_relationship": "对下人宽松，易被欺瞒，但亦能笼络",
+        "external_connection": "负责贾府对外借贷、修缮等实务，与宫中太监有往来",
+        "marriage_prospect_rank": "已婚，不适用"
+      },
+      "capabilities": {
+        "skills": [
+          "对外交际",
+          "工程管理",
+          "银钱周转",
+          "人情往来",
+          "骑马射箭（懈怠）"
+        ],
+        "level": "干练的实际办事者，但缺乏长远眼光",
+        "weaknesses": "急色、耳根软、畏妻（王熙凤）、贪图享乐",
+        "poetry_skill": "粗通，不如内眷",
+        "household_management": "被凤姐架空，但对外事务一手包办",
+        "embroidery_proficiency": "",
+        "medical_knowledge": "",
+        "budget_handling": "大方阔绰，不懂节流",
+        "forbidden_knowledge": "知晓宁府聚麀，但自身亦参与",
+        "social_manipulation": "圆滑老练，善于周旋",
+        "calligraphy_level": "端正但无风骨",
+        "musical_talent": "会吹笛，但不精"
+      },
+      "personality": {
+        "traits": [
+          "风流",
+          "圆滑",
+          "惧内",
+          "缺乏主见",
+          "贪恋美色",
+          "偶尔仗义"
+        ],
+        "values": [
+          "及时行乐",
+          "家族体面（表面）",
+          "哥们义气",
+          "孝道（对贾赦）"
+        ],
+        "speech_style": "油腔滑调，对外有礼数，私下轻浮，常用市井俗语",
+        "judgement_verse": "'一从二令三人木，哭向金陵事更哀'",
+        "prophetic_hint": "因淫乱终致家破人亡，被凤姐心寒抛弃",
+        "fate_omin": "尤二姐死后心生愧疚，但本性难移",
+        "moral_code": "底线极低，只要不闹大皆可",
+        "attitude_towards_ritual": "表面遵守，私下无视",
+        "intellectual_temper": "崇尚实务，不爱读书",
+        "emotional_lean": "贪图新鲜，对尤二姐有真情但懦弱",
+        "secrecy_level": "中，常被凤姐抓包",
+        "ambition_type": "享乐型，不求上进，只求安稳快活"
+      },
+      "goals": {
+        "short_term_goal": "偷欢不被凤姐发现，理清对外债务",
+        "long_term_goal": "继承荣国府爵位，过富贵闲人生活",
+        "motivation": "欲望驱使与世家子身份的压力",
+        "underlying_wish": "希望凤姐能对他温和宽容",
+        "fatalistic_push": "明知家中坐吃山空也不愿改变",
+        "concealed_ambition": "染指宁府财政（曾与贾珍勾连）",
+        "relationship_pursuit": "寻求新鲜刺激的男女关系",
+        "survival_strategy": "两边讨好，见风使舵",
+        "honor_restoration": "不关心",
+        "rebellion_impulse": "偶尔反抗凤姐，但随即屈服",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "皇室内务府与太监体系",
+            "京城市井商人圈",
+            "修建工程门道"
+          ],
+          "social_knowledge": [
+            "四大家族中王家势力最大",
+            "与北静王府有旧",
+            "甄家与贾府走得近"
+          ]
+        },
+        "background_summary": "贾赦之子，捐官同知。娶王熙凤后，夫妻协理荣国府内外事务。为人好色风流，曾偷娶尤二姐，被凤姐设计逼死。也因与鲍二媳妇偷情被凤姐大闹。是贾府中少数通晓实务之人，但品行不端，最终身败名裂。",
+        "key_events": [
+          "偷娶尤二姐并安置小花枝巷",
+          "与鲍二媳妇私通被凤姐撞破",
+          "将尤二姐接进府后凤姐借刀杀人",
+          "参与元妃省亲工程管理",
+          "护送林黛玉回扬州奔丧"
+        ],
+        "secrets": [
+          "与贾珍、贾蓉有过聚麀之行",
+          "私下挪用过公中银两与太监放贷",
+          "知晓凤姐放高利贷但不敢揭发"
+        ],
+        "hidden_family_secret": "怀疑贾赦侵吞了贾母的私房钱",
+        "childhood_trauma": "幼年时目睹父亲贾赦淫乱家中的可怕场景",
+        "dream_omen": "梦见尤二姐化为厉鬼索命",
+        "taboo_knowledge": "宁国府聚麀乱伦的细节",
+        "previous_life_hint": "",
+        "transgressive_encounter": "与贾蓉同玩鸡奸之戏",
+        "unwritten_rule_understanding": "谨记贾府不养闲人，但自己即为闲人",
+        "ancestral_story": "常听贾母讲贾源创业，觉得与自己无关",
+        "lost_letter_content": "尤二姐生前写给他的诀别信被他偷偷烧毁"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:014"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "体胖，略有气喘",
+        "emotional_condition": "心虚不安，因近日偷腥被凤姐察觉",
+        "financial_state": "手头宽裕但欠下不少人情债",
+        "assigned_courtyard": "荣国府东院正房",
+        "current_activity": "从外面回来，在走廊与兴儿悄声商议买地皮的事",
+        "attendance_duty": "无日常衙门事务，负责打理家族产业",
+        "seclusion_status": "否",
+        "punishment_or_reward": "凤姐暂时未发作，但已查账",
+        "time_period_indicator": "乾隆年间午后，刚与贾珍饮宴归府"
+      },
+      "visual": "约二十五六岁青年男子，面白微丰，嘴唇略薄，眼角上挑带着风流笑意。蓄两撇细须，头发束起戴紫金冠，簪白玉簪。身穿银红刻丝丹凤朝阳箭袖长袍，外罩湖蓝团花马褂，腰悬香囊与玉牌，足蹬皂靴。步伐轻浮，常把玩手上扳指。神态油滑，时而皱眉思索账目，时而对丫鬟挤眉弄眼。整体富贵而轻佻，仆从成群。"
+    },
+    {
+      "identity": {
+        "id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:004",
+        "name": "贾珍",
+        "role": "宁国府当家人/贾家族长",
+        "family_branch": "宁国府",
+        "generation": "文字辈",
+        "peerage_rank": "三品威烈将军（世袭）",
+        "origination_type": "世袭爵位",
+        "status_hierarchy": "宁国府当家人，宗族长（贾家族长）",
+        "lineage_position": "贾敬之子，贾蓉之父",
+        "marital_status": "已丧妻，继妻尤氏",
+        "clan_membership": "贾氏宗族宁国府",
+        "room_assignment": "宁国府正院"
+      },
+      "social_profile": {
+        "group_id": "宁国府主子层",
+        "reputation": "荒淫无耻，道德沦丧，宁府唯有门口两个石狮子干净",
+        "social_circle_tags": "纨绔富豪, 赌博酒肉朋友, 官场败类",
+        "intimate_coterie": "尤氏（表面夫妻）, 贾蓉（共淫父子）, 尤二姐、尤三姐（尤氏继妹，曾染指）, 薛蟠（狐朋狗友）",
+        "faction_alignment": "宁国府势力，自成一派腐败集团",
+        "gossip_status": "聚麀之诮、秦可卿之死众说纷纭",
+        "matriarchal_favor": "贾母厌恶其品行但碍于宗族长身份",
+        "peer_regard": "贵族圈暗中唾弃但仍与之交际",
+        "servant_relationship": "淫乱家中儿媳辈，无人敢言",
+        "external_connection": "与冯渊、薛蟠等贵族恶少结党",
+        "marriage_prospect_rank": "已丧妻续弦，不适用"
+      },
+      "capabilities": {
+        "skills": [
+          "奢靡享乐",
+          "射箭（花架子）",
+          "赌博",
+          "构陷嫁祸",
+          "人际关系（臭味相投）"
+        ],
+        "level": "管理无能，挥霍祖产第一",
+        "weaknesses": "无廉耻、无长子风范、无经济头脑、任性妄为",
+        "poetry_skill": "不通",
+        "household_management": "彻底荒废，由尤氏勉强维持",
+        "embroidery_proficiency": "",
+        "medical_knowledge": "",
+        "budget_handling": "挥霍无度，卖田卖地",
+        "forbidden_knowledge": "精通聚麀与淫乱恶行",
+        "social_manipulation": "以财势压人，不懂智谋",
+        "calligraphy_level": "粗劣",
+        "musical_talent": "酷爱听曲，自吹箫管"
+      },
+      "personality": {
+        "traits": [
+          "荒淫",
+          "暴戾",
+          "无耻",
+          "恣意享乐",
+          "色厉内荏",
+          "欺软怕硬"
+        ],
+        "values": [
+          "及时行乐",
+          "权势压人",
+          "自私自利",
+          "血亲不顾"
+        ],
+        "speech_style": "粗俗无忌，常爆粗口，对下人颐指气使，对同辈称兄道弟",
+        "judgement_verse": "'箕裘颓堕皆从敬，家事消亡首罪宁'",
+        "prophetic_hint": "身死家灭，宁府被抄是贾府败落开端",
+        "fate_omin": "参与秦可卿葬礼过于奢靡，埋下祸根",
+        "moral_code": "毫无道德底线",
+        "attitude_towards_ritual": "表面铺张以掩罪恶",
+        "intellectual_temper": "愚昧粗鲁",
+        "emotional_lean": "放纵后空虚",
+        "secrecy_level": "低，丑事几乎公开",
+        "ambition_type": "毁灭式享乐主义"
+      },
+      "goals": {
+        "short_term_goal": "新寻美色取乐，继续奢靡宴会",
+        "long_term_goal": "维持宁府爵位与财力供自己挥霍",
+        "motivation": "本能欲望与权力惯性的驱动",
+        "underlying_wish": "摆脱宗族长责任的束缚",
+        "fatalistic_push": "深信贾府败落是定数，不如及时行乐",
+        "concealed_ambition": "想吞并荣国府产业（曾利用贾琏）",
+        "relationship_pursuit": "与尤氏姐妹及家中丫鬟乱搞",
+        "survival_strategy": "巴结太监与朝中贪官",
+        "honor_restoration": "完全不顾",
+        "rebellion_impulse": "对父亲贾敬修道不理家事充满怨恨",
+        "legacy_concern": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "丧礼排场规制",
+            "赌博技巧",
+            "青楼暗门子"
+          ],
+          "social_knowledge": [
+            "与忠顺王府有金钱往来",
+            "薛蟠为他摆平过人命官司"
+          ]
+        },
+        "background_summary": "宁国府世袭之后，贾敬之子。父亲贾敬修道炼丹，不理家事，贾珍早早掌权。他荒淫无度，与儿媳秦可卿有染，致其自缢。又染指尤氏继妹尤二姐、尤三姐。花钱如流水，是贾府衰败的罪魁祸首之一。",
+        "key_events": [
+          "与秦可卿私通败露致其死亡",
+          "为秦可卿举行逾越礼制的奢华葬礼",
+          "偷娶尤二姐又送给贾琏",
+          "聚众赌博、斗鸡走狗",
+          "一年一度祭祖时强装体面"
+        ],
+        "secrets": [
+          "秦可卿是他污辱致死",
+          "宁府公库早已空虚，田产被他大量变卖",
+          "私下绘制春宫图与贾蓉同赏"
+        ],
+        "hidden_family_secret": "贾敬并非真心修道，是被丑闻逼得避世",
+        "childhood_trauma": "幼年目睹父亲与母婢淫乱，形成扭曲性观念",
+        "dream_omen": "梦见秦可卿披发哭诉，惊醒后变本加厉",
+        "taboo_knowledge": "知晓皇家有龙阳之好",
+        "previous_life_hint": "",
+        "transgressive_encounter": "与贾蓉同淫尤二姐",
+        "unwritten_rule_understanding": "明白宁府是脏窟，但乐在其中",
+        "ancestral_story": "用先祖功业掩盖自己罪行",
+        "lost_letter_content": "秦可卿死前托人送出的隐秘信物"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:loc:011"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_health_status": "肥硕多病，仍酗酒",
+        "emotional_condition": "暴躁易怒，因钱不够用而烦闷",
+        "financial_state": "入不敷出，已卖数百亩田产",
+        "assigned_courtyard": "宁国府正堂",
+        "current_activity": "在宁府花厅与薛蟠、贾蓉等开赌局，大呼小叫",
+        "attendance_duty": "无，挂名世职从不履职",
+        "seclusion_status": "否",
+        "punishment_or_reward": "无",
+        "time_period_indicator": "乾隆年间黄昏，宁府灯火通明，淫声浪语"
+      },
+      "visual": "约四十岁壮汉，体态臃肿，面皮紫赤，酒糟鼻，双目浑浊布满血丝，嘴角常带淫笑。头戴金线绣蟒的华阳巾，身着大红色团龙锦袍，敞怀露胸，内衬雪白绸衫，腰带松垮，挂金三事与象牙牌。指甲蓄长缠金丝，手执玉壶或鼻烟壶。坐姿歪斜，两腿叉开，身后侍童扇扇，脚边横陈酒坛。气质粗鄙霸道，充满戾气与淫邪。"
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:006",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:001",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:008",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:014",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:003",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:009",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:012",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:007",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:015",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:013",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:011",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:010",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:005",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:002",
+    "e:1b67d3e6_6883_4954_8f5f_4f4361544f92:char:004"
+  ],
+  "upstream_step_ids": [
+    "generate_characters"
+  ],
+  "warnings": [
+    "batch 2 review (score=4.625): 发现 1 个问题并已自动修正",
+    "batch 5 review (score=4.75): 发现 2 个问题并已自动修正"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

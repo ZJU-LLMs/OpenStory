@@ -1,0 +1,19 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+role:
+  type: str
+house:
+  type: str
+  option: true
+allegiance_surface:
+  type: str
+  option: true
+allegiance_actual:
+  type: str
+  option: true
+hidden_role:
+  type: str
+  option: true

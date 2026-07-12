@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_barrier",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "barrier_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "disillusionment_charm",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "password_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "evasion_methods",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

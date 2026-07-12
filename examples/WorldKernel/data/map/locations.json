@@ -1,477 +1,101 @@
 [
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:012",
-    "name": "荣禧堂",
-    "type": "main_courtyard",
-    "description": "荣国府正堂，贾政会见朝廷官员、处理家族公务的正式厅堂。五开间歇山顶，大门高悬御赐‘荣禧堂’匾额，厅内陈设紫檀木家具，地面铺青砖，梁柱彩绘，体现贾府官宦门第的威严与气派。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:002",
+    "name": "黑魔法防御课教室",
+    "type": "teaching_space",
+    "description": "这间原本用于讲授对抗黑魔法的教室，如今被卡罗兄妹改造成了展示恐怖与惩罚的舞台。墙壁上悬挂着反对食死徒标语的学生被施咒后的静态画像，讲台上方挂着巨大的黑魔标记投影，课桌椅被换成硬木长凳，部分位置还带有镣铐痕迹。空气中弥漫着恐惧和铁锈味，窗子用黑布遮住，只有蜡烛提供昏暗光线。",
     "access": {
-      "permissions": "仅限男性主人及受邀官员、门客进入，仆役须传召；女眷及低等仆役不得擅入",
-      "access_level": "restricted",
-      "access_conditions": "需贾政许可或重要公务事由",
+      "permissions": "所有学生必须参加，但出入受严格监控；教授需报备；仅食死徒拥有随意出入权",
+      "access_level": "严格管控（上课时允许进入，其余时间锁闭）",
+      "access_conditions": "携带学院级课程表或佩戴食死徒徽章方可进入；无口令则触发警报咒语",
       "access_scope": "",
-      "gender_restriction": "男性",
-      "time_restriction": "一般白日（辰时至申时）",
+      "gender_restriction": "",
+      "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "每日有官员往来，议事后恢复整洁",
-      "ownership": "荣国府（贾政）",
-      "capacity": 30,
+      "current_state": "恐怖统治下的教学/惩罚场所",
+      "ownership": "被食死徒控制，名义上归霍格沃茨所有",
+      "capacity": 36,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 30,
+    "capacity": 36,
     "tags": [
-      "main_courtyard",
-      "restricted",
-      "荣国府（贾政）"
+      "teaching_space",
+      "严格管控（上课时允许进入，其余时间锁闭）",
+      "被食死徒控制，名义上归霍格沃茨所有"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 98,
+      "x": 80,
       "y": 25,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 105,
+      "x": 87,
       "y": 35
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:012",
-        "name": "荣禧堂",
-        "type": "main_courtyard",
-        "description": "荣国府正堂，贾政会见朝廷官员、处理家族公务的正式厅堂。五开间歇山顶，大门高悬御赐‘荣禧堂’匾额，厅内陈设紫檀木家具，地面铺青砖，梁柱彩绘，体现贾府官宦门第的威严与气派。",
-        "location_function": "公务会客、族务决断",
-        "associated_person": "贾政",
-        "hierarchy_level": "正堂",
-        "faction": "荣国府"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:002",
+        "name": "黑魔法防御课教室",
+        "type": "teaching_space",
+        "description": "这间原本用于讲授对抗黑魔法的教室，如今被卡罗兄妹改造成了展示恐怖与惩罚的舞台。墙壁上悬挂着反对食死徒标语的学生被施咒后的静态画像，讲台上方挂着巨大的黑魔标记投影，课桌椅被换成硬木长凳，部分位置还带有镣铐痕迹。空气中弥漫着恐惧和铁锈味，窗子用黑布遮住，只有蜡烛提供昏暗光线。",
+        "castle_area": "城堡三楼东侧",
+        "security_level": "极高",
+        "resident_characters": "阿米库斯·卡罗, 艾米莉·卡罗",
+        "availability_to_students": "仅在上课时间强制进入，课后禁止逗留，有巡逻看守",
+        "hidden_elements": "讲台下有一个隐藏的活板门，通往废弃的扫帚间，可用于躲避（仅个别DA成员知晓）",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "仅限男性主人及受邀官员、门客进入，仆役须传召；女眷及低等仆役不得擅入",
-        "access_level": "restricted",
-        "access_conditions": "需贾政许可或重要公务事由",
-        "time_restriction": "一般白日（辰时至申时）",
-        "gender_restriction": "男性",
-        "role_restriction": "贾政、贾琏等男主人及正式访客",
-        "ceremonial_rule": "",
-        "key_holder": "贾政或其心腹小厮李贵"
+        "permissions": "所有学生必须参加，但出入受严格监控；教授需报备；仅食死徒拥有随意出入权",
+        "access_level": "严格管控（上课时允许进入，其余时间锁闭）",
+        "access_conditions": "携带学院级课程表或佩戴食死徒徽章方可进入；无口令则触发警报咒语",
+        "surveillance_level": "极高：教室四个角落安装了速记羽毛笔自动记录言行，同时卡罗兄妹随身携带窥镜和测奸器",
+        "magical_barrier": "有，门口设有秘密防护咒，阻止非授权者开启，且当学生试图破坏门锁时会触发束缚咒",
+        "barrier_type": "牢固的预警-束缚复合咒",
+        "disillusionment_charm": "false",
+        "password_required": "上课时由卡罗兄妹用魔杖开门，无固定口令",
+        "evasion_methods": "在非上课时间，可以从城堡墙内的隐藏通道（需口令‘抵抗’）绕过正门进入，但极度危险，只有DA核心成员冒风险尝试"
       },
       "state": {
-        "current_state": "每日有官员往来，议事后恢复整洁",
-        "ownership": "荣国府（贾政）",
-        "capacity": 30,
-        "economic_status": "表面奢华维持，实则渐显拮据",
-        "repair_condition": "良好，梁柱漆面完好",
-        "current_activity": "贾政与几位清客论诗，暂无重要外客",
-        "occupancy": "",
-        "security_level": "较高，有门外小厮值守"
+        "current_state": "恐怖统治下的教学/惩罚场所",
+        "ownership": "被食死徒控制，名义上归霍格沃茨所有",
+        "capacity": 36,
+        "state_description": "教室处于强力管控状态，所有物品都带有黑魔法印记，空气中弥漫着紧张气氛。每次上课都伴随着折磨和恐吓，学生们战战兢兢。",
+        "state_switch_possible": "true",
+        "state_switch_condition": "如果DA成员利用求必应屋的通道或借助斯内普的掩护，可能短暂清空教室作为秘密据点，但风险极高",
+        "maintenance_level": "差（因频繁使用黑魔法，墙面和地板有烧灼痕迹，但有食死徒进行‘维护性’装饰）",
+        "occupied_by_death_eaters": "true"
       },
-      "visual": "荣禧堂为五开间歇山顶建筑，正面朱红木门六扇，门楣悬挂蓝底金字‘荣禧堂’匾额，匾下饰以铜钉。门前两侧立石狮门墩，三级台阶铺汉白玉。厅内正中设紫檀木条案，后置紫檀屏风，上刻群仙祝寿图。左右两列酸枝木太师椅，地面铺方形青砖，梁柱彩绘缠枝莲及蝙蝠纹，寓意福寿。自然光从雕花木窗透入，形成柔和光影。前院有两株银杏，树影婆娑。整体构图宜从前庭低角度拍摄，突出匾额与纵深厅堂。"
+      "visual": "一间昏暗的梯形教室，尖拱窗被厚重的黑色天鹅绒窗帘完全遮蔽，只从缝隙漏进一丝天光。教室中央摆放着三排粗糙的硬木长凳，表面刻有刮痕和干涸的暗色液体。前方讲台高出地面三阶，上方悬浮着一个黑魔标记的幽绿投影，蛇骨和骷髅缓缓旋转。讲台上放置着一张黑木讲桌，桌脚绑着铁链，旁边立着一个带有铁环支架的惩治架。左右两墙挂着几幅被施了悬停咒的学生画像，画面中的人像痛苦扭曲，眼睛紧盯着下方。地面是深色石砖，某些地方有烧焦的圆痕和碎裂痕迹。空气中隐约可见微尘浮动，营造出一种压迫而绝望的氛围。适合图像生成的构图：广角透视从门口向讲台延伸，强调空间纵深感，前景有学生虚影，后景黑魔标记投影最突出。"
     }
   },
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:009",
-    "name": "宁国府正厅",
-    "type": "main_courtyard",
-    "description": "宁国府主人贾珍会客理政的正厅，风格较荣国府更为豪奢，厅内多置珍玩与西洋器物，体现宁国府当家人贾珍的奢靡作风。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:013",
+    "name": "魔药课教室",
+    "type": "teaching_space",
+    "description": "霍格沃茨地窖中的魔药课教室保持着斯内普教授一贯的阴沉风格，但如今气氛更加压抑。四周墙上的玻璃罐里浸泡着各种奇异的生物标本，在昏暗的烛光下投射出诡异的影子。长长的木质实验桌上整齐排列着黄铜天平、研钵和坩埚，空气中弥漫着干草药和防腐液的味道。黑板前悬挂着一幅巨大的简笔画，描绘着制作活地狱汤剂的步骤。斯内普偶尔在此授课，他的沉默和锐利的目光让学生们噤若寒蝉。",
     "access": {
-      "permissions": "男性主人及来访官员、亲友可入；女眷、仆役非传召不得入",
-      "access_level": "restricted",
-      "access_conditions": "需贾珍许可",
+      "permissions": "仅限霍格沃茨师生，特殊情况下食死徒也可进入检查",
+      "access_level": "公开（设有基本的防未被邀请者咒语）",
+      "access_conditions": "正常上课时间自由进入；课后时，门被施了闭锁咒，需用口令或斯内普的许可才能进入",
       "access_scope": "",
-      "gender_restriction": "男性",
+      "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "日常开放，偶有闲人闲逛",
-      "ownership": "宁国府（贾珍）",
-      "capacity": 20,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 20,
-    "tags": [
-      "main_courtyard",
-      "restricted",
-      "宁国府（贾珍）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 26,
-      "y": 42,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 33,
-      "y": 52
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:009",
-        "name": "宁国府正厅",
-        "type": "main_courtyard",
-        "description": "宁国府主人贾珍会客理政的正厅，风格较荣国府更为豪奢，厅内多置珍玩与西洋器物，体现宁国府当家人贾珍的奢靡作风。",
-        "location_function": "会客、族务、宴请",
-        "associated_person": "贾珍",
-        "hierarchy_level": "正厅",
-        "faction": "宁国府"
-      },
-      "access": {
-        "permissions": "男性主人及来访官员、亲友可入；女眷、仆役非传召不得入",
-        "access_level": "restricted",
-        "access_conditions": "需贾珍许可",
-        "time_restriction": "",
-        "gender_restriction": "男性",
-        "role_restriction": "贾珍及男宾",
-        "ceremonial_rule": "",
-        "key_holder": "贾珍"
-      },
-      "state": {
-        "current_state": "日常开放，偶有闲人闲逛",
-        "ownership": "宁国府（贾珍）",
-        "capacity": 20,
-        "economic_status": "表面奢靡无度，实则开支庞大入不敷出",
-        "repair_condition": "尚好，但部分彩绘已有褪色",
-        "current_activity": "贾珍正与几个纨绔子弟斗鸡",
-        "occupancy": "",
-        "security_level": "中等"
-      },
-      "visual": "宁国府正厅为五间五进，屋顶覆绿色琉璃瓦，正脊有鸱吻。大门朱漆上钉金色圆钉，门前有石鼓一对。厅内铺大理石地面，正中紫檀云龙纹宝座，背后立一大理石插屏，纹路如山水。两侧多宝格陈列玉器、西洋自鸣钟、珐琅瓶等。梁柱饰金色缠枝纹彩绘，亮处悬挂水晶吊灯（西洋舶来品），光线明亮刺目。前院有青砖甬道直通仪门，旁植美人蕉。前景可聚焦宝座与水晶灯，中景为多宝格收藏。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:011",
-    "name": "荣庆堂",
-    "type": "inner_residence",
-    "description": "贾母的起居正室，为荣国府内院最尊贵的空间。室内宽敞舒适，装饰典雅，以暖色调为主，是贾母与女眷、孙辈日常团聚、宴饮及节庆活动的核心场所，象征家族慈爱与权威。",
-    "access": {
-      "permissions": "贾母心腹丫鬟、家族女眷、贾宝玉及受宠晚辈可自由进出；男性成年外客不得入内",
-      "access_level": "restricted by gender & role",
-      "access_conditions": "需贾母传唤或由丫鬟通报",
-      "access_scope": "",
-      "gender_restriction": "女性为主，男性仅限年幼或至亲",
-      "time_restriction": "无严格限制，但男宾避入夜",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "贾母正与黛玉、宝钗、宝玉等说笑赏花",
-      "ownership": "贾母（荣国府内务）",
-      "capacity": 20,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 20,
-    "tags": [
-      "inner_residence",
-      "restricted by gender & role",
-      "贾母（荣国府内务）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 27,
-      "y": 20,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 34,
-      "y": 30
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:011",
-        "name": "荣庆堂",
-        "type": "inner_residence",
-        "description": "贾母的起居正室，为荣国府内院最尊贵的空间。室内宽敞舒适，装饰典雅，以暖色调为主，是贾母与女眷、孙辈日常团聚、宴饮及节庆活动的核心场所，象征家族慈爱与权威。",
-        "location_function": "起居、宴聚、接待女眷",
-        "associated_person": "贾母",
-        "hierarchy_level": "上房",
-        "faction": "荣国府"
-      },
-      "access": {
-        "permissions": "贾母心腹丫鬟、家族女眷、贾宝玉及受宠晚辈可自由进出；男性成年外客不得入内",
-        "access_level": "restricted by gender & role",
-        "access_conditions": "需贾母传唤或由丫鬟通报",
-        "time_restriction": "无严格限制，但男宾避入夜",
-        "gender_restriction": "女性为主，男性仅限年幼或至亲",
-        "role_restriction": "",
-        "ceremonial_rule": "每日晨昏定省，贾母用膳时晚辈侍立",
-        "key_holder": ""
-      },
-      "state": {
-        "current_state": "贾母正与黛玉、宝钗、宝玉等说笑赏花",
-        "ownership": "贾母（荣国府内务）",
-        "capacity": 20,
-        "economic_status": "丰裕，用度宽绰",
-        "repair_condition": "极好，家具光鲜如新",
-        "current_activity": "贾母与众女眷围坐闲话，丫鬟们端茶送果",
-        "occupancy": "",
-        "security_level": "高，有丫鬟婆子值守"
-      },
-      "visual": "荣庆堂为三明两暗格局，正厅宽约五丈，地面铺花梨木地板，上覆大红福字地毯。北墙设紫檀木罗汉床，上铺锦缎靠垫，贾母常坐于此。床旁安装落地古董架，摆着青花大盘、白玉如意。南窗下摆黄杨木茶几和绣墩，窗外竹影横斜。墙壁挂淡粉色纱帘与字画，花梨木雕花槅扇分隔内外。光照从槅扇透入，暖黄柔和。室内多红木家具，点缀时令鲜花与盆景。构图宜以罗汉床为中心，展现纵深与雕花家具细节。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:014",
-    "name": "王夫人正房",
-    "type": "inner_residence",
-    "description": "王夫人日常生活与处理家务的正房，位于荣国府内院西侧。陈设简洁稳重，体现王夫人信佛、持家严肃的性格，是内宅日常管理的实际中枢之一。",
-    "access": {
-      "permissions": "家族女眷、管事媳妇、仆妇可入；男客止步，贾宝玉需经通报方可进",
-      "access_level": "restricted to females",
-      "access_conditions": "需通报王夫人或贴身丫鬟金钏、玉钏",
-      "access_scope": "",
-      "gender_restriction": "女性（除贾宝玉等至亲）",
-      "time_restriction": "白天为主，晚间非急事不扰",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "王夫人正持佛珠默念，丫鬟在旁侍立",
-      "ownership": "王夫人（荣国府内务）",
-      "capacity": 15,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 15,
-    "tags": [
-      "inner_residence",
-      "restricted to females",
-      "王夫人（荣国府内务）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 26,
-      "y": 81,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 33,
-      "y": 91
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:014",
-        "name": "王夫人正房",
-        "type": "inner_residence",
-        "description": "王夫人日常生活与处理家务的正房，位于荣国府内院西侧。陈设简洁稳重，体现王夫人信佛、持家严肃的性格，是内宅日常管理的实际中枢之一。",
-        "location_function": "起居、内务议事、念佛",
-        "associated_person": "王夫人",
-        "hierarchy_level": "正房",
-        "faction": "荣国府"
-      },
-      "access": {
-        "permissions": "家族女眷、管事媳妇、仆妇可入；男客止步，贾宝玉需经通报方可进",
-        "access_level": "restricted to females",
-        "access_conditions": "需通报王夫人或贴身丫鬟金钏、玉钏",
-        "time_restriction": "白天为主，晚间非急事不扰",
-        "gender_restriction": "女性（除贾宝玉等至亲）",
-        "role_restriction": "",
-        "ceremonial_rule": "",
-        "key_holder": ""
-      },
-      "state": {
-        "current_state": "王夫人正持佛珠默念，丫鬟在旁侍立",
-        "ownership": "王夫人（荣国府内务）",
-        "capacity": 15,
-        "economic_status": "节俭自持，无多余铺张",
-        "repair_condition": "良好",
-        "current_activity": "王夫人看账本，偶尔与周瑞家的说事",
-        "occupancy": "",
-        "security_level": "中等"
-      },
-      "visual": "王夫人正房为三间穿堂式，青砖灰瓦，白灰墙。正厅迎面设黑漆香几，上放铜香炉，檀香袅袅。左右两把黄花梨木扶手椅，茶几上摆着《金刚经》与旧色佛珠。墙上悬中堂‘静安’二字，下置条案，摆着单调瓷器。地面铺青灰色方砖，素雅无多余装饰。光线由高丽纸糊的木窗透入，柔和静谧。窗外可见一丛翠竹，矮墙边种几株秋海棠。整体色调灰白褐，朴素宁静，前景可突出香炉与经书。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:004",
-    "name": "凤姐院",
-    "type": "inner_residence",
-    "description": "王熙凤与贾琏的居所，位于荣国府东侧院落，是贾府内务管理的实际权力中心。院中常聚着管家媳妇、丫鬟等候回事，账本算盘堆积，气氛繁忙紧张。",
-    "access": {
-      "permissions": "家族内成员及有职务的仆人可以进入",
-      "access_level": "内部半开放",
-      "access_conditions": "需经王熙凤或平儿通报",
-      "access_scope": "",
-      "gender_restriction": "男仆可在前院回事，内室不得擅入",
-      "time_restriction": "白日理事时开放，入夜后闭门",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "使用中，热闹忙碌",
-      "ownership": "荣国府邸，居住权归贾琏夫妇",
-      "capacity": 20,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 20,
-    "tags": [
-      "inner_residence",
-      "内部半开放",
-      "荣国府邸，居住权归贾琏夫妇"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 76,
-      "y": 25,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 90,
-      "y": 30
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:004",
-        "name": "凤姐院",
-        "type": "inner_residence",
-        "description": "王熙凤与贾琏的居所，位于荣国府东侧院落，是贾府内务管理的实际权力中心。院中常聚着管家媳妇、丫鬟等候回事，账本算盘堆积，气氛繁忙紧张。",
-        "location_function": "居住与管理办公",
-        "associated_person": "王熙凤, 贾琏, 平儿",
-        "hierarchy_level": "正房院落",
-        "faction": "王熙凤派系"
-      },
-      "access": {
-        "permissions": "家族内成员及有职务的仆人可以进入",
-        "access_level": "内部半开放",
-        "access_conditions": "需经王熙凤或平儿通报",
-        "time_restriction": "白日理事时开放，入夜后闭门",
-        "gender_restriction": "男仆可在前院回事，内室不得擅入",
-        "role_restriction": "非贾琏、凤姐近身仆从不得进入内室",
-        "ceremonial_rule": "",
-        "key_holder": "平儿"
-      },
-      "state": {
-        "current_state": "使用中，热闹忙碌",
-        "ownership": "荣国府邸，居住权归贾琏夫妇",
-        "capacity": 20,
-        "economic_status": "富裕，陈设奢华",
-        "repair_condition": "完好",
-        "current_activity": "日常管家理事，丫鬟婆子往来传话，账目清算",
-        "occupancy": "王熙凤、贾琏及平儿等十余仆从",
-        "security_level": ""
-      },
-      "visual": "凤姐院为三进四合布局，青砖灰瓦硬山顶，正厅五开间，前后出廊。院落方正，地面铺青石板，正厅门悬大红猩猩毡帘。室内陈设繁缛：紫檀木雕花桌椅、嵌螺钿屏风，案上堆满账册、算盘与对牌。西梢间设雕花拔步床，悬金黄帐幔。庭院中有大铜盆养着缸莲，东墙下叠放几口樟木箱。光线从明间槅扇透入，午时最为明亮，煤油灯与蜡烛夜间点亮，人影憧憧。适合正面全景构图，突出繁忙氛围。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:016",
-    "name": "潇湘馆",
-    "type": "garden_and_courtyard",
-    "description": "林黛玉于大观园中的住所，位于大观园西南角，前临清溪，后院植满湘妃竹，幽静清雅。是黛玉读书、作诗、抚琴之处，体现其孤高灵秀的性格。",
-    "access": {
-      "permissions": "贾宝玉及园中众姐妹可自由出入，其他男性（除贾政等长辈）不得入内",
-      "access_level": "闺阁私密",
-      "access_conditions": "通常需紫鹃通报",
-      "access_scope": "",
-      "gender_restriction": "女性及贾宝玉可入，其他男性严禁",
-      "time_restriction": "无特殊限制",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "宁静雅致，略有冷清",
-      "ownership": "荣国府邸，归属林黛玉使用",
-      "capacity": 10,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 10,
-    "tags": [
-      "garden_and_courtyard",
-      "闺阁私密",
-      "荣国府邸，归属林黛玉使用"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 63,
-      "y": 8,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 77,
-      "y": 13
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:016",
-        "name": "潇湘馆",
-        "type": "garden_and_courtyard",
-        "description": "林黛玉于大观园中的住所，位于大观园西南角，前临清溪，后院植满湘妃竹，幽静清雅。是黛玉读书、作诗、抚琴之处，体现其孤高灵秀的性格。",
-        "location_function": "居住与文化活动",
-        "associated_person": "林黛玉, 紫鹃, 雪雁",
-        "hierarchy_level": "大观园内高等居所",
-        "faction": "林黛玉（无派系）"
-      },
-      "access": {
-        "permissions": "贾宝玉及园中众姐妹可自由出入，其他男性（除贾政等长辈）不得入内",
-        "access_level": "闺阁私密",
-        "access_conditions": "通常需紫鹃通报",
-        "time_restriction": "无特殊限制",
-        "gender_restriction": "女性及贾宝玉可入，其他男性严禁",
-        "role_restriction": "仆从只能在外间伺候",
-        "ceremonial_rule": "",
-        "key_holder": "林黛玉自持，紫鹃保管"
-      },
-      "state": {
-        "current_state": "宁静雅致，略有冷清",
-        "ownership": "荣国府邸，归属林黛玉使用",
-        "capacity": 10,
-        "economic_status": "中等，配置素雅",
-        "repair_condition": "完好",
-        "current_activity": "日常读书、抚琴、与宝黛等交往",
-        "occupancy": "林黛玉及随身丫鬟约4-5人",
-        "security_level": ""
-      },
-      "visual": "潇湘馆位于大观园西南隅，院落小巧精致，主体建筑为三间卷棚顶正房，灰瓦白墙，四面游廊。院内遍植湘妃竹，竿竿斑痕，风过飒飒。屋前一条清溪曲流，上跨石桥。室内陈设极简：花梨木书案摆着端砚湖笔，书架列满诗集，墙角古琴蒙着素色琴套，香炉余烟袅袅。窗牖糊碧色绡纱，竹帘半卷，光线透入染成青绿。纱帐、坐褥皆用暗色布帛。适合中景正面构图，突出竹林掩映下的屋舍轮廓与窗前灯影。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:017",
-    "name": "怡红院",
-    "type": "garden_and_courtyard",
-    "description": "贾宝玉在大观园中的住所，位于大观园东路，院落宽阔繁丽，遍植海棠与芭蕉，悬挂“怡红快绿”匾额。是园中最热闹的居所，宝玉与丫鬟们嬉戏玩乐、诗社活动常在院中进行。",
-    "access": {
-      "permissions": "大观园内各人可自由进出，园外男性如贾芸等也可经通报进入",
-      "access_level": "半开放社交空间",
-      "access_conditions": "一般由袭人管理，通传即可",
-      "access_scope": "",
-      "gender_restriction": "除宝玉外，其他男性需避开内室",
-      "time_restriction": "夜间闭院",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "华丽热闹，生机勃勃",
-      "ownership": "荣国府，使用归贾宝玉",
+      "current_state": "正常使用但气氛压抑",
+      "ownership": "霍格沃茨（斯内普名义上管理，但实际受食死徒监控）",
       "capacity": 30,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -480,378 +104,398 @@
     },
     "capacity": 30,
     "tags": [
-      "garden_and_courtyard",
-      "半开放社交空间",
-      "荣国府，使用归贾宝玉"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 50,
-      "y": 65,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 57,
-      "y": 75
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:017",
-        "name": "怡红院",
-        "type": "garden_and_courtyard",
-        "description": "贾宝玉在大观园中的住所，位于大观园东路，院落宽阔繁丽，遍植海棠与芭蕉，悬挂“怡红快绿”匾额。是园中最热闹的居所，宝玉与丫鬟们嬉戏玩乐、诗社活动常在院中进行。",
-        "location_function": "居住、社交、文化活动",
-        "associated_person": "贾宝玉, 袭人, 晴雯, 麝月, 秋纹",
-        "hierarchy_level": "大观园内最高等级居所",
-        "faction": "贾宝玉"
-      },
-      "access": {
-        "permissions": "大观园内各人可自由进出，园外男性如贾芸等也可经通报进入",
-        "access_level": "半开放社交空间",
-        "access_conditions": "一般由袭人管理，通传即可",
-        "time_restriction": "夜间闭院",
-        "gender_restriction": "除宝玉外，其他男性需避开内室",
-        "role_restriction": "仆从可在院中活动",
-        "ceremonial_rule": "",
-        "key_holder": "袭人"
-      },
-      "state": {
-        "current_state": "华丽热闹，生机勃勃",
-        "ownership": "荣国府，使用归贾宝玉",
-        "capacity": 30,
-        "economic_status": "极富裕，装饰奢侈",
-        "repair_condition": "崭新",
-        "current_activity": "宝玉与丫鬟们玩笑、吃茶、作诗，间有外人来访",
-        "occupancy": "贾宝玉及大小丫鬟十几人，还有婆子等",
-        "security_level": ""
-      },
-      "visual": "怡红院为五间正房带两卷抱厦，绿荫朱阁，画栋雕梁。庭院宽敞，东边一棵芭蕉，西边一株海棠，枝叶掩映‘怡红快绿’木匾。正间门上悬大红绒绣帘，室内金碧辉煌：紫檀架子墙悬仇英仕女图，摆满西洋自鸣钟、金银器皿、琉璃灯等珍玩。床帐被褥多用大红绸缎，窗内透出温暖烛光。院中石台放三四个青瓷盆养着锦鲤。适合全景正面构图，突出芭蕉与海棠对比，室内奢华与院中繁花。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:005",
-    "name": "蘅芜苑",
-    "type": "garden_and_courtyard",
-    "description": "薛宝钗在大观园中的住所，位于大观园北边，院内遍植香草异藤，山石掩映，屋内如雪洞般素净，几无装饰，仅一床一桌一椅，体现宝钗的沉稳与崇尚简朴。",
-    "access": {
-      "permissions": "园中姐妹、宝玉及长辈可入",
-      "access_level": "半公开",
-      "access_conditions": "由莺儿通报",
-      "access_scope": "",
-      "gender_restriction": "男性（除宝玉外）一般不入内室",
-      "time_restriction": "无特殊",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "素净整洁，井井有条",
-      "ownership": "荣国府，宝钗使用",
-      "capacity": 10,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 10,
-    "tags": [
-      "garden_and_courtyard",
-      "半公开",
-      "荣国府，宝钗使用"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 96,
-      "y": 65,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 103,
-      "y": 75
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:005",
-        "name": "蘅芜苑",
-        "type": "garden_and_courtyard",
-        "description": "薛宝钗在大观园中的住所，位于大观园北边，院内遍植香草异藤，山石掩映，屋内如雪洞般素净，几无装饰，仅一床一桌一椅，体现宝钗的沉稳与崇尚简朴。",
-        "location_function": "居住与待客",
-        "associated_person": "薛宝钗, 莺儿, 文杏",
-        "hierarchy_level": "大观园内居所",
-        "faction": "薛家派系"
-      },
-      "access": {
-        "permissions": "园中姐妹、宝玉及长辈可入",
-        "access_level": "半公开",
-        "access_conditions": "由莺儿通报",
-        "time_restriction": "无特殊",
-        "gender_restriction": "男性（除宝玉外）一般不入内室",
-        "role_restriction": "仆从可进外间",
-        "ceremonial_rule": "",
-        "key_holder": "薛宝钗"
-      },
-      "state": {
-        "current_state": "素净整洁，井井有条",
-        "ownership": "荣国府，宝钗使用",
-        "capacity": 10,
-        "economic_status": "富裕但刻意朴素",
-        "repair_condition": "完好",
-        "current_activity": "宝钗做针线、看书或与众姐妹闲谈",
-        "occupancy": "薛宝钗及丫鬟约4人",
-        "security_level": ""
-      },
-      "visual": "蘅芜苑院落隐蔽，屋后全被苍苔藤蔓覆盖，门前山石错落，引泉水穿过。正房三间，青灰色墙，无彩绘无匾额。室内对比强烈：四壁空空，只一张素木书桌、一把圈椅、一个瓷瓶插着几株菊花。床上青素布帐，无任何绣饰。光线从窗纸透入，显得清冷。屋外藤萝掩映，鸟鸣清脆。适合中景构图，强调外部藤蔓与内部空寂的反差。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:003",
-    "name": "稻香村",
-    "type": "garden_and_courtyard",
-    "description": "大观园中一处仿田舍风格的院落，李纨寡居之所，外观朴素，周围遍植桑、榆、柘木，门前有菜畦，体现守寡清净的生活。室内陈设简单，有纺车、书案等，色调以青灰、土黄为主。",
-    "access": {
-      "permissions": "仅限女眷及至亲男性（如贾兰、宝玉）访客，外人需李纨许可",
-      "access_level": "私人院落",
-      "access_conditions": "李纨同意方可进入，男性访客需有女眷陪同或通报",
-      "access_scope": "",
-      "gender_restriction": "男性非获准不得入内",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "正常居住，日常有李纨与丫鬟做针线、教子读书",
-      "ownership": "荣国府公有，由李纨使用",
-      "capacity": 10,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 10,
-    "tags": [
-      "garden_and_courtyard",
-      "私人院落",
-      "荣国府公有，由李纨使用"
+      "teaching_space",
+      "公开（设有基本的防未被邀请者咒语）",
+      "霍格沃茨（斯内普名义上管理，但实际受食死徒监控）"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
       "x": 120,
-      "y": 66,
+      "y": 8,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 127,
-      "y": 76
+      "x": 134,
+      "y": 13
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:003",
-        "name": "稻香村",
-        "type": "garden_and_courtyard",
-        "description": "大观园中一处仿田舍风格的院落，李纨寡居之所，外观朴素，周围遍植桑、榆、柘木，门前有菜畦，体现守寡清净的生活。室内陈设简单，有纺车、书案等，色调以青灰、土黄为主。",
-        "location_function": "",
-        "associated_person": "李纨",
-        "hierarchy_level": "次要",
-        "faction": "荣国府"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:013",
+        "name": "魔药课教室",
+        "type": "teaching_space",
+        "description": "霍格沃茨地窖中的魔药课教室保持着斯内普教授一贯的阴沉风格，但如今气氛更加压抑。四周墙上的玻璃罐里浸泡着各种奇异的生物标本，在昏暗的烛光下投射出诡异的影子。长长的木质实验桌上整齐排列着黄铜天平、研钵和坩埚，空气中弥漫着干草药和防腐液的味道。黑板前悬挂着一幅巨大的简笔画，描绘着制作活地狱汤剂的步骤。斯内普偶尔在此授课，他的沉默和锐利的目光让学生们噤若寒蝉。",
+        "castle_area": "地窖",
+        "security_level": "中等（但斯内普的威慑力极高）",
+        "resident_characters": "西弗勒斯·斯内普（偶尔授课）",
+        "availability_to_students": "上课时间开放；课后在斯内普许可下可留下自习，但需严守纪律",
+        "hidden_elements": "讲台下方有一个暗格，里面保存着斯内普私藏的抗干扰魔药和一份有求必应屋的进出记录（只有他自己知道）",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "仅限女眷及至亲男性（如贾兰、宝玉）访客，外人需李纨许可",
-        "access_level": "私人院落",
-        "access_conditions": "李纨同意方可进入，男性访客需有女眷陪同或通报",
-        "time_restriction": "",
-        "gender_restriction": "男性非获准不得入内",
-        "role_restriction": "荣国府女眷可自由往来，仆役需遵守规矩",
-        "ceremonial_rule": "",
-        "key_holder": "李纨"
+        "permissions": "仅限霍格沃茨师生，特殊情况下食死徒也可进入检查",
+        "access_level": "公开（设有基本的防未被邀请者咒语）",
+        "access_conditions": "正常上课时间自由进入；课后时，门被施了闭锁咒，需用口令或斯内普的许可才能进入",
+        "surveillance_level": "中等：斯内普本人就是强大的监控者，且教室里安装了隐蔽的监听咒（斯内普的口袋里有一个监听纽扣对应）",
+        "magical_barrier": "有，基础防入侵咒",
+        "barrier_type": "反幻影移形咒和防窃听咒（低调）",
+        "disillusionment_charm": "false",
+        "password_required": "课后开门口令为‘法力标记’，由斯内普每周更换，仅告知有休息申请的学生",
+        "evasion_methods": "DA成员利用复方汤剂变形成斯内普许可的学生可进入；或从地窖其他通道（如通往地下道的密道）进入（但需破解门上的防护）"
       },
       "state": {
-        "current_state": "正常居住，日常有李纨与丫鬟做针线、教子读书",
-        "ownership": "荣国府公有，由李纨使用",
-        "capacity": 10,
-        "economic_status": "中等，李纨月钱稳定但无额外收入",
-        "repair_condition": "良好，院内器物虽朴但整洁",
-        "current_activity": "李纨与丫鬟做针线，贾兰在书房习字",
-        "occupancy": "李纨、贾兰及两名丫鬟",
-        "security_level": "低，普通家仆可接近院门"
+        "current_state": "正常使用但气氛压抑",
+        "ownership": "霍格沃茨（斯内普名义上管理，但实际受食死徒监控）",
+        "capacity": 30,
+        "state_description": "教室整洁但阴冷，烛光微弱，墙上的标本在摇曳的光线下仿佛活过来。斯内普的存在使空气凝固，学生们安静地操作，不敢发出多余声音。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好（斯内普要求严格，所有器具保持洁净，但石墙表面因年代发黑）",
+        "occupied_by_death_eaters": "false"
       },
-      "visual": "竹篱围成的院落，茅草覆顶的房舍，黄泥墙石灰勾缝，屋顶铺着浅黄色稻草，檐下挂几串干辣椒。门前一块菜畦，种着青菜和萝卜，旁边几株老桑树和榆树，树叶在微风中沙沙作响。窗棂糊着白纸，透出暖黄的灯光。屋内可见一架旧纺车停在角落里，木桌上摆着粗瓷茶壶和几个茶杯。地面是夯实的黄土地，小径两旁生着细细的苔藓。整体色调素朴，阳光从树叶间洒下斑驳光影，营造出清净田园的意境。"
+      "visual": "一间下沉式石制地窖房间，顶部是低矮的拱形天花板，由铁链吊着的烛台提供昏黄的照明。两侧墙壁排列着嵌入式的玻璃架，上面放满了形态各异的泡在暗绿色液体里的生物器官标本，壁龛里是陈旧的黑魔法书籍。中央放置着四张长条形木制实验桌，桌面上均匀分布着黄铜小孔和蜡烛凹痕，每张桌配有两把高脚凳。讲台在教室前端，是一个高出地面一阶的深色橡木台，背后是一块半磨损的黑板，上面残留着魔药配方的白垩痕迹。地面是凹凸不平的深灰色石板，由于多年药剂泼洒而留下各色斑点。整体色调暗褐、暗绿和灰黑，营造出一种学术而压抑的地下氛围。构图可从讲台后方向前拍摄，突出烛火与标本的投影交织。"
     }
   },
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:008",
-    "name": "栊翠庵",
-    "type": "garden_and_courtyard",
-    "description": "大观园内的尼姑庵，妙玉修行之处，建筑包括山门、佛殿、禅房，周围红梅簇拥，环境清幽脱俗，体现妙玉孤高洁癖的性情。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:001",
+    "name": "咒语课教室",
+    "type": "teaching_space",
+    "description": "弗立维教授负责的咒语课教室是城堡中少数还保留着相对正常教学气氛的地方。教室呈圆形，高挑的穹顶上画着行云流水的咒语纹样，四周的窗户让充足的自然光洒进来。讲台上堆满了《标准咒语》和弗立维亲手写的教学笔记，天花板上漂浮着一些闪亮的魔法星点，用于演示魔咒效果。尽管食死徒的阴影笼罩，但弗立维巧妙地将课程内容限定在基本的防御和日常咒语上，暗中教导学生们如何无声施法和保护自己。",
     "access": {
-      "permissions": "妙玉本人许可方可入内，贾母、王夫人等长辈偶可带人进入，男性不得擅入（除宝玉等特殊人物）",
-      "access_level": "封闭院落",
-      "access_conditions": "需妙玉同意，通常谢绝闲杂人等，访客须守庵内规矩",
-      "access_scope": "",
-      "gender_restriction": "男性禁止入内（宝玉例外），女性访客也需妙玉首肯",
-      "time_restriction": "白天可访，夜晚闭庵",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "日常清净，妙玉参禅品茶，偶尔接待贾府上层女眷",
-      "ownership": "荣国府所有，妙玉使用",
-      "capacity": 6,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 6,
-    "tags": [
-      "garden_and_courtyard",
-      "封闭院落",
-      "荣国府所有，妙玉使用"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 71,
-      "y": 65,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 78,
-      "y": 75
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:008",
-        "name": "栊翠庵",
-        "type": "garden_and_courtyard",
-        "description": "大观园内的尼姑庵，妙玉修行之处，建筑包括山门、佛殿、禅房，周围红梅簇拥，环境清幽脱俗，体现妙玉孤高洁癖的性情。",
-        "location_function": "",
-        "associated_person": "妙玉",
-        "hierarchy_level": "中等",
-        "faction": "中性（方外）"
-      },
-      "access": {
-        "permissions": "妙玉本人许可方可入内，贾母、王夫人等长辈偶可带人进入，男性不得擅入（除宝玉等特殊人物）",
-        "access_level": "封闭院落",
-        "access_conditions": "需妙玉同意，通常谢绝闲杂人等，访客须守庵内规矩",
-        "time_restriction": "白天可访，夜晚闭庵",
-        "gender_restriction": "男性禁止入内（宝玉例外），女性访客也需妙玉首肯",
-        "role_restriction": "",
-        "ceremonial_rule": "",
-        "key_holder": "妙玉"
-      },
-      "state": {
-        "current_state": "日常清净，妙玉参禅品茶，偶尔接待贾府上层女眷",
-        "ownership": "荣国府所有，妙玉使用",
-        "capacity": 6,
-        "economic_status": "尚可，贾府供给香火，妙玉亦有积蓄",
-        "repair_condition": "整洁雅致，佛堂一尘不染",
-        "current_activity": "妙玉在禅堂抄经，小尼姑打扫庭院",
-        "occupancy": "妙玉、两个小尼姑",
-        "security_level": "高，院门常闭，仆役不能随意进出"
-      },
-      "visual": "红墙黛瓦的山门，门楣上悬挂青石匾额“栊翠庵”，字体清秀。院墙内几株老红梅枝干虬劲，在冬日白雪映衬下花朵如血。佛堂正殿三间，青色筒瓦，门窗雕有莲花图案，殿内供奉观音大士瓷像，前面香炉中升起袅袅青烟。禅房内蒲团、木鱼、经卷整齐放置，一架古铜茶具摆在几上。地面铺青石方砖，墙边种着翠竹。光线透过薄纱窗棂，柔和而幽暗，空气中飘着檀香与梅花的冷香。后园有一口古井，井边长着苔藓。整个庵堂色调以暗红、青灰、白色为主，构图可聚焦佛堂与红梅的前景。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:006",
-    "name": "贾氏宗祠",
-    "type": "sacrificial_space",
-    "description": "贾府祭祀祖先的庄严场所，位于宁国府西边，五间开间大殿，供奉历代先祖牌位，是家族宗法制度的核心象征。每年除夕、朔望举行隆重祭礼，只有贾氏男性族人才能进入参与。",
-    "access": {
-      "permissions": "仅限贾姓男性族人（族长及嫡系子孙）进入祭拜，女性只能在外院行礼，仆役不得入内",
-      "access_level": "家族禁地",
-      "access_conditions": "重大祭祀日（除夕、祖先忌日等）开放，平时锁闭，如需开祠须族长允许",
-      "access_scope": "",
-      "gender_restriction": "男性专属（嫡派子孙），女性（包括诰命夫人）不得入正殿",
-      "time_restriction": "仅祭祀时辰开放，其余时间封闭",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "常年庄严整洁，香火延续，内部陈设一尘不染",
-      "ownership": "贾氏宗族公有，由宁国府管理",
-      "capacity": 50,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 50,
-    "tags": [
-      "sacrificial_space",
-      "家族禁地",
-      "贾氏宗族公有，由宁国府管理"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 26,
-      "y": 63,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 33,
-      "y": 73
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:006",
-        "name": "贾氏宗祠",
-        "type": "sacrificial_space",
-        "description": "贾府祭祀祖先的庄严场所，位于宁国府西边，五间开间大殿，供奉历代先祖牌位，是家族宗法制度的核心象征。每年除夕、朔望举行隆重祭礼，只有贾氏男性族人才能进入参与。",
-        "location_function": "",
-        "associated_person": "贾府全体族人",
-        "hierarchy_level": "最高",
-        "faction": "荣宁二府共有"
-      },
-      "access": {
-        "permissions": "仅限贾姓男性族人（族长及嫡系子孙）进入祭拜，女性只能在外院行礼，仆役不得入内",
-        "access_level": "家族禁地",
-        "access_conditions": "重大祭祀日（除夕、祖先忌日等）开放，平时锁闭，如需开祠须族长允许",
-        "time_restriction": "仅祭祀时辰开放，其余时间封闭",
-        "gender_restriction": "男性专属（嫡派子孙），女性（包括诰命夫人）不得入正殿",
-        "role_restriction": "",
-        "ceremonial_rule": "祭祖须穿正式礼服，按辈分排列，行三跪九叩礼，不得喧哗",
-        "key_holder": "贾家族长（贾敬去世后由贾珍掌管）"
-      },
-      "state": {
-        "current_state": "常年庄严整洁，香火延续，内部陈设一尘不染",
-        "ownership": "贾氏宗族公有，由宁国府管理",
-        "capacity": 50,
-        "economic_status": "贾府支撑，虽有财政困难但祭祀开支优先保障",
-        "repair_condition": "完好，梁柱油漆鲜亮，匾额金漆如新",
-        "current_activity": "平时无人，只在祭祀日启用",
-        "occupancy": "无日常人员，由专人看守打扫",
-        "security_level": "极高，有专人看守，非祭祀日不得靠近"
-      },
-      "visual": "五间宽的黑漆大门，门钉横七竖九共六十三颗，门前一对青石狮子威风凛凛，基座刻有缠枝莲纹。门楣上悬挂巨大红木匾额“贾氏宗祠”，四个金字耀目，两侧长联“肝脑涂地，兆姓赖保育之恩；功名贯天，百代仰蒸尝之盛”。踏入大门，一条青石甬道直通大殿，两旁松柏苍翠。正殿七楹，歇山顶铺绿色琉璃瓦，正脊两端鸱吻。殿内正中供桌高设，供奉“贾氏始祖”及历代祖考妣牌位，层层排列，最高处皇帝赐封的诰命牌。地面铺磨光青砖，殿柱挂满黑底金字对联。香案上五供齐全，铜香炉、烛台、花瓶，烛火通明，烟雾缭绕。光线从殿门涌入，照亮祖宗牌位和氤氲香烟，气氛庄严肃穆。可考虑从殿外向内透视构图，突出匾额、供桌和牌位阵列。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:013",
-    "name": "铁槛寺",
-    "type": "sacrificial_space",
-    "description": "贾府在城外的家庙，主要存放贾家灵柩、举办丧事法会，秦可卿丧礼曾在此举行。建筑规模中等，常年有僧人守寺。",
-    "access": {
-      "permissions": "贾府家族成员及仆役均可出入，但外人需通报住持；丧事期间由贾府安排，普通香客亦可进香",
-      "access_level": "半公开",
-      "access_conditions": "平日开放，贾府举办丧事时优先家族使用，外人回避",
+      "permissions": "所有霍格沃茨师生",
+      "access_level": "公共教室，但课后通常由弗立维亲自锁门",
+      "access_conditions": "上课时随意入座；课后需要经弗立维同意（他会用阿拉霍洞开咒语）",
       "access_scope": "",
       "gender_restriction": "",
-      "time_restriction": "白天开放，夜间闭寺",
+      "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "日常有僧人看守，部分殿宇略显陈旧，贾府财政紧张后维护减少",
-      "ownership": "贾府所有，由僧人管理",
+      "current_state": "正常教学状态，带有隐蔽抵抗倾向",
+      "ownership": "霍格沃茨（弗立维实际控制，但需应对监控）",
+      "capacity": 40,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 40,
+    "tags": [
+      "teaching_space",
+      "公共教室，但课后通常由弗立维亲自锁门",
+      "霍格沃茨（弗立维实际控制，但需应对监控）"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 117,
+      "y": 25,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 124,
+      "y": 35
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:001",
+        "name": "咒语课教室",
+        "type": "teaching_space",
+        "description": "弗立维教授负责的咒语课教室是城堡中少数还保留着相对正常教学气氛的地方。教室呈圆形，高挑的穹顶上画着行云流水的咒语纹样，四周的窗户让充足的自然光洒进来。讲台上堆满了《标准咒语》和弗立维亲手写的教学笔记，天花板上漂浮着一些闪亮的魔法星点，用于演示魔咒效果。尽管食死徒的阴影笼罩，但弗立维巧妙地将课程内容限定在基本的防御和日常咒语上，暗中教导学生们如何无声施法和保护自己。",
+        "castle_area": "城堡四楼",
+        "security_level": "较低（但学生不敢造次，且弗立维本人有高超魔法能力）",
+        "resident_characters": "菲利乌斯·弗立维",
+        "availability_to_students": "上课时段开放；课后弗立维常留下辅导，允许学生在安全时间内练习",
+        "hidden_elements": "讲台内部的夹层中藏有一份DA成员名单和一份编造的课程计划，用于应对食死徒抽查；天花板上的星星实际上是一个小型浮空透镜，可观察是否有窃听咒",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "所有霍格沃茨师生",
+        "access_level": "公共教室，但课后通常由弗立维亲自锁门",
+        "access_conditions": "上课时随意入座；课后需要经弗立维同意（他会用阿拉霍洞开咒语）",
+        "surveillance_level": "低：食死徒的主要注意力不在此，但卡罗兄妹偶尔会派挂画探查，弗立维在门口设有揭发咒检测入侵者",
+        "magical_barrier": "有，基础门锁咒，以及弗立维额外布置的反窃听音波场",
+        "barrier_type": "偏防御性，如延展咒使门无法被暴力打开",
+        "disillusionment_charm": "false",
+        "password_required": "课后开门口令为‘悄悄话’，弗立维每天变更，通过一名级长传给想来的学生",
+        "evasion_methods": "无需规避，大部分学生可正常进入；若需秘密集会，弗立维会在特定时间将教室变为临时避难所（利用变形术将桌椅堆成屏障）"
+      },
+      "state": {
+        "current_state": "正常教学状态，带有隐蔽抵抗倾向",
+        "ownership": "霍格沃茨（弗立维实际控制，但需应对监控）",
+        "capacity": 40,
+        "state_description": "教室干净明亮，黑板上写着当天的咒语要点，讲台左侧搭着一排魔杖架。弗立维会站在堆高的书上授课，有时用漂浮咒展示物体。学生穿着整齐，专注于练习，但因管制偶尔紧张。",
+        "state_switch_possible": "true",
+        "state_switch_condition": "当弗立维收到紧急暗号（比如用红色火花魔咒）时，能启动教室门窗的魔法锁闭和隔音咒，形成临时安全屋",
+        "maintenance_level": "优秀（弗立维经常亲自打扫和修复，书本排列有序）",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "一间阳光充足的圆形教室，墙壁由淡黄色石灰岩砌成，镶嵌着几扇高大的拱形彩绘玻璃窗，投下斑斓的光影。穹顶是一幅壁画，流动的银色咒语纹路环绕中央的天文学符号。教室中央整齐排列着六排木质课桌，桌面光滑并带有墨水印记，每个座位前有一个小铜牌标注着学生姓名。讲台位于教室北部，上面堆放着高耸的书堆和一卷卷羊皮纸，书籍的封面上画着挥动魔杖的巫师剪影。天花板上悬浮着几十个闪闪发光的金色星点，它们随着空气流动缓慢旋转。地面是抛光的橡木拼花地板。整体色调温暖柔和，充满学习的氛围，但墙角偶然可见一只猫头鹰可移动的窥镜暗示着暗处的监视。适合的构图：从高处俯视教室，特写讲台上的书籍和漂浮的星点，同时展现彩窗的光影。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:020",
+    "name": "变形术教室",
+    "type": "teaching_space",
+    "description": "麦格教授的变形术教室保持着严谨而朴素的风格，在食死徒统治下，这里成为她坚守教育底线、悄悄传递希望的地方。教室采用阶梯式布局，每排桌子逐级升高，确保学生能看清讲台上的演示。黑板上常残留着复杂的变形公式，壁炉里燃烧着蓝色火焰（非红色，以保持严肃）。墙上挂着几幅著名阿尼玛格斯和变形术师的老画像，它们偶尔会向学生投去鼓励的眼神。麦格教授会以极其严格的标准要求学生掌握基本功，但同时也通过微妙的措辞和作业评分传递抵抗信念。",
+    "access": {
+      "permissions": "所有学生（需选课），其他教授也可听课",
+      "access_level": "公共教学区，但麦格设置了私密禁闭咒",
+      "access_conditions": "通常凭课表进入；非课程时间，门口设有口令（常变，如‘坚守’‘转机’），学生需要向麦格申请",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "稳定教学，隐蔽抵抗",
+      "ownership": "霍格沃茨（麦格教授主管）",
+      "capacity": 40,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 40,
+    "tags": [
+      "teaching_space",
+      "公共教学区，但麦格设置了私密禁闭咒",
+      "霍格沃茨（麦格教授主管）"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 138,
+      "y": 25,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 145,
+      "y": 35
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:020",
+        "name": "变形术教室",
+        "type": "teaching_space",
+        "description": "麦格教授的变形术教室保持着严谨而朴素的风格，在食死徒统治下，这里成为她坚守教育底线、悄悄传递希望的地方。教室采用阶梯式布局，每排桌子逐级升高，确保学生能看清讲台上的演示。黑板上常残留着复杂的变形公式，壁炉里燃烧着蓝色火焰（非红色，以保持严肃）。墙上挂着几幅著名阿尼玛格斯和变形术师的老画像，它们偶尔会向学生投去鼓励的眼神。麦格教授会以极其严格的标准要求学生掌握基本功，但同时也通过微妙的措辞和作业评分传递抵抗信念。",
+        "castle_area": "城堡二楼",
+        "security_level": "中等（食死徒会不定期突击检查课程内容）",
+        "resident_characters": "米勒娃·麦格",
+        "availability_to_students": "上课时间开放；课后麦格允许优秀学生在监督下使用练习室",
+        "hidden_elements": "讲台下方有一块可移动的地砖，下方藏着一个微型保险箱，里面装有麦格整理的抵抗情报和一些非法变形术物品（如可以变成钥匙的甲虫）",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "所有学生（需选课），其他教授也可听课",
+        "access_level": "公共教学区，但麦格设置了私密禁闭咒",
+        "access_conditions": "通常凭课表进入；非课程时间，门口设有口令（常变，如‘坚守’‘转机’），学生需要向麦格申请",
+        "surveillance_level": "中等：麦格自己监控课堂纪律，同时费尔奇和挂画有时会监视；麦格在门口布置了隐藏的检测场，可识别谁携带了窃听器等",
+        "magical_barrier": "有，门口施加了抗干扰咒和反幻影移形咒",
+        "barrier_type": "复合防护咒，防止外人偷听或闯入",
+        "disillusionment_charm": "false",
+        "password_required": "课后口令为‘猫步’，由麦格每日通过宠猫传递",
+        "evasion_methods": "DA成员可利用韦斯莱级长的地图在特定时间避开巡逻，从相连的走廊废墟进入（需用粉碎咒打开一道暗门）"
+      },
+      "state": {
+        "current_state": "稳定教学，隐蔽抵抗",
+        "ownership": "霍格沃茨（麦格教授主管）",
+        "capacity": 40,
+        "state_description": "教室整齐划一，每一张课桌都擦得锃亮。讲台后的黑板上常画满变形图例，壁炉中的蓝色火焰安静地跳动着。麦格教授头戴尖顶帽，目光严厉，但有时会对学生微不可查地点头。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好（麦格非常注重细节，损坏的家具立即修复）",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "一间宽敞的长方形阶梯教室，五排深色橡木课桌逐级升高，每张桌面都镶嵌着象牙色的调色板状书写面。教室后方有一排高大的书橱，里面排列着《高级变形术》《变化论》等典籍。前方讲台用浅色石板砌成，上面放着一只黄铜天平和一个闪闪发亮的转换咒样本台。讲台背后的黑板上写满了用粉笔勾勒的变形公式图表，还有一道未完成的让茶杯变老鼠的步骤图。一侧的壁炉里燃烧着稳定的蓝色火焰，跳动的光倒映在抛光的地板上。墙上挂着三幅人物肖像，分别是著名变形术师，画框边缘有细微的金色装饰。窗户高大，但透入的光线被半透明的窗帘柔化，营造出安静专注的学院氛围。适合的构图：从最后一排向前方讲台拍摄，强调阶梯的透视，聚焦于黑板上的图样和壁炉的蓝光。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004",
+    "name": "大礼堂",
+    "type": "communal_space",
+    "description": "霍格沃茨最宏伟的厅堂，曾被邓布利多用于欢乐盛宴，如今在食死徒统治下成为恐惧与威慑的展示场。穹顶被施了魔法，映出阴云密布的天空而非繁星，学院旗帜被换成黑魔标记旗。四张学院长桌依旧排列，但气氛压抑，学生沉默进食，只有食死徒的脚步声在石地板回响。主宾席上坐着斯内普，两旁是卡罗兄妹，他们随时会施放钻心咒以儆效尤。",
+    "access": {
+      "permissions": "所有学生必须出席规定时间的餐食和命令集会，但不得随意逗留或交谈",
+      "access_level": "公开，但受严格监视",
+      "access_conditions": "通过礼堂大门，无额外魔法屏障，但出口由食死徒驻守",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "恐怖统治下的日常运转，表面有序实则戒备森严",
+      "ownership": "食死徒实际控制，名义上由斯内普管理",
+      "capacity": 600,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 600,
+    "tags": [
+      "communal_space",
+      "公开，但受严格监视",
+      "食死徒实际控制，名义上由斯内普管理"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 99,
+      "y": 45,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 106,
+      "y": 55
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004",
+        "name": "大礼堂",
+        "type": "communal_space",
+        "description": "霍格沃茨最宏伟的厅堂，曾被邓布利多用于欢乐盛宴，如今在食死徒统治下成为恐惧与威慑的展示场。穹顶被施了魔法，映出阴云密布的天空而非繁星，学院旗帜被换成黑魔标记旗。四张学院长桌依旧排列，但气氛压抑，学生沉默进食，只有食死徒的脚步声在石地板回响。主宾席上坐着斯内普，两旁是卡罗兄妹，他们随时会施放钻心咒以儆效尤。",
+        "castle_area": "主楼一层",
+        "security_level": "极高",
+        "resident_characters": "西弗勒斯·斯内普, 阿米库斯·卡罗, 阿莱克托·卡罗",
+        "availability_to_students": "强制参加所有餐食和集会",
+        "hidden_elements": "天花板魔法被篡改为食死徒监控法阵, 部分墙壁内藏有DA秘密传递信息的暗格",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "所有学生必须出席规定时间的餐食和命令集会，但不得随意逗留或交谈",
+        "access_level": "公开，但受严格监视",
+        "access_conditions": "通过礼堂大门，无额外魔法屏障，但出口由食死徒驻守",
+        "surveillance_level": "极高——卡罗兄妹持续监视，斯内普的摄神取念随时可能使用",
+        "magical_barrier": "false",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "",
+        "evasion_methods": "利用长桌下阴影传递信息，或在烟雾缭绕的角落短暂耳语"
+      },
+      "state": {
+        "current_state": "恐怖统治下的日常运转，表面有序实则戒备森严",
+        "ownership": "食死徒实际控制，名义上由斯内普管理",
+        "capacity": 600,
+        "state_description": "长桌上食物匮乏且单调，学生常因微小违规被当众惩罚，火焰熊熊的壁炉被改为绿色厉火",
+        "state_switch_possible": "true",
+        "state_switch_condition": "霍格沃茨大战爆发时变为战场",
+        "maintenance_level": "维持整洁但无装饰，食死徒刻意营造肃杀感",
+        "occupied_by_death_eaters": "true"
+      },
+      "visual": "巨大的厅堂中，四张学院长桌平行排列，上方千支飘浮的蜡烛被改为惨绿色火焰，天花板映出翻滚的乌云和隐约的骷髅头。石墙上挂着巨大黑魔标记织锦，原四位创始人的画像被移除，换上食死徒的肖像。主宾席为高台，斯内普居中坐在邓布利多曾用过的椅子上，两侧卡罗兄妹如秃鹫般注视全场。光线昏暗，只有壁炉中的绿色厉火提供颤动的冷光，学生低头吃饭，恐慌在空气中弥漫。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:012",
+    "name": "图书馆",
+    "type": "communal_space",
+    "description": "平斯夫人管理的古老图书馆，禁书区被铁链锁住并施加了食死徒的侦测咒。书架高耸，阴影深邃，曾是学习圣地，如今沦为情报暗战之地。DA成员利用《魔法史》书架背后的空隙传递加密字条，平斯夫人假装不知情但暗中掩护。",
+    "access": {
+      "permissions": "仅限借阅课本及已批准的书目，禁书区需斯内普或卡罗兄妹的手令",
+      "access_level": "有限公开",
+      "access_conditions": "通过平斯夫人的登记台，禁书区入口有甲虫监测咒",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "看似平静实则暗流涌动，平斯夫人维持着刻板的秩序",
+      "ownership": "食死徒名义上监管，平斯夫人实际管理",
+      "capacity": 200,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 200,
+    "tags": [
+      "communal_space",
+      "有限公开",
+      "食死徒名义上监管，平斯夫人实际管理"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 75,
+      "y": 44,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 82,
+      "y": 54
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:012",
+        "name": "图书馆",
+        "type": "communal_space",
+        "description": "平斯夫人管理的古老图书馆，禁书区被铁链锁住并施加了食死徒的侦测咒。书架高耸，阴影深邃，曾是学习圣地，如今沦为情报暗战之地。DA成员利用《魔法史》书架背后的空隙传递加密字条，平斯夫人假装不知情但暗中掩护。",
+        "castle_area": "四楼",
+        "security_level": "中等",
+        "resident_characters": "伊尔玛·平斯",
+        "availability_to_students": "规定时间开放，但禁书区严禁进入",
+        "hidden_elements": "禁书区后侧的隐形夹层藏有DA战术地图, 部分书籍书脊内被挖空塞入情报",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "仅限借阅课本及已批准的书目，禁书区需斯内普或卡罗兄妹的手令",
+        "access_level": "有限公开",
+        "access_conditions": "通过平斯夫人的登记台，禁书区入口有甲虫监测咒",
+        "surveillance_level": "高——平斯夫人表面监视，实际放水；禁书区有无声咒语记录来访者",
+        "magical_barrier": "禁书区有小型屏障，触碰会触发尖啸",
+        "barrier_type": "预警咒",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "利用复方汤剂伪装成高年级生混入禁书区，或使用隐身衣穿过书架缝隙"
+      },
+      "state": {
+        "current_state": "看似平静实则暗流涌动，平斯夫人维持着刻板的秩序",
+        "ownership": "食死徒名义上监管，平斯夫人实际管理",
+        "capacity": 200,
+        "state_description": "大部分书籍被审查过，禁书区书脊上贴有暗红色封条，空气中有陈旧的羊皮纸味和淡淡的恐惧",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好，平斯夫人坚持每日整理",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "幽深的长方形厅堂，两侧书架高及天花板，深色橡木制成，书脊在昏暗的烛光下泛着暗金色。中央走道尽头是平斯夫人的讲台，她戴着半月形眼镜，鹰隼般注视入口。禁书区位于后部角落，被铁链和银丝网分隔，网眼间闪烁微弱的绿光。桌上散落着旧《预言家日报》，壁炉中赤红色火焰无声燃烧，投下跳动的阴影。空气中浮动着灰尘微粒，书籍的霉味中夹杂着一丝苦艾香——那是伪装成书签的解毒剂味道。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:007",
+    "name": "校医院",
+    "type": "communal_space",
+    "description": "庞弗雷夫人管理的病房，白得发亮的天花板下排列着病床，如今成了受刑学生的避难所。卡罗兄妹经常把被打伤的学生直接丢在这里，庞弗雷夫人表面不抗议，暗地里用特制药剂加速恢复并记录伤口类型作为证据。",
+    "access": {
+      "permissions": "任何受伤学生均可进入，但食死徒偶尔突袭检查",
+      "access_level": "公共但受监控",
+      "access_conditions": "通过走廊门，无需口令，但庞弗雷夫人会询问伤势原因",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "忙碌且拥挤，学生因惩罚和绝望而频繁患病",
+      "ownership": "庞弗雷夫人独立管理，食死徒很少干预具体医疗",
       "capacity": 30,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -860,74 +504,158 @@
     },
     "capacity": 30,
     "tags": [
-      "sacrificial_space",
-      "半公开",
-      "贾府所有，由僧人管理"
+      "communal_space",
+      "公共但受监控",
+      "庞弗雷夫人独立管理，食死徒很少干预具体医疗"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 72,
-      "y": 42,
+      "x": 51,
+      "y": 49,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 79,
-      "y": 52
+      "x": 58,
+      "y": 59
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:013",
-        "name": "铁槛寺",
-        "type": "sacrificial_space",
-        "description": "贾府在城外的家庙，主要存放贾家灵柩、举办丧事法会，秦可卿丧礼曾在此举行。建筑规模中等，常年有僧人守寺。",
-        "location_function": "",
-        "associated_person": "贾府丧葬事务",
-        "hierarchy_level": "外围",
-        "faction": "贾府附属"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:007",
+        "name": "校医院",
+        "type": "communal_space",
+        "description": "庞弗雷夫人管理的病房，白得发亮的天花板下排列着病床，如今成了受刑学生的避难所。卡罗兄妹经常把被打伤的学生直接丢在这里，庞弗雷夫人表面不抗议，暗地里用特制药剂加速恢复并记录伤口类型作为证据。",
+        "castle_area": "二楼",
+        "security_level": "低至中等",
+        "resident_characters": "波比·庞弗雷",
+        "availability_to_students": "24小时开放，但需通过庞弗雷夫人的允许",
+        "hidden_elements": "药柜夹层藏有复方汤剂材料, 床底下的秘密夹层存有抵抗组织医疗补给",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "贾府家族成员及仆役均可出入，但外人需通报住持；丧事期间由贾府安排，普通香客亦可进香",
-        "access_level": "半公开",
-        "access_conditions": "平日开放，贾府举办丧事时优先家族使用，外人回避",
-        "time_restriction": "白天开放，夜间闭寺",
-        "gender_restriction": "",
-        "role_restriction": "无严格限制，但男女性别需分区域行礼",
-        "ceremonial_rule": "",
-        "key_holder": "铁槛寺住持"
+        "permissions": "任何受伤学生均可进入，但食死徒偶尔突袭检查",
+        "access_level": "公共但受监控",
+        "access_conditions": "通过走廊门，无需口令，但庞弗雷夫人会询问伤势原因",
+        "surveillance_level": "低——庞弗雷夫人会以治疗为由驱赶闲人，食死徒不太在意病房细节",
+        "magical_barrier": "false",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "",
+        "evasion_methods": "假装昏迷或严重受伤以延长停留时间，利用帘子或屏风遮挡视线"
       },
       "state": {
-        "current_state": "日常有僧人看守，部分殿宇略显陈旧，贾府财政紧张后维护减少",
-        "ownership": "贾府所有，由僧人管理",
+        "current_state": "忙碌且拥挤，学生因惩罚和绝望而频繁患病",
+        "ownership": "庞弗雷夫人独立管理，食死徒很少干预具体医疗",
         "capacity": 30,
-        "economic_status": "拮据，香火钱有限，多由贾府施舍维持",
-        "repair_condition": "局部破损，正殿瓦片有脱落，后院围墙斑驳",
-        "current_activity": "僧人日常念经，后院停灵房存放数具棺材",
-        "occupancy": "住持及五六名僧人，另有少许寄居者",
-        "security_level": "中等，有寺门和院墙，夜间有僧人巡逻"
+        "state_description": "多张病床被分隔帘围住，空气中弥漫着白鲜和止血剂的刺鼻气味，患者低声啜泣或沉默不语",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "干净整洁但物资紧张，庞弗雷夫人用自己的库存贴补",
+        "occupied_by_death_eaters": "false"
       },
-      "visual": "寺庙坐落于郊外一片枯树林间，朱红色山门油漆剥落，露出旧木色。门楣上书“铁槛寺”三字，笔画已褪。进入院子，正中是三大间大雄宝殿，灰瓦硬山顶，殿内供奉地藏王菩萨，两侧黑白无常塑像，香案上几根残香。殿后是一排简陋的停灵房，白纸糊窗，里面隐约可见几口黑漆棺材，棺盖上蒙着灰。东厢房是僧舍，西厢房堆着丧事杂物。地面是灰砖，缝隙中长着青苔，院中一棵老槐树，枝干枯黑。冬日下午，斜阳照在寺墙上，光影昏黄，檐角挂着铁马，风过则叮当作响。整体气氛萧索，构图可取寺门与正殿的透视关系，突出破旧感。"
+      "visual": "宽敞的病房以白色粉刷，四排铁床整齐排列，白色床单在药水蒸汽中微微泛黄。高窗户透进惨淡的天光，照在地板的黑白瓷砖上。床头柜上摆着药瓶、纱布和坩埚，庞弗雷夫人在尽头的药柜前忙碌，她穿着淡绿色长袍，头发一丝不苟。角落里的屏风后面，一个昏迷的学生身上盖着染血的被子，旁边放着一瓶特制魔药。墙壁上有几个古老的挂钟，滴答声与环境中的呻吟交织。"
     }
   },
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:015",
-    "name": "下房",
-    "type": "servant_area",
-    "description": "仆役集中居住的一片低矮平房，按等级和工种分配房间：管事婆子、大丫鬟、粗使丫头、小厮等分层而居，屋内陈设简陋，多为通铺或木板床，墙角堆着杂物。院落狭窄，地面是青砖压缝，屋檐下挂着晾晒的衣物和干菜，空气中混杂着汗味、炭火味与浆洗的皂角味。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:005",
+    "name": "格兰芬多公共休息室",
+    "type": "dormitory",
+    "description": "格兰芬多塔楼顶端的圆形休息室，窗户外是漆黑的天文塔视野，如今是抵抗运动的心脏。纳威·隆巴顿每晚在此召集DA成员，讨论救援计划、传递情报。肖像洞口由胖夫人把守（她已被施了夺魂咒不得告密），但纳威发现了通往地下通道的隐藏暗格。",
     "access": {
-      "permissions": "只允许仆役、低级管事以及持有对牌的外来杂役进入；主子及高等丫鬟通常不会踏足，若有差遣则由大丫鬟在门口传话。",
-      "access_level": "低",
-      "access_conditions": "除本处居住者外，外来仆役需经管事婆子许可或持有对牌；夜间落锁，出入需登记。",
+      "permissions": "仅格兰芬多学院学生，口令每天更换且高度保密",
+      "access_level": "限制",
+      "access_conditions": "需通过胖妇人肖像并说出正确口令，额外有无声的赤胆忠心咒防止内部背叛",
       "access_scope": "",
-      "gender_restriction": "男仆与女仆的住处以墙隔开，不可随意串房",
-      "time_restriction": "卯初开门，亥初锁门",
+      "gender_restriction": "",
+      "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "日常使用中，多处房屋墙体斑驳，窗纸破损，屋顶偶有漏雨痕迹，院内水缸、柴薪杂乱堆放。",
-      "ownership": "荣国府所有，归内库房统一管理修缮",
+      "current_state": "充满战前紧张感的抵抗据点，壁炉里烧着熊熊柴火掩盖低语声",
+      "ownership": "格兰芬多学生集体拥有，纳威武主导",
+      "capacity": 40,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 40,
+    "tags": [
+      "dormitory",
+      "限制",
+      "格兰芬多学生集体拥有，纳威武主导"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 26,
+      "y": 36,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 33,
+      "y": 46
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:005",
+        "name": "格兰芬多公共休息室",
+        "type": "dormitory",
+        "description": "格兰芬多塔楼顶端的圆形休息室，窗户外是漆黑的天文塔视野，如今是抵抗运动的心脏。纳威·隆巴顿每晚在此召集DA成员，讨论救援计划、传递情报。肖像洞口由胖夫人把守（她已被施了夺魂咒不得告密），但纳威发现了通往地下通道的隐藏暗格。",
+        "castle_area": "格兰芬多塔楼七楼",
+        "security_level": "中等但可能被渗透",
+        "resident_characters": "纳威·隆巴顿, 金妮·韦斯莱, 卢娜·洛夫古德, 其他DA成员",
+        "availability_to_students": "仅格兰芬多学生凭口令进入",
+        "hidden_elements": "壁炉后隐藏的密道通往有求必应屋的备选入口, 沙发下的空心地板藏有通讯镜和假加隆, 胖妇人的画框后贴有变色羊皮纸记录会议时间",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "仅格兰芬多学院学生，口令每天更换且高度保密",
+        "access_level": "限制",
+        "access_conditions": "需通过胖妇人肖像并说出正确口令，额外有无声的赤胆忠心咒防止内部背叛",
+        "surveillance_level": "中——食死徒无法直接进入，但安排蛇佬腔的斯莱特林学生监视塔楼周边",
+        "magical_barrier": "肖像本身是屏障，食死徒无法强迫胖妇人打开",
+        "barrier_type": "魔法肖像屏障",
+        "disillusionment_charm": "",
+        "password_required": "true",
+        "evasion_methods": "通过密道或飞路粉间接进入"
+      },
+      "state": {
+        "current_state": "充满战前紧张感的抵抗据点，壁炉里烧着熊熊柴火掩盖低语声",
+        "ownership": "格兰芬多学生集体拥有，纳威武主导",
+        "capacity": 40,
+        "state_description": "舒适的扶手椅和沙发被重新布置成讨论圈，墙上的狮子刺绣被一块布半遮起来以防窥视，桌上散落着羊皮纸和破碎的制服碎片用来制作伪装",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "学生自行维护，但明显比以前凌乱，体现战斗状态",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "圆形的房间被暖金色烛光笼罩，深红色和金色的织物点缀其间。中央壁炉巨大，木柴噼啪作响，火焰中偶尔冒出蓝色火星——那是隐藏的报警符。深色橡木书架靠墙放置，上面除了书还有自制的炸弹材料包。厚重的红色天鹅绒窗帘被拉紧，隔绝外界窥探。沙发和扶手椅围成半圆，中间的茶几上摊着一张霍格沃茨地图，边缘画有荧光标注。胖夫人肖像半掩在左侧角落，她目光警惕，裙摆下藏着一份备用口令名单。窗外是漆黑的苏格兰夜空，偶尔有猫头鹰掠过。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:019",
+    "name": "斯莱特林公共休息室",
+    "type": "dormitory",
+    "description": "位于黑湖之下的地牢，阴冷而华丽，由斯内普和卡罗兄妹特别监控，部分亲食死徒的学生在此聚集，但暗中有少数反对者秘密交换情报。",
+    "access": {
+      "permissions": "斯莱特林学生持口令进入；食死徒教职工无条件通行",
+      "access_level": "restricted",
+      "access_conditions": "需每周更新的口令，口令由卡罗兄妹或级长传达",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "紧张压抑，表面服从食死徒统治，内部有暗中分裂",
+      "ownership": "名义上由斯莱特林学院拥有，实际被食死徒势力渗透监控",
       "capacity": 45,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -936,226 +664,798 @@
     },
     "capacity": 45,
     "tags": [
-      "servant_area",
-      "低",
-      "荣国府所有，归内库房统一管理修缮"
+      "dormitory",
+      "restricted",
+      "名义上由斯莱特林学院拥有，实际被食死徒势力渗透监控"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 132,
-      "y": 41,
+      "x": 119,
+      "y": 82,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 139,
-      "y": 51
+      "x": 126,
+      "y": 92
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:015",
-        "name": "下房",
-        "type": "servant_area",
-        "description": "仆役集中居住的一片低矮平房，按等级和工种分配房间：管事婆子、大丫鬟、粗使丫头、小厮等分层而居，屋内陈设简陋，多为通铺或木板床，墙角堆着杂物。院落狭窄，地面是青砖压缝，屋檐下挂着晾晒的衣物和干菜，空气中混杂着汗味、炭火味与浆洗的皂角味。",
-        "location_function": "仆役住宿与生活",
-        "associated_person": "巡逻的管事婆子、歇息的小丫头、挑水的小厮",
-        "hierarchy_level": "低等",
-        "faction": "荣国府内务"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:019",
+        "name": "斯莱特林公共休息室",
+        "type": "dormitory",
+        "description": "位于黑湖之下的地牢，阴冷而华丽，由斯内普和卡罗兄妹特别监控，部分亲食死徒的学生在此聚集，但暗中有少数反对者秘密交换情报。",
+        "castle_area": "地牢层",
+        "security_level": "high",
+        "resident_characters": "德拉科·马尔福、潘西·帕金森等斯莱特林学生",
+        "availability_to_students": "仅限斯莱特林学院学生，但食死徒可随时进入检查",
+        "hidden_elements": "石墙后藏有DA联络用的小型密室，需口令进入",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "只允许仆役、低级管事以及持有对牌的外来杂役进入；主子及高等丫鬟通常不会踏足，若有差遣则由大丫鬟在门口传话。",
-        "access_level": "低",
-        "access_conditions": "除本处居住者外，外来仆役需经管事婆子许可或持有对牌；夜间落锁，出入需登记。",
-        "time_restriction": "卯初开门，亥初锁门",
-        "gender_restriction": "男仆与女仆的住处以墙隔开，不可随意串房",
-        "role_restriction": "",
-        "ceremonial_rule": "",
-        "key_holder": "值夜管事婆子"
+        "permissions": "斯莱特林学生持口令进入；食死徒教职工无条件通行",
+        "access_level": "restricted",
+        "access_conditions": "需每周更新的口令，口令由卡罗兄妹或级长传达",
+        "surveillance_level": "high",
+        "magical_barrier": "true",
+        "barrier_type": "口令感应魔法屏障",
+        "disillusionment_charm": "false",
+        "password_required": "true",
+        "evasion_methods": "利用幻身咒或复方汤剂冒充斯莱特林学生，破解口令需占卜或窃听"
       },
       "state": {
-        "current_state": "日常使用中，多处房屋墙体斑驳，窗纸破损，屋顶偶有漏雨痕迹，院内水缸、柴薪杂乱堆放。",
-        "ownership": "荣国府所有，归内库房统一管理修缮",
+        "current_state": "紧张压抑，表面服从食死徒统治，内部有暗中分裂",
+        "ownership": "名义上由斯莱特林学院拥有，实际被食死徒势力渗透监控",
         "capacity": 45,
-        "economic_status": "物资配给经常被克扣，取暖木炭和蜡烛不足，冬季尤显拮据",
-        "repair_condition": "年久失修，只有破漏严重时才临时修补",
-        "current_activity": "午间小丫头们聚在廊下做针线活，几个粗使婆子蹲在地上择菜、劈柴",
-        "occupancy": "",
-        "security_level": "低，有管事婆子巡查防止偷盗与闲杂混入"
+        "state_description": "绿色调的石墙泛着潮湿水光，壁炉常燃冷焰，银绿色挂毯上蛇形徽记被施加了监控咒语",
+        "state_switch_possible": "true",
+        "state_switch_condition": "若食死徒统治崩溃或马尔福等关键人物倒戈，可能转为抵抗组织据点",
+        "maintenance_level": "良好，但部分区域被封锁用于存放黑魔法物品",
+        "occupied_by_death_eaters": "false"
       },
-      "visual": "一排坐北朝南的单坡顶平房，灰瓦上长着几簇瓦松，屋檐低矮伸手可触，墙壁为石灰刷白但因潮气泛黄起皮，窗户是木棂糊白纸，多处有破洞用布条塞住。门前青石台阶磨损凹陷，台阶下是夯实的泥土地面，散落着几把竹扫帚和破簸箕。院角立着一口半人高的青石水缸，缸沿结着苔藓，旁边木桶里泡着待洗的粗布衣裳。午时阳光斜射进院，尘埃浮动，从半开的房门能看见屋内暗沉的通铺和墙上挂的干辣椒、蒜辫子。前景是晾衣绳上搭着的几件蓝布褂子，背景是远处荣国府主楼飞翘的屋檐，形成高低奢简的对比。"
+      "visual": "斯莱特林公共休息室位于黑湖之下，透过半圆形拱窗可见湖水中游动的巨乌贼黑影。空间呈长条形低矮拱顶，石墙由深绿色玄武岩砌成，表面渗出冷凝水珠，散发潮湿苔藓气息。地面铺着墨绿色大理石，镶嵌银色蛇形纹饰。中央凹陷处有一张巨大的黑色石壁炉，炉膛里燃烧着冷绿色火焰，不产生热量。四周摆放着深绿色天鹅绒高背扶手椅，椅腿雕刻成蛇首。长桌上摊放着羊皮纸与墨水瓶，烛台上蜡烛发出幽绿光芒。墙壁上挂着银绿色挂毯，图案为斯莱特林蛇与骷髅交叉的扭曲版本。角落有一个被黑布遮盖的笼子，隐约传出生物低鸣。整体光照昏暗，仅壁炉和蜡烛提供主光源，气氛阴郁而压迫。"
     }
   },
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:002",
-    "name": "大观园厨房",
-    "type": "servant_area",
-    "description": "位于大观园内东北角，为园中主子、丫鬟、婆子等数百口人提供一日三餐及点心茶饮。厨房分为正间（大灶）和偏间（备菜、储藏），灶台砌着五口大铁锅，两口蒸笼炉，另有小灶专供病弱或挑剔的主子开小灶。日常由贾府内厨房总管调配，油盐酱醋皆有定例，但实际管理混乱，厨役常克扣食材、偷换新鲜，引发口角之争。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:016",
+    "name": "拉文克劳公共休息室",
+    "type": "dormitory",
+    "description": "位于城堡西侧的塔楼之上，需回答智慧谜题才能进入，是卢娜·洛夫古德等抵抗者秘密传递讯息与策划行动的核心据点，食死徒难以渗透。",
     "access": {
-      "permissions": "核心操作区只允许厨役、厨房总管及经过许可的丫鬟进入；主子绝不自入，如需点菜由贴身大丫鬟前来传话或凭对牌取食盒。",
-      "access_level": "中低",
-      "access_conditions": "非本厨房人员进入须持有标明时间、需求的竹制对牌，并由管事婆子登记姓名、事由；厨房后门通往菜市，每日卯时由采买小厮送货至侧门。",
+      "permissions": "拉文克劳学生通过谜题进入；食死徒需破解谜题或使用强制魔法，但易触发警报",
+      "access_level": "restricted",
+      "access_conditions": "需在青铜门环处正确回答逻辑谜题或哲学问题，每次随机",
       "access_scope": "",
-      "gender_restriction": "男厨役可在内，但外男（非厨役）不得入内",
-      "time_restriction": "寅时开火、戌时封灶，夜间除值夜小灶外全部熄火",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "每天清晨至黄昏烟熏火燎、锅铲叮当，正间蒸汽弥漫，偏间不断传出切菜剁肉的声响；灶台边堆着刚择下的菜叶和鱼鳞，地面湿滑油腻。",
-      "ownership": "贾府公有，归内厨房总管调配",
-      "capacity": 22,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 22,
-    "tags": [
-      "servant_area",
-      "中低",
-      "贾府公有，归内厨房总管调配"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 104,
-      "y": 45,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 111,
-      "y": 55
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:002",
-        "name": "大观园厨房",
-        "type": "servant_area",
-        "description": "位于大观园内东北角，为园中主子、丫鬟、婆子等数百口人提供一日三餐及点心茶饮。厨房分为正间（大灶）和偏间（备菜、储藏），灶台砌着五口大铁锅，两口蒸笼炉，另有小灶专供病弱或挑剔的主子开小灶。日常由贾府内厨房总管调配，油盐酱醋皆有定例，但实际管理混乱，厨役常克扣食材、偷换新鲜，引发口角之争。",
-        "location_function": "备餐与膳食供应",
-        "associated_person": "厨房总管柳嫂子、厨役多官儿、帮厨的粗使丫头、定期查账的管事婆子",
-        "hierarchy_level": "中等仆役区域",
-        "faction": "荣国府内厨房体系"
-      },
-      "access": {
-        "permissions": "核心操作区只允许厨役、厨房总管及经过许可的丫鬟进入；主子绝不自入，如需点菜由贴身大丫鬟前来传话或凭对牌取食盒。",
-        "access_level": "中低",
-        "access_conditions": "非本厨房人员进入须持有标明时间、需求的竹制对牌，并由管事婆子登记姓名、事由；厨房后门通往菜市，每日卯时由采买小厮送货至侧门。",
-        "time_restriction": "寅时开火、戌时封灶，夜间除值夜小灶外全部熄火",
-        "gender_restriction": "男厨役可在内，但外男（非厨役）不得入内",
-        "role_restriction": "",
-        "ceremonial_rule": "",
-        "key_holder": "柳嫂子保管正门钥匙及食盒柜锁"
-      },
-      "state": {
-        "current_state": "每天清晨至黄昏烟熏火燎、锅铲叮当，正间蒸汽弥漫，偏间不断传出切菜剁肉的声响；灶台边堆着刚择下的菜叶和鱼鳞，地面湿滑油腻。",
-        "ownership": "贾府公有，归内厨房总管调配",
-        "capacity": 22,
-        "economic_status": "表面上每日大鱼大肉、精米白面，实则账户亏空，常以次充好，菜底的肉用作第二日杂烩，鲜蔬隔夜发蔫仍不舍丢弃",
-        "repair_condition": "灶台烟筒堵塞未通，门窗因蒸汽变形关不严，屋顶檩条被熏得漆黑但暂未漏雨",
-        "current_activity": "上午十时正间三口大锅熬粥蒸馒头，偏间几个丫头蹲在地上刮鱼鳞、剁肉馅，柳嫂子叉腰指挥，墙上挂着明日宴席的菜牌",
-        "occupancy": "",
-        "security_level": "中等，防止偷吃和夹带食材；每日收工前由总管清点剩余物料并上锁"
-      },
-      "visual": "一座三开间的硬山式砖房，屋顶铺青瓦，正脊两端有鸱吻残破，烟囱突出屋脊吐着白烟。外墙下部被油烟熏成黑褐色，上部石灰墙皮剥落露出青砖。大门敞开，门内可见并列的五口大铁锅，锅沿油光发亮，灶台前是粗大的砧板架，上面摞着七八把不同大小菜刀。案板上堆着切好的萝卜片、葱花、姜块，旁边竹篮里装着洗净的青菜。墙上钉着木架，挂着腊肉、干蘑菇、干辣椒串，铁钩上吊着两扇猪肉。地面是粗糙青砖，被油水浸得发亮，缝隙里嵌着菜渣。后门外有一口青石井，井边放着木桶和扁担。光照来自门口和天窗，光线穿过蒸汽形成光柱，灶膛火焰映红厨役的面孔。构图中景：灶台和忙碌的身影，前景是堆满食材的案板，后景是熏黑的墙和烟囱。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:010",
-    "name": "荣国府大门",
-    "type": "gate_and_passage",
-    "description": "荣国府正门，面阔三间，朱漆铜钉兽面大门，门前一对汉白玉石狮分踞左右，上马石、下马石、拴马桩、旗杆等一应俱全。门楣上悬蓝底金字匾额书“敕造荣国府”五字，门内立一座青砖影壁遮风挡煞。此门是权贵与等级的象征，非权势人物或重大节庆不开，平日进出皆走东西角门。黛玉初入贾府时便是从西角门折入，可见其规制森严。门前常有官员轿马停留、门房小厮探头张望，亦是府中消息集散之地。",
-    "access": {
-      "permissions": "正门平时紧闭，仅于以下情况开启：迎接圣旨、皇帝亲赐、重要祭祀、贾母贾政等主子正式出行或回归、迎娶新妇、发丧等重大礼仪。日常人员通行一律走东西角门。",
-      "access_level": "极高，非至尊尊贵不可轻易动用",
-      "access_conditions": "必须事先通报管家，经内宅主子点头后，由门房总管开启大门并张灯结彩；平民百姓、小官商贾一律不得从正门进出，违者按僭越论处。",
-      "access_scope": "",
-      "gender_restriction": "一般情况下，女性主子出入亦不走正门，除非是公主、王妃等超品身份或大婚之日；黛玉初进府时即循例从西角门入。",
+      "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "大门紧闭，朱漆虽有雨水冲刷痕迹但整体鲜亮，铜钉锃亮，石狮威武；门下石阶光洁无尘，常有小厮持扫帚洒扫；门旁悬挂一对大红灯笼，上书黑色“荣国府”三字。",
-      "ownership": "荣国府贾氏家族共有，贾政为名义上任但实际归家族公产",
-      "capacity": 60,
+      "current_state": "活跃的秘密抵抗据点，师生表面正常活动实则暗中组织",
+      "ownership": "拉文克劳学院所有，食死徒尚未完全控制",
+      "capacity": 35,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 60,
+    "capacity": 35,
     "tags": [
-      "gate_and_passage",
-      "极高，非至尊尊贵不可轻易动用",
-      "荣国府贾氏家族共有，贾政为名义上任但实际归家族公产"
+      "dormitory",
+      "restricted",
+      "拉文克劳学院所有，食死徒尚未完全控制"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 50,
-      "y": 48,
+      "x": 9,
+      "y": 82,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 64,
-      "y": 53
+      "x": 16,
+      "y": 92
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:010",
-        "name": "荣国府大门",
-        "type": "gate_and_passage",
-        "description": "荣国府正门，面阔三间，朱漆铜钉兽面大门，门前一对汉白玉石狮分踞左右，上马石、下马石、拴马桩、旗杆等一应俱全。门楣上悬蓝底金字匾额书“敕造荣国府”五字，门内立一座青砖影壁遮风挡煞。此门是权贵与等级的象征，非权势人物或重大节庆不开，平日进出皆走东西角门。黛玉初入贾府时便是从西角门折入，可见其规制森严。门前常有官员轿马停留、门房小厮探头张望，亦是府中消息集散之地。",
-        "location_function": "正门出入、迎宾礼典、权势展示",
-        "associated_person": "门房总管、轮值小厮、迎送家人的管家、禀报的报子",
-        "hierarchy_level": "顶级外门",
-        "faction": "荣国府外在代表"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:016",
+        "name": "拉文克劳公共休息室",
+        "type": "dormitory",
+        "description": "位于城堡西侧的塔楼之上，需回答智慧谜题才能进入，是卢娜·洛夫古德等抵抗者秘密传递讯息与策划行动的核心据点，食死徒难以渗透。",
+        "castle_area": "西塔楼顶层",
+        "security_level": "medium",
+        "resident_characters": "卢娜·洛夫古德、帕德玛·佩蒂尔等拉文克劳学生",
+        "availability_to_students": "仅限拉文克劳学院学生，需在铜门环前回答谜题",
+        "hidden_elements": "公休室内的天文角落地板下藏有防探测的密格，存放DA传单与违禁书籍",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "正门平时紧闭，仅于以下情况开启：迎接圣旨、皇帝亲赐、重要祭祀、贾母贾政等主子正式出行或回归、迎娶新妇、发丧等重大礼仪。日常人员通行一律走东西角门。",
-        "access_level": "极高，非至尊尊贵不可轻易动用",
-        "access_conditions": "必须事先通报管家，经内宅主子点头后，由门房总管开启大门并张灯结彩；平民百姓、小官商贾一律不得从正门进出，违者按僭越论处。",
-        "time_restriction": "",
-        "gender_restriction": "一般情况下，女性主子出入亦不走正门，除非是公主、王妃等超品身份或大婚之日；黛玉初进府时即循例从西角门入。",
-        "role_restriction": "",
-        "ceremonial_rule": "大门开启时需鸣锣、列仪仗，门内门外小厮、管家、丫鬟依次跪迎或作揖；门钉为纵九横七共六十三枚，符合公侯级别。",
-        "key_holder": "门房总管（贾府世仆）保管大门钥匙及门闩锁具"
+        "permissions": "拉文克劳学生通过谜题进入；食死徒需破解谜题或使用强制魔法，但易触发警报",
+        "access_level": "restricted",
+        "access_conditions": "需在青铜门环处正确回答逻辑谜题或哲学问题，每次随机",
+        "surveillance_level": "low",
+        "magical_barrier": "true",
+        "barrier_type": "青铜门环谜题结界",
+        "disillusionment_charm": "false",
+        "password_required": "false",
+        "evasion_methods": "利用门环漏洞（如重复同一谜题）或由拉文克劳学生带入；食死徒曾试图用摄神取念破解但被反制"
       },
       "state": {
-        "current_state": "大门紧闭，朱漆虽有雨水冲刷痕迹但整体鲜亮，铜钉锃亮，石狮威武；门下石阶光洁无尘，常有小厮持扫帚洒扫；门旁悬挂一对大红灯笼，上书黑色“荣国府”三字。",
-        "ownership": "荣国府贾氏家族共有，贾政为名义上任但实际归家族公产",
-        "capacity": 60,
-        "economic_status": "维护费用从府中公用银支出，因要保持门面，银两虽紧亦不敢削减此处开支，铜钉每年重漆一次，门匾每三年换金漆。",
-        "repair_condition": "极佳，门板厚实无虫蛀，漆面半年前新漆过，石狮无裂痕，旗杆笔直。",
-        "current_activity": "午时前后，门房内几个小厮坐在条凳上喝茶聊天，不时探头望街；偶尔有轿子停在角门，管家迎出；大门纹丝不动，只有一只野猫蜷在石狮底座旁晒太阳。",
-        "occupancy": "",
-        "security_level": "极高，昼夜有老成小厮值守，夜间关闭门闩加锁，并设更夫定时巡逻"
+        "current_state": "活跃的秘密抵抗据点，师生表面正常活动实则暗中组织",
+        "ownership": "拉文克劳学院所有，食死徒尚未完全控制",
+        "capacity": 35,
+        "state_description": "圆形穹顶房间，星空投影在淡蓝色墙壁上缓慢旋转，书架间藏有紧急暗号",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好，书籍和星象仪被小心维护",
+        "occupied_by_death_eaters": "false"
       },
-      "visual": "三间朱漆大门一字排开，中间一间略宽，门扇上铜钉横九行竖七列，排列齐整，每颗铜钉直径约两寸，打磨得泛光。门框两侧是青砖墙裙，上方五彩斗拱承托出檐，檐下正中悬挂长方形蓝底金字匾额，“敕造荣国府”四个楷体大字，边框雕龙附凤，金漆在阳光下闪耀。门槛高及膝，中间一段可抽卸供马车通行。门前三级汉白玉台阶，左右各蹲一尊石狮，左雄右雌，雄狮足踏绣球，雌狮怀抱幼狮鬃毛卷曲，底座刻莲花纹。台阶下是青石铺就的宽阔广场，左右立着一对上马石、一对拴马桩，广场边缘有下马石碑，上刻“文武官员至此下马”。远景可见街对面民居的灰瓦屋顶。构图：正面微仰视角，门居中，石狮对称，门匾居上三分之一处，天光透过斗拱投下阴影。"
+      "visual": "拉文克劳公共休息室位于西塔楼最高处，空间呈圆形穹顶结构，墙面由浅蓝色砂岩砌成，饰有青铜线条勾勒的星座图案。穹顶上施有永久魔法投影，模拟真实的夜空，星星缓慢移动并闪烁。中央地面镶嵌一个巨大的青铜罗盘，指针指向北。沿墙摆放着弧形高书架，塞满了天文卷轴和魔法书，书架间点缀着造型优雅的青铜台灯，灯罩如星冠。靠近窗边有数张蓝色天鹅绒矮扶手椅，圆形大理石桌上放着羽毛笔、羊皮纸和一套天文测量仪器。南侧的拱形彩色玻璃窗绘有拉文克劳渡鸦叼着命运之轮，透出的月光在室内形成淡蓝色光晕。角落静静立着一座六英尺高的雕花壁钟，钟面不是数字而是星空图。前中景：入口处的青铜门环形状像老鹰，门环下方的铜质铭牌上刻有谜题。整体氛围宁静而充满智慧感，与城堡外的恐怖形成对比。"
     }
   },
   {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:001",
-    "name": "垂花门",
-    "type": "gate_and_passage",
-    "description": "位于荣国府内宅与外院之间的界门，通常为卷棚歇山顶，门楼雕梁画栋，垂花柱头刻有莲花、牡丹等图案。门扉漆成绿色，门内设有游廊连通各院，门外通往前厅、仪门等外男活动区域。垂花门是内外有别的最直观界线：女子（尤其是未出阁小姐）的活动范围一般不出此门，外男除非获内眷召见或得到贾母等长辈特许，不得踏入垂花门一步。门内有看门婆子轮值，盘查出入人员。",
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:008",
+    "name": "赫奇帕奇公共休息室",
+    "type": "dormitory",
+    "description": "位于厨房附近的酒窖层，温暖舒适，以黄色和黑色为主色调，是学院内最团结的空间，学生们在此秘密互助、分享食物和疗伤，并掩护少数混入的抵抗者。",
     "access": {
-      "permissions": "允许内宅女眷、丫鬟、婆子自由通行；男仆、外来男性客人、报事小厮一律止步，需先由看门婆子向内宅传话，获准后方可进入，且须由丫鬟引领。",
-      "access_level": "中等",
-      "access_conditions": "白日常开，由两名看门婆子把守；夜间落锁，钥匙由王熙凤派心腹婆子掌管。内宅主子出行时，须提前清道，男性回避。",
+      "permissions": "赫奇帕奇学生敲击桶底节奏进入；其他学院需赫奇帕奇学生带领或通过厨房密道",
+      "access_level": "restricted",
+      "access_conditions": "在厨房走廊尽头的木桶前，按“赫奇帕奇”音节节奏敲击桶底第二块木板",
       "access_scope": "",
-      "gender_restriction": "男性非特许不得进入，若有贾宝玉等男主人进入则无需通报，但跟随的小厮须止步于门外",
-      "time_restriction": "每日卯时开门，戌时落锁；特殊节庆或夜宴可延长至亥时",
+      "gender_restriction": "",
+      "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "日常敞开，门帘半卷，婆子坐在门槛边做针线活，偶尔有丫头进出传话；门内游廊上可见来往的丫鬟身影，门外偶尔有男仆探头张望。",
-      "ownership": "荣国府内院共有，由王熙凤等大管家娘子统筹管理",
+      "current_state": "温暖而团结，学生之间高度信任，互相掩护躲避卡罗兄妹的巡查",
+      "ownership": "赫奇帕奇学院所有，未被食死徒直接占据",
+      "capacity": 40,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 40,
+    "tags": [
+      "dormitory",
+      "restricted",
+      "赫奇帕奇学院所有，未被食死徒直接占据"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 52,
+      "y": 69,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 59,
+      "y": 79
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:008",
+        "name": "赫奇帕奇公共休息室",
+        "type": "dormitory",
+        "description": "位于厨房附近的酒窖层，温暖舒适，以黄色和黑色为主色调，是学院内最团结的空间，学生们在此秘密互助、分享食物和疗伤，并掩护少数混入的抵抗者。",
+        "castle_area": "地牢层（近厨房）",
+        "security_level": "low",
+        "resident_characters": "厄尼·麦克米兰、汉娜·艾博等赫奇帕奇学生",
+        "availability_to_students": "仅限赫奇帕奇学院学生，需敲击桶底特定节奏",
+        "hidden_elements": "厨房壁炉后有一条秘密通道直接通往公休室，用于紧急撤离和运送物资",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "赫奇帕奇学生敲击桶底节奏进入；其他学院需赫奇帕奇学生带领或通过厨房密道",
+        "access_level": "restricted",
+        "access_conditions": "在厨房走廊尽头的木桶前，按“赫奇帕奇”音节节奏敲击桶底第二块木板",
+        "surveillance_level": "low",
+        "magical_barrier": "true",
+        "barrier_type": "桶底敲击魔法锁",
+        "disillusionment_charm": "false",
+        "password_required": "false",
+        "evasion_methods": "由赫奇帕奇学生带领，或从厨房壁炉密道进入，食死徒曾强行破坏桶底但引发了警报喷泉"
+      },
+      "state": {
+        "current_state": "温暖而团结，学生之间高度信任，互相掩护躲避卡罗兄妹的巡查",
+        "ownership": "赫奇帕奇学院所有，未被食死徒直接占据",
+        "capacity": 40,
+        "state_description": "低矮圆顶房间，铺着黑色和黄色方格地砖，中央圆桌摆放着常亮的蜡烛和自热的茶壶",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好，因靠近厨房而充满食物香气",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "赫奇帕奇公共休息室位于城堡地牢层，入口是一个不起眼的木桶，内里却是一个低矮的圆形房间。穹顶由橡木横梁支撑，墙壁用黄色陶砖砌成，地面铺着黑黄相间的棋盘格地砖。房间中央放着一张巨大的圆形橡木桌，桌上摆着几个铜烛台和一只自动冒热气的搪瓷茶壶。四周摆放着圆胖的深黄色软垫扶手椅，椅脚为黄铜材质。靠墙的架子上堆满了植物标本、草药罐和毛毯，壁炉里燃烧着温暖的橙色火焰，炉台上方挂着一幅咧着嘴笑的赫奇帕奇獾画像。窗边挂着厚实的黄色帘子，窗户本身是圆形舷窗，透进来自上方厨房地面的昏暗光线。墙角有几个大型陶罐，里面插着向日葵和野生药草。整体光照温暖柔和，带有蜂蜜般的色调，给人以安全感和庇护感。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:003",
+    "name": "禁林",
+    "type": "outdoor_space",
+    "description": "城堡周边广袤而危险的原始森林，生活着马人、夜骐、蜘蛛等多种魔法生物，食死徒定期巡逻但无法完全控制，抵抗者利用其隐蔽性秘密存放违禁物品和用于逃亡。",
+    "access": {
+      "permissions": "除海格外，任何人需校长或猎场看守批准，食死徒巡逻队有优先通行权",
+      "access_level": "forbidden",
+      "access_conditions": "需持有魔法部或食死徒高层签发的通行证；抵抗者通过海格或马人引导的秘径进入",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "危险而紧张，食死徒巡逻队频繁搜查，但森林广阔难以完全控制",
+      "ownership": "名义上由霍格沃茨所有，实际处于食死徒与魔法生物的拉锯中",
+      "capacity": 9999,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 9999,
+    "tags": [
+      "outdoor_space",
+      "forbidden",
+      "名义上由霍格沃茨所有，实际处于食死徒与魔法生物的拉锯中"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 110,
+      "y": 65,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 110,
+      "y": 70
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:003",
+        "name": "禁林",
+        "type": "outdoor_space",
+        "description": "城堡周边广袤而危险的原始森林，生活着马人、夜骐、蜘蛛等多种魔法生物，食死徒定期巡逻但无法完全控制，抵抗者利用其隐蔽性秘密存放违禁物品和用于逃亡。",
+        "castle_area": "霍格沃茨外围东北侧",
+        "security_level": "extreme",
+        "resident_characters": "鲁伯·海格、马人费伦泽、格洛普",
+        "availability_to_students": "严格禁止未经许可进入，实际仍有学生冒险闯入",
+        "hidden_elements": "海格小屋旁的南瓜地下面埋有DA武器和地图；马人领地内有一处反探测的龙血树洞藏匿食品和魔药",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "除海格外，任何人需校长或猎场看守批准，食死徒巡逻队有优先通行权",
+        "access_level": "forbidden",
+        "access_conditions": "需持有魔法部或食死徒高层签发的通行证；抵抗者通过海格或马人引导的秘径进入",
+        "surveillance_level": "medium",
+        "magical_barrier": "false",
+        "barrier_type": "",
+        "disillusionment_charm": "false",
+        "password_required": "false",
+        "evasion_methods": "利用夜骐牵引的马车飞行进入；跟随马人通过南部小溪暗线；使用幻影移形但目前食死徒已布置反移形结界"
+      },
+      "state": {
+        "current_state": "危险而紧张，食死徒巡逻队频繁搜查，但森林广阔难以完全控制",
+        "ownership": "名义上由霍格沃茨所有，实际处于食死徒与魔法生物的拉锯中",
+        "capacity": 9999,
+        "state_description": "古树参天，藤蔓缠绕，地面覆盖厚厚落叶和苔藓，空气中有腐烂植物和魔法生物的腥骚味",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "原始野化状态，无人维护",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "禁林从霍格沃茨东北边缘延伸至远方，树木主要为粗壮的老橡树、山毛榉和扭曲的紫杉，枝干盘结，树冠浓密蔽日，即使在白天也仅有斑驳的绿色光点洒落。地面覆盖着厚达数英寸的棕色落叶、腐烂的蕨植物和暗绿色苔藓，空气中飘浮着发光的孢子。主干道是一条被踏平的土路，两侧密布荆棘和巨型蘑菇。沿途可看到被独角兽摩擦过的银色树皮，以及被巨型蜘蛛丝缠绕的枯枝。林中时有雾气弥漫，草丛中露出夜骐的骷髅状头骨。海格的小屋位于森林边缘，是一个石墙茅草屋顶的简陋建筑，烟囱冒烟，门口挂着十字弓和捕兽夹。更深处有一片空地，中央有一棵被雷劈开的千年树桩，周围散落着马人留下的蹄印和骨雕。天空被树冠遮蔽，仅偶尔透过暗紫色云层露出微弱星光。整体色调为深绿、棕褐与暗紫，氛围神秘而充满威胁。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:015",
+    "name": "魁地奇球场",
+    "type": "outdoor_space",
+    "description": "曾经是霍格沃茨最受欢迎的体育场，举行激烈的魁地奇比赛。如今被食死徒改造为公开处罚和暴行示威的场所，看台上飘扬着黑魔标记旗帜，草地上时常可见学生受刑留下的血迹。",
+    "access": {
+      "permissions": "强制集会时允许进入，但平时禁止无故逗留",
+      "access_level": "高限制",
+      "access_conditions": "仅在食死徒命令下开放，学生需在规定时间内到场，否则受罚",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "被改造为惩罚和示威场所，草皮破损，增设有刑台和锁链",
+      "ownership": "食死徒控制，名义上归霍格沃茨",
+      "capacity": 50000,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 50000,
+    "tags": [
+      "outdoor_space",
+      "高限制",
+      "食死徒控制，名义上归霍格沃茨"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 131,
+      "y": 65,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 145,
+      "y": 70
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:015",
+        "name": "魁地奇球场",
+        "type": "outdoor_space",
+        "description": "曾经是霍格沃茨最受欢迎的体育场，举行激烈的魁地奇比赛。如今被食死徒改造为公开处罚和暴行示威的场所，看台上飘扬着黑魔标记旗帜，草地上时常可见学生受刑留下的血迹。",
+        "castle_area": "城堡外场地",
+        "security_level": "高",
+        "resident_characters": "无固定居住",
+        "availability_to_students": "仅在食死徒组织集会时被迫参加，否则不可随意进入",
+        "hidden_elements": "无",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "强制集会时允许进入，但平时禁止无故逗留",
+        "access_level": "高限制",
+        "access_conditions": "仅在食死徒命令下开放，学生需在规定时间内到场，否则受罚",
+        "surveillance_level": "极高（常有巡逻）",
+        "magical_barrier": "无",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "夜间可冒险靠近但风险极大"
+      },
+      "state": {
+        "current_state": "被改造为惩罚和示威场所，草皮破损，增设有刑台和锁链",
+        "ownership": "食死徒控制，名义上归霍格沃茨",
+        "capacity": 50000,
+        "state_description": "恐怖统治期间，这里不再是欢乐的竞技场，而是恐惧的象征",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "差，无人维护",
+        "occupied_by_death_eaters": "true"
+      },
+      "visual": "广阔的椭圆形球场，三座高耸的看台环绕，金色飞天扫帚雕像被黑魔标记旗帜取代。草皮中央树起一座粗糙的木制刑台，血迹斑斑的铁链悬挂在两侧。看台座位上涂有绿色和银色的装饰，但大多剥落。天空阴沉，时常下着小雨，球场边缘的围栏上挂着标志‘背叛者受死’的标语。秋千架和球门柱被遗弃在一旁，锈迹斑斑。远景可见霍格沃茨城堡的塔楼，但光线暗淡，气氛压抑。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:011",
+    "name": "黑湖",
+    "type": "outdoor_space",
+    "description": "位于霍格沃茨城堡外的一个深水湖，传说湖底生活着巨乌贼和各类魔法生物。湖面常年漆黑如墨，岸边沼泽遍布。在食死徒统治时期，少数DA成员利用其边缘区域的隐蔽性进行秘密联络，但需警惕湖中的厉鬼和巡逻的摄魂怪。",
+    "access": {
+      "permissions": "学生理论上禁足，但可以冒险前往",
+      "access_level": "低至中等（无常规守卫）",
+      "access_conditions": "夜间巡逻较少，但需避开巡逻路线",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "自然状态，湖面上偶尔可见巨乌贼触手，岸边有厉鬼出没",
+      "ownership": "霍格沃茨领地，但食死徒未直接控制",
+      "capacity": 0,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 0,
+    "tags": [
+      "outdoor_space",
+      "低至中等（无常规守卫）",
+      "霍格沃茨领地，但食死徒未直接控制"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 120,
+      "y": 47,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 127,
+      "y": 57
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:011",
+        "name": "黑湖",
+        "type": "outdoor_space",
+        "description": "位于霍格沃茨城堡外的一个深水湖，传说湖底生活着巨乌贼和各类魔法生物。湖面常年漆黑如墨，岸边沼泽遍布。在食死徒统治时期，少数DA成员利用其边缘区域的隐蔽性进行秘密联络，但需警惕湖中的厉鬼和巡逻的摄魂怪。",
+        "castle_area": "城堡外园林区",
+        "security_level": "中等",
+        "resident_characters": "巨乌贼、格林迪洛、厉鬼",
+        "availability_to_students": "一般不允许靠近，但无绝对禁令",
+        "hidden_elements": "湖岸洞穴可藏身",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "学生理论上禁足，但可以冒险前往",
+        "access_level": "低至中等（无常规守卫）",
+        "access_conditions": "夜间巡逻较少，但需避开巡逻路线",
+        "surveillance_level": "低",
+        "magical_barrier": "无",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "可选择湖岸的树丛掩护，绕开学长巡逻"
+      },
+      "state": {
+        "current_state": "自然状态，湖面上偶尔可见巨乌贼触手，岸边有厉鬼出没",
+        "ownership": "霍格沃茨领地，但食死徒未直接控制",
+        "capacity": 0,
+        "state_description": "阴森荒凉，湖水翻涌着暗绿色波浪，岸边漂浮着枯枝败叶",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "无维护",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "辽阔的黑色湖面倒映着灰色天空，岸边是潮湿的黑色岩石和扭曲的灌木。湖心泛起大小不一的涟漪，有时巨乌贼的触手缓缓露出水面。岸上有一条蜿蜒的小径通向密林，部分路段被魔法伪装着。远处霍格沃茨城堡的轮廓在薄雾中若隐若现。光线昏暗，常伴有低沉的呜咽声，如同厉鬼哭泣。几只夜骐在岸边徘徊，吃草。整体色调是黑、灰、深绿，气氛阴森压抑。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:006",
+    "name": "校长办公室",
+    "type": "functional_area",
+    "description": "位于城堡八楼，需要通过一个有翼的石头怪兽守卫的旋转楼梯才能到达。这里是霍格沃茨最高权力中心，前任校长邓布利多曾在此办公。如今被西弗勒斯·斯内普占据，他利用冥想盆、福克斯的栖枝、历代校长的画像等物品掌控着学校的一切，并在此执行伏地魔的意志。房间内布满了邓布利多时期的陈设，但气氛压抑，画像中的校长们大多沉默或对斯内普冷眼相待。",
+    "access": {
+      "permissions": "仅限现任校长和经斯内普特别许可的食死徒高层",
+      "access_level": "最高限制",
+      "access_conditions": "必须通过石头怪兽的旋转楼梯，并正确回答口令",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "由斯内普日常使用，桌面摆放着黑魔标记与魔杖，冥想盆时常开启",
+      "ownership": "霍格沃茨校长办公室，但实际被食死徒政权控制",
+      "capacity": 15,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 15,
+    "tags": [
+      "functional_area",
+      "最高限制",
+      "霍格沃茨校长办公室，但实际被食死徒政权控制"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 27,
+      "y": 65,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 34,
+      "y": 75
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:006",
+        "name": "校长办公室",
+        "type": "functional_area",
+        "description": "位于城堡八楼，需要通过一个有翼的石头怪兽守卫的旋转楼梯才能到达。这里是霍格沃茨最高权力中心，前任校长邓布利多曾在此办公。如今被西弗勒斯·斯内普占据，他利用冥想盆、福克斯的栖枝、历代校长的画像等物品掌控着学校的一切，并在此执行伏地魔的意志。房间内布满了邓布利多时期的陈设，但气氛压抑，画像中的校长们大多沉默或对斯内普冷眼相待。",
+        "castle_area": "八楼",
+        "security_level": "最高",
+        "resident_characters": "斯内普（常驻），历任校长画像",
+        "availability_to_students": "禁止进入，除非被召唤",
+        "hidden_elements": "冥想盆中的记忆，隐形书架的暗格（斯内普可能藏有情报）",
+        "is_variable_space": "true",
+        "switch_condition": "口令随斯内普更改"
+      },
+      "access": {
+        "permissions": "仅限现任校长和经斯内普特别许可的食死徒高层",
+        "access_level": "最高限制",
+        "access_conditions": "必须通过石头怪兽的旋转楼梯，并正确回答口令",
+        "surveillance_level": "极高（斯内普使用大脑封闭术和监听咒语）",
+        "magical_barrier": "有，限制未授权者飞路网和幻影移形",
+        "barrier_type": "反侵入魔法",
+        "disillusionment_charm": "false",
+        "password_required": "true",
+        "evasion_methods": "几乎不可能；麦格教授知道口令，但通常不会有暗地访问的机会"
+      },
+      "state": {
+        "current_state": "由斯内普日常使用，桌面摆放着黑魔标记与魔杖，冥想盆时常开启",
+        "ownership": "霍格沃茨校长办公室，但实际被食死徒政权控制",
+        "capacity": 15,
+        "state_description": "房间内保留邓布利多时期的器物，但气氛冰冷。壁炉常燃着绿色火焰，画像中的校长们沉默地注视。一只被魔法固定的凤凰福克斯的雕像放在栖枝上，活着的福克斯已不知去向。",
+        "state_switch_possible": "true",
+        "state_switch_condition": "更换校长时会变化",
+        "maintenance_level": "良好，由家养小精灵打扫",
+        "occupied_by_death_eaters": "true"
+      },
+      "visual": "圆形石砌房间，深色橡木书架环绕墙面，书架中混杂着各种魔法仪器和古籍。中央摆放一张厚重的爪脚桌，桌面上散乱着羊皮纸、羽毛笔、一个镶银的冥想盆，以及一根黑檀木魔杖。炉火在房间一隅的壁炉里噼啪作响，投射出跳动的阴影。窗户高大，但窗帘半掩，透进青灰色的光线。凤凰福克斯的雕像栖在门侧的镀金栖枝上，神态忧伤。许多前任校长的肖像框挂在墙壁上，画中人物目光锐利地审视房间。入口处的石头怪兽雕像口含隐藏口令锁，旋转楼梯狭窄盘旋。整体氛围庄重而神秘，带有警惕与压抑感。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:014",
+    "name": "级长盥洗室",
+    "type": "functional_area",
+    "description": "城堡四楼的一间豪华盥洗室，专供级长和男女学生会主席使用。内部有大理石浴池、银色水龙头和桃金娘鬼魂的常驻。在食死徒统治时期，这里成为少数级长秘密集会的地点，他们利用这里远离监控，讨论抵抗计划或交换情报。桃金娘虽然吵闹，但不告密。",
+    "access": {
+      "permissions": "仅限级长和学生会主席；口令由级长变动",
+      "access_level": "中等限制",
+      "access_conditions": "必须知道当时的口令（通常每两周更改）",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "正常使用，但被抵抗组织秘密用作集会点。桃金娘时常打扰，但无大害。",
+      "ownership": "霍格沃茨设施，食死徒未实际占用",
+      "capacity": 10,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 10,
+    "tags": [
+      "functional_area",
+      "中等限制",
+      "霍格沃茨设施，食死徒未实际占用"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 30,
+      "y": 12,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 37,
+      "y": 22
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:014",
+        "name": "级长盥洗室",
+        "type": "functional_area",
+        "description": "城堡四楼的一间豪华盥洗室，专供级长和男女学生会主席使用。内部有大理石浴池、银色水龙头和桃金娘鬼魂的常驻。在食死徒统治时期，这里成为少数级长秘密集会的地点，他们利用这里远离监控，讨论抵抗计划或交换情报。桃金娘虽然吵闹，但不告密。",
+        "castle_area": "四楼",
+        "security_level": "中等",
+        "resident_characters": "桃金娘（幽灵）",
+        "availability_to_students": "仅级长和学生会主席（凭口令进入）",
+        "hidden_elements": "浴池下的暗格（可藏物品）",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "仅限级长和学生会主席；口令由级长变动",
+        "access_level": "中等限制",
+        "access_conditions": "必须知道当时的口令（通常每两周更改）",
+        "surveillance_level": "中等（食死徒巡逻较少关注，但卡罗会抽查）",
+        "magical_barrier": "无",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "true",
+        "evasion_methods": "若卡罗检查，可提前通过桃金娘通风报信，从墙壁逃生洞离去"
+      },
+      "state": {
+        "current_state": "正常使用，但被抵抗组织秘密用作集会点。桃金娘时常打扰，但无大害。",
+        "ownership": "霍格沃茨设施，食死徒未实际占用",
+        "capacity": 10,
+        "state_description": "大理石地面湿润，充满蒸汽。浴池中时而冒出热水喷泉。墙上贴着一块褪色的级长布告。桃金娘漂浮在角落，发出哭声。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "良好，但缺乏精细管理",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "宽敞的盥洗室内，白色大理石墙壁和地面光洁如镜，但有些许水渍。中央是一个巨大的圆形浴池，池底铺有蓝色瓷砖，池边有镀金水龙头，分别流出热水、冷水、温水乃至带泡泡的浴液。墙上悬挂着几面镜子，其中一面是入学镜。浴池上方垂下一盏枝形吊灯，发出温暖而朦胧的光。角落的化妆台上摆有高级香皂和毛巾。桃金娘的透明身影在隔间之间飘荡，她穿着十九世纪的校袍，带着哀怨的表情。窗户高而窄，外面是城堡庭院，但光线透过磨砂玻璃变得柔和。整体环境奢华但带有颓废感，隐约透出不安。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:009",
+    "name": "厨房",
+    "type": "functional_area",
+    "description": "位于霍格沃茨地下室的家养小精灵工作区，是全校伙食供应的核心地点。在这个黑暗时期，厨房也成为抵抗组织与家养小精灵秘密合作的通道，学生们可以在这里获取额外食物、传递消息，甚至利用后方的密道躲避食死徒的搜捕。",
+    "access": {
+      "permissions": "家养小精灵、经授权的学生（通过口令验证）",
+      "access_level": "半开放但受控",
+      "access_conditions": "必须挠画中梨子使其发出吱吱笑声才能开门；在恐怖统治时期，家养小精灵会额外确认来人身份",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "正常运作但高度戒备",
+      "ownership": "霍格沃茨学校，实际由家养小精灵自主管理",
+      "capacity": 100,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 100,
+    "tags": [
+      "functional_area",
+      "半开放但受控",
+      "霍格沃茨学校，实际由家养小精灵自主管理"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 85,
+      "y": 67,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 92,
+      "y": 77
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:009",
+        "name": "厨房",
+        "type": "functional_area",
+        "description": "位于霍格沃茨地下室的家养小精灵工作区，是全校伙食供应的核心地点。在这个黑暗时期，厨房也成为抵抗组织与家养小精灵秘密合作的通道，学生们可以在这里获取额外食物、传递消息，甚至利用后方的密道躲避食死徒的搜捕。",
+        "castle_area": "地下室",
+        "security_level": "低",
+        "resident_characters": "家养小精灵群",
+        "availability_to_students": "有限，需通过赫奇帕奇公共休息室附近的画中梨子入口，并知道特定口令",
+        "hidden_elements": "家养小精灵密道通往城堡其他区域, 隐蔽储藏室用于藏匿违禁品和传讯物品",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "家养小精灵、经授权的学生（通过口令验证）",
+        "access_level": "半开放但受控",
+        "access_conditions": "必须挠画中梨子使其发出吱吱笑声才能开门；在恐怖统治时期，家养小精灵会额外确认来人身份",
+        "surveillance_level": "中",
+        "magical_barrier": "false",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "true",
+        "evasion_methods": "利用家养小精灵的隐身魔法掩护；从厨房后方的秘密通道快速转移"
+      },
+      "state": {
+        "current_state": "正常运作但高度戒备",
+        "ownership": "霍格沃茨学校，实际由家养小精灵自主管理",
+        "capacity": 100,
+        "state_description": "厨房依然日夜忙碌准备全校餐食，但家养小精灵们都明白食死徒的威胁，他们暗中为抵抗组织预留食物、藏匿物资，并用隐秘的手势和暗号与信任的学生交流。空气中弥漫着紧张与同情的混合气氛。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "霍格沃茨厨房内部景象：宽敞的地下石室，高拱的天花板被壁炉火焰和漂浮的蜡烛照亮，四张陈旧的长木桌整齐排列，桌面上摆着空盘子和高脚杯。墙壁上挂着铜锅、平底锅和各种炊具，壁炉中火焰熊熊，木柴噼啪作响。石质地面上有一些被踩踏的蔬菜残渣。后墙有几扇带铁环的木门，其中一扇门上的画中梨子微微颤动。整个空间既温暖又因食死徒的阴影而显得压抑。适合广角镜头，展现厨房的全貌和几个忙碌的家养小精灵身影。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:017",
+    "name": "有求必应屋",
+    "type": "secret_stronghold",
+    "description": "位于霍格沃茨八楼巨怪棒打傻巴拿巴挂毯对面，是一间只有真正需要它时才会出现的魔法房间，内部空间根据使用者的需求随意变化。在食死徒统治的恐怖时期，这里是DA的秘密训练场、藏匿格兰芬多宝剑的据点，也是抵抗组织策划行动的核心中枢，其入口和内部结构只有少数核心成员知晓。",
+    "access": {
+      "permissions": "仅限掌握秘密的DA成员或真正有需求的人",
+      "access_level": "绝密",
+      "access_conditions": "必须三次走过巨怪挂毯对面那段墙，同时心里坚定地想着自己需要的房间；进入后不需要口令，但离开后门就会消失",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "活跃使用中，作为DA秘密集会与训练基地",
+      "ownership": "霍格沃茨城堡魔法，实际被DA抵抗组织控制",
+      "capacity": 80,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 80,
+    "tags": [
+      "secret_stronghold",
+      "绝密",
+      "霍格沃茨城堡魔法，实际被DA抵抗组织控制"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 75,
+      "y": 8,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 89,
+      "y": 13
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:017",
+        "name": "有求必应屋",
+        "type": "secret_stronghold",
+        "description": "位于霍格沃茨八楼巨怪棒打傻巴拿巴挂毯对面，是一间只有真正需要它时才会出现的魔法房间，内部空间根据使用者的需求随意变化。在食死徒统治的恐怖时期，这里是DA的秘密训练场、藏匿格兰芬多宝剑的据点，也是抵抗组织策划行动的核心中枢，其入口和内部结构只有少数核心成员知晓。",
+        "castle_area": "八楼",
+        "security_level": "极高",
+        "resident_characters": "无固定居民，但DA核心成员频繁出入",
+        "availability_to_students": "必须知道秘密：集中意念三次走过那堵墙，并明确所需房间类型",
+        "hidden_elements": "房间本质就是魔法伪装, 内部可创造隐藏隔间和密道",
+        "is_variable_space": "true",
+        "switch_condition": "使用者需三次来回经过藏有入口的墙壁，并在脑海中清晰浮现所需房间的用途"
+      },
+      "access": {
+        "permissions": "仅限掌握秘密的DA成员或真正有需求的人",
+        "access_level": "绝密",
+        "access_conditions": "必须三次走过巨怪挂毯对面那段墙，同时心里坚定地想着自己需要的房间；进入后不需要口令，但离开后门就会消失",
+        "surveillance_level": "无（食死徒始终未发现确切位置）",
+        "magical_barrier": "true",
+        "barrier_type": "物质化空间变形魔法",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "快速进入并关闭门；可在内部自由改变房间布局以隐藏痕迹；使用厉火或特殊咒语可永久摧毁房间（但危险）"
+      },
+      "state": {
+        "current_state": "活跃使用中，作为DA秘密集会与训练基地",
+        "ownership": "霍格沃茨城堡魔法，实际被DA抵抗组织控制",
+        "capacity": 80,
+        "state_description": "房间通常呈现为一个宽敞的训练室，四周堆满训练用的假人、书架和魔法靶子。中央空地配有软垫，墙上贴着DA签名名单和魔法地图。近期也曾变形为堆满旧杂物的储藏室以隐藏格兰芬多宝剑等重要物品。气氛隐蔽而紧张，但充满抵抗的希望。",
+        "state_switch_possible": "true",
+        "state_switch_condition": "使用者重新集中意念在墙前行走三遍，默念新的需求",
+        "maintenance_level": "",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "有求必应屋内部作为DA训练场的景象：地面铺着柔软的深色训练垫，四周墙壁由高耸的书架组成，架上塞满咒语书、防护斗篷和练习魔杖。天花板漂浮着数百根发出柔和白光的蜡烛，照亮了整个空间。中央空出一片区域，角落立着几个假人靶子，旁边堆放练习用的软垫。墙上挂着一张巨大的霍格沃茨地图，边上贴着写满名字的羊皮纸。远处有一排木箱和一面落地镜。光线温暖而集中，营造出秘密但充满希望的氛围。构图从入口处向内低角度拍摄，展示房间的深度和训练布置。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:018",
+    "name": "尖叫棚屋",
+    "type": "secret_stronghold",
+    "description": "位于霍格莫德村边缘的废弃建筑，因常年传出尖叫声而被麻瓜和巫师视为闹鬼禁地，实际上它是从霍格沃茨打人柳延伸出的密道出口。在伏地魔控制魔法部的时期，这里成为抵抗组织与凤凰社之间传递情报、转移受威胁人员的关键中转站，同时也储存少量物资。",
+    "access": {
+      "permissions": "仅限知晓打人柳压制方法的抵抗组织成员",
+      "access_level": "秘密通道出入口",
+      "access_conditions": "从霍格沃茨方向需通过打人柳下的密道：先用魔杖精准按下树干上的疤节使柳树静止，然后快速钻入树根下的通道；从霍格莫德方向则需从棚屋后门进入，但食死徒可能在该区域巡逻",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "废弃但暗中维护",
+      "ownership": "霍格莫德村属地，实际无人正式拥有",
       "capacity": 12,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -1164,9 +1464,89 @@
     },
     "capacity": 12,
     "tags": [
-      "gate_and_passage",
-      "中等",
-      "荣国府内院共有，由王熙凤等大管家娘子统筹管理"
+      "secret_stronghold",
+      "秘密通道出入口",
+      "霍格莫德村属地，实际无人正式拥有"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 9,
+      "y": 8,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 16,
+      "y": 18
+    },
+    "raw": {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:018",
+        "name": "尖叫棚屋",
+        "type": "secret_stronghold",
+        "description": "位于霍格莫德村边缘的废弃建筑，因常年传出尖叫声而被麻瓜和巫师视为闹鬼禁地，实际上它是从霍格沃茨打人柳延伸出的密道出口。在伏地魔控制魔法部的时期，这里成为抵抗组织与凤凰社之间传递情报、转移受威胁人员的关键中转站，同时也储存少量物资。",
+        "castle_area": "霍格莫德村外（非城堡区域）",
+        "security_level": "中等",
+        "resident_characters": "无固定居民，偶尔有抵抗组织或凤凰社成员临时停留",
+        "availability_to_students": "需要知道打人柳的秘密（按下疤节使其静止）以及密道路线",
+        "hidden_elements": "打人柳下的密道入口, 棚屋地下室可藏匿人员或物品",
+        "is_variable_space": "false",
+        "switch_condition": ""
+      },
+      "access": {
+        "permissions": "仅限知晓打人柳压制方法的抵抗组织成员",
+        "access_level": "秘密通道出入口",
+        "access_conditions": "从霍格沃茨方向需通过打人柳下的密道：先用魔杖精准按下树干上的疤节使柳树静止，然后快速钻入树根下的通道；从霍格莫德方向则需从棚屋后门进入，但食死徒可能在该区域巡逻",
+        "surveillance_level": "中",
+        "magical_barrier": "false",
+        "barrier_type": "无（但打人柳本身是强大的植物防御）",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "利用打人柳的静态窗口快速通过；携带隐身衣或使用幻身咒；选择在夜间或暴雪天气行动以减少被发现几率"
+      },
+      "state": {
+        "current_state": "废弃但暗中维护",
+        "ownership": "霍格莫德村属地，实际无人正式拥有",
+        "capacity": 12,
+        "state_description": "棚屋内部破败不堪：窗户破碎，旧家具歪斜，地板积满灰尘，墙角结满蛛网。密道的活板门被藏在破损的地毯下，勉强保持可通行状态。棚屋因其恐怖名声而很少被人靠近，这为抵抗活动提供了天然掩护。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "",
+        "occupied_by_death_eaters": "false"
+      },
+      "visual": "尖叫棚屋内外景象：外观是一座歪斜的两层小木楼，坐落在霍格莫德村边缘荒地，墙上爬满枯藤，木板开裂，窗户糊着旧报纸或破洞，屋顶瓦片残缺，烟囱倾斜。周围杂草丛生，栅栏歪倒。整体色调灰暗破败，散发出不祥的气息。室内光线昏暗，地面覆盖厚厚的灰尘，破损的家具随意扔放。墙边有一个破衣柜，角落的活板门边缘微微翘起，露出地下漆黑通道。一束惨白的光从破裂的窗外射入，照亮空气中漂浮的尘埃。适合低角度仰拍外部，突出建筑的恐怖神秘感；内部则用顶光展示密室入口。"
+    }
+  },
+  {
+    "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:010",
+    "name": "霍格莫德地下密室",
+    "type": "secret_stronghold",
+    "description": "隐藏在霍格莫德村某座经营不善的商店地下，由抵抗组织成员秘密挖掘并加固的小型避难所，用于紧急藏身、储存食物药品和交换情报。入口伪装成普通地窖，内部空间虽小但功能齐全，是恐怖统治下一条微弱的生命线。",
+    "access": {
+      "permissions": "仅限抵抗组织核心成员及其信任的紧急避难者",
+      "access_level": "秘密",
+      "access_conditions": "从商店后院的酒窖进入，移动一个特定空酒桶即可露出向下的梯子；平时入口被铁链锁住，只有组织成员才有钥匙",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "隐蔽使用中，储备物资基本充足",
+      "ownership": "抵抗组织（凤凰社外围分支）",
+      "capacity": 8,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 8,
+    "tags": [
+      "secret_stronghold",
+      "秘密",
+      "抵抗组织（凤凰社外围分支）"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
@@ -1183,112 +1563,40 @@
     },
     "raw": {
       "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:001",
-        "name": "垂花门",
-        "type": "gate_and_passage",
-        "description": "位于荣国府内宅与外院之间的界门，通常为卷棚歇山顶，门楼雕梁画栋，垂花柱头刻有莲花、牡丹等图案。门扉漆成绿色，门内设有游廊连通各院，门外通往前厅、仪门等外男活动区域。垂花门是内外有别的最直观界线：女子（尤其是未出阁小姐）的活动范围一般不出此门，外男除非获内眷召见或得到贾母等长辈特许，不得踏入垂花门一步。门内有看门婆子轮值，盘查出入人员。",
-        "location_function": "内外分隔、通行检查、礼仪象征",
-        "associated_person": "看门婆子、负责传话的小丫头、等候通传的男仆",
-        "hierarchy_level": "中等，内宅第一道门户",
-        "faction": "荣国府内院管理"
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:010",
+        "name": "霍格莫德地下密室",
+        "type": "secret_stronghold",
+        "description": "隐藏在霍格莫德村某座经营不善的商店地下，由抵抗组织成员秘密挖掘并加固的小型避难所，用于紧急藏身、储存食物药品和交换情报。入口伪装成普通地窖，内部空间虽小但功能齐全，是恐怖统治下一条微弱的生命线。",
+        "castle_area": "霍格莫德村地下",
+        "security_level": "中等",
+        "resident_characters": "偶尔有抵抗组织成员短期躲藏",
+        "availability_to_students": "需要由核心组织成员带路，或知道特定的暗号与进入方法",
+        "hidden_elements": "伪装成酒桶架的暗门, 通风管道可微弱换气",
+        "is_variable_space": "false",
+        "switch_condition": ""
       },
       "access": {
-        "permissions": "允许内宅女眷、丫鬟、婆子自由通行；男仆、外来男性客人、报事小厮一律止步，需先由看门婆子向内宅传话，获准后方可进入，且须由丫鬟引领。",
-        "access_level": "中等",
-        "access_conditions": "白日常开，由两名看门婆子把守；夜间落锁，钥匙由王熙凤派心腹婆子掌管。内宅主子出行时，须提前清道，男性回避。",
-        "time_restriction": "每日卯时开门，戌时落锁；特殊节庆或夜宴可延长至亥时",
-        "gender_restriction": "男性非特许不得进入，若有贾宝玉等男主人进入则无需通报，但跟随的小厮须止步于门外",
-        "role_restriction": "",
-        "ceremonial_rule": "",
-        "key_holder": "王熙凤指定的心腹婆子（如林之孝家的）"
+        "permissions": "仅限抵抗组织核心成员及其信任的紧急避难者",
+        "access_level": "秘密",
+        "access_conditions": "从商店后院的酒窖进入，移动一个特定空酒桶即可露出向下的梯子；平时入口被铁链锁住，只有组织成员才有钥匙",
+        "surveillance_level": "低",
+        "magical_barrier": "false",
+        "barrier_type": "",
+        "disillusionment_charm": "",
+        "password_required": "false",
+        "evasion_methods": "使用召唤咒从隐蔽处取出钥匙；在受到追踪时可通过通风管道释放迷惑烟雾"
       },
       "state": {
-        "current_state": "日常敞开，门帘半卷，婆子坐在门槛边做针线活，偶尔有丫头进出传话；门内游廊上可见来往的丫鬟身影，门外偶尔有男仆探头张望。",
-        "ownership": "荣国府内院共有，由王熙凤等大管家娘子统筹管理",
-        "capacity": 12,
-        "economic_status": "装饰精美，油漆彩绘三五年重描一次，垂花柱头的莲花叶瓣依然清晰；每逢节庆还会挂绢花、系红绸，略添喜庆。",
-        "repair_condition": "良好，屋顶无漏雨，门扉开合顺畅，门帘近期更换过蓝布镶边新帘",
-        "current_activity": "午时刚过，宝钗的丫鬟莺儿端着食盒从内走出，与看门婆子说笑两句；门外一个小厮抱着一只瓷瓶候着，婆子扬声问“哪个院的东西？”",
-        "occupancy": "",
-        "security_level": "中等，主要防范外男随意闯入及传递违禁物品；婆子会仔细翻查递送的包裹"
+        "current_state": "隐蔽使用中，储备物资基本充足",
+        "ownership": "抵抗组织（凤凰社外围分支）",
+        "capacity": 8,
+        "state_description": "地下室面积约20平方米，墙壁用魔法加固并涂上防潮灰泥，地面铺着稻草和旧地毯。中央一张木桌上摆着地图、羊皮纸和蜡烛，墙角堆放着几个装食品和药品的木箱。一张简易床铺靠在一边，旁边挂着两件旧斗篷。永久照明咒的提灯发出稳定黄光，空间虽小但保持整洁有序。",
+        "state_switch_possible": "false",
+        "state_switch_condition": "",
+        "maintenance_level": "",
+        "occupied_by_death_eaters": "false"
       },
-      "visual": "一座卷棚歇山顶的门楼，屋顶铺青筒瓦，正脊雕海棠纹，四角垂脊飞翘，檐下吊着一排垂花柱，柱头莲花出瓣，彩绘以青绿为底点金。门框为朱红色，门扇漆成嫩绿色，上半部为漏窗棂格，糊着白纱，下半部实木雕花，门扉微开，半垂的蓝布门帘绣着折枝花。门槛是一整条青石，磨得光润。门外两侧各立一尊小石鼓，鼓面刻着太极八卦。门内可见一段抄手游廊，红柱绿瓦，廊下挂着一串红灯笼。地面上铺着方形青砖，砖缝干净无苔。光照：午后的柔光透过门扇上的白纱，在地上投下窗棂的菱形光影，门内廊柱的影子斜斜拉长。构图中景：垂花门为主体，门内隐约透出游廊和花木，前景是石鼓和青石阶，背景是远处假山一角。"
-    }
-  },
-  {
-    "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:007",
-    "name": "角门",
-    "type": "gate_and_passage",
-    "description": "荣国府西侧角门，坐落在梨香院外东墙角落，是仆役与杂役人员日常出入的通道，也是府中运送采买物资的必经之门。门内是一条青砖甬道，直通后厨与茶房，门外则连着一条僻静小巷，可通往大街。此门地位卑微，但维持着内宅与外界的日常流通。",
-    "access": {
-      "permissions": "仅限仆役、轿夫、采买人员及有腰牌的家丁使用，主子和贵客不得从此门出入",
-      "access_level": "restricted（限制通行）",
-      "access_conditions": "需经门房核查身份或出示腰牌方可开门；夜间落锁后非紧急事务不得开启",
-      "access_scope": "",
-      "gender_restriction": "无特别限制，但丫鬟独自出入需有同伴或管事的许可",
-      "time_restriction": "卯时至戌时开放，其余时辰需持管家的对牌才可叫门",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "日常使用频繁，门轴略有磨损，门漆局部剥落",
-      "ownership": "贾府公产，由荣国府管家统一管理",
-      "capacity": 4,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 4,
-    "tags": [
-      "gate_and_passage",
-      "restricted（限制通行）",
-      "贾府公产，由荣国府管家统一管理"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 120,
-      "y": 24,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 134,
-      "y": 29
-    },
-    "raw": {
-      "identity": {
-        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:loc:007",
-        "name": "角门",
-        "type": "gate_and_passage",
-        "description": "荣国府西侧角门，坐落在梨香院外东墙角落，是仆役与杂役人员日常出入的通道，也是府中运送采买物资的必经之门。门内是一条青砖甬道，直通后厨与茶房，门外则连着一条僻静小巷，可通往大街。此门地位卑微，但维持着内宅与外界的日常流通。",
-        "location_function": "仆役通道与物资输送",
-        "associated_person": "门上的婆子（看守）",
-        "hierarchy_level": "low（低级通道）",
-        "faction": "贾府中层管理者（由王熙凤统辖的下人）"
-      },
-      "access": {
-        "permissions": "仅限仆役、轿夫、采买人员及有腰牌的家丁使用，主子和贵客不得从此门出入",
-        "access_level": "restricted（限制通行）",
-        "access_conditions": "需经门房核查身份或出示腰牌方可开门；夜间落锁后非紧急事务不得开启",
-        "time_restriction": "卯时至戌时开放，其余时辰需持管家的对牌才可叫门",
-        "gender_restriction": "无特别限制，但丫鬟独自出入需有同伴或管事的许可",
-        "role_restriction": "禁止任何主人或上等宾客使用此门",
-        "ceremonial_rule": "",
-        "key_holder": "门上的婆子（轮值）"
-      },
-      "state": {
-        "current_state": "日常使用频繁，门轴略有磨损，门漆局部剥落",
-        "ownership": "贾府公产，由荣国府管家统一管理",
-        "capacity": 4,
-        "economic_status": "维护费用低廉，但门面缺乏修缮",
-        "repair_condition": "局部破旧，门闩灵活却显陈旧",
-        "current_activity": "清晨有仆役挑水进出，午间有采买货车出入",
-        "occupancy": "随时使用中",
-        "security_level": "低（仅由老嬷嬷把守，夜间加锁）"
-      },
-      "visual": "角门位于荣国府西墙的夹道尽头，是一扇黑漆木门，高约八尺，宽六尺有余，门板厚实却未经彩绘，仅涂黑漆，漆面因风雨侵蚀已泛白褪色，露出木纹裂痕。门上方有简单的砖雕门楣，刻着模糊的“吉祥”二字。门两侧各有一尊石鼓门墩，表面光滑。门上方挂着一盏旧油灯，灯罩积尘。门扉紧闭时，上下门轴处可见铁锈。门前的青石台阶磨损严重，尤其是中间位置被踩出凹痕。门内是一条青砖铺就的甬道，两侧白墙斑驳，墙根处长着青苔。门背后有一根粗重木门闩，闩上铁环已生锈。整个角门区域光线昏暗，仅在午时有阳光斜照进门洞，映出飞舞的尘埃。环境安静，偶有细微的脚步声和远处厨房的炊烟传来。"
+      "visual": "霍格莫德地下密室内部：低矮的石砌地下室，天花板由粗木梁支撑，墙面上灰泥有些剥落，露出后面的砖石。地面铺着干草和一块旧地毯，中央放着一张粗糙的木桌，桌上摊着地图和羽毛笔，旁边一盏黄铜提灯发出稳定的黄色光芒。墙角堆着几个木箱和布袋，旁边是一张铺着稻草的简单床铺。入口处是一个书架改装的暗门，梯子竖在旁侧。空间狭小但充满秩序，微弱的霉味中带有一点草药香。构图从暗门方向平视，展示密室的全貌和储备物资。"
     }
   }
 ]

@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "维护状况",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "使用频率",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "时间线状态",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

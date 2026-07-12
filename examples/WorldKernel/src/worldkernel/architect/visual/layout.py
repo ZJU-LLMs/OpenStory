@@ -27,6 +27,7 @@ def build_visual_layout_manifest(
         "tile_size": tile_size,
         "width_px": blueprint.grid.width * tile_size,
         "height_px": blueprint.grid.height * tile_size,
+        "visual_clearance_tiles": 2,
     }
 
     slots: list[VisualSlot] = []
@@ -111,6 +112,7 @@ def build_visual_layout_manifest(
                 "fixed_art_style": "明亮整洁的俯视卡通像素模拟经营游戏风格",
                 "image_postprocessing": "none",
                 "texture_density": "low",
+                "slot_visual_clearance_tiles": canvas["visual_clearance_tiles"],
                 "lighting_weather": profile.get("lighting_weather", ""),
                 "color_palette": profile.get("color_palette", []),
                 "material_texture": profile.get("material_texture", []),

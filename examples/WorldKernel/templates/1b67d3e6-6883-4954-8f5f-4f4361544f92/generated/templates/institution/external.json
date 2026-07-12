@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "four_families_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "imperial_connection",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "society_prestige",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "decline_reputation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "local_guild_relations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

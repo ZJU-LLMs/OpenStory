@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "password_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "countercurse_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "invisibility_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anti_disapparition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "patrolled_by_filch",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "monitored_by_carrows",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blocked_by_dark_magic",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "alternative_route_available",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

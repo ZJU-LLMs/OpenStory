@@ -1,0 +1,31 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+underlying_wish:
+  type: str
+  option: true
+fatalistic_push:
+  type: str
+  option: true
+concealed_ambition:
+  type: str
+  option: true
+relationship_pursuit:
+  type: str
+  option: true
+survival_strategy:
+  type: str
+  option: true
+honor_restoration:
+  type: str
+  option: true
+rebellion_impulse:
+  type: str
+  option: true
+legacy_concern:
+  type: str
+  option: true

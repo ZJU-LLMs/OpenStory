@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "fear_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defiance_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_grey_degree",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "paranoia_index",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

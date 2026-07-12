@@ -1,0 +1,1603 @@
+{
+  "artifact_type": "character_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:010",
+        "name": "纳威·隆巴顿",
+        "role": "student",
+        "house": "格兰芬多",
+        "allegiance_surface": "顺从学生",
+        "allegiance_actual": "反抗军领袖",
+        "hidden_role": "DA实际领袖，组织校内抵抗运动"
+      },
+      "social_profile": {
+        "group_id": "格兰芬多七年级",
+        "reputation": "在食死徒眼中是笨拙无能的学生，在反抗者眼中是勇敢的领袖",
+        "faction": "邓布利多军",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "95"
+      },
+      "capabilities": {
+        "skills": [
+          "魔咒学",
+          "草药学",
+          "黑魔法防御术",
+          "无声咒",
+          "领导力"
+        ],
+        "level": "高年级顶尖，实战经验丰富",
+        "weaknesses": "偶有犹豫，过于信任少数同伴，有时冲动",
+        "occlumency_level": "3",
+        "legilimency_level": "1",
+        "specialized_magic": "草药学战斗应用，召唤咒与防御组合技",
+        "wand_core": "独角兽尾毛(父亲遗留)",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "勇敢",
+          "坚毅",
+          "重情义",
+          "偶尔焦虑",
+          "果敢"
+        ],
+        "values": [
+          "正义",
+          "忠诚",
+          "保护弱者",
+          "反抗暴政"
+        ],
+        "speech_style": "直率，偶尔结巴但语气坚定，善于激励同伴",
+        "fear_level": "40",
+        "defiance_level": "90",
+        "moral_grey_degree": "10",
+        "paranoia_index": "50"
+      },
+      "goals": {
+        "short_term_goal": "继续在霍格沃茨组织秘密反抗行动，保护一年级新生免受卡罗兄妹折磨",
+        "long_term_goal": "推翻食死徒对霍格沃茨的控制，等待哈利·波特回归",
+        "motivation": "为父母报仇、为邓布利多之死、保护同学不被奴役",
+        "survival_priority": "50",
+        "secret_mission": "找到并保护格兰芬多宝剑的秘密下落",
+        "sacrifice_willingness": "80"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "魂器的基本传说（哈利透露过）",
+            "草药学高级理论及应用",
+            "霍格沃茨密道与隐藏房间（部分）"
+          ],
+          "social_knowledge": [
+            "DA成员最新名单与信任度评级",
+            "卡罗兄妹每日巡视规律",
+            "费尔奇的猫监视路线",
+            "有求必应屋的开启暗号"
+          ]
+        },
+        "background_summary": "纳威·隆巴顿出身纯血统家庭，父母是傲罗被贝拉特里克斯·莱斯特兰奇用钻心咒折磨至疯。由祖母抚养长大，初期自卑怯懦，在霍格沃茨逐渐成长为勇敢的格兰芬多。邓布利多死后，主动承担起校内反抗重任。",
+        "key_events": [
+          "一年级时阻拦哈利三人组夜游被扣分",
+          "在神秘事务司之战中展现勇气，拿到预言球残片",
+          "DA集会中成为哈利信任的核心成员",
+          "天文塔之战后目睹邓布利多之死",
+          "斯内普就任校长后开始秘密组织反抗，保护低年级生"
+        ],
+        "secrets": [
+          "哈利在寻找魂器前曾私下告知纳威必要时接管DA",
+          "知道一条通往霍格莫德隐秘地道的入口（通过画像）",
+          "曾私下使用过温和的钻心咒对抗食死徒（极度自责）"
+        ],
+        "traumatic_events": "探望圣芒戈父母时父母认不出他的痛苦, 目睹邓布利多被斯内普杀死, 被卡罗兄妹在课堂上施加钻心剜骨惩罚",
+        "known_secret_passages": "四楼走廊后的密道通向霍格莫德（被堵但知晓）, 有求必应屋（用于集会）",
+        "knowledge_of_forbidden_spells": "钻心剜骨（谨慎使用）, 魂魄出窍（理论）",
+        "witnessed_crimes": "卡罗兄妹殴打低年级学生, 斯内普公开支持对麻瓜出身学生的歧视政策, 费尔奇私自将其关入地牢体罚"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "表面平静，实际高度警戒",
+        "safety_level": "60",
+        "last_seen_location": "格兰芬多公共休息室",
+        "disguise_active": "false"
+      },
+      "visual": "一个17岁霍格沃茨男生，中等身材略壮实，圆脸，灰蓝色眼睛眼神坚定但不失温和，深棕色短发有些乱，留有刘海。穿着霍格沃茨校服——深灰毛衣、白衬衫、红金领带，外罩旧款格兰芬多长袍（左肩有补丁）。右手小指戴着一枚简陋的家族纹章银戒，左臂有一道新愈合的咒语疤痕。随身携带一根破旧的独角兽尾毛魔杖。表情刚毅，眉头微蹙，嘴角带着淡淡的不屈微笑，站立时微微前倾，显得随时准备行动。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:006",
+        "name": "金妮·韦斯莱",
+        "role": "student",
+        "house": "格兰芬多",
+        "allegiance_surface": "普通学生",
+        "allegiance_actual": "DA核心成员",
+        "hidden_role": "情报传递与新人接应联络员"
+      },
+      "social_profile": {
+        "group_id": "格兰芬多六年级",
+        "reputation": "聪明活泼的韦斯莱家最小女儿，在食死徒眼中是纯血统但不可信，在同学中威望高",
+        "faction": "邓布利多军",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "92"
+      },
+      "capabilities": {
+        "skills": [
+          "黑魔法防御术",
+          "飞行术",
+          "变形术",
+          "侦察与反侦察",
+          "英勇咒语"
+        ],
+        "level": "五年级优秀水平，实战强",
+        "weaknesses": "有时过于冒险，对家人安全过分关注",
+        "occlumency_level": "2",
+        "legilimency_level": "1",
+        "specialized_magic": "蝙蝠精咒、昏迷咒、铁甲咒组合",
+        "wand_core": "凤凰尾羽（巧固榉木）",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "勇敢",
+          "果断",
+          "忠诚",
+          "敏捷",
+          "幽默"
+        ],
+        "values": [
+          "家庭",
+          "自由",
+          "正义",
+          "反抗暴政"
+        ],
+        "speech_style": "说话快而果断，常带讽刺幽默，关键时刻非常冷静",
+        "fear_level": "30",
+        "defiance_level": "85",
+        "moral_grey_degree": "15",
+        "paranoia_index": "45"
+      },
+      "goals": {
+        "short_term_goal": "安全传递关于卡罗兄妹最新惩罚措施的情报到DA内部",
+        "long_term_goal": "在霍格沃茨坚持战斗直至伏地魔被击败，保护全家",
+        "motivation": "为家人报仇（双胞胎哥哥在魔法部被袭击），为自由和朋友",
+        "survival_priority": "55",
+        "secret_mission": "定期与校外的哈利秘密通信（通过帕德米尔的双面镜碎片）",
+        "sacrifice_willingness": "70"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "霍格沃茨历代密道（详细）",
+            "魂器基本概念（从哈利处听说）",
+            "高级黑魔法防御理论",
+            "魁地奇战术"
+          ],
+          "social_knowledge": [
+            "斯莱特林内部中立与反对食死徒的学生名单",
+            "卡罗兄妹日程与弱点",
+            "费尔奇与洛丽丝夫人的巡逻时间",
+            "校医院庞弗雷夫人暗中支持的庇护机制"
+          ]
+        },
+        "background_summary": "金妮·韦斯莱是家族最小的女孩，在霍格沃茨初期曾被汤姆·里德尔的日记控制而做出危险行为，后来在哈利的帮助下摆脱并成长为一名自信勇敢的女巫。她运动天赋高，善用魔咒，对食死徒政权极为反感。",
+        "key_events": [
+          "一年级被里德尔日记控制打开密室",
+          "多次参加DA集会并成为核心成员",
+          "神秘事务司之战参与营救小天狼星",
+          "天文塔之战中与哈利并肩战斗",
+          "新学期看到双胞胎乔治被魔法部袭击后更加坚定反抗"
+        ],
+        "secrets": [
+          "知道哈利离开学校前留下的双面镜碎片用法",
+          "曾利用扫帚在夜晚偷偷传递情报到霍格莫德",
+          "暗中保护一名麻瓜出身一年级生免受卡罗兄妹迫害"
+        ],
+        "traumatic_events": "被里德尔控制时的恐怖记忆, 目睹哥哥被魔法部傲罗袭击受伤, 得知邓布利多死亡的细节",
+        "known_secret_passages": "四楼走廊后的密道通向霍格莫德, 有求必应屋（用于集会）, 八楼挂着挂毯后的隐藏走廊",
+        "knowledge_of_forbidden_spells": "钻心剜骨（理论）, 夺魂咒（理论）",
+        "witnessed_crimes": "阿莱克托·卡罗对一年级麻瓜出身学生施钻心咒, 阿米库斯·卡罗在课堂上暴力对待拉文克劳学生, 斯内普校长在开学仪式上公开宣布对麻瓜出身学生的惩罚, 费尔奇非法拘禁一名赫奇帕奇学生在地牢三天"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "装作若无其事地在礼堂用餐，实际在观察斯莱特林桌动向",
+        "safety_level": "65",
+        "last_seen_location": "格兰芬多公共休息室",
+        "disguise_active": "false"
+      },
+      "visual": "16岁霍格沃茨女生，身材修长苗条，一头火红色长发编成蓬松的侧辫，吊在右肩。脸庞俏丽，浅褐色雀斑散布在鼻梁和颧骨，明亮的棕色眼睛带着警惕而活泼的神采。穿着霍格沃茨校服——白衬衫、红金条纹领带、深灰开襟毛衣，外罩旧但不破的格兰芬多长袍。左腕上系着一根蓝色细棉绳编成的手链（双胞胎送的防身小物）。腰间斜挎一个小皮包，里面隐约能看到几封折叠的信件。姿态挺拔，眼神快速扫视四周，嘴角微微上扬透着自信。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:007",
+        "name": "卢娜·洛夫古德",
+        "role": "student",
+        "house": "拉文克劳",
+        "allegiance_surface": "古怪但无害的学生",
+        "allegiance_actual": "DA秘密情报员",
+        "hidden_role": "利用直觉和怪癖掩护传递隐密信息，经常说出谜语式线索"
+      },
+      "social_profile": {
+        "group_id": "拉文克劳六年级",
+        "reputation": "被视为疯姑娘，但少数人知道她极其聪慧可靠",
+        "faction": "邓布利多军",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "85"
+      },
+      "capabilities": {
+        "skills": [
+          "直觉推断",
+          "奇异生物知识",
+          "草药学",
+          "感知魔法",
+          "开锁咒"
+        ],
+        "level": "中等偏上，独特才能突出",
+        "weaknesses": "社交理解有时偏离，偶尔被当作不可靠",
+        "occlumency_level": "4",
+        "legilimency_level": "2",
+        "specialized_magic": "无声开锁咒、保护魔咒、感知隐藏魔法痕迹",
+        "wand_core": "独角兽尾毛（橡木）",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "超然",
+          "直率",
+          "善良",
+          "古怪",
+          "敏锐"
+        ],
+        "values": [
+          "真理",
+          "自由",
+          "包容",
+          "善良",
+          "不盲从"
+        ],
+        "speech_style": "平静而梦幻，偶尔跳跃，经常用比喻与谜语暗示真实信息",
+        "fear_level": "25",
+        "defiance_level": "70",
+        "moral_grey_degree": "20",
+        "paranoia_index": "35"
+      },
+      "goals": {
+        "short_term_goal": "将关于食死徒在黑湖附近活动的直觉警告传达给纳威",
+        "long_term_goal": "帮助霍格沃茨恢复自由，与父亲一起揭露魔法部谎言",
+        "motivation": "坚信真相与善良必定胜利，保护朋友和家人",
+        "survival_priority": "40",
+        "secret_mission": "收集卡罗兄妹与神秘人不直接联系的证据",
+        "sacrifice_willingness": "60"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "大量稀有魔法生物与植物",
+            "古老魔法符号的含义",
+            "拉文克劳塔楼隐藏特征"
+          ],
+          "social_knowledge": [
+            "少数愿意帮助DA的拉文克劳人员名单",
+            "几个斯莱特林学生私下对食死徒统治的不满",
+            "霍格沃茨城堡若干不为人知的魔法感应点",
+            "与家养小精灵的某种友善联系（可获取厨房信息）"
+          ]
+        },
+        "background_summary": "卢娜·洛夫古德与父亲谢诺菲留斯住在陋居附近的古怪小屋，母亲在实验咒语中去世。她从小能看到别人看不到的生物（如骚扰虻），信仰人类不信仰但可能存在的魔法生物。在霍格沃茨常被嘲笑，但形成了自己独特的思维世界。",
+        "key_events": [
+          "一年级时在火车上看到哈利和纳威遇到暴风雨",
+          "多次协助DA成员躲避乌姆里奇的搜捕",
+          "神秘事务司之战中跟随哈利营救小天狼星",
+          "邓布利多葬礼上散发防妖眼镜纪念品",
+          "新学期开始利用拉文克劳公共休息室传递加密情报"
+        ],
+        "secrets": [
+          "知道拉文克劳公共休息室背后有一个从未被发现的隐藏空间",
+          "暗中保存了邓布利多生前留下的一封信的副本（真伪待定）",
+          "曾用自身感知发现斯内普办公室存在一个秘密法术探测机关"
+        ],
+        "traumatic_events": "母亲在实验魔咒中的死亡（她亲眼所见）, 长期被同学叫作疯姑娘, 目睹五年级同学被卡罗兄妹强行带往禁林",
+        "known_secret_passages": "拉文克劳塔楼背后可通往猫头鹰棚屋的隐藏楼梯, 有求必应屋（用于集会）, 图书馆禁书区后面一个几乎无人知道的出口",
+        "knowledge_of_forbidden_spells": "夺魂咒（理论）, 钻心剜骨（理论）",
+        "witnessed_crimes": "阿米库斯·卡罗在教室中强行对麻瓜出身学生施咒, 斯内普校长命令级长搜刮学生所有与哈利的联系物, 费尔奇将一名赫奇帕奇学生关在楼梯下的壁橱里"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:016"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "看似在阅读一本厚书，实则在用羽毛笔绘制加密地图",
+        "safety_level": "70",
+        "last_seen_location": "图书馆",
+        "disguise_active": "false"
+      },
+      "visual": "16岁霍格沃茨女生，身材纤细高挑，肤色苍白，一头淡金色长发几乎到腰，发顶系着一根用软木塞和铃兰串成的奇特发带（她自制的防妖装置）。鹅蛋脸，眉毛很淡，一双异常突出的银灰色眼睛显得茫然又机敏，常常眯起。穿着霍格沃茨校服——白衬衫、蓝铜色领带松松系着，深灰开襟毛衣外套着拉文克劳徽章的长袍，袍角沾着干枯的草药叶子。脖子上挂着一条用啤酒瓶盖串成的项链。手里拿着一本名为《唱唱反调》的旧杂志，封皮上画着奇怪的生物。表情沉静而遥远，像是同时在听两个世界的声音。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:004",
+        "name": "德拉科·马尔福",
+        "role": "student",
+        "house": "斯莱特林",
+        "allegiance_surface": "食死徒支持者",
+        "allegiance_actual": "内心挣扎",
+        "hidden_role": "被迫执行任务的棋子"
+      },
+      "social_profile": {
+        "group_id": "斯莱特林学生",
+        "reputation": "在食死徒中受信任但同学中受鄙视",
+        "faction": "食死徒（表面）",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "2"
+      },
+      "capabilities": {
+        "skills": [
+          "魔咒学",
+          "黑魔法防御术（被迫学习）",
+          "大脑封闭术（中等）"
+        ],
+        "level": "中等",
+        "weaknesses": "优柔寡断, 对家人过度依赖, 恐惧驱使下易犯错",
+        "occlumency_level": "中等",
+        "legilimency_level": "低",
+        "specialized_magic": "无",
+        "wand_core": "独角兽毛",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "谨慎",
+          "矛盾",
+          "焦虑",
+          "自私"
+        ],
+        "values": [
+          "家族荣誉",
+          "生存",
+          "偶尔的良知"
+        ],
+        "speech_style": "傲慢中带犹豫，语调低沉时显不安",
+        "fear_level": "8",
+        "defiance_level": "1",
+        "moral_grey_degree": "9",
+        "paranoia_index": "6"
+      },
+      "goals": {
+        "short_term_goal": "完成父亲交给的监视任务，避免引起卡罗兄妹怀疑",
+        "long_term_goal": "保护马尔福家族安全，在伏地魔统治下存活",
+        "motivation": "家族存亡高于一切",
+        "survival_priority": "9",
+        "secret_mission": "暗中观察是否有学生密谋反抗，但内心不愿出卖同学",
+        "sacrifice_willingness": "2"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "纯血理论",
+            "黑魔法防御术",
+            "斯莱特林传统",
+            "霍格沃茨部分秘密通道"
+          ],
+          "social_knowledge": [
+            "食死徒内部权力结构",
+            "级长巡逻路线",
+            "卡罗兄妹的惯用惩罚手段"
+          ]
+        },
+        "background_summary": "马尔福家族纯血统继承人，从小被灌输纯血优越论，但在伏地魔崛起后被迫参与，目睹邓布利多死亡，内心充满恐惧与迷茫。如今被迫执行父亲的任务，同时承受着可能被识破内心挣扎的风险。",
+        "key_events": [
+          "参与刺杀邓布利多（实际未下手）",
+          "被迫使用钻心咒惩罚一年级学生",
+          "看到纳威被阿米库斯残忍折磨"
+        ],
+        "secrets": [
+          "知道食死徒内部处决名单但不敢泄露",
+          "曾偷偷放走一个被追捕的麻瓜出身学生",
+          "在暗中保留着母亲的来信"
+        ],
+        "traumatic_events": "邓布利多之死",
+        "known_secret_passages": "八楼挂毯后的暗道, 斯莱特林通往地窖的密道",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": "卡罗兄妹对学生施加钻心咒"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:019"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "一位脸色苍白、金发向后梳的17岁少年，身穿黑色霍格沃茨校袍，银色斯莱特林徽章在胸前闪烁。他身材瘦高，肩膀微微前倾，显得焦虑。浅灰色眼睛带着阴影，黑眼圈明显。嘴角紧抿，表情傲慢但透着不安。他佩戴着银质马尔福家族戒指，手常不自觉地抚摸前臂的黑暗标记（暂时隐藏）。服装整洁，但衣领有些皱，暗示紧张。他的步伐总是快速而谨慎，仿佛时刻在观察四周。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:008",
+        "name": "米勒娃·麦格",
+        "role": "faculty",
+        "house": "格兰芬多",
+        "allegiance_surface": "服从新校长，遵守学校规定",
+        "allegiance_actual": "坚决反对伏地魔，保护学生",
+        "hidden_role": "抵抗组织秘密顾问与凤凰社联络员"
+      },
+      "social_profile": {
+        "group_id": "霍格沃茨教授",
+        "reputation": "在学生中极受尊重，在食死徒眼中高度可疑",
+        "faction": "抵抗组织（秘密）",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "10"
+      },
+      "capabilities": {
+        "skills": [
+          "变形术大师",
+          "校长级教学",
+          "守护神咒（可实体化）",
+          "阿尼玛格斯（虎斑猫）",
+          "战斗魔法"
+        ],
+        "level": "传奇",
+        "weaknesses": "年龄带来的体力下降, 对学生的保护欲可能被利用, 公开反抗风险极大",
+        "occlumency_level": "高",
+        "legilimency_level": "中",
+        "specialized_magic": "无杖变形术",
+        "wand_core": "龙的心弦",
+        "animagus_form": "银条纹虎斑猫"
+      },
+      "personality": {
+        "traits": [
+          "严厉",
+          "公正",
+          "勇敢",
+          "坚韧"
+        ],
+        "values": [
+          "正义",
+          "学生安全",
+          "规则（必要时可突破）"
+        ],
+        "speech_style": "简洁有力，带着苏格兰口音，冷静而不容置疑",
+        "fear_level": "3",
+        "defiance_level": "9",
+        "moral_grey_degree": "1",
+        "paranoia_index": "6"
+      },
+      "goals": {
+        "short_term_goal": "确保变形术课堂不被食死徒完全控制，暗中传授实用的防御性变形技巧",
+        "long_term_goal": "协助哈利波特最终击败伏地魔，保护每一个学生安全度过黑暗时期",
+        "motivation": "对邓布利多的承诺和对魔法界自由的热爱",
+        "survival_priority": "5",
+        "secret_mission": "维持一条与凤凰社残存成员联系的安全渠道",
+        "sacrifice_willingness": "9"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "变形术理论",
+            "霍格沃茨城堡历史",
+            "凤凰社残余情报",
+            "黑魔法防御术"
+          ],
+          "social_knowledge": [
+            "教职工中谁可信任",
+            "学生抵抗网络成员名单",
+            "食死徒在教师中的卧底身份"
+          ]
+        },
+        "background_summary": "格兰芬多出身，邓布利多最信任的盟友，多年担任变形术教授和格兰芬多院长。在第一次巫师战争中失去多位亲友，一直对抗黑魔法。邓布利多死后被斯内普任命为副校长，但实际权力被架空。她不得不表面顺从，暗中却积极组织学生抵抗。",
+        "key_events": [
+          "在邓布利多葬礼上沉默抗议",
+          "与纳威秘密会面鼓励他领导DA",
+          "为阻止卡罗兄妹加害学生而挺身而出"
+        ],
+        "secrets": [
+          "秘密保留了一个可以联系凤凰社成员的飞路网",
+          "知道城堡中镜厅的隐秘入口",
+          "在办公室地下埋藏了一箱反黑魔法书"
+        ],
+        "traumatic_events": "邓布利多之死, 第一次巫师战争中失去未婚夫",
+        "known_secret_passages": "四楼走廊后的密道, 镜厅暗门, 从变形术教室通往蜂蜜公爵的通道",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": "卡罗兄妹对一年级学生施钻心咒"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:020"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "一位身材高挑、穿着墨绿色长袍的老年女巫，约60岁，灰发梳成紧实的发髻，脸庞棱角分明，戴着一副方形眼镜，眼神锐利而冷静。她站姿笔直，带着教师威严。深色长袍剪裁简洁，领口别着一枚银质凤凰胸针（秘密象征）。手中常握魔杖，杖身有磨损痕迹。她的表情通常严肃，眉头微蹙，但微笑时流露温暖。由于长期监视，她偶尔会不自觉地瞥向门缝或墙上的画像。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:005",
+        "name": "菲利乌斯·弗立维",
+        "role": "faculty",
+        "house": "拉文克劳",
+        "allegiance_surface": "配合新政权，缩小教学范围",
+        "allegiance_actual": "暗中支持抵抗组织为DA提供掩护",
+        "hidden_role": "秘密情报传递者与咒语支援"
+      },
+      "social_profile": {
+        "group_id": "霍格沃茨教授",
+        "reputation": "深受学生喜爱，被食死徒轻视（因其矮小）",
+        "faction": "抵抗组织（秘密合作）",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "9"
+      },
+      "capabilities": {
+        "skills": [
+          "咒语学大师",
+          "决斗冠军级战斗技巧",
+          "无声施法",
+          "漂浮咒极致",
+          "混淆咒"
+        ],
+        "level": "顶尖",
+        "weaknesses": "体形矮小在物理冲突中处于劣势, 过度谨慎有时显得犹豫不决",
+        "occlumency_level": "中",
+        "legilimency_level": "低",
+        "specialized_magic": "漂浮咒、变形咒的高阶应用",
+        "wand_core": "独角兽毛",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "活泼",
+          "聪明",
+          "谨慎",
+          "宽容"
+        ],
+        "values": [
+          "知识",
+          "正义",
+          "保护学生"
+        ],
+        "speech_style": "尖细而热情，兴奋时语速加快，但也会压低声音说秘密",
+        "fear_level": "5",
+        "defiance_level": "6",
+        "moral_grey_degree": "4",
+        "paranoia_index": "5"
+      },
+      "goals": {
+        "short_term_goal": "在咒语课上继续教授实用咒语而不引起卡罗兄妹怀疑",
+        "long_term_goal": "支持哈利·波特最终胜利，维持拉文克劳学院秩序",
+        "motivation": "对学生的责任感和对黑魔法的深切厌恶",
+        "survival_priority": "6",
+        "secret_mission": "在办公室藏匿非法防御书籍并通过卢娜传递给DA",
+        "sacrifice_willingness": "6"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "咒语理论及实战技巧",
+            "决斗史",
+            "霍格沃茨暗道（部分）",
+            "反黑魔法符咒"
+          ],
+          "social_knowledge": [
+            "哪些学生是DA核心成员",
+            "同事中谁是可信者",
+            "食死徒监控的薄弱环节"
+          ]
+        },
+        "background_summary": "拉文克劳出身，魔法史上著名的咒语学大师。曾参加决斗俱乐部并获得冠军，与麦格、斯内普等同事关系良好。伏地魔归来后加入凤凰社外围，提供咒语支持。邓布利多死后被迫与卡罗兄妹共事，内心愤怒但极力克制。",
+        "key_events": [
+          "在邓布利多葬礼上落泪",
+          "暗中告诉卢娜一条通往外界的秘密通道",
+          "用混淆咒帮助一名被追捕的麻瓜出身学生逃脱"
+        ],
+        "secrets": [
+          "知道卡罗兄妹安插在学生中的卧底名单",
+          "在办公室地板下藏有一批被禁的防御书",
+          "自己曾偷偷修改过级长日志中的巡逻路线"
+        ],
+        "traumatic_events": "邓布利多之死, 目睹学生被阿米库斯殴打",
+        "known_secret_passages": "拉文克劳塔楼通往厨房的秘道, 四楼走廊后的暗门",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": "阿米库斯在课堂上用钻心咒惩罚学生"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:001"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "一位身材异常矮小的男巫，约一米出头，穿着整洁的黑色长袍，领口有拉文克劳蓝铜色领带。满头灰白色乱发，眼睛明亮有神，常带着鼓励的笑容。他站在讲台前比学生矮一个头，但姿态自信。魔杖经常在手中转圈。长袍上别着一枚金色奖章（决斗冠军象征）。他的声音尖细却充满能量，手势丰富。由于需要仰视学生，他常用漂浮咒让自己升高一点，但在此时期尽量避免引起注意。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:002",
+        "name": "阿米库斯·卡罗",
+        "role": "黑魔法防御术教授",
+        "house": "斯莱特林",
+        "allegiance_surface": "伏地魔",
+        "allegiance_actual": "伏地魔",
+        "hidden_role": ""
+      },
+      "social_profile": {
+        "group_id": "staff",
+        "reputation": "恐惧与憎恶",
+        "faction": "食死徒",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "0.1"
+      },
+      "capabilities": {
+        "skills": [
+          "黑魔法",
+          "不可饶恕咒",
+          "决斗"
+        ],
+        "level": "高",
+        "weaknesses": "傲慢, 急躁, 缺乏战术头脑",
+        "occlumency_level": "中等",
+        "legilimency_level": "低",
+        "specialized_magic": "钻心腕骨的精通变体",
+        "wand_core": "龙的心弦",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "残忍",
+          "暴躁",
+          "自大",
+          "恃强凌弱"
+        ],
+        "values": [
+          "纯血统至上",
+          "武力压服",
+          "忠诚于伏地魔"
+        ],
+        "speech_style": "咆哮、威胁、充满粗俗词汇",
+        "fear_level": "低",
+        "defiance_level": "0",
+        "moral_grey_degree": "10",
+        "paranoia_index": "中等"
+      },
+      "goals": {
+        "short_term_goal": "通过严厉惩罚镇压任何反抗迹象",
+        "long_term_goal": "成为伏地魔核心圈成员，获得更多权力和地位",
+        "motivation": "享受虐待和掌控他人的快感，以及对纯血统的狂热信仰",
+        "survival_priority": "低",
+        "secret_mission": "向伏地魔汇报霍格沃茨情况",
+        "sacrifice_willingness": "高"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "黑魔法理论",
+            "不可饶恕咒的多种变体",
+            "食死徒行动规程",
+            "霍格沃茨的部分密道"
+          ],
+          "social_knowledge": [
+            "与斯内普的关系紧张",
+            "知道纳威父母被折磨的情况",
+            "知道哈利·波特可能在逃亡"
+          ]
+        },
+        "background_summary": "阿米库斯·卡罗是著名的食死徒家族成员，自幼沉迷黑魔法。伏地魔第一次崛起时他就加入，多次参与对麻瓜和凤凰社的袭击。邓布利多死后，他受命与妹妹阿莱克托一起进驻霍格沃茨，担任黑魔法防御术教授，实际职责是用恐怖手段维持学校秩序。",
+        "key_events": [
+          "在课堂上对一年级学生使用钻心腕骨作为示范",
+          "在斯莱特林公共休息室与德拉科·马尔福交谈",
+          "与妹妹一起在大礼堂宣布新的奖惩条例"
+        ],
+        "secrets": [
+          "他私下练习一个古老的黑魔法仪式，试图增强自己的魔力",
+          "他曾经用夺魂咒控制过一名格兰芬多学生，让他偷取反抗组织的情报",
+          "他对伏地魔的忠诚并非绝对，暗地里也想过在必要时出卖同伴保命"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:002"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "公开",
+        "safety_level": "高",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "他约四十五岁，身材粗壮，圆脸肤色粗糙，秃顶，两侧残留灰褐色短发。穿一件深黑色厚呢巫师袍，左胸佩戴银质食死徒标记。眼睛小且浑浊，嘴角常带残忍笑意。手握一根紫杉木魔杖，杖身有螺纹。腰带上挂着几个小玻璃瓶，里面装着颜色诡异的药剂。他站立时叉腰，姿态咄咄逼人，目光扫视带有压迫感。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:001",
+        "name": "阿莱克托·卡罗",
+        "role": "麻瓜研究教授",
+        "house": "斯莱特林",
+        "allegiance_surface": "伏地魔",
+        "allegiance_actual": "伏地魔",
+        "hidden_role": ""
+      },
+      "social_profile": {
+        "group_id": "staff",
+        "reputation": "虚伪与危险",
+        "faction": "食死徒",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "0.15"
+      },
+      "capabilities": {
+        "skills": [
+          "心理操控",
+          "理论灌输",
+          "变形术（基础）"
+        ],
+        "level": "中",
+        "weaknesses": "近视, 过度依赖兄长, 体力差",
+        "occlumency_level": "低",
+        "legilimency_level": "中等",
+        "specialized_magic": "记忆修改与暗示",
+        "wand_core": "独角兽毛",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "阴险",
+          "伪善",
+          "善于言辞",
+          "冷酷"
+        ],
+        "values": [
+          "纯血统优秀论",
+          "秩序大于一切",
+          "思想纯洁"
+        ],
+        "speech_style": "表面温和实则带刺，时常引用扭曲的麻瓜研究理论",
+        "fear_level": "低",
+        "defiance_level": "0",
+        "moral_grey_degree": "10",
+        "paranoia_index": "高"
+      },
+      "goals": {
+        "short_term_goal": "彻底改造麻瓜研究课程，灭绝任何同情麻瓜的思想",
+        "long_term_goal": "在纯血统政权中担任精神控制高层",
+        "motivation": "对纯血统理想的虔诚，以及对于思想控制的庞大野心",
+        "survival_priority": "中等",
+        "secret_mission": "监视学生中的思想异动",
+        "sacrifice_willingness": "中等"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "麻瓜研究理论（扭曲版）",
+            "思想控制技巧",
+            "简单的摄神取念（未掌握好）",
+            "学校规章制度"
+          ],
+          "social_knowledge": [
+            "知道少数学生加入DA",
+            "怀疑卢娜可能是抵抗组织成员",
+            "知道费尔奇的忠诚但瞧不起他"
+          ]
+        },
+        "background_summary": "阿莱克托·卡罗是阿米库斯的妹妹，从小在食死徒氛围中长大。她并不擅长战斗，但擅长洗脑和思想控制，伏地魔指定她负责麻瓜研究课程，实际上是向学生灌输纯血统优越论，并惩罚任何表现出对麻瓜友好态度的学生。她密切关注学生的思想动向，经常用言语陷阱套话。",
+        "key_events": [
+          "在一次麻瓜研究课上威胁赫奇帕奇学生，如果再说麻瓜好话就惩罚其家人",
+          "协助阿米库斯对受罚学生进行后续折磨",
+          "在图书馆监视禁书区时发现卢娜阅读《唱唱反调》并扣了分"
+        ],
+        "secrets": [
+          "她自己曾经对麻瓜事物产生过短暂兴趣，但被家族严厉打压",
+          "她秘密保留了麻瓜世界的一些小物件，藏在私人箱子里，作为内心的隐秘",
+          "她曾偷听到斯内普与麦格的对话，但未完全理解其含义"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "公开",
+        "safety_level": "高",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "她约四十出头，身材矮胖，面容刻薄，戴着圆框深色眼镜，镜片后双眼锐利。暗金色头发紧紧盘成发髻。穿黑色长袍，领口别蛇形银胸针。肤色灰黄，嘴唇很薄，说话时习惯性前倾。手拿一本磨损的麻瓜研究课本，书皮内夹着几页禁书内容。声音尖锐，经常发出短促的笑声。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:003",
+        "name": "阿格斯·费尔奇",
+        "role": "看门人",
+        "house": "",
+        "allegiance_surface": "学校管理员",
+        "allegiance_actual": "食死徒政权支持者",
+        "hidden_role": ""
+      },
+      "social_profile": {
+        "group_id": "staff",
+        "reputation": "令人厌烦与畏惧",
+        "faction": "支持者",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "0.3"
+      },
+      "capabilities": {
+        "skills": [
+          "巡逻辑",
+          "管理纪律",
+          "了解城堡密道"
+        ],
+        "level": "低（无魔法）",
+        "weaknesses": "哑炮, 体力差, 被学生嘲笑",
+        "occlumency_level": "",
+        "legilimency_level": "",
+        "specialized_magic": "无",
+        "wand_core": "",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "怨毒",
+          "服从权威",
+          "报复心强",
+          "固执"
+        ],
+        "values": [
+          "纪律与规矩",
+          "权力",
+          "对学生的憎恶"
+        ],
+        "speech_style": "抱怨、讨好当权者、威胁学生",
+        "fear_level": "中等",
+        "defiance_level": "0",
+        "moral_grey_degree": "7",
+        "paranoia_index": "高"
+      },
+      "goals": {
+        "short_term_goal": "抓到更多违纪学生，惩罚他们以显示权威",
+        "long_term_goal": "在食死徒政权下获得正式教职或更高职务",
+        "motivation": "长期被学生嘲笑的报复心理，和对管理权力的渴望",
+        "survival_priority": "高",
+        "secret_mission": "",
+        "sacrifice_willingness": "低"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "霍格沃茨城堡布局和密道（大部分）",
+            "学生常见的恶作剧手段",
+            "猫头鹰邮件规律"
+          ],
+          "social_knowledge": [
+            "了解各学院学生的敌对关系",
+            "知道斯内普与卡罗兄妹之间的微妙不信任",
+            "知道海格曾私藏巨人"
+          ]
+        },
+        "background_summary": "阿格斯·费尔奇是霍格沃茨的看门人，一名哑炮。他从小在魔法世界中却被剥夺了魔法能力，因此对学生怀有深刻的怨恨。邓布利多时期他在规则执行上受到约束，但如今在卡罗兄妹的支持下，他的权力大大膨胀，可以随意惩罚学生。他对新政权忠心耿耿，认为这是自己终于得到应有的尊重。",
+        "key_events": [
+          "抓住一名格兰芬多学生在走廊使用魔法，直接带到了卡罗兄妹办公室",
+          "被卢娜·洛夫古德用恶作剧戏弄，更加痛恨学生",
+          "在费尔奇办公室新增了更多锁链和惩罚道具"
+        ],
+        "secrets": [
+          "知道霍格沃茨近一半的密道但并未报告给卡罗兄妹，准备留作自己保命用",
+          "他私下收集学生的把柄信息，比如某学生家族有叛徒，但没有证据",
+          "他对卡罗兄妹其实也感到恐惧，曾梦见自己被折磨"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:012"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "公开",
+        "safety_level": "高",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "他约六十多岁，瘦削驼背，穿灰褐色旧夹克和灯芯绒裤子，围裙沾满污渍。面部布满皱纹，下巴有稀疏胡须，眼睛深陷但目光犀利。手牵骨瘦如柴的姜黄色猫——洛丽丝夫人。腰挂大串钥匙，走路叮当，提一盏昏暗油灯。指甲发黑，身上散发尘土气味。表情总是阴沉，嘴角下垂。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:009",
+        "name": "尼古拉斯·德·敏西-波平顿爵士（几乎没头的尼克）",
+        "role": "ghost_creature",
+        "house": "格兰芬多",
+        "allegiance_surface": "中立",
+        "allegiance_actual": "格兰芬多",
+        "hidden_role": ""
+      },
+      "social_profile": {
+        "group_id": "ghosts",
+        "reputation": "令人同情且和善的幽灵",
+        "faction": "格兰芬多幽灵",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "8"
+      },
+      "capabilities": {
+        "skills": [
+          "穿墙",
+          "隐形",
+          "穿行固体",
+          "漂浮",
+          "制造寒意"
+        ],
+        "level": "average",
+        "weaknesses": "无法物理干涉现实物体, 容易干扰摄魂怪的感知（但摄魂怪无法伤害幽灵）",
+        "occlumency_level": "",
+        "legilimency_level": "",
+        "specialized_magic": "",
+        "wand_core": "",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "彬彬有礼",
+          "老派绅士",
+          "富有同情心",
+          "略显忧伤",
+          "忠诚"
+        ],
+        "values": [
+          "骑士精神",
+          "勇气",
+          "对格兰芬多学生的关爱",
+          "反抗暴政"
+        ],
+        "speech_style": "文绉绉的英式英语，带贵族腔调，偶尔幽默自嘲",
+        "fear_level": "",
+        "defiance_level": "",
+        "moral_grey_degree": "",
+        "paranoia_index": ""
+      },
+      "goals": {
+        "short_term_goal": "在食死徒统治下为格兰芬多学生提供士气和秘密安慰",
+        "long_term_goal": "目睹霍格沃茨恢复和平与自由",
+        "motivation": "对生者的怜悯和对学院的忠诚",
+        "survival_priority": "",
+        "secret_mission": "",
+        "sacrifice_willingness": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [],
+          "social_knowledge": []
+        },
+        "background_summary": "十五世纪巫师，因行刑失误导致脖子几乎被砍断而死，成为格兰芬多塔楼的常驻幽灵。",
+        "key_events": [
+          "反对血腥男爵的纠缠",
+          "在DA成员集会时暗中放哨",
+          "目睹许多学生被卡罗兄妹折磨"
+        ],
+        "secrets": [
+          "知道格兰芬多宝剑的存放位置（传言）",
+          "曾在关键时刻指引过哈利·波特"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "可见，但会选择在意想不到的时刻现身",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "半透明的珍珠白色幽灵，穿着都铎时期的深绿色天鹅绒双排扣长袍，衬着白色蕾丝领饰。身材高大瘦削，面容苍白，鼻子高挺，下巴留着短胡须。最明显的特征是脖子几乎完全被砍断，脑袋很不稳定地耷拉在一旁，仅靠一层薄皮连接，常需要用手扶正。戴着黑色贝雷帽，帽上插着一根白色鸵鸟羽毛。身形微微发亮，不穿墙时双脚离地漂浮。表情温和但略带忧伤，眼神充满怜悯。随身没有实体道具，但飘动时会带动一种陈旧的香料气息。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:011",
+        "name": "皮皮鬼",
+        "role": "ghost_creature",
+        "house": "",
+        "allegiance_surface": "混乱中立",
+        "allegiance_actual": "反食死徒（非正式）",
+        "hidden_role": ""
+      },
+      "social_profile": {
+        "group_id": "ghosts",
+        "reputation": "令人厌恶但也畏惧的捣蛋鬼",
+        "faction": "无派别，但本能反抗权威",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "2"
+      },
+      "capabilities": {
+        "skills": [
+          "飞行",
+          "穿墙",
+          "投掷物体",
+          "制造噪声",
+          "大声歌唱"
+        ],
+        "level": "average",
+        "weaknesses": "无法被驱散, 但可以被活点地图等道具追踪, 注意力容易分散",
+        "occlumency_level": "",
+        "legilimency_level": "",
+        "specialized_magic": "",
+        "wand_core": "",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "顽劣",
+          "吵闹",
+          "喜欢恶作剧",
+          "欺软怕硬",
+          "对权威极度不敬"
+        ],
+        "values": [
+          "混乱",
+          "幼稚的乐趣",
+          "羞辱当权者"
+        ],
+        "speech_style": "尖声大笑，爱唱粗俗歌谣，措辞刺耳且带有嘲弄",
+        "fear_level": "",
+        "defiance_level": "",
+        "moral_grey_degree": "",
+        "paranoia_index": ""
+      },
+      "goals": {
+        "short_term_goal": "找机会给卡罗兄妹和其他食死徒制造麻烦",
+        "long_term_goal": "保持霍格沃茨的混乱传统，不被任何一方彻底控制",
+        "motivation": "单纯的恶作剧快感，以及看到权威被戏弄的满足",
+        "survival_priority": "",
+        "secret_mission": "",
+        "sacrifice_willingness": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [],
+          "social_knowledge": []
+        },
+        "background_summary": "霍格沃茨城堡的捣蛋鬼，非幽灵也非鬼魂，是永存的混沌灵体。数百年来以折磨学生和教职工为乐，但在黑暗时期反而成为反抗食死徒的意想不到的助力。",
+        "key_events": [
+          "向卡罗兄妹泼水/扔墨水瓶",
+          "在大礼堂上空唱讽刺伏地魔的歌曲",
+          "故意堵住楼梯让巡逻的食死徒摔倒"
+        ],
+        "secrets": [
+          "知道城堡绝大多数的隐藏通道",
+          "暗中收集了许多食死徒的丑闻（以嘲弄的形式）"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "通常显形，但会突然消失再出现",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "一个矮小、滑稽的类人生物，身体呈鲜艳的紫红色，像一只猴子与黄蜂的混血。他戴着亮橙色的小丑帽，帽尖上挂着一颗金色铃铛。面部尖瘦，鼻子细长弯曲，眼睛突出如蛤蟆，咧嘴时露出尖牙。身穿鲜艳的格子呢宽松上衣和橙色灯笼裤，腰系银色铃铛带。双翼如蜻蜓般透明，快速振动发出嗡嗡声。手里常拿着一根粗短的魔杖或水桶等恶作剧道具。表情永远是一种狡黠、疯癫的咧嘴笑，身体不停地旋转跳跃。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:015",
+        "name": "西弗勒斯·斯内普 (校长)",
+        "role": "headmaster",
+        "house": "斯莱特林",
+        "allegiance_surface": "食死徒 / 忠诚于伏地魔",
+        "allegiance_actual": "凤凰社 / 效忠于邓布利多与哈利·波特",
+        "hidden_role": "双重间谍，暗中保护学生并破坏食死徒计划"
+      },
+      "social_profile": {
+        "group_id": "staff",
+        "reputation": "令人恐惧的冷酷校长，与卡罗兄妹同流合污",
+        "faction": "霍格沃茨教职工（表面） / 凤凰社（真实）",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "5"
+      },
+      "capabilities": {
+        "skills": [
+          "大脑封闭术大师",
+          "摄神取念大师",
+          "魔药大师",
+          "黑魔法防御大师",
+          "无声咒与无杖魔法",
+          "飞行无扫帚"
+        ],
+        "level": "legendary",
+        "weaknesses": "对莉莉·伊万斯的执念, 始终被邓布利多的计划束缚, 极度压抑情感导致误判",
+        "occlumency_level": "legendary",
+        "legilimency_level": "legendary",
+        "specialized_magic": "神锋无影（自创咒语），摄神取念",
+        "wand_core": "黑刺李木，凤凰羽毛（与伏地魔的魔杖同源）",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "阴沉",
+          "刻薄",
+          "隐忍",
+          "极端复杂",
+          "深情（隐藏）",
+          "自我厌恶"
+        ],
+        "values": [
+          "忠诚（对邓布利多）",
+          "复仇（对伏地魔）",
+          "保护（以莉莉之子的名义）",
+          "秩序与控制"
+        ],
+        "speech_style": "缓慢、低沉的耳语式英音，每句话都带着毫不掩饰的讽刺和轻蔑，极少提高音量",
+        "fear_level": "",
+        "defiance_level": "",
+        "moral_grey_degree": "",
+        "paranoia_index": ""
+      },
+      "goals": {
+        "short_term_goal": "维持霍格沃茨表面运转，在不引起食死徒怀疑的前提下尽量减少学生受害",
+        "long_term_goal": "确保哈利·波特最终击败伏地魔，完成邓布利多的遗愿",
+        "motivation": "对莉莉·伊万斯的永恒悔恨与爱，以及对邓布利多托付的责任",
+        "survival_priority": "",
+        "secret_mission": "",
+        "sacrifice_willingness": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [],
+          "social_knowledge": []
+        },
+        "background_summary": "混血王子，幼年遭遇麻瓜父亲虐待与母亲关爱，在霍格沃茨结识莉莉·伊万斯并爱上她。因渴望力量与地位加入食死徒，但得知预言后投靠邓布利多，成为双面间谍。亲手杀死邓布利多（按计划）以获取伏地魔信任，被迫担任校长。内心痛苦，始终在黑暗边缘挣扎。",
+        "key_events": [
+          "加入食死徒并报告特里劳妮的预言",
+          "向邓布利多忏悔并成为间谍",
+          "在邓布利多要求下杀死他",
+          "就任霍格沃茨校长",
+          "暗中庇护卢娜·洛夫古德等被欺凌的学生",
+          "向哈利传递格兰芬多宝剑的幻像"
+        ],
+        "secrets": [
+          "深爱莉莉·伊万斯，这是其一切行动的根本",
+          "真正的忠诚从未属于伏地魔",
+          "知道霍格沃茨许多密道和结界弱点",
+          "实际掌握不可饶恕咒但极少使用"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "公开以校长身份活动，但常秘密使用幻身咒或穿行密道",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "高大的中年男性，约四十多岁，身形瘦削，肩膀略微佝偻。一头油腻的黑发垂至肩头，面部苍白无血色，颧骨高耸，鼻子呈鹰钩状，鼻孔纤细。眼睛乌黑而深邃，犹如两道黑色隧道，经常半眯着，目光锐利且充满压迫感。穿着由厚实黑色布料制成的标准级长袍，内衬深色高领套头衫，领口紧扣至下颌。长袍上有银质的蛇形纽扣。魔杖通常插在左前臂内侧的袖中，偶尔露出黑色杖身。周身散发出一种阴冷、压抑的气场，表情永远是嘴角紧抿、略带嫌弃的薄怒，仿佛对周围一切都不屑一顾。身上隐约有魔药药材（苦艾、独活草）的气味。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:012",
+        "name": "波莫娜·斯普劳特",
+        "role": "faculty",
+        "house": "赫奇帕奇",
+        "allegiance_surface": "服从食死徒政权",
+        "allegiance_actual": "中立偏向抵抗，暗中帮助学生",
+        "hidden_role": "提供医疗草药和植物隐藏"
+      },
+      "social_profile": {
+        "group_id": "faculty",
+        "reputation": "善良和蔼，默默保护学生",
+        "faction": "中立温和派",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "0.8"
+      },
+      "capabilities": {
+        "skills": [
+          "草药学大师",
+          "植物培育",
+          "曼德拉草复活药水制作",
+          "温室管理"
+        ],
+        "level": "expert",
+        "weaknesses": "不擅长黑魔法防御, 性格温和容易被震慑, 体力不如年轻巫师",
+        "occlumency_level": "",
+        "legilimency_level": "",
+        "specialized_magic": "",
+        "wand_core": "",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "善良",
+          "勤劳",
+          "慈祥",
+          "务实",
+          "谨慎"
+        ],
+        "values": [
+          "保护学生",
+          "植物生命",
+          "实用主义",
+          "赫奇帕奇忠诚"
+        ],
+        "speech_style": "温和简短，带着赫奇帕奇式的关怀，声音略带沙哑",
+        "fear_level": "0.5",
+        "defiance_level": "0.3",
+        "moral_grey_degree": "0.1",
+        "paranoia_index": "0.2"
+      },
+      "goals": {
+        "short_term_goal": "确保温室里的药用植物不被没收",
+        "long_term_goal": "尽可能保护更多学生免受食死徒伤害",
+        "motivation": "赫奇帕奇的忠诚精神和作为教师的责任感",
+        "survival_priority": "0.6",
+        "secret_mission": "暗中为抵抗学生提供治疗草药和隐蔽地点",
+        "sacrifice_willingness": "0.4"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "草药学所有领域",
+            "曼德拉草苏醒危险与处理",
+            "毒性植物种植与防护",
+            "常见魔药材料采集",
+            "魔法植物杂交技术"
+          ],
+          "social_knowledge": [
+            "知道纳威在领导DA残余活动",
+            "了解一些教师（如麦格、弗立维）对斯内普校长的怀疑",
+            "知道卢娜·洛夫古德去过温室取草",
+            "与庞弗雷夫人有暗中草药供应关系"
+          ]
+        },
+        "background_summary": "赫奇帕奇院长，多年草药学教授，在邓布利多领导下培养学生。现在在食死徒统治下小心翼翼维持温室运转，目睹卡罗兄妹对学生的暴行后内心愤怒但表面顺从。",
+        "key_events": [
+          "邓布利多葬礼后目睹卡罗兄妹控制学校",
+          "暗中为受伤的抵抗学生提供白鲜和曼德拉草",
+          "看见阿莱克托·卡罗在温室附近巡查",
+          "用自己的方式安抚被惩罚的赫奇帕奇学生"
+        ],
+        "secrets": [
+          "在温室暗处藏有生长加速的曼德拉草和毒触手",
+          "曾偷偷为纳威·隆巴顿提供耳草以治疗卡罗兄妹造成的伤害",
+          "知道禁林边缘有一个废弃树洞可以临时藏人"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:007"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "波莫娜·斯普劳特，矮胖女性，约60岁，灰白色短发乱蓬蓬沾着泥土，圆脸戴着老式金丝眼镜，眼周有细纹但眼神温暖。穿着满是补丁的棕色工作袍，袖口和膝盖处有深色植物汁液痕迹，腰间系着一条粗麻绳，上面挂着几把小铲子和喷壶。手常戴厚园艺手套，偶尔握着一株曼德拉草幼苗。表情总是带着和蔼的微笑，但眼下有些忧虑的阴影，嘴角微微下垂。整体气质朴实温暖，像一位乡村老园丁，走路微跛，习惯性弯腰检查植物。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:013",
+        "name": "鲁伯·海格",
+        "role": "faculty",
+        "house": "格兰芬多",
+        "allegiance_surface": "作为混血巨人被监视但勉强留在学校",
+        "allegiance_actual": "坚决反对食死徒，积极协助抵抗",
+        "hidden_role": "利用禁林作为DA的集会点和物资隐藏地"
+      },
+      "social_profile": {
+        "group_id": "faculty",
+        "reputation": "忠诚勇敢但有些冒失，深受学生喜爱",
+        "faction": "凤凰社",
+        "resistance_network_member": "true",
+        "trustworthiness_score": "0.9"
+      },
+      "capabilities": {
+        "skills": [
+          "神奇生物照料",
+          "半巨人力量",
+          "骑乘鹰头马身有翼兽",
+          "使用雨伞魔法（非正常魔杖）",
+          "禁林导航"
+        ],
+        "level": "intermediate",
+        "weaknesses": "魔杖已折断，只能使用雨伞中的魔杖碎片施法不稳定, 容易激动，不善于保密, 对危险估计不足, 情感用事",
+        "occlumency_level": "",
+        "legilimency_level": "",
+        "specialized_magic": "巨人和神奇生物亲和",
+        "wand_core": "橡木，16英寸（已折断，现用粉色雨伞）",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "忠诚",
+          "勇敢",
+          "热心肠",
+          "有点冒失",
+          "豪爽",
+          "固执"
+        ],
+        "values": [
+          "忠于邓布利多",
+          "保护神奇生物",
+          "照顾哈利和朋友们",
+          "反对不公义"
+        ],
+        "speech_style": "粗声粗气，夹杂许多感叹词，口音浓重，说话时挥舞大手",
+        "fear_level": "0.2",
+        "defiance_level": "0.9",
+        "moral_grey_degree": "0.0",
+        "paranoia_index": "0.1"
+      },
+      "goals": {
+        "short_term_goal": "保护牙牙和巴克比克不被食死徒伤害",
+        "long_term_goal": "帮助哈利击败伏地魔，重建自由霍格沃茨",
+        "motivation": "对邓布利多的承诺和对哈利的爱，以及保护弱小生物的本能",
+        "survival_priority": "0.3",
+        "secret_mission": "在禁林深处建立补给站，为逃亡的DA成员提供食物和隐身斗篷",
+        "sacrifice_willingness": "0.8"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "神奇生物喂养与习性",
+            "禁林地形与生物分布",
+            "飞行交通工具（摩托车）",
+            "类人生物的社交习惯",
+            "巨型蜘蛛、鹰头马身有翼兽的驯养"
+          ],
+          "social_knowledge": [
+            "知道纳威、卢娜等人的抵抗活动",
+            "信任麦格教授但不信任斯内普",
+            "知道D.A.使用有求必应屋",
+            "知道马尔福一家在食死徒中失势"
+          ]
+        },
+        "background_summary": "混血巨人，被霍格沃茨逐出但后来成为猎场看守，曾被诬陷打开密室，但忠于邓布利多。现在在食死徒控制下，暗地里协助DA，利用禁林的迷宫和生物提供掩护。",
+        "key_events": [
+          "邓布利多被斯内普杀害，海格对此极度愤怒",
+          "在转移哈利的行动中受伤",
+          "多次在禁林掩护DA成员集合",
+          "目睹卡罗兄妹虐待学生后差点失控施暴"
+        ],
+        "secrets": [
+          "知道禁林深处有山巨怪被食死徒安置用于巡逻，但未告知他人",
+          "藏有多个反对食死徒的情报文件在巴克比克的饲养棚里",
+          "私下保留了凤凰社的联络门钥匙"
+        ],
+        "traumatic_events": "",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "鲁伯·海格，半巨人，身高约3.5米，肌肉壮硕，约60岁，杂乱的黑胡子和长发布满灰白，脸上有密集的旧疤。身穿巨大的鼹鼠皮大衣，多处磨损，沾满泥土和动物毛发，腋下夹着一把巨大的粉色雨伞（实为替代魔杖）。脚蹬龙皮靴子，鞋底有厚泥。腰间挂着一只号角和几袋子干肉。常伴随一只巨大的黑色猎狗（牙牙）。表情多数时候豪爽大笑，但眼中藏有悲伤和愤怒，皱眉时额头皱纹深如沟壑。整体气质像一个野生的、未驯服的巨人，但动作笨拙热忱。"
+    },
+    {
+      "identity": {
+        "id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:014",
+        "name": "西弗勒斯·斯内普",
+        "role": "death_eater_staff",
+        "house": "斯莱特林",
+        "allegiance_surface": "食死徒校长，伏地魔的忠实仆人",
+        "allegiance_actual": "凤凰社间谍，忠于邓布利多的使命",
+        "hidden_role": "双面间谍，保护霍格沃茨免受食死徒完全统治，执行邓布利多的计划"
+      },
+      "social_profile": {
+        "group_id": "faculty",
+        "reputation": "冷酷无情、残忍的校长，师生普遍恐惧与厌恶",
+        "faction": "食死徒（表面）/ 凤凰社（实际）",
+        "resistance_network_member": "false",
+        "trustworthiness_score": "0.1"
+      },
+      "capabilities": {
+        "skills": [
+          "大脑封闭术大师",
+          "摄神取念大师",
+          "魔药大师",
+          "黑魔法专家",
+          "无声咒",
+          "无杖魔法",
+          "飞行咒（未经证实）"
+        ],
+        "level": "legendary",
+        "weaknesses": "对莉莉的愧疚感是情感弱点, 过于复杂的计谋可能引起怀疑, 在食死徒中遭受部分人怀疑",
+        "occlumency_level": "legendary",
+        "legilimency_level": "legendary",
+        "specialized_magic": "摄神取念与大脑封闭术",
+        "wand_core": "黑檀木，凤凰羽毛",
+        "animagus_form": ""
+      },
+      "personality": {
+        "traits": [
+          "冷静",
+          "深藏不露",
+          "残忍（表面）",
+          "坚韧",
+          "深情（隐藏）",
+          "控制欲强"
+        ],
+        "values": [
+          "对邓布利多的承诺",
+          "保护莉莉的孩子",
+          "击败伏地魔",
+          "自我牺牲"
+        ],
+        "speech_style": "低沉、缓慢、讽刺、命令式，带着蛇般的嘶嘶感，气音明显",
+        "fear_level": "0.1",
+        "defiance_level": "0.9",
+        "moral_grey_degree": "0.9",
+        "paranoia_index": "0.7"
+      },
+      "goals": {
+        "short_term_goal": "维持校长权威，同时阻止卡罗兄妹对学生的过度暴力以免激起不可控的反抗",
+        "long_term_goal": "完成邓布利多嘱托，确保哈利能终结伏地魔",
+        "motivation": "对莉莉永恒的爱与赎罪，以及对邓布利多最后承诺的坚守",
+        "survival_priority": "0.1",
+        "secret_mission": "继续作为双面间谍，保护霍格沃茨的关键秘密（如格兰芬多宝剑），并破坏食死徒内部计划",
+        "sacrifice_willingness": "0.95"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "黑魔法所有分支与反咒",
+            "魔药理论及创新配方",
+            "大脑封闭术高级技巧",
+            "伏地魔的魂器制作与心理",
+            "霍格沃茨城堡所有秘密通道"
+          ],
+          "social_knowledge": [
+            "了解所有凤凰社成员隐藏身份",
+            "知道纳威在领导DA",
+            "知道马尔福一家在伏地魔面前失宠",
+            "怀疑卢娜在拉文克劳的活动",
+            "知晓麦格教授对自己充满敌意但尚未明确反抗"
+          ]
+        },
+        "background_summary": "混血王子，自幼暗恋莉莉，年轻时因一时冲动加入食死徒，但告密间接导致莉莉之死，极度悔恨。后受邓布利多感化成为双面间谍，潜伏近二十年。第六学年被迫亲手杀死邓布利多（事先安排），从此成为全校公敌，却肩负最隐蔽的使命。现在是霍格沃茨校长，在伏地魔与凤凰社之间如履薄冰。",
+        "key_events": [
+          "邓布利多亲自请求斯内普杀死他",
+          "利用遗忘咒掩护凤凰社成员转移哈利",
+          "多次暗中干预保护学生（如帮纳威躲过严重惩罚）",
+          "与贝拉特里克斯·莱斯特兰奇发生口头冲突以维持地位"
+        ],
+        "secrets": [
+          "实际仍忠于邓布利多",
+          "知道哈利是魂器之一",
+          "藏有真实的格兰芬多宝剑复制品用于引导哈利",
+          "仍然保留着莉莉写给他的信和一张旧照片"
+        ],
+        "traumatic_events": "因告密间接导致莉莉被杀, 被迫亲手杀死邓布利多, 在冥想盆中反复重温莉莉死亡的场景自己却无法改变",
+        "known_secret_passages": "",
+        "knowledge_of_forbidden_spells": "",
+        "witnessed_crimes": ""
+      },
+      "state": {
+        "location": {
+          "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "hidden_status": "",
+        "safety_level": "",
+        "last_seen_location": "",
+        "disguise_active": ""
+      },
+      "visual": "西弗勒斯·斯内普，约37岁，瘦削高大，肤色蜡黄如常年不见阳光。黑色油性长发直垂至肩膀，因缺乏打理有些打结。鹰钩鼻，薄唇常年抿着，颧骨明显。穿着全黑长袍，内衬银灰色马甲，扣子系到最上一颗，偶尔露出一丝白色衬衫领口。魔杖紧握手中，黑檀木杖身隐约泛光。眼睛深黑，目光锐利冰冷，但偶尔在无人注意时闪过一瞬痛苦。走路时黑袍无声无息地飘动，如同蝙蝠滑翔。表情几乎从不改变，嘴角微向下，带着不屑和威严。整体形象阴鸷、压抑，像一把未出鞘的毒刃。"
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:010",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:006",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:007",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:004",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:008",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:005",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:002",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:001",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:003",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:009",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:011",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:015",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:012",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:013",
+    "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:014"
+  ],
+  "upstream_step_ids": [
+    "generate_characters"
+  ],
+  "warnings": [
+    "batch 1 review (score=4.875): 发现 1 个问题并已自动修正",
+    "batch 3/5 failed with exception: Failed to parse JSON: [\n  {\n    \"identity\": {\n      \"id\": \"e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:012,\n      \"name\": \"波莫娜·斯普劳特\",\n      \"role\": \"faculty\",\n      \"house\": \"赫奇帕奇\",\n      \"allegiance_surface\": \"霍格沃茨教职工\",\n ...",
+    "consolidated retry: 3 seeds missing, retrying as one batch"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}
