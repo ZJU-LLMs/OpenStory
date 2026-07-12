@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "required_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_occasion",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "need_host_permission",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_of_day",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_etiquette_items",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "minimum_identity_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

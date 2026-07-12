@@ -1,0 +1,16 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+immediate_wish:
+  type: str
+  option: true
+long_term_ambition:
+  type: str
+  option: true
+conflict_goal:
+  type: str
+  option: true

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "gender_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "servant_permission",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "special_event_access",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "guest_admission_rules",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

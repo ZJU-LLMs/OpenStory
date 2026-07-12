@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "primary_beneficiary",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "activity_rhythm",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "function_category",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ritual_significance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

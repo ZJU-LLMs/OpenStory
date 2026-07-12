@@ -1,0 +1,833 @@
+{
+  "artifact_type": "path_edge",
+  "items": [
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:011",
+        "name": "垂直记忆通道",
+        "type": "电梯",
+        "path_name_display": "",
+        "path_subtype": "安全升降梯",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:013",
+        "bidirectional": true,
+        "travel_time_standard": "12",
+        "distance_km": "0.4",
+        "requires_memory_card": "true",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "高级",
+        "danger_level": "低风险",
+        "required_items": "认证记忆卡",
+        "storm_stability_index": "0.95",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "8"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:005",
+        "name": "冷存储运输管道",
+        "type": "管道",
+        "path_name_display": "",
+        "path_subtype": "液氮冷却运输线",
+        "storm_seal_rating": "B级",
+        "memory_purity_filter_capability": "高",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:003",
+        "bidirectional": false,
+        "travel_time_standard": "8",
+        "distance_km": "2.5",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "FROM_A_TO_B"
+      },
+      "conditions": {
+        "access_level": "受限",
+        "danger_level": "低风险",
+        "required_items": "防护手套",
+        "storm_stability_index": "0.85",
+        "memory_contamination_risk": "极低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "6"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:008",
+        "name": "官方交易通道",
+        "type": "走廊",
+        "path_name_display": "",
+        "path_subtype": "透明记忆合金长廊",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008",
+        "bidirectional": true,
+        "travel_time_standard": "5",
+        "distance_km": "0.8",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_stability_index": "0.98",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "7"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:007",
+        "name": "废弃缆车井",
+        "type": "竖井",
+        "path_name_display": "",
+        "path_subtype": "废弃维修通道",
+        "storm_seal_rating": "D级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:013",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:004",
+        "bidirectional": false,
+        "travel_time_standard": "15",
+        "distance_km": "0.9",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "FROM_A_TO_B"
+      },
+      "conditions": {
+        "access_level": "禁入",
+        "danger_level": "高风险",
+        "required_items": "等离子切割器",
+        "storm_stability_index": "0.45",
+        "memory_contamination_risk": "中等",
+        "required_pressure_gear": "true",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "2"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:019",
+        "name": "上行扶梯",
+        "type": "自动扶梯",
+        "path_name_display": "",
+        "path_subtype": "中庭螺旋扶梯",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "低",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:017",
+        "bidirectional": true,
+        "travel_time_standard": "10",
+        "distance_km": "0.6",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "安全",
+        "required_items": "身份识别",
+        "storm_stability_index": "0.97",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "9"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:018",
+        "name": "货运电梯",
+        "type": "电梯",
+        "path_name_display": "",
+        "path_subtype": "重型液压梯",
+        "storm_seal_rating": "C级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010",
+        "bidirectional": true,
+        "travel_time_standard": "20",
+        "distance_km": "1.5",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "低风险",
+        "required_items": "无",
+        "storm_stability_index": "0.7",
+        "memory_contamination_risk": "中等",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "4"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:006",
+        "name": "渗漏管隧道",
+        "type": "隧道",
+        "path_name_display": "",
+        "path_subtype": "等离子排放管",
+        "storm_seal_rating": "F级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "极低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:004",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010",
+        "bidirectional": false,
+        "travel_time_standard": "25",
+        "distance_km": "0.3",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "FROM_B_TO_A"
+      },
+      "conditions": {
+        "access_level": "禁入",
+        "danger_level": "极度危险",
+        "required_items": "防辐射服、氧气面罩",
+        "storm_stability_index": "0.2",
+        "memory_contamination_risk": "高",
+        "required_pressure_gear": "true",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "1"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:003",
+        "name": "塔楼连廊",
+        "type": "走廊",
+        "path_name_display": "",
+        "path_subtype": "玻璃天桥",
+        "storm_seal_rating": "A+级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:017",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:001",
+        "bidirectional": true,
+        "travel_time_standard": "4",
+        "distance_km": "0.2",
+        "requires_memory_card": "true",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "高级",
+        "danger_level": "安全",
+        "required_items": "记忆卡（通行费）",
+        "storm_stability_index": "0.99",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "10"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:013",
+        "name": "空中走廊",
+        "type": "走廊",
+        "path_name_display": "",
+        "path_subtype": "磁力悬浮步道",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:017",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:006",
+        "bidirectional": true,
+        "travel_time_standard": "8",
+        "distance_km": "0.5",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_stability_index": "0.96",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "8"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:022",
+        "name": "管道迷宫",
+        "type": "管道",
+        "path_name_display": "",
+        "path_subtype": "锈蚀蒸汽管",
+        "storm_seal_rating": "E级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:011",
+        "bidirectional": true,
+        "travel_time_standard": "18",
+        "distance_km": "0.7",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "低风险",
+        "required_items": "手电筒",
+        "storm_stability_index": "0.55",
+        "memory_contamination_risk": "中等",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "3"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:012",
+        "name": "行政连廊",
+        "type": "走廊",
+        "path_name_display": "",
+        "path_subtype": "认证通道",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "高",
+        "surveillance_level": "极高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:006",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:012",
+        "bidirectional": true,
+        "travel_time_standard": "3",
+        "distance_km": "0.1",
+        "requires_memory_card": "true",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "高级",
+        "danger_level": "安全",
+        "required_items": "记忆卡（身份核验）",
+        "storm_stability_index": "0.98",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "9"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:010",
+        "name": "内环监控走廊",
+        "type": "走廊",
+        "path_name_display": "",
+        "path_subtype": "玻璃弹道走廊",
+        "storm_seal_rating": "B级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:012",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005",
+        "bidirectional": true,
+        "travel_time_standard": "6",
+        "distance_km": "0.3",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "受限",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_stability_index": "0.97",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "7"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:016",
+        "name": "能量导管",
+        "type": "管道",
+        "path_name_display": "",
+        "path_subtype": "高压等离子导管",
+        "storm_seal_rating": "S+级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:014",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:007",
+        "bidirectional": false,
+        "travel_time_standard": "2",
+        "distance_km": "1.0",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "FROM_A_TO_B"
+      },
+      "conditions": {
+        "access_level": "维护",
+        "danger_level": "极度危险",
+        "required_items": "绝缘服、等离子防护盾",
+        "storm_stability_index": "0.1",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "true",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "5"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:014",
+        "name": "底层动力管道",
+        "type": "管道",
+        "path_name_display": "",
+        "path_subtype": "冷却液循环管",
+        "storm_seal_rating": "C级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:007",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010",
+        "bidirectional": true,
+        "travel_time_standard": "15",
+        "distance_km": "1.2",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "中等风险",
+        "required_items": "耳塞",
+        "storm_stability_index": "0.6",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "4"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:015",
+        "name": "维修管道桥",
+        "type": "桥梁",
+        "path_name_display": "",
+        "path_subtype": "柔性连接桥",
+        "storm_seal_rating": "B级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:007",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:011",
+        "bidirectional": true,
+        "travel_time_standard": "10",
+        "distance_km": "0.4",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "低风险",
+        "required_items": "安全帽",
+        "storm_stability_index": "0.8",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "5"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:002",
+        "name": "港口通勤缆车",
+        "type": "缆车",
+        "path_name_display": "",
+        "path_subtype": "快速通勤线",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:001",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:009",
+        "bidirectional": true,
+        "travel_time_standard": "7",
+        "distance_km": "0.9",
+        "requires_memory_card": "true",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "记忆卡（票务）",
+        "storm_stability_index": "0.95",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "8"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:009",
+        "name": "档案城内部缆车（B线）",
+        "type": "缆车",
+        "path_name_display": "",
+        "path_subtype": "档案专线",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "高"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:009",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005",
+        "bidirectional": true,
+        "travel_time_standard": "5",
+        "distance_km": "0.6",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_stability_index": "0.96",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "7"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:021",
+        "name": "上行缆车支线",
+        "type": "缆车",
+        "path_name_display": "",
+        "path_subtype": "居住区支线",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:009",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:017",
+        "bidirectional": true,
+        "travel_time_standard": "6",
+        "distance_km": "0.3",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "安全",
+        "required_items": "身份识别",
+        "storm_stability_index": "0.97",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "9"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:023",
+        "name": "外壁维修轨道",
+        "type": "轨道",
+        "path_name_display": "",
+        "path_subtype": "磁力维修小车",
+        "storm_seal_rating": "B+级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:011",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:016",
+        "bidirectional": true,
+        "travel_time_standard": "14",
+        "distance_km": "1.8",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "维护",
+        "danger_level": "高风险",
+        "required_items": "安全带、修理工具",
+        "storm_stability_index": "0.5",
+        "memory_contamination_risk": "极低",
+        "required_pressure_gear": "true",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "6"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:004",
+        "name": "上层观测步道",
+        "type": "步道",
+        "path_name_display": "",
+        "path_subtype": "露天悬空步道",
+        "storm_seal_rating": "A级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:015",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:002",
+        "bidirectional": true,
+        "travel_time_standard": "8",
+        "distance_km": "0.5",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "保暖外套",
+        "storm_stability_index": "0.93",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "6"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:024",
+        "name": "塔顶电梯",
+        "type": "电梯",
+        "path_name_display": "",
+        "path_subtype": "玻璃景观电梯",
+        "storm_seal_rating": "A+级",
+        "memory_purity_filter_capability": "标准",
+        "surveillance_level": "中"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:015",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:017",
+        "bidirectional": true,
+        "travel_time_standard": "3",
+        "distance_km": "0.15",
+        "requires_memory_card": "true",
+        "monitored_by_wardens": "true",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "高级",
+        "danger_level": "安全",
+        "required_items": "记忆卡（权限验证）",
+        "storm_stability_index": "0.98",
+        "memory_contamination_risk": "无",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "false",
+        "evacuation_priority_score": "8"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:001",
+        "name": "边缘栈桥",
+        "type": "桥梁",
+        "path_name_display": "",
+        "path_subtype": "伸缩式栈桥",
+        "storm_seal_rating": "B级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:002",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:001",
+        "bidirectional": true,
+        "travel_time_standard": "12",
+        "distance_km": "0.7",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "低风险",
+        "required_items": "无",
+        "storm_stability_index": "0.8",
+        "memory_contamination_risk": "低",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "5"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:017",
+        "name": "外壁维修管",
+        "type": "管道",
+        "path_name_display": "",
+        "path_subtype": "紧急补给管",
+        "storm_seal_rating": "C级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:016",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:007",
+        "bidirectional": false,
+        "travel_time_standard": "20",
+        "distance_km": "2.2",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "true",
+        "bi_directional_priority": "FROM_B_TO_A"
+      },
+      "conditions": {
+        "access_level": "维护",
+        "danger_level": "高风险",
+        "required_items": "氧气瓶、焊接面具",
+        "storm_stability_index": "0.4",
+        "memory_contamination_risk": "极低",
+        "required_pressure_gear": "true",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "5"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:020",
+        "name": "底层缆车站",
+        "type": "缆车",
+        "path_name_display": "",
+        "path_subtype": "下层支线",
+        "storm_seal_rating": "D级",
+        "memory_purity_filter_capability": "无",
+        "surveillance_level": "低"
+      },
+      "endpoints": {
+        "from_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010",
+        "to_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:009",
+        "bidirectional": true,
+        "travel_time_standard": "22",
+        "distance_km": "1.1",
+        "requires_memory_card": "false",
+        "monitored_by_wardens": "false",
+        "is_emergency_route": "false",
+        "bi_directional_priority": "相等"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "中等风险",
+        "required_items": "无",
+        "storm_stability_index": "0.65",
+        "memory_contamination_risk": "中等",
+        "required_pressure_gear": "false",
+        "temporary_pass_allowed": "true",
+        "evacuation_priority_score": "4"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:011",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:005",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:008",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:007",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:019",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:018",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:006",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:003",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:013",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:022",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:012",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:010",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:016",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:014",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:015",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:002",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:009",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:021",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:023",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:004",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:024",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:001",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:017",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:path:020"
+  ],
+  "upstream_step_ids": [
+    "generate_paths"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

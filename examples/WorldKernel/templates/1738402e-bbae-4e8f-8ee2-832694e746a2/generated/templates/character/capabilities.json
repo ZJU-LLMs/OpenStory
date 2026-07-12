@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "domestic_management_skill",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "literary_skill",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "financial_acuity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ritual_knowledge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

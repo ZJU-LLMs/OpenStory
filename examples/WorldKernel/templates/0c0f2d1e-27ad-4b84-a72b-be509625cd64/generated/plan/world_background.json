@@ -1,0 +1,100 @@
+{
+  "world_name": "贾府",
+  "world_origin_summary": "衍生自《红楼梦》前八十回，再现元春省亲前后贾府鼎盛时期的家族生活、内部关系与富贵繁华。",
+  "primary": "noble_household",
+  "secondary": null,
+  "tags": [
+    "清代",
+    "贵族",
+    "家族",
+    "衍生",
+    "红楼梦",
+    "鼎盛",
+    "宅院"
+  ],
+  "scope": "single_location",
+  "simulation_start": {
+    "time_point": "元春省亲前夕",
+    "trigger_event": "元春晋封贤德妃，皇帝特许省亲，贾府倾全力修建大观园",
+    "year": "清代架空",
+    "narrative_context": "贾府为迎接元春省亲全力筹备，大观园竣工在即，家族成员关系错综复杂，表面繁华之下隐伏着权力与经济危机。"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "清代架空贵族宅邸，融合江南园林与北方官宦府邸的建筑风貌，以朱红、黛青、金黄为主色调",
+    "color_palette": [
+      "朱红",
+      "金黄",
+      "黛青",
+      "月白",
+      "石青",
+      "松绿",
+      "檀木棕"
+    ],
+    "lighting_weather": "明亮均匀的日间光照，暖色灯笼光点缀于长廊与庭院，短而柔和的卡通阴影",
+    "material_texture": [
+      "大色块青砖铺地",
+      "琉璃瓦屋顶",
+      "木雕窗棂",
+      "太湖石假山",
+      "漆木家具",
+      "水域明亮反光",
+      "石板台阶",
+      "丝织帷幔"
+    ],
+    "environmental_motifs": [
+      "院落与回廊连接各厅堂",
+      "垂花门与月洞门",
+      "石桥与曲水",
+      "亭台楼阁与轩榭",
+      "花木掩映的小径",
+      "石灯笼与铜香炉",
+      "秋千架与棋桌",
+      "鸟笼与鱼缸",
+      "竹帘与屏风",
+      "鸟瞰可见的园林布局"
+    ],
+    "atmosphere": "富贵、雅致、秩序井然、暗藏暗流",
+    "edge_blending_style": "柔和像素羽化的地形边缘，草地与石板路自然过渡，建筑基座与地面实现块状衔接",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "world_constraints": [
+    {
+      "constraint_id": "feudal_ritual_order",
+      "name": "封建礼教不可违",
+      "description": "所有人物行为必须符合清代封建礼教的规范，包括孝道、忠君、尊卑、男女有别等，违反者会遭受家族惩罚或社会舆论压力",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "family_reputation_priority",
+      "name": "家族荣誉高于一切",
+      "description": "贾府的每一决策和事件都以维护家族声望与政治地位为最高考量，个人情感与利益须让位于家族利益",
+      "scope": "faction"
+    },
+    {
+      "constraint_id": "economic_dependency",
+      "name": "经济来源危机暗藏",
+      "description": "贾府表面繁华，实则靠元春省亲维持短暂荣耀，地租收入与官俸入不敷出，内部侵吞与奢靡加剧经济危机",
+      "scope": "location"
+    },
+    {
+      "constraint_id": "rigid_social_hierarchy",
+      "name": "严格的等级制度",
+      "description": "主子、奴才、客卿、家族旁支之间界限分明，跨越等级的行为将被视为非礼或犯上，奴才的生死荣辱完全取决于主家",
+      "scope": "global"
+    }
+  ]
+}

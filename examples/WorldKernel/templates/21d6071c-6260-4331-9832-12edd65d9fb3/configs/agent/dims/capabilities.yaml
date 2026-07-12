@@ -1,0 +1,16 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+memory_analysis_lvl:
+  type: str
+  option: true
+purity_detection:
+  type: str
+  option: true
+memory_transfer_proficiency:
+  type: str
+  option: true

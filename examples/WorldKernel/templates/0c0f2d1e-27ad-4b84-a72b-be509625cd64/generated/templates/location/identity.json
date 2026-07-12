@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "belongs_to_zone",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "architectural_style",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "prominence_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "primary_function",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "owner_or_occupant",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -111,8 +112,10 @@ async def get_session(session_id: str):
 @app.get("/api/stage1/session/{session_id}/{path:path}")
 async def get_session_file(session_id: str, path: str):
     file_path = TEMPLATES_DIR / session_id / path
-    if not file_path.exists() or file_path.suffix not in (".json", ".yaml"):
+    if not file_path.exists() or file_path.suffix not in (".json", ".yaml", ".png"):
         raise HTTPException(status_code=404, detail="file not found")
+    if file_path.suffix == ".png":
+        return FileResponse(file_path, media_type="image/png")
     if file_path.suffix == ".yaml":
         import yaml
         return yaml.safe_load(file_path.read_text(encoding="utf-8"))
@@ -195,6 +198,24 @@ async def spatial_generate(session_id: str):
 
     pipeline = SpatialPipeline(config)
     result = pipeline.run(build_input)
+    spatial_output_root = TEMPLATES_DIR / session_id / "generated" / "artifacts" / "spatial"
+    world_background = _load_session_world_background(session_id)
+
+    try:
+        from worldkernel.architect.pipeline import save_spatial_blueprint
+        from worldkernel.architect.visual import run_visual_pipeline
+
+        visual_manifest = run_visual_pipeline(
+            blueprint=result.blueprint,
+            world_background=world_background,
+            output_root=spatial_output_root,
+            model_config_path=CONFIGS_DIR / "image_models.yaml",
+            generate_background=config.rendering.ai_art_enabled,
+        )
+        result.blueprint.visual = visual_manifest.model_dump(mode="json")
+        save_spatial_blueprint(result.blueprint, spatial_output_root)
+    except Exception as exc:
+        result.blueprint.visual = {"status": "failed", "error": str(exc)}
 
     validation = result.validation.report
 
@@ -219,11 +240,23 @@ async def spatial_generate(session_id: str):
         ],
         "road_tiles": [{"x": t.x, "y": t.y} for t in result.blueprint.road_tiles],
         "spawn_points": [sp.model_dump(mode="json") for sp in result.blueprint.spawn_points],
+        "visual": result.blueprint.visual,
         "validation": {
             "passed": validation.passed,
             "issues": [i.model_dump(mode="json") for i in validation.issues],
         },
     }
+
+
+def _load_session_world_background(session_id: str) -> dict:
+    path = TEMPLATES_DIR / session_id / "generated" / "plan" / "world_background.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except json.JSONDecodeError:
+        return {}
 
 
 @app.post("/api/stage2/run/{session_id}")
@@ -277,6 +310,7 @@ async def stage2_run(session_id: str):
             ],
             "road_tiles": [{"x": t.x, "y": t.y} for t in spatial.blueprint.road_tiles],
             "spawn_points": [sp.model_dump(mode="json") for sp in spatial.blueprint.spawn_points],
+            "visual": spatial.blueprint.visual,
             "validation": {
                 "passed": validation.passed,
                 "issues": [i.model_dump(mode="json") for i in validation.issues],

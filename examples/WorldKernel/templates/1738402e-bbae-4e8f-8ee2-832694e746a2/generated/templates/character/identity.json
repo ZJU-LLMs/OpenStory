@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "generation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "economic_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "servant_grade",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "lineage",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

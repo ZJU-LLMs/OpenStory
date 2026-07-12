@@ -1,0 +1,27 @@
+dim_name: EndpointsDim
+from_id:
+  type: str
+  ref: location
+to_id:
+  type: str
+  ref: location
+bidirectional:
+  type: bool
+travel_time_standard:
+  type: str
+  option: true
+distance_km:
+  type: str
+  option: true
+requires_memory_card:
+  type: str
+  option: true
+monitored_by_wardens:
+  type: str
+  option: true
+is_emergency_route:
+  type: str
+  option: true
+bi_directional_priority:
+  type: str
+  option: true

@@ -1,0 +1,329 @@
+{
+  "session_id": "21d6071c-6260-4331-9832-12edd65d9fb3",
+  "instance_seeds": {
+    "location": [
+      {
+        "seed_id": "central_archive",
+        "name": "中央记忆档案库",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "存储全部记忆的核心设施，社会秩序的基石",
+        "archetype_id": "记忆档案库"
+      },
+      {
+        "seed_id": "restricted_memory_vault",
+        "name": "限制级记忆档案馆",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "保存高价值或敏感记忆，需特殊权限访问",
+        "archetype_id": "记忆档案库"
+      },
+      {
+        "seed_id": "backup_archive",
+        "name": "记忆备份库",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "复制存储主要档案，防止因风暴灾难丢失",
+        "archetype_id": "记忆档案库"
+      },
+      {
+        "seed_id": "grand_memory_market",
+        "name": "大记忆交易市场",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "官方记忆交易的中心场所，决定社会地位",
+        "archetype_id": "交易大厅"
+      },
+      {
+        "seed_id": "black_memory_bazaar",
+        "name": "黑市记忆交易所",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "非法记忆交易与流通的隐秘市场",
+        "archetype_id": "交易大厅"
+      },
+      {
+        "seed_id": "upper_residential_spires",
+        "name": "上层居住塔",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "记忆富豪的奢华居住区，象征社会等级",
+        "archetype_id": "居民生活区"
+      },
+      {
+        "seed_id": "lower_deck_tenements",
+        "name": "下层甲板贫民窟",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "记忆贫乏者的拥挤住所，社会底层聚集地",
+        "archetype_id": "居民生活区"
+      },
+      {
+        "seed_id": "city_hall",
+        "name": "市政厅",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "城市行政决策与记忆交易法规颁布场所",
+        "archetype_id": "行政中枢"
+      },
+      {
+        "seed_id": "memory_regulation_bureau",
+        "name": "记忆监管局",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "监督记忆交易合法性，处理交易纠纷",
+        "archetype_id": "行政中枢"
+      },
+      {
+        "seed_id": "storm_energy_collector",
+        "name": "风暴能量收集站",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "从木星风暴中提取能源的核心设施",
+        "archetype_id": "能源区"
+      },
+      {
+        "seed_id": "energy_distribution_hub",
+        "name": "能源分配中心",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "调控全城能源流向，保障基础设施运转",
+        "archetype_id": "能源区"
+      },
+      {
+        "seed_id": "aerial_port",
+        "name": "空中港口",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "与外界连接的唯一通道，迎送访客与物资",
+        "archetype_id": "交通枢纽"
+      },
+      {
+        "seed_id": "internal_cable_station",
+        "name": "内部缆车枢纽站",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "连接城市各区的内部交通核心",
+        "archetype_id": "交通枢纽"
+      },
+      {
+        "seed_id": "mechanical_repair_workshop",
+        "name": "机械维修坊",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "维修城市机械结构，维护悬浮系统",
+        "archetype_id": "维修保养区"
+      },
+      {
+        "seed_id": "structure_reinforcement_station",
+        "name": "结构加固站",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "定期加固城市外壳，抵御风暴侵蚀",
+        "archetype_id": "维修保养区"
+      },
+      {
+        "seed_id": "storm_observatory",
+        "name": "风暴观测台",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "监测木星风暴活动，预警危险天气",
+        "archetype_id": "外部观测台"
+      },
+      {
+        "seed_id": "astronomical_deck",
+        "name": "天文观测甲板",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "研究木星及深空天体的科学平台",
+        "archetype_id": "外部观测台"
+      }
+    ],
+    "character": [
+      {
+        "seed_id": "chief_archivist",
+        "name": "首席档案官",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "中央档案库的最高管理者，掌控记忆存取权限",
+        "archetype_id": "档案管理员"
+      },
+      {
+        "seed_id": "archive_technician",
+        "name": "档案修复师",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "修复受损记忆，维护档案完整性",
+        "archetype_id": "档案管理员"
+      },
+      {
+        "seed_id": "master_trader",
+        "name": "记忆大亨",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "垄断高端记忆交易，影响社会权力格局",
+        "archetype_id": "记忆交易商"
+      },
+      {
+        "seed_id": "street_hawker",
+        "name": "街头记忆贩子",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "在底层兜售廉价记忆，充当信息中介",
+        "archetype_id": "记忆交易商"
+      },
+      {
+        "seed_id": "typical_family_head",
+        "name": "中层家庭主人",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "代表普通市民，依赖日常记忆交易维持生计",
+        "archetype_id": "普通居民"
+      },
+      {
+        "seed_id": "memory_pawn",
+        "name": "记忆当铺老板",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "为居民提供短期记忆抵押服务的民间角色",
+        "archetype_id": "普通居民"
+      },
+      {
+        "seed_id": "captain_of_watch",
+        "name": "城卫队长",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 1.0,
+        "generation_priority": 1,
+        "role_in_world": "执法力量指挥官，执行记忆交易法规与秩序",
+        "archetype_id": "城卫执法者"
+      },
+      {
+        "seed_id": "internal_inspector",
+        "name": "内部调查员",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "调查违规记忆交易与腐败案件",
+        "archetype_id": "城卫执法者"
+      },
+      {
+        "seed_id": "senior_analyst",
+        "name": "高级记忆分析师",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "评估记忆纯度与价值，为官方交易提供鉴定",
+        "archetype_id": "记忆分析师"
+      },
+      {
+        "seed_id": "trainee_scanner",
+        "name": "初级记忆扫描员",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "在交易大厅初步扫描记忆，辅助分析师工作",
+        "archetype_id": "记忆分析师"
+      },
+      {
+        "seed_id": "energy_engineer",
+        "name": "能源工程师",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "维护风暴能量收集与分配系统，确保城市动力",
+        "archetype_id": "技术工程师"
+      },
+      {
+        "seed_id": "network_technician",
+        "name": "网络工程师",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "维护记忆传输网络，保障档案库通信",
+        "archetype_id": "技术工程师"
+      },
+      {
+        "seed_id": "memory_outcast_leader",
+        "name": "记忆流放者首领",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "代表被剥夺记忆的底层群体，潜伏反抗力量",
+        "archetype_id": "流放者/记忆贫民"
+      },
+      {
+        "seed_id": "forgotten_wanderer",
+        "name": "遗忘流浪者",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "因记忆完全清空而迷失在生活区的个体",
+        "archetype_id": "流放者/记忆贫民"
+      },
+      {
+        "seed_id": "interstellar_courier",
+        "name": "星际信使",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "从外界带来新闻与信息，偶尔携带外界记忆样品",
+        "archetype_id": "外部访客/信使"
+      }
+    ]
+  }
+}

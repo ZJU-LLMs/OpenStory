@@ -1,0 +1,547 @@
+{
+  "primary": "noble_household",
+  "secondary": null,
+  "confidence": 0.95,
+  "tags": [
+    "清代",
+    "贵族",
+    "家族",
+    "衍生",
+    "红楼梦",
+    "鼎盛",
+    "宅院"
+  ],
+  "world_name": "贾府",
+  "world_origin_summary": "衍生自《红楼梦》前八十回，再现元春省亲前后贾府鼎盛时期的家族生活、内部关系与富贵繁华。",
+  "scope": "single_location",
+  "simulation_start": {
+    "time_point": "元春省亲前夕",
+    "trigger_event": "元春晋封贤德妃，皇帝特许省亲，贾府倾全力修建大观园",
+    "year": "清代架空",
+    "narrative_context": "贾府为迎接元春省亲全力筹备，大观园竣工在即，家族成员关系错综复杂，表面繁华之下隐伏着权力与经济危机。"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "清代架空贵族宅邸，融合江南园林与北方官宦府邸的建筑风貌，以朱红、黛青、金黄为主色调",
+    "color_palette": [
+      "朱红",
+      "金黄",
+      "黛青",
+      "月白",
+      "石青",
+      "松绿",
+      "檀木棕"
+    ],
+    "lighting_weather": "明亮均匀的日间光照，暖色灯笼光点缀于长廊与庭院，短而柔和的卡通阴影",
+    "material_texture": [
+      "大色块青砖铺地",
+      "琉璃瓦屋顶",
+      "木雕窗棂",
+      "太湖石假山",
+      "漆木家具",
+      "水域明亮反光",
+      "石板台阶",
+      "丝织帷幔"
+    ],
+    "environmental_motifs": [
+      "院落与回廊连接各厅堂",
+      "垂花门与月洞门",
+      "石桥与曲水",
+      "亭台楼阁与轩榭",
+      "花木掩映的小径",
+      "石灯笼与铜香炉",
+      "秋千架与棋桌",
+      "鸟笼与鱼缸",
+      "竹帘与屏风",
+      "鸟瞰可见的园林布局"
+    ],
+    "atmosphere": "富贵、雅致、秩序井然、暗藏暗流",
+    "edge_blending_style": "柔和像素羽化的地形边缘，草地与石板路自然过渡，建筑基座与地面实现块状衔接",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "main_hall",
+      "type_name": "正堂厅屋",
+      "description": "家族重大礼仪、接待与议事的正式空间，体现贾府的经济实力与等级秩序",
+      "common_fields": [
+        "用途",
+        "容纳人数",
+        "装饰等级",
+        "主人身份"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "rongqing_tang",
+          "name": "荣庆堂",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "贾母起居与家族正式聚会之所，权力中心"
+        }
+      ]
+    },
+    {
+      "type_id": "inner_courtyard",
+      "type_name": "内宅庭院",
+      "description": "女眷与未成年公子居住的院落，兼具居住、休闲与女红诗画功能",
+      "common_fields": [
+        "居住人物",
+        "院落规模",
+        "园中景观",
+        "附属建筑"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "xiaoxiang_guan",
+          "name": "潇湘馆",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "林黛玉住所，大观园中翠竹幽雅的独立院落"
+        }
+      ]
+    },
+    {
+      "type_id": "garden_scenic",
+      "type_name": "园林景观",
+      "description": "大观园及附属园林，用于省亲游赏、结社吟诗，展现园林艺术与家族文化",
+      "common_fields": [
+        "主要景点",
+        "水域面积",
+        "植物配置",
+        "开放时间"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "daguan_yuan",
+          "name": "大观园",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "元春省亲的主要场所，亦是众儿女之后的居住游乐空间"
+        }
+      ]
+    },
+    {
+      "type_id": "ancestral_temple",
+      "type_name": "宗祠家庙",
+      "description": "供奉贾家列祖列宗牌位，举行祭祀等家族仪式的神圣空间",
+      "common_fields": [
+        "祭祀日期",
+        "供奉对象",
+        "管理人物",
+        "仪式等级"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "jia_ci",
+          "name": "贾氏宗祠",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 2,
+          "role_in_world": "体现宗法制度的基石，节日祭祖的重要场所"
+        }
+      ]
+    },
+    {
+      "type_id": "service_area",
+      "type_name": "后勤杂务区",
+      "description": "厨房、库房、马厩、下人房等服务于家族运转的辅助区域",
+      "common_fields": [
+        "职能类型",
+        "管辖人物",
+        "物资储量",
+        "安全等级"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "hou_cu_ku",
+          "name": "后厨库房",
+          "importance": "minor",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 3,
+          "role_in_world": "供应全府饮食与物资储备的枢纽"
+        }
+      ]
+    },
+    {
+      "type_id": "study_room",
+      "type_name": "书房学塾",
+      "description": "子弟读书与文人活动的场所，也接待清客与交流诗画",
+      "common_fields": [
+        "藏书数量",
+        "常驻学者",
+        "使用时间",
+        "私密程度"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "meng_sheng_yuan",
+          "name": "梦圣苑",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.7,
+          "generation_priority": 3,
+          "role_in_world": "贾代儒教学之所，贾府子弟与亲戚子弟共读之处"
+        }
+      ]
+    },
+    {
+      "type_id": "reception_garden",
+      "type_name": "接待别院",
+      "description": "接待宾客、暂住亲眷的独立院落，兼具住所与会客功能",
+      "common_fields": [
+        "接待对象",
+        "住宿容量",
+        "园林布置",
+        "进出管控"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "li_xiang_yuan",
+          "name": "梨香院",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.95,
+          "generation_priority": 2,
+          "role_in_world": "薛家进京后暂居处，也是梨园子弟排练的场所"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "matriarch",
+      "type_name": "家族长辈/女性掌权者",
+      "description": "在封建家族中拥有最高话语权的年长女性，维系宗法与人际平衡",
+      "common_fields": [
+        "辈分",
+        "权威范围",
+        "家族影响",
+        "健康状况"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "jia_mu",
+          "name": "贾母",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "贾府最高权威，家族的凝聚力核心"
+        }
+      ]
+    },
+    {
+      "type_id": "patriarch",
+      "type_name": "家族长房/男性当家人",
+      "description": "承担家族外务、仕途前程与宗法事务的男性家长，是权力与责任中心",
+      "common_fields": [
+        "官职",
+        "排行",
+        "管家能力",
+        "子嗣情况"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "jia_zheng",
+          "name": "贾政",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "荣国府当家人之一，严正而保守的父亲形象"
+        }
+      ]
+    },
+    {
+      "type_id": "young_master",
+      "type_name": "公子少爷",
+      "description": "家族中未成年的男性子弟，享受特权也背负科举与传宗接代压力",
+      "common_fields": [
+        "排行",
+        "才艺特长",
+        "婚姻状态",
+        "叛逆程度"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "jia_baoyu",
+          "name": "贾宝玉",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "衔玉而生的公子，故事核心人物，叛逆于仕途而钟情于女儿"
+        }
+      ]
+    },
+    {
+      "type_id": "young_lady",
+      "type_name": "小姐姑娘",
+      "description": "家族中的未出阁女性，受到严格礼教约束，以女红诗词为才艺",
+      "common_fields": [
+        "才情",
+        "性格",
+        "姻缘关联",
+        "依附关系"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "lin_daiyu",
+          "name": "林黛玉",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "贾母外孙女，才华横溢多愁善感的诗魂，与宝玉有前世之缘"
+        }
+      ]
+    },
+    {
+      "type_id": "steward",
+      "type_name": "管家执事",
+      "description": "协助主子管理府内财务、人事、事务的中层管理人员，多为家生子奴才",
+      "common_fields": [
+        "管辖范围",
+        "忠诚度",
+        "与主家亲戚关系",
+        "个人私产"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "lai_da",
+          "name": "赖大",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.95,
+          "generation_priority": 2,
+          "role_in_world": "荣国府大管家，实权人物，管理诸多奴才与外务"
+        }
+      ]
+    },
+    {
+      "type_id": "maid",
+      "type_name": "丫鬟侍女",
+      "description": "伺候主子日常起居的贴身女仆，与主子关系亲密，地位各异",
+      "common_fields": [
+        "服侍主人",
+        "地位等级",
+        "擅长的技能",
+        "年龄"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "xiren",
+          "name": "袭人",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 2,
+          "role_in_world": "宝玉的首席大丫鬟，忠心谨慎，实际掌管怡红院事务"
+        }
+      ]
+    },
+    {
+      "type_id": "servant",
+      "type_name": "粗使仆役",
+      "description": "负责洒扫、打杂、传递等体力劳动的底层仆从，身份卑微",
+      "common_fields": [
+        "所属房头",
+        "具体差事",
+        "工钱等级",
+        "外貌特征"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "jiao_xing",
+          "name": "焦兴",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.7,
+          "generation_priority": 3,
+          "role_in_world": "荣国府中一个负责杂务的低等仆人，代表底层劳动者"
+        }
+      ]
+    },
+    {
+      "type_id": "confucian_scholar",
+      "type_name": "帮闲清客/文人",
+      "description": "依附于贵族家庭的文人，提供文化娱乐、诗书画教，有时参与谋划",
+      "common_fields": [
+        "才学领域",
+        "依附对象",
+        "社会关系",
+        "经济来源"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "jia_yucun",
+          "name": "贾雨村",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 2,
+          "role_in_world": "贾府的门客，曾任知府，后因贪酷被革职，再次攀附贾家"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "family_hierarchy",
+      "type_name": "宗法等级体系",
+      "description": "以血缘远近、长幼嫡庶、性别官职划分身份等级的严格秩序，决定称呼、座次、礼仪与权力分配",
+      "common_fields": [
+        "等级名称",
+        "权限范围",
+        "违例惩罚",
+        "日常执行者"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "ancestor_worship_rite",
+          "name": "祭祀礼仪规范",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 1,
+          "role_in_world": "规定宗族祭拜祖先的时辰、供品、参拜人员次序与着装，体现家族凝聚与权力分配"
+        }
+      ]
+    },
+    {
+      "type_id": "gender_segregation",
+      "type_name": "男女有别/内外之分",
+      "description": "规定着男性家眷与女眷的活动空间、社交界限、外出自由，内宅女眷不得随意露面",
+      "common_fields": [
+        "适用区域",
+        "违规后果",
+        "执行监督者",
+        "特殊例外"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "inner_outer_boundary",
+          "name": "内宅女眷不得擅出二门",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.97,
+          "generation_priority": 1,
+          "role_in_world": "划定女性活动范围，维系封建礼教秩序"
+        }
+      ]
+    },
+    {
+      "type_id": "master_servant_etiquette",
+      "type_name": "主仆礼仪与奴籍制度",
+      "description": "规定主子与仆人间不可逾越的尊卑关系，包括称呼、行走路线、站立方位、赏罚等",
+      "common_fields": [
+        "惩罚种类",
+        "赎身条件",
+        "奴才来源",
+        "主子裁量权"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "servant_kneeling",
+          "name": "奴才见主子需下跪请安",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.8,
+          "generation_priority": 2,
+          "role_in_world": "强化主仆身份的日常仪式，象征性维护等级尊严"
+        }
+      ]
+    },
+    {
+      "type_id": "marriage_alliance",
+      "type_name": "婚姻门第规则",
+      "description": "婚姻讲求门当户对，通过与官宦、豪族联姻维系或提升家族地位，需父母之命媒妁之言",
+      "common_fields": [
+        "联姻对象",
+        "聘礼标准",
+        "婚配流程",
+        "长辈意见"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "baochai_baoyu_engagement",
+          "name": "宝玉与宝钗的金玉良缘之议",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.99,
+          "generation_priority": 1,
+          "role_in_world": "贾府为延续家族利益而策划的重要政治婚姻，引发黛玉宝玉多方面冲突"
+        }
+      ]
+    },
+    {
+      "type_id": "everyday_decorum",
+      "type_name": "日常行为规范",
+      "description": "从饮食作息、穿戴举止到言语谈吐，都有细致规定，体现贵族风范与礼教约束",
+      "common_fields": [
+        "时间段",
+        "适用人物",
+        "违例现象",
+        "纠正方式"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "morning_greeting_daily",
+          "name": "每日清晨向贾母请安",
+          "importance": "major",
+          "source_type": "canonical",
+          "confidence": 0.95,
+          "generation_priority": 2,
+          "role_in_world": "家族孝道与长幼秩序的日常体现，也是重要社交时刻"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "feudal_ritual_order",
+      "name": "封建礼教不可违",
+      "description": "所有人物行为必须符合清代封建礼教的规范，包括孝道、忠君、尊卑、男女有别等，违反者会遭受家族惩罚或社会舆论压力",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "family_reputation_priority",
+      "name": "家族荣誉高于一切",
+      "description": "贾府的每一决策和事件都以维护家族声望与政治地位为最高考量，个人情感与利益须让位于家族利益",
+      "scope": "faction"
+    },
+    {
+      "constraint_id": "economic_dependency",
+      "name": "经济来源危机暗藏",
+      "description": "贾府表面繁华，实则靠元春省亲维持短暂荣耀，地租收入与官俸入不敷出，内部侵吞与奢靡加剧经济危机",
+      "scope": "location"
+    },
+    {
+      "constraint_id": "rigid_social_hierarchy",
+      "name": "严格的等级制度",
+      "description": "主子、奴才、客卿、家族旁支之间界限分明，跨越等级的行为将被视为非礼或犯上，奴才的生死荣辱完全取决于主家",
+      "scope": "global"
+    }
+  ]
+}

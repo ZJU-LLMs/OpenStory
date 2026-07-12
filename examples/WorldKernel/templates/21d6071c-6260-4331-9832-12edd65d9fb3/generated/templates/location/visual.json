@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "visual_description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "visual_prompt",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "lighting_condition_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "color_scheme_palette",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ambient_noise_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "signage_style",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mood_atmosphere",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "decorative_memory_displays",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -95,6 +95,13 @@ def introspect_schema(
     lines: list[str] = []
     for field_name, field_info in ModelClass.model_fields.items():
         annotation = field_info.annotation
+        if annotation is str:
+            required = required_map.get(field_name)
+            label = "必填字段" if required is None or field_name in required else "可选字段"
+            lines.append(f"### 字段: {field_name}")
+            lines.append(f"  {label}: {field_name}(str)")
+            lines.append("")
+            continue
         if annotation is None or not isinstance(annotation, type) or not issubclass(annotation, BaseModel):
             continue
         dim_class = annotation
@@ -359,6 +366,9 @@ def _coerce_field_types(
     expected_types: dict[str, type] = {}
     for dim_name, dim_field in ModelClass.model_fields.items():
         dim_class = dim_field.annotation
+        if dim_class in (str, int, float, bool):
+            expected_types[dim_name] = dim_class
+            continue
         if dim_class is None or not isinstance(dim_class, type) or not issubclass(dim_class, BaseModel):
             continue
         for fname, finfo in dim_class.model_fields.items():
@@ -366,6 +376,28 @@ def _coerce_field_types(
 
     for path, expected in expected_types.items():
         parts = path.split(".")
+        if len(parts) == 1:
+            val = item_data.get(path)
+            if val is None:
+                if expected is str:
+                    item_data[path] = ""
+                elif expected is int:
+                    item_data[path] = 0
+                elif expected is float:
+                    item_data[path] = 0.0
+                elif expected is bool:
+                    item_data[path] = False
+                continue
+            if expected is str and not isinstance(val, str):
+                if isinstance(val, bool):
+                    item_data[path] = "true" if val else "false"
+                elif isinstance(val, list):
+                    item_data[path] = ", ".join(str(v) for v in val)
+                elif isinstance(val, dict):
+                    item_data[path] = val.get("description") or val.get("visual") or json.dumps(val, ensure_ascii=False)
+                else:
+                    item_data[path] = str(val)
+            continue
         if len(parts) != 2:
             continue
         dim_key, field_key = parts

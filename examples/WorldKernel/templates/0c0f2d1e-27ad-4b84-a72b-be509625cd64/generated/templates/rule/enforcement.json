@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "enforcer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mechanism",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "detectability",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "matriarch_or_patriarch_authoritative_judgment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "housekeeper_or_steward_watch_and_report",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "female_elder_supervising_inner_courtyard",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_informants_among_servants",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "daily_morning_greeting_and_social_scrutiny",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+time_restriction:
+  type: str
+  option: true
+gender_restriction:
+  type: str
+  option: true
+role_restriction:
+  type: str
+  option: true
+ceremonial_rule:
+  type: str
+  option: true
+key_holder:
+  type: str
+  option: true

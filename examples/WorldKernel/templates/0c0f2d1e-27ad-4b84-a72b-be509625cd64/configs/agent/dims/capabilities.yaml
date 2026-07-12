@@ -1,0 +1,16 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+special_skills:
+  type: str
+  option: true
+education:
+  type: str
+  option: true
+economic_resources:
+  type: str
+  option: true

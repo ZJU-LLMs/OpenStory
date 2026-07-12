@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "economic_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "repair_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "current_activity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupancy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "security_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

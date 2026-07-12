@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "step_id": "generate_locations",
+      "generator_type": "location_generator",
+      "target_entity_type": "location",
+      "batch_size": 8,
+      "priority": 1,
+      "description": "生成所有地点实体，包括正堂厅屋、内宅庭院、园林景观、宗祠家庙、后勤杂务区、书房学塾、接待别院"
+    },
+    {
+      "step_id": "generate_paths",
+      "generator_type": "path_generator",
+      "target_entity_type": "path",
+      "batch_size": 5,
+      "priority": 2,
+      "description": "生成地点之间的路径和通道，如游廊、穿堂、角门、甬道等，展现贾府建筑连通关系"
+    },
+    {
+      "step_id": "generate_characters",
+      "generator_type": "character_generator",
+      "target_entity_type": "character",
+      "batch_size": 7,
+      "priority": 3,
+      "description": "生成所有角色实体，涵盖家族长辈、当家人、公子小姐、管家、丫鬟、清客等身份"
+    },
+    {
+      "step_id": "generate_relations",
+      "generator_type": "relation_generator",
+      "target_entity_type": "relation",
+      "batch_size": 8,
+      "priority": 4,
+      "description": "生成角色之间的关系，包括血缘、夫妻、主仆、姻亲、师徒、竞争等复杂网络"
+    }
+  ]
+}

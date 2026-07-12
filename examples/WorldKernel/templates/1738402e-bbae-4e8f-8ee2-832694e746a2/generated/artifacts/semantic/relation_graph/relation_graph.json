@@ -1,0 +1,307 @@
+{
+  "artifact_type": "relation_edge",
+  "items": [
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:008",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:004",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "type": "祖孙",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:010",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:004",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:007",
+        "type": "祖孙",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:009",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:004",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:005",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:019",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:013",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:005",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "type": "父子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:015",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:005",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "type": "夫妻",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:007",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:003",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "type": "夫妻",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:002",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:007",
+        "type": "姑表亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:005",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:014",
+        "type": "姨表亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:016",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:005",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:015",
+        "type": "妾室",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:029",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:015",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:002",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:023",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:015",
+        "type": "妻妾",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:014",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:005",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:006",
+        "type": "主仆",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:025",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:009",
+        "type": "主仆",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:006",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:003",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:009",
+        "type": "通房",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:004",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:013",
+        "type": "主仆",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:003",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:010",
+        "type": "主仆",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:001",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:001",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:002",
+        "type": "嫡庶",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:011",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:004",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:008",
+        "type": "远亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:020",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:008",
+        "type": "远亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:024",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:008",
+        "type": "远亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:027",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:015",
+        "type": "对立",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:021",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "type": "姑侄",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:012",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:004",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "type": "宠信",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:018",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:007",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:014",
+        "type": "表姊妹",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:022",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:011",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:014",
+        "type": "姨甥",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:028",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:013",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:010",
+        "type": "同侪",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:026",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:009",
+        "type": "同盟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:017",
+        "from_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:006",
+        "to_id": "e:1738402e_bbae_4e8f_8ee2_832694e746a2:char:012",
+        "type": "共事",
+        "direction": "双向"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:008",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:010",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:009",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:019",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:013",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:015",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:007",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:002",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:005",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:016",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:029",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:023",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:014",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:025",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:006",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:004",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:003",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:001",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:011",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:020",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:024",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:027",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:021",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:012",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:018",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:022",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:028",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:026",
+    "e:1738402e_bbae_4e8f_8ee2_832694e746a2:rel:017"
+  ],
+  "upstream_step_ids": [
+    "generate_relations"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "session_id": "0c0f2d1e-27ad-4b84-a72b-be509625cd64",
+  "instance_seeds": {
+    "location": [
+      {
+        "seed_id": "rongxi_tang",
+        "name": "荣禧堂",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾府正式接待、议事及举行大典的正厅",
+        "archetype_id": "main_hall"
+      },
+      {
+        "seed_id": "jiamu_zhengshi",
+        "name": "贾母正室",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "贾母日常起居及召见晚辈的核心场所",
+        "archetype_id": "main_hall"
+      },
+      {
+        "seed_id": "wangxifeng_yuanzhengfang",
+        "name": "凤姐院正房",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "王熙凤处理家务、接见管事的场所",
+        "archetype_id": "main_hall"
+      },
+      {
+        "seed_id": "jiamu_houyuan",
+        "name": "贾母后院",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 2,
+        "role_in_world": "贾母与女眷休闲赏玩的庭院",
+        "archetype_id": "inner_courtyard"
+      },
+      {
+        "seed_id": "wangxifeng_yuan",
+        "name": "凤姐院",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "王熙凤夫妇居所，日常管理事务的起点",
+        "archetype_id": "inner_courtyard"
+      },
+      {
+        "seed_id": "daoxiang_cun",
+        "name": "稻香村",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "李纨母子居所，大观园内清净之所",
+        "archetype_id": "inner_courtyard"
+      },
+      {
+        "seed_id": "daguanyuan",
+        "name": "大观园",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "元春省亲所建，贾府众小姐公子居住游玩的园林",
+        "archetype_id": "garden_landscape"
+      },
+      {
+        "seed_id": "xiaoxiang_guan",
+        "name": "潇湘馆",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "林黛玉居所，以幽静竹林闻名",
+        "archetype_id": "garden_landscape"
+      },
+      {
+        "seed_id": "hengwu_yuan",
+        "name": "蘅芜苑",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "薛宝钗居所，以香草奇花为特色",
+        "archetype_id": "garden_landscape"
+      },
+      {
+        "seed_id": "yihong_yuan",
+        "name": "怡红院",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾宝玉居所，大观园中最繁华的院落",
+        "archetype_id": "garden_landscape"
+      },
+      {
+        "seed_id": "jiashi_zongci",
+        "name": "贾氏宗祠",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 1,
+        "role_in_world": "祭祀祖先、执行宗法仪式的重要场所",
+        "archetype_id": "ancestral_temple"
+      },
+      {
+        "seed_id": "tiejian_si",
+        "name": "铁槛寺",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "贾府家庙，用于停灵、超度等丧葬事务",
+        "archetype_id": "ancestral_temple"
+      },
+      {
+        "seed_id": "jiafu_chufang",
+        "name": "贾府厨房",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "全府饮食制作与分配的核心区域",
+        "archetype_id": "logistics_area"
+      },
+      {
+        "seed_id": "jiafu_kufang",
+        "name": "贾府库房",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 2,
+        "role_in_world": "储存金银器皿、布匹粮食等物资的仓库",
+        "archetype_id": "logistics_area"
+      },
+      {
+        "seed_id": "jiafu_xuetang",
+        "name": "贾府学堂",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "贾氏子弟读书备考的学塾",
+        "archetype_id": "study_school"
+      },
+      {
+        "seed_id": "baoyu_shufang",
+        "name": "宝玉书房",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "贾宝玉读书习字、与清客文人交流的私人空间",
+        "archetype_id": "study_school"
+      },
+      {
+        "seed_id": "lixiang_yuan",
+        "name": "梨香院",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "薛家初入京时居住的院落，后设戏班",
+        "archetype_id": "guest_courtyard"
+      },
+      {
+        "seed_id": "wufang_guan",
+        "name": "五方观",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.7,
+        "generation_priority": 3,
+        "role_in_world": "接待来往官宦女眷的别院",
+        "archetype_id": "guest_courtyard"
+      }
+    ],
+    "character": [
+      {
+        "seed_id": "jia_mu",
+        "name": "贾母",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾府最高辈分的女性权威，家族荣耀的象征",
+        "archetype_id": "elder_female_authority"
+      },
+      {
+        "seed_id": "wang_furen",
+        "name": "王夫人",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "贾政之妻，表面温和实则握有内宅实权",
+        "archetype_id": "elder_female_authority"
+      },
+      {
+        "seed_id": "jia_zheng",
+        "name": "贾政",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "荣国府当家人，严恪礼教，负责家族对外事务",
+        "archetype_id": "male_household_head"
+      },
+      {
+        "seed_id": "jia_she",
+        "name": "贾赦",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "荣国府长房，贪婪享乐，与贾政形成对比",
+        "archetype_id": "male_household_head"
+      },
+      {
+        "seed_id": "jia_baoyu",
+        "name": "贾宝玉",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "家族核心继承人，叛逆多情，大观园灵魂人物",
+        "archetype_id": "young_master"
+      },
+      {
+        "seed_id": "lin_daiyu",
+        "name": "林黛玉",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "贾母外孙女，才情卓绝，与宝玉有木石之盟",
+        "archetype_id": "young_lady"
+      },
+      {
+        "seed_id": "xue_baochai",
+        "name": "薛宝钗",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "薛家千金，端庄贤淑，与宝玉有金玉之缘",
+        "archetype_id": "young_lady"
+      },
+      {
+        "seed_id": "tan_chun",
+        "name": "探春",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "贾府三小姐，精明能干，曾代凤姐理家",
+        "archetype_id": "young_lady"
+      },
+      {
+        "seed_id": "ying_chun",
+        "name": "迎春",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "贾府二小姐，懦弱寡言，命运悲惨",
+        "archetype_id": "young_lady"
+      },
+      {
+        "seed_id": "wang_xifeng",
+        "name": "王熙凤",
+        "importance": "core",
+        "source_type": "canonical",
+        "confidence": 0.99,
+        "generation_priority": 1,
+        "role_in_world": "荣国府实际管家人，泼辣干练，权谋在握",
+        "archetype_id": "steward"
+      },
+      {
+        "seed_id": "lai_da",
+        "name": "赖大",
+        "importance": "minor",
+        "source_type": "canonical",
+        "confidence": 0.9,
+        "generation_priority": 3,
+        "role_in_world": "荣国府大管家，负责外务与田庄管理",
+        "archetype_id": "steward"
+      },
+      {
+        "seed_id": "xi_ren",
+        "name": "袭人",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "宝玉首席大丫鬟，温柔忠诚，暗中撮合金玉之说",
+        "archetype_id": "maid"
+      },
+      {
+        "seed_id": "zi_juan",
+        "name": "紫鹃",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "黛玉贴身丫鬟，聪慧体贴，对黛玉忠心不二",
+        "archetype_id": "maid"
+      },
+      {
+        "seed_id": "ping_er",
+        "name": "平儿",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.98,
+        "generation_priority": 2,
+        "role_in_world": "王熙凤通房大丫鬟兼得力助手，善良周全",
+        "archetype_id": "maid"
+      },
+      {
+        "seed_id": "jia_yucun",
+        "name": "贾雨村",
+        "importance": "major",
+        "source_type": "canonical",
+        "confidence": 0.95,
+        "generation_priority": 2,
+        "role_in_world": "与贾府交往甚密的清客官员，葫芦案重要人物",
+        "archetype_id": "hanger_on_scholar"
+      }
+    ]
+  }
+}

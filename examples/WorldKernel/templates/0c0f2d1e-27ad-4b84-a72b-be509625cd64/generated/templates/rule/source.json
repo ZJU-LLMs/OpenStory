@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ancestral_family_statutes",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "imperial_edict_and_ranked_nobility_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "confucian_ritual_classics",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "clan_regulations_set_by_elders",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "marriage_alliance_rules_between_official_families",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

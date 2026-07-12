@@ -1,0 +1,19 @@
+dim_name: StateDim
+location:
+  location_id:
+    type: str
+    ref: location
+position:
+  x:
+    type: float
+  y:
+    type: float
+zone_rank:
+  type: str
+  option: true
+storm_safety_status:
+  type: str
+  option: true
+memory_storage_remaining:
+  type: str
+  option: true

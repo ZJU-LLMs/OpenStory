@@ -1,0 +1,16 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+status_preservation:
+  type: str
+  option: true
+economic_survival:
+  type: str
+  option: true
+progeny_continuation:
+  type: str
+  option: true

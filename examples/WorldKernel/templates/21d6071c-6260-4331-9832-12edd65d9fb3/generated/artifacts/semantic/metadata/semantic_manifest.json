@@ -1,0 +1,71 @@
+{
+  "world_id": "21d6071c-6260-4331-9832-12edd65d9fb3",
+  "source_ids": [
+    "primary"
+  ],
+  "schema_version": "stage2-semantic-v1",
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 17,
+    "character_profile": 15,
+    "path_edge": 24,
+    "relation_edge": 25
+  },
+  "constraints": [
+    {
+      "constraint_id": "memory_scarcity",
+      "name": "记忆有限原理",
+      "description": "每个居民的记忆总量是有限的，且记忆一经提取就无法再生，新记忆只能通过生活经历缓慢积累；城市无法创造记忆，只能管理分配已存在的记忆",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "energy_dependence_on_storm",
+      "name": "风暴能量依赖",
+      "description": "城市运作90%的能源来自木星风暴的等离子采集，风暴间歇期城市必须严格节能，否则生存系统将崩溃",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "social_hierarchy_by_memory",
+      "name": "记忆等级固化",
+      "description": "居民的社会地位完全由记忆储量决定，该数值直接影响居住区域、资源配给和档案访问权限，且向下流动容易向上流动极难",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "central_archive_monopoly",
+      "name": "中央档案垄断",
+      "description": "所有记忆交易和存储必须经过中央记忆档案库登记，私自动用或伪造记忆属于重罪，档案库会定期对记忆数据进行审查和清理",
+      "scope": "global"
+    }
+  ],
+  "timestamp": "2026-07-12T12:29:05.843866+00:00",
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "21d6071c-6260-4331-9832-12edd65d9fb3",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3"
+    }
+  }
+}

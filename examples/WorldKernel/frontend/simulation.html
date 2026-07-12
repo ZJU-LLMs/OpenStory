@@ -3,466 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>openstory Stage3 Simulation</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      background: #0f1117;
-      color: #e2e8f0;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      padding: 20px;
-    }
-    .shell {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 16px;
-    }
-    header {
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px 0;
-    }
-    h1 { color: #a78bfa; font-size: 24px; }
-    .muted { color: #94a3b8; font-size: 13px; }
-    .panel {
-      background: #1e2130;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .panel-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 12px 14px;
-      border-bottom: 1px solid #334155;
-    }
-    .panel-title { color: #c4b5fd; font-weight: 700; }
-    .map-wrap {
-      padding: 12px;
-      overflow: auto;
-      min-height: 560px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    canvas {
-      display: block;
-      border: 1px solid #334155;
-      border-radius: 4px;
-      background: #111827;
-      image-rendering: pixelated;
-    }
-    .controls {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    button {
-      border: none;
-      border-radius: 6px;
-      background: #7c3aed;
-      color: white;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button.secondary { background: #334155; }
-    button.danger { background: #b91c1c; }
-    button:disabled { opacity: 0.55; cursor: not-allowed; }
-    .side {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .content { padding: 12px 14px; }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .stat {
-      background: #252840;
-      border-radius: 6px;
-      padding: 8px;
-    }
-    .stat-label { color: #94a3b8; font-size: 12px; }
-    .stat-value { font-size: 18px; margin-top: 2px; }
-    .agent-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: 620px;
-      overflow: auto;
-    }
-    .agent-card {
-      background: #252840;
-      border: 1px solid #334155;
-      border-radius: 6px;
-      padding: 10px;
-    }
-    .agent-card h3 {
-      font-size: 15px;
-      color: #86efac;
-      margin-bottom: 6px;
-    }
-    .agent-line {
-      color: #cbd5e1;
-      font-size: 13px;
-      line-height: 1.5;
-      margin: 2px 0;
-      word-break: break-word;
-    }
-    .note { color: #fcd34d; }
-    .error {
-      grid-column: 1 / -1;
-      display: none;
-      background: #2d1515;
-      border: 1px solid #7f1d1d;
-      color: #fca5a5;
-      border-radius: 8px;
-      padding: 12px;
-    }
-    @media (max-width: 900px) {
-      .shell { grid-template-columns: 1fr; }
-      header { align-items: flex-start; flex-direction: column; }
-    }
-  </style>
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <title>OpenStory WorldKernel Simulation</title>
+  <link rel="stylesheet" href="simulation-modern.css?v=20260711-7" />
+  <link rel="stylesheet" href="book-ui.css?v=20260712-polish5" />
 </head>
-<body>
-  <div class="shell">
-    <header>
-      <div>
-        <h1>openstory Stage3 Simulation</h1>
-        <div class="muted" id="sessionLabel">session: -</div>
+<body class="sim-page">
+  <main class="shell" aria-label="OpenStory WorldKernel 模拟界面">
+    <header class="app-header">
+      <div class="brand-panel">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <h1>OpenStory</h1>
+          <div class="muted" id="sessionLabel">一句生成世界，自主模拟角色命运与故事发展</div>
+        </div>
       </div>
-      <div class="controls">
-        <button id="tickBtn">下一 Tick</button>
-        <button id="autoBtn" class="secondary">自动播放</button>
-        <button id="stopBtn" class="danger">停止模拟</button>
-      </div>
+
+      <nav class="book-nav" aria-label="世界导航">
+        <button id="worldViewBtn" class="nav-item active" type="button">
+          <span class="nav-icon nav-world" aria-hidden="true"></span>
+          <span>世界地图</span>
+        </button>
+        <button id="worldSettingsBtn" class="nav-item" type="button">
+          <span class="nav-icon nav-book" aria-hidden="true"></span>
+          <span>世界设定</span>
+        </button>
+        <button id="charactersBtn" class="nav-item" type="button">
+          <span class="nav-icon nav-character" aria-hidden="true"></span>
+          <span>角色总览</span>
+        </button>
+      </nav>
     </header>
 
     <div class="error" id="errorBox"></div>
 
-    <section class="panel">
-      <div class="panel-header">
-        <div class="panel-title">方格地图</div>
-        <div class="muted" id="mapInfo">加载中...</div>
-      </div>
-      <div class="map-wrap">
-        <canvas id="mapCanvas"></canvas>
-      </div>
+    <section class="book-spread">
+      <section class="world-panel" aria-labelledby="mapTitle">
+        <div class="map-heading">
+          <div class="map-heading-copy">
+            <div class="panel-kicker">World View</div>
+            <h2 id="mapTitle">世界地图</h2>
+            <div class="map-summary">
+              <span class="status-light" id="runtimeLight" aria-hidden="true"></span>
+              <span id="mapInfo">正在载入地图...</span>
+            </div>
+          </div>
+          <div class="map-heading-actions">
+            <aside class="runtime-card" aria-label="运行状态">
+              <div class="runtime-readout"><span class="runtime-state-dot" aria-hidden="true"></span><span class="runtime-copy"><strong>运行状态</strong><span id="runtimeStatus">等待运行状态...</span></span></div>
+              <div class="stat-grid">
+                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>Tick</small><strong id="tickValue">0</strong></span></div>
+                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>角色</small><strong id="agentCount">0</strong></span></div>
+                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>地点</small><strong id="locationCount">0</strong></span></div>
+                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>路线</small><strong id="routeCount">0</strong></span></div>
+              </div>
+            </aside>
+            <div class="map-tools" aria-label="地图视图控制">
+              <button id="zoomOutBtn" type="button" aria-label="缩小地图" title="缩小地图">−</button>
+              <button id="resetViewBtn" type="button" aria-label="复位地图" title="复位地图"><span aria-hidden="true"></span></button>
+              <button id="zoomInBtn" type="button" aria-label="放大地图" title="放大地图">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div class="map-wrap">
+            <canvas id="mapCanvas" aria-label="可交互世界地图"></canvas>
+          </div>
+        </div>
+
+        <div class="map-footer" aria-label="地图图例">
+          <span><i class="legend-dot location"></i>地点区域</span>
+          <span><i class="legend-dot route"></i>路径网络</span>
+          <span><i class="legend-dot agent"></i>角色单位</span>
+          <span><i class="legend-dot selected"></i>当前选中</span>
+        </div>
+      </section>
+
     </section>
 
-    <aside class="side">
-      <section class="panel">
-        <div class="panel-header">
-          <div class="panel-title">模拟状态</div>
-        </div>
-        <div class="content">
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-label">Tick</div>
-              <div class="stat-value" id="tickValue">0</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">角色数</div>
-              <div class="stat-value" id="agentCount">0</div>
-            </div>
-          </div>
-          <div class="muted" id="runtimeStatus">等待 runtime 状态...</div>
-        </div>
-      </section>
+    <div class="controls" aria-label="模拟控制">
+      <button id="tickBtn" class="bookmark-control tick" type="button"><span class="bookmark-symbol" aria-hidden="true">››</span><span class="control-label">推进 Tick</span></button>
+      <button id="autoBtn" class="bookmark-control auto" type="button"><span class="bookmark-symbol" aria-hidden="true">▶</span><span class="control-label">自动播放</span></button>
+      <button id="stopBtn" class="bookmark-control stop" type="button"><span class="bookmark-symbol" aria-hidden="true">■</span><span class="control-label">停止模拟</span></button>
+    </div>
 
-      <section class="panel">
-        <div class="panel-header">
-          <div class="panel-title">角色行动</div>
+    <div id="agentList" hidden></div>
+  </main>
+
+  <div class="modal-overlay" id="detailOverlay" aria-hidden="true">
+    <article class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="detail-head">
+        <div>
+          <div class="detail-kicker" id="detailKicker">Detail</div>
+          <h2 class="detail-title" id="detailTitle">详情</h2>
+          <div class="detail-subtitle" id="detailSubtitle"></div>
         </div>
-        <div class="content">
-          <div class="agent-list" id="agentList"></div>
-        </div>
-      </section>
-    </aside>
+        <button class="icon-button" id="detailClose" type="button" aria-label="关闭">×</button>
+      </div>
+      <div class="detail-body" id="detailBody"></div>
+    </article>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const sessionId = params.get('session_id');
-    const canvas = document.getElementById('mapCanvas');
-    const ctx = canvas.getContext('2d');
-    const tilePx = 4;
-    let spatial = null;
-    let runtime = null;
-    let autoTimer = null;
-    let autoPlaying = false;
-    let tickInFlight = false;
-    let runToken = 0;
-
-    document.getElementById('sessionLabel').textContent = `session: ${sessionId || '-'}`;
-    document.getElementById('tickBtn').addEventListener('click', tickOnce);
-    document.getElementById('autoBtn').addEventListener('click', toggleAuto);
-    document.getElementById('stopBtn').addEventListener('click', stopRuntime);
-
-    boot();
-
-    async function boot() {
-      if (!sessionId) {
-        showError('URL 缺少 session_id');
-        return;
-      }
-      try {
-        const [spatialData, runtimeState] = await Promise.all([
-          fetchJson(`/api/stage1/session/${sessionId}/generated/artifacts/spatial/spatial_blueprint.json`),
-          fetchJson('/api/stage3/runtime/state'),
-        ]);
-        spatial = spatialData;
-        runtime = runtimeState;
-        render();
-      } catch (error) {
-        showError(error.message);
-      }
-    }
-
-    async function tickOnce(options = {}) {
-      if (tickInFlight) return runtime;
-      const token = options.token ?? runToken;
-      tickInFlight = true;
-      setBusy(true);
-      try {
-        const nextRuntime = await fetchJson('/api/stage3/runtime/tick', { method: 'POST' });
-        if (token === runToken && !options.ignoreResult) {
-          runtime = nextRuntime;
-          render();
-        }
-        return nextRuntime;
-      } catch (error) {
-        if (token === runToken) showError(error.message);
-      } finally {
-        tickInFlight = false;
-        setBusy(false);
-      }
-    }
-
-    function toggleAuto() {
-      if (autoPlaying) {
-        stopAutoPlayback();
-        return;
-      }
-      startAutoPlayback();
-    }
-
-    function startAutoPlayback() {
-      const btn = document.getElementById('autoBtn');
-      autoPlaying = true;
-      runToken += 1;
-      btn.textContent = '暂停';
-      scheduleAutoTick(runToken);
-    }
-
-    function stopAutoPlayback() {
-      autoPlaying = false;
-      runToken += 1;
-      if (autoTimer) {
-        clearTimeout(autoTimer);
-        autoTimer = null;
-      }
-      document.getElementById('autoBtn').textContent = '自动播放';
-    }
-
-    function scheduleAutoTick(token) {
-      if (!autoPlaying || token !== runToken) return;
-      autoTimer = setTimeout(async () => {
-        autoTimer = null;
-        await tickOnce({ token });
-        scheduleAutoTick(token);
-      }, 2500);
-    }
-
-    async function stopRuntime() {
-      stopAutoPlayback();
-      setBusy(true);
-      try {
-        runtime = await fetchJson('/api/stage3/runtime/stop', { method: 'POST' });
-        render();
-      } catch (error) {
-        showError(error.message);
-      } finally {
-        setBusy(false);
-      }
-    }
-
-    async function fetchJson(url, options = {}) {
-      const response = await fetch(url, options);
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(data.detail || data.error || response.statusText);
-      }
-      return data;
-    }
-
-    function render() {
-      renderMap();
-      renderState();
-      hideError();
-    }
-
-    function renderMap() {
-      if (!spatial || !spatial.grid) return;
-      const grid = spatial.grid;
-      const regions = spatial.regions || [];
-      const routes = spatial.routes || [];
-      const roadTiles = spatial.road_tiles || [];
-      const spawns = spatial.spawn_points || [];
-      const agents = runtime?.agents || [];
-
-      canvas.width = grid.width * tilePx;
-      canvas.height = grid.height * tilePx;
-      ctx.fillStyle = '#111827';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.strokeStyle = '#243044';
-      ctx.lineWidth = 0.5;
-      for (let x = 0; x <= grid.width; x += 1) {
-        ctx.beginPath();
-        ctx.moveTo(x * tilePx, 0);
-        ctx.lineTo(x * tilePx, canvas.height);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= grid.height; y += 1) {
-        ctx.beginPath();
-        ctx.moveTo(0, y * tilePx);
-        ctx.lineTo(canvas.width, y * tilePx);
-        ctx.stroke();
-      }
-
-      for (const region of regions) {
-        const b = region.bounds || {};
-        ctx.fillStyle = 'rgba(99,102,241,0.32)';
-        ctx.fillRect(b.x * tilePx, b.y * tilePx, b.w * tilePx, b.h * tilePx);
-        ctx.strokeStyle = 'rgba(199,210,254,0.45)';
-        ctx.lineWidth = 1;
-        ctx.strokeRect(b.x * tilePx, b.y * tilePx, b.w * tilePx, b.h * tilePx);
-        ctx.fillStyle = '#e2e8f0';
-        ctx.font = '10px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(region.name || region.location_id, (b.x + b.w / 2) * tilePx, (b.y + b.h / 2) * tilePx);
-      }
-
-      ctx.fillStyle = '#38bdf8';
-      for (const tile of roadTiles) {
-        ctx.fillRect(tile.x * tilePx, tile.y * tilePx, tilePx, tilePx);
-      }
-
-      ctx.strokeStyle = 'rgba(56,189,248,0.65)';
-      ctx.lineWidth = 1;
-      for (const route of routes) {
-        const line = route.centerline || [];
-        if (line.length < 2) continue;
-        ctx.beginPath();
-        ctx.moveTo(line[0].x * tilePx + tilePx / 2, line[0].y * tilePx + tilePx / 2);
-        for (let i = 1; i < line.length; i += 1) {
-          ctx.lineTo(line[i].x * tilePx + tilePx / 2, line[i].y * tilePx + tilePx / 2);
-        }
-        ctx.stroke();
-      }
-
-      const spawnById = new Map(spawns.map((spawn) => [spawn.character_name || spawn.character_id, spawn]));
-      for (const agent of agents) {
-        const profileName = agent.profile?.name || agent.id;
-        const fallback = spawnById.get(profileName) || spawnById.get(agent.id);
-        const pos = agent.position || fallback?.position || [0, 0];
-        drawAgent(pos, profileName, !agent.is_active);
-      }
-
-      document.getElementById('mapInfo').textContent =
-        `${regions.length} 地点, ${routes.length} 路线, ${agents.length || spawns.length} 角色`;
-    }
-
-    function drawAgent(position, name, inactive) {
-      const [x, y] = position;
-      const px = x * tilePx + tilePx / 2;
-      const py = y * tilePx + tilePx / 2;
-      ctx.fillStyle = inactive ? '#64748b' : '#22c55e';
-      ctx.beginPath();
-      ctx.arc(px, py, 4.5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#f8fafc';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.fillStyle = '#f8fafc';
-      ctx.font = '10px sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText(name, px + 6, py - 6);
-    }
-
-    function renderState() {
-      const agents = runtime?.agents || [];
-      document.getElementById('tickValue').textContent = runtime?.current_tick ?? 0;
-      document.getElementById('agentCount').textContent = agents.length;
-      document.getElementById('runtimeStatus').textContent = runtime?.started
-        ? 'Stage3 runtime 正在运行'
-        : 'Stage3 runtime 未运行';
-
-      const list = document.getElementById('agentList');
-      if (!agents.length) {
-        list.innerHTML = '<div class="muted">暂无角色状态。请从首页进入世界开始模拟。</div>';
-        return;
-      }
-      list.innerHTML = agents.map((agent) => {
-        const name = escapeHtml(agent.profile?.name || agent.id);
-        const memory = (agent.short_term_memory || []).slice(-2).map((m) => m.content || m).join('；');
-        return `
-          <div class="agent-card">
-            <h3>${name}</h3>
-            <div class="agent-line">地点：${escapeHtml(agent.current_location || agent.location_id || '未知')}</div>
-            <div class="agent-line">坐标：${escapeHtml(JSON.stringify(agent.position || []))}</div>
-            <div class="agent-line">计划：${escapeHtml(formatPlan(agent.current_plan))}</div>
-            <div class="agent-line">行动：${escapeHtml(agent.current_action || '暂无')}</div>
-            ${agent.current_plan_note ? `<div class="agent-line note">提示：${escapeHtml(agent.current_plan_note)}</div>` : ''}
-            ${memory ? `<div class="agent-line">记忆：${escapeHtml(memory)}</div>` : ''}
-          </div>
-        `;
-      }).join('');
-    }
-
-    function formatPlan(plan) {
-      if (!plan) return '暂无';
-      if (Array.isArray(plan)) return plan.join(' / ');
-      return JSON.stringify(plan);
-    }
-
-    function escapeHtml(value) {
-      return String(value ?? '')
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-
-    function setBusy(isBusy) {
-      document.getElementById('tickBtn').disabled = isBusy;
-    }
-
-    function showError(message) {
-      const box = document.getElementById('errorBox');
-      box.style.display = 'block';
-      box.textContent = `错误：${message}`;
-    }
-
-    function hideError() {
-      document.getElementById('errorBox').style.display = 'none';
-    }
-  </script>
+  <script src="simulation-modern.js?v=20260712-polish7"></script>
 </body>
 </html>

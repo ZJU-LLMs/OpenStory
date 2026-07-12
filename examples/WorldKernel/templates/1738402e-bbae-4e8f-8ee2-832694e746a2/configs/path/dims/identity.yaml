@@ -1,0 +1,25 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+belongs_to_compound:
+  type: str
+  option: true
+is_inner_outer_transition:
+  type: str
+  option: true
+is_daily_use:
+  type: str
+  option: true
+has_name_story:
+  type: str
+  option: true
+night_closing:
+  type: str
+  option: true
+guarded:
+  type: str
+  option: true

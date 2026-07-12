@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "status_preservation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "economic_survival",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "progeny_continuation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

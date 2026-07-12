@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "assets",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "territory",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "total_memory_storage",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_consumption_rate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_resilience_factor",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trading_facility_grade",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archive_vault_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

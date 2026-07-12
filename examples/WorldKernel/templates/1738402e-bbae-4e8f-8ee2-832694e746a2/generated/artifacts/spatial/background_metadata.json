@@ -1,0 +1,39 @@
+{
+  "layout_preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1738402e-bbae-4e8f-8ee2-832694e746a2\\generated\\artifacts\\spatial\\layout_preview.png",
+  "control_image_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1738402e-bbae-4e8f-8ee2-832694e746a2\\generated\\artifacts\\spatial\\generation_base.png",
+  "mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\1738402e-bbae-4e8f-8ee2-832694e746a2\\generated\\artifacts\\spatial\\generation_mask.png",
+  "target_size": {
+    "width": 2560,
+    "height": 1600
+  },
+  "protected_pixels": 817920,
+  "editable_pixels": 3278080,
+  "status": "ready",
+  "generation_strategy": "single_global_masked_edit",
+  "requested_target_size": {
+    "width": 2560,
+    "height": 1600
+  },
+  "model": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible_edit",
+    "size": "2560x1600",
+    "image_url": ""
+  },
+  "composite": {
+    "input_size": {
+      "width": 2560,
+      "height": 1600
+    },
+    "output_size": {
+      "width": 2560,
+      "height": 1600
+    },
+    "resized": false,
+    "postprocessing": "none",
+    "protected_region_composite": "binary_mask"
+  },
+  "attempt_failures": [],
+  "style_reference": "pixel_style_reference.png"
+}

@@ -228,4 +228,5 @@ class SpatialBlueprint(BaseModel):
     routes: list[BlueprintRoute] = Field(default_factory=list)
     road_tiles: list[GridPoint] = Field(default_factory=list)
     spawn_points: list[BlueprintSpawnPoint] = Field(default_factory=list)
+    visual: dict[str, Any] = Field(default_factory=dict)
     provenance: dict[str, Any] = Field(default_factory=dict)

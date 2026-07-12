@@ -1,0 +1,379 @@
+{
+  "artifact_type": "relation_edge",
+  "items": [
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:009",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:008",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:003",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:007",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "type": "祖孙",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:010",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "type": "祖孙",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:012",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "婆媳",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:014",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:013",
+        "type": "姻亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:013",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "type": "祖孙",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:011",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:002",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:008",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:023",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "夫妻",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:018",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "type": "父子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:019",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:003",
+        "type": "兄弟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:022",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:009",
+        "type": "父女",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:020",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:004",
+        "type": "幕僚",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:021",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:005",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:006",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:015",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:003",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "type": "叔侄",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:017",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:003",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:014",
+        "type": "父女",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:016",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:003",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "type": "翁媳",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:001",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "type": "表兄妹",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:005",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:013",
+        "type": "表姐弟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:002",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:009",
+        "type": "兄妹",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:006",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:014",
+        "type": "堂兄妹",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:003",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "母子",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:004",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:012",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:027",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:015",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:025",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "姻亲",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:024",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:004",
+        "type": "师生",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:026",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:007",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:013",
+        "type": "表姐妹",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:034",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:013",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "姨甥",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:028",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:009",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "母女",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:036",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:014",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "婶侄",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:032",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "姑侄",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:031",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:008",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:029",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:001",
+        "type": "嫂叔",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:030",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:011",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:006",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:033",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:012",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:010",
+        "type": "主仆",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:035",
+        "from_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:014",
+        "to_id": "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:char:009",
+        "type": "堂姐妹",
+        "direction": "双向"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:009",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:008",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:007",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:010",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:012",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:014",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:013",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:011",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:023",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:018",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:019",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:022",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:020",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:021",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:015",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:017",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:016",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:001",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:005",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:002",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:006",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:003",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:004",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:027",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:025",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:024",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:026",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:034",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:028",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:036",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:032",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:031",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:029",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:030",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:033",
+    "e:0c0f2d1e_27ad_4b84_a72b_be509625cd64:rel:035"
+  ],
+  "upstream_step_ids": [
+    "generate_relations"
+  ],
+  "warnings": [
+    "review (score=5.0): 第24条关系（index 23）：宝玉与紫鹃的主仆关系不准确。紫鹃是林黛玉的丫鬟，并非贾宝玉的直接仆人，不应建立直接主仆关系，建议删除。"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

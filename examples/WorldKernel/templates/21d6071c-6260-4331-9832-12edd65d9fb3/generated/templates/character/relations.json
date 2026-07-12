@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "relation_types",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "power_differential",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dependency_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

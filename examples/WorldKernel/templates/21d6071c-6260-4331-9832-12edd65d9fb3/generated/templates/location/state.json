@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_occupancy_ratio",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_backlog_volume",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "structural_integrity_percent",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_shield_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "atmosphere_pressure_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "quota_allocation_pending",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "glitch_leak_incidents",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

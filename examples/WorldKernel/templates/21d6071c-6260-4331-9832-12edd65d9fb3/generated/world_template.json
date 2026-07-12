@@ -1,0 +1,573 @@
+{
+  "primary": "dystopian_city",
+  "secondary": "cloud_city",
+  "confidence": 0.92,
+  "tags": [
+    "科幻",
+    "记忆交易",
+    "悬浮城市",
+    "木星风暴",
+    "档案社会",
+    "资源驱动",
+    "反乌托邦",
+    "架空世界"
+  ],
+  "world_name": "记忆档案城",
+  "world_origin_summary": "原创科幻世界，一座悬浮于木星风暴带中的漂浮城市，居民通过交易个人记忆来获取社会地位与资源，记忆成为唯一硬通货，档案体系维系着脆弱的秩序",
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "木星风暴间歇期第7天，档案城记忆供给重分配日",
+    "trigger_event": "中央档案库启动新一轮记忆配额调整，低记忆储量居民面临降级危机",
+    "year": "2157",
+    "narrative_context": "记忆档案城在长达三个月的猛烈木星风暴后进入短暂的平静期，城市管理系统开始根据居民记忆储量重新分配生活资源与空间权限，引发各阶层的紧张与博弈"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "科幻未来风格，融合木星气态环境元素，城市建筑带有几何模块化与透明管道特征，但以像素简化呈现，整体呈现一种干净、带有科技光泽的复古未来主义",
+    "color_palette": [
+      "风暴灰蓝",
+      "档案浮白",
+      "记忆琥珀",
+      "电路青绿",
+      "能量橙黄",
+      "天空淡紫"
+    ],
+    "lighting_weather": "均匀散射的间接光，模拟木星高层大气反射的柔和光照，偶尔有风暴云层的暗调滤镜，整体明亮无强烈阴影，但带有微弱的气流波动效果",
+    "material_texture": [
+      "大色块超平滑金属板",
+      "低纹理半透明水晶管道",
+      "平整树脂地面",
+      "微光自发光面板",
+      "粗糙防滑网格甲板",
+      "气囊织物纹理（大色块简化）"
+    ],
+    "environmental_motifs": [
+      "悬浮平台与连接廊桥",
+      "存储记忆的水晶胶囊塔",
+      "电梯井与垂直交通胶囊",
+      "公共信息面板（无文字图形化）",
+      "能量传输管道",
+      "外部观测舷窗",
+      "记忆交易亭（封闭式圆舱）",
+      "城市标识柱（几何符号）",
+      "空气循环格栅",
+      "停泊浮空艇的平台"
+    ],
+    "atmosphere": "冷静、秩序、压抑中带着希望，技术高度发达但资源匮乏，社会分层明显，空气中弥漫着淡淡的电子嗡鸣与气压调整声",
+    "edge_blending_style": "柔和像素羽化的工业边缘、平台与气体交接处的渐变过渡，以及金属与管道接口的自然遮挡，便于后续叠加地点贴片",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "memory_archive",
+      "type_name": "记忆档案库",
+      "description": "城市核心设施，存储所有居民的记忆数据，以水晶胶囊矩阵形式排列，由中央电脑控制存取权限",
+      "common_fields": [
+        "security_level",
+        "capacity",
+        "access_protocol",
+        "backup_status"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "central_memory_vault",
+          "name": "中央记忆穹顶",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.95,
+          "generation_priority": 1,
+          "role_in_world": "全城记忆数据的唯一原始存储点，控制着记忆的分配与销毁"
+        }
+      ]
+    },
+    {
+      "type_id": "trade_hall",
+      "type_name": "交易大厅",
+      "description": "公开进行记忆买卖、交换和评估的场所，设有多个交易单元和公证终端",
+      "common_fields": [
+        "trader_count",
+        "price_index",
+        "opening_hours",
+        "dispute_mechanism"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "memorandum_bazaar",
+          "name": "记忆易市",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "最大的公开记忆交易中心，黑市与合法交易并存"
+        }
+      ]
+    },
+    {
+      "type_id": "residential_zone",
+      "type_name": "居民生活区",
+      "description": "按照居民记忆储量划分等级的生活住宿区域，包括私人胶囊公寓和公共休息空间",
+      "common_fields": [
+        "comfort_level",
+        "memory_threshold",
+        "population_density",
+        "maintenance_status"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "crystal_habitat_tier3",
+          "name": "第三层水晶宿舍",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 3,
+          "role_in_world": "中等储量居民的居住区，标准配置，生活条件中等"
+        }
+      ]
+    },
+    {
+      "type_id": "administrative_hub",
+      "type_name": "行政中枢",
+      "description": "档案城市政府机构所在地，负责记忆配额审批、社会秩序维护与城市运营决策",
+      "common_fields": [
+        "governance_type",
+        "decision_cycle",
+        "enforcement_capacity"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "the_pinnacle",
+          "name": "穹顶之峰",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "管理机构与最高委员会所在地，俯瞰全城"
+        }
+      ]
+    },
+    {
+      "type_id": "energy_sector",
+      "type_name": "能源区",
+      "description": "从木星风暴中抽取等离子能量并转化为城市动力的工业区域，布满发电机和储能设备",
+      "common_fields": [
+        "output_level",
+        "stability",
+        "maintenance_schedule"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "storm_harvester_alpha",
+          "name": "风暴收割站阿尔法",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.88,
+          "generation_priority": 2,
+          "role_in_world": "主要能源生产设施，为城市提供80%电力"
+        }
+      ]
+    },
+    {
+      "type_id": "transport_node",
+      "type_name": "交通枢纽",
+      "description": "连接城市各平台之间的运输中心，包括垂直电梯井、磁悬浮轨道和飞艇停泊站",
+      "common_fields": [
+        "connected_zones",
+        "frequency",
+        "capacity"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "central_transit_hub",
+          "name": "中心换乘站",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.87,
+          "generation_priority": 2,
+          "role_in_world": "连接城市各区的交通总枢纽，货物与人员流动的关键节点"
+        }
+      ]
+    },
+    {
+      "type_id": "maintenance_depot",
+      "type_name": "维修保养区",
+      "description": "城市基础设施与飞船的维修工场，储备备件和工具的工业区域",
+      "common_fields": [
+        "specialty",
+        "crew_size",
+        "resource_inventory"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "spire_repair_bay",
+          "name": "尖塔维修坞",
+          "importance": "minor",
+          "source_type": "inferred",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "负责外部结构维修与浮空艇保养"
+        }
+      ]
+    },
+    {
+      "type_id": "observation_deck",
+      "type_name": "外部观测台",
+      "description": "面向木星风暴的公共或限制级观测平台，用于科学考察与风景欣赏",
+      "common_fields": [
+        "access_restriction",
+        "visibility",
+        "safety_measures"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "storm_eye_terrace",
+          "name": "风暴之眼观景台",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 3,
+          "role_in_world": "上层居民观赏风暴与展示地位的景观平台"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "memory_archivist",
+      "type_name": "档案管理员",
+      "description": "负责维护记忆档案库、处理存录与查询请求的技术官员，掌握城市最核心的数据权力",
+      "common_fields": [
+        "rank",
+        "access_clearance",
+        "years_of_service",
+        "memory_storage"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "chief_archivist_kaelan",
+          "name": "首席档案官凯兰",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "档案体系的实际控制者，拥有最高记忆访问权限"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_trader",
+      "type_name": "记忆交易商",
+      "description": "专门进行记忆买卖的中间商，评估记忆价值、撮合交易，往往拥有丰厚个人记忆库",
+      "common_fields": [
+        "reputation",
+        "portfolio_diversity",
+        "trade_volume"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "broker_vela",
+          "name": "大中介维拉",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 1,
+          "role_in_world": "最成功的记忆交易商之一，掌控记忆流向与定价"
+        }
+      ]
+    },
+    {
+      "type_id": "citizen",
+      "type_name": "普通居民",
+      "description": "城市中的普通民众，每天通过劳动或出售记忆来维持生存，社会地位由记忆储量决定",
+      "common_fields": [
+        "memory_balance",
+        "occupation",
+        "social_tier",
+        "debt_status"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "worker_elara",
+          "name": "工人埃拉拉",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "典型的低层居民，即将耗尽记忆面临降级，代表多数人的困境"
+        }
+      ]
+    },
+    {
+      "type_id": "city_enforcer",
+      "type_name": "城卫执法者",
+      "description": "维护城市治安和交易秩序的安全部队，有权检查记忆纯度与交易记录，甚至可以强制征收记忆",
+      "common_fields": [
+        "patrol_zone",
+        "equipment_level",
+        "corruption_index"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "enforcer_commander_zarek",
+          "name": "执法队长扎瑞克",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 2,
+          "role_in_world": "执法系统鹰派代表，严格执行档案城的规则"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_analyst",
+      "type_name": "记忆分析师",
+      "description": "专门鉴定记忆真实性、情感强度与稀有度的专业人员，服务交易和政府审核",
+      "common_fields": [
+        "specialty_field",
+        "accuracy_rate",
+        "clientele"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "analyst_seren",
+          "name": "首席分析师塞伦",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.75,
+          "generation_priority": 3,
+          "role_in_world": "鉴定最珍贵记忆的权威，影响记忆市场的估价"
+        }
+      ]
+    },
+    {
+      "type_id": "technician",
+      "type_name": "技术工程师",
+      "description": "维护城市设备、能源系统和记忆存储硬件的技术人员，通常服务于各功能区域",
+      "common_fields": [
+        "specialization",
+        "shift_hours",
+        "repair_skill"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "engineer_torv",
+          "name": "高级技师托夫",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.7,
+          "generation_priority": 3,
+          "role_in_world": "能源区骨干技师，熟悉城市结构弱点"
+        }
+      ]
+    },
+    {
+      "type_id": "outcast",
+      "type_name": "流放者/记忆贫民",
+      "description": "因记忆储量过低或被强制剥夺记忆而失去公民地位的人，生活在城市边缘或地下，靠零碎交易为生",
+      "common_fields": [
+        "days_remaining",
+        "black_market_access",
+        "resistance_affiliation"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "outcast_leader_mira",
+          "name": "地下组织者米拉",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.7,
+          "generation_priority": 3,
+          "role_in_world": "策划推翻记忆等级制度的反抗运动核心人物"
+        }
+      ]
+    },
+    {
+      "type_id": "visitor",
+      "type_name": "外部访客/信使",
+      "description": "来自其他漂浮城市或木星轨道空间的旅行者，带来外部信息与交易机会",
+      "common_fields": [
+        "origin",
+        "purpose",
+        "duration"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "merchant_from_elysium",
+          "name": "极乐城商人埃蒙",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.65,
+          "generation_priority": 4,
+          "role_in_world": "带来外界记忆与商品的稀有访客，可能成为变革的引子"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "memory_trade_law",
+      "type_name": "记忆交易法则",
+      "description": "规范记忆买卖、交换与赠与的法律体系，包括定价机制、交易税、禁止盗窃或强制提取等条款",
+      "common_fields": [
+        "min_unit",
+        "tax_rate",
+        "prohibited_memory_types"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "voluntary_exchange_principle",
+          "name": "自愿交易原则",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.95,
+          "generation_priority": 1,
+          "role_in_world": "记忆交易必须双方自愿，违者将被剥夺全部记忆"
+        }
+      ]
+    },
+    {
+      "type_id": "access_permission_rule",
+      "type_name": "档案访问权限规则",
+      "description": "不同社会等级和历史记录对应的记忆库访问层级，决定了谁能查看或调取记忆",
+      "common_fields": [
+        "tier",
+        "memory_threshold",
+        "clearance_level"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "tier_based_access",
+          "name": "层级访问制",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.92,
+          "generation_priority": 1,
+          "role_in_world": "居民只能访问与自身记忆储量相当或以下的档案层级"
+        }
+      ]
+    },
+    {
+      "type_id": "social_tier_rule",
+      "type_name": "社会等级制度",
+      "description": "根据居民记忆储量划分的居住权、资源分配和公民权利体系",
+      "common_fields": [
+        "tier_name",
+        "memory_required",
+        "benefits",
+        "penalties_for_downgrade"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "tier_allocation_system",
+          "name": "储量等级分配制",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "决定居民生活质量的根本规则，低等级可能被流放"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_purity_regulation",
+      "type_name": "记忆纯度法规",
+      "description": "要求所有交易和存储的记忆必须经过纯度检测，防止虚假、污染或有害记忆进入流通",
+      "common_fields": [
+        "purity_scale",
+        "detection_method",
+        "penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "mandatory_purification",
+          "name": "强制净化令",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "所有记忆在存入前必须通过纯度检测，不合格者销毁"
+        }
+      ]
+    },
+    {
+      "type_id": "anti_hoarding_rule",
+      "type_name": "反囤积条款",
+      "description": "防止高储量居民过度囤积记忆导致市场资源枯竭的调控规则",
+      "common_fields": [
+        "hoarding_threshold",
+        "excess_tax",
+        "confiscation_mechanism"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "memory_redistribution_decree",
+          "name": "记忆再分配法令",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 2,
+          "role_in_world": "当某居民记忆储量达到临界时，强制要求释放20%用于公共分配"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_safety_protocol",
+      "type_name": "风暴安全协议",
+      "description": "木星风暴期间的城市应急操作规章，包括关闭外部平台、限制外出和能源调配",
+      "common_fields": [
+        "storm_intensity_level",
+        "evacuation_route",
+        "lockdown_trigger"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "level_3_lockdown",
+          "name": "三级封锁令",
+          "importance": "minor",
+          "source_type": "inferred",
+          "confidence": 0.9,
+          "generation_priority": 3,
+          "role_in_world": "在极端风暴时强制所有居民进入室内避难，违规者记忆被扣减"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "memory_scarcity",
+      "name": "记忆有限原理",
+      "description": "每个居民的记忆总量是有限的，且记忆一经提取就无法再生，新记忆只能通过生活经历缓慢积累；城市无法创造记忆，只能管理分配已存在的记忆",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "energy_dependence_on_storm",
+      "name": "风暴能量依赖",
+      "description": "城市运作90%的能源来自木星风暴的等离子采集，风暴间歇期城市必须严格节能，否则生存系统将崩溃",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "social_hierarchy_by_memory",
+      "name": "记忆等级固化",
+      "description": "居民的社会地位完全由记忆储量决定，该数值直接影响居住区域、资源配给和档案访问权限，且向下流动容易向上流动极难",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "central_archive_monopoly",
+      "name": "中央档案垄断",
+      "description": "所有记忆交易和存储必须经过中央记忆档案库登记，私自动用或伪造记忆属于重罪，档案库会定期对记忆数据进行审查和清理",
+      "scope": "global"
+    }
+  ]
+}

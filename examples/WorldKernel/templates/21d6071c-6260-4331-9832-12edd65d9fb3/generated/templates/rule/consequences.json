@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "penalty_types",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reward_types",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recovery_period",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "appeal_process",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

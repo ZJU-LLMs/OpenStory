@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "behavior_pattern",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_tendency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_style",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

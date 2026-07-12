@@ -1,0 +1,21 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+location_function:
+  type: str
+  option: true
+associated_person:
+  type: str
+  option: true
+hierarchy_level:
+  type: str
+  option: true
+faction:
+  type: str
+  option: true

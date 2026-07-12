@@ -1,0 +1,32 @@
+{
+  "schemas": [
+    {
+      "alias": "character_profile",
+      "file": "agent_model.py",
+      "class_name": "AgentModel",
+      "version": "v1",
+      "description": "Stage1 generated agent model used as the Stage2 character schema."
+    },
+    {
+      "alias": "location_profile",
+      "file": "location_model.py",
+      "class_name": "LocationModel",
+      "version": "v1",
+      "description": "Stage1 generated location model."
+    },
+    {
+      "alias": "path_edge",
+      "file": "path_model.py",
+      "class_name": "PathModel",
+      "version": "v1",
+      "description": "Stage1 generated path model."
+    },
+    {
+      "alias": "relation_edge",
+      "file": "relation_model.py",
+      "class_name": "RelationModel",
+      "version": "v1",
+      "description": "Stage1 generated relation model."
+    }
+  ]
+}

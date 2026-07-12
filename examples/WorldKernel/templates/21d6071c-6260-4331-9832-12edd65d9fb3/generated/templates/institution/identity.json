@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_control_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "official_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archival_capacity_tier",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

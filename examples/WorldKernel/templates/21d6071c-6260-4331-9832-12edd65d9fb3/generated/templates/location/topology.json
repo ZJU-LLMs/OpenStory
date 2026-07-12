@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "floor_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "vertical_transport_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_exits_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "proximity_to_storm_interface",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "layered_security_zones",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "conduit_network_density",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "evacuation_route_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

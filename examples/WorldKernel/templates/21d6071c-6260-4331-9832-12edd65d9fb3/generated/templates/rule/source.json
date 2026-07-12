@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "issuing_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legal_basis",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "revision_history",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_awareness",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

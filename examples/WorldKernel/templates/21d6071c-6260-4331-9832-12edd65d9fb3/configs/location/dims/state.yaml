@@ -1,0 +1,28 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+current_occupancy_ratio:
+  type: str
+  option: true
+memory_backlog_volume:
+  type: str
+  option: true
+structural_integrity_percent:
+  type: str
+  option: true
+storm_shield_status:
+  type: str
+  option: true
+atmosphere_pressure_level:
+  type: str
+  option: true
+quota_allocation_pending:
+  type: str
+  option: true
+glitch_leak_incidents:
+  type: str
+  option: true

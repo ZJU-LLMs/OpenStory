@@ -1,0 +1,16 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+memory_valuation:
+  type: str
+  option: true
+ethical_stance:
+  type: str
+  option: true
+risk_tolerance:
+  type: str
+  option: true

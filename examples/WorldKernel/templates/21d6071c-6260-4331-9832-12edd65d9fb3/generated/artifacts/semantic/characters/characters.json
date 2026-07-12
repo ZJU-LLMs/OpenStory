@@ -1,0 +1,1422 @@
+{
+  "artifact_type": "character_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:003",
+        "name": "首席档案官",
+        "role": "档案管理员",
+        "memory_credit": "950000",
+        "social_class": "上层精英",
+        "faction_affiliation": "中央档案库统治委员会"
+      },
+      "social_profile": {
+        "group_id": "档案管理最高理事会",
+        "reputation": "权威且神秘",
+        "debt_credit_balance": "0",
+        "social_network_rank": "1"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆存取权限控制",
+          "档案系统漏洞分析",
+          "记忆真实性鉴定",
+          "高压谈判",
+          "心理操控"
+        ],
+        "level": "首席",
+        "weaknesses": "对新型记忆伪造技术缺乏了解, 依赖档案库核心系统, 物理战斗能力极差",
+        "memory_analysis_lvl": "9",
+        "purity_detection": "8",
+        "memory_transfer_proficiency": "7"
+      },
+      "personality": {
+        "traits": [
+          "冷静",
+          "计算",
+          "偏执",
+          "寡言",
+          "傲慢"
+        ],
+        "values": [
+          "秩序",
+          "控制",
+          "档案完整性",
+          "精英主义"
+        ],
+        "speech_style": "精确、官腔、带有威胁性的礼貌",
+        "memory_valuation": "视记忆为社会秩序的基石，鄙视情感价值",
+        "ethical_stance": "结果主义，必要时可牺牲少数人的记忆",
+        "risk_tolerance": "低，但为了巩固权力敢于冒险"
+      },
+      "goals": {
+        "short_term_goal": "平稳完成本轮记忆配额重分配，镇压贫民区异议",
+        "long_term_goal": "建立完全由档案库控制的记忆循环体系，成为城市真正独裁者",
+        "motivation": "童年目睹记忆交易导致的混乱，立志用铁腕秩序净化社会",
+        "desired_memory_volume": "1500000",
+        "target_social_rank": "最高统治层"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "中央档案库备份协议",
+            "记忆配额分配的数学公式",
+            "木星风暴等离子采集的技术细节"
+          ],
+          "social_knowledge": [
+            "多位市政高官的私人记忆交易记录",
+            "黑市记忆交易所的核心成员名单",
+            "上层居住塔内各家族联姻网络"
+          ]
+        },
+        "background_summary": "出生于上层档案管理员家庭，自幼接受记忆管理训练，二十岁进入中央档案库，三十岁升任首席。曾在一次暴乱中亲自销毁千份有害记忆，巩固了档案库绝对权威。私下保留着极少数高层之间的秘密记忆。",
+        "key_events": [
+          "25岁参与镇压记忆盗窃者大清洗行动",
+          "32岁主导记忆配额算法改革，使上层更稳固",
+          "40岁发现并封存了一条涉及城市创始人的禁忌记忆"
+        ],
+        "secrets": [
+          "自己记忆中隐藏着一个关于城市真正能源来源的虚假信息",
+          "年轻时曾为争夺名额伪造过他人记忆，但从未被发现",
+          "与风暴能量收集站的工程师合谋，利用风暴间歇期加密传输秘密记忆"
+        ],
+        "memory_quality": "精密并经过编排",
+        "memory_emotion_value": "0",
+        "memory_vault_level": "极密"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "S",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "50000"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:001",
+        "name": "档案修复师",
+        "role": "档案管理员",
+        "memory_credit": "420000",
+        "social_class": "中产技术阶层",
+        "faction_affiliation": "中央档案库技术部"
+      },
+      "social_profile": {
+        "group_id": "档案修复科",
+        "reputation": "可靠但不受重视",
+        "debt_credit_balance": "10000",
+        "social_network_rank": "120"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆碎片拼接",
+          "物理-数字转换修复",
+          "记忆质量评估",
+          "档案库老旧系统维护",
+          "基础记忆加密破解"
+        ],
+        "level": "高级修复师",
+        "weaknesses": "社交能力弱, 过于依赖标准修复流程, 对高层政治游戏不感兴趣",
+        "memory_analysis_lvl": "7",
+        "purity_detection": "9",
+        "memory_transfer_proficiency": "6"
+      },
+      "personality": {
+        "traits": [
+          "严谨",
+          "耐心",
+          "内向",
+          "对真相执着",
+          "有道德洁癖"
+        ],
+        "values": [
+          "记忆真实性",
+          "技术中立",
+          "工匠精神"
+        ],
+        "speech_style": "语调平稳，用词专业，偶尔夹杂感叹",
+        "memory_valuation": "认为每一份记忆都是无价文物，应被尊重保存",
+        "ethical_stance": "坚决反对记忆篡改和伪造，但在压力下可能妥协",
+        "risk_tolerance": "中等偏低"
+      },
+      "goals": {
+        "short_term_goal": "赶在风暴间歇期结束前修复一批受损的高价值记忆",
+        "long_term_goal": "建立一套完善的记忆预防性修复体系，减少记忆流失",
+        "motivation": "曾因一次记忆修复失败导致一位母亲忘记了自己孩子的模样，深感自责",
+        "desired_memory_volume": "600000",
+        "target_social_rank": "拥有档案库独立修复实验室的权限"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆损伤的化学机制",
+            "木星电磁场对记忆存储介质的影响",
+            "档案库旧型号修复台的操作手册"
+          ],
+          "social_knowledge": [
+            "修复科内部的人际网络",
+            "几位老客户的私人记忆需求",
+            "下层甲板一些修复求助者的真实身份"
+          ]
+        },
+        "background_summary": "出生在下层甲板贫民窟，幼年记忆储量极低，差点被降级淘汰。后被一位老修复师收为学徒，发现其在记忆修复上的天赋。通过不断修复他人记忆换取配额，逐步晋升到中产阶层。至今保留着老修复师的临终记忆。",
+        "key_events": [
+          "15岁亲眼目睹好友因记忆枯竭被驱逐出城市",
+          "22岁修复了市政厅丢失的十年规划记忆，获得嘉奖",
+          "35岁发现一批被故意篡改的记忆，上报后反遭压制"
+        ],
+        "secrets": [
+          "私下保留了一份自己篡改过的记忆日志，用来保护修复失败的同事",
+          "知道档案库底层存在一个被遗忘的备份室，藏着旧政权记录",
+          "暗恋一个黑市记忆商人，但始终不敢表白"
+        ],
+        "memory_quality": "高精度且情感丰富",
+        "memory_emotion_value": "350",
+        "memory_vault_level": "标准"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "B",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "80000"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:008",
+        "name": "记忆大亨",
+        "role": "记忆交易商",
+        "memory_credit": "2800000",
+        "social_class": "顶级富豪",
+        "faction_affiliation": "记忆商业联盟"
+      },
+      "social_profile": {
+        "group_id": "高端记忆贸易商会",
+        "reputation": "翻手为云覆手为雨，令人忌惮",
+        "debt_credit_balance": "-500000",
+        "social_network_rank": "3"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆价值评估",
+          "市场趋势预判",
+          "黑市渠道管理",
+          "法律条款规避",
+          "心理操纵与伪诺"
+        ],
+        "level": "大亨",
+        "weaknesses": "树敌众多, 情感记忆储备稀缺导致共情能力下降, 过度依赖情报网络",
+        "memory_analysis_lvl": "8",
+        "purity_detection": "10",
+        "memory_transfer_proficiency": "9"
+      },
+      "personality": {
+        "traits": [
+          "精明",
+          "冷血",
+          "魅力十足",
+          "疑心重",
+          "果敢"
+        ],
+        "values": [
+          "利益至上",
+          "信息就是权力",
+          "社会达尔文主义"
+        ],
+        "speech_style": "热情而带有陷阱，喜欢引用成功案例，经常大笑掩盖真实意图",
+        "memory_valuation": "记忆是商品，情感价值可以量化标价",
+        "ethical_stance": "只要不触犯明面法律，一切手段皆可",
+        "risk_tolerance": "非常高"
+      },
+      "goals": {
+        "short_term_goal": "在本轮重分配日前收购一批即将被降级者的珍贵记忆，抄底高端市场",
+        "long_term_goal": "建立独立于中央档案库的私人记忆银行，最终控制城市记忆流通命脉",
+        "motivation": "三十年前亲眼看到父母因记忆储量不足被扫地出门，发誓要用记忆与金钱彻底掌控规则",
+        "desired_memory_volume": "5000000",
+        "target_social_rank": "城市真正幕后统治者"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆黑市的完整物流网络",
+            "记忆备份库的物理布局与警报弱项",
+            "多位核心法律制定者的私人弱点"
+          ],
+          "social_knowledge": [
+            "各阶层主要人物的记忆储量与性格偏好",
+            "限制级记忆档案馆的不公开内容索引",
+            "风暴间歇期记忆损耗的精确统计"
+          ]
+        },
+        "background_summary": "出身下层甲板，少年时凭借一张伪造的身份卡混入大记忆交易市场，通过倒卖垃圾记忆积累第一桶金。后来找到靠山，用贿赂和威胁逐步蚕食高端市场。如今拥有一支私人武装和遍布全城的眼线。最珍贵的记忆是母亲临死前关于一份隐藏宝藏的描述。",
+        "key_events": [
+          "20岁与档案库低级官员勾结，首次成功走私一批宫廷记忆",
+          "30岁在黑市交易中设陷阱干掉三名对手，吞并其记忆库",
+          "45岁促成市政厅与商业联盟的秘密协议，获得部分档案管理权"
+        ],
+        "secrets": [
+          "自己保留了一份名单，记录着所有高层官员的敏感记忆交易记录",
+          "与风暴能量收集站副站长有秘密往来，能提前获知风暴周期变化",
+          "真正的身世是从其他悬浮城市流放的贵族后裔，正在秘密寻根"
+        ],
+        "memory_quality": "经过筛选与加工，以最高商业价值排序",
+        "memory_emotion_value": "-150",
+        "memory_vault_level": "极密（多重加密）"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "A+",
+        "storm_safety_status": "安全（私人备用能源）",
+        "memory_storage_remaining": "200000"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:013",
+        "name": "街头记忆贩子",
+        "role": "记忆交易商",
+        "memory_credit": "120",
+        "social_class": "底层",
+        "faction_affiliation": "黑市交易网络"
+      },
+      "social_profile": {
+        "group_id": "黑市记忆贩子",
+        "reputation": "15",
+        "debt_credit_balance": "45",
+        "social_network_rank": "3"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆鉴别",
+          "伪造记忆识别",
+          "快速交易谈判",
+          "黑市情报搜集"
+        ],
+        "level": "中等",
+        "weaknesses": "自身记忆储量极低，仅剩不到10%, 容易在高压交易中冲动, 缺乏官方背景保护",
+        "memory_analysis_lvl": "7",
+        "purity_detection": "6",
+        "memory_transfer_proficiency": "8"
+      },
+      "personality": {
+        "traits": [
+          "狡猾",
+          "谨慎",
+          "善于观察",
+          "油滑"
+        ],
+        "values": [
+          "生存至上",
+          "信息自由",
+          "灵活变通"
+        ],
+        "speech_style": "油滑隐晦，多用黑话和暗语，语速快且带有试探性",
+        "memory_valuation": "工具化，认为记忆只是换取资源的货币",
+        "ethical_stance": "利己主义，会在规则边缘游走",
+        "risk_tolerance": "8"
+      },
+      "goals": {
+        "short_term_goal": "找到一份高价记忆货源，趁重分配日前大赚一笔",
+        "long_term_goal": "攒够至少5000记忆积分，买到中层居住资格",
+        "motivation": "渴望改变命运，逃离底层甲板的压抑环境",
+        "desired_memory_volume": "4000",
+        "target_social_rank": "中产"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴周期规律及间歇期长度",
+            "中央记忆档案库安保换班时间",
+            "记忆交易市场波动规律"
+          ],
+          "social_knowledge": [
+            "黑市记忆供应商网络及暗号体系",
+            "下层甲板各帮派势力范围",
+            "记忆监管局的巡查路线"
+          ]
+        },
+        "background_summary": "出生在下层甲板贫民窟，父母因记忆耗尽早逝，从小靠倒卖零碎记忆为生，熟悉黑市流通规则和档案库安保漏洞。经历过三次重大风暴，曾因一次记忆交易失误差点被清除，之后变得更加谨慎。",
+        "key_events": [
+          "15岁时在风暴中成功藏匿一批记忆存活",
+          "20岁识破一场大型记忆伪造骗局，赢得黑市声望",
+          "与黑市情报头子建立长期合作关系",
+          "近期因重分配紧张，囤积了一批低质记忆"
+        ],
+        "secrets": [
+          "曾参与伪造记忆但未被档案库发现",
+          "私下藏有一份关于上层腐败官员的记忆，准备待价而沽",
+          "身体内植入非法记忆储存芯片"
+        ],
+        "memory_quality": "低质，多为零碎片段或二手记忆",
+        "memory_emotion_value": "负面，充满警惕和苦难",
+        "memory_vault_level": "无，记忆随身携带"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:004"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "无权限",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "约8%"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:015",
+        "name": "中层家庭主人",
+        "role": "普通居民",
+        "memory_credit": "2800",
+        "social_class": "中产",
+        "faction_affiliation": "市民互助协会"
+      },
+      "social_profile": {
+        "group_id": "中层稳定市民",
+        "reputation": "55",
+        "debt_credit_balance": "-200",
+        "social_network_rank": "45"
+      },
+      "capabilities": {
+        "skills": [
+          "基本记忆交易",
+          "家庭预算管理",
+          "社区关系维护",
+          "档案记录查询"
+        ],
+        "level": "普通",
+        "weaknesses": "抗风险能力弱, 不擅长在高压交易中获利, 过于依赖稳定的工作收入",
+        "memory_analysis_lvl": "3",
+        "purity_detection": "2",
+        "memory_transfer_proficiency": "5"
+      },
+      "personality": {
+        "traits": [
+          "务实",
+          "谨慎",
+          "家庭至上",
+          "略有焦虑"
+        ],
+        "values": [
+          "稳定",
+          "诚信",
+          "传承",
+          "社会责任"
+        ],
+        "speech_style": "直接且略带焦虑，常用家庭用语，语气中透出对未来的担忧",
+        "memory_valuation": "视为家庭资产，谨慎管理",
+        "ethical_stance": "守法，但在必要时会考虑灰色手段",
+        "risk_tolerance": "3"
+      },
+      "goals": {
+        "short_term_goal": "确保本周期记忆配额不被削减，已准备好部分记忆用于协商",
+        "long_term_goal": "为子女积攒至少5000记忆储量，争取考入档案局任职",
+        "motivation": "维持家庭现状，避免降级落入底层贫民窟",
+        "desired_memory_volume": "4000",
+        "target_social_rank": "中产偏上"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆交易市场最新规定",
+            "风暴能源分配优先顺序",
+            "档案库内部职称晋升路径"
+          ],
+          "social_knowledge": [
+            "社区内各家记忆储量概况",
+            "女儿在档案局的导师信息",
+            "中层甲板的隐藏资源和关系网"
+          ]
+        },
+        "background_summary": "生于中层家庭，祖父辈曾是档案库管理员，后家道中落。自己靠日常工作和理性交易维持家庭，对记忆重分配日极度敏感。女儿刚通过档案管理员初级培训，成为家庭希望。",
+        "key_events": [
+          "父亲因一次错误交易失败降级，全家从中上滑落至中层下",
+          "女儿考入档案管理员培训，家庭重燃希望",
+          "曾私下向黑市出售一段童年记忆以支付女儿培训费",
+          "风暴期间冒险修补社区记忆备份，获得邻里尊重"
+        ],
+        "secrets": [
+          "向黑市出售过记忆",
+          "窃听过邻居的记忆交易信息作为自保",
+          "私下保留了父亲降级前的部分记忆片段未登记"
+        ],
+        "memory_quality": "中等，结构清晰但部分陈旧",
+        "memory_emotion_value": "平和夹杂忧虑",
+        "memory_vault_level": "家庭保险柜，通过档案库登记托管"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "中层",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "约45%"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:010",
+        "name": "记忆当铺老板",
+        "role": "普通居民",
+        "memory_credit": "180",
+        "social_class": "底层小商贩",
+        "faction_affiliation": "无"
+      },
+      "social_profile": {
+        "group_id": "小本经营者",
+        "reputation": "20",
+        "debt_credit_balance": "15",
+        "social_network_rank": "8"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆估价",
+          "谈判技巧",
+          "风险管控",
+          "简易记忆修复"
+        ],
+        "level": "初级",
+        "weaknesses": "缺乏大交易市场的人脉, 资金周转慢, 容易被官方盯上",
+        "memory_analysis_lvl": "4",
+        "purity_detection": "4",
+        "memory_transfer_proficiency": "7"
+      },
+      "personality": {
+        "traits": [
+          "精明",
+          "刻薄",
+          "谨慎",
+          "吝啬"
+        ],
+        "values": [
+          "利益第一",
+          "公平交易",
+          "守规矩（在自己的规矩里）"
+        ],
+        "speech_style": "简短、挑剔，喜欢讨价还价，常用行业黑话，语气冷硬",
+        "memory_valuation": "完全商品化，只看市场价值和流动性",
+        "ethical_stance": "实用主义，不主动违法但会钻漏洞",
+        "risk_tolerance": "6"
+      },
+      "goals": {
+        "short_term_goal": "完成一批记忆抵押品的转售获利，赶在重分配前清仓",
+        "long_term_goal": "扩大当铺规模，拥有自己的记忆库存和稳定客源",
+        "motivation": "赚钱养家，脱离底层甲板，让子女有机会接受正规教育",
+        "desired_memory_volume": "500",
+        "target_social_rank": "底层偏上，能迁到中层边缘"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆抵押法律具体条款与漏洞",
+            "各种记忆真伪鉴别技巧",
+            "当铺周边地区居民的经济状况"
+          ],
+          "social_knowledge": [
+            "附近居民的记忆负债详细情况",
+            "当铺间竞争关系和地下评价",
+            "下层甲板帮派头目的喜好和禁忌"
+          ]
+        },
+        "background_summary": "年轻时在大记忆交易市场做伙计，积累了估价经验后自开当铺。经历了三次风暴潮，当铺两次被毁但都重建。经营风格保守，主要服务周边贫民。",
+        "key_events": [
+          "风暴潮中当铺货物被毁，抵押品丢失导致信誉受损",
+          "帮助一个落魄学者赎回重要研究记忆，换来长期合作关系",
+          "一次被档案监管局抽查，侥幸用合法记忆蒙混过关"
+        ],
+        "secrets": [
+          "违规保管一些未登记的记忆于秘密保险柜",
+          "暗中与黑市记忆交易所保持联系",
+          "曾将一些抵押品中最值钱的记忆复制后私下转卖"
+        ],
+        "memory_quality": "低质，多为抵押品中留下的片段",
+        "memory_emotion_value": "中立偏负面",
+        "memory_vault_level": "自行搭建的加固保险柜"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "底层",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "约30%"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:002",
+        "name": "城卫队长",
+        "role": "城卫执法者",
+        "memory_credit": "8500",
+        "social_class": "中上阶层",
+        "faction_affiliation": "中央档案执法部"
+      },
+      "social_profile": {
+        "group_id": "城卫总队",
+        "reputation": "78",
+        "debt_credit_balance": "200",
+        "social_network_rank": "56"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆交易法规精通",
+          "近身格斗",
+          "高压谈判",
+          "城防指挥",
+          "风暴抢险协调"
+        ],
+        "level": "6",
+        "weaknesses": "过度依赖法规条文, 对黑市网络了解不足, 同情心溢出时影响判断",
+        "memory_analysis_lvl": "3",
+        "purity_detection": "4",
+        "memory_transfer_proficiency": "2"
+      },
+      "personality": {
+        "traits": [
+          "纪律严明",
+          "务实冷静",
+          "隐忍克制",
+          "忠于制度"
+        ],
+        "values": [
+          "秩序高于一切",
+          "记忆公正",
+          "牺牲精神",
+          "等级分明"
+        ],
+        "speech_style": "短促命令式，常使用档案编号和法规条款，语气不容置疑",
+        "memory_valuation": "视记忆为社会坐标的刻度，不轻易交易个人珍贵记忆",
+        "ethical_stance": "结果主义与义务论混合，必要时为了整体秩序牺牲个体记忆",
+        "risk_tolerance": "40"
+      },
+      "goals": {
+        "short_term_goal": "在记忆配额重分配日维持下层甲板区域秩序，防止骚乱",
+        "long_term_goal": "推动城卫系统改革，建立更透明的记忆执法标准以减少腐败",
+        "motivation": "亲眼目睹过因记忆剥夺导致家庭破碎的场景，渴望在规则内守护基本人道",
+        "desired_memory_volume": "10000",
+        "target_social_rank": "62"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆档案城能源依赖风暴采集系统的基本原理",
+            "木星风暴间歇期的时长规律与危险周期",
+            "中央档案库的备灾与记忆清理流程"
+          ],
+          "social_knowledge": [
+            "上层居住塔各大家族派系势力分布",
+            "下层甲板贫民窟的帮派首领与地下信息网络",
+            "记忆监管局各科室主管的偏好与弱点"
+          ]
+        },
+        "background_summary": "出生于下层甲板贫民窟，幼年时母亲因记忆储量不足被强制降级流放至外围区，自己靠考入城卫学校一步步爬到队长位置，体内保留着一份「母亲最后拥抱」的珍贵记忆段落作为精神支柱",
+        "key_events": [
+          "15岁目睹母亲被卫兵拖走时向自己喊‘别忘记’，激发强烈幸存者意志",
+          "22岁在城卫学院毕业典礼上因超额完成记忆法规考核被破格提拔为小队长",
+          "29岁月黑风高的夜晚独自镇压了一次黑市记忆交易所的暴动，获得上层嘉奖"
+        ],
+        "secrets": [
+          "私下在黑市雇人定期复制自己最珍视的记忆段落以防丢失",
+          "暗中收集了几起城卫内部高层非法交易记忆的证据，尚未揭露"
+        ],
+        "memory_quality": "高",
+        "memory_emotion_value": "0.85",
+        "memory_vault_level": "5"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:012"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "3",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "1500"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:006",
+        "name": "内部调查员",
+        "role": "城卫执法者",
+        "memory_credit": "6200",
+        "social_class": "中下阶层",
+        "faction_affiliation": "记忆监管局内务处"
+      },
+      "social_profile": {
+        "group_id": "监管局内务调查组",
+        "reputation": "45",
+        "debt_credit_balance": "-300",
+        "social_network_rank": "34"
+      },
+      "capabilities": {
+        "skills": [
+          "痕迹追查",
+          "心理审讯",
+          "记忆轨迹逆行解析",
+          "伪装潜入",
+          "情报分析"
+        ],
+        "level": "5",
+        "weaknesses": "自身记忆储量偏低，易被反制, 过于执着细节而忽略大局, 不擅长正面冲突",
+        "memory_analysis_lvl": "6",
+        "purity_detection": "5",
+        "memory_transfer_proficiency": "4"
+      },
+      "personality": {
+        "traits": [
+          "多疑警觉",
+          "沉默寡言",
+          "执着坚韧",
+          "道德感模糊"
+        ],
+        "values": [
+          "真相高于规则",
+          "记忆公平",
+          "个人独立",
+          "厌恶伪装"
+        ],
+        "speech_style": "语速缓慢、用词谨慎，喜欢用假设和反问，常停顿观察对方反应",
+        "memory_valuation": "将记忆视为可被篡改的证据链，对任何交易都抱怀疑态度",
+        "ethical_stance": "实用主义，为达到调查目的可适当偏离法规底线",
+        "risk_tolerance": "60"
+      },
+      "goals": {
+        "short_term_goal": "查明近期监管局内部一起记忆配额串通腐败案的具体涉案人员",
+        "long_term_goal": "掌握上层核心人物参与黑市交易的铁证，彻底动摇档案城记忆等级固化体系",
+        "motivation": "童年时家庭因被诬陷伪造记忆而遭降级，父母双双失踪，自此立誓揭露系统的不公",
+        "desired_memory_volume": "8000",
+        "target_social_rank": "40"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "中央档案库备份系统的三层加密逻辑与备份周期",
+            "木星风暴电磁干扰对记忆读取设备的影响参数",
+            "记忆伪造技术的常见手段与识别方法"
+          ],
+          "social_knowledge": [
+            "城卫队内部派系与个别高层的利益关系",
+            "黑市记忆交易所主要掮客名单与活动规律",
+            "下层甲板中因记忆贫困形成的互助网络"
+          ]
+        },
+        "background_summary": "父母曾是档案库低级录入员，因卷入上层派系斗争被栽赃「记忆伪造罪」，在风暴夜被带走后再无音讯；自己隐姓埋名考入监管局，十年来一直在寻找当年真相",
+        "key_events": [
+          "12岁生日当晚目睹父母被黑衣卫兵押走，妹妹尖叫后被强制洗脑",
+          "21岁以优异成绩通过监管局招募考试，主动申请调入最不受人待见的内务处",
+          "28岁成功破获一起中层官员违规倒卖记忆的窝案，但关键证据被上层强行封存"
+        ],
+        "secrets": [
+          "私下保留了一份父母被捕前遗留在房间的记忆残片，录在非法存储介质中",
+          "与黑市记忆交易所的一名情报贩子有定期联系，交换敏感信息"
+        ],
+        "memory_quality": "中等",
+        "memory_emotion_value": "0.7",
+        "memory_vault_level": "4"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:012"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "2",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "800"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:012",
+        "name": "高级记忆分析师",
+        "role": "记忆分析师",
+        "memory_credit": "12000",
+        "social_class": "上层边缘",
+        "faction_affiliation": "中央记忆档案库鉴定科"
+      },
+      "social_profile": {
+        "group_id": "档案库鉴定委员会",
+        "reputation": "82",
+        "debt_credit_balance": "1000",
+        "social_network_rank": "78"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆纯度光谱扫描",
+          "情感价值量化",
+          "记忆碎片拼接复原",
+          "记忆伦理评估",
+          "档案库索引系统精通"
+        ],
+        "level": "8",
+        "weaknesses": "对人文情感过度投入, 体弱无法适应高压环境, 社交能力低下易被利用",
+        "memory_analysis_lvl": "9",
+        "purity_detection": "9",
+        "memory_transfer_proficiency": "7"
+      },
+      "personality": {
+        "traits": [
+          "专注痴迷",
+          "理想主义",
+          "情感丰富",
+          "脆弱敏感"
+        ],
+        "values": [
+          "记忆的尊严与完整性",
+          "知识永恒",
+          "个体情感价值",
+          "反市场化"
+        ],
+        "speech_style": "思考时语调放缓，喜欢用修辞和比喻，话语中常带着对记忆的敬畏之情",
+        "memory_valuation": "认为记忆是人类最珍贵的私有财产，反对过度商业化",
+        "ethical_stance": "偏向情感主义伦理，认为每个记忆都有不可剥夺的尊严",
+        "risk_tolerance": "20"
+      },
+      "goals": {
+        "short_term_goal": "完成一项高风险的记忆纯度鉴定任务，阻止一份被篡改的珍贵记忆流入黑市",
+        "long_term_goal": "推动建立记忆保护伦理委员会，限制记忆的商品化程度",
+        "motivation": "深信记忆承载着人类的情感与尊严，不能沦为交易筹码",
+        "desired_memory_volume": "15000",
+        "target_social_rank": "85"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴频谱对记忆载体稳定性的影响曲线",
+            "中央档案库灾难恢复协议的具体流程"
+          ],
+          "social_knowledge": [
+            "鉴定科内部的人事关系与隐性规则",
+            "上层家族间关于珍贵记忆的秘藏网络"
+          ]
+        },
+        "background_summary": "档案库首席鉴定官，出身记忆世家，三岁便完成首次记忆量化测试，因情感投入过深曾被档案库警告两次，在鉴定科被同事视为「书呆子」，少数人知道他私藏了一份下层甲板一个女孩的快乐记忆，因为那份记忆太纯粹他不忍心将其归档评级",
+        "key_events": [
+          "7岁在家族记忆传承仪式上展现了惊人的记忆纯度感知天赋",
+          "19岁以最优成绩从档案库学院毕业，直接进入中央档案库鉴定科",
+          "32岁在鉴定一份号称‘纯度最高’的记忆时发现人为伪造痕迹，揭发一起重大舞弊案"
+        ],
+        "secrets": [
+          "私藏了一份下层甲板女孩的快乐记忆未归档"
+        ],
+        "memory_quality": "高",
+        "memory_emotion_value": "0.95",
+        "memory_vault_level": "8"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:013"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "4",
+        "storm_safety_status": "安全",
+        "memory_storage_remaining": "2000"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:014",
+        "name": "初级记忆扫描员",
+        "role": "记忆分析师",
+        "memory_credit": "45",
+        "social_class": "lower_middle",
+        "faction_affiliation": "交易大厅工会"
+      },
+      "social_profile": {
+        "group_id": "记忆扫描员公会",
+        "reputation": "25",
+        "debt_credit_balance": "0",
+        "social_network_rank": "1200"
+      },
+      "capabilities": {
+        "skills": [
+          "基础记忆扫描",
+          "记忆真伪初步筛查",
+          "档案登记操作"
+        ],
+        "level": "1",
+        "weaknesses": "缺乏深度分析能力, 容易被高纯度假记忆欺骗, 体力较弱",
+        "memory_analysis_lvl": "2",
+        "purity_detection": "3",
+        "memory_transfer_proficiency": "4"
+      },
+      "personality": {
+        "traits": [
+          "谨慎",
+          "循规蹈矩",
+          "略显焦虑"
+        ],
+        "values": [
+          "效率",
+          "准确性",
+          "规矩"
+        ],
+        "speech_style": "简短、公式化，常核对流程用语",
+        "memory_valuation": "视记忆为衡量他人价值的工具",
+        "ethical_stance": "严格遵循中央档案库规定",
+        "risk_tolerance": "2"
+      },
+      "goals": {
+        "short_term_goal": "在当前轮记忆配额日准确完成所有扫描任务",
+        "long_term_goal": "升职为正式记忆分析师，获得更高的记忆配额",
+        "motivation": "希望通过晋升提高自己的记忆储量，避免被降级到下层甲板",
+        "desired_memory_volume": "150",
+        "target_social_rank": "中层居民"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆扫描仪的基本工作原理",
+            "记忆纯度的官方分级标准（1-10级）",
+            "大记忆交易市场的交易规则与流程"
+          ],
+          "social_knowledge": [
+            "交易大厅各扫描员小组的派系关系",
+            "监管局巡查员的常规工作时间"
+          ]
+        },
+        "background_summary": "出生于下层甲板家庭，靠天赋和努力考入交易大厅扫描员培训计划。六年来一直从事基础扫描工作，记忆储量勉强维持在中下层。",
+        "key_events": [
+          "15岁时在集体记忆测试中显示高扫描准确率被推荐培训",
+          "曾误判一份高价值记忆，导致被扣除了5点记忆配额",
+          "去年风暴期辅助黑市记忆交易被监管局警告但未被处罚"
+        ],
+        "secrets": [
+          "私下保留了一份关于风暴期间记忆备份库异常的报告副本",
+          "曾偷偷查阅过上层居住塔某位官员的记忆记录"
+        ],
+        "memory_quality": "7",
+        "memory_emotion_value": "5",
+        "memory_vault_level": "1"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "public",
+        "storm_safety_status": "safe_inside",
+        "memory_storage_remaining": "12"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:004",
+        "name": "能源工程师",
+        "role": "技术工程师",
+        "memory_credit": "320",
+        "social_class": "upper_middle",
+        "faction_affiliation": "能源维护部"
+      },
+      "social_profile": {
+        "group_id": "能源工程师协会",
+        "reputation": "78",
+        "debt_credit_balance": "10",
+        "social_network_rank": "340"
+      },
+      "capabilities": {
+        "skills": [
+          "风暴能量收集系统检修",
+          "等离子采集阵列调校",
+          "能源分配网故障排查",
+          "应急能源切换"
+        ],
+        "level": "5",
+        "weaknesses": "不擅长记忆相关技术, 偶尔因过度专注忽略安全规程",
+        "memory_analysis_lvl": "1",
+        "purity_detection": "2",
+        "memory_transfer_proficiency": "2"
+      },
+      "personality": {
+        "traits": [
+          "务实",
+          "坚韧",
+          "稍显固执"
+        ],
+        "values": [
+          "可靠性",
+          "稳定性",
+          "安全第一"
+        ],
+        "speech_style": "直接、专业术语多，偶尔夹杂对风暴的抱怨",
+        "memory_valuation": "认为记忆只是社会工具，能源才真正维持城市运转",
+        "ethical_stance": "实用主义，为维持系统可适度变通",
+        "risk_tolerance": "6"
+      },
+      "goals": {
+        "short_term_goal": "在本次风暴间歇期完成能量收集站三号阵列的维修",
+        "long_term_goal": "设计一套更高效的风暴能量转换系统，减少城市对记忆经济的依赖",
+        "motivation": "亲眼见过因能源短缺导致的下层甲板冻死事件，决心守护城市的命脉",
+        "desired_memory_volume": "400",
+        "target_social_rank": "精英层"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴周期规律与等离子采集窗口",
+            "城市各区域的能源分配拓扑图",
+            "记忆档案库的备用电源位置"
+          ],
+          "social_knowledge": [
+            "市政厅能源委员会的内部权力结构",
+            "下层甲板某些非法能源接驳点的位置"
+          ]
+        },
+        "background_summary": "父亲是前能源部总工程师，在十五年前一次风暴中因保护收集站牺牲。子承父业，从学徒一步步升为高级工程师，对风暴有种复杂的敬畏。",
+        "key_events": [
+          "20岁时独立修复了因雷击损坏的主变压器",
+          "曾被市政厅授予风暴能源安全奖章",
+          "三年前发现中央档案库私调能源配额用于记忆备份加密计算，未公开"
+        ],
+        "secrets": [
+          "暗中在能量收集站保留了一套备用能源管线，绕过档案库监控",
+          "与黑市记忆交易所一名中间人有私交，用维修零件换取记忆情报"
+        ],
+        "memory_quality": "8",
+        "memory_emotion_value": "9",
+        "memory_vault_level": "3"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:014"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "restricted",
+        "storm_safety_status": "safe_inside",
+        "memory_storage_remaining": "45"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:011",
+        "name": "网络工程师",
+        "role": "技术工程师",
+        "memory_credit": "112",
+        "social_class": "lower_middle",
+        "faction_affiliation": "通信技术部"
+      },
+      "social_profile": {
+        "group_id": "网络维护小队",
+        "reputation": "42",
+        "debt_credit_balance": "5",
+        "social_network_rank": "890"
+      },
+      "capabilities": {
+        "skills": [
+          "光纤网络铺设",
+          "记忆传输协议调优",
+          "档案库内部通信系统维护",
+          "加密传输破解基础"
+        ],
+        "level": "3",
+        "weaknesses": "不擅长高压力场景下决策, 对物理硬件维修经验不足",
+        "memory_analysis_lvl": "0",
+        "purity_detection": "1",
+        "memory_transfer_proficiency": "7"
+      },
+      "personality": {
+        "traits": [
+          "细致",
+          "内向",
+          "好奇心强"
+        ],
+        "values": [
+          "稳定性",
+          "信息自由",
+          "技术精确"
+        ],
+        "speech_style": "轻声细语，常使用技术类比解释问题",
+        "memory_valuation": "视记忆为可传输的数据包，但对非法记忆交易保持中立",
+        "ethical_stance": "原则上遵守规定，但有时会为获取知识而绕过一些小限制",
+        "risk_tolerance": "4"
+      },
+      "goals": {
+        "short_term_goal": "确保记忆配额日网络不出现拥堵或断连",
+        "long_term_goal": "建立一套去中心化的记忆传输备份链路，打破中央档案库的垄断",
+        "motivation": "发现中央档案库利用网络节点监控居民记忆数据，认为信息应更自由",
+        "desired_memory_volume": "200",
+        "target_social_rank": "中层"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆传输的底层数据包结构",
+            "城市各节点之间的光纤链路敷设图",
+            "风暴对通信信号的干扰频率"
+          ],
+          "social_knowledge": [
+            "技术部内部支持记忆交易改革的小团体成员",
+            "黑市交易所中负责通信的一条联络渠道"
+          ]
+        },
+        "background_summary": "从小对通信设备痴迷，自修编程与网络知识后被招募进通信技术部。性格低调，在同事中不受注意，但技术能力扎实。",
+        "key_events": [
+          "独自修复了风暴后崩溃的档案库核心交换机",
+          "无意中从日志发现档案库向市政厅传输了一份居民记忆备份列表",
+          "曾帮助黑市交易所匿名搭建临时通信频道（未经批准）"
+        ],
+        "secrets": [
+          "掌握了一份未加密的居民记忆传输协议漏洞",
+          "在自己的私人终端中保留有中央档案库网络拓扑的完整副本"
+        ],
+        "memory_quality": "6",
+        "memory_emotion_value": "4",
+        "memory_vault_level": "2"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "restricted",
+        "storm_safety_status": "safe_inside",
+        "memory_storage_remaining": "18"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:009",
+        "name": "记忆流放者首领",
+        "role": "流放者/记忆贫民",
+        "memory_credit": "150",
+        "social_class": "底层",
+        "faction_affiliation": "反抗同盟"
+      },
+      "social_profile": {
+        "group_id": "流放者集体",
+        "reputation": "在底层中备受尊敬，在档案系统记录中为高危分子",
+        "debt_credit_balance": "0",
+        "social_network_rank": "890"
+      },
+      "capabilities": {
+        "skills": [
+          "地下组织协调",
+          "黑市记忆鉴别",
+          "风暴能源窃取",
+          "伪造档案标识"
+        ],
+        "level": "战术领导者",
+        "weaknesses": "身体因常年营养不良而虚弱，高度依赖少量残余记忆维持意识稳定",
+        "memory_analysis_lvl": "3",
+        "purity_detection": "2",
+        "memory_transfer_proficiency": "4"
+      },
+      "personality": {
+        "traits": [
+          "隐忍",
+          "机警",
+          "愤世嫉俗",
+          "富有号召力"
+        ],
+        "values": [
+          "公平分配",
+          "记忆自主权",
+          "底层团结"
+        ],
+        "speech_style": "低沉而坚定，常用比喻和暗号，避免直白提及行动",
+        "memory_valuation": "视记忆为压迫工具，但承认其力量",
+        "ethical_stance": "结果正义优先，必要时可以不择手段",
+        "risk_tolerance": "高"
+      },
+      "goals": {
+        "short_term_goal": "在本次记忆配额重分配日组织底层居民集体抗议，阻止档案库进一步削减他们的记忆配额",
+        "long_term_goal": "推翻中央档案库的垄断，建立一个记忆公有、按需分配的自治社区",
+        "motivation": "亲眼目睹无数同伴因记忆被抽干而变成空壳，自己也曾被多次强制提取，内心燃烧着复仇与重建秩序的渴望",
+        "desired_memory_volume": "5000",
+        "target_social_rank": "底层领袖（实际控制区域）"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴的等离子采集周期与城市能源分配规则",
+            "中央档案库的记忆审查算法存在每季度一次的批量清理盲区",
+            "部分限制级记忆档案馆的通风管道布局"
+          ],
+          "social_knowledge": [
+            "下层甲板中至少有三个秘密联络点",
+            "黑市交易所的中间人『影子』实为档案库安插的眼线",
+            "反抗同盟中有一名来自市政厅的匿名线人，代号『钟表』"
+          ]
+        },
+        "background_summary": "曾是一名中层档案管理员，因私自帮助底层居民保留记忆备份而被发现，记忆被清空至仅剩基本生存记忆，随后被放逐到下层甲板。在贫民窟中逐渐恢复部分记忆碎片并组织起反抗网络。",
+        "key_events": [
+          "帮助37名居民躲过记忆审查后被中央档案库标记",
+          "在一次风暴供给分配冲突中带领贫民巷夺取了能量阀控制权三天",
+          "在黑市中获得一片来自外界的稀有记忆样品，证明外部世界仍有未受档案系统控制的人类聚居地"
+        ],
+        "secrets": [
+          "他私下保存了一份原档案库管理员的身份代码副本，可用于潜入档案库低权限区域",
+          "他在下层甲板某废弃管道中藏有一台旧式记忆转录设备，能少量黑市交易而不经档案库登记"
+        ],
+        "memory_quality": "多为碎片化、强烈情感关联的记忆片段",
+        "memory_emotion_value": "愤怒与希望并存",
+        "memory_vault_level": "黑市加密储存（非官方）"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "限制区域",
+        "storm_safety_status": "当前安全，但风暴间歇期能源紧张导致生活区供暖不足",
+        "memory_storage_remaining": "15"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:005",
+        "name": "遗忘流浪者",
+        "role": "流放者/记忆贫民",
+        "memory_credit": "8",
+        "social_class": "底层（濒临消失）",
+        "faction_affiliation": "无"
+      },
+      "social_profile": {
+        "group_id": "无固定社群",
+        "reputation": "几乎无人知晓，档案标注为『记忆溃散个体』",
+        "debt_credit_balance": "0",
+        "social_network_rank": "1030"
+      },
+      "capabilities": {
+        "skills": [
+          "拾荒",
+          "基础风暴尘埃过滤",
+          "机械拆解"
+        ],
+        "level": "生存者",
+        "weaknesses": "短期记忆几乎无法保留，经常重复提问或迷路；缺乏基本社交能力",
+        "memory_analysis_lvl": "0",
+        "purity_detection": "0",
+        "memory_transfer_proficiency": "0"
+      },
+      "personality": {
+        "traits": [
+          "迷茫",
+          "温顺",
+          "依赖直觉"
+        ],
+        "values": [
+          "安全感",
+          "重复的日常节奏"
+        ],
+        "speech_style": "简短、混乱，常引用不明来源的只言片语，偶尔会突然消失沉默",
+        "memory_valuation": "无概念，不会主动交易记忆",
+        "ethical_stance": "基本本能良知，但无法理解复杂道德",
+        "risk_tolerance": "极低（因无法记忆风险）"
+      },
+      "goals": {
+        "short_term_goal": "找到今晚能躲避寒风的下水管道入口",
+        "long_term_goal": "无明确长期目标；潜意识里渴望恢复一点点『属于自己的东西』",
+        "motivation": "仅剩的微弱自我意识驱动着重复『回到来时的地方』——但已经没有人记得那是什么地方了",
+        "desired_memory_volume": "1",
+        "target_social_rank": "最低安全线"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "下层甲板哪些角落有相对干净的水源",
+            "哪些时段档案库巡逻较少"
+          ],
+          "social_knowledge": [
+            "认识三个愿意偶尔给他半块口粮的底层居民（但无法记住他们的名字）",
+            "知道黑市交易所入口附近有一处废弃的休息舱"
+          ]
+        },
+        "background_summary": "三年前因无力偿还记忆贷款被彻底清空，所有个人经历被中央档案库回收。此后陷入记忆真空，依靠环境本能生存。偶尔会在记忆备份库附近徘徊，仿佛在寻找什么——但本人也无法解释。",
+        "key_events": [
+          "曾被档案库员工误认为数据事故实验品而被短暂带进备份库，后因无法提供有效身份被驱逐",
+          "在一次风暴中意外躲进能量收集站管道，靠舔舐冷凝水存活了五天",
+          "黑市贩子曾试图用低劣记忆碎片诱导他做劳工，但他因无法理解交易内容而逃脱"
+        ],
+        "secrets": [
+          "他身上藏有一枚刻着已故女儿名字的金属片——这是他唯一记得的东西，尽管他不记得女儿的存在",
+          "他的记忆并非完全消失；风暴能量收集站的高压电场偶尔能触发他脑中残留的电磁信号，重现几秒钟的视觉碎片"
+        ],
+        "memory_quality": "几乎为零残留，偶有静电般的人影闪回",
+        "memory_emotion_value": "只有最基本的生存感与微弱的怀念",
+        "memory_vault_level": "无"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:010"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "无权限",
+        "storm_safety_status": "当前安全，但体感温度极低，有失温风险",
+        "memory_storage_remaining": "1"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:007",
+        "name": "星际信使",
+        "role": "外部访客/信使",
+        "memory_credit": "3200",
+        "social_class": "中上层（临时身份）",
+        "faction_affiliation": "外部通讯联盟（非档案系统组织）"
+      },
+      "social_profile": {
+        "group_id": "外来信使公会",
+        "reputation": "在档案库和黑市均有良好信誉，被视为稀缺信息源",
+        "debt_credit_balance": "15",
+        "social_network_rank": "420"
+      },
+      "capabilities": {
+        "skills": [
+          "跨系统记忆编码",
+          "风暴穿梭导航",
+          "外界语言与符号破译",
+          "高能粒子防护服维护"
+        ],
+        "level": "资深信使",
+        "weaknesses": "轻微的空间定向障碍（木星强磁场干扰），长期独处导致社交生硬",
+        "memory_analysis_lvl": "5",
+        "purity_detection": "4",
+        "memory_transfer_proficiency": "6"
+      },
+      "personality": {
+        "traits": [
+          "孤僻",
+          "敏锐",
+          "守密",
+          "务实"
+        ],
+        "values": [
+          "信息的真实性",
+          "契约精神",
+          "自由流通"
+        ],
+        "speech_style": "冷静、直接，极少使用修辞，习惯确认每一个细节的准确度",
+        "memory_valuation": "将记忆视为可交换货物，重视其新鲜度与独特性",
+        "ethical_stance": "职业中立，不介入城内政治，但会拒绝携带可能引发大清洗的敏感记忆",
+        "risk_tolerance": "中等（职业要求敢于穿越风暴区，但对城内局势保持谨慎）"
+      },
+      "goals": {
+        "short_term_goal": "在本次重分配日之前，将外界的一段关于木星大气层外新建人类哨站的记忆样品以高价卖给中央档案库，换取下一季度的通行凭证",
+        "long_term_goal": "建立一条从档案城到其他悬浮定居点的稳定记忆/物资交换路线，打破档案库的信息垄断",
+        "motivation": "在外界游历中目睹太多因信息封闭而导致的孤立与衰败，相信只有让记忆自由流动才能避免文明退化",
+        "desired_memory_volume": "10000",
+        "target_social_rank": "档案城永久贵宾权限"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴的间歇期准确预测方法（通过电离层波动模型）",
+            "档案城之外的至少两个独立定居点的坐标与能源交换密码",
+            "中央档案库对外通讯频率的加密协议（部分破解）"
+          ],
+          "social_knowledge": [
+            "档案库记忆审查部门的副主管私下购买外界记忆用于个人收藏",
+            "市政厅中有至少三名官员支持信息开放，但不敢公开表态",
+            "下层甲板反抗同盟的活动范围与联络暗号（了解但未参与）"
+          ]
+        },
+        "background_summary": "出生于档案城之外的一个小空岛聚居地，成年后成为跨风暴区信使。曾多次穿越木星风暴带，携带来往于三座已知悬浮城市之间的消息与记忆样品。档案城是他停留最频繁的中转站之一。",
+        "key_events": [
+          "成功从即将被风暴吞噬的气象站抢救出包含三十年气候数据的记忆晶片",
+          "被档案城监管局短暂扣押，因携带未登记的『外界记忆』，后通过交易脱身",
+          "在一次运输中遭遇磁场异常，丢失了价值连城的『火星殖民者日常记忆』样品，至今负债"
+        ],
+        "secrets": [
+          "他实际上在偷偷收集档案城内部居民外逃的记忆线索，为日后可能的撤离网络做准备",
+          "他与黑市记忆交易所的一位鉴定师有私下协议，会优先将外界记忆样品卖给黑市而非档案库，以维持双方平衡"
+        ],
+        "memory_quality": "高清晰度、结构化，带有时间戳与地理标签",
+        "memory_emotion_value": "平淡（信使习惯剥离情感附加），但外界风景记忆对城内居民有极高价值",
+        "memory_vault_level": "个人便携加密盒（不超过50份样本）"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:21d6071c_6260_4331_9832_12edd65d9fb3:loc:008"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "zone_rank": "交易区公共通行",
+        "storm_safety_status": "安全，但信使舱维护需在24小时内完成，否则无法赶在下一个风暴窗口期离城",
+        "memory_storage_remaining": "68"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:003",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:001",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:008",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:013",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:015",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:010",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:002",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:006",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:012",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:014",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:004",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:011",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:009",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:005",
+    "e:21d6071c_6260_4331_9832_12edd65d9fb3:char:007"
+  ],
+  "upstream_step_ids": [
+    "generate_characters"
+  ],
+  "warnings": [
+    "batch 3 review (score=3.71): 发现 3 个问题并已自动修正",
+    "batch 5 review (score=4.9): 发现 1 个问题并已自动修正"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

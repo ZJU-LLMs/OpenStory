@@ -1,0 +1,49 @@
+# ============================================================
+#  Agent 全局配置模版
+#  定义 Agent 实体的维度组成，每个维度引用独立的类型定义文件
+#  此文件结构固定，不随世界变化
+# ============================================================
+
+name: Agent
+entity_type: character
+
+dimensions:
+
+  # ── 角色档案 ──────────────────────────────────────────────
+  profile:
+    identity:
+      type: IdentityDim
+      path: dims/identity.yaml
+    social_profile:
+      type: SocialProfileDim
+      path: dims/social_profile.yaml
+    capabilities:
+      type: CapabilitiesDim
+      path: dims/capabilities.yaml
+
+  # ── 性格特质 ──────────────────────────────────────────────
+  personality:
+    personality:
+      type: PersonalityDim
+      path: dims/personality.yaml
+
+  # ── 价值观与记忆 ──────────────────────────────────────────
+  values:
+    goals:
+      type: GoalsDim
+      path: dims/goals.yaml
+    memories:
+      type: MemoriesDim
+      path: dims/memories.yaml
+
+  # ── 运行时状态 ──────────────────────────────────────────────
+  state:
+    state:
+      type: StateDim
+      path: dims/state.yaml
+
+  # Visual prompt used directly by downstream image generation
+  visual:
+    visual:
+      type: str
+      path: dims/visual.yaml

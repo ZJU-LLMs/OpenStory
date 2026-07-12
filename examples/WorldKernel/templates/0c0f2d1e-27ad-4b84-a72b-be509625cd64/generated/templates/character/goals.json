@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "immediate_wish",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "long_term_ambition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "conflict_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+path_type:
+  type: str
+  option: true
+name_meaning:
+  type: str
+  option: true
+decoration:
+  type: str
+  option: true
+significance:
+  type: str
+  option: true

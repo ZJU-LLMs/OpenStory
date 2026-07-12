@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "members",
+      "type": "list_str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "roles",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_criteria",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "caste_requirements",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "size_range",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recruitment_method",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "obligation_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "tenure_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

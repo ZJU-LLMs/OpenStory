@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "desired_memory_volume",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "target_social_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

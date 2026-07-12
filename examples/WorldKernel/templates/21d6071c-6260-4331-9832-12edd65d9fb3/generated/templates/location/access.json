@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_min_memory_quota",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "interior_security_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "visitor_policy_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_detection_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "clearance_override_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "biometric_scan_requirements",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

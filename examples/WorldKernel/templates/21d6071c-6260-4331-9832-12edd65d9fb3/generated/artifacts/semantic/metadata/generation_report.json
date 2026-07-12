@@ -1,0 +1,68 @@
+{
+  "world_id": "21d6071c-6260-4331-9832-12edd65d9fb3",
+  "success": true,
+  "source_ids": [
+    "primary"
+  ],
+  "execution_order": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "completed_steps": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "failed_step_id": null,
+  "warnings": [
+    "batch 3 review (score=3.71): 发现 3 个问题并已自动修正",
+    "batch 5 review (score=4.9): 发现 1 个问题并已自动修正",
+    "batch 1 review (score=4.714): 发现 2 个问题并已自动修正",
+    "batch 3 review (score=4.4): 发现 2 个问题并已自动修正",
+    "batch 4 review (score=4.0): 发现 4 个问题并已自动修正",
+    "batch 5 review (score=4.57): 发现 2 个问题并已自动修正"
+  ],
+  "errors": [],
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 17,
+    "character_profile": 15,
+    "path_edge": 24,
+    "relation_edge": 25
+  },
+  "timestamp": "2026-07-12T12:29:05.843866+00:00",
+  "debug_files": {},
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "21d6071c-6260-4331-9832-12edd65d9fb3",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\21d6071c-6260-4331-9832-12edd65d9fb3"
+    }
+  }
+}

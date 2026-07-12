@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "zone_hierarchy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "axial_position",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "corridor_connection",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "through_hall_design",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "courtyard_depth",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

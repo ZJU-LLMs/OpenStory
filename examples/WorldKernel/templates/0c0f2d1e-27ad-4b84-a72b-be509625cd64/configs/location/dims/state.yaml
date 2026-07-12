@@ -1,0 +1,22 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+spatial_layout:
+  type: str
+  option: true
+maintenance_level:
+  type: str
+  option: true
+usage_status:
+  type: str
+  option: true
+seasonal_variation:
+  type: str
+  option: true
+event_temporary_state:
+  type: str
+  option: true

@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "from_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "to_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "bidirectional",
+      "type": "bool",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "has_gate_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "has_steps",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "has_screen_wall",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "allows_palanquin",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "gender_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+social_network:
+  type: str
+  option: true
+standing_in_family:
+  type: str
+  option: true
+popularity:
+  type: str
+  option: true

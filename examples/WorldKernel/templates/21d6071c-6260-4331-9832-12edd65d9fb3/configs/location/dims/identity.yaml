@@ -1,0 +1,30 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+archived_memory_capacity:
+  type: str
+  option: true
+storm_resistance_rating:
+  type: str
+  option: true
+safety_rating:
+  type: str
+  option: true
+maintenance_team_size:
+  type: str
+  option: true
+energy_source:
+  type: str
+  option: true
+historical_significance:
+  type: str
+  option: true
+notable_occupants:
+  type: str
+  option: true

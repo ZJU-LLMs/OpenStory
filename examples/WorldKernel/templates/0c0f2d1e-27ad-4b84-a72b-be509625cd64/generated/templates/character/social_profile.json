@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "standing_in_family",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "popularity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

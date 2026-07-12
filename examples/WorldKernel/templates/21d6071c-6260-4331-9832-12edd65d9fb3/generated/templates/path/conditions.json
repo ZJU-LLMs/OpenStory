@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "storm_stability_index",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_contamination_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_pressure_gear",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "temporary_pass_allowed",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "evacuation_priority_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

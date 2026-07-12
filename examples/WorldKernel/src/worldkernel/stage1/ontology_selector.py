@@ -44,7 +44,7 @@ _FIXED_DIMENSIONS: dict[str, dict[str, list[FieldDef]]] = {
         "goals":          [_f("short_term_goal"), _f("long_term_goal"), _f("motivation")],
         "constraints":    [_f("forbidden_actions", "list_str"), _f("taboos", "list_str")],
         "state":          [_f("location_id", ref="location"), _f("position_x", "float"), _f("position_y", "float")],
-        "visual":         [_f("visual_description"), _f("visual_prompt")],
+        "visual":         [_f("visual")],
         "social_profile": [_f("group_id", ref="institution"), _f("reputation")],
         "memories":       [_f("background_summary"), _f("key_events", "list_str"),
                            _f("world_knowledge", "list_str"), _f("social_knowledge", "list_str"),
@@ -56,7 +56,7 @@ _FIXED_DIMENSIONS: dict[str, dict[str, list[FieldDef]]] = {
         "identity":  [_f("id"), _f("name"), _f("type"), _f("description")],
         "access":    [_f("permissions"), _f("access_level"), _f("access_conditions")],
         "state":     [_f("current_state"), _f("ownership"), _f("capacity", "int")],
-        "visual":    [_f("visual_description"), _f("visual_prompt")],
+        "visual":    [_f("visual")],
         # ── Topology（地图连通结构）─────────────────────────────────
         "topology":  [_f("connected_to", "list_str", ref="location"), _f("parent_id", ref="location"),
                       _f("layer"), _f("entrance_type")],
@@ -95,6 +95,10 @@ _FIXED_DIMENSIONS: dict[str, dict[str, list[FieldDef]]] = {
 
 # Entities whose dimensions must not receive LLM-generated extra fields.
 _FIXED_ONLY_ENTITIES: set[str] = {"relation"}
+_FIXED_ONLY_DIMENSIONS: set[tuple[str, str]] = {
+    ("character", "visual"),
+    ("location", "visual"),
+}
 
 
 def _format_dimensions(entity_key: str) -> str:
@@ -131,7 +135,10 @@ def _build_entity_template(entity_key: str, llm_data: dict) -> EntityTemplate:
     dimensions: dict[str, TemplateDimension] = {}
     for dim_name, fixed_fields in fixed_dims.items():
         dim_raw = raw_dims.get(dim_name, {})
-        extra_names = [] if entity_key in _FIXED_ONLY_ENTITIES else (dim_raw.get("extra") or dim_raw.get("special") or [])
+        if entity_key in _FIXED_ONLY_ENTITIES or (entity_key, dim_name) in _FIXED_ONLY_DIMENSIONS:
+            extra_names = []
+        else:
+            extra_names = dim_raw.get("extra") or dim_raw.get("special") or []
         existing_names = {f.name for f in fixed_fields}
         extra_fields = [
             _parse_extra_field(n)

@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "age",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "generation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "gender",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "relationship_to_jia",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "residence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fate_hint",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}
