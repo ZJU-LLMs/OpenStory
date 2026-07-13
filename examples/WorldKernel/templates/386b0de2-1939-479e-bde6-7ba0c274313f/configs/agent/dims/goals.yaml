@@ -1,0 +1,19 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+memory_accumulation_target:
+  type: str
+  option: true
+social_rank_aspiration:
+  type: str
+  option: true
+secret_vault_size_target:
+  type: str
+  option: true
+desired_memory_type:
+  type: str
+  option: true

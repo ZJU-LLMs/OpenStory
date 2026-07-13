@@ -1,0 +1,21 @@
+dim_name: EndpointsDim
+from_id:
+  type: str
+  ref: location
+to_id:
+  type: str
+  ref: location
+bidirectional:
+  type: bool
+connected_zone_heights:
+  type: str
+  option: true
+memory_flow_permitted:
+  type: str
+  option: true
+passage_class_restriction:
+  type: str
+  option: true
+black_market_access:
+  type: str
+  option: true

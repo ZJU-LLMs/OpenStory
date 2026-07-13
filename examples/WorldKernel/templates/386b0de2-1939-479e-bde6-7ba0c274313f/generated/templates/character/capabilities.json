@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_extraction_skill",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_storage_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_endurance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_market_contact_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -301,16 +301,23 @@
     const roadTiles = spatial.road_tiles || [];
     const spawns = spatial.spawn_points || [];
     const agents = runtime?.agents || [];
+    const compositedLayers = new Set(spatial?.visual?.background?.composited_layers || []);
 
     canvas.width = grid.width * tilePx;
     canvas.height = grid.height * tilePx;
     ctx.imageSmoothingEnabled = false;
     drawMapBase(grid);
 
-    for (const region of regions) {
-      drawRegion(region, selectedEntity?.type === 'location' && selectedEntity.id === region.location_id);
+    if (!compositedLayers.has('route_layer')) {
+      drawRoutes(routes, roadTiles);
     }
-    drawRoutes(routes, roadTiles);
+    for (const region of regions) {
+      drawRegion(
+        region,
+        selectedEntity?.type === 'location' && selectedEntity.id === region.location_id,
+        compositedLayers.has('location_placeholder_layer')
+      );
+    }
 
     const spawnById = new Map();
     for (const spawn of spawns) {
@@ -360,17 +367,34 @@
     }
   }
 
-  function drawRegion(region, selected) {
+  function drawRegion(region, selected, precomposited) {
     const unit = tilePx / 4;
     const b = region.bounds || {};
     const location = getLocationProfile(region.location_id) || region;
-    if (selected) {
-      ctx.fillStyle = 'rgba(232,199,102,0.28)';
-      ctx.fillRect(b.x * tilePx, b.y * tilePx, b.w * tilePx, b.h * tilePx);
+    const placeholderStyle = spatial?.visual?.location_placeholder_layer?.style || {};
+    const left = b.x * tilePx;
+    const top = b.y * tilePx;
+    const width = b.w * tilePx;
+    const height = b.h * tilePx;
+    if (!precomposited || selected) {
+      ctx.fillStyle = selected
+        ? (placeholderStyle.selected_fill_color || 'rgba(232,199,102,0.48)')
+        : (placeholderStyle.fill_color || 'rgba(45,55,78,0.64)');
+      ctx.fillRect(left, top, width, height);
     }
-    ctx.strokeStyle = selected ? 'rgba(130,76,24,0.94)' : 'rgba(96,72,39,0.2)';
-    ctx.lineWidth = (selected ? 1.5 : 0.6) * unit;
-    ctx.strokeRect(b.x * tilePx, b.y * tilePx, b.w * tilePx, b.h * tilePx);
+    if (!precomposited) {
+      ctx.fillStyle = selected ? 'rgba(255,255,255,0.16)' : 'rgba(255,255,255,0.1)';
+      for (let y = top + tilePx; y < top + height; y += tilePx) {
+        ctx.fillRect(left, y, width, Math.max(1, unit / 2));
+      }
+    }
+    if (!precomposited || selected) {
+      ctx.strokeStyle = selected
+        ? (placeholderStyle.selected_border_color || 'rgba(215,162,74,0.96)')
+        : (placeholderStyle.border_color || 'rgba(230,235,245,0.72)');
+      ctx.lineWidth = (selected ? 1.5 : 0.6) * unit;
+      ctx.strokeRect(left, top, width, height);
+    }
     const label = String(location.name || region.name || region.location_id || '地点');
     ctx.font = `700 ${7 * unit}px "Microsoft YaHei", sans-serif`;
     ctx.textAlign = 'center';
@@ -378,12 +402,12 @@
     const centerX = (b.x + b.w / 2) * tilePx;
     const centerY = (b.y + b.h / 2) * tilePx;
     const labelWidth = Math.min(Math.max(24 * unit, ctx.measureText(label).width + 8 * unit), Math.max(30 * unit, b.w * tilePx - 3 * unit));
-    ctx.fillStyle = selected ? 'rgba(255,226,143,0.94)' : 'rgba(248,225,177,0.84)';
+    ctx.fillStyle = selected ? 'rgba(88,61,30,0.9)' : 'rgba(27,34,49,0.84)';
     ctx.fillRect(centerX - labelWidth / 2, centerY - 6 * unit, labelWidth, 12 * unit);
-    ctx.strokeStyle = selected ? 'rgba(115,70,26,0.82)' : 'rgba(112,79,42,0.3)';
+    ctx.strokeStyle = selected ? 'rgba(246,201,99,0.9)' : 'rgba(230,235,245,0.46)';
     ctx.lineWidth = 0.7 * unit;
     ctx.strokeRect(centerX - labelWidth / 2 + 0.5 * unit, centerY - 5.5 * unit, labelWidth - unit, 11 * unit);
-    ctx.fillStyle = '#3b2a1a';
+    ctx.fillStyle = placeholderStyle.label_color || '#f4f6fb';
     ctx.fillText(label, centerX, centerY, labelWidth - 5 * unit);
   }
 

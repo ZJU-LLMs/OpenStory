@@ -1,0 +1,18 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+credit_grade:
+  type: str
+  option: true
+trade_reputation_score:
+  type: str
+  option: true
+faction:
+  type: str
+  option: true
+memory_trade_license_status:
+  type: str
+  option: true

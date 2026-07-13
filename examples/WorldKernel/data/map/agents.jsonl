@@ -1,15 +1,10 @@
-{"id": "纳威·隆巴顿", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:010", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004", "location": "大礼堂", "position": [99, 49]}
-{"id": "金妮·韦斯莱", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:006", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:008", "location": "赫奇帕奇公共休息室", "position": [55, 71]}
-{"id": "卢娜·洛夫古德", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:007", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004", "location": "大礼堂", "position": [109, 53]}
-{"id": "德拉科·马尔福", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:004", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:003", "location": "禁林", "position": [119, 71]}
-{"id": "米勒娃·麦格", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:008", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:002", "location": "黑魔法防御课教室", "position": [80, 26]}
-{"id": "菲利乌斯·弗立维", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:005", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:007", "location": "校医院", "position": [54, 57]}
-{"id": "阿米库斯·卡罗", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:002", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:020", "location": "变形术教室", "position": [138, 33]}
-{"id": "阿莱克托·卡罗", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:001", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:007", "location": "校医院", "position": [62, 59]}
-{"id": "阿格斯·费尔奇", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:003", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:018", "location": "尖叫棚屋", "position": [15, 11]}
-{"id": "尼古拉斯·德·敏西-波平顿爵士（几乎没头的尼克）", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:009", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:015", "location": "魁地奇球场", "position": [140, 69]}
-{"id": "皮皮鬼", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:011", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:001", "location": "咒语课教室", "position": [129, 27]}
-{"id": "西弗勒斯·斯内普 (校长)", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:015", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:014", "location": "级长盥洗室", "position": [35, 16]}
-{"id": "波莫娜·斯普劳特", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:012", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:005", "location": "格兰芬多公共休息室", "position": [29, 41]}
-{"id": "鲁伯·海格", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:013", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004", "location": "大礼堂", "position": [100, 51]}
-{"id": "西弗勒斯·斯内普", "wk_entity_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:char:014", "location_id": "e:f192c1c1_f353_4ef9_b25f_781b9c6b4780:loc:004", "location": "大礼堂", "position": [104, 50]}
+{"id": "卡斯特·维拉", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:002", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:002", "location": "黑市记忆交易所", "position": [26, 62]}
+{"id": "影像", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:004", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:006", "location": "高端私人提取站", "position": [100, 70]}
+{"id": "艾尔莎·诺恩", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:003", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:002", "location": "黑市记忆交易所", "position": [36, 66]}
+{"id": "李", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:005", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:001", "location": "废弃记忆库", "position": [40, 31]}
+{"id": "奥莉维亚·格雷", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:007", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:014", "location": "记忆管理委员会总部", "position": [89, 24]}
+{"id": "马克", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:006", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:005", "location": "边缘飘移居住区", "position": [69, 73]}
+{"id": "雷克斯", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:008", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:020", "location": "上层穹顶居住区", "position": [140, 64]}
+{"id": "安娜", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:001", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:005", "location": "边缘飘移居住区", "position": [77, 75]}
+{"id": "幽灵", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:010", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:018", "location": "风暴控制中心", "position": [43, 45]}
+{"id": "小七", "wk_entity_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:char:009", "location_id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:015", "location": "中层稳定居住区", "position": [132, 86]}

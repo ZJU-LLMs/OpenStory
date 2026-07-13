@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "hierarchy_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_shield_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_storage_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legal_memory_trade_license",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

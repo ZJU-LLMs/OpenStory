@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "enforcer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mechanism",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "detectability",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "monitoring_method",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "violation_detection_threshold",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enforcement_department_staffing",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

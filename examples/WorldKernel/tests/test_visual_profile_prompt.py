@@ -43,17 +43,15 @@ def test_background_prompt_prioritizes_fixed_style_and_civilized_world_props():
     assert "写实电影风格" not in prompt
     assert "晴川市" in prompt
     assert "公交站、停放车辆、喷泉、通用店铺外观" in prompt
-    assert "在可编辑区域内形成独立、完整、闭合且清晰可辨的整体" in prompt
-    assert "不得扩大或改变保护区域" in prompt
-    assert "地点矩形的边缘就是未来地点主体的精确边缘" in prompt
-    assert "不得在可编辑区域内另画一套保护区域" in prompt
-    assert "空白道路网络" in payload["negative_prompt"]
+    assert "完整落在深色可编辑区域内" in prompt
+    assert "不得修改、移动、缩放、复制或另画一套" in prompt
+    assert "中灰色矩形是未来地点图像的精确保留区" in prompt
+    assert "第二套道路占位" in payload["negative_prompt"]
     assert "允许保留较大开阔区域" in prompt
-    assert "完整性优先于数量" in prompt
-    assert "不得密集铺满地图" in prompt
+    assert "不要为了填满画面而增加主体" in prompt
     assert "装饰过度密集" in payload["negative_prompt"]
-    assert "视觉净空环内优先保持为开阔地表" in prompt
-    assert "建筑进入视觉净空环" in payload["negative_prompt"]
+    assert "保留区附近优先使用开阔地表" in prompt
+    assert "大型主体紧贴保留区边界" in payload["negative_prompt"]
     assert "禁止抗锯齿、柔焦、渐变模糊、抖色、点描" in prompt
 
 
@@ -73,5 +71,5 @@ def test_background_prompt_handles_worlds_without_location_slots():
     manifest = build_visual_layout_manifest(blueprint, {"visual_profile": {}}, Path("out"))
     payload = compose_background_prompt({"visual_profile": {}}, manifest)
 
-    assert "本次布局没有地点体块" in payload["prompt"]
+    assert "本次底板中没有地点保留区" in payload["prompt"]
     assert "从 1 到 0" not in payload["prompt"]

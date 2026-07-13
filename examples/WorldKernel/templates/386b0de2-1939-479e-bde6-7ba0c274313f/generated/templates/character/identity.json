@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_balance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "credit_grade",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "class_color_badge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "district_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "has_secret_vault",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

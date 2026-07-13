@@ -1,0 +1,93 @@
+{
+  "world_name": "风暴记忆城",
+  "world_origin_summary": "漂浮在木星风暴中的记忆经济城市，记忆成为货币，驱动社会运转与秩序维持。",
+  "primary": "dystopian_city",
+  "secondary": null,
+  "tags": [
+    "科幻",
+    "记忆经济",
+    "木星风暴",
+    "漂浮城市",
+    "社会阶层",
+    "反乌托邦"
+  ],
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "记忆交易市场开放日",
+    "trigger_event": "第一笔大型记忆交易在风暴眼广场完成，记忆货币体系正式启动",
+    "year": "2147",
+    "narrative_context": "随着记忆货币化，贫富差距急剧加剧，抵抗组织在暗处萌芽，城市秩序在风暴与监控中摇摆。"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来科幻，记忆技术主导的漂浮城市，木星风暴背景",
+    "color_palette": [
+      "风暴紫罗兰",
+      "天空蓝",
+      "记忆荧光绿",
+      "建筑象牙白",
+      "金属银"
+    ],
+    "lighting_weather": "城市恒定的人造日光，风暴边缘的紫色云层映照，柔和卡通阴影",
+    "material_texture": [
+      "光滑金属面板",
+      "发光记忆晶体",
+      "合成石材路面",
+      "透明能量护盾",
+      "像素化云层"
+    ],
+    "environmental_motifs": [
+      "悬浮平台与数据塔",
+      "记忆交换站",
+      "空中走廊与浮空艇",
+      "记忆存储罐与能量管道",
+      "荧光路标与记忆展示屏幕",
+      "交易公告板",
+      "风暴屏障边缘的紫色极光"
+    ],
+    "atmosphere": "bustling, stratified, surveilled, mysterious, hopeful undertones",
+    "edge_blending_style": "柔和像素羽化的地形边缘、自然遮挡与纹理过渡，便于后续叠加地点贴片",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要天空",
+      "不要地平线",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "world_constraints": [
+    {
+      "constraint_id": "memory_currency_foundation",
+      "name": "记忆货币化根基",
+      "description": "所有社会价值基于可提取、储存、交易、继承的记忆，记忆即财富。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "class_stratification",
+      "name": "阶层固化结构",
+      "description": "记忆财富决定社会地位与居住区域，下层市民几乎无法通过合法途径上升。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "storm_survival_imperative",
+      "name": "风暴生存依赖",
+      "description": "城市必须持续消耗能量维持漂浮与护盾，能量来源与记忆提取及转化密切相关。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "privacy_erosion",
+      "name": "记忆隐私侵蚀",
+      "description": "在记忆经济体系中，记忆可被强制提取，导致社会监控与思想控制普遍存在。",
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "step_id": "generate_locations",
+      "generator_type": "location_generator",
+      "target_entity_type": "location",
+      "batch_size": 6,
+      "priority": 1,
+      "description": "生成所有地点实体，包括交易市场、存储设施、居住区、管理中心、观测站、交通枢纽和地下黑市"
+    },
+    {
+      "step_id": "generate_paths",
+      "generator_type": "path_generator",
+      "target_entity_type": "path",
+      "batch_size": 5,
+      "priority": 2,
+      "description": "生成地点之间的路径和通道，如空中走廊、管道电梯、货运索道等"
+    },
+    {
+      "step_id": "generate_characters",
+      "generator_type": "character_generator",
+      "target_entity_type": "character",
+      "batch_size": 6,
+      "priority": 3,
+      "description": "生成所有角色实体，包括商人、管理者、技师、市民、抵抗组织成员和工人"
+    },
+    {
+      "step_id": "generate_relations",
+      "generator_type": "relation_generator",
+      "target_entity_type": "relation",
+      "batch_size": 8,
+      "priority": 4,
+      "description": "生成角色之间的关系，如交易、统治、反抗、提取、依赖等"
+    }
+  ]
+}

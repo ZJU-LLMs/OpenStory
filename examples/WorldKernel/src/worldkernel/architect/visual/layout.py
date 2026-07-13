@@ -62,8 +62,13 @@ def build_visual_layout_manifest(
         prompt_path=str(root / "background_prompt.json") if output_root else "background_prompt.json",
         metadata_path=str(root / "background_metadata.json") if output_root else "background_metadata.json",
         layout_preview_path=str(root / "layout_preview.png") if output_root else "layout_preview.png",
-        control_image_path=str(root / "generation_control.png") if output_root else "generation_control.png",
-        mask_path=str(root / "generation_mask.png") if output_root else "generation_mask.png",
+        control_image_path=str(root / "generation_edit_base.png") if output_root else "generation_edit_base.png",
+        mask_path=str(root / "generation_edit_mask.png") if output_root else "generation_edit_mask.png",
+        edit_base_path=str(root / "generation_edit_base.png") if output_root else "generation_edit_base.png",
+        edit_mask_path=str(root / "generation_edit_mask.png") if output_root else "generation_edit_mask.png",
+        debug_mask_path=str(root / "generation_mask.png") if output_root else "generation_mask.png",
+        location_mask_path=str(root / "generation_location_mask.png") if output_root else "generation_location_mask.png",
+        road_mask_path=str(root / "generation_road_mask.png") if output_root else "generation_road_mask.png",
         target_size={"width": canvas["width_px"], "height": canvas["height_px"]},
     )
 
@@ -117,6 +122,7 @@ def build_visual_layout_manifest(
                 "color_palette": profile.get("color_palette", []),
                 "material_texture": profile.get("material_texture", []),
                 "edge_blending_style": profile.get("edge_blending_style", ""),
+                "reserved_asset_coverage": "opaque_exact_bounds",
             },
             "background_forbidden": ["道路", "具体地点", "人物", "文字", "界面元素"],
         },
@@ -124,6 +130,7 @@ def build_visual_layout_manifest(
             "source": "spatial_blueprint",
             "slot_count": len(slots),
             "location_patch_generation": "disabled",
-            "layout_control": "stage2_mask",
+            "layout_control": "full_size_edit_base_with_hard_mask",
+            "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved",
         },
     )

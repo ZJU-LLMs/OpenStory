@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "scope",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "regulated_memory_category",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "applicable_zone",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "effective_period",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

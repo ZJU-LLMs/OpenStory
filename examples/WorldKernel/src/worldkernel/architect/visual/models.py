@@ -27,8 +27,14 @@ class VisualBackgroundAsset(BaseModel):
     layout_preview_path: str = ""
     control_image_path: str = ""
     mask_path: str = ""
+    edit_base_path: str = ""
+    edit_mask_path: str = ""
+    debug_mask_path: str = ""
+    location_mask_path: str = ""
+    road_mask_path: str = ""
     target_size: dict[str, int] = Field(default_factory=dict)
     generation_strategy: str = ""
+    composited_layers: list[str] = Field(default_factory=list)
     error: str = ""
 
 

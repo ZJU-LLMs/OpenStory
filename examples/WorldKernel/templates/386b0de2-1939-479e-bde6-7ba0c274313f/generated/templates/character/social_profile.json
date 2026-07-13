@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "credit_grade",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trade_reputation_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_trade_license_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

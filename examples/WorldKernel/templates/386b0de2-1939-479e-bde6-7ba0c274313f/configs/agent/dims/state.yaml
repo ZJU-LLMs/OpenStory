@@ -1,0 +1,22 @@
+dim_name: StateDim
+location:
+  location_id:
+    type: str
+    ref: location
+position:
+  x:
+    type: float
+  y:
+    type: float
+current_memory_balance:
+  type: str
+  option: true
+fatigue_level:
+  type: str
+  option: true
+storm_noise_exposure:
+  type: str
+  option: true
+energy_shield_status:
+  type: str
+  option: true

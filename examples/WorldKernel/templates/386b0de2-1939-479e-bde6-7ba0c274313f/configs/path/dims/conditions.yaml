@@ -1,0 +1,19 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+memory_toll_required:
+  type: str
+  option: true
+storm_safe_interval:
+  type: str
+  option: true
+permit_expiration:
+  type: str
+  option: true
+memory_erasure_risk:
+  type: str
+  option: true

@@ -9,7 +9,12 @@ from PIL import Image
 import pytest
 
 from worldkernel.architect.spatial.models import BlueprintGrid, BlueprintRegion, GridPoint, SpatialBlueprint
-from worldkernel.architect.visual.control import composite_protected_background
+from worldkernel.architect.visual.control import (
+    EDITABLE_BASE_COLOR,
+    LOCATION_RESERVED_COLOR,
+    ROAD_RESERVED_COLOR,
+    finalize_generated_background,
+)
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
 from worldkernel.architect.visual.pipeline import run_visual_pipeline
 
@@ -26,7 +31,13 @@ def test_manifest_uses_strict_route_and_location_placeholder_layers():
     assert manifest.location_placeholder_layer.status == "ready"
     assert manifest.location_placeholder_layer.show_names is True
     assert manifest.canvas["visual_clearance_tiles"] == 2
-    assert Path(manifest.background.control_image_path).name == "generation_control.png"
+    assert Path(manifest.background.control_image_path).name == "generation_edit_base.png"
+    assert Path(manifest.background.mask_path).name == "generation_edit_mask.png"
+    assert Path(manifest.background.edit_base_path).name == "generation_edit_base.png"
+    assert Path(manifest.background.edit_mask_path).name == "generation_edit_mask.png"
+    assert Path(manifest.background.debug_mask_path).name == "generation_mask.png"
+    assert Path(manifest.background.location_mask_path).name == "generation_location_mask.png"
+    assert Path(manifest.background.road_mask_path).name == "generation_road_mask.png"
     assert all(slot.safe_padding_px == 0 for slot in manifest.slots)
     assert manifest.decorations == []
     assert manifest.location_patches == []
@@ -37,7 +48,20 @@ def test_manifest_uses_strict_route_and_location_placeholder_layers():
     ]
 
 
-def test_pipeline_writes_layout_preview_base_and_protection_mask():
+def test_frontend_draws_routes_before_opaque_location_placeholders():
+    frontend_path = Path(__file__).resolve().parents[1] / "frontend" / "simulation-modern.js"
+    source = frontend_path.read_text(encoding="utf-8")
+    render_map = source[source.index("function renderMap()") : source.index("function drawMapBase(grid)")]
+    draw_region = source[source.index("function drawRegion(") : source.index("function drawRoutes")]
+
+    assert render_map.index("drawRoutes(routes, roadTiles)") < render_map.index("for (const region of regions)")
+    assert "ctx.fillRect(left, top, width, height)" in draw_region
+    assert "location_placeholder_layer?.style" in draw_region
+    assert "compositedLayers.has('route_layer')" in render_map
+    assert "compositedLayers.has('location_placeholder_layer')" in render_map
+
+
+def test_pipeline_writes_exact_size_edit_base_and_hard_mask():
     output_root = Path(__file__).resolve().parent / f".tmp_visual_control_{uuid4().hex}"
     try:
         manifest = run_visual_pipeline(
@@ -53,51 +77,67 @@ def test_pipeline_writes_layout_preview_base_and_protection_mask():
 
         assert manifest.background.status == "prompt_ready"
         assert (output_root / "layout_preview.png").exists()
-        assert (output_root / "generation_base.png").exists()
-        assert (output_root / "generation_control.png").exists()
+        assert not (output_root / "generation_base.png").exists()
+        assert not (output_root / "generation_control.png").exists()
+        assert (output_root / "generation_edit_base.png").exists()
+        assert (output_root / "generation_edit_mask.png").exists()
+        assert (output_root / "generation_location_mask.png").exists()
+        assert (output_root / "generation_road_mask.png").exists()
         assert (output_root / "generation_mask.png").exists()
         assert not (output_root / "background.png").exists()
 
-        mask = Image.open(output_root / "generation_mask.png").convert("RGBA").getchannel("A")
-        base = Image.open(output_root / "generation_base.png").convert("RGB")
-        control = Image.open(output_root / "generation_control.png").convert("RGB")
+        mask = Image.open(output_root / "generation_mask.png").convert("L")
+        edit_base = Image.open(output_root / "generation_edit_base.png").convert("RGB")
+        edit_mask = Image.open(output_root / "generation_edit_mask.png")
+        location_mask = Image.open(output_root / "generation_location_mask.png").convert("L")
+        road_mask = Image.open(output_root / "generation_road_mask.png").convert("L")
         assert mask.size == (480, 320)
+        assert edit_base.size == mask.size
+        assert edit_mask.size == mask.size
+        assert edit_mask.mode == "RGBA"
+        assert location_mask.size == mask.size
+        assert road_mask.size == mask.size
         assert mask.getpixel((7 * 16, 6 * 16)) == 255
         assert mask.getpixel((12 * 16, 10 * 16)) == 255
         assert mask.getpixel((12 * 16, 10 * 16 - 1)) == 0
         assert mask.getpixel((12 * 16, 11 * 16)) == 0
         assert mask.getpixel((240, 300)) == 0
         assert mask.getpixel((2 * 16, 2 * 16)) == 0
-        assert control.getpixel((7 * 16, 6 * 16)) != base.getpixel((7 * 16, 6 * 16))
-        assert control.getpixel((12 * 16, 10 * 16)) != base.getpixel((12 * 16, 10 * 16))
-        assert control.getpixel((12 * 16, 10 * 16 - 1)) == base.getpixel((12 * 16, 10 * 16 - 1))
-        assert control.getpixel((2 * 16, 2 * 16)) != base.getpixel((2 * 16, 2 * 16))
+        assert location_mask.getpixel((7 * 16, 6 * 16)) == 255
+        assert location_mask.getpixel((12 * 16, 10 * 16)) == 0
+        assert road_mask.getpixel((7 * 16, 6 * 16)) == 0
+        assert road_mask.getpixel((12 * 16, 10 * 16)) == 255
+        assert edit_base.getpixel((7 * 16, 6 * 16)) == LOCATION_RESERVED_COLOR
+        assert edit_base.getpixel((12 * 16, 10 * 16)) == ROAD_RESERVED_COLOR
+        assert edit_base.getpixel((2 * 16, 2 * 16)) == EDITABLE_BASE_COLOR
+        assert edit_mask.getpixel((7 * 16, 6 * 16))[3] == 255
+        assert edit_mask.getpixel((12 * 16, 10 * 16))[3] == 255
+        assert edit_mask.getpixel((2 * 16, 2 * 16))[3] == 0
 
         prompt = json.loads((output_root / "background_prompt.json").read_text(encoding="utf-8"))
         assert prompt["target_size"] == {"width": 480, "height": 320}
-        assert "60%" not in prompt["prompt"]
-        assert "地点矩形区域和道路网格已经从可编辑区域中精确扣除" in prompt["prompt"]
+        assert "第一张输入底板" in prompt["prompt"]
         assert "原生 tile/sprite 像素美术语言" in prompt["prompt"]
-        assert "不再进行图像采样" not in prompt["prompt"]
-        assert "填满可编辑区域" not in prompt["prompt"]
-        assert "不要求风物覆盖每一处" in prompt["prompt"]
-        assert "装饰保持中等密度" in prompt["prompt"]
-        assert "布局控制参考图共有 2 个带编号的地点体块" in prompt["prompt"]
-        assert "不得遗漏任何编号对应的占用区域" in prompt["prompt"]
-        assert "2 个网格宽的视觉净空环" in prompt["prompt"]
-        assert "不是地点蒙版，也不会改变地点贴片尺寸" in prompt["prompt"]
-        assert "先确认其屋顶、墙体、底座、轮廓、附属结构和阴影全部位于可编辑区域" in prompt["prompt"]
-        assert "已经被未来建筑、院落或场所占用的位置" in prompt["prompt"]
-        assert "与蒙版完全重合，是必须保留的真实空间约束" in prompt["prompt"]
-        assert "不得在原始位置旁边生成第二个偏移建筑体块" in prompt["prompt"]
-        assert "不得先设计跨越体块的大型建筑或设施" in prompt["prompt"]
-        assert "被地点矩形挖去一块的建筑" in prompt["prompt"]
+        assert "共有 2 个中灰色地点保留区" in prompt["prompt"]
+        assert "所有保留区都已由硬蒙版锁定" in prompt["prompt"]
+        assert "不得跨入灰色保留区" in prompt["prompt"]
+        assert "不要沿灰色区域增加外轮廓、描边、阴影、光晕或底座" in prompt["prompt"]
+        assert "允许保留较大开阔区域" in prompt["prompt"]
+        assert "Stage2" not in prompt["prompt"]
+        assert "空间蓝图" not in prompt["prompt"]
+        assert "默认草地" in prompt["negative_prompt"]
+        assert "所有世界都是草地" in prompt["negative_prompt"]
+
+        metadata = json.loads((output_root / "background_metadata.json").read_text(encoding="utf-8"))
+        assert metadata["location_region_count"] == 2
+        assert metadata["road_tile_count"] == 20
+        assert metadata["mask_semantics"] == "transparent_pixels_editable_opaque_pixels_preserved"
 
     finally:
         shutil.rmtree(output_root, ignore_errors=True)
 
 
-def test_generated_background_uses_one_global_masked_edit(monkeypatch):
+def test_generated_background_uses_one_layout_guided_edit(monkeypatch):
     output_root = Path(__file__).resolve().parent / f".tmp_visual_single_edit_{uuid4().hex}"
     calls: list[dict] = []
 
@@ -108,7 +148,13 @@ def test_generated_background_uses_one_global_masked_edit(monkeypatch):
         def generate(self, prompt, output_path, **kwargs):
             output = Path(output_path)
             width, height = (int(value) for value in kwargs["size"].split("x"))
-            Image.new("RGB", (width, height), (190, 80, 60)).save(output)
+            generated = Image.new("RGB", (width, height), (190, 80, 60))
+            with Image.open(kwargs["input_image_path"]) as input_image:
+                source = input_image.convert("RGB")
+            with Image.open(kwargs["mask_path"]) as mask_image:
+                protected = mask_image.getchannel("A")
+            generated.paste(source, mask=protected)
+            generated.save(output)
             calls.append({"output": output, "prompt": prompt, **kwargs})
             return {"provider": "fake", "model": "fake-image", "api_style": "fake", "size": kwargs["size"]}
 
@@ -123,28 +169,64 @@ def test_generated_background_uses_one_global_masked_edit(monkeypatch):
         )
 
         assert manifest.background.status == "ready"
-        assert manifest.background.generation_strategy == "single_global_masked_edit"
+        assert manifest.background.generation_strategy == "single_hard_mask_edit"
+        assert manifest.background.composited_layers == ["route_layer", "location_placeholder_layer"]
         assert len(calls) == 1
         assert calls[0]["output"].name == "background_raw.png"
-        assert Path(calls[0]["input_image_path"]).name == "generation_base.png"
-        assert Path(calls[0]["mask_path"]).name == "generation_mask.png"
+        assert Path(calls[0]["input_image_path"]).name == "generation_edit_base.png"
+        assert Path(calls[0]["mask_path"]).name == "generation_edit_mask.png"
         assert [Path(path).name for path in calls[0]["style_reference_paths"]] == [
             "pixel_style_reference.png",
-            "generation_control.png",
         ]
-        assert "第三张图像是布局控制参考图" in calls[0]["prompt"]
-        assert "必须逐一检查控制图中的每个编号体块" in calls[0]["prompt"]
-        assert "不要求风物覆盖每一处" in calls[0]["prompt"]
-        assert "完整性优先于数量" in calls[0]["prompt"]
+        assert "第一张图是与输出完全同尺寸的地图编辑底板" in calls[0]["prompt"]
+        assert "中灰色矩形是地点保留区" in calls[0]["prompt"]
+        assert "浅灰色狭长区域是道路保留区" in calls[0]["prompt"]
+        assert "允许保留较大开阔区域" in calls[0]["prompt"]
         final = Image.open(output_root / "background.png").convert("RGB")
-        base = Image.open(output_root / "generation_base.png").convert("RGB")
-        assert final.getpixel((7 * 16, 6 * 16)) == base.getpixel((7 * 16, 6 * 16))
+        raw = Image.open(output_root / "background_raw.png").convert("RGB")
+        assert raw.getpixel((7 * 16, 6 * 16)) == LOCATION_RESERVED_COLOR
+        assert raw.getpixel((int(12.5 * 16), int(10.5 * 16))) == ROAD_RESERVED_COLOR
+        assert final.getpixel((7 * 16, 6 * 16)) != LOCATION_RESERVED_COLOR
+        assert final.getpixel((int(12.5 * 16), int(10.5 * 16))) != ROAD_RESERVED_COLOR
         assert final.getpixel((240, 300)) == (190, 80, 60)
+
+        metadata = json.loads((output_root / "background_metadata.json").read_text(encoding="utf-8"))
+        assert metadata["mask_validation"]["passed"] is True
+        assert metadata["mask_validation"]["changed_pixels"] == 0
     finally:
         shutil.rmtree(output_root, ignore_errors=True)
 
 
-def test_final_composite_restores_protected_pixels_and_keeps_free_area():
+def test_pipeline_rejects_provider_that_ignores_hard_mask(monkeypatch):
+    output_root = Path(__file__).resolve().parent / f".tmp_visual_ignored_mask_{uuid4().hex}"
+
+    class IgnoringImageClient:
+        def __init__(self, config):
+            self.config = config
+
+        def generate(self, prompt, output_path, **kwargs):
+            width, height = (int(value) for value in kwargs["size"].split("x"))
+            Image.new("RGB", (width, height), (250, 20, 20)).save(output_path)
+            return {"provider": "fake", "model": "fake-image", "api_style": "fake"}
+
+    monkeypatch.setattr("worldkernel.architect.visual.pipeline.ImageGenerationClient", IgnoringImageClient)
+    try:
+        manifest = run_visual_pipeline(
+            blueprint=_sample_blueprint(),
+            world_background={"visual_profile": {}},
+            output_root=output_root,
+            model_config_path=Path(__file__).resolve().parents[1] / "configs" / "image_models.yaml",
+            generate_background=True,
+        )
+
+        assert manifest.background.status == "failed"
+        assert "ignored one or more hard-mask regions" in manifest.background.error
+        assert not (output_root / "background.png").exists()
+    finally:
+        shutil.rmtree(output_root, ignore_errors=True)
+
+
+def test_final_background_composites_all_coordinate_layers():
     output_root = Path(__file__).resolve().parent / f".tmp_visual_composite_{uuid4().hex}"
     try:
         run_visual_pipeline(
@@ -157,43 +239,43 @@ def test_final_composite_restores_protected_pixels_and_keeps_free_area():
         generated_path = output_root / "generated.png"
         final_path = output_root / "final.png"
         Image.new("RGB", (480, 320), (220, 30, 30)).save(generated_path)
-        metadata = composite_protected_background(
+        metadata = finalize_generated_background(
             generated_path,
-            output_root / "generation_base.png",
-            output_root / "generation_mask.png",
             final_path,
             target_size=(480, 320),
+            blueprint=_sample_blueprint(),
+            route_style={"base_color": "#b99d5c", "edge_color": "#8f7744", "highlight_color": "#d2bb75"},
+            placeholder_style={"fill_color": "rgba(45,55,78,0.64)", "border_color": "#e6ebf5"},
         )
 
         final = Image.open(final_path).convert("RGB")
-        base = Image.open(output_root / "generation_base.png").convert("RGB")
-        assert final.getpixel((7 * 16, 6 * 16)) == base.getpixel((7 * 16, 6 * 16))
+        assert final.getpixel((7 * 16, 6 * 16)) != (220, 30, 30)
+        assert final.getpixel((int(12.5 * 16), int(10.5 * 16))) != (220, 30, 30)
         assert final.getpixel((240, 300)) == (220, 30, 30)
         assert metadata["resized"] is False
         assert metadata["postprocessing"] == "none"
         assert metadata["output_size"] == {"width": 480, "height": 320}
+        assert metadata["route_tile_count"] == 20
+        assert metadata["location_placeholder_count"] == 2
     finally:
         shutil.rmtree(output_root, ignore_errors=True)
 
 
-def test_composite_rejects_wrong_model_size_instead_of_resampling():
+def test_finalization_rejects_wrong_model_size_instead_of_resampling():
     output_root = Path(__file__).resolve().parent / f".tmp_visual_wrong_size_{uuid4().hex}"
     output_root.mkdir(parents=True)
     try:
         generated_path = output_root / "generated.png"
-        base_path = output_root / "base.png"
-        mask_path = output_root / "mask.png"
         Image.new("RGB", (100, 100), (20, 30, 40)).save(generated_path)
-        Image.new("RGB", (200, 100), (50, 60, 70)).save(base_path)
-        Image.new("RGBA", (200, 100), (255, 255, 255, 0)).save(mask_path)
 
         with pytest.raises(ValueError, match="does not match target size"):
-            composite_protected_background(
+            finalize_generated_background(
                 generated_path,
-                base_path,
-                mask_path,
                 output_root / "final.png",
                 target_size=(200, 100),
+                blueprint=_sample_blueprint(),
+                route_style={},
+                placeholder_style={},
             )
     finally:
         shutil.rmtree(output_root, ignore_errors=True)
