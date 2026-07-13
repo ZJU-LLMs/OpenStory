@@ -41,9 +41,6 @@ def run_visual_pipeline(
     manifest.background.mask_path = control_metadata["mask_path"]
     manifest.background.edit_base_path = control_metadata["edit_base_path"]
     manifest.background.edit_mask_path = control_metadata["edit_mask_path"]
-    manifest.background.debug_mask_path = control_metadata["debug_mask_path"]
-    manifest.background.location_mask_path = control_metadata["location_mask_path"]
-    manifest.background.road_mask_path = control_metadata["road_mask_path"]
     prompt_payload = compose_background_prompt(world_background, manifest)
 
     prompt_path = root / "background_prompt.json"
@@ -101,12 +98,8 @@ def _generate_background(
     raw_path = root / "background_raw.png"
     edit_base_path = root / "generation_edit_base.png"
     edit_mask_path = root / "generation_edit_mask.png"
-    location_mask_path = root / "generation_location_mask.png"
-    road_mask_path = root / "generation_road_mask.png"
     _validate_image_size(edit_base_path, (target_width, target_height), "Edit base")
     _validate_image_size(edit_mask_path, (target_width, target_height), "Edit mask")
-    _validate_image_size(location_mask_path, (target_width, target_height), "Location mask")
-    _validate_image_size(road_mask_path, (target_width, target_height), "Road mask")
     style_reference_path = _resolve_style_reference_path(cfg, model_config_path)
     reference_paths: list[Path] = []
     if style_reference_path is not None:
@@ -114,8 +107,6 @@ def _generate_background(
         prompt_payload["style_reference"] = str(style_reference_path)
     prompt_payload["input_image"] = str(edit_base_path)
     prompt_payload["edit_mask"] = str(edit_mask_path)
-    prompt_payload["location_mask"] = str(location_mask_path)
-    prompt_payload["road_mask"] = str(road_mask_path)
     prompt_payload["prompt"] += _reference_image_instruction(
         has_style_reference=style_reference_path is not None,
     )

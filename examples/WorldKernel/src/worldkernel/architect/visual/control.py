@@ -29,20 +29,11 @@ def render_layout_control_assets(
     protection = ImageChops.lighter(location_mask, road_mask)
     edit_base = _render_edit_base(location_mask, road_mask)
     edit_mask = _render_edit_mask(protection)
-    preview = _render_layout_preview(blueprint, width, height, tile)
 
     edit_base_path = root / "generation_edit_base.png"
     edit_mask_path = root / "generation_edit_mask.png"
-    location_mask_path = root / "generation_location_mask.png"
-    road_mask_path = root / "generation_road_mask.png"
-    debug_mask_path = root / "generation_mask.png"
-    preview_path = root / "layout_preview.png"
     edit_base.save(edit_base_path, format="PNG")
     edit_mask.save(edit_mask_path, format="PNG")
-    location_mask.convert("RGB").save(location_mask_path, format="PNG")
-    road_mask.convert("RGB").save(road_mask_path, format="PNG")
-    protection.convert("RGB").save(debug_mask_path, format="PNG")
-    preview.save(preview_path, format="PNG")
 
     protected_pixels = width * height - protection.histogram()[0]
     location_pixels = width * height - location_mask.histogram()[0]
@@ -60,14 +51,10 @@ def render_layout_control_assets(
             f"expected {expected_road_pixels} pixels, got {road_pixels}"
         )
     return {
-        "layout_preview_path": str(preview_path),
         "control_image_path": str(edit_base_path),
         "edit_base_path": str(edit_base_path),
         "edit_mask_path": str(edit_mask_path),
-        "location_mask_path": str(location_mask_path),
-        "road_mask_path": str(road_mask_path),
         "mask_path": str(edit_mask_path),
-        "debug_mask_path": str(debug_mask_path),
         "target_size": {"width": width, "height": height},
         "protected_pixels": protected_pixels,
         "editable_pixels": width * height - protected_pixels,

@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_passport_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "transit_tax_amount",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "plant_scan_severity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "tribe_relation_modifier",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_restriction_schedule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

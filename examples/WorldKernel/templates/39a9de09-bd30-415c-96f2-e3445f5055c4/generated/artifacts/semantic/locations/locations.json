@@ -1,0 +1,652 @@
+{
+  "artifact_type": "location_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "name": "人民广场站据点",
+        "type": "subway_station_stronghold",
+        "description": "曾经是上海地铁1、2、8号线交汇的超级枢纽，现在被1号线部族改造为地下首都。站台层被拓展为多层居住与军事区，原换乘通道被封死或改为检查站。大厅中央矗立着一座由废弃列车部件搭建的指挥塔，四周散布着用回收材料搭建的棚屋和集市。植物被严格控制在站台边缘，苔藓和蕨类在裂缝中顽强生长，空气中弥漫着潮湿的泥土味与腐殖质气息。",
+        "subway_line_affiliation": "1号线",
+        "plant_control_degree": "中（定期清理站台内植物，但隧道和通风井处仍不断有植物威胁）",
+        "resource_richness": "较高（拥有多个深层水源、苔藓农场和仓储区）",
+        "historical_significance": "极高（原上海地铁网络的心脏，战后成为人类抵抗象征）",
+        "tribe_occupation_status": "1号线部族完全占据，并在通往2、8号线的入口设有重兵把守的边境检查站"
+      },
+      "access": {
+        "permissions": "1号线部族成员可自由进入大部分区域；外族人员需持有1号线部族颁发的临时通行证，并接受植物孢子扫描和武器检查；核心行政区和指挥塔仅限首领及亲信进入",
+        "access_level": "受限",
+        "access_conditions": "外族需在检查站登记，说明目的和停留时间，缴纳少量资源作为保证；与1号线部族有外交关系的部族可简化流程",
+        "required_passport_type": "1号线部族身份牌或外交通行证",
+        "transit_tax_amount": "无（内部资源配给制，商业活动收取10%交易税）",
+        "plant_scan_severity": "高（所有进出人员必须通过活体植物孢子扫描门，防止携带入侵性种子或真菌）",
+        "tribe_relation_modifier": "对2、8号线部族态度敌对，对其他部族中立但警惕，对友好商队可适当放宽",
+        "time_restriction_schedule": "全天开放，但深夜零点至凌晨五点实施宵禁，禁止非军职人员通行"
+      },
+      "state": {
+        "current_state": "活跃的据点，既是军事要塞也是生活聚落",
+        "ownership": "1号线部族，由首领李广统治",
+        "capacity": 5000,
+        "resource_stock_level": "中等偏上（苔藓农场、水产池和旧仓库提供稳定但紧张的补给）",
+        "defense_fortification_level": "高（混凝土工事、带刺铁丝网、自动弩炮和植物避让装置构成的纵深防御）",
+        "garrison_tribe_name": "1号线部族卫队",
+        "structural_damage_percentage": "20",
+        "plant_coverage_percentage": "15"
+      },
+      "visual": "宽阔的地下大厅，原车站穹顶被改造为生物荧光灯矩阵，发出淡蓝色冷光，照亮空间。大厅中央矗立一座由废旧地铁列车门、钢架和缆线搭建的指挥塔，约三层楼高，顶部悬挂1号线部族旗帜。地面铺设回收的钢轨与钢板，缝隙中长出深绿色苔藓。四周墙面保留部分原白色瓷砖，但大部分被铁锈色涂鸦和部族标语覆盖。左侧通往2号线的通道被钢筋水泥完全封死，只留一道气密门，由荷枪实弹的士兵把守。右侧8号线入口被改造成集市区域，防水布帐篷下出售苔藓饼、净化水和机械零件。空气中飘着薄雾（来自通风系统），光线从上方照射下来，形成明暗交错的阴影。后景可见一条通往上层的楼梯，通往地面出口，但被厚重的金属板封闭。整体氛围压抑但充满秩序，像一座沉睡的地下机械城市。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "name": "南京东路站据点",
+        "type": "subway_station_stronghold",
+        "description": "原南京东路地铁站，2号线部族控制的商贸枢纽。站台层保持着开放式商业区的布局，被改造为跨部族贸易市场。地面出口直通外滩废墟，是少数可通往地面的安全通道之一。站内设有检疫区、货币兑换点和临时居住区，终日人流熙攘，但紧张气氛也弥漫其中。",
+        "subway_line_affiliation": "2号线",
+        "plant_control_degree": "中低（出口附近常有植物根须侵入，站内商业区保持相对清洁，但周边轨道区已长满藤蔓）",
+        "resource_richness": "中等（商品种类丰富，但基本生存资源如食物和药品短缺）",
+        "historical_significance": "高（曾是上海最繁华的商业街地下站，废墟中仍可找到旧世界遗物）",
+        "tribe_occupation_status": "2号线部族控制，作为中立贸易站对所有部族开放，但设有行政机构和自卫队"
+      },
+      "access": {
+        "permissions": "对所有部族人员开放商业区，但武器需寄存；生活区仅限2号线部族成员及特许商贩进入；地面出口需特殊许可",
+        "access_level": "公共（商业区无限制，生活区受限）",
+        "access_conditions": "进入需在入口缴纳每人每天5单位食物或等价物的入场税，接受简单植物检查；携带大型货物需额外申报",
+        "required_passport_type": "任何合法部族的通行证或身份标识",
+        "transit_tax_amount": "每人每天5单位食物或等价资源",
+        "plant_scan_severity": "中等（针对来自地面的货物和人员增加孢子采样）",
+        "tribe_relation_modifier": "中立偏友好（作为商业中立区，武装冲突被严格禁止，违规者驱逐）",
+        "time_restriction_schedule": "白天（上午6点至下午6点）全面开放，夜间关闭商业区并实施宵禁"
+      },
+      "state": {
+        "current_state": "繁忙的贸易中心，每天有数百人进出交易",
+        "ownership": "2号线部族行政会",
+        "capacity": 3000,
+        "resource_stock_level": "中等（市场流动库存高，但部族战略储备仅够维持一个月）",
+        "defense_fortification_level": "中等（设有检查站、巡逻队和简易屏障，对于大规模攻击防御能力有限）",
+        "garrison_tribe_name": "2号线部族自卫队（约100人）",
+        "structural_damage_percentage": "10",
+        "plant_coverage_percentage": "25"
+      },
+      "visual": "站台层保留原商业街的弧形穹顶，原本的广告灯箱被撕毁，换上手绘的布幅或标语。穹顶有几处破口，粗大的藤蔓垂落下来，形成天然帘幕，叶片在荧光中泛着暗绿。地面铺设着原商场的花岗岩地砖，大部分完好，但裂痕处长出苔藓。中庭区域设置了一圈圈密集的临时摊位，用金属杆和防水布搭建，摆满干粮、菌菇、药品、机械零件和古代遗物。光线来自改装的车灯和生物荧光球，偏暖黄色调。摊位间人头攒动，声音嘈杂。站台一端是通往地面的巨大楼梯，被改造成两层结构：上层为检查站和检疫室，下层是一条带金属栅栏的坡道，直通地表。1号线旗帜和标识随处可见。空气中混杂着干饼、烟草、汗水和植物的腐气，形成一种独特的气味。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "name": "上海火车站要塞",
+        "type": "subway_station_stronghold",
+        "description": "原上海火车站地下换乘大厅，被3号线部族改造为全线路最坚固的军事化要塞。拥有独立的地下水过滤系统、发电机和大型苔藓农场，可容纳近万人。要塞分为三层：上层为公共大厅和防御阵地，中层为住宅区，下层为战略物资仓库和指挥中心。这里是3号线部族的权力核心，以铁腕统治和高度组织化著称。",
+        "subway_line_affiliation": "3号线",
+        "plant_control_degree": "低（要塞内部几乎无菌，空气经过多层过滤；但连接其他站点的隧道出口处植物威胁极大）",
+        "resource_richness": "高（储备充足，拥有多个大型储存库和生产线）",
+        "historical_significance": "中等（原交通枢纽，但在地铁防线溃败后成为人类生存的重要据点）",
+        "tribe_occupation_status": "3号线部族核心地盘，由首领陈浩然直接统治"
+      },
+      "access": {
+        "permissions": "仅限3号线部族成员和受邀请的外交使节；非成员进入需有首领的书面许可和担保人",
+        "access_level": "严格受限",
+        "access_conditions": "通过第一道气密门后需接受全身植物孢子扫描和身份验证，随后经过三道检查岗；外来者需全程由指定护卫陪同，禁止进入下层军事区",
+        "required_passport_type": "3号线部族手环（内置生物芯片），或临时访客胸牌",
+        "transit_tax_amount": "无（但访客需提供等价服务或物资作为接待补偿）",
+        "plant_scan_severity": "极高（设置多道紫外线除孢子门和空气过滤系统）",
+        "tribe_relation_modifier": "对友好部族开放交流但保持警惕，对敌对部族完全封锁",
+        "time_restriction_schedule": "全时段开放，但非居民访客在宵禁（晚10点至早6点）必须停留在指定招待区"
+      },
+      "state": {
+        "current_state": "戒备森严的军事化定居点，内部运转有序",
+        "ownership": "3号线部族首领陈浩然",
+        "capacity": 8000,
+        "resource_stock_level": "高（战略储备充足，苔藓农场、蘑菇园、养鱼池和净水厂可持续供应数月）",
+        "defense_fortification_level": "极高（多层防线：外层隧道口设有炸药陷阱和自动弩炮，中层为混凝土碉堡，内层为装甲门和激光绊索）",
+        "garrison_tribe_name": "3号线部族卫队（约400人）",
+        "structural_damage_percentage": "15",
+        "plant_coverage_percentage": "5"
+      },
+      "visual": "地下三层结构的第一层大厅被改造为军事广场，天花板保留原混凝土梁架结构，加装密集的金属网防止植物根须侵入。墙面用回收的波纹钢板和汽车外壳加固，涂有灰色防真菌涂层。中央矗立一台大型应急发电机，昼夜轰鸣，电缆如血管般爬满天花板。光线来自悬挂的工业荧光灯带，亮度较高，但略显刺眼。地面是打磨过的水泥，带有排水沟。楼层之间由宽大的楼梯和货运电梯连接，每层楼梯口都设有哨塔，架有机枪或弩炮。第二层是居住区，用集装箱和隔板划分出规整的方格，每个方格有编号。第三层入口有厚重的气密门，门上涂有红色警示标志。墙壁上张贴着整齐的命令布告、地图和宣传标语，整体色调为铁灰和暗红，充满金属和燃油的气味，秩序感强烈。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:002",
+        "name": "外滩废墟",
+        "type": "surface_ruins",
+        "description": "原上海外滩——黄浦江畔的百年建筑群，如今被巨型突变植物完全吞噬，成为植物集群意识的核心区域之一。万国建筑博览群被扭曲的藤蔓和巨型阔叶植物层层缠绕，标志性的海关钟楼歪斜着，钟面被苔藓覆盖。广场地面被草皮和灌木撕裂，黄浦江面上漂浮着厚厚的绿藻。这里是人类禁区，只有最胆大的斥候或植物炼金师敢冒险进入，寻找旧世界遗物或植物样本。",
+        "subway_line_affiliation": "不适用",
+        "plant_control_degree": "极高（植物完全控制，具有活跃的集体智能反应）",
+        "resource_richness": "极低（可食用资源极少，但可能有高价值古代遗物和植物样本）",
+        "historical_significance": "极高（上海开埠的标志，人类文明的象征，如今成为植物统治的生物纪念碑）",
+        "tribe_occupation_status": "无部族占领，属于高度危险的无人地带"
+      },
+      "access": {
+        "permissions": "极度危险，仅限专业斥候、植物炼金师或首领特许的探险队以短期任务形式进入；非经特别许可，任何人禁止接近",
+        "access_level": "禁止进入（世界边境）",
+        "access_conditions": "需持有部族首领或议会颁发的特别探险令，配备全套防护装备（防毒面具、防割服、抗孢子药剂）、导航设备和紧急撤离方案，且队伍人数不超过5人",
+        "required_passport_type": "无特定证件，但需携带探险令和通讯器",
+        "transit_tax_amount": "无",
+        "plant_scan_severity": "不需要（进入即意味着暴露在极高浓度的植物环境中）",
+        "tribe_relation_modifier": "无（不受任何部族法保护，生死自负）",
+        "time_restriction_schedule": "建议仅白天行动，日落前必须撤离，夜间植物活动加剧"
+      },
+      "state": {
+        "current_state": "废弃且被植物全面占领，持续演变中",
+        "ownership": "植物集群意识",
+        "capacity": 0,
+        "resource_stock_level": "极低（理论上可能有古代遗物，但完全被植被掩盖）",
+        "defense_fortification_level": "无（废墟本身不具有任何防御结构）",
+        "garrison_tribe_name": "无",
+        "structural_damage_percentage": "80",
+        "plant_coverage_percentage": "95"
+      },
+      "visual": "黄浦江畔的外滩建筑群被巨大的藤蔓和榕树根须如同巨蟒般缠绕，墙体开裂，窗户破碎，藤蔓从每个开口涌出。标志性的海关钟楼尖顶被一棵巨大的气生根榕树树冠覆盖，钟面指针被厚厚的苔藓和地衣遮蔽。广场地面被半人高的蕨类植物和荆棘丛覆盖，原石板路面翘起断裂。废弃的车辆、路灯和长椅被植物包裹成绿色土丘。江面上漂浮着一层厚厚的绿藻和浮萍，几乎看不见水面。空气中悬浮着大量孢子和花粉，形成淡绿色的薄雾，光线被浓密的树冠过滤成暗绿色的斑驳光影。地面上交错的粗壮根须像电缆般延伸，有些还在缓慢蠕动。前景：一根断裂的汉白玉石柱倒在地上，柱头挂着发光的白色菌类。中景：一辆锈蚀的公交车被藤蔓从车窗中穿透，车顶长出小树。后景：被绿色吞噬的浦东陆家嘴建筑群轮廓，在雾中若隐若现。整个场景充满了异样的、有敌意的生机，令人感到压迫和窒息。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:011",
+        "name": "陆家嘴金融废墟",
+        "type": "surface_ruins",
+        "description": "曾经是上海金融中心的高楼群，现在被巨型藤蔓和苔藓覆盖，成为植物集群意识的神秘信号源。从某座大厦顶部持续发射出微弱的蓝色光柱，吸引着植物炼金师和冒险者。",
+        "subway_line_affiliation": "无（地表区域）",
+        "plant_control_degree": "95",
+        "resource_richness": "10",
+        "historical_significance": "90",
+        "tribe_occupation_status": "未占领（极度危险）"
+      },
+      "access": {
+        "permissions": "仅限由部族首领或核心炼金师授权的精锐小队进入",
+        "access_level": "restricted",
+        "access_conditions": "必须配备防孢子呼吸器、驱植物剂和无线电通讯器；需有对植物行为熟悉的斥候领路；建议在植物活动最低的凌晨时段行动",
+        "required_passport_type": "高级探索令（A级）",
+        "transit_tax_amount": "0",
+        "plant_scan_severity": "致命级",
+        "tribe_relation_modifier": "0",
+        "time_restriction_schedule": "02:00-05:00（低活动窗口）"
+      },
+      "state": {
+        "current_state": "高层建筑严重毁坏，外墙被藤蔓完全包裹，内部结构裸露，地面被厚达数米的苔藓和蕨类覆盖",
+        "ownership": "无主（属于植物集群意识核心区外围）",
+        "capacity": 0,
+        "resource_stock_level": "极低（旧世界物资已被植物分解或掩埋）",
+        "defense_fortification_level": "0",
+        "garrison_tribe_name": "无",
+        "structural_damage_percentage": "90",
+        "plant_coverage_percentage": "95"
+      },
+      "visual": "残破的摩天大楼轮廓被深绿色藤蔓层层缠绕，玻璃幕墙碎裂露出内部锈蚀的钢架和空洞的楼层。地面覆盖着厚实的深绿色苔藓和高达腰部的蕨类植物，偶尔有发光的蓝色孢子漂浮。从一栋顶部破碎的大厦中射出一道微弱的蓝色光柱直冲天际，在雾气中形成模糊的光幕。光线昏暗，只有蓝绿色生物光从苔藓和孢子中散发。前景是扭曲的树根攀爬在残垣上，中景是倾斜的摩天大楼，背景是朦胧的植物雾气。低角度仰视构图，突出建筑的压迫感和植物的吞噬力量。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:016",
+        "name": "徐家汇废墟",
+        "type": "surface_ruins",
+        "description": "曾经的商业中心，现在是东西部族（1号线与2号线）之间的争议地表区域。偶尔能找到旧世界的零件、金属板和干燥木材，成为小型探险队的目标地。",
+        "subway_line_affiliation": "争议地带（靠近1号线与2号线出口）",
+        "plant_control_degree": "40",
+        "resource_richness": "30",
+        "historical_significance": "50",
+        "tribe_occupation_status": "争夺中，无永久占领"
+      },
+      "access": {
+        "permissions": "任何部族成员均可进入，但风险自担",
+        "access_level": "dangerous",
+        "access_conditions": "必须结伴（至少3人），携带近战武器和信号弹；注意敌方斥候和植物陷阱；建议在白天行动",
+        "required_passport_type": "无需特定许可",
+        "transit_tax_amount": "0",
+        "plant_scan_severity": "中等",
+        "tribe_relation_modifier": "-20",
+        "time_restriction_schedule": "07:00-18:00（能见度高）"
+      },
+      "state": {
+        "current_state": "半废墟状态，商业建筑坍塌大半，广场开阔，植物稀疏分布，但存在被废弃的临时营地",
+        "ownership": "无（双方主权未确立）",
+        "capacity": 0,
+        "resource_stock_level": "低（偶尔可捡拾金属板、塑料瓶、布料）",
+        "defense_fortification_level": "0",
+        "garrison_tribe_name": "无",
+        "structural_damage_percentage": "60",
+        "plant_coverage_percentage": "40"
+      },
+      "visual": "开阔的广场地面破碎柏油路裂缝中长出低矮灌木和杂草，周围是坍塌的商店和公寓楼，墙面爬满常春藤和苔藓。几辆锈蚀的废弃汽车横在路中央，车窗碎裂。远处可以看到两个部族用废旧铁皮和木板搭建的临时观察哨，互为对峙。天空是灰蒙蒙的阴天，薄雾弥散。画面呈现中部空地，两侧是残破的建筑剪影，地面散落碎片瓦砾。水平构图，焦点在广场中央的废弃喷水池雕塑。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:003",
+        "name": "世纪公园植物核心",
+        "type": "plant_core_zone",
+        "description": "植物集群意识的物理中枢，整个绿界上海的植物网络在此汇聚和决策。一棵直径超过二十米的基因突变古树作为核心，树皮上显现生物发光纹路，周期性地释放脉冲信号。周围环绕着高十米的巨型发光蘑菇和致密的孢子云。",
+        "subway_line_affiliation": "靠近2号线世纪公园站（但该站已被植物完全封堵）",
+        "plant_control_degree": "100",
+        "resource_richness": "100",
+        "historical_significance": "95",
+        "tribe_occupation_status": "完全由植物集群意识控制，无人类存在"
+      },
+      "access": {
+        "permissions": "严禁进入；仅限极少数特殊任务（如与植物核心尝试交流）且必须由核心炼金师带队",
+        "access_level": "forbidden",
+        "access_conditions": "几乎不可能突破；需穿戴全身密封防护服，携带干扰装置；接近核心半径500米内会遭遇主动攻击性植物触手和神经毒素孢子",
+        "required_passport_type": "唯一通行证（仅授予陈博士级别的核心炼金师）",
+        "transit_tax_amount": "0",
+        "plant_scan_severity": "致命级",
+        "tribe_relation_modifier": "0",
+        "time_restriction_schedule": "无（全天警戒）"
+      },
+      "state": {
+        "current_state": "极度活跃，中央古树持续放射生物电脉冲，周围植物不断变异和生长，孢子云密度足以遮蔽视线",
+        "ownership": "植物集群意识",
+        "capacity": 0,
+        "resource_stock_level": "极丰富（但不可获取）",
+        "defense_fortification_level": "天然植物堡垒（无法攻破）",
+        "garrison_tribe_name": "无",
+        "structural_damage_percentage": "100",
+        "plant_coverage_percentage": "100"
+      },
+      "visual": "巨大的古树在公园中央拔地而起，主干直径超过20米，树皮上布满蓝绿色发光纹路，如血管般脉动。枝干交织成穹顶覆盖天空，悬挂着无数发光藤蔓和孢子囊。周围地面覆盖着厚实的发光苔藓和高达10米的巨型蘑菇，空气中飘浮着密如星云的发光孢子。没有任何人类建筑残留，植物完全吞噬了曾经的公园设施。生物发光提供唯一光源，整体呈蓝绿色调，光影变幻。鱼眼镜头从树下仰视构图，突出树冠的宏大与发光纹理的神秘。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:004",
+        "name": "辰山植物园核心",
+        "type": "plant_core_zone",
+        "description": "突变异种植物的基因库，保存了上海最丰富的突变植物样本。原有的植物园温室被藤蔓和树根穿透，内部演化出独特的生态微系统，吸引众多植物炼金师冒险探索以获取稀有标本。",
+        "subway_line_affiliation": "靠近9号线洞泾站（但地表出口已被植物封锁）",
+        "plant_control_degree": "90",
+        "resource_richness": "90",
+        "historical_significance": "70",
+        "tribe_occupation_status": "无固定占领，偶有探险队临时扎营"
+      },
+      "access": {
+        "permissions": "仅限获得炼金师协会批准的探险队进入",
+        "access_level": "restricted",
+        "access_conditions": "必须由资深植物炼金师带队，配备防孢子面具、驱植物喷雾和采集工具；严格遵守非接触路线；禁止采集受保护的核心标本",
+        "required_passport_type": "炼金师协会探索许可（B级及以上）",
+        "transit_tax_amount": "0",
+        "plant_scan_severity": "高",
+        "tribe_relation_modifier": "0",
+        "time_restriction_schedule": "推荐05:00-07:00或22:00-24:00（植物活动低潮）"
+      },
+      "state": {
+        "current_state": "温室建筑群大部分破损，玻璃穹顶碎裂，藤蔓和树根侵入内部，形成了多层立体植物群落，部分区域仍有潮湿的土壤和积水",
+        "ownership": "植物集群意识（弱管控）",
+        "capacity": 0,
+        "resource_stock_level": "极高（稀有突变植物、菌类、种子）",
+        "defense_fortification_level": "中等（部分区域有主动防御植物如毒刺藤）",
+        "garrison_tribe_name": "无",
+        "structural_damage_percentage": "80",
+        "plant_coverage_percentage": "90"
+      },
+      "visual": "原有的玻璃温室大部分坍塌，破碎的玻璃面板斜挂在锈蚀的钢架上，被粗大的藤蔓缠绕。内部空间被巨大的变异植物占据：有直径近一米的食人花形状的花朵正张开花瓣，散发着腥甜气味；地面上铺满了荧光真菌，发出幽绿色光芒。残留的实验台和标牌（写有植物学名）已被苔藓覆盖，半掩在草丛中。破碎的穹顶透入灰白的天空光，照亮飘浮的孢子和飞舞的昆虫。构图采用中景，聚焦于一个巨大的变异花朵旁边倒下的标牌，背景是破碎的玻璃和密集的植物。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:006",
+        "name": "共青森林公园核心",
+        "type": "plant_core_zone",
+        "description": "位于原共青森林公园腹地的次级植物意识核心，与世纪公园主核心形成意识竞争关系。这里的植物集群年轻、激进，藤蔓与变异乔木编织成密集的绿色穹顶，根系深达地下数十米，威胁着邻近的8号线隧道段。地表被厚达三米的苔藓与蕨类覆盖，步行即陷入绿色沼泽。",
+        "subway_line_affiliation": "",
+        "plant_control_degree": "",
+        "resource_richness": "",
+        "historical_significance": "",
+        "tribe_occupation_status": ""
+      },
+      "access": {
+        "permissions": "仅限于最熟练的斥候在植物休眠期潜入，严禁任何采集或破坏行为",
+        "access_level": "restricted",
+        "access_conditions": "需全身涂抹植物抑制素、使用消音装备、选择阴天或夜间行动，携带紧急撤退信号器，建议2人小组",
+        "required_passport_type": "",
+        "transit_tax_amount": "",
+        "plant_scan_severity": "",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "持续生长中，核心区每隔三小时释放一次脉冲信号协调周围植物生长方向",
+        "ownership": "植物集群意识（未确定是否为独立意识体）",
+        "capacity": 0,
+        "resource_stock_level": "n/a",
+        "defense_fortification_level": "无人工防御，但植物本身构成致命陷阱：食肉藤、孢子云、根系陷坑",
+        "garrison_tribe_name": "",
+        "structural_damage_percentage": "",
+        "plant_coverage_percentage": "98"
+      },
+      "visual": "从半空俯瞰，共青森林公园核心是一团墨绿色与靛蓝色交织的半球体，表面布满荧光菌丝如神经脉络。原公园的摩天轮框架已被粗壮气根缠绕成扭曲的金属骨架，成为最高的地标。地面完全被厚实的翠绿色苔原覆盖，每隔十米便冒出形如肺叶的巨型菌菇，菌盖下滴落荧光粘液。空气中悬浮着金色孢子粉尘，在微弱晨光中形成光柱。画面中央是一株直径超过五米的变异榕树，树干表面鼓起脉动的瘤状结构，仿佛巨大心脏。构图建议从西南方向低角度仰拍，前景为绞缠的藤蔓隧道，中景是荧光菌群，背景是被绿色淹没的城市天际线轮廓。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:008",
+        "name": "1号线种植隧道",
+        "type": "underground_farm",
+        "description": "1号线部族在废弃隧道内改造的主要粮食产区，利用全长约800米的双向隧道段，布置了多层LED植物灯架和温湿度控制系统。主要种植苔藓、基因改良淀粉根茎和高蛋白菌类，供应整个1号线部族约65%的粮食需求。隧道内空气湿润，弥漫着泥土与发酵物的气味。",
+        "subway_line_affiliation": "",
+        "plant_control_degree": "",
+        "resource_richness": "",
+        "historical_significance": "",
+        "tribe_occupation_status": ""
+      },
+      "access": {
+        "permissions": "仅对1号线部族成员开放，外线人员须经首领李广亲笔批文",
+        "access_level": "restricted",
+        "access_conditions": "进入前需在消毒舱消毒30秒，穿戴无菌布服，禁止携带未经检查的种子或土壤",
+        "required_passport_type": "line1_citizen_card",
+        "transit_tax_amount": "n/a",
+        "plant_scan_severity": "low（内部定期喷洒抑制素）",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "满负荷运转中，每日产出约300公斤可食用生物量",
+        "ownership": "1号线部族集体所有，由阿福领导的农业团队管理",
+        "capacity": 200,
+        "resource_stock_level": "abundant",
+        "defense_fortification_level": "中等：隧道两端设有气密闸门与植物传感器，顶部布设震动感应网防止植物根系突破",
+        "garrison_tribe_name": "1号线部族",
+        "structural_damage_percentage": "20",
+        "plant_coverage_percentage": "5"
+      },
+      "visual": "隧道内部被改造为垂直农场：两侧墙壁固定着六列银色金属架，每列四层，每层铺满暗绿色苔藓毯，间隔悬挂着红蓝LED灯带，发出紫粉色的人工光照亮整个空间。地面是半透明的塑料网格走道，下方是循环营养液系统，隐约可见白色根须漂浮。隧道顶部保留原地铁电缆桥架，漆成防锈灰色，上面固定着喷雾管道。远处尽头有台生锈的自动售票机被改造成控制台，显示屏跳动数据。空气中有细微水雾，镜头带有柔光效果。构图采用由南向北的纵深感，前景为近处一层的菌菇架，中部为走道上穿着灰布衣的农人正弯腰采收，背景是渐远的灯架序列。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:009",
+        "name": "2号线水培区",
+        "type": "underground_farm",
+        "description": "2号线部族利用原地铁站渗水系统收集的地下水源，在废弃站台区域建立了高密度营养液培植系统。种植着被称为“绿晶藻”的高蛋白蓝藻、荧光水芹和改良水生菌类。水培区的产物不仅供给食物，还被陈博士实验室用于提取植物抗体和解毒剂成分。",
+        "subway_line_affiliation": "",
+        "plant_control_degree": "",
+        "resource_richness": "",
+        "historical_significance": "",
+        "tribe_occupation_status": ""
+      },
+      "access": {
+        "permissions": "对2号线部族成员及其授权的外线合作者开放（如陈博士团队）",
+        "access_level": "restricted",
+        "access_conditions": "需提前申请水培区使用名额，每日限额20人，禁止携带任何植物样本进入（除陈博士特殊许可）",
+        "required_passport_type": "line2_citizen_card 或 line2_research_permit",
+        "transit_tax_amount": "",
+        "plant_scan_severity": "中等（进出均需通过孢子快速检测仪）",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "稳定运行，每日产水量达标，但近期出现水质微污染需频繁过滤",
+        "ownership": "2号线部族集体所有，由王靖指定的农技小组负责",
+        "capacity": 150,
+        "resource_stock_level": "high（食物） / medium（净水）",
+        "defense_fortification_level": "中等：站台出入口设有活性炭过滤墙和紫外线隔离层，防止植物孢子进入",
+        "garrison_tribe_name": "2号线部族",
+        "structural_damage_percentage": "35",
+        "plant_coverage_percentage": "10"
+      },
+      "visual": "废弃的人民广场站2号线站台被改造成一片水光粼粼的生态区：站台层的地砖被全部掀开，露出混凝土基底，上面铺设着整齐的塑料水槽阵列，每条水槽长约20米、宽1米，槽中游动着荧光绿色的藻类群落。水槽上方架设着透明亚克力盖板，防止孢子落入。原地铁立柱涂着蓝色防水漆，柱顶新装了白色LED植物生长灯，柔和的白光照亮整片区域。站台边缘的几个售票亭被改为小型实验室，玻璃窗内可见振荡器和培养皿。空气中弥漫着潮湿的水汽和藻类特有的青草味。构图中一台生锈的闸机仍立在通道口，闸机旁放置着水质检测电子屏，显示pH值和含氧量。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "name": "徐家汇边境市场",
+        "type": "tribe_border_market",
+        "description": "原徐家汇地铁换乘大厅（1、9、11号线交汇）改造而成的跨部族中立交易区。这里是上海地下仅存的多线路连接节点，被各方部族默认为非武装区。市场内划分为食物区、零件区、药品区、情报交易角，以及由陈博士团队运营的植物样本鉴定站。每天下午1点至5点是法定交易时间，各线路部族派出商队在此交换稀缺物资，暗地里情报贩子、信使和间谍穿梭其中。市场由各线路共同派遣的边境巡逻队维持秩序，暴力行为会招致全境封杀。",
+        "subway_line_affiliation": "",
+        "plant_control_degree": "",
+        "resource_richness": "",
+        "historical_significance": "",
+        "tribe_occupation_status": ""
+      },
+      "access": {
+        "permissions": "任何部族的注册公民均可进入，但需在入口处缴纳交易税并获得临时市场通行证",
+        "access_level": "public_restricted",
+        "access_conditions": "所有人员须接受武器检查（小型刀具可携带，枪支与爆炸物禁止），进入市场后需佩戴身份识别手环，离开时归还；严禁在市场内进行未经登记的私下交易；违反规则将被驱逐并列入市场黑名单",
+        "required_passport_type": "",
+        "transit_tax_amount": "",
+        "plant_scan_severity": "",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "持续活跃，日均流量约400人，最近一周因1号线与3号线边境冲突导致市场紧张气氛加剧",
+        "ownership": "1号线、2号线、3号线共同托管，设有轮流执委会（每线路派一名理事）",
+        "capacity": 500,
+        "resource_stock_level": "中等（食物充裕，药品和武器零件短缺）",
+        "defense_fortification_level": "高：每个入口设双重闸门和武装哨位，内部部署移动探照灯和孢子监控摄像头",
+        "garrison_tribe_name": "联合边境巡逻队（由各线路抽调志愿者组成）",
+        "structural_damage_percentage": "30",
+        "plant_coverage_percentage": "15"
+      },
+      "visual": "徐家汇换乘大厅被改造成一座半地下集市：原本挑高的圆弧形穹顶上，用铁架和防雨布搭出二层阁楼，一层是密密麻麻的摊位——生锈的铁皮桌、废弃的超市货架、木质藤编筐，堆满干苔藓块、塑料瓶装水、回收电子元件、手工锻造的金属工具和颜色各异的菌菇干。摊位之间悬挂着旧时代的霓虹灯招牌，有些被改造成LED灯条，发出暖黄色、红色和蓝色的光，照亮整个大厅。原自动扶梯已停止运行，成为展示区，上面固定着用植物纤维编制的巨型地图，标注各线路的边界和已知危险区域。空气中弥漫着烟熏味、草药味和人体汗味。在中央的圆形服务台处，竖立着一面由三块屏幕拼成的信息板，滚动显示当日汇率（以粮为单位）和失物招领。构图采用俯视角度，展现大厅的混乱与秩序，近景为一名头戴防毒面具的商贩正在称量苔藓，中景为穿梭的人群和照明灯串，背景为通往不同线路的黑暗隧道入口，每个入口上方都悬挂着相应线路的旗帜（1号线红色、2号线蓝色、3号线绿色）。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:010",
+        "name": "龙阳路车库掩体",
+        "type": "garage_bunker",
+        "description": "原地铁龙阳路站地下车库，经1号线部族改造为坚固的军械库与应急避难所。巨大的混凝土支柱支撑着低矮的天花板，地面被加固并铺设了金属防滑板。军火箱、弹药架和维修工具整齐堆放在分区隔间内，四角设有重机枪哨位。通风管道经过滤网密封，有效阻挡植物孢子入侵，但偶尔能听到植物根系在墙外刮擦的声音。这里储存着1号线部族近半的武器库存和关键药品，是部族最后的战略据点。",
+        "subway_line_affiliation": "1号线",
+        "plant_control_degree": "低（内部无植物，入口设有孢子屏障）",
+        "resource_richness": "高（武器、弹药、医药、维修设备齐全）",
+        "historical_significance": "中（原龙阳路车库在植物爆发前是重要交通枢纽，现为部族核心设施）",
+        "tribe_occupation_status": "1号线部族完全控制，常驻守军"
+      },
+      "access": {
+        "permissions": "仅限1号线部族正式成员及获授权的信使、盟友部族使节",
+        "access_level": "受限（需双重身份验证：指纹扫描+当日口令）",
+        "access_conditions": "必须持有1号线部族签发的通行证，且未被标记为感染者或不忠者；携带武器需提前申报",
+        "required_passport_type": "1号线部族正式通行证（含生物识别芯片）",
+        "transit_tax_amount": "无（内部资源配给）",
+        "plant_scan_severity": "高（入口处有紫外线孢子检测仪，任何携带植物物质者将被隔离检查）",
+        "tribe_relation_modifier": "+30（对1号线部族友好，对敌对部族拒绝通行）",
+        "time_restriction_schedule": "05:00-23:00开放入口，宵禁后仅限紧急避难进入"
+      },
+      "state": {
+        "current_state": "活跃使用，持续维护",
+        "ownership": "1号线部族",
+        "capacity": 500,
+        "resource_stock_level": "丰富（弹药储备可供三个月防御战，药品可供半年基础医疗）",
+        "defense_fortification_level": "高（三层钢筋混凝土墙、电磁门锁、自动熄灭火系统、多个射击孔）",
+        "garrison_tribe_name": "1号线部族——钢牙的守备队",
+        "structural_damage_percentage": "15",
+        "plant_coverage_percentage": "5"
+      },
+      "visual": "一个由地下车库改造的坚固掩体，低矮混凝土天花板上布满了加固的工字钢梁和通风管道。地面铺设锈蚀的铁板，缝隙中偶尔露出老旧的停车位标线。中央主通道两侧堆放着绿色的军火箱和银色的弹药架，靠墙有数排铁架床铺和医疗台。四角用沙袋和钢板构筑了射击掩体，后方挂着昏暗的应急灯，墙壁上贴着部族规则和地图。入口处有一道厚重的气密金属门，门框四周装有紫外线灯和孢子检测装置。一缕微弱的阳光从角落的一处通风井斜射进来，照亮空气中的灰尘，整体色调是深灰、暗绿和锈橙色。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+        "name": "上海南站车库掩体",
+        "type": "garage_bunker",
+        "description": "位于废弃的上海南站地下车库角落，被流浪者群体占据的秘密据点。这里曾是轨道维修车库，如今成为交换电池、工具和零配件的黑市。内部空间分割杂乱，用废弃车厢和铁网隔出多个小隔间，堆满了从地面废墟中回收的蓄电池、发电机零件、螺丝刀、扳手等。墙面霉斑蔓延，地面积水未干，植物根须从天花板裂缝垂落，流浪者制作简单的竹竿灯架照明。气味混合着霉菌、机油和汗水。",
+        "subway_line_affiliation": "无（位于1号线与3号线换乘站之间，但不属于任何部族控制区）",
+        "plant_control_degree": "中（内部有少量耐阴藤蔓和苔藓，流浪者定期清理但无法根除）",
+        "resource_richness": "低（以电池和基础工具为主，缺乏食物和药品）",
+        "historical_significance": "低（植物爆发后仅作为临时避难所）",
+        "tribe_occupation_status": "被流浪者群体占据，无正式部族控制"
+      },
+      "access": {
+        "permissions": "流浪者群体内部成员允许进入，外来者需经头目同意或支付过路物资",
+        "access_level": "中等（隐蔽入口较难发现，需要有人引导）",
+        "access_conditions": "要求交出所有武器（可暂存），并接受搜身检查是否携带植物种子或孢子；首次进入需用一节电池或一件工具作为‘见面礼’",
+        "required_passport_type": "无正式通行证，但流浪者内部有手工刻印的‘鼠符’（金属片）",
+        "transit_tax_amount": "1-2节可充电电池或等价工具（视进入目的而定）",
+        "plant_scan_severity": "低（无电子扫描设备，仅凭肉眼和嗅觉检查）",
+        "tribe_relation_modifier": "-10（对任何部族成员持警惕态度，但若带上工具可换取情报）",
+        "time_restriction_schedule": "全天开放，但凌晨02:00-04:00为宵禁，禁止出入"
+      },
+      "state": {
+        "current_state": "被占据，维持基本运作",
+        "ownership": "流浪者群体（无正式名称，由约三十名流浪者共同管理）",
+        "capacity": 50,
+        "resource_stock_level": "中等（约有300节各种型号电池、100余件手动工具、少量发电机零件）",
+        "defense_fortification_level": "低（仅用废铁板和铁丝网设置了入口障碍，未加装防空或防植物武器）",
+        "garrison_tribe_name": "无（流浪者自称为‘地鼠帮’）",
+        "structural_damage_percentage": "40",
+        "plant_coverage_percentage": "20"
+      },
+      "visual": "昏暗潮湿的地下车库一角，废弃的轨道维修坑被木板和铁皮覆盖，形成不规则的休息区。天花板上有多处裂缝，深绿色的藤蔓从缝隙垂下，末端挂着发黄的叶片和细根须。地面是坑洼的水泥地，积着浅浅的污水，上面垫着塑料托盘。四处散落着不同型号的蓄电池、手摇发电机、生锈的扳手和螺丝刀，角落里有一个用油桶改装的炉灶，偶尔燃起橘色火焰。墙壁上贴着发黄的手写价目表，以及用粉笔画的出入口标记。光源只有几盏用电池驱动的LED灯条和两根蜡烛，投下摇曳的阴影。整体色调是灰绿色、深棕色和暗黄色。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+        "name": "静安寺贸易站",
+        "type": "tribe_border_market",
+        "description": "位于2号线与3号线交界原静安寺地铁站厅的秘密物资交换点，由双方部族首领默认允许但无官方承认。站厅被植物纤维帘幕和金属栅栏分隔成两半，各自代表本线利益，中间留一条墨绿色的协商走廊。交易物包括药品、水、弹药零件和情报，是两线之间最活跃的非正式通道。",
+        "subway_line_affiliation": "2号线与3号线交界",
+        "plant_control_degree": "中等",
+        "resource_richness": "中等",
+        "historical_significance": "曾是静安寺商圈地下交通枢纽，如今沦为边境集市",
+        "tribe_occupation_status": "双方共管但未正式宣称"
+      },
+      "access": {
+        "permissions": "需持有部族通行证或由双方信使引荐",
+        "access_level": "restricted",
+        "access_conditions": "进入时需缴纳交易税（货物价值的10%）或提供一条有效情报；严禁携带大规模杀伤性武器",
+        "required_passport_type": "部族通行证",
+        "transit_tax_amount": "10%",
+        "plant_scan_severity": "中等（检查是否夹带植物孢子或种子）",
+        "tribe_relation_modifier": "+2 促进两线外交",
+        "time_restriction_schedule": "每日06:00-18:00开放，其余时间关闭并戒严"
+      },
+      "state": {
+        "current_state": "活跃运营，每日约有60-70人进出交易",
+        "ownership": "2号线部族与3号线部族共同治理",
+        "capacity": 80,
+        "resource_stock_level": "中等",
+        "defense_fortification_level": "中等（岗哨2处，铁网隔离墙，两队守卫共12人）",
+        "garrison_tribe_name": "2号线静态卫队 / 3号线边境保卫组",
+        "structural_damage_percentage": "30",
+        "plant_coverage_percentage": "15"
+      },
+      "visual": "灯光昏暗的废弃地铁站厅，天花板垂落大量藤蔓和荧光苔藓，地面铺着碎瓷砖与金属板拼凑的摊位。主色调为暗绿、铁灰和昏黄应急灯光。中央有一截报废列车车厢改装的交易大厅，两侧用生锈铁网和植物纤维编织帘幕划分区域。几盏应急灯挂在支撑柱上，照亮商贩的货物：菌菇、封装水、弹药零件。远处3号线入口有金属闸门和两名武装守卫，2号线一侧有荧光标记的指示牌。构图从站厅中央摊位望向前后，前景为蹲坐的交易者与堆叠货物，中景两队守卫隔着走廊对峙，背景是深邃的隧道口。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:018",
+        "name": "中山公园交换站",
+        "type": "",
+        "description": "位于3号线支线末端的中山公园站旧址，由几个小部族和流浪者自发组织的廉价贸易点。设施简陋、规则松散，交易以物易物为主，商品多为劣质苔藓饼、野果干、骨制工具等。无人正式管理，但偶尔有武装团伙收取‘保护费’。",
+        "subway_line_affiliation": "3号线支线",
+        "plant_control_degree": "低",
+        "resource_richness": "贫乏",
+        "historical_significance": "曾是中山公园商圈的地下通道，如今沦为无主集市",
+        "tribe_occupation_status": "无归属，自由地带"
+      },
+      "access": {
+        "permissions": "开放给所有幸存者，无需任何证件",
+        "access_level": "public",
+        "access_conditions": "通过站口植物屏障时需接受快速孢子扫描；交接物品不得包含明显违禁品（如爆炸物）",
+        "required_passport_type": "",
+        "transit_tax_amount": "",
+        "plant_scan_severity": "低（仅目视和简单试剂）",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "松散集市，日流量约20-30人，摊位不稳定",
+        "ownership": "无主，由临时摊贩自治",
+        "capacity": 30,
+        "resource_stock_level": "低",
+        "defense_fortification_level": "极低（无固定工事，仅有几个流浪者自发警戒）",
+        "garrison_tribe_name": "",
+        "structural_damage_percentage": "60",
+        "plant_coverage_percentage": "40"
+      },
+      "visual": "倒塌的站台，水泥地面遍布裂缝，长出蕨类和紫色菌菇。几块防水布用废旧轨道钢撑成临时帐篷，地面铺着蛇皮袋。只有一个老式油灯照明，光线昏弱。商贩蹲在摊前摆出少量货物：干燥苔藓饼、野果干、磨制的骨刀。远处植物藤蔓从天花板破洞垂下，几乎遮蔽隧道深处。构图近景一个穿破旧工装的小贩蹲在摊前，中景两三个行人背光走过，背景一片幽暗的绿色藤蔓与发霉的瓷砖墙壁。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:015",
+        "name": "松江地下湖",
+        "type": "underground_water_source",
+        "description": "位于原松江大学城地铁站下方数十米处，因地质沉降与地下河交汇形成的巨型天然地下湖泊。水域面积接近三个足球场，水质清澈、矿物质丰富，是方圆数十公里内唯一可靠的洁净水源。常年被1、2、9号线部族激烈争夺，现由三族联盟委员会共同管理，配备了取水配额制度和武装巡逻。",
+        "subway_line_affiliation": "多线交汇辐射区（1号线、2号线、9号线）",
+        "plant_control_degree": "低（水中无大型植物，岸壁仅有少量荧光苔）",
+        "resource_richness": "极高",
+        "historical_significance": "原上海地下防汛工程的一部分，灾变后成为生命线",
+        "tribe_occupation_status": "争议，由联盟委员会共管"
+      },
+      "access": {
+        "permissions": "需三族联署发放的取水许可证，且每次限一人进入",
+        "access_level": "极度受限",
+        "access_conditions": "进入前需交出所有武器并接受全身植物扫描；取水时间严格限定15分钟；违规者永久禁止进入并受共同制裁",
+        "required_passport_type": "三族联合通行证",
+        "transit_tax_amount": "每升水缴纳等价资源（如1公斤菌菇或5枚弹药）",
+        "plant_scan_severity": "高（使用精密光谱仪和生化试纸，防止携带植物间谍孢子）",
+        "tribe_relation_modifier": "-1 任一族的违约会引发冲突",
+        "time_restriction_schedule": "每日分三个取水时段（04:00-08:00, 12:00-14:00, 20:00-22:00），每时段限50人"
+      },
+      "state": {
+        "current_state": "被严密守卫，取水口排长队，岸边搭建了简易码头和储水罐区",
+        "ownership": "1、2、9号线部族联盟共同管辖",
+        "capacity": 500,
+        "resource_stock_level": "高（湖泊持续补给，但每日限采5000升）",
+        "defense_fortification_level": "高（三座哨塔，激光绊索网，一支20人联合警卫队）",
+        "garrison_tribe_name": "松江湖联合卫队",
+        "structural_damage_percentage": "5",
+        "plant_coverage_percentage": "5"
+      },
+      "visual": "宽阔的地下洞穴，顶部距离水面约二十米，洞壁覆盖着发出蓝绿色荧光的苔藓和矿石结晶。中央一汪碧绿湖水倒映着荧光，水面如镜。湖岸用混凝土和废旧钢架搭成步道和多个取水平台，几排大型储水罐整齐排列。照明来自太阳能板驱动的LED灯带和天然生物荧光，整体呈清冷的蓝绿色调。武装巡逻人员穿着不同部族的标志服装，在步道上巡逻，取水人群安静排队。构图从湖岸高处俯瞰，前景为储水罐和哨塔，中景为排队取水人群和步道，背景广阔的湖面与荧光洞穴壁。"
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:001",
+        "name": "宝山地下水井",
+        "type": "underground_water_source",
+        "description": "深埋于宝山旧钢厂地下的工业水井，由灾变前的废水循环系统改造而成。通过多级过滤和反渗透设备，能从深层地下水层取得清洁饮水。目前被一个自称‘宝山铁团’的独立中型据点控制，每日限量供应该据点及周边少数盟友。",
+        "subway_line_affiliation": "3号线支线（宝山区域）",
+        "plant_control_degree": "中等（周围有藤蔓入侵，但被定期清理）",
+        "resource_richness": "中等",
+        "historical_significance": "宝山钢铁工业遗迹的一部分，带有旧时代工业印记",
+        "tribe_occupation_status": "被宝山铁团独占"
+      },
+      "access": {
+        "permissions": "仅限宝山铁团正式成员及其认证盟友",
+        "access_level": "restricted",
+        "access_conditions": "需核对身份编码并缴纳每日用水份额（按人头计）；外部访客需担保人或贡献稀缺物资",
+        "required_passport_type": "宝山铁团金属身份牌",
+        "transit_tax_amount": "",
+        "plant_scan_severity": "中等（检查是否携带寄生藤种子）",
+        "tribe_relation_modifier": "",
+        "time_restriction_schedule": ""
+      },
+      "state": {
+        "current_state": "稳定运行，每日分三个时间段集中供水",
+        "ownership": "宝山铁团",
+        "capacity": 200,
+        "resource_stock_level": "中等（水井日产量约800升）",
+        "defense_fortification_level": "中等偏高（混凝土掩体、两挺老式轻机枪、警戒岗哨4处）",
+        "garrison_tribe_name": "宝山铁团守卫队",
+        "structural_damage_percentage": "40",
+        "plant_coverage_percentage": "25"
+      },
+      "visual": "旧厂房内部，灰色钢结构框架高耸，一排水井泵机发出低沉的运转声。井口被混凝土加高并装有金属井盖，周围铺设防滑铁板。墙上挂着水桶、橡胶管和过滤器，地面残留油污。照明来自几盏工业吊灯和应急氖灯，光线冷白。部分墙面拐角有绿色苔藓沿裂缝蔓延，但被铲除的痕迹明显。厂房大门处堆着沙袋和铁栅栏，两名持枪守卫站立。构图从厂房门口向内看，前景为沙袋掩体和守卫背影，中景为水井泵机和工作人群，背景为高耸的钢架与昏暗天花板。"
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:002",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:011",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:016",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:003",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:004",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:006",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:008",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:009",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:010",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:018",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:015",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:001"
+  ],
+  "upstream_step_ids": [
+    "generate_locations"
+  ],
+  "warnings": [
+    "batch 1: review step failed (Failed to parse JSON: {\n  \"review\": {\n    \"scores\": {\n      \"narrative_richness\":5,\n      \"world_consistency\":5,\n      \"archetype_fit\":5,\n      \"differentiation\":5,\n      \"importance_tiering\":4,\n      \"social_links\":4,\n   ...), using unreviewed output",
+    "batch 4/5 failed: Failed to parse JSON: [\n  {\n    \"identity\": {\n      \"id\": \"e:39,\n      \"name\": \"静安寺贸易站\",\n      \"type\": \"tribe_border_market\",\n      \"description\": \"原静安寺地铁站2号线与3号线换乘大厅被改造成秘密贸易市场，是2号线部族与3号线部族之间唯一官方认可的物资交换节点。黑暗的混凝土大厅中，荧光苔藓和废旧...",
+    "consolidated retry: 4 seeds missing, retrying as one batch",
+    "batch 6 review (score=4.5): 发现 2 个问题并已自动修正"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

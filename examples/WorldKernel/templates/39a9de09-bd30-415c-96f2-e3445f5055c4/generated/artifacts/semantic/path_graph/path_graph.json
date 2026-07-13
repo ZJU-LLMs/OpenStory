@@ -1,0 +1,857 @@
+{
+  "artifact_type": "path_edge",
+  "items": [
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:016",
+        "name": "人民广场-1号线种植隧道段",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "1号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:008",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "1号线部族",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "15",
+        "from_resource_richness": "60",
+        "to_resource_richness": "80"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:017",
+        "name": "人民广场-龙阳路车库联络线",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "1号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:010",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "1号线部族",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "10",
+        "from_resource_richness": "60",
+        "to_resource_richness": "70"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:019",
+        "name": "人民广场-徐家汇边境市场通道",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "1号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "需局部加固"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "多部族共管",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "30",
+        "from_resource_richness": "60",
+        "to_resource_richness": "80"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "基础装备",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:010",
+        "name": "人民广场-南京东路废弃换乘通道",
+        "type": "换乘通道",
+        "affiliated_line_or_tribe": "1号线/2号线边境",
+        "channel_type": "废弃换乘通道",
+        "plant_encroachment_level": "4",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "部分坍塌"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "2号线部族",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "40",
+        "from_resource_richness": "60",
+        "to_resource_richness": "75"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "危险",
+        "required_items": "武器、照明、防面具",
+        "required_tribe_document": "双边通行证",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": "需缴纳过境税"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:018",
+        "name": "人民广场-上海火车站人工联络道",
+        "type": "秘密通道",
+        "affiliated_line_or_tribe": "1号线/3号线边境",
+        "channel_type": "人工打通的小路",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "需持续维护"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "3号线部族",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "25",
+        "from_resource_richness": "60",
+        "to_resource_richness": "85"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "武器、部族徽章",
+        "required_tribe_document": "部族外交许可",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": "双方需提前通报"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:009",
+        "name": "南京东路-2号线水培区",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "2号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:009",
+        "bidirectional": true,
+        "from_tribe_control": "2号线部族",
+        "to_tribe_control": "2号线部族",
+        "from_plant_activity_index": "15",
+        "to_plant_activity_index": "10",
+        "from_resource_richness": "75",
+        "to_resource_richness": "85"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:008",
+        "name": "南京东路-静安寺贸易站",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "2号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+        "bidirectional": true,
+        "from_tribe_control": "2号线部族",
+        "to_tribe_control": "2号线部族",
+        "from_plant_activity_index": "15",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "75",
+        "to_resource_richness": "65"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:002",
+        "name": "南京东路-外滩废墟地面出口",
+        "type": "地表通路",
+        "affiliated_line_or_tribe": "2号线",
+        "channel_type": "原地铁出口",
+        "plant_encroachment_level": "5",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "被植物堵塞严重"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:002",
+        "bidirectional": false,
+        "from_tribe_control": "2号线部族",
+        "to_tribe_control": "无（植物核心区）",
+        "from_plant_activity_index": "15",
+        "to_plant_activity_index": "90",
+        "from_resource_richness": "75",
+        "to_resource_richness": "20"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "极度危险",
+        "required_items": "重型武器、防辐射服、植物扫描仪、氧气瓶",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "每日正午1小时",
+        "armed_escort_mandatory": "true",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:011",
+        "name": "南京东路-徐家汇边境市场（2号线-1号线换乘）",
+        "type": "换乘通道",
+        "affiliated_line_or_tribe": "2号线/1号线边境",
+        "channel_type": "原换乘站通道",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "需加固"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "bidirectional": true,
+        "from_tribe_control": "2号线部族",
+        "to_tribe_control": "多部族共管",
+        "from_plant_activity_index": "15",
+        "to_plant_activity_index": "30",
+        "from_resource_richness": "75",
+        "to_resource_richness": "80"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "基础装备",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": "2号线部族通行税"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:013",
+        "name": "上海火车站-静安寺贸易站",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "3号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+        "bidirectional": true,
+        "from_tribe_control": "3号线部族",
+        "to_tribe_control": "2号线/3号线边境",
+        "from_plant_activity_index": "25",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "85",
+        "to_resource_richness": "65"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "武器",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": "3号线部族通行证"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:021",
+        "name": "上海火车站-中山公园交换站",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "3号线",
+        "channel_type": "地铁支线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:018",
+        "bidirectional": true,
+        "from_tribe_control": "3号线部族",
+        "to_tribe_control": "小部族/流浪者",
+        "from_plant_activity_index": "25",
+        "to_plant_activity_index": "15",
+        "from_resource_richness": "85",
+        "to_resource_richness": "30"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:001",
+        "name": "上海火车站-宝山地下水井",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "3号线",
+        "channel_type": "地铁正线（北延伸）",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "需定期清障"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:001",
+        "bidirectional": true,
+        "from_tribe_control": "3号线部族",
+        "to_tribe_control": "宝山铁团",
+        "from_plant_activity_index": "25",
+        "to_plant_activity_index": "30",
+        "from_resource_richness": "85",
+        "to_resource_richness": "70"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "基础装备、武器",
+        "required_tribe_document": "3号线部族安全许可",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:020",
+        "name": "上海火车站-上海南站车库掩体",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "3号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "局部需加固"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+        "bidirectional": true,
+        "from_tribe_control": "3号线部族",
+        "to_tribe_control": "流浪者群体",
+        "from_plant_activity_index": "25",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "85",
+        "to_resource_richness": "40"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "武器",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": "需与流浪者对话"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:024",
+        "name": "徐家汇边境市场-徐家汇废墟地面直接出口",
+        "type": "地表通路",
+        "affiliated_line_or_tribe": "多部族共管",
+        "channel_type": "原地铁出口",
+        "plant_encroachment_level": "4",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "被植物部分遮蔽"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:016",
+        "bidirectional": true,
+        "from_tribe_control": "多部族共管",
+        "to_tribe_control": "无（争议区域）",
+        "from_plant_activity_index": "30",
+        "to_plant_activity_index": "70",
+        "from_resource_richness": "80",
+        "to_resource_richness": "40"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "危险",
+        "required_items": "武器、防割服",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "清晨或黄昏",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "孢子浓度低于30%",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:022",
+        "name": "徐家汇边境市场-上海南站车库掩体",
+        "type": "换乘通道",
+        "affiliated_line_or_tribe": "1号线/3号线边境",
+        "channel_type": "原换乘站",
+        "plant_encroachment_level": "3",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+        "bidirectional": true,
+        "from_tribe_control": "多部族共管",
+        "to_tribe_control": "流浪者群体",
+        "from_plant_activity_index": "30",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "80",
+        "to_resource_richness": "40"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "中等",
+        "required_items": "基础装备",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:023",
+        "name": "徐家汇边境市场-松江地下湖（9号线旧轨）",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "9号线（废弃）",
+        "channel_type": "废弃地铁轨道",
+        "plant_encroachment_level": "4",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "多处坍塌"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:015",
+        "bidirectional": false,
+        "from_tribe_control": "多部族共管",
+        "to_tribe_control": "无（水源中立区）",
+        "from_plant_activity_index": "30",
+        "to_plant_activity_index": "50",
+        "from_resource_richness": "80",
+        "to_resource_richness": "90"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "极度危险",
+        "required_items": "重型武器、照明、绳索、备用电池",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "孢子浓度低于10%",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:014",
+        "name": "静安寺贸易站-中山公园交换站",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "2号线/3号线边境",
+        "channel_type": "人工打通通道",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:018",
+        "bidirectional": true,
+        "from_tribe_control": "2号线部族/3号线部族边境",
+        "to_tribe_control": "小部族/流浪者",
+        "from_plant_activity_index": "20",
+        "to_plant_activity_index": "15",
+        "from_resource_richness": "65",
+        "to_resource_richness": "30"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:003",
+        "name": "外滩废墟-陆家嘴金融废墟（黄浦江隧道）",
+        "type": "地表通路",
+        "affiliated_line_or_tribe": "无（植物核心区）",
+        "channel_type": "原黄浦江公路隧道",
+        "plant_encroachment_level": "5",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "完全被植物覆盖"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:002",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:011",
+        "bidirectional": false,
+        "from_tribe_control": "无（植物核心区）",
+        "to_tribe_control": "无（植物核心区）",
+        "from_plant_activity_index": "90",
+        "to_plant_activity_index": "85",
+        "from_resource_richness": "20",
+        "to_resource_richness": "30"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "极度危险",
+        "required_items": "重型武器、火焰喷射器、防辐射服、氧气瓶",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "无",
+        "armed_escort_mandatory": "true",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:005",
+        "name": "陆家嘴金融废墟-世纪公园植物核心（地表穿越）",
+        "type": "地表通路",
+        "affiliated_line_or_tribe": "无（植物核心区）",
+        "channel_type": "原城市道路",
+        "plant_encroachment_level": "5",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "完全破坏"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:011",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:003",
+        "bidirectional": false,
+        "from_tribe_control": "无（植物核心区）",
+        "to_tribe_control": "植物集群意识核心",
+        "from_plant_activity_index": "85",
+        "to_plant_activity_index": "100",
+        "from_resource_richness": "30",
+        "to_resource_richness": "0"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "极度危险",
+        "required_items": "重型武器、信号干扰器、植物抑制剂、空气过滤系统",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "无",
+        "armed_escort_mandatory": "true",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:004",
+        "name": "世纪公园植物核心-共青森林公园核心（植物内部连接）",
+        "type": "植物走廊",
+        "affiliated_line_or_tribe": "植物集群意识",
+        "channel_type": "植物根系网络",
+        "plant_encroachment_level": "5",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "动态变化"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:003",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:006",
+        "bidirectional": false,
+        "from_tribe_control": "植物集群意识核心",
+        "to_tribe_control": "次级植物意识核心",
+        "from_plant_activity_index": "100",
+        "to_plant_activity_index": "90",
+        "from_resource_richness": "0",
+        "to_resource_richness": "10"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "极度危险",
+        "required_items": "植物伪装设备、精神抵抗药剂、导航系统",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "无",
+        "armed_escort_mandatory": "true",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:007",
+        "name": "辰山植物园核心-松江地下湖通道",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "松江区域",
+        "channel_type": "地下溶洞+人工挖掘",
+        "plant_encroachment_level": "4",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "部分塌陷"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:004",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:015",
+        "bidirectional": false,
+        "from_tribe_control": "植物核心",
+        "to_tribe_control": "无（水源中立区）",
+        "from_plant_activity_index": "80",
+        "to_plant_activity_index": "50",
+        "from_resource_richness": "60",
+        "to_resource_richness": "90"
+      },
+      "conditions": {
+        "access_level": "限制",
+        "danger_level": "危险",
+        "required_items": "武器、照明、防毒面具",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:006",
+        "name": "辰山植物园核心-上海南站车库掩体（废弃铁轨）",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "原沪杭铁路支线（废弃）",
+        "channel_type": "废弃铁路隧道",
+        "plant_encroachment_level": "4",
+        "is_arterial_passage": "false",
+        "structural_integrity_status": "严重侵蚀"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:004",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+        "bidirectional": false,
+        "from_tribe_control": "植物核心",
+        "to_tribe_control": "流浪者群体",
+        "from_plant_activity_index": "80",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "60",
+        "to_resource_richness": "40"
+      },
+      "conditions": {
+        "access_level": "封闭",
+        "danger_level": "极度危险",
+        "required_items": "重型武器、照明、攀爬工具",
+        "required_tribe_document": "",
+        "plant_scan_required": "true",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "孢子浓度低于5%",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:015",
+        "name": "1号线种植隧道-龙阳路车库掩体",
+        "type": "隧道",
+        "affiliated_line_or_tribe": "1号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:008",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:010",
+        "bidirectional": true,
+        "from_tribe_control": "1号线部族",
+        "to_tribe_control": "1号线部族",
+        "from_plant_activity_index": "15",
+        "to_plant_activity_index": "10",
+        "from_resource_richness": "80",
+        "to_resource_richness": "70"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:012",
+        "name": "2号线水培区-静安寺贸易站",
+        "type": "走廊",
+        "affiliated_line_or_tribe": "2号线",
+        "channel_type": "地铁正线",
+        "plant_encroachment_level": "2",
+        "is_arterial_passage": "true",
+        "structural_integrity_status": "良好"
+      },
+      "endpoints": {
+        "from_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:009",
+        "to_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+        "bidirectional": true,
+        "from_tribe_control": "2号线部族",
+        "to_tribe_control": "2号线部族",
+        "from_plant_activity_index": "10",
+        "to_plant_activity_index": "20",
+        "from_resource_richness": "85",
+        "to_resource_richness": "65"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "required_tribe_document": "",
+        "plant_scan_required": "",
+        "allowed_operating_hours": "",
+        "armed_escort_mandatory": "",
+        "contamination_level_threshold": "",
+        "diplomatic_status_penalty": ""
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:016",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:017",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:019",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:010",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:018",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:009",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:008",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:002",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:011",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:013",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:021",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:001",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:020",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:024",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:022",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:023",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:014",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:003",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:005",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:004",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:007",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:006",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:015",
+    "e:39a9de09_bd30_415c_96f2_e3445f5055c4:path:012"
+  ],
+  "upstream_step_ids": [
+    "generate_paths"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

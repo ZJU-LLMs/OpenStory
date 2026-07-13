@@ -1,0 +1,22 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+resource_stock_level:
+  type: str
+  option: true
+defense_fortification_level:
+  type: str
+  option: true
+garrison_tribe_name:
+  type: str
+  option: true
+structural_damage_percentage:
+  type: str
+  option: true
+plant_coverage_percentage:
+  type: str
+  option: true

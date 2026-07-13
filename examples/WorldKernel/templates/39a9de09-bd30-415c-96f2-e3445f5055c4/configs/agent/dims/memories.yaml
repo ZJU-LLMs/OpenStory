@@ -1,0 +1,24 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+significant_battles:
+  type: str
+  option: true
+plant_discoveries:
+  type: str
+  option: true
+lost_friends:
+  type: str
+  option: true
+survival_stories:
+  type: str
+  option: true

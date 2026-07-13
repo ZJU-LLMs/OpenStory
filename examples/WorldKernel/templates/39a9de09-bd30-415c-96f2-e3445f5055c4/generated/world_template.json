@@ -1,0 +1,478 @@
+{
+  "primary": "dystopian_city",
+  "secondary": "post_apocalyptic",
+  "confidence": 0.92,
+  "tags": [
+    "植物统治",
+    "地铁边境",
+    "部族划分",
+    "上海废墟",
+    "生态异变",
+    "近未来",
+    "生存冲突"
+  ],
+  "world_name": "绿界上海",
+  "world_origin_summary": "近未来，基因突变植物以惊人速度吞噬上海，将城市化为绿色废墟。人类被迫退缩到地铁隧道与车站内，每条线路成为独立部族的领地，地铁站口与地面接口成为生死边境。植物展现出集体智慧，主动切断人类区域之间的联系，部族间围绕资源与生存空间爆发持续冲突。",
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "第一次地铁防线溃败后的第三个春天",
+    "trigger_event": "植物根系大规模突破地铁隧道防线，多个站台被绿潮吞噬，幸存人类被迫沿地铁线路割据形成部族",
+    "year": "2078",
+    "narrative_context": "人类彻底失去对地面的控制，植物将城市分割为以地铁线路为单位的孤立生态区，每个部族必须在自己线路内自给自足，同时防范来自其他部族的袭击和植物的持续入侵"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来生态崩溃后的上海废墟，植物覆盖一切的绿野城市风格，保留部分地铁隧道与车站遗迹",
+    "color_palette": [
+      "压抑墨绿",
+      "明亮苔藓绿",
+      "锈蚀铁锈棕",
+      "混凝土灰",
+      "应急灯暖黄",
+      "深地下水蓝"
+    ],
+    "lighting_weather": "从地铁隧道昏暗的人造光到地面破败天光，时常弥漫薄雾或细雨，植物发光孢子提供微弱夜光",
+    "material_texture": [
+      "苔藓覆盖的破碎沥青",
+      "爬满藤蔓的钢轨与混凝土",
+      "地下隧道光滑的水泥壁画",
+      "锈蚀的金属设施",
+      "潮湿的泥土与积水",
+      "巨大植物叶片的低纹理曲面"
+    ],
+    "environmental_motifs": [
+      "废弃地铁站台与售票亭",
+      "被藤蔓缠绕的信号灯柱",
+      "植物孢子悬浮的发光球体",
+      "部族改造的防御工事（沙袋、铁丝网）",
+      "简易的种植箱与雨水收集器",
+      "用废弃列车车厢搭建的庇护所",
+      "悬挂的植物纤维通信管线",
+      "地图上标记的线路符号与涂鸦"
+    ],
+    "atmosphere": "压抑但顽强的生存气息，废弃与生机并存，紧张而充满策略性",
+    "edge_blending_style": "柔和像素羽化的地形边缘，通过植物蔓延、废墟碎片、光影渐变自然过渡，确保后续地点贴片无缝融合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "underground_station",
+      "type_name": "地铁站据点",
+      "description": "部族核心聚居地，利用废弃地铁站改造的封闭社区，兼具居住、防御与行政管理功能",
+      "common_fields": [
+        "line_id",
+        "station_name",
+        "capacity",
+        "defense_level",
+        "resources",
+        "access_tunnels"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "line_2_people_square",
+          "name": "2号线人民广场站",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "地铁部族联盟的中心枢纽，多条线路交汇处，最大的人类聚集地"
+        }
+      ]
+    },
+    {
+      "type_id": "surface_ruin",
+      "type_name": "地上废墟区",
+      "description": "植物密布的地面城市废墟，是人类禁足的恐怖地带，但偶尔有古老资源或植物中枢存在",
+      "common_fields": [
+        "plant_density",
+        "danger_level",
+        "loot_quality",
+        "visibility"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "jingan_temple_ruins",
+          "name": "静安寺废墟",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "传说中藏有旧世界科技或植物抑制剂的神秘地点，多次探险队一去不返"
+        }
+      ]
+    },
+    {
+      "type_id": "plant_heart",
+      "type_name": "植物核心区",
+      "description": "植物集群意识最浓厚的区域，巨型植物聚集，生产孢子与根系，对周围隧道构成持续威胁",
+      "common_fields": [
+        "plant_type",
+        "spore_level",
+        "root_network",
+        "growth_rate"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "lujiabang_great_forest",
+          "name": "陆家浜巨林",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 1,
+          "role_in_world": "控制浦东区域植物扩张的核心节点，破坏它可能改变整个绿界生态"
+        }
+      ]
+    },
+    {
+      "type_id": "tunnel_farm",
+      "type_name": "地下种植区",
+      "description": "利用废弃隧道改造的蘑菇与苔藓农场，提供部族主要食物来源，受植物根系的威胁",
+      "common_fields": [
+        "crop_type",
+        "yield",
+        "contamination_risk",
+        "light_source"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "line_3_shangda_farm",
+          "name": "3号线上海大学段种植区",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.82,
+          "generation_priority": 2,
+          "role_in_world": "北部部族的主要食物生产地，多次遭到植物根系侵蚀"
+        }
+      ]
+    },
+    {
+      "type_id": "trade_border",
+      "type_name": "部族边境市场",
+      "description": "两条地铁线路交界处设立的临时贸易点，是部族间唯一合法的交流与交易场所",
+      "common_fields": [
+        "lines_involved",
+        "trade_goods",
+        "security_level",
+        "currencies"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "line_4_line_1_exchange",
+          "name": "4号线-1号线换乘贸易站",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 1,
+          "role_in_world": "内环与外环部族最重要物资交换地点，也是情报与阴谋的温床"
+        }
+      ]
+    },
+    {
+      "type_id": "water_source",
+      "type_name": "地下水源",
+      "description": "地铁隧道内渗水点或旧排水系统改造的淡水获取地，常因竞争引发冲突",
+      "common_fields": [
+        "water_quality",
+        "flow_rate",
+        "contamination",
+        "ownership"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "east_nanjing_road_well",
+          "name": "南京东路地下井",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.78,
+          "generation_priority": 2,
+          "role_in_world": "中心区域关键水源，多部族争夺焦点"
+        }
+      ]
+    },
+    {
+      "type_id": "garage_shelter",
+      "type_name": "车库掩体",
+      "description": "废弃地下停车场或车站维修区改造的工坊和防御据点，用于维护武器和庇护",
+      "common_fields": [
+        "workshop_level",
+        "storage",
+        "defense",
+        "specialization"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "line_8_old_shed",
+          "name": "8号线老维修库",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.75,
+          "generation_priority": 3,
+          "role_in_world": "一个独立维修团体控制的大型工坊，为多个部族提供服务"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "tribe_leader",
+      "type_name": "部族首领",
+      "description": "掌握一条地铁线路全部生存资源的最高决策者，通过血统、战功或契约领导部族",
+      "common_fields": [
+        "tribe_id",
+        "line_id",
+        "leadership_style",
+        "political_ally",
+        "secret_agenda"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "helen_wu",
+          "name": "吴海伦",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 1,
+          "role_in_world": "1号线部族女首领，以冷酷务实著称，主张与植物有限妥协以换取生存空间"
+        }
+      ]
+    },
+    {
+      "type_id": "scout_runner",
+      "type_name": "斥候信使",
+      "description": "穿梭于各线路和危险地面的传递者，也是部族间外交与情报网络的核心角色",
+      "common_fields": [
+        "home_line",
+        "speed_rating",
+        "knowledge",
+        "loyalty"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "li_ming",
+          "name": "李明",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 2,
+          "role_in_world": "一个在多个部族间游走的信使，掌握着绿界最大的人际网络和秘密路径"
+        }
+      ]
+    },
+    {
+      "type_id": "farmer_gatherer",
+      "type_name": "农夫采集者",
+      "description": "在隧道农场或地面边缘区域种植、采集食物和药材的劳动者，掌握植物生长知识",
+      "common_fields": [
+        "specialty_crop",
+        "harvest_skill",
+        "line_affiliation"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "old_chen",
+          "name": "老陈",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.75,
+          "generation_priority": 3,
+          "role_in_world": "2号线最资深的地下农夫，培育出抗病苔藓品种，被多个部族觊觎"
+        }
+      ]
+    },
+    {
+      "type_id": "plant_alchemist",
+      "type_name": "植物炼金师",
+      "description": "研究与植物共存的科学先驱，能够制造植物驱避剂、解毒剂或增强剂，有时也掌握与植物沟通的方法",
+      "common_fields": [
+        "knowledge_scope",
+        "invention",
+        "ethics",
+        "affiliation"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "dr_zhao",
+          "name": "赵博士",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 1,
+          "role_in_world": "前生物学家，在植物爆发后躲入5号线，发现了植物集群意识的秘密，成为多方争夺的关键人物"
+        }
+      ]
+    },
+    {
+      "type_id": "warrior_guard",
+      "type_name": "战士守卫",
+      "description": "负责部族边防、巡逻和战斗的武装人员，使用改良工具和旧世界武器对抗植物与敌对部族",
+      "common_fields": [
+        "tribe_id",
+        "weapon",
+        "rank",
+        "combat_style"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "lin_hong",
+          "name": "林虹",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.82,
+          "generation_priority": 2,
+          "role_in_world": "3号线战士小队长，在边境守卫战中屡次击退植物入侵，被部族奉为英雄"
+        }
+      ]
+    },
+    {
+      "type_id": "trader_merchant",
+      "type_name": "商贾贸易者",
+      "description": "在边境市场和线路上从事物资交换的专业商人，掌握经济命脉和黑市渠道",
+      "common_fields": [
+        "trade_network",
+        "wealth",
+        "specialty",
+        "neutrality"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "zhang_money",
+          "name": "钱老板",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.7,
+          "generation_priority": 3,
+          "role_in_world": "在4号线和1号线交界开设贸易站的富商，表面中立，实际私下与植物核心也有交易"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "border_crossing_protocol",
+      "type_name": "边境通行规则",
+      "description": "任何部族成员跨越另一线路边境时必须遵守的严格程序，包括通行证、隔离检疫和限时逗留",
+      "common_fields": [
+        "issuing_authority",
+        "fee",
+        "allowed_stay",
+        "contraband_list"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "line_1_entry_permit",
+          "name": "1号线入境许可证制度",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 1,
+          "role_in_world": "由吴海伦制定的第一部族边境规则，要求所有外来者提供资源配额或情报换取的访问权限"
+        }
+      ]
+    },
+    {
+      "type_id": "resource_sharing_law",
+      "type_name": "资源配给法律",
+      "description": "部族内部对水资源、食物、药品等生存物资的分配规则，决定每个成员的生存下限",
+      "common_fields": [
+        "ration_type",
+        "distribution_rate",
+        "priority_groups",
+        "penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "line_2_water_ration",
+          "name": "2号线中央水配给体系",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.82,
+          "generation_priority": 2,
+          "role_in_world": "由人民广场部族联盟管控的集中水源分配规则，引发了与其他部族的资源战争"
+        }
+      ]
+    },
+    {
+      "type_id": "plant_contact_ordinance",
+      "type_name": "植物接触禁令",
+      "description": "关于人与植物接触行为的严厉禁止，包括不得破坏特定植物形态、不得携带植物组织穿越部族、不得在隧道内种植未批准物种",
+      "common_fields": [
+        "prohibited_action",
+        "exception",
+        "enforcement",
+        "punishment"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "global_spore_disinfect",
+          "name": "全球孢子消毒规定",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 1,
+          "role_in_world": "所有部族共同遵守的生存底线，避免植物通过人类移动扩散至安全区域，违反者将遭放逐"
+        }
+      ]
+    },
+    {
+      "type_id": "conflict_mediation_code",
+      "type_name": "冲突调解准则",
+      "description": "部族间发生争夺或纠纷时用于避免全面战争的一系列妥协规则，包括决斗仲裁、赎金比例和停战时限",
+      "common_fields": [
+        "dispute_type",
+        "mediation_body",
+        "resolution_option",
+        "truce_terms"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "cross_line_truce_principle",
+          "name": "跨一线停战原则",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.78,
+          "generation_priority": 2,
+          "role_in_world": "由三个大部族共同签署的临时停战协议，规定在植物大潮期间所有线路停止内斗，共抗绿界侵蚀"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "plant_hegemony",
+      "name": "植物霸权",
+      "description": "经过基因突变和集体意识觉醒的植物已占据上海全部地表，任何大规模清除行为都会引来植物的报复性生长，人类只能生活在地下有限空间内。植物根系和孢子构成了不可逾越的物理屏障，地铁线路成为仅有的安全走廊。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "line_border_division",
+      "name": "线路边境割据",
+      "description": "每条废弃地铁线路（1-18号线）在植物爆发后因隧道坍塌、植物堵塞或战略隔离，自然演变为独立的人类生存单元。不同部族控制了不同线路，线路之间只有非常有限的联通点（原换乘站或人工打通的小路），且都设有严格边境管控。任何大规模人口移动几乎不可能。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "resource_scarcity_and_dependence",
+      "name": "资源匮乏与依赖",
+      "description": "人类完全依赖地下的有限资源生存：苔藓种植、积水收集、以及从旧世界废墟中回收。没有任何外部补给可能。每条线路的资源种类和数量不同（某条线水多但缺少制药材料，另一条线有武器零件但食物紧缺），这迫使部族间必须进行有限的交换，同时也为冲突埋下伏笔。",
+      "scope": "faction"
+    },
+    {
+      "constraint_id": "plant_conscious_threat",
+      "name": "植物集群意识威胁",
+      "description": "占据上海的植物并非普通植被，它们已经演化出某种雏形的集群意识，能够协调生长方向、感知人类活动，并主动破坏人类防线。某些植物核心区域（如陆家浜巨林）具备更强的感知和决策能力。人类既不能彻底消灭它们，也无法完全无视它们的存在，小规模共生尝试往往以失败告终。",
+      "scope": "global"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+intra_tribe_rank:
+  type: str
+  option: true
+inter_tribe_reputation:
+  type: str
+  option: true
+merchant_credit_rating:
+  type: str
+  option: true
+allies_list:
+  type: str
+  option: true

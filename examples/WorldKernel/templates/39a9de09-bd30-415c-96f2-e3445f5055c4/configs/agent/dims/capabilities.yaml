@@ -1,0 +1,19 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+survival_skills:
+  type: str
+  option: true
+plant_interaction_level:
+  type: str
+  option: true
+resource_control:
+  type: str
+  option: true
+trading_ability:
+  type: str
+  option: true

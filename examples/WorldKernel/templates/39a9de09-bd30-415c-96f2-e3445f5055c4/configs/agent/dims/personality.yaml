@@ -1,0 +1,19 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+attitude_toward_plants:
+  type: str
+  option: true
+tribe_loyalty:
+  type: str
+  option: true
+risk_taking:
+  type: str
+  option: true
+trust_in_outsiders:
+  type: str
+  option: true

@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "primary_threat_response_objective",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "long_term_survival_strategy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "species_preservation_or_expansion_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

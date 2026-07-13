@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "inter_organization_treaty_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "plant_core_tracking_or_avoidance_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_trust_index_among_tribes",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

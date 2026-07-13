@@ -1,0 +1,71 @@
+{
+  "world_id": "39a9de09-bd30-415c-96f2-e3445f5055c4",
+  "source_ids": [
+    "primary"
+  ],
+  "schema_version": "stage2-semantic-v1",
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 18,
+    "character_profile": 14,
+    "path_edge": 24,
+    "relation_edge": 32
+  },
+  "constraints": [
+    {
+      "constraint_id": "plant_hegemony",
+      "name": "植物霸权",
+      "description": "经过基因突变和集体意识觉醒的植物已占据上海全部地表，任何大规模清除行为都会引来植物的报复性生长，人类只能生活在地下有限空间内。植物根系和孢子构成了不可逾越的物理屏障，地铁线路成为仅有的安全走廊。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "line_border_division",
+      "name": "线路边境割据",
+      "description": "每条废弃地铁线路（1-18号线）在植物爆发后因隧道坍塌、植物堵塞或战略隔离，自然演变为独立的人类生存单元。不同部族控制了不同线路，线路之间只有非常有限的联通点（原换乘站或人工打通的小路），且都设有严格边境管控。任何大规模人口移动几乎不可能。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "resource_scarcity_and_dependence",
+      "name": "资源匮乏与依赖",
+      "description": "人类完全依赖地下的有限资源生存：苔藓种植、积水收集、以及从旧世界废墟中回收。没有任何外部补给可能。每条线路的资源种类和数量不同（某条线水多但缺少制药材料，另一条线有武器零件但食物紧缺），这迫使部族间必须进行有限的交换，同时也为冲突埋下伏笔。",
+      "scope": "faction"
+    },
+    {
+      "constraint_id": "plant_conscious_threat",
+      "name": "植物集群意识威胁",
+      "description": "占据上海的植物并非普通植被，它们已经演化出某种雏形的集群意识，能够协调生长方向、感知人类活动，并主动破坏人类防线。某些植物核心区域（如陆家浜巨林）具备更强的感知和决策能力。人类既不能彻底消灭它们，也无法完全无视它们的存在，小规模共生尝试往往以失败告终。",
+      "scope": "global"
+    }
+  ],
+  "timestamp": "2026-07-13T19:51:40.031234+00:00",
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "39a9de09-bd30-415c-96f2-e3445f5055c4",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4"
+    }
+  }
+}

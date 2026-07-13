@@ -1,0 +1,22 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+affiliated_line_or_tribe:
+  type: str
+  option: true
+channel_type:
+  type: str
+  option: true
+plant_encroachment_level:
+  type: str
+  option: true
+is_arterial_passage:
+  type: str
+  option: true
+structural_integrity_status:
+  type: str
+  option: true

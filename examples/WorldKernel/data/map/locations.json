@@ -1,21 +1,21 @@
 [
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:003",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:002",
     "name": "中央记忆交易所",
-    "type": "memory_exchange",
-    "description": "悬浮在档案城核心区的巨大六边形建筑，由记忆金属与风暴玻璃构成的外墙反射着木星风暴的暗红色光芒。这里是全城记忆交易的法定唯一枢纽，每天有数百万条记忆碎片在此被定价、买卖与交割。交易所内部穹顶下悬挂着巨型全息记忆价格指数，实时跳动显示各类记忆的当前市值。底层大厅挤满了等待交易的记忆贩子与记忆贫民，上层VIP交易室则供顶级记忆富豪进行大宗交易。交易所与城市能源系统直接绑定，每笔交易都会影响分配给各区域的生存配额。",
+    "type": "memory_trading_market",
+    "description": "全市最大的记忆交易市场，位于风暴眼广场中心，是一座巨大的六边形穹顶建筑。每日巨量记忆在此交易，实时汇率由大厅中央的全息指数屏决定。穹顶由半透明记忆晶体面板拼接，内部环形交易大厅层叠环绕，数千个交易隔间排列其间。该交易所是记忆货币体系的心脏，控制着整个城市的经济命脉，由艾拉·维克斯的记忆商团实际操纵。",
     "access": {
-      "permissions": "所有公民可进入底层大厅进行公开交易，VIP区域需要至少10万记忆单位的财富证明或经市政厅特别许可。记忆提取师与档案管理员凭职业徽章可进入后台交易审核区。",
-      "access_level": "底层公开，上层受限",
-      "access_conditions": "进入需通过生物特征验证与记忆纯度扫描，防止记忆窃贼携带非法记忆碎片混入。底层大厅每日开放20小时，风暴预警期间关闭。",
+      "permissions": "需持有记忆交易执照或高级信用等级，非注册人员需预约并通过身份审查",
+      "access_level": "restricted",
+      "access_conditions": "必须出示有效的交易商身份编码或A级以上信用令牌，接受记忆指纹扫描",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "活跃交易中，受系统升级影响当日交易量暴涨，排队长度超过正常水平两倍。交易所内保安力量加强，防止因记忆价格波动引发的骚乱。",
-      "ownership": "记忆货币管理局（市政当局直属）",
+      "current_state": "活跃交易中，价格指数持续波动",
+      "ownership": "城市记忆交易所监管委员会（实际由艾拉·维克斯商团控股）",
       "capacity": 5000,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -24,222 +24,453 @@
     },
     "capacity": 5000,
     "tags": [
-      "memory_exchange",
-      "底层公开，上层受限",
-      "记忆货币管理局（市政当局直属）"
+      "memory_trading_market",
+      "restricted",
+      "城市记忆交易所监管委员会（实际由艾拉·维克斯商团控股）"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 108,
-      "y": 48,
+      "x": 75,
+      "y": 50,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 122,
-      "y": 53
+      "x": 82,
+      "y": 60
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:003",
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:002",
         "name": "中央记忆交易所",
-        "type": "memory_exchange",
-        "description": "悬浮在档案城核心区的巨大六边形建筑，由记忆金属与风暴玻璃构成的外墙反射着木星风暴的暗红色光芒。这里是全城记忆交易的法定唯一枢纽，每天有数百万条记忆碎片在此被定价、买卖与交割。交易所内部穹顶下悬挂着巨型全息记忆价格指数，实时跳动显示各类记忆的当前市值。底层大厅挤满了等待交易的记忆贩子与记忆贫民，上层VIP交易室则供顶级记忆富豪进行大宗交易。交易所与城市能源系统直接绑定，每笔交易都会影响分配给各区域的生存配额。",
-        "memory_trading_license": "CNTRL-MEM-EX-001",
-        "storm_safety_rating": "S级（最高防护）",
-        "district": "中枢区·记忆广场"
+        "type": "memory_trading_market",
+        "description": "全市最大的记忆交易市场，位于风暴眼广场中心，是一座巨大的六边形穹顶建筑。每日巨量记忆在此交易，实时汇率由大厅中央的全息指数屏决定。穹顶由半透明记忆晶体面板拼接，内部环形交易大厅层叠环绕，数千个交易隔间排列其间。该交易所是记忆货币体系的心脏，控制着整个城市的经济命脉，由艾拉·维克斯的记忆商团实际操纵。",
+        "energy_shield_level": "95",
+        "memory_storage_density": "90",
+        "storm_noise_index": "15",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "所有公民可进入底层大厅进行公开交易，VIP区域需要至少10万记忆单位的财富证明或经市政厅特别许可。记忆提取师与档案管理员凭职业徽章可进入后台交易审核区。",
-        "access_level": "底层公开，上层受限",
-        "access_conditions": "进入需通过生物特征验证与记忆纯度扫描，防止记忆窃贼携带非法记忆碎片混入。底层大厅每日开放20小时，风暴预警期间关闭。",
-        "required_memory_clearance": "底层无门槛；VIP层需10万记忆单位；后台审核区需记忆提取师认证",
-        "entry_fee_in_memory": "",
-        "black_market_affiliation": ""
+        "permissions": "需持有记忆交易执照或高级信用等级，非注册人员需预约并通过身份审查",
+        "access_level": "restricted",
+        "access_conditions": "必须出示有效的交易商身份编码或A级以上信用令牌，接受记忆指纹扫描",
+        "required_credit_rank": "A级及以上",
+        "allowed_memory_types": "所有类型的记忆（公共记忆、私人记忆、高价值记忆）",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "银质或金质记忆徽章"
       },
       "state": {
-        "current_state": "活跃交易中，受系统升级影响当日交易量暴涨，排队长度超过正常水平两倍。交易所内保安力量加强，防止因记忆价格波动引发的骚乱。",
-        "ownership": "记忆货币管理局（市政当局直属）",
+        "current_state": "活跃交易中，价格指数持续波动",
+        "ownership": "城市记忆交易所监管委员会（实际由艾拉·维克斯商团控股）",
         "capacity": 5000,
-        "memory_reserve_level": "高（储备超过2000万记忆单位）",
-        "extraction_queue_length": "1200",
-        "security_alert_level": "黄色（中等警戒）"
+        "energy_shield_percentage": "95",
+        "current_occupancy": "78",
+        "storm_alert_level": "low",
+        "last_maintenance_time": "2147-05-12T04:00:00Z"
       },
-      "visual": "一座六边形黑色金属与透明风暴玻璃构成的扁圆柱形巨构建筑，悬浮在记忆广场中央，底部连接着数十根光缆与能量管道。建筑外立面布满六边形蜂巢状网格，每个网格中流淌着淡蓝色的记忆能量光纹。屋顶有一个巨大的环形全息投影环，实时滚动显示记忆价格指数，数字呈暗金色。建筑正面开有六扇高大的拱门，门框镶嵌记忆水晶，进出人流络绎不绝。内部大厅穹顶高达50米，中央竖立着一座记忆塔，塔身流转着彩色记忆光带。地面是深灰色记忆合金地板，布满了发光的循环箭头引导线。大厅四周环绕着数十个交易柜台，每个柜台上方悬浮着个人记忆数据光屏。空气中弥漫着淡淡的臭氧味与能量振动嗡鸣声。"
+      "visual": "巨大的六边形穹顶建筑，由半透明记忆晶体面板拼合，散发柔和的蓝色荧光。穹顶下，环形交易大厅层叠展开，中央悬浮着巨型全息记忆价格指数屏幕，数字和记忆碎片图像不断跳动。地面是深色抛光记忆合金，反射着上方光流。四周排列着无数交易隔间，每个隔间上方悬浮着交易者的记忆容器（透明的记忆球）。大厅中人群穿梭，穿着各异。光源来自穹顶晶体和全息屏，整体氛围明亮而冷峻。前景是交易所正门的高大记忆水晶拱门，中景是交易大厅的环形通道，背景是悬浮的价格指数和穹顶。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:002",
-    "name": "黑市记忆交易所",
-    "type": "memory_exchange",
-    "description": "隐藏在档案城下层贫民窟——锈蚀区的废弃记忆提炼厂地下三层。从外表看是一座废弃的仓库，只有通过锈蚀区‘遗忘酒吧’后门的一道暗门才能进入。内部却是灯火通明的非法交易大厅，墙壁上覆盖着盗版全息广告，贩卖在官方被禁的记忆类型——痛苦记忆、快感记忆、甚至窃取来的他人记忆碎片。这里没有官方监控，交易多用实物黄金或反记忆技术作为交换介质。黑市交易所由绰号‘影像’的神秘商人控制，也是情报贩子与记忆窃贼的接头据点。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:004",
+    "name": "平民记忆广场",
+    "type": "memory_trading_market",
+    "description": "下层城区的露天记忆交易市场，普通市民日常买卖廉价记忆的集中地。广场为圆形，地面粗糙开裂，中央竖立老旧记忆交换柱。摊贩用便携式提取器进行现场交易，交易的多为日常琐碎记忆或低质量片段。护盾薄弱，风暴噪音清晰可闻，环境嘈杂混乱。",
     "access": {
-      "permissions": "仅限黑市信用评级达标者进入，需通过老客户引荐或提供一条有价值的情报作为‘入场记忆’。官方人员（风暴守卫、档案管理员等）一律禁止入内，违者由黑市卫队处理。",
-      "access_level": "完全非公开，需内应",
-      "access_conditions": "入口处有一扇记忆加密门，需用特定记忆片段（如‘第一次目睹风暴’）作为钥匙。进入后手机等电子设备必须交出，由黑市技术员植入临时防追踪程序。",
+      "permissions": "对所有人开放，无需许可",
+      "access_level": "public",
+      "access_conditions": "无限制，直接进入",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "正常营业，但最近因官方加大扫黑力度，加强了对进入人员的审查。内部气氛紧张，交易规模较上月缩减约30%。不过，风暴预警频发下，寻求非法记忆获取生存配额的贫民增多，黑市需求反而上升。",
-      "ownership": "影像（黑市记忆商人）",
-      "capacity": 300,
+      "current_state": "热闹集市，人声鼎沸",
+      "ownership": "下层市民委员会（实由小型商人团体管理）",
+      "capacity": 2000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 300,
+    "capacity": 2000,
     "tags": [
-      "memory_exchange",
-      "完全非公开，需内应",
-      "影像（黑市记忆商人）"
+      "memory_trading_market",
+      "public",
+      "下层市民委员会（实由小型商人团体管理）"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 95,
+      "y": 25,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 102,
+      "y": 35
+    },
+    "raw": {
+      "identity": {
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:004",
+        "name": "平民记忆广场",
+        "type": "memory_trading_market",
+        "description": "下层城区的露天记忆交易市场，普通市民日常买卖廉价记忆的集中地。广场为圆形，地面粗糙开裂，中央竖立老旧记忆交换柱。摊贩用便携式提取器进行现场交易，交易的多为日常琐碎记忆或低质量片段。护盾薄弱，风暴噪音清晰可闻，环境嘈杂混乱。",
+        "energy_shield_level": "60",
+        "memory_storage_density": "40",
+        "storm_noise_index": "75",
+        "is_trading_allowed": "true"
+      },
+      "access": {
+        "permissions": "对所有人开放，无需许可",
+        "access_level": "public",
+        "access_conditions": "无限制，直接进入",
+        "required_credit_rank": "无",
+        "allowed_memory_types": "低价值日常记忆、陈旧记忆、片段记忆",
+        "requires_authorization_token": "false",
+        "social_tier_marker": "无"
+      },
+      "state": {
+        "current_state": "热闹集市，人声鼎沸",
+        "ownership": "下层市民委员会（实由小型商人团体管理）",
+        "capacity": 2000,
+        "energy_shield_percentage": "60",
+        "current_occupancy": "88",
+        "storm_alert_level": "medium",
+        "last_maintenance_time": "2147-05-10T12:00:00Z"
+      },
+      "visual": "开阔的圆形广场，由粗糙的灰色再生混凝土铺就，地面布满裂纹，缝隙中渗出蓝色能量微光。广场中央竖立一根巨大的记忆交换柱，柱身布满老旧的全息广告，显示着各种廉价记忆的报价。广场四周是临时搭建的布棚和金属摊位，摊主们用便携式提取器现场交易记忆片段。空气中有金属和臭氧的气味，上方有能量护盾的淡蓝色光幕，隐约能看到外面木星风暴的云层翻涌。光照来自四周高楼的霓虹灯和摊位上的发光球，整体昏暗而嘈杂。前景是拥挤的人群，中景是记忆交换柱，背景是护盾外风暴。"
+    }
+  },
+  {
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:007",
+    "name": "精英记忆交易所",
+    "type": "memory_trading_market",
+    "description": "位于上层城区摩天楼顶层的私人交易会所，仅对持有S级信用等级的白金会员开放。环境优雅奢华，交易高价值稀有记忆和记忆艺术品。全透明记忆晶体墙壁可观赏外部风暴景象，内部设有记忆吧台和艺术展示区。由艾拉·维克斯直接管理，是城市记忆交易体系的顶端场所。",
+    "access": {
+      "permissions": "仅限白金会员或受邀贵宾，需生物特征验证",
+      "access_level": "strictly_restricted",
+      "access_conditions": "通过视网膜和记忆印记双重认证，出示加密邀请函",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "优雅运营中，会员零散交易",
+      "ownership": "艾拉·维克斯私人商团",
+      "capacity": 200,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 200,
+    "tags": [
+      "memory_trading_market",
+      "strictly_restricted",
+      "艾拉·维克斯私人商团"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
       "x": 26,
-      "y": 58,
+      "y": 32,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 40,
-      "y": 63
+      "x": 33,
+      "y": 42
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:002",
-        "name": "黑市记忆交易所",
-        "type": "memory_exchange",
-        "description": "隐藏在档案城下层贫民窟——锈蚀区的废弃记忆提炼厂地下三层。从外表看是一座废弃的仓库，只有通过锈蚀区‘遗忘酒吧’后门的一道暗门才能进入。内部却是灯火通明的非法交易大厅，墙壁上覆盖着盗版全息广告，贩卖在官方被禁的记忆类型——痛苦记忆、快感记忆、甚至窃取来的他人记忆碎片。这里没有官方监控，交易多用实物黄金或反记忆技术作为交换介质。黑市交易所由绰号‘影像’的神秘商人控制，也是情报贩子与记忆窃贼的接头据点。",
-        "memory_trading_license": "无（非法）",
-        "storm_safety_rating": "D级（最低防护，位于下层结构）",
-        "district": "锈蚀区·提炼厂遗址地下三层"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:007",
+        "name": "精英记忆交易所",
+        "type": "memory_trading_market",
+        "description": "位于上层城区摩天楼顶层的私人交易会所，仅对持有S级信用等级的白金会员开放。环境优雅奢华，交易高价值稀有记忆和记忆艺术品。全透明记忆晶体墙壁可观赏外部风暴景象，内部设有记忆吧台和艺术展示区。由艾拉·维克斯直接管理，是城市记忆交易体系的顶端场所。",
+        "energy_shield_level": "99",
+        "memory_storage_density": "85",
+        "storm_noise_index": "5",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "仅限黑市信用评级达标者进入，需通过老客户引荐或提供一条有价值的情报作为‘入场记忆’。官方人员（风暴守卫、档案管理员等）一律禁止入内，违者由黑市卫队处理。",
-        "access_level": "完全非公开，需内应",
-        "access_conditions": "入口处有一扇记忆加密门，需用特定记忆片段（如‘第一次目睹风暴’）作为钥匙。进入后手机等电子设备必须交出，由黑市技术员植入临时防追踪程序。",
-        "required_memory_clearance": "",
-        "entry_fee_in_memory": "",
-        "black_market_affiliation": "影像记忆集团"
+        "permissions": "仅限白金会员或受邀贵宾，需生物特征验证",
+        "access_level": "strictly_restricted",
+        "access_conditions": "通过视网膜和记忆印记双重认证，出示加密邀请函",
+        "required_credit_rank": "S级",
+        "allowed_memory_types": "稀有记忆、高价值记忆、记忆艺术品、加密记忆",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "白金记忆徽章或记忆印记"
       },
       "state": {
-        "current_state": "正常营业，但最近因官方加大扫黑力度，加强了对进入人员的审查。内部气氛紧张，交易规模较上月缩减约30%。不过，风暴预警频发下，寻求非法记忆获取生存配额的贫民增多，黑市需求反而上升。",
-        "ownership": "影像（黑市记忆商人）",
-        "capacity": 300,
-        "memory_reserve_level": "中等（主要依靠地下通道实时转运）",
-        "extraction_queue_length": "",
-        "security_alert_level": "红色（内部高度戒备，外部低调伪装）"
+        "current_state": "优雅运营中，会员零散交易",
+        "ownership": "艾拉·维克斯私人商团",
+        "capacity": 200,
+        "energy_shield_percentage": "99",
+        "current_occupancy": "55",
+        "storm_alert_level": "very_low",
+        "last_maintenance_time": "2147-05-12T06:00:00Z"
       },
-      "visual": "从‘遗忘酒吧’后门进入，沿生锈的铁梯下行至地下三层，推开厚重的隔音铁门，眼前豁然开朗：约400平方米的不规则大厅，顶部裸露着锈蚀的通风管道与电缆，被各种颜色的霓虹灯管照亮——紫色、绿色、橙色交织。大厅中央是一个半圆形吧台式交易台，由回收的记忆存储芯片堆砌而成，台面上悬浮着全息菜单，显示着用暗语标示的记忆类型与价格。四周散落着旧沙发和金属箱作为座位，墙上挂满了动态记忆掠影（非法记忆片段投影），有些画面模糊闪烁。空气中混合着汗味、廉价合成酒精味与记忆提取液特有的金属腥甜味。角落里有几名黑市保安，身穿改装过的风暴守卫制服，手持记忆干扰枪。整体氛围压抑而躁动，像一台随时可能爆炸的老旧蒸汽机。"
+      "visual": "位于摩天楼顶层的奢华空间，全透明记忆晶体墙面向外展示木星风暴的壮丽景象。室内布置着深色真皮沙发和抛光记忆合金茶几，墙上悬挂着记忆艺术画（浮动的记忆全息）。中央有一个环形吧台，吧台内陈列着记忆存储水晶瓶，每个瓶中封存着不同颜色的记忆光芒。光线柔和，来自天花板的水晶吊灯和墙面暗槽的暖色灯光。地面是深色实木地板，覆盖着波斯风格地毯。前景是进入大厅的防爆玻璃门，中景是休息区和吧台，背景是透过玻璃墙的风暴云。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:013",
-    "name": "记忆拍卖行",
-    "type": "memory_exchange",
-    "description": "位于中枢区记忆广场东侧，与中央记忆交易所隔街相望的穹顶建筑。专门针对高价值、稀有记忆进行公开竞拍——例如名人的绝版记忆、失传技术的操作记忆、极端痛苦或极致快乐的巅峰体验。拍卖行采用会员制，参与竞拍需预存大量记忆单位或提供等值资产证明。拍卖师是经过市政厅认证的记忆法医，确保记忆真伪。这里也是记忆投机家的乐园，经常有人拍下记忆后转手以更高价格在黑市出售，加剧了记忆阶层的分化。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:006",
+    "name": "深井记忆库",
+    "type": "memory_storage_facility",
+    "description": "城市最深处的垂直记忆存储设施，位于地下几百米的记忆合金井内。存储着全市最珍贵、最机密的核心记忆，包括政府机密、高价值遗产记忆、以及重要人物的私密记忆。由卡莱总督和艾拉·维克斯联合控制，安保级别为最高机密，禁止任何交易行为。中央数据柱向下延伸到黑暗深处，井壁布满记忆水晶槽，冷光闪烁。",
     "access": {
-      "permissions": "仅限持有拍卖行会员卡的公民进入，会员卡需年费5000记忆单位。非会员可凭单次邀请函入场，邀请函由现任会员或市政厅记忆法医开具。公众可通过加密频道观看直播，但不能竞价。",
-      "access_level": "会员与受邀嘉宾",
-      "access_conditions": "入场前需进行全身体检与记忆完整性扫描，确保竞拍者精神状态稳定，防止因激烈竞价导致记忆崩溃。拍卖进行期间不得使用任何记录设备。",
+      "permissions": "仅限记忆库管理员和最高执政官，需多重生物认证和密码",
+      "access_level": "top_secret",
+      "access_conditions": "经过虹膜、指纹、记忆印记三重验证，并输入与DNA绑定的动态密码",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "今日下午有一场‘失落年代记忆’专场拍卖会，拍品包括一位前档案城首席工程师的木星大气航行记忆，起拍价80万记忆单位。拍卖行内座无虚席，竞拍者多为记忆富豪或相关代理人，气氛紧张而奢华。",
-      "ownership": "记忆货币管理局下属拍卖委员会",
-      "capacity": 800,
+      "current_state": "安全封闭，自动监控运转中",
+      "ownership": "城市政府（实际由卡莱总督和艾拉·维克斯共同掌控）",
+      "capacity": 100000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 800,
+    "capacity": 100000,
     "tags": [
-      "memory_exchange",
-      "会员与受邀嘉宾",
-      "记忆货币管理局下属拍卖委员会"
+      "memory_storage_facility",
+      "top_secret",
+      "城市政府（实际由卡莱总督和艾拉·维克斯共同掌控）"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 10,
-      "y": 36,
+      "x": 51,
+      "y": 65,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 17,
-      "y": 46
+      "x": 58,
+      "y": 75
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:013",
-        "name": "记忆拍卖行",
-        "type": "memory_exchange",
-        "description": "位于中枢区记忆广场东侧，与中央记忆交易所隔街相望的穹顶建筑。专门针对高价值、稀有记忆进行公开竞拍——例如名人的绝版记忆、失传技术的操作记忆、极端痛苦或极致快乐的巅峰体验。拍卖行采用会员制，参与竞拍需预存大量记忆单位或提供等值资产证明。拍卖师是经过市政厅认证的记忆法医，确保记忆真伪。这里也是记忆投机家的乐园，经常有人拍下记忆后转手以更高价格在黑市出售，加剧了记忆阶层的分化。",
-        "memory_trading_license": "AUCTION-MEM-LIC-047",
-        "storm_safety_rating": "A级（较高防护）",
-        "district": "中枢区·记忆广场东翼"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:006",
+        "name": "深井记忆库",
+        "type": "memory_storage_facility",
+        "description": "城市最深处的垂直记忆存储设施，位于地下几百米的记忆合金井内。存储着全市最珍贵、最机密的核心记忆，包括政府机密、高价值遗产记忆、以及重要人物的私密记忆。由卡莱总督和艾拉·维克斯联合控制，安保级别为最高机密，禁止任何交易行为。中央数据柱向下延伸到黑暗深处，井壁布满记忆水晶槽，冷光闪烁。",
+        "energy_shield_level": "100",
+        "memory_storage_density": "100",
+        "storm_noise_index": "0",
+        "is_trading_allowed": "false"
       },
       "access": {
-        "permissions": "仅限持有拍卖行会员卡的公民进入，会员卡需年费5000记忆单位。非会员可凭单次邀请函入场，邀请函由现任会员或市政厅记忆法医开具。公众可通过加密频道观看直播，但不能竞价。",
-        "access_level": "会员与受邀嘉宾",
-        "access_conditions": "入场前需进行全身体检与记忆完整性扫描，确保竞拍者精神状态稳定，防止因激烈竞价导致记忆崩溃。拍卖进行期间不得使用任何记录设备。",
-        "required_memory_clearance": "",
-        "entry_fee_in_memory": "年费5000记忆单位或20记忆单位/单次邀请函",
-        "black_market_affiliation": ""
+        "permissions": "仅限记忆库管理员和最高执政官，需多重生物认证和密码",
+        "access_level": "top_secret",
+        "access_conditions": "经过虹膜、指纹、记忆印记三重验证，并输入与DNA绑定的动态密码",
+        "required_credit_rank": "S+级（仅限特定人员）",
+        "allowed_memory_types": "存储所有类型记忆，但禁止交易",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "最高执政官印记"
       },
       "state": {
-        "current_state": "今日下午有一场‘失落年代记忆’专场拍卖会，拍品包括一位前档案城首席工程师的木星大气航行记忆，起拍价80万记忆单位。拍卖行内座无虚席，竞拍者多为记忆富豪或相关代理人，气氛紧张而奢华。",
-        "ownership": "记忆货币管理局下属拍卖委员会",
-        "capacity": 800,
-        "memory_reserve_level": "与中央记忆交易所联动，高储备",
-        "extraction_queue_length": "",
-        "security_alert_level": "蓝色（低警戒，但拍卖期间加强）"
+        "current_state": "安全封闭，自动监控运转中",
+        "ownership": "城市政府（实际由卡莱总督和艾拉·维克斯共同掌控）",
+        "capacity": 100000,
+        "energy_shield_percentage": "100",
+        "current_occupancy": "85",
+        "storm_alert_level": "none",
+        "last_maintenance_time": "2147-05-12T02:00:00Z"
       },
-      "visual": "一座白色大理石与记忆玻璃构成的半透明穹顶建筑，穹顶中央镶嵌着一只巨大的金色眼睛雕塑——象征‘记忆之眼’。建筑正面有三扇高大的雕花木门，门把手为记忆水晶制成，发出柔和蓝光。步入大厅，地面是抛光黑曜石，倒映着上方动态变化的记忆投影穹顶（模拟过去的木星天空）。拍卖大厅呈圆形阶梯式布局，每层座椅由柔软的记忆海绵制成，呈深红色。中央舞台是一个升降台，台面由防记忆泄露的合金制成，拍卖师站在台上，身后是全息显示屏幕，展示拍品记忆的预览片段（去隐私化处理）。吊灯以记忆碎片为灵感，无数棱形水晶悬挂在不同高度，折射出变幻的光线。靠墙的小型吧台提供记忆增强饮料，空气中飘着淡淡的合成茉莉花香。整体氛围庄严而富有诱惑力，仿佛金钱与记忆在这个空间里融为一体。"
+      "visual": "一个深不见底的垂直圆柱形井道，直径约50米，井壁由暗银色记忆合金铸造，布满垂直排列的记忆存储槽，每个槽内镶嵌着发光的记忆水晶球，散发出幽蓝色的冷光。井道中央悬浮着一根巨大的数据柱，向下延伸到黑暗中，数据柱表面流动着加密的记忆数据流。顶部的圆形穹顶由能量护盾发生器覆盖，发出嗡嗡的电磁声。地面是防静电金属网，入口处设有厚重的防爆门和生物扫描仪。光照主要来自记忆水晶和数据柱，整体氛围冷峻、肃穆。前景是入口防爆门和扫描仪，中景是井道口和初段的水晶槽，背景是无尽的深井和中央数据柱。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:016",
-    "name": "私人记忆交易室",
-    "type": "memory_exchange",
-    "description": "专为记忆富豪和核心交易者设计的高规格一对一记忆交易空间，位于档案城金融区顶层，采用生物识别与记忆锁双重安保，确保交易绝对私密。室内配备记忆提取椅、全息交易界面及防窃听场，墙上嵌有实时记忆估值屏。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:015",
+    "name": "公共记忆银行",
+    "type": "memory_storage_facility",
+    "description": "一座多层记忆存储建筑，位于中层区，外墙由记忆合金板构成，表面泛着微弱的蓝色荧光。内部拥有无数记忆晶格阵列，用于存放市民日常交易和备份的记忆。这里是记忆经济的血液泵站，每天处理数十万次存取操作。",
     "access": {
-      "permissions": "记忆交易操作, 隐私屏蔽, 记忆存档授权",
-      "access_level": "VIP_only",
-      "access_conditions": "需预约并通过记忆信用审核，交易前需支付最低1000记忆点的押金，提供个人记忆净值证明",
+      "permissions": "市民可凭身份卡进入，需支付少量记忆租金存储日常记忆；商业交易需额外登记",
+      "access_level": "公共",
+      "access_conditions": "需通过记忆纯度检测，禁止携带未注册记忆晶片；每月存储量受信用等级限制",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "运营中，预约已排期至三天后",
-      "ownership": "卡斯特·维拉（间接控股）",
-      "capacity": 1,
+      "current_state": "正常运转，排队人数适中",
+      "ownership": "记忆银行管理局（隶属城市议会）",
+      "capacity": 50000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 1,
+    "capacity": 50000,
     "tags": [
-      "memory_exchange",
-      "VIP_only",
-      "卡斯特·维拉（间接控股）"
+      "memory_storage_facility",
+      "公共",
+      "记忆银行管理局（隶属城市议会）"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 77,
+      "y": 75,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 84,
+      "y": 85
+    },
+    "raw": {
+      "identity": {
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:015",
+        "name": "公共记忆银行",
+        "type": "memory_storage_facility",
+        "description": "一座多层记忆存储建筑，位于中层区，外墙由记忆合金板构成，表面泛着微弱的蓝色荧光。内部拥有无数记忆晶格阵列，用于存放市民日常交易和备份的记忆。这里是记忆经济的血液泵站，每天处理数十万次存取操作。",
+        "energy_shield_level": "中等",
+        "memory_storage_density": "高",
+        "storm_noise_index": "45",
+        "is_trading_allowed": "true"
+      },
+      "access": {
+        "permissions": "市民可凭身份卡进入，需支付少量记忆租金存储日常记忆；商业交易需额外登记",
+        "access_level": "公共",
+        "access_conditions": "需通过记忆纯度检测，禁止携带未注册记忆晶片；每月存储量受信用等级限制",
+        "required_credit_rank": "C级及以上",
+        "allowed_memory_types": "日常记忆、工作记忆、技能记忆",
+        "requires_authorization_token": "false",
+        "social_tier_marker": "中层标准制服或商务装"
+      },
+      "state": {
+        "current_state": "正常运转，排队人数适中",
+        "ownership": "记忆银行管理局（隶属城市议会）",
+        "capacity": 50000,
+        "energy_shield_percentage": "85",
+        "current_occupancy": "32000",
+        "storm_alert_level": "绿色",
+        "last_maintenance_time": "2147-03-12 14:30"
+      },
+      "visual": "长方体建筑，约六层，外墙由银灰色记忆合金板拼接，板缝中透出蓝色荧光。正面有一个大型拱形入口，顶部悬浮全息标志“公共记忆银行”，字体以淡蓝色光粒组成。内部大厅为半圆形穹顶，穹顶镶嵌无数记忆晶格，呈淡蓝色光晕，仿佛星空。地面是光滑的黑色陶瓷，倒映着行走的市民。前台有多排自动办理终端，终端屏幕上滚动显示记忆存储利率。墙壁上悬挂着巨大的记忆交易指数显示屏，数字跳动。构图建议：从入口向里拍摄，前景是排队市民的模糊身影，中景是终端发光的蓝色屏幕，后景是穹顶晶格和深远的空间感，整体冷色调，点缀暖色人影。"
+    }
+  },
+  {
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:001",
+    "name": "以太高地",
+    "type": "residential_area",
+    "description": "漂浮在城市最上层的奢华飞地，由一系列相连的穹顶豪宅组成，悬浮在风暴云海之上。每个住宅拥有独立的高能护盾和记忆花园，由珍稀的原始记忆滋养。这里居住着记忆巨头、最高官员和顶级技师，他们是记忆经济金字塔的顶端。空气中弥漫着提取净化的纯净记忆香气，安静得仿佛与下方风暴隔绝。",
+    "access": {
+      "permissions": "仅限身份验证的精英阶层及其授权访客；需通过多重生物认证和记忆特征识别",
+      "access_level": "私人（高度限制）",
+      "access_conditions": "必须持有金级记忆信用卡及以上，瞳孔和双重记忆特征验证，由一名内部成员担保",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "戒备森严，一派宁静奢华",
+      "ownership": "埃拉·维克斯等三大顶级商团集体持有产权，各宅邸属个人",
+      "capacity": 500,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 500,
+    "tags": [
+      "residential_area",
+      "私人（高度限制）",
+      "埃拉·维克斯等三大顶级商团集体持有产权，各宅邸属个人"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 26,
+      "y": 53,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 33,
+      "y": 63
+    },
+    "raw": {
+      "identity": {
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:001",
+        "name": "以太高地",
+        "type": "residential_area",
+        "description": "漂浮在城市最上层的奢华飞地，由一系列相连的穹顶豪宅组成，悬浮在风暴云海之上。每个住宅拥有独立的高能护盾和记忆花园，由珍稀的原始记忆滋养。这里居住着记忆巨头、最高官员和顶级技师，他们是记忆经济金字塔的顶端。空气中弥漫着提取净化的纯净记忆香气，安静得仿佛与下方风暴隔绝。",
+        "energy_shield_level": "最高级（城市最强）",
+        "memory_storage_density": "低（个人金库私密存储）",
+        "storm_noise_index": "5",
+        "is_trading_allowed": "仅限于精英阶层私密交易"
+      },
+      "access": {
+        "permissions": "仅限身份验证的精英阶层及其授权访客；需通过多重生物认证和记忆特征识别",
+        "access_level": "私人（高度限制）",
+        "access_conditions": "必须持有金级记忆信用卡及以上，瞳孔和双重记忆特征验证，由一名内部成员担保",
+        "required_credit_rank": "S级",
+        "allowed_memory_types": "珍贵、稀有、历史性记忆",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "定制记忆丝绸服饰，佩戴家族纹章臂环，全身散发记忆信息场"
+      },
+      "state": {
+        "current_state": "戒备森严，一派宁静奢华",
+        "ownership": "埃拉·维克斯等三大顶级商团集体持有产权，各宅邸属个人",
+        "capacity": 500,
+        "energy_shield_percentage": "100",
+        "current_occupancy": "420",
+        "storm_alert_level": "绿色（内部无忧）",
+        "last_maintenance_time": "2147-03-01 08:00"
+      },
+      "visual": "以太高地由多个悬浮的白色穹顶建筑组成，每个穹顶直径约50米，之间由透明记忆管道连接，管道内流动着金色记忆光流。穹顶表面覆盖纳米光伏膜，在木星风暴的暗红色云层映照下反射出金色光芒，如同王冠上的宝石。每个穹顶内部有空中花园，植被由记忆能量滋养，发出柔和的生物光——蓝色、紫色和淡粉色交织。中央建筑“记忆之冠”是最高层的社交会所，外观像巨大的水晶莲花，花瓣半透明，边缘散发柔和冷光。场景构图：低角度仰拍悬空桥通向中央穹顶，前景是泛光的记忆管道，中景是穹顶群和花园，远景是风暴云海与远处城市能源塔的闪电。光源来自穹顶自身的发光和远处闪电，整体色调为金色、白色与暗红对比。"
+    }
+  },
+  {
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:013",
+    "name": "雾中中层",
+    "type": "residential_area",
+    "description": "位于城市中层环带的密集住宅区，建筑风格是实用主义的高楼群，灰色混凝土和玻璃幕墙，常年被风暴云层吹来的雾气笼罩。这里居住着大量记忆商人、技师、中低级官员和稳定收入的家庭。街道上记忆贩卖亭和记忆咖啡馆林立，是记忆交易最活跃的地带。",
+    "access": {
+      "permissions": "所有注册市民可进入公共区域，私人住宅需钥匙或身份识别",
+      "access_level": "公共区域开放，住宅私有",
+      "access_conditions": "需持有有效记忆身份卡；访客需住户登记",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "拥挤但有序，交易繁忙",
+      "ownership": "市政府和多个记忆商团共同持有",
+      "capacity": 200000,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 200000,
+    "tags": [
+      "residential_area",
+      "公共区域开放，住宅私有",
+      "市政府和多个记忆商团共同持有"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
@@ -256,547 +487,275 @@
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:016",
-        "name": "私人记忆交易室",
-        "type": "memory_exchange",
-        "description": "专为记忆富豪和核心交易者设计的高规格一对一记忆交易空间，位于档案城金融区顶层，采用生物识别与记忆锁双重安保，确保交易绝对私密。室内配备记忆提取椅、全息交易界面及防窃听场，墙上嵌有实时记忆估值屏。",
-        "memory_trading_license": "C级（高价值交易）",
-        "storm_safety_rating": "S级（抗风暴结构加固）",
-        "district": "金融记忆区"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:013",
+        "name": "雾中中层",
+        "type": "residential_area",
+        "description": "位于城市中层环带的密集住宅区，建筑风格是实用主义的高楼群，灰色混凝土和玻璃幕墙，常年被风暴云层吹来的雾气笼罩。这里居住着大量记忆商人、技师、中低级官员和稳定收入的家庭。街道上记忆贩卖亭和记忆咖啡馆林立，是记忆交易最活跃的地带。",
+        "energy_shield_level": "中等",
+        "memory_storage_density": "中高（每户标准记忆保险箱）",
+        "storm_noise_index": "50",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "记忆交易操作, 隐私屏蔽, 记忆存档授权",
-        "access_level": "VIP_only",
-        "access_conditions": "需预约并通过记忆信用审核，交易前需支付最低1000记忆点的押金，提供个人记忆净值证明",
-        "required_memory_clearance": "1000记忆点以上",
-        "entry_fee_in_memory": "每次准入扣除50记忆点作为环境维护费",
-        "black_market_affiliation": "false"
+        "permissions": "所有注册市民可进入公共区域，私人住宅需钥匙或身份识别",
+        "access_level": "公共区域开放，住宅私有",
+        "access_conditions": "需持有有效记忆身份卡；访客需住户登记",
+        "required_credit_rank": "C级至B级",
+        "allowed_memory_types": "大部分类型，需在记忆交易所报备",
+        "requires_authorization_token": "false",
+        "social_tier_marker": "标准商务装，佩戴记忆手环"
       },
       "state": {
-        "current_state": "运营中，预约已排期至三天后",
-        "ownership": "卡斯特·维拉（间接控股）",
-        "capacity": 1,
-        "memory_reserve_level": "5800记忆点（备用交易媒介）",
-        "extraction_queue_length": "2",
-        "security_alert_level": "绿色（低风险）"
+        "current_state": "拥挤但有序，交易繁忙",
+        "ownership": "市政府和多个记忆商团共同持有",
+        "capacity": 200000,
+        "energy_shield_percentage": "70",
+        "current_occupancy": "180000",
+        "storm_alert_level": "黄色",
+        "last_maintenance_time": "2147-02-20 10:15"
       },
-      "visual": "椭圆形穹顶空间，直径约6米，高3米。墙面为深灰色记忆合金材质，表面蚀刻着微米级的记忆回路纹路，在暗蓝光下隐隐发光。中央放置一张单座记忆提取椅，由黑色纳米碳纤维制成，椅背倾斜45度，配有全息投影头箍。右侧弧形全息控制台悬浮着交易报价与契约文件。地面铺设记忆晶体薄片，行走时泛起涟漪状光晕。天顶嵌入环形LED灯带，色温从2800K到4500K渐变。角落设有一个暗金色的保险柜，用于临时存储高价值记忆晶片。整体氛围安静、密闭，充满科技感的私密性，适合生成一个俯视或局部特写的图像构图。"
+      "visual": "一排排五六十层高的住宅楼紧密排列，外墙为灰色混凝土和反射玻璃，玻璃上投影着实时记忆交易广告，全息数字闪烁变化。街道狭窄，两侧有小型记忆贩卖亭——铁皮亭子内嵌入提取设备，以及记忆咖啡馆——调制“回忆拿铁”的霓虹招牌。空中走廊连接楼栋，走廊上悬挂着发光的记忆晶片装饰，像一串串蓝色灯笼。雾气弥漫，能见度约30米，橙色风暴照明灯发出昏暗的钠光。构图：从地面仰拍高楼，前景是街道上撑反光伞的行人模糊轮廓，中景是全息广告投影和贩卖亭，后景是雾中若隐若现的楼体轮廓和深色天空，整体灰橙色调。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:012",
-    "name": "主档案库",
-    "type": "archive",
-    "description": "城市记忆经济的心脏，一座直径五百米的穹顶状晶体建筑悬浮于档案城中环核心区。外壳由记忆晶体与钛合金编织而成，在木星投射的紫红色风暴闪光下折射出亿万条记忆数据流的光痕。内部呈蜂窝状分层的存储大厅，每层排列着数百万个琥珀色记忆存储单元，通过磁纳米线连接至中央处理核心。底层是记忆提取与编码车间，顶层为总档案管理员奥莉维亚·格雷的透明办公室，可俯瞰整个库厅。空气中弥漫着微弱臭氧味与数据冷却剂的金属气息，恒定的低频嗡鸣来自恒温恒湿系统与记忆检索脉冲。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:005",
+    "name": "沉底区",
+    "type": "residential_area",
+    "description": "城市最底层的贫民区，紧邻能量护盾边缘，承受着最强的风暴冲击。破败的临时建筑由回收的金属板、旧记忆晶片外壳和废弃结构搭建，混乱的巷道中挤满了因出卖记忆而精神恍惚的贫民。黑市记忆交易在这里公开进行，提取设备的低鸣和风暴的呼啸交织。官方几乎放弃管治，这里是绝望与反抗的温床。",
     "access": {
-      "permissions": "仅限持有城市记忆管理局A级权限卡的人员进入，访客需提前申请并缴纳100标准记忆单位作为押金，禁止携带任何外部存储设备",
-      "access_level": "受限公共服务（存储区对公众开放但需预约，核心处理区仅限档案管理员与记忆提取师）",
-      "access_conditions": "需通过虹膜、记忆指纹与声纹三重生物认证，进入核心层还需额外通过记忆纯度扫描，防止记忆窃贼携带黑市工具",
+      "permissions": "任何人都可进入，无官方控制，但极度危险",
+      "access_level": "公开（无限制）",
+      "access_conditions": "无，但暴力冲突和强制提取记忆随处可见",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "满负荷运转，存储容量已达87%，每天新增约2万次记忆交易记录，部分老旧存储单元正进行惰性气体置换维护",
-      "ownership": "归风暴档案城市政当局所有，实际运营由记忆管理局下属的档案管理部负责，总档案管理员拥有绝对控制权",
-      "capacity": 5000000,
+      "current_state": "混乱、破败、绝望，零星抵抗组织活动",
+      "ownership": "无主之地，被街头帮派和黑市商人实际控制",
+      "capacity": 100000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 5000000,
+    "capacity": 100000,
     "tags": [
-      "archive",
-      "受限公共服务（存储区对公众开放但需预约，核心处理区仅限档案管理员与记忆提取师）",
-      "归风暴档案城市政当局所有，实际运营由记忆管理局下属的档案管理部负责，总档案管理员拥有绝对控制权"
+      "residential_area",
+      "公开（无限制）",
+      "无主之地，被街头帮派和黑市商人实际控制"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 57,
-      "y": 39,
-      "w": 22,
-      "h": 16
-    },
-    "entrance": {
-      "x": 68,
-      "y": 54
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:012",
-        "name": "主档案库",
-        "type": "archive",
-        "description": "城市记忆经济的心脏，一座直径五百米的穹顶状晶体建筑悬浮于档案城中环核心区。外壳由记忆晶体与钛合金编织而成，在木星投射的紫红色风暴闪光下折射出亿万条记忆数据流的光痕。内部呈蜂窝状分层的存储大厅，每层排列着数百万个琥珀色记忆存储单元，通过磁纳米线连接至中央处理核心。底层是记忆提取与编码车间，顶层为总档案管理员奥莉维亚·格雷的透明办公室，可俯瞰整个库厅。空气中弥漫着微弱臭氧味与数据冷却剂的金属气息，恒定的低频嗡鸣来自恒温恒湿系统与记忆检索脉冲。",
-        "memory_trading_license": "官方通用交易许可证",
-        "storm_safety_rating": "S级（最高防护）",
-        "district": "中环核心区"
-      },
-      "access": {
-        "permissions": "仅限持有城市记忆管理局A级权限卡的人员进入，访客需提前申请并缴纳100标准记忆单位作为押金，禁止携带任何外部存储设备",
-        "access_level": "受限公共服务（存储区对公众开放但需预约，核心处理区仅限档案管理员与记忆提取师）",
-        "access_conditions": "需通过虹膜、记忆指纹与声纹三重生物认证，进入核心层还需额外通过记忆纯度扫描，防止记忆窃贼携带黑市工具",
-        "required_memory_clearance": "A级（存储区）；S级（核心处理区）",
-        "entry_fee_in_memory": "10标准记忆单位（基本参观）；100标准记忆单位（深度访问）",
-        "black_market_affiliation": ""
-      },
-      "state": {
-        "current_state": "满负荷运转，存储容量已达87%，每天新增约2万次记忆交易记录，部分老旧存储单元正进行惰性气体置换维护",
-        "ownership": "归风暴档案城市政当局所有，实际运营由记忆管理局下属的档案管理部负责，总档案管理员拥有绝对控制权",
-        "capacity": 5000000,
-        "memory_reserve_level": "87%",
-        "extraction_queue_length": "12小时（平均等待时间）",
-        "security_alert_level": "绿色（常规）"
-      },
-      "visual": "一座巨大的半透明晶体穹顶建筑，直径约500米，高约150米，表面镶嵌着无数细密的记忆晶体颗粒，在紫红色的木星风暴光芒照射下不断闪烁出蓝白色数据流光痕。穹顶分为三层结构：底部是深灰色钛合金基座，中部是淡蓝色玻璃幕墙与钢架交错的外立面，顶部是完全透明的记忆晶体穹壳，可以看到内部密密麻麻排列的六边形存储单元，像蜂巢一样从地面堆叠至穹顶。主入口是一扇高10米、宽6米的弧形记忆晶体门，雕刻着城市徽记与记忆货币符号。建筑周围环绕着一圈淡蓝色能量护盾，在风暴中微微波动。内部大厅中央矗立着一根直径8米的中央数据柱，由无数光导纤维编织而成，不断向上射出螺旋状数据流。地面采用深黑色抛光玄武岩，倒映着悬吊在穹顶的数千个记忆胶囊形状的吊灯，发出暖白色的柔和光芒。空气中隐约可见冷却系统喷出的冷雾，在灯光下形成淡淡的光晕。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:007",
-    "name": "加密记忆档案库",
-    "type": "archive",
-    "description": "位于主档案库地下三十五层的加密区域，由三层记忆合金装甲板与量子干扰场隔离，专门存放高敏感度的记忆——包括市政要员的私密记忆、重大犯罪证据、未被批准的实验数据以及部分禁绝记忆。整个区域没有窗户，走廊和存储室均用深灰色记忆吸波材料覆盖，任何未授权的记忆扫描都会被瞬间抑制并触发警报。存储单元采用量子纠缠态记忆晶体，每个晶体都绑定唯一加密密钥，只有持有对应解密钥的人才能读取。",
-    "access": {
-      "permissions": "仅限记忆管理局加密部门核心成员（不超过12人）及总档案管理员亲自授权的人员进入，每次进入需三人同时验证密钥",
-      "access_level": "最高机密（非公开）",
-      "access_conditions": "需通过量子密钥卡、生物记忆签名及动态行为模式三重验证，进入后必须佩戴记忆屏蔽头盔防止意外读取周边存储晶体",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "稳定运行，82%的存储晶格处于激活状态，18%为休眠备用。近期因风暴预警，部分最敏感的记忆正被转移至移动式量子容器中，以备紧急撤离",
-      "ownership": "记忆管理局加密部门",
-      "capacity": 50000,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 50000,
-    "tags": [
-      "archive",
-      "最高机密（非公开）",
-      "记忆管理局加密部门"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 26,
-      "y": 75,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 33,
-      "y": 85
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:007",
-        "name": "加密记忆档案库",
-        "type": "archive",
-        "description": "位于主档案库地下三十五层的加密区域，由三层记忆合金装甲板与量子干扰场隔离，专门存放高敏感度的记忆——包括市政要员的私密记忆、重大犯罪证据、未被批准的实验数据以及部分禁绝记忆。整个区域没有窗户，走廊和存储室均用深灰色记忆吸波材料覆盖，任何未授权的记忆扫描都会被瞬间抑制并触发警报。存储单元采用量子纠缠态记忆晶体，每个晶体都绑定唯一加密密钥，只有持有对应解密钥的人才能读取。",
-        "memory_trading_license": "仅限记忆管理局加密部门调拨，不对外交易",
-        "storm_safety_rating": "A+级",
-        "district": "中环地下层"
-      },
-      "access": {
-        "permissions": "仅限记忆管理局加密部门核心成员（不超过12人）及总档案管理员亲自授权的人员进入，每次进入需三人同时验证密钥",
-        "access_level": "最高机密（非公开）",
-        "access_conditions": "需通过量子密钥卡、生物记忆签名及动态行为模式三重验证，进入后必须佩戴记忆屏蔽头盔防止意外读取周边存储晶体",
-        "required_memory_clearance": "S+级（特殊权限）",
-        "entry_fee_in_memory": "不适用（禁止公众进入）",
-        "black_market_affiliation": "黑市有渠道获取部分休眠加密晶体，但需支付极高记忆代价"
-      },
-      "state": {
-        "current_state": "稳定运行，82%的存储晶格处于激活状态，18%为休眠备用。近期因风暴预警，部分最敏感的记忆正被转移至移动式量子容器中，以备紧急撤离",
-        "ownership": "记忆管理局加密部门",
-        "capacity": 50000,
-        "memory_reserve_level": "82%",
-        "extraction_queue_length": "无（内部按需操作）",
-        "security_alert_level": "蓝色（高警戒，接近橙色）"
-      },
-      "visual": "一条低矮狭长的深灰色合金走廊，天花板高度仅2.2米，墙壁覆盖着吸波蜂窝状面板，每块面板表面有细微的六边形凹陷，在暗红色应急灯光下几乎不反光。走廊尽头是一扇厚达1.5米的圆角矩形装甲门，门表面没有任何把手或标识，只有三个嵌入式的量子密钥插口呈等边三角形排列。门开启时，内部会透出幽蓝色冷光，可以看到存储区内部是一排排从地板延伸至天花板的金属柜架，每个柜架嵌着数百个拇指大小、悬浮在磁场中的记忆晶体，晶体发出微弱的蓝色荧光。整个空间温度低于外界约8摄氏度，地面是防静电橡胶材质，刻有记忆波长的螺旋纹理。空气中弥漫着液氮冷却系统产生的极干燥的冷气，没有一丝灰尘。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:008",
-    "name": "历史记忆库",
-    "type": "archive",
-    "description": "位于档案城东区的一座古老建筑，建于城市纪元年38年，是城市中少数保留原始混凝土与钢结构外观的设施。它专门保存城市建立以来所有的非机密历史记忆，包括市政会议记录、公共事件、名人传记、自然灾害影像及日常民生记忆。建筑内部经过多次改造，现采用混合存储介质——既有古老的记忆金属盘，也有最新的量子胶体存储柱。这里是市民免费查阅历史记录的唯一合法场所，也是档案管理员马克日常工作的地点。",
-    "access": {
-      "permissions": "对所有市民开放查阅权限，但禁止触碰存储设备，不可携带记忆复制工具。提取记忆副本需要缴纳5标准记忆单位/次，且需要填写用途声明",
-      "access_level": "公开",
-      "access_conditions": "通过身份卡登记即可进入，高峰期需排队等候，夜间关闭。内部有守卫生驻守，防止破坏行为",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "运营正常，但部分早期存储介质老化严重，定期维护需求增加。近期因风暴频发，屋顶有轻微渗水现象，正在申请维修预算。每日平均接待约450人次，周末可翻倍",
-      "ownership": "市政当局下属的历史文化委员会",
-      "capacity": 2000000,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 2000000,
-    "tags": [
-      "archive",
-      "公开",
-      "市政当局下属的历史文化委员会"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 86,
-      "y": 45,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 93,
-      "y": 55
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:008",
-        "name": "历史记忆库",
-        "type": "archive",
-        "description": "位于档案城东区的一座古老建筑，建于城市纪元年38年，是城市中少数保留原始混凝土与钢结构外观的设施。它专门保存城市建立以来所有的非机密历史记忆，包括市政会议记录、公共事件、名人传记、自然灾害影像及日常民生记忆。建筑内部经过多次改造，现采用混合存储介质——既有古老的记忆金属盘，也有最新的量子胶体存储柱。这里是市民免费查阅历史记录的唯一合法场所，也是档案管理员马克日常工作的地点。",
-        "memory_trading_license": "公共查阅不收费，复制或提取需要缴少量记忆税",
-        "storm_safety_rating": "B级（需定期加固）",
-        "district": "东区"
-      },
-      "access": {
-        "permissions": "对所有市民开放查阅权限，但禁止触碰存储设备，不可携带记忆复制工具。提取记忆副本需要缴纳5标准记忆单位/次，且需要填写用途声明",
-        "access_level": "公开",
-        "access_conditions": "通过身份卡登记即可进入，高峰期需排队等候，夜间关闭。内部有守卫生驻守，防止破坏行为",
-        "required_memory_clearance": "无（仅身份验证）",
-        "entry_fee_in_memory": "0（查阅）；5标准记忆单位/复制",
-        "black_market_affiliation": ""
-      },
-      "state": {
-        "current_state": "运营正常，但部分早期存储介质老化严重，定期维护需求增加。近期因风暴频发，屋顶有轻微渗水现象，正在申请维修预算。每日平均接待约450人次，周末可翻倍",
-        "ownership": "市政当局下属的历史文化委员会",
-        "capacity": 2000000,
-        "memory_reserve_level": "78%（其中约12%为濒危老旧介质，优先转移中）",
-        "extraction_queue_length": "15分钟（非高峰时段）",
-        "security_alert_level": "绿色"
-      },
-      "visual": "一座四层高的老旧混凝土建筑，外墙涂刷着淡黄色防水涂料，但多处已经剥落露出灰色的水泥层。建筑正面装饰着一排粗壮的圆柱，支撑着带浮雕的三角楣，浮雕描绘的是城市奠基时的场景——一群先驱者在风暴中建造初始平台。正门是厚重的橡木镶铜大门，门上方悬挂着一个巨大的老式记忆光盘形状的钟表，指针缓慢转动。步入大厅，迎面是一个开阔的阅览室，高挑的天花板下悬挂着枝形铁艺吊灯，灯光昏黄。四周墙壁排列着高达6米的存储架，上面放满了古铜色的记忆金属盘，每块盘子直径约30厘米，边缘刻有编号。大厅中央设有多张深色木制长桌和阅读灯，市民们戴着轻便的记忆读取头环，安静地浏览各类历史记录。后厅则摆放着六根圆柱形的量子胶体存储柱，散发着莹莹绿光，与老旧的金属盘形成鲜明对比。地面上铺着磨损的水磨石地板，图案是记忆波形的简化线条。空气中弥漫着旧书和金属轻微氧化的气味，偶尔夹杂着记忆读取设备的低频电流声。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:001",
-    "name": "废弃记忆库",
-    "type": "archive",
-    "description": "位于城市底层区域边缘的一座被遗忘的设施，原本是早期市政记忆备份库，在三十年前因一次严重风暴损坏后废弃。部分天花板坍塌，存储架东倒西歪，大量损坏或过期的记忆晶体暴露在腐蚀性的木星大气混合物中，表面已经发霉、破裂或完全失去光泽。这里偶尔被记忆贫民和无政府组织用作临时据点，也传说有记忆窃贼藏匿偷来的黑市记忆晶体，等待时机脱手。档案城里几乎没有人会主动提及这个地方，官方记录中它已经彻底注销。",
-    "access": {
-      "permissions": "理论上禁止入内，但底层边缘缺乏有效巡逻，可以通过一处被风暴撕裂的侧面破洞进入。里面没有任何正规照明或生命维持系统，需要自带装备",
-      "access_level": "无（非法进入）",
-      "access_conditions": "需绕过底层边缘区的简易路障，从西侧外墙的破口爬入，内部结构不稳定，存在坍塌风险。最好在风暴间歇期间行动，否则可能被灌入的氨风暴窒息",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "半废弃状态，结构损坏率约70%，剩余完整空间约300平方米，个别房间仍有老旧的存储柜，但已无电力供应。近期有流浪者居住的痕迹，地面散落废弃的睡袋和空罐头",
-      "ownership": "理论上归市政当局所有，但实际处于无主状态",
-      "capacity": 0,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 0,
-    "tags": [
-      "archive",
-      "无（非法进入）",
-      "理论上归市政当局所有，但实际处于无主状态"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 31,
+      "x": 67,
       "y": 25,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 38,
+      "x": 74,
       "y": 35
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:001",
-        "name": "废弃记忆库",
-        "type": "archive",
-        "description": "位于城市底层区域边缘的一座被遗忘的设施，原本是早期市政记忆备份库，在三十年前因一次严重风暴损坏后废弃。部分天花板坍塌，存储架东倒西歪，大量损坏或过期的记忆晶体暴露在腐蚀性的木星大气混合物中，表面已经发霉、破裂或完全失去光泽。这里偶尔被记忆贫民和无政府组织用作临时据点，也传说有记忆窃贼藏匿偷来的黑市记忆晶体，等待时机脱手。档案城里几乎没有人会主动提及这个地方，官方记录中它已经彻底注销。",
-        "memory_trading_license": "无",
-        "storm_safety_rating": "无评级（危险区域）",
-        "district": "底层边缘区"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:005",
+        "name": "沉底区",
+        "type": "residential_area",
+        "description": "城市最底层的贫民区，紧邻能量护盾边缘，承受着最强的风暴冲击。破败的临时建筑由回收的金属板、旧记忆晶片外壳和废弃结构搭建，混乱的巷道中挤满了因出卖记忆而精神恍惚的贫民。黑市记忆交易在这里公开进行，提取设备的低鸣和风暴的呼啸交织。官方几乎放弃管治，这里是绝望与反抗的温床。",
+        "energy_shield_level": "最低（城市边缘）",
+        "memory_storage_density": "极低（居民几乎没有剩余记忆）",
+        "storm_noise_index": "95",
+        "is_trading_allowed": "官方禁止，但黑市猖獗"
       },
       "access": {
-        "permissions": "理论上禁止入内，但底层边缘缺乏有效巡逻，可以通过一处被风暴撕裂的侧面破洞进入。里面没有任何正规照明或生命维持系统，需要自带装备",
-        "access_level": "无（非法进入）",
-        "access_conditions": "需绕过底层边缘区的简易路障，从西侧外墙的破口爬入，内部结构不稳定，存在坍塌风险。最好在风暴间歇期间行动，否则可能被灌入的氨风暴窒息",
-        "required_memory_clearance": "",
-        "entry_fee_in_memory": "无",
-        "black_market_affiliation": "低度黑市联系，偶尔有黑市中间商在此交易低质量记忆"
+        "permissions": "任何人都可进入，无官方控制，但极度危险",
+        "access_level": "公开（无限制）",
+        "access_conditions": "无，但暴力冲突和强制提取记忆随处可见",
+        "required_credit_rank": "E级及以下",
+        "allowed_memory_types": "低质量记忆、非法记忆、残片交易",
+        "requires_authorization_token": "false",
+        "social_tier_marker": "破旧衣物，裸露的记忆接口疤痕，眼神空洞"
       },
       "state": {
-        "current_state": "半废弃状态，结构损坏率约70%，剩余完整空间约300平方米，个别房间仍有老旧的存储柜，但已无电力供应。近期有流浪者居住的痕迹，地面散落废弃的睡袋和空罐头",
-        "ownership": "理论上归市政当局所有，但实际处于无主状态",
-        "capacity": 0,
-        "memory_reserve_level": "几乎为零（残存记忆晶体大多已损坏或失效）",
-        "extraction_queue_length": "无",
-        "security_alert_level": "无监控"
+        "current_state": "混乱、破败、绝望，零星抵抗组织活动",
+        "ownership": "无主之地，被街头帮派和黑市商人实际控制",
+        "capacity": 100000,
+        "energy_shield_percentage": "40",
+        "current_occupancy": "95000",
+        "storm_alert_level": "红色",
+        "last_maintenance_time": "2146-11-05 16:20"
       },
-      "visual": "一座三层高的混凝土建筑，东侧和北侧外墙大范围坍塌，露出扭曲的钢筋和破碎的预制板。屋顶部分消失，可以看到上方灰紫色充满氨气的木星天空，偶尔有闪电划破天际。建筑原本的正门被锈蚀的铁卷门封死，门上挂着破烂的官方封条，已被撕扯大半。从西侧外墙一个不规则的破口进入，内部是一片狼藉的大厅，地面覆盖着厚厚的灰尘、碎片和凝结的氨霜。残存的存储架像骷髅一样倾斜，上面散落着碎裂的记忆晶体——有的裂成两半，有的表面布满白色霉斑，失去光泽。少数未破损的晶体还隐约闪烁着微弱的蓝光，在昏暗的环境中像萤火虫一样。角落里有几个破旧沙发和用木材临时搭建的床铺。墙壁上到处都是涂鸦，有些是底层反抗组织的符号，有些是记忆交易的黑市广告。空气中弥漫着霉味、工业废气以及从破洞灌入的恶劣大气混合物，能见度低，只有从屋顶破洞漏下的几缕紫色光线照亮悬浮的尘埃颗粒。"
+      "visual": "沉底区由歪斜的波纹铁皮棚屋和废弃集装箱堆叠而成，形成迷宫般的通道。地面是泥泞的金属板，偶尔露出电线。空气中弥漫霉味和记忆提取设备产生的臭氧味。风暴的呼啸声震耳欲聋，头顶护盾不时闪烁出蓝白色能量波纹。街道窄小，两旁挂着暗淡的应急灯，投下长长的影子。一些黑市记忆提取摊位支起帆布棚，延伸出触手般的电缆连接到顾客头部的接口。远处上层区域的光穹像另一个世界，发出冷白色的光，与这里的昏暗形成刺眼对比。构图：低角度拍摄一条积满污水的巷道，前景有一个倒地、神情麻木的身影，中景是铁皮墙上用荧光漆涂画的抵抗组织符号（一个断裂的记忆晶片），后景是上层悬浮的光穹和闪电，整体色调为暗灰、铁锈红与冷蓝的碰撞。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:017",
-    "name": "公共提取站",
-    "type": "extraction_station",
-    "description": "位于中层居民区中心的批量处理设施，每天处理数千次记忆提取，是多数市民换取生存配额的必经之地。建筑呈巨大圆形，银灰色合金外墙被防风暴玻璃条带分割，顶部旋转着蓝色全息记忆标志。内部为高敞大厅，20个半透明圆柱提取舱整齐排列，每个舱内配有标准躺椅和全息界面。墙壁上悬挂实时记忆价格指数和队列长度屏幕，地面是深灰色防滑金属板，冷白LED照明，偶尔因风暴干扰而闪烁。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:011",
+    "name": "记忆部",
+    "type": "city_administration_center",
+    "description": "记忆经济体系的神经中枢，一座由深灰色记忆合金与防暴聚合物构筑的锥形塔楼，矗立于风暴眼广场的正东侧。塔身表面布满蜂巢状的能量导管，在风暴中发出低沉的嗡嗡声。这里是记忆交易法规的诞生地，所有记忆提取、存储、交易的许可证必须在此审批，档案室内储存着每一位市民的记忆产权契约与犯罪记录。塔顶的蓝色全息徽章——一双捧住发光大脑的手——日夜旋转，向整座城市宣示记忆的至高权威。",
     "access": {
-      "permissions": "所有持有有效市民身份芯片的公民均可进入，需排队领取号码",
-      "access_level": "public",
-      "access_conditions": "支付0.1记忆单位的基本提取费；每日限提取一次；严禁携带外部记录设备",
+      "permissions": "仅限持有最高级记忆信用(A+级)的市民或经总督直接授权的官员进入。底层接待大厅对公众开放但需扫描身份记忆，任何试图携带未登记记忆数据的行为都会触发警报。核心档案区需通过三重视网膜与记忆波形验证。",
+      "access_level": "highly_restricted",
+      "access_conditions": "",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "运营中，提取队列平均等待2小时",
-      "ownership": "市政记忆管理局",
-      "capacity": 200,
+      "current_state": "运作中，正值记忆交易季度申报期，大厅内排满各记忆商行的代理人，气氛紧张而有序。档案室数据流负载达到87%。",
+      "ownership": "风暴记忆城最高执政官卡莱总督直接管辖，记忆部常务委员会日常管理",
+      "capacity": 2000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 200,
+    "capacity": 2000,
     "tags": [
-      "extraction_station",
-      "public",
-      "市政记忆管理局"
+      "city_administration_center",
+      "highly_restricted",
+      "风暴记忆城最高执政官卡莱总督直接管辖，记忆部常务委员会日常管理"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 61,
-      "y": 82,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 68,
-      "y": 92
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:017",
-        "name": "公共提取站",
-        "type": "extraction_station",
-        "description": "位于中层居民区中心的批量处理设施，每天处理数千次记忆提取，是多数市民换取生存配额的必经之地。建筑呈巨大圆形，银灰色合金外墙被防风暴玻璃条带分割，顶部旋转着蓝色全息记忆标志。内部为高敞大厅，20个半透明圆柱提取舱整齐排列，每个舱内配有标准躺椅和全息界面。墙壁上悬挂实时记忆价格指数和队列长度屏幕，地面是深灰色防滑金属板，冷白LED照明，偶尔因风暴干扰而闪烁。",
-        "memory_trading_license": "公共许可证（基本）",
-        "storm_safety_rating": "B级（中等防护）",
-        "district": "中层居民区-记忆大道"
-      },
-      "access": {
-        "permissions": "所有持有有效市民身份芯片的公民均可进入，需排队领取号码",
-        "access_level": "public",
-        "access_conditions": "支付0.1记忆单位的基本提取费；每日限提取一次；严禁携带外部记录设备",
-        "required_memory_clearance": "无特殊要求",
-        "entry_fee_in_memory": "0.1",
-        "black_market_affiliation": "无"
-      },
-      "state": {
-        "current_state": "运营中，提取队列平均等待2小时",
-        "ownership": "市政记忆管理局",
-        "capacity": 200,
-        "memory_reserve_level": "中等（每日补充）",
-        "extraction_queue_length": "200-300人",
-        "security_alert_level": "低（常规监控）"
-      },
-      "visual": "圆形建筑主体，银灰色合金板与防风暴玻璃条交替构成外立面，顶部边缘有一圈发光蓝色记忆符号标志。入口处是6排自动闸机，佩戴身份芯片的市民在闸机前排队等待。进入大厅后，高约15米的天花板中央悬挂一组多面全息显示屏，显示实时记忆交易数据。地面为深灰色防滑金属板，20个半透明圆柱提取舱以5×4阵列排列，每个舱高2.5米，直径1.8米，侧面有滑动门和操作面板。舱内可见白色躺椅和上方的半球形全息投影器。墙壁上每隔3米嵌有一块窄条显示屏，滚动播放提取须知和风暴预警。整体照明为冷白色LED顶灯，色调偏蓝。构图建议：拍摄视角从入口向内平视，前景聚焦排队人群的剪影，中景呈现提取舱的整齐几何感，背景是上方闪烁的数据屏幕，突出秩序与机械感。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:006",
-    "name": "高端私人提取站",
-    "type": "extraction_station",
-    "description": "位于城市最上层浮空区域的私密场所，专为记忆富豪与权力阶层定制服务。流线型塔楼外观覆盖金色与白色合金，窗户采用单向深色玻璃，外部有私人停机坪。内部仅设10间豪华主题提取室，每间都配有定制环境模拟系统，提取椅子软记忆泡沫制成，穹顶和墙板可投射任意全息场景。服务价格高昂，普通市民终身难以企及，是记忆阶层固化的视觉符号。",
-    "access": {
-      "permissions": "仅限高级记忆许可证持有者、受邀嘉宾及市政优先客户",
-      "access_level": "restricted",
-      "access_conditions": "需提前24小时预约；最低提取费5记忆单位；可携带一名私人助理",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "运营中，预约率80%，未来两周基本满",
-      "ownership": "维拉记忆集团（卡斯特·维拉全资）",
-      "capacity": 10,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 10,
-    "tags": [
-      "extraction_station",
-      "restricted",
-      "维拉记忆集团（卡斯特·维拉全资）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 97,
-      "y": 68,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 104,
-      "y": 78
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:006",
-        "name": "高端私人提取站",
-        "type": "extraction_station",
-        "description": "位于城市最上层浮空区域的私密场所，专为记忆富豪与权力阶层定制服务。流线型塔楼外观覆盖金色与白色合金，窗户采用单向深色玻璃，外部有私人停机坪。内部仅设10间豪华主题提取室，每间都配有定制环境模拟系统，提取椅子软记忆泡沫制成，穹顶和墙板可投射任意全息场景。服务价格高昂，普通市民终身难以企及，是记忆阶层固化的视觉符号。",
-        "memory_trading_license": "高级私人交易许可证",
-        "storm_safety_rating": "S级（最高防护，独立能源缓冲）",
-        "district": "上层浮空区-金穹街区"
-      },
-      "access": {
-        "permissions": "仅限高级记忆许可证持有者、受邀嘉宾及市政优先客户",
-        "access_level": "restricted",
-        "access_conditions": "需提前24小时预约；最低提取费5记忆单位；可携带一名私人助理",
-        "required_memory_clearance": "高（需通过生物特征和记忆信用双重验证）",
-        "entry_fee_in_memory": "5",
-        "black_market_affiliation": "无（合法高端，但传闻与黑市有间接联系）"
-      },
-      "state": {
-        "current_state": "运营中，预约率80%，未来两周基本满",
-        "ownership": "维拉记忆集团（卡斯特·维拉全资）",
-        "capacity": 10,
-        "memory_reserve_level": "极高（私人记忆银行直连）",
-        "extraction_queue_length": "0（按预约时间提前10分钟抵达）",
-        "security_alert_level": "低（配备私人武装安保和反间谍系统）"
-      },
-      "visual": "一座优雅的流线型塔楼，外立面由金色和白色合金面板组成，中间镶嵌深色单向玻璃条带，顶部有全息公司徽标。入口是两扇自动玻璃门，两侧站立穿黑色制服、佩戴耳麦的私人守卫。内部走廊地面铺设深色大理石，纹路如记忆波纹，两侧墙壁悬挂抽象记忆绘画（全息动态）。提取室为圆形房间，直径约8米，中心放置一座由记忆泡沫制成、表面覆盖碳纤维编织的豪华躺椅，上方悬挂穹顶式全息投影器（直径3米），四壁为无缝投影面板。此时躺椅上空投射着星空森林场景，暖色柔和灯光从天花板边缘向下渲染。构图建议：从提取室门口向躺椅方向半俯拍，突出躺椅的曲线和穹顶的发光范围，前景是室内的暗色大理石地面反光，背景是缓慢旋转的星辰全息，营造奢华宁静的高端氛围。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:009",
-    "name": "非法地下提取站",
-    "type": "extraction_station",
-    "description": "隐藏在底层贫民区废弃工厂地下室的秘密场所，由记忆窃贼集团运作，专门进行强制或秘密记忆提取。设备为黑市改装、走私的淘汰医疗仪器，操作粗糙且无安全标准。空间狭小潮湿，常能听见上层工厂管道的滴水声和远处风暴的轰鸣。此处不记录交易、不问来源，是城市记忆经济的暗面。",
-    "access": {
-      "permissions": "仅限黑市成员、内部介绍人或通过幽灵集团暗号验证者",
-      "access_level": "forbidden",
-      "access_conditions": "通常由中间人带领，穿越三道暗门；付款方式为记忆晶元或加密信用码；未经介绍闯入者可能被武力驱逐",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "隐蔽运营中，因风暴预警高频次转移地点",
-      "ownership": "幽灵集团（记忆窃贼首脑统治）",
-      "capacity": 5,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 5,
-    "tags": [
-      "extraction_station",
-      "forbidden",
-      "幽灵集团（记忆窃贼首脑统治）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 119,
+      "x": 122,
       "y": 65,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 119,
+      "x": 136,
       "y": 70
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:009",
-        "name": "非法地下提取站",
-        "type": "extraction_station",
-        "description": "隐藏在底层贫民区废弃工厂地下室的秘密场所，由记忆窃贼集团运作，专门进行强制或秘密记忆提取。设备为黑市改装、走私的淘汰医疗仪器，操作粗糙且无安全标准。空间狭小潮湿，常能听见上层工厂管道的滴水声和远处风暴的轰鸣。此处不记录交易、不问来源，是城市记忆经济的暗面。",
-        "memory_trading_license": "无（非法运营）",
-        "storm_safety_rating": "D级（结构老旧，风暴时有坍塌风险）",
-        "district": "底层贫民区-锈蚀工厂旧址（坐标：E7管网层）"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:011",
+        "name": "记忆部",
+        "type": "city_administration_center",
+        "description": "记忆经济体系的神经中枢，一座由深灰色记忆合金与防暴聚合物构筑的锥形塔楼，矗立于风暴眼广场的正东侧。塔身表面布满蜂巢状的能量导管，在风暴中发出低沉的嗡嗡声。这里是记忆交易法规的诞生地，所有记忆提取、存储、交易的许可证必须在此审批，档案室内储存着每一位市民的记忆产权契约与犯罪记录。塔顶的蓝色全息徽章——一双捧住发光大脑的手——日夜旋转，向整座城市宣示记忆的至高权威。",
+        "energy_shield_level": "8",
+        "memory_storage_density": "0.95",
+        "storm_noise_index": "2",
+        "is_trading_allowed": "false"
       },
       "access": {
-        "permissions": "仅限黑市成员、内部介绍人或通过幽灵集团暗号验证者",
-        "access_level": "forbidden",
-        "access_conditions": "通常由中间人带领，穿越三道暗门；付款方式为记忆晶元或加密信用码；未经介绍闯入者可能被武力驱逐",
-        "required_memory_clearance": "无需正式许可，但需要提供至少一段记忆作为担保",
-        "entry_fee_in_memory": "视提取难度而定，起步0.5记忆单位",
-        "black_market_affiliation": "紧密，直接隶属幽灵集团"
+        "permissions": "仅限持有最高级记忆信用(A+级)的市民或经总督直接授权的官员进入。底层接待大厅对公众开放但需扫描身份记忆，任何试图携带未登记记忆数据的行为都会触发警报。核心档案区需通过三重视网膜与记忆波形验证。",
+        "access_level": "highly_restricted",
+        "access_conditions": "",
+        "required_credit_rank": "A+",
+        "allowed_memory_types": "记忆契约, 执行记忆提取令, 监管记录",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "精英阶层核心领地，附近商铺只接受高级记忆货币交易"
       },
       "state": {
-        "current_state": "隐蔽运营中，因风暴预警高频次转移地点",
-        "ownership": "幽灵集团（记忆窃贼首脑统治）",
-        "capacity": 5,
-        "memory_reserve_level": "低（临时收集，无独立存储）",
-        "extraction_queue_length": "不定，通常2-3人排队",
-        "security_alert_level": "高（随时可能被风暴守卫查抄）"
+        "current_state": "运作中，正值记忆交易季度申报期，大厅内排满各记忆商行的代理人，气氛紧张而有序。档案室数据流负载达到87%。",
+        "ownership": "风暴记忆城最高执政官卡莱总督直接管辖，记忆部常务委员会日常管理",
+        "capacity": 2000,
+        "energy_shield_percentage": "100",
+        "current_occupancy": "1450",
+        "storm_alert_level": "2",
+        "last_maintenance_time": "2147-03-15 08:00:00"
       },
-      "visual": "昏暗潮湿的地下室，面积约30平方米，天花板仅2.2米高，裸露的锈蚀铁管和乱麻般的电缆在头顶横斜交叉。地面是粗糙水泥，有积水反光。中央摆放一张老旧医疗床，床垫破损，上方悬挂一组改装过的记忆提取设备——银灰色圆盘状探头通过三个机械臂连接至一个爬满焊接痕迹的控制箱，控制箱上一块老化显示屏发出冷蓝色不稳定光。床旁金属桌上散落着沾有油污的工具和几根记忆晶元。室内唯一灯具是一盏工业吊灯，灯泡发黄且伴随着轻微频闪。墙角堆满空木箱和废弃零件。整体色调灰黑，仅有屏幕蓝光和昏黄灯光作为照明。构图建议：以医疗床和提取设备为视觉中心，采用低角度仰拍，前景是地面水洼倒映屏幕光，中景是床上未固定的束缚带，背景是黑暗管道阴影，强调非法、压抑和危险感。"
+      "visual": "一座向上收窄的锥形塔楼，高约120米，由深灰色抗压记忆合金与半透明合成石材交替拼接而成。塔身外侧嵌有数百个六边形能量导管，泛着淡蓝色微光，如同静脉般从底部向上汇聚到塔尖的发光球体。底部基座宽大，开有三扇两层高的拱形入口，铸铁门扇上刻满记忆波形浮雕。正门上方悬着一只三米宽的发光大脑全息标志，双掌托举，缓慢旋转。大厅内白色大理石地面映着穹顶的蓝色光晕，中央矗立一座十米高的记忆储存柱，柱身环绕流动的液态记忆光纹。左右两侧的螺旋阶梯通往上层办公区，扶手用透明聚合物制成，内部封存着随机抽取的市民记忆片段（仅作为装饰）。塔顶的尖刺状天线在橙色风暴背景下偶尔迸出火花。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:019",
-    "name": "风暴应急提取站",
-    "type": "extraction_station",
-    "description": "分布于城市各关键区域的紧急设施，平时处于休眠待命状态，当风暴预警级别升至橙色以上时自动激活。主要功能是在风暴期间为附近市民提供快速记忆备份，防止因城市损坏导致记忆存储库丢失。结构为厚重扁平堡垒式，所有设备简化至最核心功能，不进行交易，只接受提取并直接将记忆上传至云端应急存储。提供免费服务，每人限一次。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:016",
+    "name": "风暴安全局",
+    "type": "city_administration_center",
+    "description": "负责监测木星风暴动态并维护城市结构安全的机构，位于城市中环区的一座扁平穹顶建筑内。建筑表面覆盖着可调节角度的风暴偏转板，内部布满风暴预测仪和能量护盾控制器。这里是城市抵御自然威胁的第一道防线，但因其与记忆能源系统的关联，也间接控制着能源分配。",
     "access": {
-      "permissions": "风暴预警橙色及以上时无条件对所有市民开放",
-      "access_level": "public（紧急时段）",
-      "access_conditions": "需要刷身份芯片验证；必须身处风暴危险区；每人每天限一次紧急提取；优先保障儿童和老人",
+      "permissions": "所有持有C级及以上记忆信用的市民可申请进入公共咨询区；核心控制室仅限风暴工程师、高层官员及获得应急授权的技师进入。",
+      "access_level": "restricted",
+      "access_conditions": "",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "待命状态（当前无风暴警报，所有站点封闭）",
-      "ownership": "市政应急管理局",
+      "current_state": "正常运转，风暴强度指数为6级（中等），偏转板持续微调中。预警系统显示东南方向有一股氦气旋风正在形成，预计48小时内影响城市。",
+      "ownership": "城市公共事业管理局，实际受总督办公室监管",
+      "capacity": 300,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 300,
+    "tags": [
+      "city_administration_center",
+      "restricted",
+      "城市公共事业管理局，实际受总督办公室监管"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 120,
+      "y": 82,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 127,
+      "y": 92
+    },
+    "raw": {
+      "identity": {
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:016",
+        "name": "风暴安全局",
+        "type": "city_administration_center",
+        "description": "负责监测木星风暴动态并维护城市结构安全的机构，位于城市中环区的一座扁平穹顶建筑内。建筑表面覆盖着可调节角度的风暴偏转板，内部布满风暴预测仪和能量护盾控制器。这里是城市抵御自然威胁的第一道防线，但因其与记忆能源系统的关联，也间接控制着能源分配。",
+        "energy_shield_level": "9",
+        "memory_storage_density": "0.3",
+        "storm_noise_index": "7",
+        "is_trading_allowed": "false"
+      },
+      "access": {
+        "permissions": "所有持有C级及以上记忆信用的市民可申请进入公共咨询区；核心控制室仅限风暴工程师、高层官员及获得应急授权的技师进入。",
+        "access_level": "restricted",
+        "access_conditions": "",
+        "required_credit_rank": "C",
+        "allowed_memory_types": "风暴数据访问授权, 能源调整记录, 紧急疏散预案",
+        "requires_authorization_token": "false",
+        "social_tier_marker": "技术服务性机构，周围住着中等阶层技师与工程师"
+      },
+      "state": {
+        "current_state": "正常运转，风暴强度指数为6级（中等），偏转板持续微调中。预警系统显示东南方向有一股氦气旋风正在形成，预计48小时内影响城市。",
+        "ownership": "城市公共事业管理局，实际受总督办公室监管",
+        "capacity": 300,
+        "energy_shield_percentage": "85",
+        "current_occupancy": "180",
+        "storm_alert_level": "6",
+        "last_maintenance_time": "2147-03-12 14:30:00"
+      },
+      "visual": "一座扁平穹顶建筑，直径约80米，最高点仅15米。穹顶由数百块可转动的三角形风暴偏转板组成，板面是雾银色抗冲击陶瓷，在琥珀色风暴光线下反射出冷冽的光泽。建筑外围环绕一圈深沟，沟内埋设能量吸收环，偶尔泛起蓝白色弧光。正门位于南侧，是两层高的钢制防爆门，门楣上嵌着一只电子风暴眼图标，旋转的橙红色线条不停变动。内部大厅低矮开阔，天花板由透明记忆纤维制成，可实时投影风暴云层数据。地面是浅灰色防滑金属板，中央矗立一座三米高的全息风暴模型，周围环绕着十多个操作台，每个台前坐着身穿银灰色制服的工程师。墙壁上挂满了屏幕，滚动显示气压、风速、能量盾状态等数据。偶尔有橙色的应急灯闪烁。"
+    }
+  },
+  {
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:008",
+    "name": "木星之眼观测站",
+    "type": "storm_boundary_observatory",
+    "description": "城市海拔最高的建筑，一座从城市中心巨型塔楼顶端伸出的外挑式透明穹顶观测台。它与城市能量核心相连，不仅用于监测风暴动态与木星大红斑的能量波动，也是城市记忆网络的数据中转枢纽。站内配备有最先进的风暴能量光谱分析仪与记忆共振接收器，能够提前72小时预警风暴突变。这里也是上层精英欣赏风暴奇景的专属观景台，但对外宣称是科研设施。",
+    "access": {
+      "permissions": "仅限持有S级记忆信用的市民、总督与核心委员会成员、特许科学家进入。普通市民可通过支付高昂记忆资源申请参观，但名额每月仅限20人，且全程由武装守卫陪同。",
+      "access_level": "extremely_restricted",
+      "access_conditions": "",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "活跃监测中，观测站正在记录一次中等强度的风暴脉冲。能量光谱分析仪捕捉到异常氦-3波动，已上报给总督办公室。穹顶玻璃在持续震颤中发出细微共振音。",
+      "ownership": "风暴记忆城最高执政官卡莱总督直接所有，由索里安博士团队管理",
       "capacity": 50,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -805,282 +764,294 @@
     },
     "capacity": 50,
     "tags": [
-      "extraction_station",
-      "public（紧急时段）",
-      "市政应急管理局"
+      "storm_boundary_observatory",
+      "extremely_restricted",
+      "风暴记忆城最高执政官卡莱总督直接所有，由索里安博士团队管理"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 50,
-      "y": 66,
-      "w": 8,
-      "h": 6
+      "x": 99,
+      "y": 65,
+      "w": 15,
+      "h": 11
     },
     "entrance": {
-      "x": 54,
-      "y": 71
+      "x": 106,
+      "y": 75
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:019",
-        "name": "风暴应急提取站",
-        "type": "extraction_station",
-        "description": "分布于城市各关键区域的紧急设施，平时处于休眠待命状态，当风暴预警级别升至橙色以上时自动激活。主要功能是在风暴期间为附近市民提供快速记忆备份，防止因城市损坏导致记忆存储库丢失。结构为厚重扁平堡垒式，所有设备简化至最核心功能，不进行交易，只接受提取并直接将记忆上传至云端应急存储。提供免费服务，每人限一次。",
-        "memory_trading_license": "公共应急许可证（无交易功能）",
-        "storm_safety_rating": "A级（防爆、抗压、独立供能）",
-        "district": "全城分布，每个居民区至少一处"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:008",
+        "name": "木星之眼观测站",
+        "type": "storm_boundary_observatory",
+        "description": "城市海拔最高的建筑，一座从城市中心巨型塔楼顶端伸出的外挑式透明穹顶观测台。它与城市能量核心相连，不仅用于监测风暴动态与木星大红斑的能量波动，也是城市记忆网络的数据中转枢纽。站内配备有最先进的风暴能量光谱分析仪与记忆共振接收器，能够提前72小时预警风暴突变。这里也是上层精英欣赏风暴奇景的专属观景台，但对外宣称是科研设施。",
+        "energy_shield_level": "9",
+        "memory_storage_density": "0.7",
+        "storm_noise_index": "9",
+        "is_trading_allowed": "false"
       },
       "access": {
-        "permissions": "风暴预警橙色及以上时无条件对所有市民开放",
-        "access_level": "public（紧急时段）",
-        "access_conditions": "需要刷身份芯片验证；必须身处风暴危险区；每人每天限一次紧急提取；优先保障儿童和老人",
-        "required_memory_clearance": "无",
-        "entry_fee_in_memory": "0",
-        "black_market_affiliation": "无"
+        "permissions": "仅限持有S级记忆信用的市民、总督与核心委员会成员、特许科学家进入。普通市民可通过支付高昂记忆资源申请参观，但名额每月仅限20人，且全程由武装守卫陪同。",
+        "access_level": "extremely_restricted",
+        "access_conditions": "",
+        "required_credit_rank": "S",
+        "allowed_memory_types": "风暴研究数据, 能量核心校准指令, 记忆网络路由日志",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "城市权力与财富的顶点，周围建筑均为贵族府邸和高级记忆交易所"
       },
       "state": {
-        "current_state": "待命状态（当前无风暴警报，所有站点封闭）",
-        "ownership": "市政应急管理局",
+        "current_state": "活跃监测中，观测站正在记录一次中等强度的风暴脉冲。能量光谱分析仪捕捉到异常氦-3波动，已上报给总督办公室。穹顶玻璃在持续震颤中发出细微共振音。",
+        "ownership": "风暴记忆城最高执政官卡莱总督直接所有，由索里安博士团队管理",
         "capacity": 50,
-        "memory_reserve_level": "满载（预存空白存储容量10TB）",
-        "extraction_queue_length": "无（平时无人），风暴时预计40-50人",
-        "security_alert_level": "中等（定期检测设备，风暴时自动升级为高）"
+        "energy_shield_percentage": "100",
+        "current_occupancy": "12",
+        "storm_alert_level": "5",
+        "last_maintenance_time": "2147-03-14 06:00:00"
       },
-      "visual": "一座扁平长方形堡垒式建筑，尺寸约15×8米，高仅4米，外墙由三层不同密度的合金夹层构成，表面涂布黄色与黑色相间的风暴警示条纹，并镶嵌多个红色紧急标志。入口为一道圆形密封气压门，金属表面有四个锁止把手。内部空间为单一白色无菌房间，沿两侧墙壁各安装5个紧凑型提取舱（共10个），舱位呈胶囊状，长2米，宽1.2米，顶部有紧急氧气面罩和固定安全带。每个舱位外侧挂有使用说明全息屏。中央留出通道，地面为蓝色防滑橡胶，天花板安装两排白色LED应急灯和三个风暴警报扬声器。房间尽头是设备墙，一组方正的铁灰色存储单元和发电机组。整体毫无装饰，所有设计为功能优先。构图建议：从入口向内纵深感拍摄，两侧提取舱形成重复结构，前景是气压门的圆形观察窗框，中景是走道尽头设备墙上的闪烁指示灯，背景是无菌纯白的天花板和灯带，突出简洁、紧急和避难氛围。"
+      "visual": "从城市中央主塔顶端向上延伸出一根细长的碳纳米管颈，高约50米，顶端托着一个直径25米的球形透明穹顶，整体造型宛如一只从塔尖探出的机械瞳孔。穹顶由多层压电玻璃构成，表面爬满细如发丝的金色记忆纤维电路，在风暴电离环境中不时闪烁着微光。玻璃内部可见一套环形操作台，台体是黑色镜面材质，环绕着二十多个全息投影屏。穹顶中央悬浮着一个拳头大小的黄色全息木星模型，实时更新大红斑的漩涡细节。外部视野是橙红色与深褐色交织的木星风暴云层，云涡在视野中缓慢旋转，偶尔有闪电撕裂画面。穹顶边缘镶嵌一圈蓝色LED灯带，在风暴中形成光晕。下方主塔的碳纤维外观反射着闪电的银白色光芒。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:020",
-    "name": "上层穹顶居住区",
-    "type": "residential_area",
-    "description": "位于城市最内层穹顶之下的豪华居住区，专为记忆富豪与顶级官员设计。这里完全隔绝了木星风暴的侵扰，拥有独立气候控制系统和私人记忆存储库。居住者享受纯净空气、恒温环境和无限安全，但代价是极高的记忆门禁费用。每一间公寓都是基于记忆主题定制的全息空间，可以将个人珍贵记忆重构成房间装饰。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:014",
+    "name": "外围传感器哨站",
+    "type": "storm_boundary_observatory",
+    "description": "城市外缘分布着数十个小型自动传感器哨站，用于实时采集风暴速度、气压梯度、氢氦含量等基础数据。这些哨站结构简单，仅配备基本的能量护盾和通讯模块，由城市能源系统远程供能。它们也是城市边界最脆弱的环节，常被风暴碎片击中而损坏。",
     "access": {
-      "permissions": "仅限持有A级记忆许可的公民进入，需绑定个人生物特征",
-      "access_level": "最高级（L1）",
-      "access_conditions": "必须拥有至少1000TB的有效记忆资产（通过官方估值），且通过忠诚度审查。访客需预先支付50小时记忆作为押金",
+      "permissions": "仅限经过授权的风暴安全局维修技师在紧急情况下通过生物识别访问。理论上对公众完全封闭，但因其外部可接触，曾有底层居民冒险攀爬以躲避治安巡查。",
+      "access_level": "highly_restricted",
+      "access_conditions": "",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "运作正常，安全等级最高",
-      "ownership": "市政厅与维拉记忆集团联合持有",
-      "capacity": 1500,
+      "current_state": "3号哨站轻微损坏（右舷护盾发生器因风暴撞击失效），自动切换到备用电源。数据回传延迟约1.2秒，仍在正常运作。风暴安全局已排期维修，但优先级较低。",
+      "ownership": "风暴安全局下属传感器网络管理科",
+      "capacity": 0,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 1500,
+    "capacity": 0,
     "tags": [
-      "residential_area",
-      "最高级（L1）",
-      "市政厅与维拉记忆集团联合持有"
+      "storm_boundary_observatory",
+      "highly_restricted",
+      "风暴安全局下属传感器网络管理科"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 140,
-      "y": 60,
-      "w": 8,
-      "h": 6
-    },
-    "entrance": {
-      "x": 144,
-      "y": 65
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:020",
-        "name": "上层穹顶居住区",
-        "type": "residential_area",
-        "description": "位于城市最内层穹顶之下的豪华居住区，专为记忆富豪与顶级官员设计。这里完全隔绝了木星风暴的侵扰，拥有独立气候控制系统和私人记忆存储库。居住者享受纯净空气、恒温环境和无限安全，但代价是极高的记忆门禁费用。每一间公寓都是基于记忆主题定制的全息空间，可以将个人珍贵记忆重构成房间装饰。",
-        "memory_trading_license": "required",
-        "storm_safety_rating": "AAA",
-        "district": "穹顶区"
-      },
-      "access": {
-        "permissions": "仅限持有A级记忆许可的公民进入，需绑定个人生物特征",
-        "access_level": "最高级（L1）",
-        "access_conditions": "必须拥有至少1000TB的有效记忆资产（通过官方估值），且通过忠诚度审查。访客需预先支付50小时记忆作为押金",
-        "required_memory_clearance": "1000TB",
-        "entry_fee_in_memory": "50小时/次（访客）",
-        "black_market_affiliation": "无；严控黑市接触"
-      },
-      "state": {
-        "current_state": "运作正常，安全等级最高",
-        "ownership": "市政厅与维拉记忆集团联合持有",
-        "capacity": 1500,
-        "memory_reserve_level": "极高（居民私人库均超过500TB）",
-        "extraction_queue_length": "",
-        "security_alert_level": "绿色（平静）"
-      },
-      "visual": "内部穹顶由数十层石墨烯薄膜和智能玻璃构成，外部可见木星风暴漩涡但完全隔绝声音。穹顶下悬浮着螺旋状排列的独立豪宅，每座都是半透明膜结构，内部泛着柔和的金色或蓝色全息光。中央是一个大型记忆广场，无数记忆光束从居民掌中投射到穹顶形成星图。地面是抛光纳米材料，倒映着微光。随处可见悬浮的花园和私人露台，植物在人工阳光下生长。适合俯视构图，前中景为错落的豪宅与全息装饰，远景是穹顶边缘的极光带。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:015",
-    "name": "中层稳定居住区",
-    "type": "residential_area",
-    "description": "环绕城市中层的环形居住带，居住着大量政府职员、工程师、记忆提取站员工等稳定收入群体。公寓楼为标准化模块结构，每层配备公共记忆交换终端和能源配额分配器。社区相对有序，设有学校和医疗站，但一切服务均需记忆支付。居住者通常拥有稳定但不多的记忆资产，生活平淡而循规蹈矩。",
-    "access": {
-      "permissions": "允许所有持有有效身份卡的公民进入，非居民需登记记忆指纹",
-      "access_level": "中等（L3）",
-      "access_conditions": "需验证记忆账户余额不低于10TB，或由居民担保。短期访客可支付1小时记忆/天的过路费",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "稳定，但偶有因记忆配额不足引发的抗议",
-      "ownership": "市政住房管理局，部分公寓为单位分配",
-      "capacity": 200000,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 200000,
-    "tags": [
-      "residential_area",
-      "中等（L3）",
-      "市政住房管理局，部分公寓为单位分配"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 123,
-      "y": 82,
+      "x": 98,
+      "y": 43,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 130,
-      "y": 92
+      "x": 105,
+      "y": 53
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:015",
-        "name": "中层稳定居住区",
-        "type": "residential_area",
-        "description": "环绕城市中层的环形居住带，居住着大量政府职员、工程师、记忆提取站员工等稳定收入群体。公寓楼为标准化模块结构，每层配备公共记忆交换终端和能源配额分配器。社区相对有序，设有学校和医疗站，但一切服务均需记忆支付。居住者通常拥有稳定但不多的记忆资产，生活平淡而循规蹈矩。",
-        "memory_trading_license": "",
-        "storm_safety_rating": "B+",
-        "district": "中环区"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:014",
+        "name": "外围传感器哨站",
+        "type": "storm_boundary_observatory",
+        "description": "城市外缘分布着数十个小型自动传感器哨站，用于实时采集风暴速度、气压梯度、氢氦含量等基础数据。这些哨站结构简单，仅配备基本的能量护盾和通讯模块，由城市能源系统远程供能。它们也是城市边界最脆弱的环节，常被风暴碎片击中而损坏。",
+        "energy_shield_level": "3",
+        "memory_storage_density": "0.1",
+        "storm_noise_index": "10",
+        "is_trading_allowed": "false"
       },
       "access": {
-        "permissions": "允许所有持有有效身份卡的公民进入，非居民需登记记忆指纹",
-        "access_level": "中等（L3）",
-        "access_conditions": "需验证记忆账户余额不低于10TB，或由居民担保。短期访客可支付1小时记忆/天的过路费",
-        "required_memory_clearance": "10TB",
-        "entry_fee_in_memory": "1小时记忆/天（非居民）",
-        "black_market_affiliation": "偶尔有黑市中介混入，但官方打击频繁"
+        "permissions": "仅限经过授权的风暴安全局维修技师在紧急情况下通过生物识别访问。理论上对公众完全封闭，但因其外部可接触，曾有底层居民冒险攀爬以躲避治安巡查。",
+        "access_level": "highly_restricted",
+        "access_conditions": "",
+        "required_credit_rank": "D",
+        "allowed_memory_types": "传感器固件更新, 紧急关闭指令",
+        "requires_authorization_token": "true",
+        "social_tier_marker": "城市最外围，毗邻底层贫民区与废弃物处理厂"
       },
       "state": {
-        "current_state": "稳定，但偶有因记忆配额不足引发的抗议",
-        "ownership": "市政住房管理局，部分公寓为单位分配",
-        "capacity": 200000,
-        "memory_reserve_level": "中等（平均每户50-200TB）",
-        "extraction_queue_length": "",
-        "security_alert_level": "黄色（注意）"
+        "current_state": "3号哨站轻微损坏（右舷护盾发生器因风暴撞击失效），自动切换到备用电源。数据回传延迟约1.2秒，仍在正常运作。风暴安全局已排期维修，但优先级较低。",
+        "ownership": "风暴安全局下属传感器网络管理科",
+        "capacity": 0,
+        "energy_shield_percentage": "40",
+        "current_occupancy": "0",
+        "storm_alert_level": "8",
+        "last_maintenance_time": "2147-03-01 10:00:00"
       },
-      "visual": "环形走廊两侧是整齐划一的公寓楼，外墙是灰色混凝土与反光玻璃的混合体，高约40层。每栋楼有醒目的蓝色编号发光灯牌。一楼是公共区域，设有记忆提取终端和自动贩售机，排着队伍。街道干净但单调，路灯柱上挂着全息警示广告。远处可以看到穹顶区的光芒。典型的现代压抑居住区，可以仰拍强调建筑重复性和楼层高度，地面有反光的水渍。"
+      "visual": "一座直径约3米、高4米的圆柱形哨站，外壳由锈迹斑斑的合金板卷焊而成，表面布满砂石撞击的凹陷和一道明显的裂缝。顶部伸出一根2米高的定向天线，末端缠绕着绝缘胶带。底座部分被厚重的金属脚架固定在外层甲板上，脚架周围堆积着从风暴中刮来的结晶硫颗粒。右侧护盾发生器处有一道蓝色电弧间歇性跳动，伴随滋滋声。侧面嵌着一块巴掌大的触控屏，屏幕裂了一道纹，显示着气压、温度和风速的简化读数。整体色调是灰褐色与氧化铁锈色，上方是灰蒙蒙的风暴天空，偶尔有闪电照亮其轮廓。周围没有任何装饰，只有电缆沿着甲板地面延伸到远处的城区。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:011",
-    "name": "底层贫民居住区",
-    "type": "residential_area",
-    "description": "位于城市最底层的密集贫民窟，紧贴城市外壳。这里是记忆赤贫者的聚居地，人均记忆资产常低于1TB，甚至许多人已因记忆被抽干而成为记忆空白人。建筑由废弃集装箱、回收板材和漂浮残骸拼凑而成，层层堆叠，间距极窄。黑市记忆交易活跃，暴力和疾病横行。官方管控薄弱，只有风暴守卫偶尔突袭。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:003",
+    "name": "中央中转站",
+    "type": "transportation_hub",
+    "description": "风暴记忆城的交通心脏，一座直径五百米的巨型穹顶建筑悬浮在城市中央，六条磁悬浮轨道从不同方向汇聚于此，连接上层云端区、中层交易区和下层工业区。穹顶由半透明的记忆合金与强化玻璃构成，透入木星风暴的紫红色辉光，内部分为三层：顶层为豪华观光通道及VIP候车厅，中层为普通市民的换乘大厅，底层则是货物与记忆晶体运输的专用卸货区。中央大厅矗立着一座高达30米的记忆交易全息柱，实时滚动记忆货币汇率与拍卖信息，人群川流不息。",
     "access": {
-      "permissions": "开放进入，但无经济能力者常被驱赶；黑市势力控制部分区域",
-      "access_level": "低（L5）",
-      "access_conditions": "基本上无门槛，但活着本身就成问题。进入某些核心聚集区可能需要向黑市缴纳小量记忆碎片（0.01小时）",
+      "permissions": "对全体市民开放，但中层以下区域需通过身份验证；VIP层需要记忆信用等级达到B级以上或持有特殊通行证",
+      "access_level": "public_restricted",
+      "access_conditions": "通过记忆扫描门验证身份，禁止携带未经登记的记忆提取设备",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "拥挤、不稳定、疾病蔓延；最近一次风暴导致部分棚屋坠入云层",
-      "ownership": "无明确所有者，黑市帮派划分地界，市政放弃治理",
-      "capacity": 500000,
+      "current_state": "高潮期 — 每日交易高峰，客流量达数十万人次，系统满负荷运行",
+      "ownership": "风暴记忆城城市运转局（City Operations Bureau）",
+      "capacity": 50000,
       "seasonal_state": "",
       "maintenance_condition": "",
       "function_changed": "",
       "current_resident": ""
     },
-    "capacity": 500000,
+    "capacity": 50000,
     "tags": [
-      "residential_area",
-      "低（L5）",
-      "无明确所有者，黑市帮派划分地界，市政放弃治理"
+      "transportation_hub",
+      "public_restricted",
+      "风暴记忆城城市运转局（City Operations Bureau）"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 52,
-      "y": 15,
+      "x": 120,
+      "y": 25,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 59,
-      "y": 25
+      "x": 127,
+      "y": 35
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:011",
-        "name": "底层贫民居住区",
-        "type": "residential_area",
-        "description": "位于城市最底层的密集贫民窟，紧贴城市外壳。这里是记忆赤贫者的聚居地，人均记忆资产常低于1TB，甚至许多人已因记忆被抽干而成为记忆空白人。建筑由废弃集装箱、回收板材和漂浮残骸拼凑而成，层层堆叠，间距极窄。黑市记忆交易活跃，暴力和疾病横行。官方管控薄弱，只有风暴守卫偶尔突袭。",
-        "memory_trading_license": "",
-        "storm_safety_rating": "D",
-        "district": "底层区（俗称坑里）"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:003",
+        "name": "中央中转站",
+        "type": "transportation_hub",
+        "description": "风暴记忆城的交通心脏，一座直径五百米的巨型穹顶建筑悬浮在城市中央，六条磁悬浮轨道从不同方向汇聚于此，连接上层云端区、中层交易区和下层工业区。穹顶由半透明的记忆合金与强化玻璃构成，透入木星风暴的紫红色辉光，内部分为三层：顶层为豪华观光通道及VIP候车厅，中层为普通市民的换乘大厅，底层则是货物与记忆晶体运输的专用卸货区。中央大厅矗立着一座高达30米的记忆交易全息柱，实时滚动记忆货币汇率与拍卖信息，人群川流不息。",
+        "energy_shield_level": "high",
+        "memory_storage_density": "medium",
+        "storm_noise_index": "45",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "开放进入，但无经济能力者常被驱赶；黑市势力控制部分区域",
-        "access_level": "低（L5）",
-        "access_conditions": "基本上无门槛，但活着本身就成问题。进入某些核心聚集区可能需要向黑市缴纳小量记忆碎片（0.01小时）",
-        "required_memory_clearance": "",
-        "entry_fee_in_memory": "",
-        "black_market_affiliation": "深度关联，黑市记忆贩子活跃，甚至有记忆窃贼据点"
+        "permissions": "对全体市民开放，但中层以下区域需通过身份验证；VIP层需要记忆信用等级达到B级以上或持有特殊通行证",
+        "access_level": "public_restricted",
+        "access_conditions": "通过记忆扫描门验证身份，禁止携带未经登记的记忆提取设备",
+        "required_credit_rank": "E级以上（普通市民）",
+        "allowed_memory_types": "仅限已注册的记忆晶体作为货币使用",
+        "requires_authorization_token": "进入VIP层时需要",
+        "social_tier_marker": "穹顶内透明的等级分区标识，地板颜色从顶层的金白色渐变为底层的灰黑色"
       },
       "state": {
-        "current_state": "拥挤、不稳定、疾病蔓延；最近一次风暴导致部分棚屋坠入云层",
-        "ownership": "无明确所有者，黑市帮派划分地界，市政放弃治理",
-        "capacity": 500000,
-        "memory_reserve_level": "极低（平均<1TB/人；大量完全空白的居民）",
-        "extraction_queue_length": "",
-        "security_alert_level": "红色（危险）"
+        "current_state": "高潮期 — 每日交易高峰，客流量达数十万人次，系统满负荷运行",
+        "ownership": "风暴记忆城城市运转局（City Operations Bureau）",
+        "capacity": 50000,
+        "energy_shield_percentage": "98",
+        "current_occupancy": "42000",
+        "storm_alert_level": "2",
+        "last_maintenance_time": "2147-08-15T06:00:00Z"
       },
-      "visual": "狭窄的金属坡道在两排由废旧飞行器外壳拼接的棚屋间蜿蜒，头顶密布着开裂的管道和乱拉的电线，每隔几米挂着一个裸露的灯泡，发出昏黄的光。地面布满油污和水坑，空气中弥漫着霉味和铁锈味。棚屋的墙面贴满记忆交易的非法广告全息贴片，不时闪过模糊的人和数字标价。远处可以看到城市中层的灯光，但被层层悬挂的破布遮挡。适合暗调广角拍摄，展现拥挤压迫感，前景是几个蹲在火桶旁的居民。"
+      "visual": "中央中转站是一座巨型半透明穹顶建筑，犹如一颗嵌入风暴中的多面体宝石。穹顶由记忆合金与强化玻璃拼接，表面流淌着淡淡的紫金色能量纹路。六条磁悬浮轨道如银色光带从不同方向刺入穹顶，在顶部形成交织的立体网络。内部主要光源来自穹顶中央悬浮的螺旋状记忆交易全息柱，蓝白色数据流不断升降。底层大厅地板是深灰色金属网格，上方高悬数十面巨大屏幕播放记忆广告。中层换乘厅地面铺设冷灰色石材，中央有圆形环形座椅区。顶层VIP区以白色大理石铺地，水晶栏杆，穹顶玻璃上投射着木星表面的风暴纹理。整体构图建议采用从地面仰视的全景视角，凸显穹顶的恢宏与光影层次。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:005",
-    "name": "边缘飘移居住区",
-    "type": "residential_area",
-    "description": "用粗大缆绳连接在城市外壳外的临时浮空平台群落。由最绝望的居民或逃犯建造，他们在此苟延残喘，利用城市溢出的废弃能源和风暴间隙采集气体。平台随着木星风暴的节奏摇摆，随时可能解体。这里没有法律，只有弱肉强食。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:010",
+    "name": "记忆线终端站",
+    "type": "transportation_hub",
+    "description": "专门运输记忆存储晶体的封闭式枢纽，位于中央中转站东北侧约两公里处，通过地下管道与城市各记忆库连接。终端站外观为一座低矮的棱堡状混凝土建筑，表面覆盖抗电磁干扰涂层，仅有少数防爆气闸门。内部结构简单：一条传输带从接收区贯穿至装车区，两侧排列着加固的晶体存储箱，环境恒温恒湿以防止记忆衰减。",
     "access": {
-      "permissions": "通常禁止入内，但也没有实际管控；接近需冒生命危险",
-      "access_level": "极低/无（L6）",
-      "access_conditions": "需要通过缆绳攀爬或自备飞行器，且须承受强风和低氧。官方视为非法建筑区",
+      "permissions": "仅限持有记忆运输许可证的物流人员及城市安全监察官进入",
+      "access_level": "private_restricted",
+      "access_conditions": "需在终端站外扫描虹膜并提交运输批次代码，全程由AI监控",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "极度不稳定，半数平台废弃，近期一次风暴摧毁了三个大型平台",
-      "ownership": "无公认所有权，住客自行搭建并宣称占有",
+      "current_state": "正常运行 — 每日有固定运输批次，偶尔因风暴延误",
+      "ownership": "风暴记忆物流公司（隶属于卡莱总督的商团）",
+      "capacity": 2000,
+      "seasonal_state": "",
+      "maintenance_condition": "",
+      "function_changed": "",
+      "current_resident": ""
+    },
+    "capacity": 2000,
+    "tags": [
+      "transportation_hub",
+      "private_restricted",
+      "风暴记忆物流公司（隶属于卡莱总督的商团）"
+    ],
+    "symbolic_meaning": "",
+    "key_plot_events": "",
+    "literary_imagery": "",
+    "bounds": {
+      "x": 120,
+      "y": 46,
+      "w": 15,
+      "h": 11
+    },
+    "entrance": {
+      "x": 127,
+      "y": 56
+    },
+    "raw": {
+      "identity": {
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:010",
+        "name": "记忆线终端站",
+        "type": "transportation_hub",
+        "description": "专门运输记忆存储晶体的封闭式枢纽，位于中央中转站东北侧约两公里处，通过地下管道与城市各记忆库连接。终端站外观为一座低矮的棱堡状混凝土建筑，表面覆盖抗电磁干扰涂层，仅有少数防爆气闸门。内部结构简单：一条传输带从接收区贯穿至装车区，两侧排列着加固的晶体存储箱，环境恒温恒湿以防止记忆衰减。",
+        "energy_shield_level": "medium",
+        "memory_storage_density": "very_high",
+        "storm_noise_index": "60",
+        "is_trading_allowed": "false"
+      },
+      "access": {
+        "permissions": "仅限持有记忆运输许可证的物流人员及城市安全监察官进入",
+        "access_level": "private_restricted",
+        "access_conditions": "需在终端站外扫描虹膜并提交运输批次代码，全程由AI监控",
+        "required_credit_rank": "D级以上（中层市民可申请许可）",
+        "allowed_memory_types": "仅限合法提取并注册的记忆晶体，附有校验标签",
+        "requires_authorization_token": "批次代码 + 个人生物密钥",
+        "social_tier_marker": "入口处有等级闸门，只有授权人员的卡片能开启"
+      },
+      "state": {
+        "current_state": "正常运行 — 每日有固定运输批次，偶尔因风暴延误",
+        "ownership": "风暴记忆物流公司（隶属于卡莱总督的商团）",
+        "capacity": 2000,
+        "energy_shield_percentage": "85",
+        "current_occupancy": "750",
+        "storm_alert_level": "1",
+        "last_maintenance_time": "2147-08-12T10:30:00Z"
+      },
+      "visual": "记忆线终端站是一座低矮的深灰色棱堡状混凝土建筑，表面覆盖着细微的银色抗干扰涂层网格，四个角落各有一座监控塔。入口为双层防爆气闸门，门体厚重，带有液压臂。内部主空间为一条长约200米的传送带走廊，两侧是排列整齐的金属货架，货架上放置着银白色晶体存储箱，每个箱子约半米见方，内置蓝色荧光指示条。天花板装有密集的冷白日光灯，地面是防静电工业地板。建议采用横构图，从走廊一端拍摄，突出纵深感和工业秩序感。"
+    }
+  },
+  {
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:009",
+    "name": "遗忘之隅",
+    "type": "underground_memory_black_market",
+    "description": "隐藏在风暴记忆城工业区地下管网中的非法记忆交易巢穴，位于第三层废热排水隧道的废弃泵站内。这里是抵抗组织、窃忆贼和灰色记忆商人的主要据点，迷宫般的巷道由生锈的金属管道和废旧钢板拼接而成，墙壁上涂满荧光涂鸦和暗语符号。空气中弥漫着潮湿的金属味和低瓦数全息广告的嗡鸣。中央大厅是由一个废弃的巨型储水箱改造而成，直径约20米，四周搭设了临时摊位，贩卖非法提取的记忆片段、伪造记忆晶体和记忆干扰器。",
+    "access": {
+      "permissions": "仅限通过内部引荐或特定暗号识别的访客进入",
+      "access_level": "secret",
+      "access_conditions": "必须从编号为G-17的检修井进入，穿过三条不同高度的狭窄管道，经过两层检查岗（第一层使用记忆共鸣检测，第二层有人工口头暗号）",
+      "access_scope": "",
+      "gender_restriction": "",
+      "time_restriction": "",
+      "special_event_access": ""
+    },
+    "state": {
+      "current_state": "活跃 — 全天营业，尤其在后半夜（木星背风期）最为拥挤",
+      "ownership": "由多个黑市商团联合控制，实际由抵抗组织暗中庇护",
       "capacity": 300,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -1089,69 +1060,72 @@
     },
     "capacity": 300,
     "tags": [
-      "residential_area",
-      "极低/无（L6）",
-      "无公认所有权，住客自行搭建并宣称占有"
+      "underground_memory_black_market",
+      "secret",
+      "由多个黑市商团联合控制，实际由抵抗组织暗中庇护"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 66,
-      "y": 65,
+      "x": 48,
+      "y": 48,
       "w": 15,
       "h": 11
     },
     "entrance": {
-      "x": 80,
-      "y": 70
+      "x": 62,
+      "y": 53
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:005",
-        "name": "边缘飘移居住区",
-        "type": "residential_area",
-        "description": "用粗大缆绳连接在城市外壳外的临时浮空平台群落。由最绝望的居民或逃犯建造，他们在此苟延残喘，利用城市溢出的废弃能源和风暴间隙采集气体。平台随着木星风暴的节奏摇摆，随时可能解体。这里没有法律，只有弱肉强食。",
-        "memory_trading_license": "",
-        "storm_safety_rating": "F（危险）",
-        "district": "边缘外挂区"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:009",
+        "name": "遗忘之隅",
+        "type": "underground_memory_black_market",
+        "description": "隐藏在风暴记忆城工业区地下管网中的非法记忆交易巢穴，位于第三层废热排水隧道的废弃泵站内。这里是抵抗组织、窃忆贼和灰色记忆商人的主要据点，迷宫般的巷道由生锈的金属管道和废旧钢板拼接而成，墙壁上涂满荧光涂鸦和暗语符号。空气中弥漫着潮湿的金属味和低瓦数全息广告的嗡鸣。中央大厅是由一个废弃的巨型储水箱改造而成，直径约20米，四周搭设了临时摊位，贩卖非法提取的记忆片段、伪造记忆晶体和记忆干扰器。",
+        "energy_shield_level": "none",
+        "memory_storage_density": "high",
+        "storm_noise_index": "85",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "通常禁止入内，但也没有实际管控；接近需冒生命危险",
-        "access_level": "极低/无（L6）",
-        "access_conditions": "需要通过缆绳攀爬或自备飞行器，且须承受强风和低氧。官方视为非法建筑区",
-        "required_memory_clearance": "",
-        "entry_fee_in_memory": "",
-        "black_market_affiliation": "是走私和盗贼的秘密中转站"
+        "permissions": "仅限通过内部引荐或特定暗号识别的访客进入",
+        "access_level": "secret",
+        "access_conditions": "必须从编号为G-17的检修井进入，穿过三条不同高度的狭窄管道，经过两层检查岗（第一层使用记忆共鸣检测，第二层有人工口头暗号）",
+        "required_credit_rank": "无要求，但需支付少量记忆晶体作为入场费",
+        "allowed_memory_types": "任何未经注册的记忆片段，包括私人记忆、违禁记忆（如暴动、技术盗窃）",
+        "requires_authorization_token": "暗号口令或抵抗组织成员印记",
+        "social_tier_marker": "入口处墙壁上用红漆喷有倒置的沙漏符号，代表记忆的逆转"
       },
       "state": {
-        "current_state": "极度不稳定，半数平台废弃，近期一次风暴摧毁了三个大型平台",
-        "ownership": "无公认所有权，住客自行搭建并宣称占有",
+        "current_state": "活跃 — 全天营业，尤其在后半夜（木星背风期）最为拥挤",
+        "ownership": "由多个黑市商团联合控制，实际由抵抗组织暗中庇护",
         "capacity": 300,
-        "memory_reserve_level": "",
-        "extraction_queue_length": "",
-        "security_alert_level": "黑色（危机）"
+        "energy_shield_percentage": "0",
+        "current_occupancy": "220",
+        "storm_alert_level": "0",
+        "last_maintenance_time": "无定期维护记录"
       },
-      "visual": "数个用气囊和框架支撑的矩形平台悬浮在灰红色的风暴云中，每个平台都有用波纹钢板、帐篷布料和旧管道拼凑的矮屋，外墙被风暴吹得摇摇欲坠。缆绳在狂风中嗡嗡作响，平台间通过晃动的金属网桥连接。背景是木星风暴的闪电和漩涡，光线惨白。构图可选取一个平台近景，前面是锈蚀的栏杆，后面是深不见底的云层。"
+      "visual": "遗忘之隅藏身于废弃的地下泵站中，入口是一条直径仅1.2米的生锈铁管，管壁布满冷凝水珠。进入后空间骤然开阔：一个圆形大厅由废弃的储水箱四壁围成，水箱内壁保留着腐蚀的绿色铜锈，顶部悬挂着十几盏散发着红光的老式灯泡。地面是凹凸不平的金属格栅板，下方隐约可见黑色积水。大厅中央有一个由废旧记忆提取机改装的中岛摊位，周围环绕着用木箱和铁桶搭建的临时铺位。摊位上堆放着半透明的记忆晶体碎片，发出幽蓝色微光。墙壁上布满了用荧光漆绘制的记忆神经符号和抵抗组织标志。整体氛围阴暗潮湿，光线以红光和蓝光为主，构图建议采用低角度仰拍，突出管道和机械的压迫感。"
     }
   },
   {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:014",
-    "name": "记忆管理委员会总部",
-    "type": "administrative_center",
-    "description": "位于档案城几何中心，一栋高耸入云的银白色锥形塔楼，塔身镶嵌着数千个记忆数据节点的蓝色荧光条，如垂直流动的数据瀑布。这里是城市记忆政策的诞育地，委员会成员在顶层全景厅中俯瞰风暴，决定哪些记忆可以合法交易、哪些记忆必须被销毁或封存。底层大厅陈列着第一版《记忆货币化法案》的巨型全息碑文，时刻提醒每位访客记忆即权力。",
+    "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:012",
+    "name": "记忆走私者巢穴",
+    "type": "underground_memory_black_market",
+    "description": "位于工业区边缘一个废弃的三层冷库改造而成的据点，外表伪装成普通的冷藏仓库，内部则分割为多个隔间用于存储、分类和转运非法记忆晶体。走私者通过地下管道与遗忘之隅相连，但这里更偏向批发和仓储功能，交易规模和隐蔽性稍弱。入口处有暗哨，内部通道迂回，货架上堆满了密封的记忆晶体箱。",
     "access": {
-      "permissions": "仅限记忆管理委员会成员、高级记忆交易商及持有金色通行芯片的审查员",
-      "access_level": "最高等级（内部核心层级）",
-      "access_conditions": "需通过三层生物识别（虹膜、血液、记忆纹）并提交一级记忆背景调查报告",
+      "permissions": "仅限走私集团内部成员及老客户进入，陌生人需有接头人担保",
+      "access_level": "private",
+      "access_conditions": "通过仓库后门暗号系统：输入特定序列的敲击节奏，等待内部闭路确认",
       "access_scope": "",
       "gender_restriction": "",
       "time_restriction": "",
       "special_event_access": ""
     },
     "state": {
-      "current_state": "运行正常，正在审阅第142年第二季度记忆配额分配方案",
-      "ownership": "市政当局（实际由记忆富豪控制的委员会公署）",
+      "current_state": "正常运作 — 每日均有小规模交易，每周一次大型转运",
+      "ownership": "由代号‘运输商’的走私头目掌控",
       "capacity": 500,
       "seasonal_state": "",
       "maintenance_condition": "",
@@ -1160,263 +1134,53 @@
     },
     "capacity": 500,
     "tags": [
-      "administrative_center",
-      "最高等级（内部核心层级）",
-      "市政当局（实际由记忆富豪控制的委员会公署）"
+      "underground_memory_black_market",
+      "private",
+      "由代号‘运输商’的走私头目掌控"
     ],
     "symbolic_meaning": "",
     "key_plot_events": "",
     "literary_imagery": "",
     "bounds": {
-      "x": 89,
-      "y": 22,
-      "w": 22,
-      "h": 16
+      "x": 26,
+      "y": 71,
+      "w": 15,
+      "h": 11
     },
     "entrance": {
-      "x": 100,
-      "y": 37
+      "x": 33,
+      "y": 81
     },
     "raw": {
       "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:014",
-        "name": "记忆管理委员会总部",
-        "type": "administrative_center",
-        "description": "位于档案城几何中心，一栋高耸入云的银白色锥形塔楼，塔身镶嵌着数千个记忆数据节点的蓝色荧光条，如垂直流动的数据瀑布。这里是城市记忆政策的诞育地，委员会成员在顶层全景厅中俯瞰风暴，决定哪些记忆可以合法交易、哪些记忆必须被销毁或封存。底层大厅陈列着第一版《记忆货币化法案》的巨型全息碑文，时刻提醒每位访客记忆即权力。",
-        "memory_trading_license": "官方许可A级（全权批准）",
-        "storm_safety_rating": "SSS",
-        "district": "记忆核心区"
+        "id": "e:386b0de2_1939_479e_bde6_7ba0c274313f:loc:012",
+        "name": "记忆走私者巢穴",
+        "type": "underground_memory_black_market",
+        "description": "位于工业区边缘一个废弃的三层冷库改造而成的据点，外表伪装成普通的冷藏仓库，内部则分割为多个隔间用于存储、分类和转运非法记忆晶体。走私者通过地下管道与遗忘之隅相连，但这里更偏向批发和仓储功能，交易规模和隐蔽性稍弱。入口处有暗哨，内部通道迂回，货架上堆满了密封的记忆晶体箱。",
+        "energy_shield_level": "none",
+        "memory_storage_density": "very_high",
+        "storm_noise_index": "70",
+        "is_trading_allowed": "true"
       },
       "access": {
-        "permissions": "仅限记忆管理委员会成员、高级记忆交易商及持有金色通行芯片的审查员",
-        "access_level": "最高等级（内部核心层级）",
-        "access_conditions": "需通过三层生物识别（虹膜、血液、记忆纹）并提交一级记忆背景调查报告",
-        "required_memory_clearance": "10",
-        "entry_fee_in_memory": "无（内部职能机构）",
-        "black_market_affiliation": "明面无任何关联，但坊间传闻委员会部分席位暗中与黑市有情报交换"
+        "permissions": "仅限走私集团内部成员及老客户进入，陌生人需有接头人担保",
+        "access_level": "private",
+        "access_conditions": "通过仓库后门暗号系统：输入特定序列的敲击节奏，等待内部闭路确认",
+        "required_credit_rank": "无硬性要求，但需验证交易资质",
+        "allowed_memory_types": "未经注册的记忆晶体，包括从上层人士盗取的高价值记忆",
+        "requires_authorization_token": "接头人颁发的临时通行码（每日更换）",
+        "social_tier_marker": "仓库外墙涂有不起眼的白色三角形标志，内部用不同颜色货架区分记忆品质"
       },
       "state": {
-        "current_state": "运行正常，正在审阅第142年第二季度记忆配额分配方案",
-        "ownership": "市政当局（实际由记忆富豪控制的委员会公署）",
+        "current_state": "正常运作 — 每日均有小规模交易，每周一次大型转运",
+        "ownership": "由代号‘运输商’的走私头目掌控",
         "capacity": 500,
-        "memory_reserve_level": "极高——地下三层备有应急记忆备份节点",
-        "extraction_queue_length": "0",
-        "security_alert_level": "低警戒（日常）"
+        "energy_shield_percentage": "0",
+        "current_occupancy": "300",
+        "storm_alert_level": "1",
+        "last_maintenance_time": "2147-08-10T14:00:00Z"
       },
-      "visual": "建筑整体为三层嵌套的截锥体，外层银白色钛合金板在木星氢氦雾气中泛着冷光，表面密布1.2米长的水平散热鳍片，每片边缘亮着淡蓝LED。塔顶有一个直径20米的透明穹顶，内部悬浮着城市全息沙盘。正门是十米高的记忆钢化玻璃旋转门，门楣上用霓虹字写着‘记忆即未来’。大厅地面铺有深灰色回收金属地砖，中央矗立着《记忆货币化法案》的全息碑文——3米高的淡蓝色光子束时刻旋转，文字如记忆碎片般浮现又消散。灯光由天花板的网状光带提供，色温保持在5500K，冷静而压抑。透过穹顶可看到远处橙红色的木星风暴云层慢速旋转。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:010",
-    "name": "司法记忆厅",
-    "type": "administrative_center",
-    "description": "一座方正的三层混凝土建筑，外立面覆有防风暴金属网，正门上方悬挂着天平与记忆芯片的金属徽章。这里是审判记忆犯罪的神圣场所——无论非法提取、伪造记忆证据，还是违反记忆交易契约，都在此由记忆法官裁决。每个法庭内装有独立的记忆提取舱和证据投影系统，陪审员通过神经接口直接‘体验’记忆证物。",
-    "access": {
-      "permissions": "持有司法证明的法官、检察官、辩护律师，以及案件相关的被告、证人、受邀旁听者",
-      "access_level": "高级（需登记生物信息）",
-      "access_conditions": "必须拥有司法部签发的电子传票或案件编号，旁听需预先缴纳20分钟基础记忆作为入场费",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "正在审理一宗高阶记忆盗窃案：被告被控利用风暴间隙闯入上层私人记忆库",
-      "ownership": "市政司法部",
-      "capacity": 200,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 200,
-    "tags": [
-      "administrative_center",
-      "高级（需登记生物信息）",
-      "市政司法部"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 136,
-      "y": 42,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 143,
-      "y": 52
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:010",
-        "name": "司法记忆厅",
-        "type": "administrative_center",
-        "description": "一座方正的三层混凝土建筑，外立面覆有防风暴金属网，正门上方悬挂着天平与记忆芯片的金属徽章。这里是审判记忆犯罪的神圣场所——无论非法提取、伪造记忆证据，还是违反记忆交易契约，都在此由记忆法官裁决。每个法庭内装有独立的记忆提取舱和证据投影系统，陪审员通过神经接口直接‘体验’记忆证物。",
-        "memory_trading_license": "司法豁免（不参与商业交易）",
-        "storm_safety_rating": "AA",
-        "district": "司法区"
-      },
-      "access": {
-        "permissions": "持有司法证明的法官、检察官、辩护律师，以及案件相关的被告、证人、受邀旁听者",
-        "access_level": "高级（需登记生物信息）",
-        "access_conditions": "必须拥有司法部签发的电子传票或案件编号，旁听需预先缴纳20分钟基础记忆作为入场费",
-        "required_memory_clearance": "8",
-        "entry_fee_in_memory": "20分钟基础记忆（旁听）",
-        "black_market_affiliation": "低——偶尔有黑市律师试图贿赂书记员窃取证据记忆，但安保严密"
-      },
-      "state": {
-        "current_state": "正在审理一宗高阶记忆盗窃案：被告被控利用风暴间隙闯入上层私人记忆库",
-        "ownership": "市政司法部",
-        "capacity": 200,
-        "memory_reserve_level": "中等——存储法庭证据记忆库容量80%，最近一批盗窃案证据占主导",
-        "extraction_queue_length": "短（仅法庭指定提取师操作，目前2个案子在等待证据提取）",
-        "security_alert_level": "中警戒（开庭期间提高为高警戒）"
-      },
-      "visual": "建筑为矩形体块，外立面由灰蓝色混凝土拼板构成，拼板间夹有防风暴的碳纤维网。正门有两扇厚重的记忆钢门，门把手是天平造型的青铜配件。内部主走廊宽约4米，墙壁覆盖深灰色吸音面板，每隔3米有一盏嵌入式白炽灯，照亮墙面镶嵌的审判名言（用记忆文字书写的全息句子）。法庭内部为阶梯式布局，法官席高出地面2米，背后是一块8米宽的曲面屏，用于投影记忆证据剪辑。被告席右侧有透明的记忆提取舱——一个1.8米高的玻璃圆柱体，内部配有神经接口头盔。天花板为镜面金属，反射着冷色灯光。窗外可见木星云层中偶尔闪过的紫色闪电。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:018",
-    "name": "风暴控制中心",
-    "type": "administrative_center",
-    "description": "位于档案城最外环下层，直接嵌入城市浮动基座结构内的圆形控制枢纽。这里集中了全城最密集的风暴传感器数据流和城市姿态调整引擎的控制界面。技术人员24小时监视着木星大气压力、风速、温度梯度，并实时调整城市浮动高度和能量分配。中心核心是一个直径6米的全息风暴模型，显示方圆500公里内每个气旋的轨迹。",
-    "access": {
-      "permissions": "风暴守卫部队指挥官、首席气象技术人员、城市能源主管，以及持有A类安全许可的维修工程师",
-      "access_level": "最高机密（仅次于委员会总部）",
-      "access_conditions": "需通过视网膜扫描、指纹验证和实时记忆纹匹配（每2分钟重检一次），且必须在岗期间切断所有个人记忆终端",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "处于三级风暴预警状态：城市正在以每小时0.5米的速度上升以规避即将来袭的氦气急流",
-      "ownership": "市政当局（风暴守卫总队直辖）",
-      "capacity": 100,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 100,
-    "tags": [
-      "administrative_center",
-      "最高机密（仅次于委员会总部）",
-      "市政当局（风暴守卫总队直辖）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 37,
-      "y": 44,
-      "w": 8,
-      "h": 6
-    },
-    "entrance": {
-      "x": 41,
-      "y": 49
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:018",
-        "name": "风暴控制中心",
-        "type": "administrative_center",
-        "description": "位于档案城最外环下层，直接嵌入城市浮动基座结构内的圆形控制枢纽。这里集中了全城最密集的风暴传感器数据流和城市姿态调整引擎的控制界面。技术人员24小时监视着木星大气压力、风速、温度梯度，并实时调整城市浮动高度和能量分配。中心核心是一个直径6米的全息风暴模型，显示方圆500公里内每个气旋的轨迹。",
-        "memory_trading_license": "技术运营许可（不可用于交易）",
-        "storm_safety_rating": "SSS（本身为城市最安全区域之一）",
-        "district": "外围边缘区（下层）"
-      },
-      "access": {
-        "permissions": "风暴守卫部队指挥官、首席气象技术人员、城市能源主管，以及持有A类安全许可的维修工程师",
-        "access_level": "最高机密（仅次于委员会总部）",
-        "access_conditions": "需通过视网膜扫描、指纹验证和实时记忆纹匹配（每2分钟重检一次），且必须在岗期间切断所有个人记忆终端",
-        "required_memory_clearance": "9",
-        "entry_fee_in_memory": "无（内部工作场所）",
-        "black_market_affiliation": "极低——但曾有黑市商人尝试贿赂技术人员获取风暴预报数据以规划非法飞行路线"
-      },
-      "state": {
-        "current_state": "处于三级风暴预警状态：城市正在以每小时0.5米的速度上升以规避即将来袭的氦气急流",
-        "ownership": "市政当局（风暴守卫总队直辖）",
-        "capacity": 100,
-        "memory_reserve_level": "高——服务器存储了过去200个周期的风暴演化记忆数据，用于预测模型训练",
-        "extraction_queue_length": "短（只有系统自动提取，无人工队列）",
-        "security_alert_level": "高警戒（风暴预警期间提升至最高）"
-      },
-      "visual": "控制中心呈圆柱形，半径40米，高15米，墙壁覆盖着2米厚的防爆记忆复合板。地面是防静电金属栅格，下能看到能量导管发出的幽蓝光。天花板排列着2000个微型投影器，共同投出实时风暴全息图——一个在空间中缓慢旋转的橙红色气旋模型，内部有无数小箭头表示气流方向。20个操作台以同心圆形式围绕中央全息模型排列，每个操作台配备三块曲面触摸屏和神经接口座椅。墙壁上嵌有数十个圆形密封窗，窗外是木星大气层——混沌的云带和闪电风暴。照明以红色警报灯为主，间歇性闪烁，辅以操作台屏幕的冷白光。空气中隐约有臭氧和金属的味道。"
-    }
-  },
-  {
-    "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:004",
-    "name": "城市议会厅",
-    "type": "administrative_center",
-    "description": "位于中层住宅区与商业区交界处的一座穹顶建筑，外表朴素的灰色穹顶内部却是分层环绕的辩论场。这里由来自各阶层的代表（记忆富豪、中产者、少量名义上的贫民代表）讨论公共预算、民生法案和风暴应对政策。虽然决策权远不及委员会总部，但这里是唯一能让不同声音被听到的地方。",
-    "access": {
-      "permissions": "当选议员及持有城市公民证的旁听者",
-      "access_level": "公开（但有限制）",
-      "access_conditions": "公民需在入口处支付5分钟清理记忆（公共旁听费），并接受电子安检；议员凭身份芯片免费进入",
-      "access_scope": "",
-      "gender_restriction": "",
-      "time_restriction": "",
-      "special_event_access": ""
-    },
-    "state": {
-      "current_state": "休会期，议会厅关闭清洁，少数工作人员在整理近期辩论记录",
-      "ownership": "市政议会（名义上由民选议长管理，实际受委员会经费控制）",
-      "capacity": 300,
-      "seasonal_state": "",
-      "maintenance_condition": "",
-      "function_changed": "",
-      "current_resident": ""
-    },
-    "capacity": 300,
-    "tags": [
-      "administrative_center",
-      "公开（但有限制）",
-      "市政议会（名义上由民选议长管理，实际受委员会经费控制）"
-    ],
-    "symbolic_meaning": "",
-    "key_plot_events": "",
-    "literary_imagery": "",
-    "bounds": {
-      "x": 121,
-      "y": 25,
-      "w": 15,
-      "h": 11
-    },
-    "entrance": {
-      "x": 128,
-      "y": 35
-    },
-    "raw": {
-      "identity": {
-        "id": "e:cea39b10_f142_46f0_be4d_d7623a8e0289:loc:004",
-        "name": "城市议会厅",
-        "type": "administrative_center",
-        "description": "位于中层住宅区与商业区交界处的一座穹顶建筑，外表朴素的灰色穹顶内部却是分层环绕的辩论场。这里由来自各阶层的代表（记忆富豪、中产者、少量名义上的贫民代表）讨论公共预算、民生法案和风暴应对政策。虽然决策权远不及委员会总部，但这里是唯一能让不同声音被听到的地方。",
-        "memory_trading_license": "",
-        "storm_safety_rating": "A",
-        "district": "政议区"
-      },
-      "access": {
-        "permissions": "当选议员及持有城市公民证的旁听者",
-        "access_level": "公开（但有限制）",
-        "access_conditions": "公民需在入口处支付5分钟清理记忆（公共旁听费），并接受电子安检；议员凭身份芯片免费进入",
-        "required_memory_clearance": "4",
-        "entry_fee_in_memory": "5分钟清理记忆（旁听）",
-        "black_market_affiliation": "无"
-      },
-      "state": {
-        "current_state": "休会期，议会厅关闭清洁，少数工作人员在整理近期辩论记录",
-        "ownership": "市政议会（名义上由民选议长管理，实际受委员会经费控制）",
-        "capacity": 300,
-        "memory_reserve_level": "低——仅存储本年度会议录音和投票数据的记忆晶体",
-        "extraction_queue_length": "无",
-        "security_alert_level": "低警戒"
-      },
-      "visual": "建筑为直径70米的低矮穹顶，穹顶表面由古铜色记忆合金瓦片拼接而成，在风暴光线下泛着黯淡的铜绿。入口是一个3米高、5米宽的拱门，门框石雕延续了城市创建初期的机械齿轮纹样。内部是圆形剧场式布置：24排弧形座椅从下向上逐层升高，中央圆形讲台直径为8米，台面嵌有发光的地图投影面板。墙壁上挂着历届议长的全息画像（约30厘米高的浮空人头像），随着时间缓慢切换。穹顶内壁绘制了城市历史事件（从漂浮升空到记忆货币化）的壁画，以琥珀色和蓝色为主调。灯光来自穹顶中央的水晶吊灯——由记忆碎片的折射棱镜构成，散发出温暖的淡金色光芒。现在厅内空无一人，座椅收拢，只有两个清洁机器人在过道无声移动。"
+      "visual": "记忆走私者巢穴是一座不起眼的三层冷库建筑，外表为褪色的灰白色波纹板，有几个锈蚀的通风口。正门挂着‘诺瓦冷藏服务’的旧招牌，门锁锈迹斑斑。实际入口在后巷一个伪装成垃圾箱的侧面，拉开后露出金属梯。内部空间原为冷库隔间，现改造为高密度存储区：不锈钢货架从地面延伸到天花板，每层摆满密实的记忆晶体运输箱（约30厘米见方，黑色外壳，侧面有荧光标签）。走廊狭窄仅容一人通过，每隔三米有一盏防爆日光灯，部分损坏导致灯光闪烁。深处有一个更大的隔间作为交易室，中央放置一张金属桌，桌上有便携式记忆读取器和平板电脑。整体色调灰冷，金属和塑料质感明显，构图适合正对走廊的纵深感镜头。"
     }
   }
 ]

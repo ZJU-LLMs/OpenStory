@@ -1,0 +1,399 @@
+{
+  "world_id": "39a9de09-bd30-415c-96f2-e3445f5055c4",
+  "canvas": {
+    "grid_width": 160,
+    "grid_height": 100,
+    "tile_size": 16,
+    "width_px": 2560,
+    "height_px": 1600,
+    "visual_clearance_tiles": 2
+  },
+  "mode": "composited_full_map",
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来生态崩溃后的上海废墟，植物覆盖一切的绿野城市风格，保留部分地铁隧道与车站遗迹",
+    "color_palette": [
+      "压抑墨绿",
+      "明亮苔藓绿",
+      "锈蚀铁锈棕",
+      "混凝土灰",
+      "应急灯暖黄",
+      "深地下水蓝"
+    ],
+    "lighting_weather": "从地铁隧道昏暗的人造光到地面破败天光，时常弥漫薄雾或细雨，植物发光孢子提供微弱夜光",
+    "material_texture": [
+      "苔藓覆盖的破碎沥青",
+      "爬满藤蔓的钢轨与混凝土",
+      "地下隧道光滑的水泥壁画",
+      "锈蚀的金属设施",
+      "潮湿的泥土与积水",
+      "巨大植物叶片的低纹理曲面"
+    ],
+    "environmental_motifs": [
+      "废弃地铁站台与售票亭",
+      "被藤蔓缠绕的信号灯柱",
+      "植物孢子悬浮的发光球体",
+      "部族改造的防御工事（沙袋、铁丝网）",
+      "简易的种植箱与雨水收集器",
+      "用废弃列车车厢搭建的庇护所",
+      "悬挂的植物纤维通信管线",
+      "地图上标记的线路符号与涂鸦"
+    ],
+    "atmosphere": "压抑但顽强的生存气息，废弃与生机并存，紧张而充满策略性",
+    "edge_blending_style": "柔和像素羽化的地形边缘，通过植物蔓延、废墟碎片、光影渐变自然过渡，确保后续地点贴片无缝融合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "slots": [
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:018",
+      "bounds_px": {
+        "x": 256,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 100,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:015",
+      "bounds_px": {
+        "x": 1920,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 101,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:011",
+      "bounds_px": {
+        "x": 928,
+        "y": 320,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 102,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:002",
+      "bounds_px": {
+        "x": 416,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 103,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:008",
+      "bounds_px": {
+        "x": 1392,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 104,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:001",
+      "bounds_px": {
+        "x": 1792,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 105,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:005",
+      "bounds_px": {
+        "x": 816,
+        "y": 640,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 106,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:013",
+      "bounds_px": {
+        "x": 1184,
+        "y": 704,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 107,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:006",
+      "bounds_px": {
+        "x": 416,
+        "y": 720,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 108,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:004",
+      "bounds_px": {
+        "x": 1920,
+        "y": 736,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 109,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:010",
+      "bounds_px": {
+        "x": 1552,
+        "y": 752,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 110,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:009",
+      "bounds_px": {
+        "x": 1216,
+        "y": 1024,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 111,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:003",
+      "bounds_px": {
+        "x": 416,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 112,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:007",
+      "bounds_px": {
+        "x": 816,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 113,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:014",
+      "bounds_px": {
+        "x": 1568,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 114,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:012",
+      "bounds_px": {
+        "x": 2000,
+        "y": 1056,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 115,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:017",
+      "bounds_px": {
+        "x": 1168,
+        "y": 1296,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 116,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    },
+    {
+      "location_id": "e:39a9de09_bd30_415c_96f2_e3445f5055c4:loc:016",
+      "bounds_px": {
+        "x": 1648,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 117,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角"
+    }
+  ],
+  "background": {
+    "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\background.png",
+    "url": "background.png",
+    "width_px": 2560,
+    "height_px": 1600,
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "status": "ready",
+    "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\background_prompt.json",
+    "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\background_metadata.json",
+    "layout_preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\layout_preview.png",
+    "control_image_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_edit_base.png",
+    "mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_edit_mask.png",
+    "edit_base_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_edit_base.png",
+    "edit_mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_edit_mask.png",
+    "debug_mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_mask.png",
+    "location_mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_location_mask.png",
+    "road_mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4\\generated\\artifacts\\spatial\\generation_road_mask.png",
+    "target_size": {
+      "width": 2560,
+      "height": 1600
+    },
+    "generation_strategy": "single_hard_mask_edit",
+    "composited_layers": [
+      "route_layer",
+      "location_placeholder_layer"
+    ],
+    "error": ""
+  },
+  "route_layer": {
+    "status": "ready",
+    "source": "spatial_blueprint.road_tiles",
+    "z_index": 30,
+    "style": {
+      "kind": "pixel_ground_path",
+      "base_color": "#b99d5c",
+      "edge_color": "#8f7744",
+      "highlight_color": "#d2bb75",
+      "tile_size_px": 16
+    }
+  },
+  "location_placeholder_layer": {
+    "status": "ready",
+    "z_index": 100,
+    "show_names": true,
+    "style": {
+      "fill_color": "rgba(45, 55, 78, 0.64)",
+      "selected_fill_color": "rgba(232, 199, 102, 0.48)",
+      "border_color": "rgba(230, 235, 245, 0.72)",
+      "selected_border_color": "rgba(215, 162, 74, 0.96)",
+      "label_color": "#f4f6fb"
+    }
+  },
+  "decorations": [],
+  "location_patches": [],
+  "asset_contract": {
+    "layer_order": [
+      "background.png",
+      "route_layer",
+      "location_placeholder_layer",
+      "agents",
+      "selection_tooltip_debug_grid"
+    ],
+    "shared_constraints": {
+      "projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "fixed_art_style": "明亮整洁的俯视卡通像素模拟经营游戏风格",
+      "image_postprocessing": "none",
+      "texture_density": "low",
+      "slot_visual_clearance_tiles": 2,
+      "lighting_weather": "从地铁隧道昏暗的人造光到地面破败天光，时常弥漫薄雾或细雨，植物发光孢子提供微弱夜光",
+      "color_palette": [
+        "压抑墨绿",
+        "明亮苔藓绿",
+        "锈蚀铁锈棕",
+        "混凝土灰",
+        "应急灯暖黄",
+        "深地下水蓝"
+      ],
+      "material_texture": [
+        "苔藓覆盖的破碎沥青",
+        "爬满藤蔓的钢轨与混凝土",
+        "地下隧道光滑的水泥壁画",
+        "锈蚀的金属设施",
+        "潮湿的泥土与积水",
+        "巨大植物叶片的低纹理曲面"
+      ],
+      "edge_blending_style": "柔和像素羽化的地形边缘，通过植物蔓延、废墟碎片、光影渐变自然过渡，确保后续地点贴片无缝融合",
+      "reserved_asset_coverage": "opaque_exact_bounds"
+    },
+    "background_forbidden": [
+      "道路",
+      "具体地点",
+      "人物",
+      "文字",
+      "界面元素"
+    ]
+  },
+  "provenance": {
+    "source": "spatial_blueprint",
+    "slot_count": 18,
+    "location_patch_generation": "disabled",
+    "layout_control": "full_size_edit_base_with_hard_mask",
+    "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "affiliated_line_or_faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "organizational_emblem_or_signal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "founding_era_marker",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

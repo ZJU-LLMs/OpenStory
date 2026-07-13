@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "mentor_student",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blood_feud",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trade_partner",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "spy_contact",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

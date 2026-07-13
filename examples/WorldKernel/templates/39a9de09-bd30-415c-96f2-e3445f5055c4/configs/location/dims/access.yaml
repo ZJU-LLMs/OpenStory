@@ -1,0 +1,22 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+required_passport_type:
+  type: str
+  option: true
+transit_tax_amount:
+  type: str
+  option: true
+plant_scan_severity:
+  type: str
+  option: true
+tribe_relation_modifier:
+  type: str
+  option: true
+time_restriction_schedule:
+  type: str
+  option: true

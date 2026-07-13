@@ -1,0 +1,13 @@
+{
+  "session_id": "39a9de09-bd30-415c-96f2-e3445f5055c4",
+  "world_id": "39a9de09-bd30-415c-96f2-e3445f5055c4",
+  "world_background_path": "generated/plan/world_background.json",
+  "execution_plan_path": "generated/plan/execution_plan.json",
+  "instance_seed_catalog_path": "generated/plan/instance_seed_catalog.json",
+  "world_template_path": "generated/world_template.json",
+  "schema_manifest_path": "models/schema_manifest.json",
+  "provenance": {
+    "source": "stage1.pipeline",
+    "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\39a9de09-bd30-415c-96f2-e3445f5055c4"
+  }
+}
