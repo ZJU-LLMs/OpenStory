@@ -7,7 +7,7 @@ from agentkernel_distributed.mas.agent.base.plugin_base import InvokePlugin
 from agentkernel_distributed.toolkit.logger import get_logger
 from agentkernel_distributed.types.schemas.message import Message, MessageKind
 
-from examples.west_world_test.worldmap.loader import WorldMap, get_world_map
+from examples.WestWorld.worldmap.loader import WorldMap, get_world_map
 
 logger = get_logger(__name__)
 
@@ -116,6 +116,18 @@ class WestWorldInvokePlugin(InvokePlugin):
                 controller, location, decision.get("recipient_ids"), decision.get("detail", ""), current_tick
             )
             if delivered:
+                message_history = await state_plugin.get_state("message_history") or []
+                if not isinstance(message_history, list):
+                    message_history = []
+                for recipient in delivered:
+                    message_history.append({
+                        "tick": current_tick,
+                        "speaker": self.agent.agent_id,
+                        "recipient": recipient,
+                        "line": decision.get("detail", ""),
+                        "location": location,
+                    })
+                await state_plugin.set_state("message_history", message_history)
                 await state_plugin.set_state(
                     "feedback", f"消息已送达：{'、'.join(delivered)}"
                 )

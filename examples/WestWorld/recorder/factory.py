@@ -1,8 +1,8 @@
 """用 models_config.yaml 的 text 角色构建带真实 LLM 的 LocationRecorder。"""
 from __future__ import annotations
 
-from examples.west_world_test.adapters.model_clients import build_llm
-from examples.west_world_test.worldmap.loader import Location, load_world_map
+from examples.WestWorld.adapters.model_clients import build_llm
+from examples.WestWorld.worldmap.loader import Location, load_world_map
 from .location_recorder import LocationRecorder
 
 

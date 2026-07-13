@@ -160,40 +160,40 @@ Linux/macOS：
 
 ```bash
 export PYTHONPATH=$PWD:$PWD/packages/agentkernel-distributed
-python -m examples.west_world_test.run_simulation
+python -m examples.WestWorld.run_simulation
 ```
 
 PowerShell：
 
 ```powershell
 $env:PYTHONPATH="$PWD;$PWD\packages\agentkernel-distributed"
-python -m examples.west_world_test.run_simulation
+python -m examples.WestWorld.run_simulation
 ```
 
 快速调试只跑 5 tick：
 
 ```bash
-WW_MAX_TICKS=5 python -m examples.west_world_test.run_simulation
+WW_MAX_TICKS=5 python -m examples.WestWorld.run_simulation
 ```
 
 PowerShell：
 
 ```powershell
 $env:WW_MAX_TICKS="5"
-python -m examples.west_world_test.run_simulation
+python -m examples.WestWorld.run_simulation
 ```
 
 指定本次运行日志目录：
 
 ```bash
-WW_RUN_DIR=/tmp/west-world-run python -m examples.west_world_test.run_simulation
+WW_RUN_DIR=/tmp/west-world-run python -m examples.WestWorld.run_simulation
 ```
 
 PowerShell：
 
 ```powershell
 $env:WW_RUN_DIR="D:\tmp\west-world-run"
-python -m examples.west_world_test.run_simulation
+python -m examples.WestWorld.run_simulation
 ```
 
 ## 常用环境变量

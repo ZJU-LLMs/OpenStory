@@ -5,7 +5,7 @@ from typing import Any, List, Optional
 
 from agentkernel_distributed.mas.agent.base.plugin_base import PlanPlugin
 
-from examples.west_world_test.core.schema import Event
+from examples.WestWorld.core.schema import Event
 
 
 class ScriptedPlanPlugin(PlanPlugin):

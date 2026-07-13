@@ -1,7 +1,7 @@
 - name: OpenAIProvider
   model: gpt-image-2
-  api_key: ah-90140b12ab5a58ef14871440c2108dca024c5fdfb74736daa857282d315e5383
-  base_url: http://111.231.53.131:8090/v1/images
+  api_key: 
+  base_url: 
   image_endpoint: http://111.231.53.131:8090/v1/images/generations
   edit_endpoint: http://111.231.53.131:8090/v1/images/edits
   style_reference_path: frontend/assets/pixel_style_reference.png

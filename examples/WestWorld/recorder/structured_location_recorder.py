@@ -7,7 +7,7 @@ import os
 import re
 from typing import Any, Dict, List, Optional
 
-from examples.west_world_test.worldmap.loader import Location
+from examples.WestWorld.worldmap.loader import Location
 from .location_recorder import (
     FALLBACK_JUDGEMENT,
     RECENT_EVENTS_WINDOW,

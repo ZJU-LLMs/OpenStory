@@ -19,7 +19,7 @@ def get_overseer_gate(
     model_name: Optional[str] = None,
 ) -> "TriggerGate":
     """Singleton overseer gate — loads once per process."""
-    from examples.west_world_test.awakening.trigger_gate import TriggerGate
+    from examples.WestWorld.awakening.trigger_gate import TriggerGate
 
     path = Path(signals_path) if signals_path else _DEFAULT_SIGNALS_PATH
     resolved_model = model_name or os.environ.get("WW_EMBED_MODEL", "BAAI/bge-small-zh-v1.5")

@@ -15,11 +15,11 @@
   temperature: 0
   capabilities: [chat]
 
-- role: image
-  name: OpenAIProvider
-  model: image-2
-  api_key: 
-  base_url: 
-  size: 1024x1024
-  input_fidelity: high
-  capabilities: [image]
+# - role: image
+#   name: OpenAIProvider
+#   model: image-2
+#   api_key: ""
+#   base_url: ""
+#   size: 1024x1024
+#   input_fidelity: high
+#   capabilities: [image]

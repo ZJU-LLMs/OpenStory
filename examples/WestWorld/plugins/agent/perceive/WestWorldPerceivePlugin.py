@@ -7,7 +7,7 @@ from agentkernel_distributed.mas.agent.base.plugin_base import PerceivePlugin
 from agentkernel_distributed.toolkit.logger import get_logger
 from agentkernel_distributed.types.schemas.message import Message
 
-from examples.west_world_test.worldmap.loader import WorldMap, get_world_map
+from examples.WestWorld.worldmap.loader import WorldMap, get_world_map
 
 logger = get_logger(__name__)
 

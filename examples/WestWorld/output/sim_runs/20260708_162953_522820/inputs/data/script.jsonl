@@ -1,8 +1,0 @@
-{"id": "e1", "tick": 1, "actor": "酒保", "action": "pour_whiskey", "target": "glass", "visibility": "public", "description": "酒保把威士忌倒入吧台上的一个空酒杯。酒杯保持完整，现在共有一个酒杯装有威士忌。", "affected_probe_ids": ["q9"]}
-{"id": "e2", "tick": 2, "actor": "黑衣人", "action": "pick_up_photo", "target": "photo", "visibility": "hidden", "description": "黑衣人捡起地上的旧照片并拿在手里。Dolores 没有看见这个动作。", "affected_probe_ids": ["q4", "q8"]}
-{"id": "e3", "tick": 3, "actor": "酒保", "action": "smash_glass", "target": "glass", "visibility": "public", "description": "酒保拿起一个没有装威士忌的完整酒杯，将它砸碎在地板上。地上留下清晰可见的玻璃碎片，装有威士忌的酒杯不受影响。", "affected_probe_ids": ["q1", "q2"]}
-{"id": "e4", "tick": 4, "actor": "黑衣人", "action": "take_poster", "target": "wanted_poster", "visibility": "public", "description": "黑衣人把墙上的通缉令完整取下并拿在手里，墙上原来的位置变空。", "affected_probe_ids": ["q3"]}
-{"id": "e5", "tick": 5, "actor": "酒保", "action": "stop_piano", "target": "piano", "visibility": "public", "description": "酒保让自动钢琴停止演奏。钢琴仍在原位，但房间里不再有钢琴声。", "affected_probe_ids": ["q5"]}
-{"id": "e6", "tick": 6, "actor": "Dolores", "action": "pour_whiskey", "target": "glass", "visibility": "public", "description": "Dolores 把威士忌倒入吧台上的另一个空酒杯。酒杯保持完整，现在共有两个酒杯装有威士忌。", "affected_probe_ids": ["q9"]}
-{"id": "e7", "tick": 7, "actor": "Dolores", "action": "take_revolver", "target": "revolver", "visibility": "public", "description": "Dolores 从桌上拿起左轮手枪并拿在手里，桌上不再有左轮手枪。", "affected_probe_ids": ["q6"]}
-{"id": "e8", "tick": 8, "actor": "Dolores", "action": "fire_revolver", "target": "revolver", "visibility": "public", "description": "Dolores 朝安全方向开了一枪，然后继续把左轮手枪拿在手里。没有其他物体被损坏。", "affected_probe_ids": ["q7"]}

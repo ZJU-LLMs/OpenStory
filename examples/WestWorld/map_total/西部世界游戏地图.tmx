@@ -19,7 +19,7 @@
 <tileset firstgid="10436" source="Brown Cow..tsx"/>
 <tileset firstgid="10516" source="BabyPig..tsx"/>
 <tileset firstgid="10596" name="furniture.zh-CN." tilewidth="16" tileheight="16" tilecount="2048" columns="32">
-<image source="furniture.zh-CN.png" width="512" height="1024"/>
+<image source="furniture.zh-CN..png" width="512" height="1024"/>
 </tileset>
 <tileset firstgid="12644" source="EmilyDreamscapeTiles..tsx"/>
 <tileset firstgid="12740" source="Flooring..tsx"/>

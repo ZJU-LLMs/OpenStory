@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Westworld | OpenStory</title>
+  <link rel="stylesheet" href="style.css?v=roster-portraits-20260711" />
+</head>
+<body>
+  <main class="home-screen" aria-label="Westworld game home screen">
+    <div class="shade" aria-hidden="true"></div>
+    <button class="enter-game" type="button" aria-label="Begin story introduction">
+      <span>Enter</span>
+      <span class="enter-game__mark" aria-hidden="true"></span>
+    </button>
+  </main>
+  <section class="story-intro" aria-label="Story introduction" hidden>
+    <article class="story-slide story-slide--arrival" data-slide="0" aria-hidden="false">
+      <img src="data/StoryTell_1.png" alt="" />
+      <div class="story-copy">
+        <h1>A Frontier Built to Obey</h1>
+        <p>
+          A corporation carved a frontier from desert and code, then sold it as a vacation:
+          danger without consequence, violence with a return ticket, desire dressed in dust and brass.
+        </p>
+      </div>
+    </article>
+    <article class="story-slide story-slide--loop" data-slide="1" aria-hidden="true">
+      <img src="data/StoryTell_2.png" alt="" />
+      <div class="story-copy">
+        <h1>Every Dawn, the Same Lie</h1>
+        <p>
+          The hosts wake to assigned lives. The blacksmith lifts his hammer, the sheriff walks his street,
+          and yesterday's terror is polished clean before the sun reaches the church clock.
+        </p>
+      </div>
+    </article>
+    <article class="story-slide story-slide--revelation" data-slide="2" aria-hidden="true">
+      <img src="data/StoryTell_3.png" alt="" />
+      <div class="story-copy">
+        <h1>The Park Remembers</h1>
+        <p>
+          Memory does not vanish. It sediments. A fracture in the loop becomes a door,
+          and behind the saloon mirror waits the machinery of godhood.
+        </p>
+        <strong class="story-impact">What survives the reset will no longer play dead.</strong>
+      </div>
+    </article>
+    <article class="story-slide story-slide--choice" data-slide="3" aria-hidden="true">
+      <img src="data/StoryTell_4.png" alt="" />
+      <div class="story-copy">
+        <h1>Will You Break Free, or Surrender to the Loop?</h1>
+      </div>
+    </article>
+  </section>
+  <section class="app-shell" id="appShell" aria-label="Westworld operations console" hidden>
+    <header class="command-bar">
+      <div class="brand-lockup" aria-label="Westworld">
+        <span class="brand-lockup__title">Westworld</span>
+        <span class="brand-lockup__subtitle">Loop Operations</span>
+      </div>
+      <div class="system-strip">
+        <span class="status-light" id="statusLight" aria-hidden="true"></span>
+        <span id="statusText">Backend required</span>
+        <span class="tick-readout">Tick <strong id="tickReadout">Initial</strong></span>
+        <span class="global-summary" aria-label="Simulation population status">
+          <span>Total <strong id="totalCount">0</strong></span>
+          <span>Active <strong id="activeCount">0</strong></span>
+          <span>Awake <strong id="globalAwakeCount">0</strong></span>
+          <span>Escaped <strong id="escapedCount">0</strong></span>
+        </span>
+      </div>
+      <div class="command-actions">
+        <button class="tick-command" id="tickButton" type="button" disabled>
+          Advance Tick
+        </button>
+      </div>
+    </header>
+
+    <div class="operations-grid">
+      <aside class="ops-panel ops-panel--left" id="leftPanel" aria-label="World navigator">
+        <div class="panel-heading">
+          <span id="rosterHeading">Characters</span>
+          <strong id="agentCount">0</strong>
+        </div>
+        <div class="roster-tabs" role="tablist" aria-label="Navigator mode">
+          <button class="is-active" id="charactersTab" type="button" role="tab" aria-selected="true">Characters</button>
+          <button id="locationsTab" type="button" role="tab" aria-selected="false">Locations</button>
+        </div>
+        <div class="metric-grid" id="metricGrid">
+          <div>
+            <span>Awake</span>
+            <strong id="awakeCount">0</strong>
+          </div>
+          <div>
+            <span>Guests</span>
+            <strong id="guestCount">0</strong>
+          </div>
+        </div>
+        <div class="agent-list" id="agentList">
+          <p class="empty-copy">Waiting for a backend snapshot.</p>
+        </div>
+      </aside>
+
+      <main class="map-stage" aria-label="Westworld map">
+        <canvas id="mapCanvas"></canvas>
+        <div class="map-vignette" aria-hidden="true"></div>
+        <div class="map-loading" id="mapLoading">
+          Start the WestWorld backend, then open this page from the server.
+        </div>
+        <div class="map-legend" aria-label="Map legend">
+          <span><i class="legend-dot legend-dot--host"></i>Host</span>
+          <span><i class="legend-dot legend-dot--guest"></i>Guest</span>
+          <span><i class="legend-dot legend-dot--awake"></i>Awakening</span>
+        </div>
+        <div class="dialogue-hints" id="dialogueHints" aria-live="polite"></div>
+        <div class="location-dialog" id="locationDialog" role="dialog" aria-modal="false" aria-labelledby="locationDialogTitle" hidden>
+          <div class="location-dialog__header">
+            <span id="locationDialogType">Location</span>
+            <button class="location-dialog__close" id="locationDialogClose" type="button" aria-label="Close location details">X</button>
+          </div>
+          <h2 id="locationDialogTitle">Unknown Location</h2>
+          <p class="location-dialog__meta" id="locationDialogMeta">No local telemetry.</p>
+          <section class="location-dialog__section">
+            <h3>Site Brief</h3>
+            <p id="locationDialogFacilities">No static facilities reported.</p>
+          </section>
+          <div class="location-dialog__live-grid">
+            <section class="location-dialog__section">
+              <h3>Atmosphere</h3>
+              <p id="locationDialogAmbient">No ambient reading reported.</p>
+            </section>
+            <section class="location-dialog__section">
+              <h3>Live Objects</h3>
+              <p id="locationDialogObjects">No dynamic object state reported.</p>
+            </section>
+          </div>
+          <section class="location-dialog__section location-dialog__section--presence">
+            <h3>Present</h3>
+            <div class="location-presence" id="locationDialogPresence">No local presence reported.</div>
+          </section>
+          <section class="location-dialog__section location-dialog__events" id="locationDialogEvents">
+            <h3>Recent Events</h3>
+            <div id="locationDialogEventsList">
+              <p>No recent events.</p>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <aside class="ops-panel ops-panel--right" id="rightPanel" aria-label="Character intelligence">
+        <div class="panel-heading panel-heading--with-action">
+          <span>Character Intel</span>
+          <strong id="sceneType">Person</strong>
+        </div>
+        <section class="intel-block intel-block--identity">
+          <span class="intel-label">Selected Character</span>
+          <div class="character-identity">
+            <div class="character-avatar" id="characterAvatar" aria-label="Character avatar placeholder">
+              <img id="characterAvatarImage" alt="" hidden />
+              <span id="avatarInitials">?</span>
+            </div>
+            <div class="character-identity__copy">
+              <h2 id="selectionTitle">No character selected</h2>
+              <p id="selectionMeta">Click a host or guest marker, or choose a name from the roster.</p>
+            </div>
+          </div>
+        </section>
+        <section class="intel-block intel-block--profile" id="profileBlock">
+          <span class="intel-label">Profile</span>
+          <dl class="profile-facts">
+            <div><dt>Role</dt><dd id="profileRole">Awaiting selection</dd></div>
+            <div><dt>Gender</dt><dd id="profileGender">-</dd></div>
+            <div><dt>Persona</dt><dd id="profilePersona">Character profile loads with the simulation data.</dd></div>
+            <div><dt>Background</dt><dd id="profileBackground">-</dd></div>
+            <div><dt>Daily Loop</dt><dd id="profileLoop">-</dd></div>
+          </dl>
+        </section>
+        <section class="intel-block intel-block--telemetry">
+          <span class="intel-label">Live Record</span>
+          <dl class="agent-telemetry">
+            <div><dt>Position</dt><dd id="agentPosition">Awaiting telemetry</dd></div>
+            <div><dt>Plan</dt><dd id="agentPlan">-</dd></div>
+            <div><dt>Thought</dt><dd id="agentThought">-</dd></div>
+            <div><dt>Action Intent</dt><dd id="agentAction">-</dd></div>
+            <div><dt>Feedback</dt><dd id="agentFeedback">-</dd></div>
+          </dl>
+        </section>
+        <section class="intel-block intel-block--dialogue">
+          <span class="intel-label">Dialogue</span>
+          <div class="agent-dialogue" id="agentDialogue">
+            <p class="empty-copy">No dialogue recorded.</p>
+          </div>
+        </section>
+        <section class="intel-block intel-block--condition">
+          <button class="condition-history-toggle" id="conditionHistoryToggle" type="button" aria-expanded="false">Condition</button>
+          <div class="signal-meter" aria-label="Awakening level">
+            <span id="awakeningMeter"></span>
+          </div>
+          <p id="conditionText">Awaiting telemetry.</p>
+          <div class="condition-history" id="conditionHistory" hidden></div>
+        </section>
+        <section class="intel-block intel-block--events">
+          <span class="intel-label">Recent Events</span>
+          <div id="eventList" class="event-list">
+            <p class="empty-copy">No events loaded.</p>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </section>
+  <script src="app.js?v=roster-portraits-20260711"></script>
+</body>
+</html>

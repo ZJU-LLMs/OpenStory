@@ -12,7 +12,7 @@ import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from examples.west_world_test.worldmap.loader import Location
+from examples.WestWorld.worldmap.loader import Location
 from . import prompts
 
 logger = logging.getLogger(__name__)

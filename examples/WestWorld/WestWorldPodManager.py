@@ -223,6 +223,12 @@ class WestWorldPodManager(PodManagerImpl):
                     history.append({"speaker": target_id, "line": line})
 
             if history:
+                current_tick = await self._system_handle.run("timer", "get_tick")
+                record = {
+                    "tick": current_tick,
+                    "participants": [speaker_id, target_id],
+                    "turns": history,
+                }
                 # Write dialogue to each participant's state for reflect to consume
                 await speaker_pod.forward.remote(
                     "run_agent_plugin_method", speaker_id, "state", "set_state", "incoming_dialogue", history
@@ -230,10 +236,23 @@ class WestWorldPodManager(PodManagerImpl):
                 await target_pod.forward.remote(
                     "run_agent_plugin_method", target_id, "state", "set_state", "incoming_dialogue", history
                 )
+                await self._append_dialogue_history(speaker_pod, speaker_id, record)
+                await self._append_dialogue_history(target_pod, target_id, record)
                 logger.info(
                     "dialogue barrier: %s ↔ %s，%d 轮，%d 条",
                     speaker_id, target_id, max_rounds, len(history),
                 )
+
+    async def _append_dialogue_history(self, pod: Any, agent_id: str, record: Dict[str, Any]) -> None:
+        history = await pod.forward.remote(
+            "run_agent_plugin_method", agent_id, "state", "get_state", "dialogue_history"
+        ) or []
+        if not isinstance(history, list):
+            history = []
+        history.append(record)
+        await pod.forward.remote(
+            "run_agent_plugin_method", agent_id, "state", "set_state", "dialogue_history", history
+        )
 
     # ── add_agent：加入空闲 agent pod（不动世界 pod）──────────────────────
     async def add_agent(self, agent_id: str, template_name: str, data: Dict[str, Any]) -> bool:

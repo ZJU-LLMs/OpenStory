@@ -16,15 +16,15 @@ from examples.story_of_the_stone.plugins.agent.profile.BasicProfliePlugin import
 from examples.story_of_the_stone.plugins.agent.state.BasicStatePlugin import BasicStatePlugin
 from examples.story_of_the_stone.plugins.agent.state.component import BasicStateComponent
 from examples.story_of_the_stone.plugins.environment.relation.BasicRelationPlugin import BasicRelationPlugin
-from examples.west_world_test.WestWorldPodManager import WestWorldPodManager
-from examples.west_world_test.plugins.agent.invoke.WestWorldInvokePlugin import WestWorldInvokePlugin
-from examples.west_world_test.plugins.agent.perceive.WestWorldPerceivePlugin import WestWorldPerceivePlugin
-from examples.west_world_test.plugins.agent.plan.RandomWalkPlanPlugin import RandomWalkPlanPlugin
-from examples.west_world_test.plugins.agent.plan.WestWorldPlanPlugin import WestWorldPlanPlugin
-from examples.west_world_test.plugins.agent.reflect.WestWorldReflectPlugin import WestWorldReflectPlugin
-from examples.west_world_test.plugins.environment.overseer.OverseerPlugin import OverseerPlugin
-from examples.west_world_test.plugins.environment.scene.LocationRecorderPlugin import make_scene_plugin_class
-from examples.west_world_test.worldmap.loader import get_world_map
+from examples.WestWorld.WestWorldPodManager import WestWorldPodManager
+from examples.WestWorld.plugins.agent.invoke.WestWorldInvokePlugin import WestWorldInvokePlugin
+from examples.WestWorld.plugins.agent.perceive.WestWorldPerceivePlugin import WestWorldPerceivePlugin
+from examples.WestWorld.plugins.agent.plan.RandomWalkPlanPlugin import RandomWalkPlanPlugin
+from examples.WestWorld.plugins.agent.plan.WestWorldPlanPlugin import WestWorldPlanPlugin
+from examples.WestWorld.plugins.agent.reflect.WestWorldReflectPlugin import WestWorldReflectPlugin
+from examples.WestWorld.plugins.environment.overseer.OverseerPlugin import OverseerPlugin
+from examples.WestWorld.plugins.environment.scene.LocationRecorderPlugin import make_scene_plugin_class
+from examples.WestWorld.worldmap.loader import get_world_map
 
 _WORLD = get_world_map()
 _ACTIVE = sorted(_WORLD.active_ids())
