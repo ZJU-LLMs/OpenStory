@@ -7,8 +7,8 @@ from typing import Any, Callable, Dict, List, Optional, Type
 
 from agentkernel_distributed.mas.environment.base.plugin_base import GenericPlugin
 
-from examples.west_world_test.recorder.location_recorder import LocationRecorder
-from examples.west_world_test.worldmap.loader import Location, get_world_map
+from examples.WestWorld.recorder.location_recorder import LocationRecorder
+from examples.WestWorld.worldmap.loader import Location, get_world_map
 
 _DEFAULT_MODELS_CONFIG = os.path.normpath(os.path.join(
     os.path.dirname(__file__), "..", "..", "..", "configs", "models_config.yaml"
@@ -52,7 +52,7 @@ class LocationRecorderPlugin(GenericPlugin):
     async def init(self) -> None:
         recorder_mode = os.environ.get("WW_RECORDER_MODE", "structured").lower()
         if self._llm_factory is None:
-            from examples.west_world_test.recorder.factory import build_llm
+            from examples.WestWorld.recorder.factory import build_llm
             if recorder_mode == "structured":
                 parse_timeout = float(os.environ.get("WW_PARSE_TIMEOUT_SECONDS", "240"))
                 self._llm_factory = lambda: build_llm(self._models_config_path, timeout_override=parse_timeout)
@@ -60,7 +60,7 @@ class LocationRecorderPlugin(GenericPlugin):
                 self._llm_factory = lambda: build_llm(self._models_config_path)
         recorder_class = LocationRecorder
         if recorder_mode == "structured":
-            from examples.west_world_test.recorder.structured_location_recorder import StructuredLocationRecorder
+            from examples.WestWorld.recorder.structured_location_recorder import StructuredLocationRecorder
             recorder_class = StructuredLocationRecorder
         self.recorder = recorder_class(location=self._location, llm=self._llm_factory())
 
@@ -120,12 +120,12 @@ class LocationRecorderPlugin(GenericPlugin):
             return snapshot
 
     async def world_snapshot(self) -> Dict[str, Any]:
-        from examples.west_world_test.recorder.world_object_registry import get_object_registry
+        from examples.WestWorld.recorder.world_object_registry import get_object_registry
         async with self._recorder_lock:
             return get_object_registry().snapshot()
 
     async def restore_world_snapshot(self, snapshot: Dict[str, Any]) -> None:
-        from examples.west_world_test.recorder.world_object_registry import get_object_registry
+        from examples.WestWorld.recorder.world_object_registry import get_object_registry
         async with self._recorder_lock:
             get_object_registry().restore(snapshot)
 
@@ -142,7 +142,7 @@ class LocationRecorderPlugin(GenericPlugin):
         self, agent_id: str, from_location: str, to_location: str,
         tick: Optional[int] = None,
     ) -> None:
-        from examples.west_world_test.recorder.world_object_registry import get_object_registry
+        from examples.WestWorld.recorder.world_object_registry import get_object_registry
         async with self._recorder_lock:
             get_object_registry().relocate_holdings(agent_id, to_location, tick)
 

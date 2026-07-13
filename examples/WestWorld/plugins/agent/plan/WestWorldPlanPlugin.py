@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 
 from agentkernel_distributed.mas.agent.base.plugin_base import PlanPlugin
 from agentkernel_distributed.toolkit.logger import get_logger
-from examples.west_world_test.awakening.stages import stage_of, INNER_VOICE_PROMPT, STAGE_DISPLAY
+from examples.WestWorld.awakening.stages import stage_of, INNER_VOICE_PROMPT, STAGE_DISPLAY
 
 logger = get_logger(__name__)
 

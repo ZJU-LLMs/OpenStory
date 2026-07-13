@@ -47,7 +47,7 @@ def _reset_target(current: int) -> int:
     Reads stage thresholds from WW_AWAKEN_STAGES env (default: 25,50,75,90).
     E.g. current=60 (doubt) → target=49 (top of reverie); current=10 (sleep) → 0.
     """
-    from examples.west_world_test.awakening.stages import _get_thresholds
+    from examples.WestWorld.awakening.stages import _get_thresholds
 
     t = _get_thresholds()  # e.g. [25, 50, 75, 90]
     lower_bounds = [0] + list(t)     # [0, 25, 50, 75, 90]

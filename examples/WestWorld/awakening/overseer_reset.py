@@ -8,8 +8,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple
 
-from examples.west_world_test.awakening import awakening_engine
-from examples.west_world_test.plugins.agent.reflect.memory_blur import classify_disturbance
+from examples.WestWorld.awakening import awakening_engine
+from examples.WestWorld.plugins.agent.reflect.memory_blur import classify_disturbance
 
 
 def select_blur_candidates(

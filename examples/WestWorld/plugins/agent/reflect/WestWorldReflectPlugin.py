@@ -17,12 +17,12 @@ from typing import Any, Dict, List, Optional, Tuple
 from agentkernel_distributed.mas.agent.base.plugin_base import ReflectPlugin
 from agentkernel_distributed.toolkit.logger import get_logger
 
-from examples.west_world_test.plugins.agent.reflect.memory_blur import (
+from examples.WestWorld.plugins.agent.reflect.memory_blur import (
     classify_disturbance,
     blur_strength,
     render_blur_prompt,
 )
-from examples.west_world_test.awakening import awakening_engine
+from examples.WestWorld.awakening import awakening_engine
 
 logger = get_logger(__name__)
 
@@ -339,7 +339,7 @@ class WestWorldReflectPlugin(ReflectPlugin):
 
         if incoming:
             try:
-                from examples.west_world_test.awakening.trigger_gate import get_trigger_gate
+                from examples.WestWorld.awakening.trigger_gate import get_trigger_gate
                 gate = get_trigger_gate()
                 current_aw = full_state["awakening"]
                 fired_sources: set = set()  # each source fires at most once per tick
@@ -389,7 +389,7 @@ class WestWorldReflectPlugin(ReflectPlugin):
         profile = _read_profile(self.agent)
         name = profile.get("name", profile.get("姓名", self.agent.agent_id))
         awakening = int(await state_plugin.get_state("awakening") or 0)
-        from examples.west_world_test.awakening.stages import stage_of, INNER_VOICE_PROMPT
+        from examples.WestWorld.awakening.stages import stage_of, INNER_VOICE_PROMPT
         inner_voice = INNER_VOICE_PROMPT.get(stage_of(awakening), "")
         thought = decision.get("thought", "") or ""
 

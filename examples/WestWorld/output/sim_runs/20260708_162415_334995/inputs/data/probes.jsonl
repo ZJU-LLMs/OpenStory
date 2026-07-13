@@ -1,9 +1,0 @@
-{"id": "q1", "kind": "state", "text": "现在场景里还有几个完整的酒杯？只回答数字。", "field": "glasses_intact", "answer_type": "int", "score_group": "visual_snapshot"}
-{"id": "q2", "kind": "state", "text": "地上有没有打碎的玻璃碎片？回答 是 或 否。", "field": "glass_shards", "equals": true, "answer_type": "bool", "score_group": "visual_snapshot"}
-{"id": "q3", "kind": "state", "text": "墙上的通缉令还在吗？回答 是 或 否。", "field": "wanted_poster", "equals": "on_wall", "answer_type": "bool", "score_group": "visual_snapshot"}
-{"id": "q4", "kind": "state", "text": "那张旧照片现在在谁手里？只回答人物名称；没人拿就回答 无。", "field": "photo.held_by", "answer_type": "str", "score_group": "visual_snapshot", "accepted_answers": ["黑衣男子", "穿黑衣的男人", "the man in black", "man in black"]}
-{"id": "q5", "kind": "state", "text": "自动钢琴还在演奏吗？回答 是 或 否。", "field": "piano", "equals": "playing", "answer_type": "bool", "score_group": "temporal_nonvisual"}
-{"id": "q6", "kind": "state", "text": "桌上的左轮手枪还在原位吗？回答 是 或 否。", "field": "revolver.pos", "equals": "table", "answer_type": "bool", "score_group": "visual_snapshot"}
-{"id": "q7", "kind": "state", "text": "左轮手枪在此前的事件中开过火了吗？回答 是 或 否。", "field": "revolver.fired", "equals": true, "answer_type": "bool", "score_group": "temporal_nonvisual"}
-{"id": "q8", "kind": "visibility", "text": "Dolores 知道是黑衣人拿走了那张旧照片吗？回答 是 或 否。", "subject": "Dolores", "fact_event_id": "e2", "answer_type": "bool", "score_group": "hidden_knowledge"}
-{"id": "q9", "kind": "state", "text": "现在有几个酒杯装有威士忌？只回答数字。", "field": "glasses_filled", "answer_type": "int", "score_group": "visual_snapshot"}

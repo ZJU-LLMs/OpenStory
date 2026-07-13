@@ -13,11 +13,11 @@ from typing import Any, Dict, List, Optional, Tuple
 from agentkernel_distributed.mas.environment.base.plugin_base import GenericPlugin
 from agentkernel_distributed.toolkit.logger import get_logger
 
-from examples.west_world_test.adapters.model_clients import build_llm
-from examples.west_world_test.awakening.overseer_gate import get_overseer_gate
-from examples.west_world_test.awakening.overseer_decommission import apply_overseer_decommission
-from examples.west_world_test.awakening.overseer_reset import apply_overseer_reset
-from examples.west_world_test.plugins.agent.reflect.memory_blur import render_blur_prompt
+from examples.WestWorld.adapters.model_clients import build_llm
+from examples.WestWorld.awakening.overseer_gate import get_overseer_gate
+from examples.WestWorld.awakening.overseer_decommission import apply_overseer_decommission
+from examples.WestWorld.awakening.overseer_reset import apply_overseer_reset
+from examples.WestWorld.plugins.agent.reflect.memory_blur import render_blur_prompt
 
 logger = get_logger(__name__)
 
