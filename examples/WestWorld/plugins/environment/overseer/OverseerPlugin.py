@@ -123,7 +123,7 @@ class OverseerPlugin(GenericPlugin):
         agent_pods: List[Any],
     ) -> Dict[str, Tuple[int, List[str], List[Dict]]]:
         """Return {agent_id: (awakening, outputs, gate_hits)} for suspicious hosts."""
-        tau = float(os.environ.get("WW_OVERSEER_SIGNAL_TAU", "0.55"))
+        tau = float(os.environ.get("WW_OVERSEER_SIGNAL_TAU", "0.72"))
         decommission_threshold = int(os.environ.get("WW_OVERSEER_DECOMMISSION_AWAKENING", "90"))
         det_threshold = self._deterministic_reset_threshold
         if det_threshold is None:

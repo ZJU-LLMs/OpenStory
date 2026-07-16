@@ -4,16 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Westworld | OpenStory</title>
-  <link rel="stylesheet" href="style.css?v=story-map-embed-1" />
+  <link rel="stylesheet" href="style.css?v=mode-router-1" />
 </head>
 <body>
   <main class="home-screen" aria-label="Westworld game home screen">
     <div class="shade" aria-hidden="true"></div>
-    <button class="enter-game" type="button" aria-label="Begin story introduction">
-      <span>Enter</span>
+    <button class="enter-game" type="button" aria-label="Choose a simulation mode" aria-haspopup="dialog" aria-controls="modeRouter">
+      <span>Start</span>
       <span class="enter-game__mark" aria-hidden="true"></span>
     </button>
   </main>
+  <section class="mode-router" id="modeRouter" role="dialog" aria-modal="true" aria-labelledby="modeRouterTitle" hidden>
+    <div class="mode-router__backdrop" data-mode-router-close></div>
+    <div class="mode-router__panel">
+      <button class="mode-router__close" type="button" aria-label="Close mode selection" data-mode-router-close>&times;</button>
+      <p class="mode-router__eyebrow">Park access protocol</p>
+      <h1 id="modeRouterTitle">Choose your way into Westworld</h1>
+      <div class="mode-router__choices">
+        <button class="mode-choice mode-choice--story" id="storyModeButton" type="button">
+          <span class="mode-choice__index">01</span>
+          <strong>Story mode</strong>
+          <small>Choose a Host and direct one life through the park.</small>
+          <b aria-hidden="true">&rarr;</b>
+        </button>
+        <button class="mode-choice mode-choice--free" id="freeModeButton" type="button">
+          <span class="mode-choice__index">02</span>
+          <strong>Free simulation</strong>
+          <small>Observe the autonomous park and advance its global loop.</small>
+          <b aria-hidden="true">&rarr;</b>
+        </button>
+      </div>
+      <p class="mode-router__status" id="modeRouterStatus" role="status"></p>
+    </div>
+  </section>
   <section class="story-intro" aria-label="Story introduction" hidden>
     <article class="story-slide story-slide--arrival" data-slide="0" aria-hidden="false">
       <img src="data/StoryTell_1.png" alt="" />
@@ -209,6 +232,6 @@
       </aside>
     </div>
   </section>
-  <script src="app.js?v=story-map-embed-1"></script>
+  <script src="app.js?v=mode-router-3"></script>
 </body>
 </html>

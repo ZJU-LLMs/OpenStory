@@ -80,6 +80,11 @@
   const els = {
     enterButton: document.querySelector(".enter-game"),
     homeScreen: document.querySelector(".home-screen"),
+    modeRouter: document.getElementById("modeRouter"),
+    modeRouterStatus: document.getElementById("modeRouterStatus"),
+    freeModeButton: document.getElementById("freeModeButton"),
+    storyModeButton: document.getElementById("storyModeButton"),
+    modeRouterCloseButtons: Array.from(document.querySelectorAll("[data-mode-router-close]")),
     storyIntro: document.querySelector(".story-intro"),
     storySlides: Array.from(document.querySelectorAll(".story-slide")),
     appShell: document.getElementById("appShell"),
@@ -145,6 +150,7 @@
   let slideTimer = 0;
   let introCompleting = false;
   let appStarted = false;
+  let modeRouterOpen = false;
   let ws = null;
   let reconnectTimer = 0;
   let tickInFlight = false;
@@ -213,8 +219,33 @@
     slideTimer = window.setTimeout(advanceSlide, slideDurations[currentSlide]);
   }
 
-  function startStory(event) {
-    event.preventDefault();
+  function openModeRouter(event) {
+    event?.preventDefault();
+    if (appStarted || modeRouterOpen) return;
+    modeRouterOpen = true;
+    els.modeRouter.hidden = false;
+    els.modeRouterStatus.textContent = "";
+    requestAnimationFrame(() => els.modeRouter.classList.add("is-open"));
+    els.storyModeButton.focus();
+  }
+
+  function closeModeRouter() {
+    if (!modeRouterOpen) return;
+    modeRouterOpen = false;
+    els.modeRouter.classList.remove("is-open");
+    window.setTimeout(() => {
+      if (!modeRouterOpen) els.modeRouter.hidden = true;
+    }, 180);
+    els.enterButton.focus();
+  }
+
+  function startFreeSimulation(event) {
+    event?.preventDefault();
+    closeModeRouter();
+    startStory();
+  }
+
+  function startStory() {
     if (appStarted) return;
     window.clearTimeout(slideTimer);
     els.storyIntro.hidden = false;
@@ -223,6 +254,12 @@
     els.storyIntro.classList.remove("is-complete", "is-exiting");
     showSlide(0);
     slideTimer = window.setTimeout(advanceSlide, slideDurations[0]);
+  }
+
+  function startStoryMode() {
+    const storyUrl = `${window.location.protocol}//${window.location.hostname}:8001/frontend/character_select.html`;
+    els.modeRouterStatus.textContent = "Opening story mode...";
+    window.location.assign(storyUrl);
   }
 
   function advanceFromInput(event) {
@@ -771,6 +808,7 @@
 
   function drawLocations(viewX, viewY) {
     ctx.save();
+    const showCompactLabels = camera.zoom <= camera.minZoom * 1.03;
     simState.locations.forEach((location) => {
       const selected = selectedLocationId === location.id;
       const x = (location.x - viewX) * camera.zoom;
@@ -788,7 +826,17 @@
         ctx.strokeRect(x, y, w, h);
       }
 
-      if (selected || camera.zoom > 0.78) {
+      if (showCompactLabels) {
+        const label = getLocationLabel(location.id);
+        ctx.font = "700 14px 'Segoe UI', Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "rgba(7, 9, 13, 0.88)";
+        ctx.strokeText(label, x + w / 2, y + h / 2);
+        ctx.fillStyle = selected ? "#eafcff" : "rgba(255, 240, 206, 0.94)";
+        ctx.fillText(label, x + w / 2, y + h / 2);
+      } else if (selected || camera.zoom > 0.78) {
         ctx.font = "600 11px 'Segoe UI', Arial, sans-serif";
         ctx.fillStyle = selected ? "#eafcff" : "rgba(244, 219, 178, 0.75)";
         ctx.fillText(getLocationLabel(location.id), x + 4, y + 13);
@@ -1543,7 +1591,10 @@
       .replace(/'/g, "&#039;");
   }
 
-  els.enterButton.addEventListener("click", startStory);
+  els.enterButton.addEventListener("click", openModeRouter);
+  els.freeModeButton.addEventListener("click", startFreeSimulation);
+  els.storyModeButton.addEventListener("click", startStoryMode);
+  els.modeRouterCloseButtons.forEach((button) => button.addEventListener("click", closeModeRouter));
   els.storyIntro.addEventListener("click", advanceFromInput);
   els.tickButton.addEventListener("click", sendStartTick);
   els.charactersTab.addEventListener("click", () => setRosterMode("characters"));
@@ -1556,6 +1607,11 @@
   els.locationDialogClose.addEventListener("click", () => closeLocationDialog());
 
   document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modeRouterOpen) {
+      closeModeRouter();
+      return;
+    }
+
     if (!els.storyIntro.hidden) {
       advanceFromInput(event);
       return;
@@ -1566,8 +1622,8 @@
       return;
     }
 
-    if (event.key === "Enter" && !appStarted) {
-      startStory(event);
+    if (event.key === "Enter" && !appStarted && !modeRouterOpen) {
+      openModeRouter(event);
     }
   });
 

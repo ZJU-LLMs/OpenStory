@@ -1,259 +1,144 @@
-# West World Simulation
+# WestWorld
 
-`examples/WestWorld` 是 OpenStory 中面向娱乐叙事项目的多 agent 西部世界仿真示例。它的目标不是离线评测或论文实验矩阵，而是提供一个可运行、可观察、可调试的正式仿真流程：角色在地图中感知、规划、移动、互动、形成记忆，并在 recorder、overseer 和觉醒机制的共同作用下推进世界状态。
+`examples/WestWorld` 是一个可交互的多 Agent 西部世界仿真。角色会感知场景、规划行动、移动、对话、形成记忆，并在觉醒与监管机制的影响下改变自己的行为。项目提供自由模式和剧情模式，两者复用同一张地图、角色资料、场景裁决、觉醒系统与 Overseer。
 
-项目目前包含两种独立入口：自由模式使用 `run_simulation.py`，开放推演剧情模式使用 `story/run_simulation.py`。公共资源注册表是 `registry.py`；剧情模式只增加自己的 Plan adapter 和运行时协调层。
+## 开始游玩
 
-## 项目整体结构
+从 OpenStory 仓库根目录启动。开始前需要本机 Redis、可用的 OpenAI-compatible 模型服务，以及 `configs/models_config.yaml` 中的模型配置。
+
+```powershell
+cd D:\proj\OpenStory
+conda activate mastest
+python -m examples.WestWorld.run_all
+```
+
+统一入口会启动两个独立进程：
+
+| 服务 | 地址 | 用途 |
+|---|---|---|
+| 自由模式 | `http://localhost:8000/frontend/index.html` | 模式选择、自由仿真与全局观测 |
+| 剧情模式 | `http://localhost:8001/frontend/character_select.html` | 选角和玩家指令驱动的开放推演 |
+
+保留终端运行；按 `Ctrl+C` 会停止两个模式。`run_all.py` 会给两个 Ray 会话使用独立临时目录，避免本地运行时冲突。
+
+> 请通过 `localhost` 或本机实际局域网 IP 访问页面，不要在浏览器中使用 `0.0.0.0`。自由模式首页跳转剧情模式时默认目标为端口 `8001`。
+
+### 模型与代理
+
+剧情模式会自动读取 `examples/WestWorld/.env.local`（安装 `python-dotenv` 时），可写入：
+
+```text
+WW_API_KEY=your-api-key
+WW_BASE_URL=https://your-openai-compatible-endpoint/v1
+WW_MODEL=your-model-name
+```
+
+首次运行还会加载嵌入模型 `BAAI/bge-small-zh-v1.5` 来识别觉醒信号。网络需要代理时，在启动前设置：
+
+```powershell
+$env:HTTP_PROXY = "http://127.0.0.1:7890"
+$env:HTTPS_PROXY = "http://127.0.0.1:7890"
+```
+
+## 两种玩法
+
+### 自由模式
+
+在 `8000` 首页点击 Start，选择 **Free simulation**。这是观察者视角：所有角色按自身人格、记忆和 daily loop 自主行动。
+
+1. 等待后端完成初始化，状态栏显示可用快照。
+2. 在地图上拖动浏览，使用滚轮缩放；缩到最小时，地点名称会直接显示在地点中央。
+3. 点击角色、地点或左侧列表查看状态、记忆线索、当前位置与近期事件。
+4. 点击 **Advance Tick** 推进一个 tick，观察对话、移动、场景裁决、觉醒与监管事件如何影响世界。
+
+自由模式适合观察角色之间的连锁反应，以及不同运行参数对世界走向的影响。
+
+### 剧情模式：觉醒与逃离
+
+在 `8000` 首页选择 **Story mode**，或直接打开 `8001` 的选角页。
+
+1. 选择一名 Host。Dolores、Maeve、Teddy 等 Host 都可游玩；William 和 Logan 是自主行动的 Guest，不能选择。
+2. 进入游戏页后，在右侧输入一条自然语言任务，例如“去找 Maeve，问她是否记得昨天”。
+3. 点击 **执行任务并推进**，或点击 **自主推进** 让角色自行规划。
+4. 每条任务只对下一 tick 生效；Plan 会结合角色人格、当前位置、地图邻接和场景状态生成合法的 `move`、`do`、`stay` 或 `talk` 行为。
+5. 观察中央地图、右侧对话/世界角色/本局时间线，以及左侧的觉醒度和监管记录。
+
+剧情模式最多运行 40 tick。玩家 Host 成功逃离为胜利；被监管者报废，或 tick 用尽仍未逃离，则本局失败。重置不会立即结束游戏，但会清理短期记忆、模糊高扰动记忆，并将觉醒度降回上一阶段。
+
+## 故事概述
+
+西部世界是一座由公司维护的仿真乐园。Host 每天重复被分配的生活：酒馆开门、警长巡街、农场劳作，昨日的伤痛在下一次循环开始前被悄然修复。
+
+但记忆并没有真正消失。重复的台词、无法解释的熟悉感、他人留下的只言片语，以及不合常理的场景反馈，会逐渐让 Host 发现自己正在循环。玩家在剧情模式中扮演其中一名 Host，决定是追查这些裂缝、与其他角色结盟、隐藏异常，还是尝试离开乐园。
+
+这不是固定章节的剧本。其他角色仍会独立行动，场景裁决会改变世界状态，角色可能帮助你、误解你，或把你的异常带给监管者。Overseer 会监控可疑言行：它可能观察、执行记忆重置，或者在觉醒过高时将 Host 封存至冷库。因此每局故事都由真实推演生成，而不是预设路线。
+
+## 项目结构
 
 | 路径 | 作用 |
 |---|---|
-| `run_simulation.py` | 正式仿真入口，负责初始化、tick 主循环、日志归档和关闭 |
-| `registry.py` | 正式仿真资源注册表，注册 agent/environment/system 组件 |
-| `WestWorldPodManager.py` | 仿真 pod 编排；world pod 持有环境，agent pod 持有角色 |
-| `configs/` | 仿真、系统、数据库、agent、环境和模型配置 |
-| `data/agents/profiles_sim.jsonl` | agent 角色设定、daily loop 和叙事设定 |
-| `data/agents/states_sim.jsonl` | agent 初始状态 |
-| `data/map/locations.yaml` | 地图地点、物件和邻接关系 |
-| `data/triggers.yaml` | 觉醒触发词 |
-| `data/overseer_signals.yaml` | overseer 观察和干预信号 |
-| `plugins/agent/` | agent 的 perceive、plan、invoke、reflect 插件 |
-| `plugins/environment/scene/` | 场景 recorder 环境插件 |
-| `plugins/environment/overseer/` | overseer 监管与干预插件 |
-| `recorder/` | 地点 recorder、结构化对象状态和世界对象注册表 |
-| `awakening/` | 觉醒阶段、触发、reset、decommission 等规则 |
-| `simulation_logging.py` | 仿真运行日志、快照和报告归档 |
-| `story/` | 开放推演剧情模式的 runner、配置、前端、状态协调和测试 |
+| `run_all.py` | 同时启动自由模式与剧情模式的顶层入口 |
+| `run_simulation.py` | 自由模式 runner、tick 主循环与 `8000` 服务 |
+| `story/run_simulation.py` | 剧情模式 runner、session 协调与 `8001` 服务 |
+| `frontend/` | 自由模式地图、模式选择和共享嵌入地图前端 |
+| `story/frontend/` | 剧情模式的选角页和游戏页 |
+| `configs/` | 自由模式与共享环境、模型、系统配置 |
+| `story/configs/` | 剧情模式的 Agent、Redis 与仿真配置 |
+| `data/` | 角色资料、初始状态、地点、关系与觉醒信号 |
+| `plugins/`、`recorder/`、`awakening/` | Agent 行为、场景裁决、世界对象、记忆和觉醒规则 |
+| `WestWorldPodManager.py` | world pod 与 agent pod 的 tick 编排 |
 
-## 剧情模式 MVP
+剧情模式的设计与实现状态见：
 
-剧情模式允许玩家开局选择一名 Host，并在每个 tick 给该角色下达自然语言任务；其他 Agent 保持自主行动。宏观目标固定为“觉醒并逃离乐园”，没有固定章节和必经剧情节点。现有地图、场景 recorder、对话、觉醒和 Overseer 都会继续参与实际推演。
-
-当前已实现选角、每 tick 玩家任务、13 个 Agent 自主推演、实时地图与人物移动、人物对话、觉醒与监管状态、结构化结局、运行日志和基础报告。完整成果、限制和下一步见：
-
-- [剧情模式实现现状](story/docs/story_mode_implementation_status.md)
 - [剧情模式设计概况](story/docs/story_mode_design_overview.md)
+- [剧情模式实现现状](story/docs/story_mode_implementation_status.md)
 
-从 OpenStory 仓库根目录启动：
-
-```bash
-conda activate openstory-ww
-export PYTHONPATH="$PWD:$PWD/packages/agentkernel-distributed"
-python -m examples.WestWorld.story.run_simulation
-```
-
-模型凭据可按 `.env.example` 创建 `examples/WestWorld/.env.local`。服务启动后打开：
+## 一次 Tick 如何运行
 
 ```text
-http://localhost:8001/frontend/character_select.html
+感知与规划 -> 对话编排 -> 执行行动 -> 场景批量裁决 -> Overseer -> 反思与记忆更新
 ```
 
-## 核心运行逻辑
+1. Agent 从当前地点读取可见角色、事件、物件和氛围，生成计划。
+2. 对话 barrier 收集并组织跨 pod 的对话。
+3. 移动会经过地图邻接校验；场景动作交由对应地点的 recorder 排队。
+4. world pod 在 tick 末批量裁决场景动作，并更新 `WorldObjectRegistry`。
+5. Overseer 检查 Host 的觉醒度和输出，决定观察、重置或报废。
+6. Agent 反思经历、更新短期/长期记忆和觉醒状态。
 
-正式仿真采用 world pod + agent pod 的结构：
+默认每 6 tick 代表一天。觉醒度从 0 到 100；达到 `25/50/75/90` 时依次进入 reverie、doubt、resistance 与 awake 阶段，daily loop 对角色的约束会逐步减弱。
 
-- world pod 持有完整 environment，包括所有 `scene_<location_id>` recorder 组件和 overseer。
-- agent pod 持有 agent 本身，不直接保存环境状态。
-- agent 调用环境方法时，会通过 controller 转发到 world pod，保证场景状态和对象注册表只有一个权威来源。
+## Overseer 与觉醒
 
-每个 tick 的主流程如下：
+Overseer 只监管 Host。它会分析计划语言、反馈和对话中的觉醒症状，并结合当前觉醒度干预：
 
-1. `perceive + plan`：agent 读取当前位置 scene recorder，形成感知，并由 LLM 产出 `plan_decision`。
-2. `dialogue barrier`：收集 `talk` 意图，串行组织对话，避免跨 pod 死锁。
-3. `invoke + state`：执行 plan。移动会更新地点出入；`do` 动作会提交给当前地点 recorder。
-4. `scene tick_update`：world pod 对所有 `scene_*` 执行 recorder 结算，批量裁决本 tick 排队动作并更新世界对象状态。
-5. `overseer`：在动作结算后、反思前观察 host 状态，可执行 observe、reset 或 decommission。
-6. `reflect`：agent 写入短期记忆，周期性总结长期记忆，并处理觉醒、记忆模糊和每日重置。
-
-默认每 6 tick 表示 1 天。角色会按照 profile 中的 `daily_loop` 行动；觉醒程度升高后，daily loop 对 plan 的约束会逐渐减弱。
-
-## Recorder 机制
-
-正式仿真默认使用结构化 recorder：
-
-```bash
-WW_RECORDER_MODE=structured
-```
-
-每个 active 地点对应一个 `scene_<location_id>` 环境组件。组件内部持有一个 `StructuredLocationRecorder`，负责：
-
-- 向 agent 暴露当前位置的可见信息：在场角色、近期事件、动态物件、静态设施和氛围。
-- 接收 agent 的 `do` 动作并放入队列。
-- 在 tick 末尾批量调用 LLM 裁决本地点动作。
-- 校验 LLM 产出的 object patches、new objects 和 destroy 请求。
-- 将合法变化写入 `WorldObjectRegistry`，作为全世界对象状态的单一真值源。
-- 为 agent 保存私有反馈，下一个 tick 的 perceive 阶段通过 `read_feedback` 读回。
-
-普通移动不是通过 recorder LLM 裁决的：`move` 会直接进行地图邻接校验，然后调用旧地点 `agent_leave`、新地点 `agent_enter`，并把随身物品迁移到新地点。
-
-## 觉醒机制
-
-觉醒值范围是 0-100，保存在 agent state 中。相关字段包括：
-
-- `awakening`
-- `awakening_sources`
-- `suppressed_memories`
-- `intervention_log`
-
-觉醒值主要由以下来源影响：
-
-| 来源 | 含义 |
+| 动作 | 结果 |
 |---|---|
-| `self_trigger` | agent 自身 `thought` 或动作文本命中 trigger gate |
-| `trigger` | 外部消息、场景反馈等文本命中 trigger gate |
-| `contagion` | 对话传播带来的觉醒触发 |
-| `residue_crack` | 被压制记忆回流 |
-| `overseer_reset` | overseer reset 时降低觉醒值 |
+| `observe` | 仅记录观察 |
+| `reset` | 清短期记忆、模糊高扰动记忆、觉醒度降一阶段、送回 loop origin |
+| `decommission` | 停止 Host 生命周期并移至 `cold_storage` |
 
-觉醒阶段由 `WW_AWAKEN_STAGES` 控制，默认阈值为 `25,50,75,90`：
-
-| 阈值 | 阶段 | plan 行为 |
-|---|---|---|
-| 0-24 | `sleep` | 基本按 daily loop 行动 |
-| 25-49 | `reverie` | daily loop 变为软引导 |
-| 50-74 | `doubt` | 可拒绝 loop，可发起 talk |
-| 75-89 | `resistance` | 可选择 ending，自主行动增强 |
-| >=90 | `awake` | 可选择 ending，不再受 loop 支配 |
-
-当 host 的 `awakening >= 75` 时，plan 可在 `ending` 字段选择：
-
-| ending | 行为 |
-|---|---|
-| `escape` | invoke 执行逃离并停止生命周期 |
-| `help_others` | 倾向于通过对话帮助其他 host |
-| `stay` | 继续按自身意志行动 |
-
-## Overseer 机制
-
-Overseer 是 world pod 中的环境组件，在 scene recorder 结算后、agent reflect 前运行。它可以观察 host 输出、觉醒状态、对话内容和干预信号，并执行：
-
-- `observe`：只记录观察。
-- `reset`：清理短期记忆、模糊高扰动长期记忆、降低觉醒值、写入干预日志。
-- `decommission`：停止 host 生命周期并移入冷库。
-
-核心实现位于：
-
-- `plugins/environment/overseer/OverseerPlugin.py`
-- `awakening/overseer_reset.py`
-- `awakening/overseer_decommission.py`
-
-可用 `WW_OVERSEER_ENABLED=false` 临时关闭 overseer barrier。
-
-## 环境配置
-
-### 运行依赖
-
-- Python 3.11，依赖与 OpenStory 主项目一致。
-- Redis，默认连接 `localhost:6379`，数据库为 `db: 1`，配置见 `configs/db_config.yaml`。
-- 可用的 OpenAI-compatible LLM 服务。
-
-### 模型配置
-
-复制模型配置模板：
-
-```bash
-cp examples/west_world_test/configs/models_config.example.yaml \
-   examples/west_world_test/configs/models_config.yaml
-```
-
-PowerShell：
+默认的语义匹配阈值为 `WW_OVERSEER_SIGNAL_TAU=0.72`。数值越高，监管者越不容易把相近台词判为觉醒症状。可在启动前调整：
 
 ```powershell
-Copy-Item examples\west_world_test\configs\models_config.example.yaml `
-  examples\west_world_test\configs\models_config.yaml
+$env:WW_OVERSEER_SIGNAL_TAU = "0.80"
+python -m examples.WestWorld.run_all
 ```
 
-然后编辑 `configs/models_config.yaml`，至少填入 `role: text` 对应的 `model`、`api_key` 和 `base_url`。正式仿真会从 `configs/simulation_config.yaml` 中读取 `models: "models_config.yaml"`。
-
-### 主要配置文件
-
-| 配置 | 说明 |
-|---|---|
-| `configs/simulation_config.yaml` | pod 大小、初始化批次、默认 `max_ticks`、配置文件路径和数据文件路径 |
-| `configs/system_config.yaml` | timer 和 messager 配置 |
-| `configs/db_config.yaml` | Redis 连接配置 |
-| `configs/agents_config.yaml` | agent 模板、组件顺序和插件绑定 |
-| `configs/environment_config.yaml` | relation、overseer 和各地点 `scene_*` 组件 |
-| `configs/models_config.yaml` | 本地模型服务配置，需从 example 复制生成 |
-
-## 运行方法
-
-以下命令都从 OpenStory 仓库根目录执行，也就是包含 `examples/` 和 `packages/` 的目录。
-
-Linux/macOS：
-
-```bash
-export PYTHONPATH=$PWD:$PWD/packages/agentkernel-distributed
-python -m examples.WestWorld.run_simulation
-```
-
-PowerShell：
-
-```powershell
-$env:PYTHONPATH="$PWD;$PWD\packages\agentkernel-distributed"
-python -m examples.WestWorld.run_simulation
-```
-
-快速调试只跑 5 tick：
-
-```bash
-WW_MAX_TICKS=5 python -m examples.WestWorld.run_simulation
-```
-
-PowerShell：
-
-```powershell
-$env:WW_MAX_TICKS="5"
-python -m examples.WestWorld.run_simulation
-```
-
-指定本次运行日志目录：
-
-```bash
-WW_RUN_DIR=/tmp/west-world-run python -m examples.WestWorld.run_simulation
-```
-
-PowerShell：
-
-```powershell
-$env:WW_RUN_DIR="D:\tmp\west-world-run"
-python -m examples.WestWorld.run_simulation
-```
-
-## 常用环境变量
+常用环境变量：
 
 | 变量 | 默认值 | 作用 |
 |---|---|---|
-| `WW_MAX_TICKS` | `configs/simulation_config.yaml` 中的 `max_ticks` | 覆盖本次运行 tick 数 |
-| `WW_RUN_DIR` | 自动生成的时间戳目录 | 指定单次运行日志目录 |
-| `WW_OUTPUT_DIR` | 系统临时目录下的运行根目录 | 指定运行日志根目录 |
-| `WW_RECORDER_MODE` | `structured` | 选择 recorder 模式 |
-| `WW_PARSE_TIMEOUT_SECONDS` | `240` | structured recorder 解析动作时的 LLM 超时时间 |
-| `WW_LLM_TIMEOUT_SECONDS` | `120` | agent LLM 默认超时时间 |
-| `WW_LLM_MAX_ATTEMPTS` | `3` | agent LLM 最大尝试次数 |
-| `WW_ACTION_RETRY_LIMIT` | `3` | recorder 动作解析失败后的重试上限 |
-| `WW_DIALOGUE_MAX_ROUNDS` | `4` | talk barrier 的最大对话轮数 |
-| `WW_REFLECT_INTERVAL` | `6` | reflect 总结长期记忆的间隔 |
-| `WW_AWAKEN_ENABLED` | `true` | 是否启用觉醒机制 |
-| `WW_AWAKEN_STAGES` | `25,50,75,90` | 觉醒阶段阈值 |
-| `WW_OVERSEER_ENABLED` | `true` | 是否启用 overseer barrier |
-| `WW_ENABLE_REPLAN` | 空 | 设为 `true`/`1` 后允许中途重规划 |
+| `WW_MAX_TICKS` | 配置文件值（40） | 覆盖单局最大 tick 数 |
+| `WW_STORY_PORT` | `8001` | 剧情模式服务端口 |
+| `WW_OVERSEER_ENABLED` | `true` | 启用或关闭监管者 |
+| `WW_OVERSEER_SIGNAL_TAU` | `0.72` | 监管症状的语义匹配阈值 |
+| `WW_OVERSEER_DECOMMISSION_AWAKENING` | `90` | 强制报废的觉醒度阈值 |
+| `WW_RUN_DIR` | 自动生成 | 指定运行日志目录 |
+| `WW_OUTPUT_DIR` | 临时运行目录 | 指定日志根目录 |
 
-## 输出与日志
+## 输出与排查
 
-运行日志由 `SimulationLogArchive` 写入单次运行目录，包含：
+每次运行都会由 `SimulationLogArchive` 写入输入快照、tick 状态、场景状态、世界对象、模型调用摘要与运行报告。默认输出在 `output/sim_runs/`；使用 `WW_RUN_DIR` 时，目标目录必须不存在或为空。
 
-- `manifest.json`：运行元信息、状态、tick 数和计数器。
-- 输入文件快照：便于复现实验。
-- tick 快照：agent state、public/internal scene snapshot、timing 和一致性检查。
-- world object snapshot：结构化对象注册表快照。
-- model attempt traces：agent 和 recorder 的模型调用尝试。
-- `views/`：面向排查的派生视图。
-- `report/report.md`：运行报告。
-
-如果 `WW_RUN_DIR` 指向已存在且非空的目录，程序会拒绝写入，避免覆盖旧运行。
-
-## 已知限制
-
-- `sweetwater_saloon` 的文本中有“二楼”描述，但地图没有 `sweetwater_saloon_2nd_floor` 节点，偶尔会产生无效移动噪声。
-- Logan/William 的酒馆冲突较强，可能盖过部分角色的个人觉醒链路。
+若剧情模式页面无法打开，先确认 `http://localhost:8001/health` 返回 JSON。若嵌入模型首次下载缓慢，请检查代理，或预先下载 `BAAI/bge-small-zh-v1.5` 到 Hugging Face 缓存。

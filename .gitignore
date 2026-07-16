@@ -12,6 +12,7 @@ examples/story_of_the_stone/configs/models_config.yaml
 examples/west_world_test/output/
 examples/WestWorld/.env.local
 examples/WestWorld/output/
+.westworld-runtime/
 
 # 运行时/工具产物
 .story_server.pid
