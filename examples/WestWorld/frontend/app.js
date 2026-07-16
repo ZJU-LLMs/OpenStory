@@ -1,4 +1,5 @@
 (() => {
+  const EMBED_MAP = new URLSearchParams(window.location.search).get("embed") === "map";
   const BACKEND_ORIGIN = window.location.protocol === "file:" ? "http://localhost:8000" : "";
   const MAP_URL = `${BACKEND_ORIGIN}/map_total/西部世界游戏地图.tmx`;
   const LOCATION_DATA_URL = `${BACKEND_ORIGIN}/data/map/locations.yaml`;
@@ -155,6 +156,10 @@
   let selectedLocationId = null;
   let dragState = null;
   let rosterMode = "characters";
+  let agentAnimationFrame = 0;
+
+  const AGENT_MOVE_DURATION_MS = 1400;
+  const agentMotions = new Map();
 
   const simState = {
     tick: -1,
@@ -352,9 +357,21 @@
 
   function applySimulationPayload(data, fallbackTick) {
     const payload = data && data.agents ? data : { agents: data || {}, scenes: {} };
-    simState.agents = payload.agents || {};
+    const nextAgents = payload.agents || {};
+    const hadSnapshot = snapshotReady;
+    const previousAgents = simState.agents;
+    const previousPoints = new Map();
+    if (hadSnapshot && mapReady) {
+      Object.entries(previousAgents).forEach(([agentId, agent]) => {
+        const point = getAgentWorldPoint(agentId, agent);
+        if (point) previousPoints.set(agentId, point);
+      });
+    }
+
+    simState.agents = nextAgents;
     simState.scenes = payload.scenes || {};
     simState.tick = Number.isInteger(payload.tick) ? payload.tick : fallbackTick;
+    if (hadSnapshot && mapReady) startAgentMotions(previousAgents, previousPoints);
     recordConditionHistory(simState.agents, simState.tick);
     snapshotReady = true;
 
@@ -790,6 +807,21 @@
       const isSelected = selectedAgentId === agentId;
       const radius = Math.max(9, Math.min(18, 11 * Math.sqrt(camera.zoom)));
       const edgeColor = getAgentMarkerColor(agentId, agent);
+      const motion = agentMotions.get(agentId);
+
+      if (motion) {
+        const destinationX = (motion.to.x - viewX) * camera.zoom;
+        const destinationY = (motion.to.y - viewY) * camera.zoom;
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(destinationX, destinationY);
+        ctx.strokeStyle = `${edgeColor}80`;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 6]);
+        ctx.stroke();
+        ctx.restore();
+      }
 
       ctx.save();
       ctx.beginPath();
@@ -886,6 +918,25 @@
   }
 
   function getAgentWorldPoint(agentId, agent) {
+    const motion = agentMotions.get(agentId);
+    if (motion) {
+      const progress = Math.min(1, Math.max(0, (performance.now() - motion.startedAt) / motion.duration));
+      if (progress >= 1) {
+        agentMotions.delete(agentId);
+      } else {
+        const eased = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        return {
+          x: motion.from.x + (motion.to.x - motion.from.x) * eased,
+          y: motion.from.y + (motion.to.y - motion.from.y) * eased,
+        };
+      }
+    }
+    return getAgentTargetPoint(agentId, agent);
+  }
+
+  function getAgentTargetPoint(agentId, agent, agents = simState.agents) {
     const locationId = agent.location || agent.current_location || agent.location_id;
     let location = simState.locationById.get(locationId);
     if (!location && typeof locationId === "string") {
@@ -895,7 +946,7 @@
 
     const centerX = location.x + Math.max(location.width, 28) / 2;
     const centerY = location.y + Math.max(location.height, 28) / 2;
-    const colocated = Object.entries(simState.agents)
+    const colocated = Object.entries(agents)
       .filter(([, item]) => (item.location || item.current_location || item.location_id) === locationId)
       .map(([id]) => id)
       .sort();
@@ -906,6 +957,35 @@
       x: centerX + Math.cos(angle) * ring,
       y: centerY + Math.sin(angle) * ring,
     };
+  }
+
+  function startAgentMotions(previousAgents, previousPoints) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const startedAt = performance.now();
+    agentMotions.clear();
+    if (reduceMotion) return;
+
+    Object.entries(simState.agents).forEach(([agentId, agent]) => {
+      const previous = previousAgents[agentId];
+      const from = previousPoints.get(agentId);
+      const to = getAgentTargetPoint(agentId, agent);
+      if (!previous || !from || !to) return;
+      const previousLocation = previous.location || previous.current_location || previous.location_id;
+      const nextLocation = agent.location || agent.current_location || agent.location_id;
+      if (previousLocation === nextLocation || Math.hypot(to.x - from.x, to.y - from.y) < 2) return;
+      agentMotions.set(agentId, { from, to, startedAt, duration: AGENT_MOVE_DURATION_MS });
+    });
+
+    if (agentMotions.size) requestAgentAnimationFrame();
+  }
+
+  function requestAgentAnimationFrame() {
+    if (agentAnimationFrame) return;
+    agentAnimationFrame = window.requestAnimationFrame(() => {
+      agentAnimationFrame = 0;
+      draw();
+      if (agentMotions.size) requestAgentAnimationFrame();
+    });
   }
 
   function updateAgentList() {
@@ -1537,4 +1617,10 @@
     constrainLocationDialog();
   });
   updateTickButton();
+  if (EMBED_MAP) {
+    document.body.classList.add("embed-map");
+    els.homeScreen.hidden = true;
+    els.storyIntro.hidden = true;
+    startApp();
+  }
 })();

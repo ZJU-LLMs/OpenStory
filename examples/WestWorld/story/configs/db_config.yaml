@@ -1,0 +1,12 @@
+pools:
+  story_redis:
+    type: redis
+    settings:
+      host: localhost
+      port: 6379
+      db: 2
+      decode_responses: true
+adapters:
+  RedisKVAdapter:
+    class_name: RedisKVAdapter
+    use_pool: story_redis

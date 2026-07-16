@@ -14,6 +14,16 @@ from openai import OpenAI
 
 def _load_models(path: str) -> Dict[str, Dict[str, Any]]:
     rows: List[Dict[str, Any]] = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+    api_key = os.environ.get("WW_API_KEY", "").strip()
+    base_url = os.environ.get("WW_BASE_URL", "").strip()
+    model = os.environ.get("WW_MODEL", "").strip()
+    for row in rows:
+        if api_key:
+            row["api_key"] = api_key
+        if base_url:
+            row["base_url"] = base_url
+        if model and row.get("role") in ("text", "vision"):
+            row["model"] = model
     return {row["role"]: row for row in rows}
 
 

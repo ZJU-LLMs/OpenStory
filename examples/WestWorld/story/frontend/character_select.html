@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westworld | 选择 Host</title>
+  <link rel="stylesheet" href="style.css?v=story-mvp-1">
+</head>
+<body class="selection-page">
+  <div class="selection-backdrop" aria-hidden="true"></div>
+  <header class="selection-header">
+    <div class="brand">
+      <span class="brand-name">WESTWORLD</span>
+      <span class="brand-mode">STORY MODE</span>
+    </div>
+    <div class="server-status" id="serverStatus"><i></i><span>连接中</span></div>
+  </header>
+
+  <main class="selection-layout">
+    <section class="selection-main" aria-labelledby="selectionTitle">
+      <div class="selection-title-row">
+        <div>
+          <p class="eyebrow">觉醒与逃离</p>
+          <h1 id="selectionTitle">选择你的 Host</h1>
+        </div>
+        <span class="host-count" id="hostCount">-- HOSTS</span>
+      </div>
+      <div class="host-grid" id="hostGrid" aria-live="polite">
+        <p class="loading-copy">正在读取 Host 档案...</p>
+      </div>
+    </section>
+
+    <aside class="selection-detail" aria-label="所选 Host 档案">
+      <div class="detail-portrait">
+        <img id="detailPortrait" alt="" hidden>
+        <span id="detailInitial">?</span>
+      </div>
+      <p class="eyebrow" id="detailType">HOST PROFILE</p>
+      <h2 id="detailName">尚未选择</h2>
+      <p class="detail-role" id="detailRole">从左侧选择一名 Host</p>
+      <dl class="detail-facts">
+        <div><dt>初始觉醒</dt><dd id="detailAwakening">--</dd></div>
+        <div><dt>性格</dt><dd id="detailPersona">--</dd></div>
+        <div><dt>背景</dt><dd id="detailBackground">--</dd></div>
+      </dl>
+      <button class="primary-command" id="startButton" type="button" disabled>
+        <span>进入乐园</span><b aria-hidden="true">&gt;</b>
+      </button>
+      <p class="form-error" id="selectionError" role="alert"></p>
+    </aside>
+  </main>
+
+  <script src="character_select.js?v=story-mvp-1"></script>
+</body>
+</html>

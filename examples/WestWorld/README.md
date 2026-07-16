@@ -1,8 +1,8 @@
 # West World Simulation
 
-`examples/west_world_test` 是 OpenStory 中面向娱乐叙事项目的多 agent 西部世界仿真示例。它的目标不是离线评测或论文实验矩阵，而是提供一个可运行、可观察、可调试的正式仿真流程：角色在地图中感知、规划、移动、互动、形成记忆，并在 recorder、overseer 和觉醒机制的共同作用下推进世界状态。
+`examples/WestWorld` 是 OpenStory 中面向娱乐叙事项目的多 agent 西部世界仿真示例。它的目标不是离线评测或论文实验矩阵，而是提供一个可运行、可观察、可调试的正式仿真流程：角色在地图中感知、规划、移动、互动、形成记忆，并在 recorder、overseer 和觉醒机制的共同作用下推进世界状态。
 
-主入口是 `run_simulation.py`，正式资源注册表是 `registry.py`。
+项目目前包含两种独立入口：自由模式使用 `run_simulation.py`，开放推演剧情模式使用 `story/run_simulation.py`。公共资源注册表是 `registry.py`；剧情模式只增加自己的 Plan adapter 和运行时协调层。
 
 ## 项目整体结构
 
@@ -23,6 +23,30 @@
 | `recorder/` | 地点 recorder、结构化对象状态和世界对象注册表 |
 | `awakening/` | 觉醒阶段、触发、reset、decommission 等规则 |
 | `simulation_logging.py` | 仿真运行日志、快照和报告归档 |
+| `story/` | 开放推演剧情模式的 runner、配置、前端、状态协调和测试 |
+
+## 剧情模式 MVP
+
+剧情模式允许玩家开局选择一名 Host，并在每个 tick 给该角色下达自然语言任务；其他 Agent 保持自主行动。宏观目标固定为“觉醒并逃离乐园”，没有固定章节和必经剧情节点。现有地图、场景 recorder、对话、觉醒和 Overseer 都会继续参与实际推演。
+
+当前已实现选角、每 tick 玩家任务、13 个 Agent 自主推演、实时地图与人物移动、人物对话、觉醒与监管状态、结构化结局、运行日志和基础报告。完整成果、限制和下一步见：
+
+- [剧情模式实现现状](story/docs/story_mode_implementation_status.md)
+- [剧情模式设计概况](story/docs/story_mode_design_overview.md)
+
+从 OpenStory 仓库根目录启动：
+
+```bash
+conda activate openstory-ww
+export PYTHONPATH="$PWD:$PWD/packages/agentkernel-distributed"
+python -m examples.WestWorld.story.run_simulation
+```
+
+模型凭据可按 `.env.example` 创建 `examples/WestWorld/.env.local`。服务启动后打开：
+
+```text
+http://localhost:8001/frontend/character_select.html
+```
 
 ## 核心运行逻辑
 

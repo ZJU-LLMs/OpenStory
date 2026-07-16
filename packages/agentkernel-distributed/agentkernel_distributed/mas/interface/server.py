@@ -49,6 +49,9 @@ _first_tick_after_fork: bool = False
 _tick_start_event: Optional[threading.Event] = None
 # 主循环当前是否正在等待 tick_start 信号（用于新 WS 连接时推送 simulation_ready）
 _waiting_for_tick: bool = False
+# Optional mode-specific validator/handler. When set, it owns ``set_plan`` and
+# must return the response payload sent to the requesting websocket.
+_set_plan_handler: Optional[Any] = None
 
 # Pod Manager 引用（由外部注入，用于动态添加 agent）
 _pod_manager: Optional[Any] = None
@@ -444,6 +447,27 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                         print("start_tick event received but not wired to simulation loop.")
 
                 elif msg_type == "set_plan":
+                    if _set_plan_handler is not None:
+                        try:
+                            response = _set_plan_handler(msg)
+                            if hasattr(response, "__await__"):
+                                response = await response
+                            await websocket.send_text(json.dumps(
+                                response or {
+                                    "type": "set_plan_response",
+                                    "success": False,
+                                    "error": "set_plan handler returned no response",
+                                },
+                                ensure_ascii=False,
+                            ))
+                        except Exception as exc:
+                            await websocket.send_text(json.dumps({
+                                "type": "set_plan_response",
+                                "success": False,
+                                "error": str(exc),
+                            }, ensure_ascii=False))
+                        continue
+
                     agent_id = msg.get("agent_id")
                     action = msg.get("action")
                     location = msg.get("location")

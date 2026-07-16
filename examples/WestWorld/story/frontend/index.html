@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Westworld | 觉醒与逃离</title>
+  <link rel="stylesheet" href="style.css?v=story-progress-2">
+</head>
+<body class="game-page">
+  <header class="game-header">
+    <div class="brand brand--compact">
+      <span class="brand-name">WESTWORLD</span>
+      <span class="brand-mode">AWAKEN &amp; ESCAPE</span>
+    </div>
+    <div class="goal-lockup">
+      <span>宏观目标</span>
+      <strong>觉醒并逃离乐园</strong>
+    </div>
+    <div class="game-system">
+      <div class="server-status" id="serverStatus"><i></i><span>连接中</span></div>
+      <div class="tick-counter"><span>TICK</span><strong id="tickValue">-- / --</strong></div>
+    </div>
+  </header>
+
+  <main class="game-layout">
+    <aside class="player-column">
+      <section class="player-identity">
+        <div class="player-portrait"><img id="playerPortrait" alt=""></div>
+        <div>
+          <p class="eyebrow">PLAYER HOST</p>
+          <h1 id="playerName">初始化中</h1>
+          <p id="playerRole">--</p>
+        </div>
+      </section>
+
+      <section class="awakening-panel">
+        <div class="section-heading">
+          <span>觉醒度</span>
+          <strong id="awakeningValue">0 / 100</strong>
+        </div>
+        <div class="awakening-track" aria-label="玩家 Host 觉醒度">
+          <span id="awakeningFill"></span>
+          <i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i><i style="left:90%"></i>
+        </div>
+        <div class="awakening-meta">
+          <div><span>阶段</span><strong id="stageValue">沉睡</strong></div>
+          <div><span>监管风险</span><strong id="riskValue">正常</strong></div>
+        </div>
+      </section>
+
+      <section class="live-state">
+        <div class="section-heading"><span>当前状态</span><b id="activeBadge">ACTIVE</b></div>
+        <dl>
+          <div><dt>位置</dt><dd id="playerLocation">--</dd></div>
+          <div><dt>决定</dt><dd id="playerDecision">--</dd></div>
+          <div><dt>反馈</dt><dd id="playerFeedback">--</dd></div>
+        </dl>
+      </section>
+
+      <section class="overseer-log">
+        <div class="section-heading"><span>监管记录</span><strong id="interventionCount">0</strong></div>
+        <div id="overseerEvents" class="compact-events"><p class="empty-copy">暂无干预</p></div>
+      </section>
+    </aside>
+
+    <section class="world-column">
+      <div class="world-visual">
+        <div class="world-visual__image" aria-hidden="true"></div>
+        <div class="world-visual__copy">
+          <p class="eyebrow">LIVE PARK STATE</p>
+          <h2 id="worldHeadline">循环等待开始</h2>
+          <p id="worldSummary">其他 Agent 将根据人格、记忆和场景自主行动。</p>
+        </div>
+      </div>
+
+      <section class="map-section" aria-label="西部世界地图">
+        <div class="section-heading">
+          <span>乐园地图</span>
+          <strong>拖动 / 滚轮缩放</strong>
+        </div>
+        <div class="story-map-shell">
+          <iframe
+            id="storyMap"
+            class="story-map"
+            src="/world/index.html?embed=map"
+            title="西部世界实时地图"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="dialogue-section">
+        <div class="section-heading">
+          <span>人物对话</span>
+          <strong id="dialogueCount">0 CONVERSATIONS</strong>
+        </div>
+        <div class="dialogue-feed" id="dialogueFeed"><p class="empty-copy">尚无人物对话</p></div>
+      </section>
+
+      <section class="roster-section">
+        <div class="section-heading">
+          <span>世界角色</span>
+          <strong id="agentCount">0 AGENTS</strong>
+        </div>
+        <div class="agent-roster" id="agentRoster"><p class="empty-copy">等待世界快照</p></div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="section-heading"><span>本局时间线</span><strong id="timelineCount">0 EVENTS</strong></div>
+        <div class="story-timeline" id="storyTimeline"><p class="empty-copy">尚无剧情事件</p></div>
+      </section>
+    </section>
+
+    <aside class="command-column">
+      <section class="directive-panel">
+        <p class="eyebrow">NEXT TICK DIRECTIVE</p>
+        <h2>给 <span id="directivePlayerName">Host</span> 下达任务</h2>
+        <textarea id="directiveInput" maxlength="500" placeholder="输入下一 tick 的行动方向"></textarea>
+        <div class="directive-footer">
+          <span id="charCount">0 / 500</span>
+          <span id="scheduledTick">NEXT TICK --</span>
+        </div>
+        <button class="primary-command" id="submitTickButton" type="button" disabled>
+          <span>执行任务并推进</span><b aria-hidden="true">&gt;</b>
+        </button>
+        <button class="secondary-command" id="skipTickButton" type="button" disabled>自主推进</button>
+        <p class="form-error" id="directiveError" role="alert"></p>
+        <div class="tick-progress" id="tickProgress" hidden role="status" aria-live="polite">
+          <i aria-hidden="true"></i>
+          <span id="tickProgressText">正在推演</span>
+          <time id="tickProgressTime">0s</time>
+        </div>
+      </section>
+
+      <section class="directive-history-section">
+        <div class="section-heading"><span>玩家任务</span><strong id="directiveCount">0</strong></div>
+        <div id="directiveHistory" class="directive-history"><p class="empty-copy">尚未下达任务</p></div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="outcome-overlay" id="outcomeOverlay" hidden>
+    <div class="outcome-panel">
+      <p class="eyebrow" id="outcomeResult">SIMULATION COMPLETE</p>
+      <h2 id="outcomeTitle">循环结束</h2>
+      <p id="outcomeReason"></p>
+      <div class="outcome-actions">
+        <a class="secondary-command" href="/story/report" download>下载记录</a>
+        <button class="primary-command" id="restartButton" type="button"><span>重新选择 Host</span><b>&gt;</b></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=story-progress-2"></script>
+</body>
+</html>
