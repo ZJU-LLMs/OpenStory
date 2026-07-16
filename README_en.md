@@ -11,6 +11,9 @@
 
 ## 🌟 Key News
 
+**✨ *WestWorld* is now live!**
+The new *WestWorld* story has joined OpenStory. From the WestWorld home screen, you can choose Free Mode to observe characters acting autonomously inside the park's repeating loops, or enter Story Mode to play as a Host and shape an escape story amid memory, awakening, and Overseer intervention.
+
 **✨ The OpenStory Launcher is now live!**  
 We received lots of feedback from travelers who didn't know how to install the game, which made us realize the setup barrier was too high. So we worked overnight to develop a launcher that supports one-click play! Head over to [releases](https://github.com/ZJU-LLMs/OpenStory/releases) to download it! Come join the world of Dream of the Red Chamber now!
 
@@ -37,9 +40,11 @@ A brand new story mode aims to revive the Grand View Garden. You can freely give
 As the first official implemented story of the OpenStory framework, the `examples/story_of_the_stone` example in this project is set against the backdrop of the Chinese classical novel *Dream of the Red Chamber* (*Hongloumeng*). Utilizing Multi-Agent System (MAS) technology, we vividly simulate the daily behaviors, social interactions, and story evolution of the characters within a 1:1 scale map of the Grand View Garden. Here, you can witness Lin Daiyu's sensitive thoughtfulness, Jia Baoyu's rebellious affection, and the intertwined destiny of the entire Jia mansion under the wheel of history.
 ![Cover](assets/Story1.png)
 
-## 🚀 Story 2: Coming Soon
+## 🚀 Story 2: WestWorld
 ![Cover](assets/Story2.png)
-We are actively developing new stories, stay tuned!
+As the second official story of the OpenStory framework, the `examples/WestWorld` example is set in the science-fiction series *Westworld* and builds a simulated theme park driven by multiple agents. Hosts perceive their surroundings, plan and carry out actions, converse, and form memories; recurring routines, unexplained familiarity, and fragments left by others gradually reveal the truth behind the loop. In Free Mode, you can observe autonomous interactions and diverging fates among characters such as Dolores, Maeve, and Teddy. In Story Mode, you play as a Host who can form alliances, conceal anomalies, or attempt to escape the park while under the Overseer's watch.
+
+## 🚀 Story 3: Coming Soon...
 
 ## 🚀 Quick Start
 
@@ -65,7 +70,9 @@ cd ../../..
 
 ### 3. Run the Simulation System
 
-In the project root directory, execute the following command to start the simulation engine:
+From the project root, choose a story and run its corresponding command.
+
+#### Dream of the Red Chamber
 
 ```bash
 python -m examples.story_of_the_stone.run_simulation
@@ -75,6 +82,18 @@ During startup:
 1. The system will initialize the `Ray` runtime environment.
 2. Build and load all plugins, configuration files, and *Dream of the Red Chamber* character data.
 3. Start the API Server, listening on `0.0.0.0:8000` by default.
+
+#### WestWorld
+
+Before starting, ensure Redis is running and configure a usable OpenAI-compatible model in `examples/WestWorld/configs/models_config.yaml`. WestWorld and *Dream of the Red Chamber* both use port `8000`, so do not run them at the same time.
+
+```bash
+python -m examples.WestWorld.run_all
+```
+
+Once startup completes, open the [WestWorld home screen](http://localhost:8000/frontend/index.html) and select Free Mode or Story Mode.
+
+For gameplay details and model configuration, see the [WestWorld guide](examples/WestWorld/README.md).
 
 ### 4. Access the Visual Interface
 ![Frontend Preview](assets/frontend.png)
