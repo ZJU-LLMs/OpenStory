@@ -44,7 +44,7 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 作为 OpenStory 框架的第二个官方故事，本项目中的 `examples/WestWorld` 示例以科幻剧集《西部世界》为背景，构建了一座由多智能体共同驱动的仿真乐园。Host 会感知场景、规划行动、移动交谈并积累记忆；那些反复出现的日常、难以解释的熟悉感与他人的只言片语，也会让他们逐渐发现循环背后的真相。在这里，你既可以在自由模式中观察 Dolores、Maeve、Teddy 等角色的自主互动与命运分岔，也可以在剧情模式中扮演一名 Host，选择结盟、隐藏异常或逃离乐园，并在 Overseer 的监控与干预下亲手推演属于自己的觉醒故事。
 
 ## � Story 3： Coming Soon...
-
+![Cover](assets/Story4.png)
 ## �🚀 快速开始
 
 > **📚 想要更详细的操作指南？**
