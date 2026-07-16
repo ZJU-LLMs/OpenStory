@@ -39,6 +39,7 @@ WW_MODEL=your-model-name
 $env:HTTP_PROXY = "http://127.0.0.1:7890"
 $env:HTTPS_PROXY = "http://127.0.0.1:7890"
 ```
+或者自行添加该嵌入模型。
 
 ## 两种玩法
 

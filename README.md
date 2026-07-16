@@ -36,9 +36,11 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 ![Cover](assets/Story1.png)
 作为 OpenStory 框架的第一个官方落地故事，本项目中的 `examples/story_of_the_stone` 示例以中国古典名著《红楼梦》为背景。我们利用多智能体系统（MAS）技术，在一比一仿真的红楼梦大观园地图中，生动模拟了书中人物的日常行为、社交互动与故事推演。在这里，你可以看到林黛玉的敏感多思、贾宝玉的叛逆多情，以及整个贾府在历史车轮下的命运交织。
 
-## � Story 2: Coming Soon
+## � Story 2: 西部世界（West World）
 ![Cover](assets/Story2.png)
-我们正在积极开发新的故事，敬请期待！
+作为 OpenStory 框架的第二个官方故事，本项目中的 `examples/WestWorld` 示例以科幻剧集《西部世界》为背景，构建了一座由多智能体共同驱动的仿真乐园。Host 会感知场景、规划行动、移动交谈并积累记忆；那些反复出现的日常、难以解释的熟悉感与他人的只言片语，也会让他们逐渐发现循环背后的真相。在这里，你既可以在自由模式中观察 Dolores、Maeve、Teddy 等角色的自主互动与命运分岔，也可以在剧情模式中扮演一名 Host，选择结盟、隐藏异常或逃离乐园，并在 Overseer 的监控与干预下亲手推演属于自己的觉醒故事。
+
+## � Story 3： Coming Soon...
 
 ## �🚀 快速开始
 
@@ -64,7 +66,9 @@ cd ../../..
 
 ### 3. 运行推演系统
 
-在项目根目录下，执行以下命令启动模拟引擎：
+在项目根目录下，选择要运行的故事并执行相应命令。
+
+#### 红楼梦
 
 ```bash
 python -m examples.story_of_the_stone.run_simulation
@@ -74,6 +78,22 @@ python -m examples.story_of_the_stone.run_simulation
 1. 系统会初始化 `Ray` 的运行时环境。
 2. 构建并加载所有的插件、配置文件和《红楼梦》人物数据。
 3. 启动 API Server，默认监听在 `0.0.0.0:8000`。
+
+#### 西部世界
+
+启动前，请确认 Redis 已运行，并在 `examples/WestWorld/configs/models_config.yaml` 中填写可用的 OpenAI-compatible 模型配置。西部世界与红楼梦都会使用 `8000` 端口，因此请勿同时运行两者。
+
+```bash
+python -m examples.WestWorld.run_all
+```
+
+启动完成后，打开 西部世界主界面
+```bash
+http://localhost:8000/frontend/index.html
+```
+并在页面中选择游玩自由模式或剧情模式。
+
+详细玩法和模型配置请参阅 [西部世界说明](examples/WestWorld/README.md)。
 
 ### 4. 访问可视化界面
 ![Frontend Preview](assets/frontend.png)
@@ -110,4 +130,5 @@ python -m examples.story_of_the_stone.run_simulation
 </a>
 
 QQ交流群:1091827223
+
 [友链:LINUX.DO](https://linux.do)
