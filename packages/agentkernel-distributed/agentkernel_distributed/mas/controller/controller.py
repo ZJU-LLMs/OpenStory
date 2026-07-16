@@ -123,7 +123,7 @@ class ControllerImpl(BaseController):
         )
 
     async def collect_talk_intents(self) -> Dict[str, str]:
-        """Return {agent_id: target_id} for agents whose plan_decision is action='talk'."""
+        """Return one dialogue target for each agent that intends to address someone."""
         if not self._agent_manager:
             return {}
         return await self._agent_manager.collect_talk_intents()

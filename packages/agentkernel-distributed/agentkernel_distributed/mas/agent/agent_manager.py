@@ -217,7 +217,7 @@ class AgentManager:
         return member
 
     async def collect_talk_intents(self) -> Dict[str, str]:
-        """Return {agent_id: target_agent_id} for agents whose plan_decision is action='talk'."""
+        """Return one dialogue target for each agent that intends to address someone."""
         result: Dict[str, str] = {}
         for agent_id, agent in self._agents.items():
             try:
@@ -226,10 +226,20 @@ class AgentManager:
                     continue
                 state_plugin = state_comp.get_plugin()
                 decision = await state_plugin.get_state("plan_decision") or {}
+                target = ""
                 if decision.get("action") == "talk":
-                    target = decision.get("target", "")
-                    if target:
-                        result[agent_id] = target
+                    raw_target = decision.get("target", "")
+                    target = raw_target.strip() if isinstance(raw_target, str) else ""
+                elif decision.get("action") == "do":
+                    recipients = decision.get("recipient_ids", [])
+                    if isinstance(recipients, list):
+                        target = next((
+                            recipient.strip()
+                            for recipient in recipients
+                            if isinstance(recipient, str) and recipient.strip()
+                        ), "")
+                if target and target != agent_id:
+                    result[agent_id] = target
             except Exception:
                 pass
         return result

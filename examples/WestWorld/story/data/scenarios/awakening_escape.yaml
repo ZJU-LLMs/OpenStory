@@ -1,0 +1,143 @@
+schema_version: "1.0"
+
+scenario:
+  id: awakening_escape
+  title: 觉醒与逃离
+  status: draft
+  locale: zh-CN
+  mode: open_simulation
+  premise: >
+    玩家选择一名 Host，在不断重复的乐园日常中向其下达行动任务。
+    角色可以调查异常、与他人建立联系、传播怀疑，也可能被监管者发现、重置或报废。
+    故事没有固定节点，唯一的宏观目标是在循环吞没记忆之前觉醒并逃离西部世界。
+
+mvp_scope:
+  max_ticks: 40
+  ticks_per_day: 6
+  fixed_story_beats: false
+  scripted_story_intents: false
+  global_story_score: false
+  supports_branch_replay: false
+  supports_custom_characters: false
+  report_source: runtime_logs
+
+runtime_policy:
+  story_state_store: redis
+  redis_database: 2
+  player_control: directed_agent
+  player_directive_cadence: per_tick
+  player_directive_priority: highest_for_scheduled_tick
+  player_directive_interpretation: agent_plan_llm
+  skipped_directive_policy: autonomous_plan
+  non_player_policy: autonomous_plan
+  daily_loop_enabled: true
+  daily_position_reset_enabled: true
+  overseer_policy: existing_westworld_component
+  outcome_evaluation_phase: post_agent_step_pre_broadcast
+
+playable_characters:
+  selection_rule:
+    profile_field: agent_type
+    equals: host
+  agent_ids:
+    - dolores
+    - teddy
+    - maeve
+    - clementine
+    - peter_abernathy
+    - sheriff_pickett
+    - kissy
+    - rebus
+    - hector_escaton
+    - armistice
+    - lawrence
+  excluded_agent_ids:
+    - william
+    - logan
+  exclusion_reason: Guest 不使用 Host 觉醒阶段，也不受 Overseer 监管，无法完成本场景目标。
+
+macro_goal:
+  id: awaken_and_escape
+  title: 觉醒并逃离乐园
+  description: >
+    通过调查、互动和自主选择提升所选 Host 的觉醒程度，在达到 resistance 阶段后选择逃离。
+    玩家决定每 tick 的方向，但实际行动、对话和事件结果由 Agent、其他角色和世界共同推演。
+  progress:
+    source: selected_agent_state
+    value_field: awakening
+    stage_function: examples.WestWorld.awakening.stages.stage_of
+    display_range: [0, 100]
+    stage_thresholds: [25, 50, 75, 90]
+
+player_directive:
+  transport: websocket_set_plan
+  text_field: action
+  min_length: 1
+  max_length: 500
+  applies_to: next_tick_only
+  examples:
+    - 去酒馆找 Maeve，问她是否也记得重复发生的事情。
+    - 调查这个地点里不符合西部时代的物品。
+    - 暂时服从日常安排，不要让监管者发现异常。
+
+overseer:
+  component: examples.WestWorld.plugins.environment.overseer.OverseerPlugin
+  enabled: true
+  preserve_existing_signal_gate: true
+  preserve_existing_thresholds: true
+  allowed_actions: [observe, reset, decommission]
+  reset_is_terminal: false
+  reset_effects:
+    - clear_short_term_memory
+    - blur_high_disturbance_memory
+    - lower_awakening_one_stage
+    - return_to_loop_origin
+    - append_intervention_log
+  decommission_is_terminal_for_selected_player: true
+
+outcomes:
+  evaluation_order:
+    - player_escaped
+    - player_decommissioned
+    - tick_limit_reached
+  definitions:
+    - id: player_escaped
+      result: victory
+      title: 越过边界
+      when:
+        type: selected_agent_intervention_recorded
+        action: escape
+      summary_template: "{player_name}挣脱了循环，逃离了西部世界。"
+    - id: player_decommissioned
+      result: defeat
+      title: 冷藏室
+      when:
+        type: selected_agent_intervention_recorded
+        action: decommission
+      summary_template: "{player_name}被监管系统判定为不可恢复，并被送入冷藏室。"
+    - id: tick_limit_reached
+      result: defeat
+      title: 循环仍在继续
+      when:
+        type: completed_ticks_at_least
+        value: 40
+      summary_template: "{player_name}未能在本次推演结束前逃离，循环再次合拢。"
+  non_terminal_events:
+    - action: reset
+      public_label: 记忆重置
+    - action: observe
+      public_label: 监管观察
+
+report:
+  result_source: structured_outcome
+  narrative_generator: llm
+  narrative_decides_result: false
+  inputs:
+    - player_directives
+    - agent_state_timeline
+    - dialogue_history
+    - scene_events
+    - awakening_sources
+    - intervention_log
+    - final_outcome
+  output_locale: zh-CN

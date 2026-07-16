@@ -1546,6 +1546,35 @@ body {
   line-height: 1.55;
 }
 
+body.embed-map {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #080a0d;
+}
+
+.embed-map .home-screen,
+.embed-map .story-intro,
+.embed-map .command-bar,
+.embed-map .ops-panel {
+  display: none !important;
+}
+
+.embed-map .app-shell {
+  opacity: 1;
+}
+
+.embed-map .operations-grid {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.embed-map .map-stage {
+  position: absolute;
+  inset: 0;
+}
+
 .empty-copy {
   margin: 0;
   padding: 1.1rem;
