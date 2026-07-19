@@ -46,19 +46,44 @@ REPLAN_JUDGE_PROMPT = """你是西部世界角色「{name}」。{inner_voice}
 只输出 JSON：{{"replan": true/false, "reason": "<简短>"}}"""
 
 
-def compose_tick_memory(decision: Optional[Dict[str, Any]], feedback: str, location: str, tick: int) -> str:
+def compose_tick_memory(
+    decision: Optional[Dict[str, Any]],
+    feedback: str,
+    location: str,
+    tick: int,
+    incoming_dialogue: Optional[List[Dict[str, Any]]] = None,
+    agent_id: str = "",
+) -> str:
     decision = decision or {}
     action = decision.get("action", "stay")
     if action == "move":
         body = f"我前往了 {decision.get('target', '')}"
     elif action == "do":
         body = decision.get("detail") or "我做了一件事"
+    elif action == "talk":
+        body = "我与他人进行了一次交谈"
     else:
         body = "我在原地停留"
     line = f"（第{tick}刻@{location}）{body}"
     if feedback:
         line += f"。结果：{feedback}"
+    dialogue_lines = []
+    for turn in incoming_dialogue or []:
+        if not isinstance(turn, dict):
+            continue
+        utterance = str(turn.get("line", "")).strip()
+        if not utterance:
+            continue
+        speaker = str(turn.get("speaker", "")).strip()
+        speaker_label = "我" if speaker and speaker == agent_id else (speaker or "对方")
+        dialogue_lines.append(f"{speaker_label}说：{utterance}")
+    if dialogue_lines:
+        line += "。对话：" + "；".join(dialogue_lines)
     return line
+
+
+def dialogue_source(turn: Dict[str, Any], agent_id: str) -> str:
+    return "self_trigger" if turn.get("speaker") == agent_id else "contagion"
 
 
 def should_summarize(tick: int, interval: int) -> bool:
@@ -101,12 +126,21 @@ class WestWorldReflectPlugin(ReflectPlugin):
         decision = await state_plugin.get_state("plan_decision") or {}
         feedback = await state_plugin.get_state("feedback") or ""
         location = await state_plugin.get_state("location") or ""
+        incoming_dialogue = await state_plugin.get_state("incoming_dialogue") or []
+        if not isinstance(incoming_dialogue, list):
+            incoming_dialogue = []
 
-        memory = compose_tick_memory(decision, feedback, location, current_tick)
+        memory = compose_tick_memory(
+            decision, feedback, location, current_tick,
+            incoming_dialogue=incoming_dialogue,
+            agent_id=self.agent.agent_id,
+        )
         await state_plugin.add_short_term_memory(memory, current_tick)
 
         # 觉醒 gate（仅 host）：检测违和/触发词/矛盾，写 awakening_sources
         await self._check_awakening_gate(state_plugin, current_tick)
+        # Overseer 已在 reflect 前消费；此处清空，避免旧对话跨 tick 重复触发。
+        await state_plugin.set_state("incoming_dialogue", [])
 
         # Replan 判断（WW_ENABLE_REPLAN=true 且非最后一段）
         if (
@@ -335,7 +369,10 @@ class WestWorldReflectPlugin(ReflectPlugin):
         # 收到的对话（Phase A 写入）
         incoming_dialogue: List[Dict[str, Any]] = await state_plugin.get_state("incoming_dialogue") or []
         for turn in incoming_dialogue:
-            incoming.append(("contagion", turn.get("line", "")))
+            if not isinstance(turn, dict):
+                continue
+            source = dialogue_source(turn, self.agent.agent_id)
+            incoming.append((source, turn.get("line", "")))
 
         if incoming:
             try:

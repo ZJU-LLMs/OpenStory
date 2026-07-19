@@ -43,12 +43,12 @@ _BATCH_PROPOSAL_PROMPT = """你是地点「{location_name}」的动作解析器�
 - new_objects：当动作产生新的可见物时声明，每项含 name 与初始字段；不得标 hidden。
 - destroy：当可见物被彻底消灭时列其 object_id。
 - 动作类型为 do 时，角色始终留在「{location_name}」，不得声称离开或到达其他地点。
-- 秘密揭示：仅当动作确实触及隐藏秘密时，在 private_feedback 中渐进式透露。
+- 秘密揭示：仅当动作确实触及隐藏秘密时，在 private_feedback 中渐进式透露，并把对应 object_id 写入 discovered_object_ids；未发现则为空数组。
 - 所有字段值必须使用中文，严禁使用英文。
 
 只输出 JSON，actions 数组顺序必须与输入动作列表顺序一致（顺序：{agent_ids}）：
 {{"actions": [
-  {{"agent_id": "角色id", "permission": true, "reason": "", "private_feedback": "...",
+  {{"agent_id": "角色id", "permission": true, "reason": "", "private_feedback": "...", "discovered_object_ids": [],
     "patches": [{{"object_id": "obj_0", "state": "被角色握在手中", "held_by": "角色id"}}],
     "new_objects": [{{"name": "地上的血", "state": "暗红一滩", "held_by": ""}}],
     "destroy": []}}
@@ -87,16 +87,24 @@ _PROPOSAL_PROMPT = """你是地点「{location_name}」的动作解析器与场�
 - destroy：当可见物被彻底消灭（烧毁、击碎丢弃）时列其 object_id。
 - ambient：当整体环境氛围（光线/气味/声音/气氛）变化时给一句中文自由文本；无变化则空串。
 - 动作类型为 do，表示角色始终留在「{location_name}」。不得声称角色离开、前往、进入或到达其他地点，也不得通过 patches 改变角色位置。
-- 秘密揭示由你裁决：仅当动作确实触及某个隐藏秘密时，在 private_feedback 中按动作触及的深浅渐进式透露其内容（不要照抄原文，浅尝辄止则只给模糊线索，深入查看才完整揭示）；动作未触及秘密时，private_feedback 只描述动作的直接结果，绝不提及任何秘密。
+- 秘密揭示由你裁决：仅当动作确实触及某个隐藏秘密时，在 private_feedback 中按动作触及的深浅渐进式透露其内容，并把对应 object_id 写入 discovered_object_ids；动作未触及秘密时必须为空数组。
 - 所有字段值必须使用中文，严禁使用英文。
 
 只输出 JSON：
-{{"permission": true, "reason": "", "private_feedback": "...", "broadcast_level": "none|location",
+{{"permission": true, "reason": "", "private_feedback": "...", "discovered_object_ids": [], "broadcast_level": "none|location",
 "event_summary": "", "patches": [{{"object_id": "obj_0", "state": "被{agent_id}握在手中", "held_by": "{agent_id}"}}],
 "new_objects": [{{"name": "地上的血", "state": "暗红一滩", "held_by": ""}}],
 "destroy": ["obj_5"],
 "ambient": ""}}
 """
+
+
+def _current_tick_parse_retries() -> int:
+    try:
+        attempts = int(os.environ.get("WW_ACTION_RETRY_LIMIT", "3"))
+    except ValueError:
+        attempts = 3
+    return max(1, attempts) - 1
 
 
 class StructuredLocationRecorder(LocationRecorder):
@@ -156,6 +164,15 @@ class StructuredLocationRecorder(LocationRecorder):
             row["object_id"]: {k: v for k, v in row.items() if k != "hidden"}
             for row in visible_rows
         }
+        hidden_rows = [
+            {
+                "object_id": row["object_id"],
+                "name": row["name"],
+                "secret": row.get("secret", ""),
+            }
+            for row in self.registry.objects_at(self.location.id, include_hidden=True)
+            if row.get("hidden")
+        ]
         present_agents = self.chunks.get("present_agents") or "（无人）"
         actions_list = [
             {"agent_id": i["agent_id"], "action_type": i["action_type"], "action_text": i["action_text"]}
@@ -167,18 +184,18 @@ class StructuredLocationRecorder(LocationRecorder):
             n=len(intents),
             objects=json.dumps(visible_objects, ensure_ascii=False),
             facts=json.dumps(visible_facts, ensure_ascii=False),
-            hidden_secrets=self.chunks.get("hidden_notes") or "（无）",
+            hidden_secrets=json.dumps(hidden_rows, ensure_ascii=False) if hidden_rows else "（无）",
             present_agents=present_agents,
             actions_list=json.dumps(actions_list, ensure_ascii=False),
             agent_ids=agent_ids_str,
         )
         response = self._chat_json(
             prompt,
-            retries=1,
+            retries=_current_tick_parse_retries(),
             call_type="batch_action_resolve",
             metadata={"tick": tick, "agent_ids": [i["agent_id"] for i in intents]},
         )
-        if response is None or not isinstance(response.get("actions"), list):
+        if not isinstance(response, dict) or not isinstance(response.get("actions"), list):
             for intent in intents:
                 judgement = self._record_unresolved(
                     intent["agent_id"], intent["action_text"], tick,
@@ -209,10 +226,13 @@ class StructuredLocationRecorder(LocationRecorder):
                 try:
                     patches = self._validate_patches(action_result.get("patches", []), agent_id)
                     if not action_result.get("permission", False):
-                        patches, new_objects, destroy_ids = [], [], []
+                        patches, new_objects, destroy_ids, discovered_ids = [], [], [], []
                     else:
                         new_objects = self._validate_new_objects(action_result.get("new_objects", []), agent_id)
                         destroy_ids = self._validate_destroy(action_result.get("destroy", []))
+                        discovered_ids = self._validate_discovered_object_ids(
+                            action_result.get("discovered_object_ids", [])
+                        )
                     for spec in new_objects:
                         self.registry.create(
                             name=spec["name"], location_id=self.location.id, by=agent_id,
@@ -233,6 +253,7 @@ class StructuredLocationRecorder(LocationRecorder):
                     key: action_result.get(key, FALLBACK_JUDGEMENT[key])
                     for key in FALLBACK_JUDGEMENT
                 }
+                judgement["discovered_object_ids"] = discovered_ids
                 judgement = self._normalize_judgement(judgement, agent_id, action_type)
                 self.fact_ledger.append({
                     "status": "resolved",
@@ -242,6 +263,7 @@ class StructuredLocationRecorder(LocationRecorder):
                     "patches": patches,
                     "new_objects": new_objects,
                     "destroy": destroy_ids,
+                    "discovered_object_ids": discovered_ids,
                     "ambient": None,
                     "registry_events": registry_events,
                     "judgement": judgement,
@@ -273,8 +295,7 @@ class StructuredLocationRecorder(LocationRecorder):
         action_type: str, reason: str, retry_count: int,
     ) -> Dict[str, Any]:
         failed_attempts = retry_count + 1
-        retry_limit = max(1, int(os.environ.get("WW_ACTION_RETRY_LIMIT", "3")))
-        retry_scheduled = failed_attempts < retry_limit
+        retry_scheduled = False
         judgement = {
             **FALLBACK_JUDGEMENT,
             "permission": False,
@@ -294,14 +315,6 @@ class StructuredLocationRecorder(LocationRecorder):
             "judgement": copy.deepcopy(judgement),
         }
         self.fact_ledger.append(record)
-        if retry_scheduled:
-            self._unresolved_actions.append({
-                "agent_id": agent_id,
-                "action_text": action_text,
-                "tick": tick,
-                "action_type": action_type,
-                "retry_count": failed_attempts,
-            })
         return judgement
 
     def _normalize_judgement(
@@ -353,6 +366,24 @@ class StructuredLocationRecorder(LocationRecorder):
                     continue
                 updates[key] = value
             validated.append({"object_id": object_id, "updates": updates})
+        return validated
+
+    def _validate_discovered_object_ids(self, raw_ids: Any) -> List[str]:
+        if not isinstance(raw_ids, list):
+            raise ValueError("discovered_object_ids 必须是数组")
+        validated: List[str] = []
+        for object_id in raw_ids:
+            if not isinstance(object_id, str) or not self.registry.has(object_id):
+                raise ValueError(f"未知 discovered object_id: {object_id}")
+            obj = self.registry.get(object_id)
+            if (
+                obj["location_id"] != self.location.id
+                or obj["destroyed"]
+                or not obj["hidden"]
+            ):
+                raise ValueError(f"无效 discovered object_id: {object_id}")
+            if object_id not in validated:
+                validated.append(object_id)
         return validated
 
     def _apply_patches(
@@ -410,10 +441,8 @@ class StructuredLocationRecorder(LocationRecorder):
         self.chunks["dynamic_objects"] = "；".join(parts) or "暂无可变物品。"
 
     def tick_update(self, tick: int) -> None:
-        # Re-queue unresolved retries from the previous tick
-        pending_retry, self._unresolved_actions = self._unresolved_actions, []
-        for action in pending_retry:
-            self._intent_queue.append(action)
+        # Parsing attempts are exhausted in this tick; do not replay stale actions later.
+        self._unresolved_actions = []
         # Drain and process the intent queue atomically
         intents, self._intent_queue = self._intent_queue, []
         self._batch_resolve(intents, tick)

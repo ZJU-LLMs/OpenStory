@@ -12,6 +12,16 @@ from examples.WestWorld.worldmap.loader import WorldMap, get_world_map
 logger = get_logger(__name__)
 
 
+def merge_discovered_ids(current: Any, discovered: Any) -> List[str]:
+    merged = [item for item in current if isinstance(item, str)] if isinstance(current, list) else []
+    if not isinstance(discovered, list):
+        return merged
+    for object_id in discovered:
+        if isinstance(object_id, str) and object_id not in merged:
+            merged.append(object_id)
+    return merged
+
+
 def build_percept(world: WorldMap, agent_id: str, state: Dict[str, Any]) -> Dict[str, Any]:
     here = world.get(state["location"])
     return {
@@ -78,6 +88,12 @@ class WestWorldPerceivePlugin(PerceivePlugin):
                 f"scene_{location}", "read_feedback", self.agent.agent_id
             )
             if feedback and isinstance(feedback, dict):
+                discovered = feedback.get("discovered_object_ids", [])
+                if isinstance(discovered, list):
+                    known_discovered = merge_discovered_ids(
+                        await state_plugin.get_state("discovered_ids"), discovered,
+                    )
+                    await state_plugin.set_state("discovered_ids", known_discovered)
                 await state_plugin.set_state("feedback", feedback.get("private_feedback", ""))
         except Exception as exc:
             logger.warning("[%s] 读取 feedback 失败: %s", self.agent.agent_id, exc)
