@@ -6,7 +6,7 @@ import os
 import time
 import uuid
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from agentkernel_distributed.mas.agent.base.plugin_base import PlanPlugin
 from agentkernel_distributed.toolkit.logger import get_logger
@@ -173,31 +173,69 @@ def render_plan_prompt(
 
 _VALID_ACTIONS = frozenset({"do", "move", "stay", "talk"})
 _VALID_ENDINGS = frozenset({"escape", "help_others", "stay"})
+_VALID_READ_CHUNKS = frozenset({
+    "present_agents", "recent_events", "dynamic_objects", "static_facilities",
+})
 
 
-def parse_decision(raw: str) -> Dict[str, Any]:
+def _fallback_decision() -> Dict[str, Any]:
+    return {
+        "action": "stay", "target": "", "detail": "",
+        "recipient_ids": [], "next_read": [],
+    }
+
+
+def _parse_decision(raw: str) -> Tuple[Dict[str, Any], bool]:
     try:
         text = raw.strip()
         if text.startswith("```"):
             text = text.split("```")[1].lstrip("json").strip()
         decision = json.loads(text)
-        if isinstance(decision, dict) and decision.get("action") in _VALID_ACTIONS:
-            recipients = decision.get("recipient_ids", [])
-            decision["recipient_ids"] = [
-                r for r in recipients
-                if isinstance(r, str) and r.strip()
-            ] if isinstance(recipients, list) else []
-            # Validate ending field
-            ending = decision.get("ending", "")
-            if ending and ending not in _VALID_ENDINGS:
-                decision.pop("ending", None)
-            # Keep thought as plain string (may be empty)
-            thought = decision.get("thought", "")
-            decision["thought"] = str(thought).strip() if thought else ""
-            return decision
-    except (json.JSONDecodeError, IndexError):
-        pass
-    return {"action": "stay", "target": "", "detail": "", "recipient_ids": [], "next_read": []}
+    except (AttributeError, json.JSONDecodeError, IndexError, TypeError):
+        return _fallback_decision(), False
+
+    if not isinstance(decision, dict):
+        return _fallback_decision(), False
+    action = decision.get("action")
+    if not isinstance(action, str) or action not in _VALID_ACTIONS:
+        return _fallback_decision(), False
+    for field in ("target", "detail", "thought", "ending"):
+        if field in decision and not isinstance(decision[field], str):
+            return _fallback_decision(), False
+    for field in ("recipient_ids", "next_read"):
+        if field in decision and not isinstance(decision[field], list):
+            return _fallback_decision(), False
+
+    normalized = dict(decision)
+    normalized["target"] = (
+        decision.get("target", "").strip()
+        if isinstance(decision.get("target", ""), str) else ""
+    )
+    normalized["detail"] = (
+        decision.get("detail", "").strip()
+        if isinstance(decision.get("detail", ""), str) else ""
+    )
+    recipients = decision.get("recipient_ids", [])
+    normalized["recipient_ids"] = [
+        recipient.strip() for recipient in recipients
+        if isinstance(recipient, str) and recipient.strip()
+    ] if isinstance(recipients, list) else []
+    next_read = decision.get("next_read", [])
+    normalized["next_read"] = [
+        chunk for chunk in next_read
+        if isinstance(chunk, str) and chunk in _VALID_READ_CHUNKS
+    ] if isinstance(next_read, list) else []
+
+    ending = decision.get("ending", "")
+    if ending not in _VALID_ENDINGS:
+        normalized.pop("ending", None)
+    thought = decision.get("thought", "")
+    normalized["thought"] = str(thought).strip() if thought else ""
+    return normalized, True
+
+
+def parse_decision(raw: str) -> Dict[str, Any]:
+    return _parse_decision(raw)[0]
 
 
 async def _read_profile(agent) -> Dict[str, Any]:
@@ -295,7 +333,44 @@ class WestWorldPlanPlugin(PlanPlugin):
                 logger.warning("[%s] plan LLM 调用失败，降级为 stay: %s", self.agent.agent_id, exc)
 
         raw_text = raw if isinstance(raw, str) else json.dumps(raw, ensure_ascii=False, default=str)
-        decision = parse_decision(raw_text)
+        decision, parse_ok = _parse_decision(raw_text)
+        format_retry_raw: Any = None
+        format_retry_error = ""
+        format_retry_attempted = False
+        if self.model is not None and not error and not parse_ok:
+            format_retry_attempted = True
+            retry_prompt = (
+                prompt
+                + "\n\n你上一次的输出不是符合要求的 JSON 对象。"
+                + "请重新生成一次，只输出合法 JSON，不要代码块或解释。\n"
+                + f"上一次输出：{raw_text[:1000]}"
+            )
+            try:
+                format_retry_raw = await self.model.chat(
+                    retry_prompt,
+                    timeout=int(os.environ.get("WW_LLM_TIMEOUT_SECONDS", "120")),
+                    max_attempts=1,
+                    _trace_context={
+                        "request_id": request_id,
+                        "request_type": "agent_plan_format_retry",
+                        "tick": current_tick,
+                        "agent_id": self.agent.agent_id,
+                        "location_id": percept.get("location", ""),
+                    },
+                )
+                retry_text = (
+                    format_retry_raw if isinstance(format_retry_raw, str)
+                    else json.dumps(format_retry_raw, ensure_ascii=False, default=str)
+                )
+                retry_decision, retry_ok = _parse_decision(retry_text)
+                if retry_ok:
+                    decision, parse_ok = retry_decision, True
+            except Exception as exc:
+                format_retry_error = f"{type(exc).__name__}: {exc}"
+                logger.warning(
+                    "[%s] plan 格式重试失败，降级为 stay: %s",
+                    self.agent.agent_id, exc,
+                )
         await state_plugin.set_state("plan_decision", decision)
         await state_plugin.set_state("next_read", decision.get("next_read") or [])
         if decision.get("ending") in _VALID_ENDINGS:
@@ -307,12 +382,12 @@ class WestWorldPlanPlugin(PlanPlugin):
             "call_type": "agent_plan",
             "prompt": prompt,
             "raw_response": raw,
-            "error": error,
+            "format_retry_response": format_retry_raw,
+            "error": "; ".join(part for part in (error, format_retry_error) if part),
             "duration_ms": round((time.perf_counter() - started) * 1000, 3),
             "parsed_decision": decision,
-            "parse_fallback": decision["action"] == "stay" and raw_text.strip() not in (
-                '{"action": "stay", "target": "", "detail": "", "next_read": []}', ""
-            ),
+            "format_retry_attempted": format_retry_attempted,
+            "parse_fallback": not parse_ok,
         })
         if directive:
             directive_result = {

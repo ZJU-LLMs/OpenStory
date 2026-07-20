@@ -153,15 +153,23 @@ class LocationRecorder:
             if usage:
                 trace["usage"] = usage
             try:
-                text = raw.strip()
+                text = (
+                    raw.strip() if isinstance(raw, str)
+                    else json.dumps(raw, ensure_ascii=False, default=str)
+                )
                 if text.startswith("```"):
                     text = text.split("```")[1].lstrip("json").strip()
                 parsed = json.loads(text)
                 trace["parsed_response"] = parsed
+                if not isinstance(parsed, dict):
+                    trace["parse_ok"] = False
+                    trace["schema_error"] = "顶层 JSON 必须是对象"
+                    self._llm_traces.append(trace)
+                    continue
                 trace["parse_ok"] = True
                 self._llm_traces.append(trace)
                 return parsed
-            except (json.JSONDecodeError, IndexError):
+            except (AttributeError, json.JSONDecodeError, IndexError, TypeError):
                 trace["parse_ok"] = False
                 self._llm_traces.append(trace)
                 continue
