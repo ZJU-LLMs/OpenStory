@@ -10,7 +10,9 @@ from worldkernel.architect.visual.models import (
     VisualSlot,
 )
 from worldkernel.architect.visual.pipeline import run_visual_pipeline
+from worldkernel.architect.visual.location_patches import generate_location_patches
 from worldkernel.architect.visual.prompt import compose_background_prompt
+from worldkernel.architect.visual.road_texture import generate_road_texture_assets
 
 __all__ = [
     "AliyunWanImageClient",
@@ -24,5 +26,7 @@ __all__ = [
     "VisualSlot",
     "build_visual_layout_manifest",
     "compose_background_prompt",
+    "generate_location_patches",
+    "generate_road_texture_assets",
     "run_visual_pipeline",
 ]

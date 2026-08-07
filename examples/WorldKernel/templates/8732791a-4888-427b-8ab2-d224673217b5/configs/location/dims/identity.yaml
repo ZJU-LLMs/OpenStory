@@ -1,0 +1,24 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+archive_designation:
+  type: str
+  option: true
+construction_storm_cycle:
+  type: str
+  option: true
+administrative_district:
+  type: str
+  option: true
+function_tags:
+  type: str
+  option: true
+historical_event_markers:
+  type: str
+  option: true

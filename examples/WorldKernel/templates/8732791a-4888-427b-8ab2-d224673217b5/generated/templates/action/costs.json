@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_points",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "credit_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_exposure_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "access_token_expenditure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_increase",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_attention",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

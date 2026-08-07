@@ -50,6 +50,7 @@ def build_visual_layout_manifest(
                 blend_margin_px=max(tile_size * 2, 24),
                 z_index=100 + index,
                 expected_projection=projection,
+                entrance_port=_build_entrance_port(region, tile_size),
             )
         )
 
@@ -67,7 +68,6 @@ def build_visual_layout_manifest(
         edit_mask_path=str(root / "generation_edit_mask.png") if output_root else "generation_edit_mask.png",
         target_size={"width": canvas["width_px"], "height": canvas["height_px"]},
     )
-
     return VisualLayoutManifest(
         world_id=blueprint.world_id,
         canvas=canvas,
@@ -76,8 +76,15 @@ def build_visual_layout_manifest(
         slots=slots,
         background=background,
         route_layer=VisualRouteLayer(
-            status="ready",
-            z_index=30,
+            status="placeholder",
+            z_index=150,
+            width_px=canvas["width_px"],
+            height_px=canvas["height_px"],
+            path=str(root / "road_layer.png") if output_root else "road_layer.png",
+            url="road_layer.png",
+            atlas_path=str(root / "road_atlas.png") if output_root else "road_atlas.png",
+            prompt_path=str(root / "road_prompt.json") if output_root else "road_prompt.json",
+            metadata_path=str(root / "road_metadata.json") if output_root else "road_metadata.json",
             style={
                 "kind": "pixel_ground_path",
                 "base_color": "#b99d5c",
@@ -103,6 +110,7 @@ def build_visual_layout_manifest(
         asset_contract={
             "layer_order": [
                 "background.png",
+                "location_patches",
                 "route_layer",
                 "location_placeholder_layer",
                 "agents",
@@ -125,8 +133,40 @@ def build_visual_layout_manifest(
         provenance={
             "source": "spatial_blueprint",
             "slot_count": len(slots),
-            "location_patch_generation": "disabled",
+            "location_patch_generation": "optional",
             "layout_control": "full_size_edit_base_with_hard_mask",
             "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved",
         },
     )
+
+
+def _build_entrance_port(region: Any, tile_size: int) -> dict[str, Any]:
+    bounds = region.bounds or {}
+    entrance = region.entrance or {}
+    x = int(bounds.get("x", 0))
+    y = int(bounds.get("y", 0))
+    width = max(1, int(bounds.get("w", 1)))
+    height = max(1, int(bounds.get("h", 1)))
+    entrance_x = int(entrance.get("x", x + width // 2))
+    entrance_y = int(entrance.get("y", y + height - 1))
+    last_x = x + width - 1
+    last_y = y + height - 1
+    distances = [
+        (abs(entrance_y - last_y), 0, "south"),
+        (abs(entrance_y - y), 1, "north"),
+        (abs(entrance_x - x), 2, "west"),
+        (abs(entrance_x - last_x), 3, "east"),
+    ]
+    side = min(distances)[2]
+    if side in {"north", "south"}:
+        offset = max(0, min(width - 1, entrance_x - x))
+    else:
+        offset = max(0, min(height - 1, entrance_y - y))
+    return {
+        "side": side,
+        "offset_tiles": offset,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": tile_size,
+        "grid_point": {"x": entrance_x, "y": entrance_y},
+    }

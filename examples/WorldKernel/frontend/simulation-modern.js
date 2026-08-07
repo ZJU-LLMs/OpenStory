@@ -22,6 +22,13 @@
   let mapFitScale = 1;
   let spatialBaseUrl = '';
   let visualBackgroundImage = null;
+  let visualBackgroundSrc = '';
+  let visualRoadLayerImage = null;
+  let visualRoadLayerSrc = '';
+  let visualLocationPatchImages = new Map();
+  let visualAssetErrors = new Map();
+  let visualLayoutManifest = null;
+  let visualManifestPollTimer = null;
 
   const keyLabels = {
     id: 'ID',
@@ -110,6 +117,7 @@
     canvas.addEventListener('mousemove', handleMapHover);
     mapWrap?.addEventListener('wheel', handleMapWheel, { passive: false });
     window.addEventListener('resize', applyMapZoom);
+    window.addEventListener('beforeunload', stopVisualManifestPolling);
   }
 
   async function boot() {
@@ -121,12 +129,13 @@
     try {
       const spatialUrl = `/api/stage1/session/${encodeURIComponent(sessionId)}/generated/artifacts/spatial/spatial_blueprint.json`;
       spatialBaseUrl = spatialUrl.replace(/\/[^/]*$/, '/');
-      const [spatialData, runtimeState, charData, locData, worldData] = await Promise.all([
+      const [spatialData, runtimeState, charData, locData, worldData, visualManifestData] = await Promise.all([
         fetchJson(spatialUrl),
         fetchJson('/api/stage3/runtime/state'),
         fetchOptionalJson(`/api/stage1/session/${encodeURIComponent(sessionId)}/generated/artifacts/semantic/characters/characters.json`),
         fetchOptionalJson(`/api/stage1/session/${encodeURIComponent(sessionId)}/generated/artifacts/semantic/locations/locations.json`),
         fetchOptionalJson(`/api/stage1/session/${encodeURIComponent(sessionId)}/generated/plan/world_background.json`),
+        fetchOptionalJson(`/api/stage1/session/${encodeURIComponent(sessionId)}/generated/artifacts/spatial/visual_layout_manifest.json`),
       ]);
 
       spatial = spatialData;
@@ -135,8 +144,10 @@
       semanticCharacters = normalizeItems(charData);
       semanticLocations = normalizeItems(locData);
       worldBackground = worldData;
+      visualLayoutManifest = visualManifestData;
       rebuildSemanticIndexes();
       prepareVisualAssets();
+      startVisualManifestPolling();
       render();
     } catch (error) {
       showError(error.message);
@@ -272,19 +283,188 @@
   }
 
   function prepareVisualAssets() {
-    visualBackgroundImage = null;
-    const background = spatial?.visual?.background || {};
-    if (background.url && background.status === 'ready') {
+    const visual = getActiveVisualManifest();
+    const background = visual?.background || {};
+    const backgroundSrc = background.url && background.status === 'ready'
+      ? resolveVisualUrl(background.url)
+      : '';
+    if (backgroundSrc && backgroundSrc !== visualBackgroundSrc) {
+      visualBackgroundSrc = backgroundSrc;
       visualBackgroundImage = new Image();
       visualBackgroundImage.onload = renderMap;
       visualBackgroundImage.onerror = renderMap;
-      visualBackgroundImage.src = resolveVisualUrl(background.url);
+      visualBackgroundImage.src = backgroundSrc;
+    } else if (!backgroundSrc) {
+      visualBackgroundSrc = '';
+      visualBackgroundImage = null;
     }
+
+    const routeLayer = visual?.route_layer || {};
+    const routeFallbackVersion = [
+      routeLayer.model || 'road',
+      routeLayer.width_px || 0,
+      routeLayer.height_px || 0,
+    ].join('-');
+    const routeLayerSrc = routeLayer.url && routeLayer.status === 'ready'
+      ? resolveVersionedVisualUrl(
+          routeLayer.url,
+          routeLayer.asset_version || routeFallbackVersion
+        )
+      : '';
+    if (routeLayerSrc && routeLayerSrc !== visualRoadLayerSrc) {
+      visualRoadLayerSrc = routeLayerSrc;
+      visualRoadLayerImage = new Image();
+      visualRoadLayerImage.onload = () => {
+        const expectedWidth = Number(routeLayer.width_px || visual?.canvas?.width_px || 0);
+        const expectedHeight = Number(routeLayer.height_px || visual?.canvas?.height_px || 0);
+        if (
+          visualRoadLayerImage.naturalWidth !== expectedWidth ||
+          visualRoadLayerImage.naturalHeight !== expectedHeight
+        ) {
+          reportVisualAssetError(
+            'route-layer',
+            `道路图层尺寸错误：${visualRoadLayerImage.naturalWidth}x${visualRoadLayerImage.naturalHeight}，应为 ${expectedWidth}x${expectedHeight}`
+          );
+          visualRoadLayerImage = null;
+        } else {
+          visualAssetErrors.delete('route-layer');
+        }
+        renderMap();
+      };
+      visualRoadLayerImage.onerror = () => {
+        reportVisualAssetError('route-layer', `道路图层加载失败：${routeLayerSrc}`);
+        visualRoadLayerImage = null;
+        renderMap();
+      };
+      visualRoadLayerImage.src = routeLayerSrc;
+    } else if (!routeLayerSrc) {
+      visualRoadLayerSrc = '';
+      visualRoadLayerImage = null;
+      visualAssetErrors.delete('route-layer');
+    }
+
+    const readyPatchIds = new Set();
+    for (const patch of visual?.location_patches || []) {
+      if (!patch?.url || patch.status !== 'ready' || !patch.location_id) continue;
+      const key = String(patch.location_id);
+      const bounds = patch.bounds_px || {};
+      const fallbackVersion = [
+        patch.model || 'image',
+        bounds.x || 0,
+        bounds.y || 0,
+        bounds.w || 0,
+        bounds.h || 0,
+      ].join('-');
+      const src = resolveVersionedVisualUrl(
+        patch.url,
+        patch.asset_version || fallbackVersion
+      );
+      readyPatchIds.add(key);
+      const existing = visualLocationPatchImages.get(key);
+      if (existing?.src === src) {
+        existing.patch = patch;
+        continue;
+      }
+      const image = new Image();
+      image.onload = () => {
+        const expectedWidth = Number(patch.bounds_px?.w || 0);
+        const expectedHeight = Number(patch.bounds_px?.h || 0);
+        if (
+          expectedWidth <= 0 || expectedHeight <= 0 ||
+          image.naturalWidth !== expectedWidth || image.naturalHeight !== expectedHeight
+        ) {
+          visualLocationPatchImages.delete(key);
+          reportVisualAssetError(
+            key,
+            `地点贴片尺寸错误：${image.naturalWidth}x${image.naturalHeight}，应为 ${expectedWidth}x${expectedHeight}`
+          );
+          renderMap();
+          return;
+        }
+        visualAssetErrors.delete(key);
+        renderMap();
+      };
+      image.onerror = () => {
+        visualLocationPatchImages.delete(key);
+        reportVisualAssetError(key, `地点贴片加载失败：${src}`);
+        renderMap();
+      };
+      image.src = src;
+      visualLocationPatchImages.set(key, { patch, image, src });
+    }
+    for (const key of visualLocationPatchImages.keys()) {
+      if (!readyPatchIds.has(key)) {
+        visualLocationPatchImages.delete(key);
+        visualAssetErrors.delete(key);
+      }
+    }
+  }
+
+  function reportVisualAssetError(key, message) {
+    visualAssetErrors.set(key, message);
+    console.error(`[WorldKernel visual] ${message}`);
+  }
+
+  function getActiveVisualManifest() {
+    return visualLayoutManifest || spatial?.visual || {};
+  }
+
+  function startVisualManifestPolling() {
+    stopVisualManifestPolling();
+    visualManifestPollTimer = window.setInterval(refreshVisualManifest, 3500);
+  }
+
+  function stopVisualManifestPolling() {
+    if (!visualManifestPollTimer) return;
+    window.clearInterval(visualManifestPollTimer);
+    visualManifestPollTimer = null;
+  }
+
+  async function refreshVisualManifest() {
+    if (!sessionId || !spatialBaseUrl) return;
+    const nextManifest = await fetchOptionalJson(`${spatialBaseUrl}visual_layout_manifest.json`);
+    if (!nextManifest) return;
+    const previousKey = buildVisualPatchStateKey(visualLayoutManifest);
+    const nextKey = buildVisualPatchStateKey(nextManifest);
+    visualLayoutManifest = nextManifest;
+    if (previousKey !== nextKey) {
+      prepareVisualAssets();
+      renderMap();
+    }
+  }
+
+  function buildVisualPatchStateKey(visual) {
+    const background = visual?.background || {};
+    const routeLayer = visual?.route_layer || {};
+    const patchKey = (visual?.location_patches || [])
+      .map((patch) => [
+        patch.location_id || '',
+        patch.status || '',
+        patch.url || '',
+        patch.asset_version || '',
+        JSON.stringify(patch.bounds_px || {}),
+      ].join(':'))
+      .join('|');
+    return [
+      background.status || '',
+      background.url || '',
+      routeLayer.status || '',
+      routeLayer.url || '',
+      routeLayer.asset_version || '',
+      patchKey,
+    ].join('|');
   }
 
   function resolveVisualUrl(url) {
     if (/^https?:\/\//.test(url) || url.startsWith('/')) return url;
     return `${spatialBaseUrl}${url}`;
+  }
+
+  function resolveVersionedVisualUrl(url, version) {
+    const resolved = resolveVisualUrl(url);
+    if (!version) return resolved;
+    const separator = resolved.includes('?') ? '&' : '?';
+    return `${resolved}${separator}v=${encodeURIComponent(version)}`;
   }
 
   function render() {
@@ -301,21 +481,29 @@
     const roadTiles = spatial.road_tiles || [];
     const spawns = spatial.spawn_points || [];
     const agents = runtime?.agents || [];
-    const compositedLayers = new Set(spatial?.visual?.background?.composited_layers || []);
+    const visual = getActiveVisualManifest();
+    const compositedLayers = new Set(visual?.background?.composited_layers || []);
 
     canvas.width = grid.width * tilePx;
     canvas.height = grid.height * tilePx;
     ctx.imageSmoothingEnabled = false;
     drawMapBase(grid);
 
-    if (!compositedLayers.has('route_layer')) {
-      drawRoutes(routes, roadTiles);
+    const hasGeneratedRoadLayer = Boolean(
+      visualRoadLayerImage?.complete && visualRoadLayerImage.naturalWidth > 0
+    );
+    drawLocationPatches();
+    if (hasGeneratedRoadLayer) {
+      drawRoadTextureLayer();
+    } else if (!compositedLayers.has('route_layer')) {
+      drawRoutes(routes, roadTiles, regions);
     }
     for (const region of regions) {
+      const hasPatch = hasReadyLocationPatch(region);
       drawRegion(
         region,
         selectedEntity?.type === 'location' && selectedEntity.id === region.location_id,
-        compositedLayers.has('location_placeholder_layer')
+        compositedLayers.has('location_placeholder_layer') || hasPatch
       );
     }
 
@@ -367,11 +555,48 @@
     }
   }
 
+  function drawLocationPatches() {
+    const patches = getActiveVisualManifest()?.location_patches || [];
+    for (const patch of patches) {
+      if (patch?.status !== 'ready' || !patch.location_id) continue;
+      const entry = visualLocationPatchImages.get(String(patch.location_id));
+      const image = entry?.image;
+      if (!image?.complete || image.naturalWidth <= 0) continue;
+      const b = patch.bounds_px || {};
+      const left = Number(b.x || 0);
+      const top = Number(b.y || 0);
+      const width = Number(b.w || 0);
+      const height = Number(b.h || 0);
+      if (image.naturalWidth !== width || image.naturalHeight !== height) continue;
+      ctx.drawImage(image, left, top);
+    }
+  }
+
+  function hasReadyLocationPatch(region) {
+    const entry = visualLocationPatchImages.get(String(region.location_id));
+    const image = entry?.image;
+    const b = entry?.patch?.bounds_px || {};
+    return Boolean(
+      image?.complete && image.naturalWidth > 0 &&
+      image.naturalWidth === Number(b.w || 0) &&
+      image.naturalHeight === Number(b.h || 0)
+    );
+  }
+
+  function drawRoadTextureLayer() {
+    if (!visualRoadLayerImage?.complete || visualRoadLayerImage.naturalWidth <= 0) return;
+    if (
+      visualRoadLayerImage.naturalWidth !== canvas.width ||
+      visualRoadLayerImage.naturalHeight !== canvas.height
+    ) return;
+    ctx.drawImage(visualRoadLayerImage, 0, 0);
+  }
+
   function drawRegion(region, selected, precomposited) {
     const unit = tilePx / 4;
     const b = region.bounds || {};
     const location = getLocationProfile(region.location_id) || region;
-    const placeholderStyle = spatial?.visual?.location_placeholder_layer?.style || {};
+    const placeholderStyle = getActiveVisualManifest()?.location_placeholder_layer?.style || {};
     const left = b.x * tilePx;
     const top = b.y * tilePx;
     const width = b.w * tilePx;
@@ -411,10 +636,15 @@
     ctx.fillText(label, centerX, centerY, labelWidth - 5 * unit);
   }
 
-  function drawRoutes(routes, roadTiles) {
+  function drawRoutes(routes, roadTiles, regions) {
     const unit = tilePx / 4;
+    const isInsideLocation = (point) => regions.some((region) => {
+      const b = region.bounds || {};
+      return point.x >= b.x && point.x < b.x + b.w && point.y >= b.y && point.y < b.y + b.h;
+    });
     ctx.fillStyle = '#7fa6ba';
     for (const tile of roadTiles) {
+      if (isInsideLocation(tile)) continue;
       ctx.fillRect(tile.x * tilePx, tile.y * tilePx, tilePx, tilePx);
     }
     ctx.strokeStyle = 'rgba(67,118,148,0.68)';
@@ -423,9 +653,20 @@
       const line = route.centerline || [];
       if (line.length < 2) continue;
       ctx.beginPath();
-      ctx.moveTo(line[0].x * tilePx + tilePx / 2, line[0].y * tilePx + tilePx / 2);
-      for (let i = 1; i < line.length; i += 1) {
-        ctx.lineTo(line[i].x * tilePx + tilePx / 2, line[i].y * tilePx + tilePx / 2);
+      let drawing = false;
+      for (const point of line) {
+        if (isInsideLocation(point)) {
+          drawing = false;
+          continue;
+        }
+        const x = point.x * tilePx + tilePx / 2;
+        const y = point.y * tilePx + tilePx / 2;
+        if (!drawing) {
+          ctx.moveTo(x, y);
+          drawing = true;
+        } else {
+          ctx.lineTo(x, y);
+        }
       }
       ctx.stroke();
     }
@@ -537,13 +778,13 @@
       y: event.clientY - rect.top,
     };
     const step = event.deltaY < 0 ? 1.12 : 1 / 1.12;
-    mapZoom = Math.min(3.2, Math.max(0.65, mapZoom * step));
+    mapZoom = clampMapZoom(mapZoom * step);
     applyMapZoom(anchor);
   }
 
   function zoomMap(factor) {
     if (!spatial?.grid || !mapWrap) return;
-    mapZoom = Math.min(3.2, Math.max(0.65, mapZoom * factor));
+    mapZoom = clampMapZoom(mapZoom * factor);
     applyMapZoom({ x: mapWrap.clientWidth / 2, y: mapWrap.clientHeight / 2 });
   }
 
@@ -568,7 +809,7 @@
     const previousRect = canvas.getBoundingClientRect();
     const previousWidth = previousRect.width || canvas.width * mapFitScale;
     const previousHeight = previousRect.height || canvas.height * mapFitScale;
-    const scale = Math.max(0.2, mapFitScale * mapZoom);
+    const scale = snapMapDisplayScale(Math.max(0.2, mapFitScale * mapZoom));
     canvas.style.width = `${Math.max(1, Math.round(canvas.width * scale))}px`;
     canvas.style.height = `${Math.max(1, Math.round(canvas.height * scale))}px`;
 
@@ -578,6 +819,19 @@
       mapWrap.scrollLeft = (mapWrap.scrollLeft + anchor.x) * (nextWidth / previousWidth) - anchor.x;
       mapWrap.scrollTop = (mapWrap.scrollTop + anchor.y) * (nextHeight / previousHeight) - anchor.y;
     }
+  }
+
+  function clampMapZoom(value) {
+    const fitScale = Math.max(0.01, mapFitScale || 1);
+    const maxZoom = Math.max(3.2, 3 / fitScale);
+    return Math.min(maxZoom, Math.max(0.65, value));
+  }
+
+  function snapMapDisplayScale(scale) {
+    if (scale < 0.9) return scale;
+    if (scale < 1.5) return 1;
+    if (scale < 2.5) return 2;
+    return 3;
   }
 
   function openWorldDetail() {

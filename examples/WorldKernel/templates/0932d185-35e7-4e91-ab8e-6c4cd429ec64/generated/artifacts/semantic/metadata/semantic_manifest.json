@@ -1,0 +1,71 @@
+{
+  "world_id": "0932d185-35e7-4e91-ab8e-6c4cd429ec64",
+  "source_ids": [
+    "primary"
+  ],
+  "schema_version": "stage2-semantic-v1",
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 20,
+    "character_profile": 15,
+    "path_edge": 24,
+    "relation_edge": 18
+  },
+  "constraints": [
+    {
+      "constraint_id": "memory_as_currency",
+      "name": "记忆即货币",
+      "description": "城市中任何商品、服务、权利和空间都必须用标准化记忆储值购买，实物货币已不存在。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "storm_binding",
+      "name": "风暴维系",
+      "description": "城市必须依靠木星风暴持续供给能量；风暴中断或失去能量将导致防护罩失效和城市坠落。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "archive_monopoly",
+      "name": "档案馆垄断",
+      "description": "执政委员会通过中央档案馆垄断全部合法记忆的存储、定价与发行，不依赖该体系的独立记忆网均为非法。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "identity_erasure",
+      "name": "人格与记忆绑定",
+      "description": "公民法律人格完全由记忆档案定义；彻底失去记忆的人将不再被视为原人格，必须接受身份再分配。",
+      "scope": "global"
+    }
+  ],
+  "timestamp": "2026-08-06T14:30:54.638889+00:00",
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "0932d185-35e7-4e91-ab8e-6c4cd429ec64",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64"
+    }
+  }
+}

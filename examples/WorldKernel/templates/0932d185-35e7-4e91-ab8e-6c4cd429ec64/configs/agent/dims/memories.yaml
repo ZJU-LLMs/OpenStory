@@ -1,0 +1,30 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+total_memory_storage_capacity:
+  type: str
+  option: true
+memory_integrity_ratio:
+  type: str
+  option: true
+sealed_memory_count:
+  type: str
+  option: true
+memory_trade_history_entries:
+  type: str
+  option: true
+forgotten_loved_ones_count:
+  type: str
+  option: true
+stolen_memory_identification_flag:
+  type: str
+  option: true

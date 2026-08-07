@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "attitude_toward_memory_commodification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fear_of_memory_loss",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "willingness_to_trade_memories",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_toward_institutions",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "crisis_response_temperament",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

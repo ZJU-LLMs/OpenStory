@@ -1,0 +1,22 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+security_clearance_level:
+  type: str
+  option: true
+memory_access_rights:
+  type: str
+  option: true
+time_restricted_entry:
+  type: str
+  option: true
+credit_score_requirement:
+  type: str
+  option: true
+special_pass_requirements:
+  type: str
+  option: true

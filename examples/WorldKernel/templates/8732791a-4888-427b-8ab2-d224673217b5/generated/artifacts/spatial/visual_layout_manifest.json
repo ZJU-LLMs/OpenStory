@@ -1,0 +1,1050 @@
+{
+  "world_id": "8732791a-4888-427b-8ab2-d224673217b5",
+  "canvas": {
+    "grid_width": 160,
+    "grid_height": 100,
+    "tile_size": 16,
+    "width_px": 2560,
+    "height_px": 1600,
+    "visual_clearance_tiles": 2
+  },
+  "mode": "composited_full_map",
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来浮空都市与档案管理美学：飞艇、磁悬浮舱、气密门、大型通风管道、档案塔与电子屏幕，整体呈蒸汽朋克与赛博朋克结合、但用明亮像素画呈现",
+    "color_palette": [
+      "风暴云灰紫",
+      "记忆荧光青",
+      "档案纸米白",
+      "管道暖铜",
+      "防护装甲蓝"
+    ],
+    "lighting_weather": "",
+    "material_texture": [
+      "大色块金属甲板",
+      "磨砂漆面管道",
+      "网格防滑平台",
+      "半透明记忆胶囊玻璃",
+      "风化胶合板墙面",
+      "亮面信息屏"
+    ],
+    "environmental_motifs": [
+      "悬臂式瞭望塔",
+      "风力集气风车",
+      "磁悬浮穿梭舱",
+      "记忆输送管道与阀门",
+      "档案集装箱吊臂",
+      "电子公告牌",
+      "气密闸门",
+      "风暴警示灯塔",
+      "植绒储气罐",
+      "缆线桥"
+    ],
+    "atmosphere": "秩序压抑但不失生活气息，带着气压声与档案纸味的无菌感，以及灾变前的紧张",
+    "edge_blending_style": "柔和像素羽化的地形边缘、云气散逸过渡与城市甲板间的自然遮挡，方便地点贴片无缝拼合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理",
+      "不要低角度风暴云海透视"
+    ]
+  },
+  "slots": [
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:016",
+      "bounds_px": {
+        "x": 1584,
+        "y": 96,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 100,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 106,
+          "y": 16
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:012",
+      "bounds_px": {
+        "x": 400,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 101,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 39,
+          "y": 13
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:011",
+      "bounds_px": {
+        "x": 1920,
+        "y": 320,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 102,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 127,
+          "y": 30
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:005",
+      "bounds_px": {
+        "x": 928,
+        "y": 352,
+        "w": 352,
+        "h": 256
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 103,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 8,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 79,
+          "y": 30
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:008",
+      "bounds_px": {
+        "x": 416,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 104,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 35
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:001",
+      "bounds_px": {
+        "x": 1504,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 105,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 101,
+          "y": 35
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:003",
+      "bounds_px": {
+        "x": 1872,
+        "y": 624,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 106,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 124,
+          "y": 49
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:015",
+      "bounds_px": {
+        "x": 2208,
+        "y": 672,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 107,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 145,
+          "y": 52
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:009",
+      "bounds_px": {
+        "x": 1408,
+        "y": 688,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 108,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 95,
+          "y": 53
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:010",
+      "bounds_px": {
+        "x": 1040,
+        "y": 704,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 109,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 72,
+          "y": 54
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:006",
+      "bounds_px": {
+        "x": 416,
+        "y": 736,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 110,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 56
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:002",
+      "bounds_px": {
+        "x": 1920,
+        "y": 944,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 111,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 134,
+          "y": 64
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:017",
+      "bounds_px": {
+        "x": 1280,
+        "y": 992,
+        "w": 352,
+        "h": 256
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 112,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 11,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 91,
+          "y": 77
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:018",
+      "bounds_px": {
+        "x": 176,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 113,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 18,
+          "y": 75
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:007",
+      "bounds_px": {
+        "x": 512,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 114,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 46,
+          "y": 70
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:004",
+      "bounds_px": {
+        "x": 880,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 115,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 62,
+          "y": 75
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:013",
+      "bounds_px": {
+        "x": 1920,
+        "y": 1216,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 116,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 127,
+          "y": 86
+        }
+      }
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:014",
+      "bounds_px": {
+        "x": 416,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "safe_padding_px": 0,
+      "blend_margin_px": 32,
+      "z_index": 117,
+      "expected_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 92
+        }
+      }
+    }
+  ],
+  "background": {
+    "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\background.png",
+    "url": "background.png",
+    "width_px": 2560,
+    "height_px": 1600,
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "status": "ready",
+    "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\background_prompt.json",
+    "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\background_metadata.json",
+    "layout_preview_path": "",
+    "control_image_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\generation_edit_base.png",
+    "mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\generation_edit_mask.png",
+    "edit_base_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\generation_edit_base.png",
+    "edit_mask_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\generation_edit_mask.png",
+    "debug_mask_path": "",
+    "location_mask_path": "",
+    "road_mask_path": "",
+    "target_size": {
+      "width": 2560,
+      "height": 1600
+    },
+    "generation_strategy": "single_hard_mask_edit",
+    "composited_layers": [
+      "route_layer",
+      "location_placeholder_layer"
+    ],
+    "error": ""
+  },
+  "route_layer": {
+    "status": "ready",
+    "source": "spatial_blueprint.road_tiles",
+    "z_index": 30,
+    "style": {
+      "kind": "pixel_ground_path",
+      "base_color": "#b99d5c",
+      "edge_color": "#8f7744",
+      "highlight_color": "#d2bb75",
+      "tile_size_px": 16
+    }
+  },
+  "location_placeholder_layer": {
+    "status": "ready",
+    "z_index": 100,
+    "show_names": true,
+    "style": {
+      "fill_color": "rgba(45, 55, 78, 0.64)",
+      "selected_fill_color": "rgba(232, 199, 102, 0.48)",
+      "border_color": "rgba(230, 235, 245, 0.72)",
+      "selected_border_color": "rgba(215, 162, 74, 0.96)",
+      "label_color": "#f4f6fb"
+    }
+  },
+  "decorations": [],
+  "location_patches": [
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:016",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\001_e_8732791a_4888_427b_8ab2_d224673217b5_loc_016_86595e9868.png",
+      "url": "location_patches/001_e_8732791a_4888_427b_8ab2_d224673217b5_loc_016_86595e9868.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1448,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1584,
+        "y": 96,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\001_e_8732791a_4888_427b_8ab2_d224673217b5_loc_016_86595e9868.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\001_e_8732791a_4888_427b_8ab2_d224673217b5_loc_016_86595e9868.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 100,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:012",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\002_e_8732791a_4888_427b_8ab2_d224673217b5_loc_012_7ff97284d2.png",
+      "url": "location_patches/002_e_8732791a_4888_427b_8ab2_d224673217b5_loc_012_7ff97284d2.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 264,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 400,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\002_e_8732791a_4888_427b_8ab2_d224673217b5_loc_012_7ff97284d2.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\002_e_8732791a_4888_427b_8ab2_d224673217b5_loc_012_7ff97284d2.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 101,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:011",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\003_e_8732791a_4888_427b_8ab2_d224673217b5_loc_011_0bb036cd12.png",
+      "url": "location_patches/003_e_8732791a_4888_427b_8ab2_d224673217b5_loc_011_0bb036cd12.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1784,
+        "y": 152,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1920,
+        "y": 320,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\003_e_8732791a_4888_427b_8ab2_d224673217b5_loc_011_0bb036cd12.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\003_e_8732791a_4888_427b_8ab2_d224673217b5_loc_011_0bb036cd12.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 102,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:005",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\004_e_8732791a_4888_427b_8ab2_d224673217b5_loc_005_e93d8e4c0e.png",
+      "url": "location_patches/004_e_8732791a_4888_427b_8ab2_d224673217b5_loc_005_e93d8e4c0e.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 848,
+        "y": 224,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 928,
+        "y": 352,
+        "w": 352,
+        "h": 256
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\004_e_8732791a_4888_427b_8ab2_d224673217b5_loc_005_e93d8e4c0e.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\004_e_8732791a_4888_427b_8ab2_d224673217b5_loc_005_e93d8e4c0e.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 103,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:008",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\005_e_8732791a_4888_427b_8ab2_d224673217b5_loc_008_162a5ba322.png",
+      "url": "location_patches/005_e_8732791a_4888_427b_8ab2_d224673217b5_loc_008_162a5ba322.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 280,
+        "y": 232,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 416,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\005_e_8732791a_4888_427b_8ab2_d224673217b5_loc_008_162a5ba322.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\005_e_8732791a_4888_427b_8ab2_d224673217b5_loc_008_162a5ba322.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 104,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:001",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\006_e_8732791a_4888_427b_8ab2_d224673217b5_loc_001_fef3807945.png",
+      "url": "location_patches/006_e_8732791a_4888_427b_8ab2_d224673217b5_loc_001_fef3807945.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1368,
+        "y": 232,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1504,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\006_e_8732791a_4888_427b_8ab2_d224673217b5_loc_001_fef3807945.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\006_e_8732791a_4888_427b_8ab2_d224673217b5_loc_001_fef3807945.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 105,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:003",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\007_e_8732791a_4888_427b_8ab2_d224673217b5_loc_003_4731052d82.png",
+      "url": "location_patches/007_e_8732791a_4888_427b_8ab2_d224673217b5_loc_003_4731052d82.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1736,
+        "y": 456,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1872,
+        "y": 624,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\007_e_8732791a_4888_427b_8ab2_d224673217b5_loc_003_4731052d82.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\007_e_8732791a_4888_427b_8ab2_d224673217b5_loc_003_4731052d82.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 106,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:015",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\008_e_8732791a_4888_427b_8ab2_d224673217b5_loc_015_20e059512d.png",
+      "url": "location_patches/008_e_8732791a_4888_427b_8ab2_d224673217b5_loc_015_20e059512d.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 2048,
+        "y": 504,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 2208,
+        "y": 672,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\008_e_8732791a_4888_427b_8ab2_d224673217b5_loc_015_20e059512d.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\008_e_8732791a_4888_427b_8ab2_d224673217b5_loc_015_20e059512d.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 107,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:009",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\009_e_8732791a_4888_427b_8ab2_d224673217b5_loc_009_fd056e1e68.png",
+      "url": "location_patches/009_e_8732791a_4888_427b_8ab2_d224673217b5_loc_009_fd056e1e68.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1272,
+        "y": 520,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1408,
+        "y": 688,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\009_e_8732791a_4888_427b_8ab2_d224673217b5_loc_009_fd056e1e68.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\009_e_8732791a_4888_427b_8ab2_d224673217b5_loc_009_fd056e1e68.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 108,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:010",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\010_e_8732791a_4888_427b_8ab2_d224673217b5_loc_010_dd3af65d14.png",
+      "url": "location_patches/010_e_8732791a_4888_427b_8ab2_d224673217b5_loc_010_dd3af65d14.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 904,
+        "y": 536,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1040,
+        "y": 704,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\010_e_8732791a_4888_427b_8ab2_d224673217b5_loc_010_dd3af65d14.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\010_e_8732791a_4888_427b_8ab2_d224673217b5_loc_010_dd3af65d14.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 109,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:006",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\011_e_8732791a_4888_427b_8ab2_d224673217b5_loc_006_f3832d954d.png",
+      "url": "location_patches/011_e_8732791a_4888_427b_8ab2_d224673217b5_loc_006_f3832d954d.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 280,
+        "y": 568,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 416,
+        "y": 736,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\011_e_8732791a_4888_427b_8ab2_d224673217b5_loc_006_f3832d954d.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\011_e_8732791a_4888_427b_8ab2_d224673217b5_loc_006_f3832d954d.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 110,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:002",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\012_e_8732791a_4888_427b_8ab2_d224673217b5_loc_002_5627377711.png",
+      "url": "location_patches/012_e_8732791a_4888_427b_8ab2_d224673217b5_loc_002_5627377711.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1784,
+        "y": 776,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1920,
+        "y": 944,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\012_e_8732791a_4888_427b_8ab2_d224673217b5_loc_002_5627377711.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\012_e_8732791a_4888_427b_8ab2_d224673217b5_loc_002_5627377711.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 111,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:017",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\013_e_8732791a_4888_427b_8ab2_d224673217b5_loc_017_ed2ca71dee.png",
+      "url": "location_patches/013_e_8732791a_4888_427b_8ab2_d224673217b5_loc_017_ed2ca71dee.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1200,
+        "y": 864,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1280,
+        "y": 992,
+        "w": 352,
+        "h": 256
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\013_e_8732791a_4888_427b_8ab2_d224673217b5_loc_017_ed2ca71dee.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\013_e_8732791a_4888_427b_8ab2_d224673217b5_loc_017_ed2ca71dee.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 112,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:018",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\014_e_8732791a_4888_427b_8ab2_d224673217b5_loc_018_9444f442b0.png",
+      "url": "location_patches/014_e_8732791a_4888_427b_8ab2_d224673217b5_loc_018_9444f442b0.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 40,
+        "y": 872,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 176,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\014_e_8732791a_4888_427b_8ab2_d224673217b5_loc_018_9444f442b0.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\014_e_8732791a_4888_427b_8ab2_d224673217b5_loc_018_9444f442b0.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 113,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:007",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\015_e_8732791a_4888_427b_8ab2_d224673217b5_loc_007_87ac939bed.png",
+      "url": "location_patches/015_e_8732791a_4888_427b_8ab2_d224673217b5_loc_007_87ac939bed.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 376,
+        "y": 872,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 512,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\015_e_8732791a_4888_427b_8ab2_d224673217b5_loc_007_87ac939bed.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\015_e_8732791a_4888_427b_8ab2_d224673217b5_loc_007_87ac939bed.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 114,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:004",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\016_e_8732791a_4888_427b_8ab2_d224673217b5_loc_004_f50cf19a98.png",
+      "url": "location_patches/016_e_8732791a_4888_427b_8ab2_d224673217b5_loc_004_f50cf19a98.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 744,
+        "y": 872,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 880,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\016_e_8732791a_4888_427b_8ab2_d224673217b5_loc_004_f50cf19a98.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\016_e_8732791a_4888_427b_8ab2_d224673217b5_loc_004_f50cf19a98.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 115,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:013",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\017_e_8732791a_4888_427b_8ab2_d224673217b5_loc_013_8c6e8d4608.png",
+      "url": "location_patches/017_e_8732791a_4888_427b_8ab2_d224673217b5_loc_013_8c6e8d4608.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 1784,
+        "y": 1048,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 1920,
+        "y": 1216,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\017_e_8732791a_4888_427b_8ab2_d224673217b5_loc_013_8c6e8d4608.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\017_e_8732791a_4888_427b_8ab2_d224673217b5_loc_013_8c6e8d4608.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 116,
+      "error": ""
+    },
+    {
+      "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:014",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches\\018_e_8732791a_4888_427b_8ab2_d224673217b5_loc_014_6499bb3ff4.png",
+      "url": "location_patches/018_e_8732791a_4888_427b_8ab2_d224673217b5_loc_014_6499bb3ff4.png",
+      "status": "ready",
+      "bounds_px": {
+        "x": 280,
+        "y": 1088,
+        "w": 512,
+        "h": 512
+      },
+      "logical_bounds_px": {
+        "x": 416,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_prompts\\018_e_8732791a_4888_427b_8ab2_d224673217b5_loc_014_6499bb3ff4.json",
+      "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patch_metadata\\018_e_8732791a_4888_427b_8ab2_d224673217b5_loc_014_6499bb3ff4.json",
+      "provider": "OpenAIProvider",
+      "model": "gpt-image-2",
+      "z_index": 117,
+      "error": ""
+    }
+  ],
+  "asset_contract": {
+    "layer_order": [
+      "background.png",
+      "route_layer",
+      "location_patches",
+      "location_placeholder_layer",
+      "agents",
+      "selection_tooltip_debug_grid"
+    ],
+    "shared_constraints": {
+      "projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+      "fixed_art_style": "明亮整洁的俯视卡通像素模拟经营游戏风格",
+      "image_postprocessing": "none",
+      "texture_density": "low",
+      "slot_visual_clearance_tiles": 2,
+      "lighting_weather": "",
+      "color_palette": [
+        "风暴云灰紫",
+        "记忆荧光青",
+        "档案纸米白",
+        "管道暖铜",
+        "防护装甲蓝"
+      ],
+      "material_texture": [
+        "大色块金属甲板",
+        "磨砂漆面管道",
+        "网格防滑平台",
+        "半透明记忆胶囊玻璃",
+        "风化胶合板墙面",
+        "亮面信息屏"
+      ],
+      "edge_blending_style": "柔和像素羽化的地形边缘、云气散逸过渡与城市甲板间的自然遮挡，方便地点贴片无缝拼合",
+      "reserved_asset_coverage": "opaque_exact_bounds"
+    },
+    "background_forbidden": [
+      "道路",
+      "具体地点",
+      "人物",
+      "文字",
+      "界面元素"
+    ]
+  },
+  "provenance": {
+    "source": "spatial_blueprint",
+    "slot_count": 18,
+    "location_patch_generation": {
+      "status": "ready",
+      "generation_strategy": "local_context_full_patch_v3",
+      "patch_count": 18,
+      "ready_patch_count": 18,
+      "failed_patch_count": 0,
+      "failures": [],
+      "context_source": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\background.png",
+      "request_size": {
+        "width": 1024,
+        "height": 1024
+      },
+      "native_context_size": {
+        "width": 512,
+        "height": 512
+      },
+      "request_scale": 2,
+      "output_dir": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\location_patches"
+    },
+    "layout_control": "full_size_edit_base_with_hard_mask",
+    "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved"
+  }
+}

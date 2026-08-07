@@ -1,0 +1,1808 @@
+{
+  "artifact_type": "character_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:004",
+        "name": "顾惟",
+        "role": "memory_dealer",
+        "memory_credit_balance": "18850",
+        "memory_archive_id": "MA-4F7-KW001",
+        "identity_credit_level": "A-",
+        "assigned_district": "黑市记忆暗市所在的底层商业舱段",
+        "institution_affiliation": "无公开隶属（曾因挪用记忆取消档案馆资格）",
+        "resistance_affiliation": "无（但暗中与多方势力交易）"
+      },
+      "social_profile": {
+        "group_id": "暗市交易网络核心层",
+        "reputation": "7.2",
+        "memory_credit_rating": "极高（账面）",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "受限-黑名单边缘",
+        "black_market_contact_status": "顶级成员",
+        "voting_rights_status_in_storm_council": "保留（通过贿赂维持）"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆价值评估",
+          "债务陷阱设计与催收",
+          "黑市交易谈判",
+          "数据伪造",
+          "密码学规避"
+        ],
+        "level": "高级",
+        "weaknesses": "对熟人易产生控制欲并过度自信, 记忆力因长期查看他人记忆而碎片化, 在风暴避难时缺乏合作意识",
+        "memory_negotiation_skill": "9",
+        "illegal_memory_trade_knowledge": "10",
+        "storm_shelter_survival_skill": "3",
+        "data_forgery_ability": "7",
+        "emotional_memory_suppression_ability": "8",
+        "bribery_and_bartering_skill": "9"
+      },
+      "personality": {
+        "traits": [
+          "精明狠辣",
+          "善于伪装",
+          "多疑",
+          "控制欲强",
+          "有魅力",
+          "蔑视规则"
+        ],
+        "values": [
+          "记忆即权力",
+          "契约的效力在于惩罚",
+          "自保至上"
+        ],
+        "speech_style": "语气温和但带威胁，常用比喻与反问；话中含有隐晦筹码；很少直接回答。",
+        "attitude_toward_memory_commodification": "完全拥护，记忆只是商品；讽刺那些坚守记忆情感的人。",
+        "fear_of_memory_loss": "极恐惧，但隐藏；私下保留备份以防万一。",
+        "willingness_to_trade_memories": "愿意交易任何记忆，包括自己的核心记忆——如果价格足够高。",
+        "trust_toward_institutions": "极度不信任，认为档案馆只是另一种黑帮。",
+        "crisis_response_temperament": "冷静计算，先取回自己的备份，再考虑生意。"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税开征前，收拢一批高价值的负债者记忆，趁机低价收购。",
+        "long_term_goal": "成为暗市唯一记忆批发商，甚至操纵官方定价。",
+        "motivation": "被档案馆除名的屈辱和曾经失去记忆的恐惧，驱使他用非法手段找回控制权。",
+        "memory_debt_repayment_target": "无债务，但要追回一笔被某个前合伙人卷走的记忆。",
+        "desired_identity_credit_rank": "A级顶层（在暗市实质上达到）",
+        "planned_memory_retention_priority": "自己的核心童年记忆和商业机密备份。",
+        "ambition_to_access_upper_deck": "想进入市政议会所在的顶层，但不是为了安居，而是为了渗透和管理。",
+        "goal_to_preserve_critical_private_memories": "保留一个秘密：某位档案馆高官多年前曾与他交易过敏感记忆。"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆重估法案的细则漏洞",
+            "黑市记忆传递的加密协议",
+            "风暴税征收的触发条件",
+            "木星风暴周期与避难层压力阀的操作步骤"
+          ],
+          "social_knowledge": [
+            "档案馆高官之间的隐秘往来",
+            "暗市各个势力的地盘和首领弱点",
+            "哪些市民的记忆最容易被压榨",
+            "反抗组织在黑市的消息源"
+          ]
+        },
+        "background_summary": "顾惟曾是档案馆认证的记忆交易师，因私自篡改估价并转移客户记忆被除名。此后他潜入黑市，利用自己对制度的了解，从负债者手中低价榨取记忆，逐步垄断暗市交易。",
+        "key_events": [
+          "在交易所工作期间，发现高官以劣质记忆换取市民优质记忆的内幕",
+          "因掌握这一秘密而被设计陷害，被剥夺大部分自身记忆并被除名",
+          "进入黑市后，用一段童年记忆作为资本，建立了第一个地下记忆仓库",
+          "精心设局让前合伙人背负巨额记忆债务，夺回其经营网络"
+        ],
+        "secrets": [
+          "他实际上保留着一份被删除的高官交易记录副本，用于在关键时刻要挟。",
+          "他偷偷把自己的一段痛苦记忆备份在数个负债者体内，作为散落的保险。",
+          "他并不真正打算遵守任何口头承诺，所有交易都留有后手。"
+        ],
+        "memories_recently_sold_or_seized": "刚收购了一个破产负债者关于童年家庭时光的记忆，尚未转卖。",
+        "hidden_memory_backups_locations": "自己私人舱室地板下的加密晶片, 负债者下甲板某酒保的记忆片段, 暗市一家典当铺保险箱中",
+        "knowledge_of_illegal_memory_routes": "精通从记忆交易大厅到暗市的账外转移路线，包括通风管道、废弃档案机房和货物输送带",
+        "records_of_storm_tax_evasion": "有一套用多重空壳记忆账户规避风暴税征收的操作流程",
+        "personal_experiences_of_memory_revaluation": "亲身经历过自己的记忆被低估并被强制征收的整个过程",
+        "forgotten_memory_gaps_from_forced_extraction": "被除名时丧失了与青梅竹马相关的七年记忆，至今缺失"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:003"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色，风暴云墙正在接近",
+        "memory_access_terminal_proximity": "低（他避免在官方终端留下记录）",
+        "creditor_presence_nearby": "无（他本人是债权人）",
+        "surveillance_drone_overhead_status": "有巡逻无人机在暗市上方盘旋，但顾惟的站点有信号屏蔽场",
+        "shelter_occupancy_status": "尚未进入避难层，正在黑市转移库存"
+      },
+      "visual": "约四十五岁，瘦削窄脸，高颧骨，眼窝深陷，目光锐利。头发极短，几乎贴着头皮，右侧有一道陈旧伤痕穿过眉尾。穿着一件深灰色长款科技风衣，材质是防风防尘的合成纤维，衣领竖起，内搭黑色高领记忆屏蔽衫。腰间挂着一只银灰色记忆质押盒，盒面有磨损的暗市通行纹章。双手指节粗大，指间常转动一枚旧式硬币。气质阴鸷，嘴角微带笑意但眼神冰冷。胸前口袋露出半截旧档案芯片，脚下是暗市斑驳的金属地板，身后堆着密封的记忆罐。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:003",
+        "name": "池绫",
+        "role": "memory_dealer",
+        "memory_credit_balance": "3540",
+        "memory_archive_id": "MA-2B8-CL002",
+        "identity_credit_level": "B",
+        "assigned_district": "记忆交易大厅周边商业舱段",
+        "institution_affiliation": "记忆交易大厅登记交易员（表面）",
+        "resistance_affiliation": "反抗组织“风暴信使”（秘密线人）"
+      },
+      "social_profile": {
+        "group_id": "交易所二级交易员 / 暗市中转线人",
+        "reputation": "6.5",
+        "memory_credit_rating": "B级",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "普通访问权限",
+        "black_market_contact_status": "活跃，与多个暗市商人有联系",
+        "voting_rights_status_in_storm_council": "有投票权（B级）"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆鉴定",
+          "行情分析",
+          "伪装身份",
+          "情报收集",
+          "暗码通信"
+        ],
+        "level": "中级偏上",
+        "weaknesses": "过于信任线人，易被感情绑架, 自身保留的记忆数量不足，偶尔眩晕, 在重压之下会犹豫",
+        "memory_negotiation_skill": "8",
+        "illegal_memory_trade_knowledge": "7",
+        "storm_shelter_survival_skill": "5",
+        "data_forgery_ability": "6",
+        "emotional_memory_suppression_ability": "4",
+        "bribery_and_bartering_skill": "7"
+      },
+      "personality": {
+        "traits": [
+          "机敏",
+          "圆滑",
+          "外热内冷",
+          "有正义感",
+          "说话带着俏皮",
+          "偶尔会显示出脆弱"
+        ],
+        "values": [
+          "记忆不属于任何人强制征收",
+          "个人选择高于制度",
+          "保护少数人的真相"
+        ],
+        "speech_style": "轻快，常用交易行话；说到底事时语速变慢，字句谨慎；偶尔用笑话掩盖紧张。",
+        "attitude_toward_memory_commodification": "矛盾：她靠卖别人的记忆为生，但越来越反感将记忆当商品。",
+        "fear_of_memory_loss": "高，尤其怕失去与亡父相关的记忆。",
+        "willingness_to_trade_memories": "愿意出售客户委托的记忆，但拒绝交易真正的私人核心记忆。",
+        "trust_toward_institutions": "表面顺从，实际怀疑；对档案馆尤其警惕。",
+        "crisis_response_temperament": "灵活应变，先用话术稳住局面，再找到己方逃生路线。"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税生效前，帮助一位反抗组织成员从交易大厅取回被冻结的记忆。",
+        "long_term_goal": "查明父亲记忆被强制征收的真相，并让档案馆付出代价。",
+        "motivation": "父亲曾在风暴避难时被征收记忆后失去自我，她希望阻止更多类似悲剧。",
+        "memory_debt_repayment_target": "偿还已故父亲留下的5单位记忆债务",
+        "desired_identity_credit_rank": "希望提升到A级以获取更多权限，但不执着于等级。",
+        "planned_memory_retention_priority": "保留父亲的声音记忆和两人在木星甲板赏云的画面。",
+        "ambition_to_access_upper_deck": "不想住在高层，但想进入档案库查询父亲记录。",
+        "goal_to_preserve_critical_private_memories": "在脑内和加密卡中保存父亲的最后留言。"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆鉴定标准与纯度测试方法",
+            "交易大厅的清算流程与漏洞",
+            "暗市记忆加密传输协议",
+            "档案馆权限节点拓扑"
+          ],
+          "social_knowledge": [
+            "交易所高层与暗市贩子的灰色关系",
+            "反抗组织“风暴信使”的联系方式",
+            "哪些黑心买家喜欢收购痛苦记忆",
+            "负债者下甲板的生存人情网络"
+          ]
+        },
+        "background_summary": "池绫在交易大厅当学徒出身，擅长鉴定记忆品质。父亲是下层技术员，因一次意外被档案馆强行征收大部分记忆后沦为“空壳人”。她一边赚钱还债，一边秘密协助反抗组织“风暴信使”，利用职务之便为受迫者转移关键记忆线索。",
+        "key_events": [
+          "13岁时，父亲在风暴警报期间被档案馆以“临时征用”为名剥夺记忆",
+          "从父亲仅存的模糊记忆中推断出事发地点有档案篡改痕迹",
+          "进入交易大厅工作后，结识暗市联系人在一次行动中救下被追捕的叛逃档案员",
+          "最近接到任务，要从封存记忆库偷出一个有关风暴税的黑幕记录"
+        ],
+        "secrets": [
+          "她暗中保留了父亲被征收时的一份存档编号，而该编号在官方目录中不存在。",
+          "她曾向反抗组织泄露过至少三笔非法交易的消息，但从未留下书面证据。",
+          "她私下在身体某处植入了微型记忆备份壳，藏有父亲遗嘱。"
+        ],
+        "memories_recently_sold_or_seized": "上周替一个负债者转卖了一段退役飞行员的战斗记忆，佣金刚到账。",
+        "hidden_memory_backups_locations": "自己胸针内的微型记忆胶囊, 交易大厅女更衣室隐藏夹层, 暗市“灰猫”酒吧吧台暗格里",
+        "knowledge_of_illegal_memory_routes": "知道一条从封存记忆库到暗市的废弃通风井路线，但入口被官方电子锁封住。",
+        "records_of_storm_tax_evasion": "本身无记录，但知道暗市有伪造记忆储量报表的手段。",
+        "personal_experiences_of_memory_revaluation": "亲身经历了父亲的记忆被重估为“低价值”并遭征收。",
+        "forgotten_memory_gaps_from_forced_extraction": "关于母亲的部分记忆缺失，可能也是被征收过，但无法确认。"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:009"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色",
+        "memory_access_terminal_proximity": "处于交易大厅内，离公共记忆终端约2米",
+        "creditor_presence_nearby": "有一个债主在休息区，但她不在意",
+        "surveillance_drone_overhead_status": "两架无人机在大厅交叉扫描，她已习惯规避",
+        "shelter_occupancy_status": "尚未撤离，正在完成最后一道交易手续"
+      },
+      "visual": "约二十八岁，身形纤细而灵活，皮肤白皙，长圆脸，一双杏眼透出机警。黑色长发在脑后束成利落低马尾，几缕碎发垂在额前。穿着一件薄荷绿与灰色拼接的短款夹克，材质为透气帆布，内搭白色工装背心，下穿深灰色多袋战术裤和系带短靴。左耳戴着一枚银色记忆感应耳环，胸针是微型记忆备份胶囊。背着一只旧式斜挎包，表面印有交易大厅标志和磨损的编号。表情灵动，嘴角带笑，眼中藏着不易察觉的警惕。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:012",
+        "name": "沈缄",
+        "role": "archivist",
+        "memory_credit_balance": "12400",
+        "memory_archive_id": "AR-1A0-SJ003",
+        "identity_credit_level": "A",
+        "assigned_district": "中央档案大厅行政区",
+        "institution_affiliation": "市政档案馆（总保管员）",
+        "resistance_affiliation": "无公开，但暗中与“风暴信使”有一定联系"
+      },
+      "social_profile": {
+        "group_id": "市政档案馆管理层",
+        "reputation": "8.5",
+        "memory_credit_rating": "A级",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "最高权限（除议会机密外）",
+        "black_market_contact_status": "偶尔间接接触，保持距离",
+        "voting_rights_status_in_storm_council": "有投票权，但从不公开表态"
+      },
+      "capabilities": {
+        "skills": [
+          "档案编目与修复",
+          "记忆真实性鉴定",
+          "权限系统管理",
+          "数据隐匿与备份",
+          "加密破译"
+        ],
+        "level": "专家级",
+        "weaknesses": "过于谨慎导致行动迟缓, 对背叛异常敏感，可能错判盟友, 身体因长期在档案室而虚弱，不擅长风暴逃生",
+        "memory_negotiation_skill": "5",
+        "illegal_memory_trade_knowledge": "4",
+        "storm_shelter_survival_skill": "2",
+        "data_forgery_ability": "8",
+        "emotional_memory_suppression_ability": "9",
+        "bribery_and_bartering_skill": "6"
+      },
+      "personality": {
+        "traits": [
+          "沉默",
+          "细致",
+          "坚定",
+          "隐秘",
+          "道德感强",
+          "有洁癖"
+        ],
+        "values": [
+          "记忆的本质是真相",
+          "保存者应有的责任",
+          "不因权力而弯曲"
+        ],
+        "speech_style": "简洁谨慎，讲究措辞，公开场合用官方语气；私下话少但意味深长，偶尔在沉默中让你心虚。",
+        "attitude_toward_memory_commodification": "在内心反对，但为了职位假装中立。他认为记忆被商品化是一种亵渎。",
+        "fear_of_memory_loss": "极恐惧，因为自己的记忆中存有重要秘密。",
+        "willingness_to_trade_memories": "拒绝交易任何人的记忆，但为了把关键副本带出去，会权衡是否需要诱饵。",
+        "trust_toward_institutions": "表面信任，实际深知档案馆有腐败，试图从内部修复。",
+        "crisis_response_temperament": "冷静，优先保护记忆副本，其次才是自己的安全。"
+      },
+      "goals": {
+        "short_term_goal": "在记忆重估调查组到来之前，将一批即将被销毁的“政治敏感记忆”备份转移到安全位置。",
+        "long_term_goal": "揭露档案馆高层与议会合谋进行记忆剥削的证据，推动制度改革。",
+        "motivation": "多年前他奉命销毁一批“叛乱者”记忆后，发现其中包含自己的导师——那位导师曾教导他记忆不应被工具化。",
+        "memory_debt_repayment_target": "无债务",
+        "desired_identity_credit_rank": "不追求更高，只求保住A级权限以便接触机密。",
+        "planned_memory_retention_priority": "保留那些被命令销毁的副本，以及自己与导师的珍贵记忆。",
+        "ambition_to_access_upper_deck": "已经能进入，但不愿；他希望有一天不再需要等级之墙。",
+        "goal_to_preserve_critical_private_memories": "将导师的全息影像和一份口述遗言隐藏在旧档案书中。"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "档案数据全息编码标准",
+            "记忆档案的物理备份技术",
+            "封存记忆库的权限逻辑",
+            "档案馆监控网络盲区",
+            "风暴避难层与档案库的应急连接通道"
+          ],
+          "social_knowledge": [
+            "议会与档案馆高层的信任网",
+            "哪些官员可以被拉拢，哪些不能",
+            "下甲板“空壳人”聚集点的位置",
+            "反抗组织的联络暗号和接头方式"
+          ]
+        },
+        "background_summary": "沈缄在档案馆系统勤恳工作二十多年，从底层档案员升至总保管员。他亲眼目睹档案馆如何利用一次次“重估”和“风暴税”从市民身上合法掠夺记忆。他学会在系统中做手脚，秘密保存被命令删除的记忆副本，等待时机。",
+        "key_events": [
+          "二十年前在封存记忆库实习时，负责销毁一批“叛国记忆”，后发现其中包含他恩师的影像记录",
+          "违令保存了恩师记忆的副本，并开始暗中收集腐败证据",
+          "在三次记忆重估中成功将数十份敏感记忆伪装成“无效数据”留在库中",
+          "最近被高层警告“不要多管闲事”，他知道自己已被监控"
+        ],
+        "secrets": [
+          "他在中央档案大厅的服务器地下二层的通风管道中藏有数百份加密记忆备份。",
+          "他为恩师伪造了一笔已经湮灭的记录，但恩师本人其实还活着，以“空壳人”身份藏在下甲板。",
+          "他曾修改过一位议员的记忆档案，删除了一段关于童年被虐待的私密记录，以换取议员对某次“销毁”的默许。"
+        ],
+        "memories_recently_sold_or_seized": "未出售过任何记忆，但最近有一份来自议会命他销毁的“风暴税内部讨论记录”被扣在他手中。",
+        "hidden_memory_backups_locations": "档案馆地下通风管道夹层, 一本伪造的天文记录册封页内, 自己私人舱室的壁挂画背后",
+        "knowledge_of_illegal_memory_routes": "知道一条从档案馆地下通往暗市的旧排水管，但近十年未使用过。",
+        "records_of_storm_tax_evasion": "有证据表明议会高官利用多重身份减少记忆估值，但没有公开。",
+        "personal_experiences_of_memory_revaluation": "经历过三次记忆重估，每次都亲眼看到自己被“新评估”抬高了信誉，同时挚友被压低征走。",
+        "forgotten_memory_gaps_from_forced_extraction": "曾经因为一次实验性“记忆修正”丢失了关于自己母亲的童年片段。"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色",
+        "memory_access_terminal_proximity": "他正处于总控制台前，权限终端离手一臂距离",
+        "creditor_presence_nearby": "无",
+        "surveillance_drone_overhead_status": "有内部监控摄像头持续跟踪他，但他利用死角移动",
+        "shelter_occupancy_status": "尚未去避难层，正利用警报时间整理备份数据"
+      },
+      "visual": "约五十岁，身形瘦削但挺拔，戴一副修长的细框眼镜，灰白头发梳得一丝不苟，向后拢起。面部线条清癯，鼻梁高挺，目光沉静。穿着深蓝色档案馆制服外套，内穿浅灰衬衫，袖口卷起，露出精瘦前臂。胸前别着总保管员徽章，口袋露出一截老式记忆芯片。手中常拿着一块数据板，触控笔夹在指间。气质克制而令人信赖，但眉间有一道凝重的竖纹。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:001",
+        "name": "阿澈",
+        "role": "archivist",
+        "memory_credit_balance": "860",
+        "memory_archive_id": "AR-7C3-AC001",
+        "identity_credit_level": "C+",
+        "assigned_district": "市民居住舱段普通住宅区",
+        "institution_affiliation": "市政档案馆公开调阅室",
+        "resistance_affiliation": "无"
+      },
+      "social_profile": {
+        "group_id": "档案馆基层职员",
+        "reputation": "5.5",
+        "memory_credit_rating": "C+",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "公开调阅室操作员权限",
+        "black_market_contact_status": "无",
+        "voting_rights_status_in_storm_council": "有投票权（C+级）"
+      },
+      "capabilities": {
+        "skills": [
+          "快速检索记忆目录",
+          "档案修复",
+          "基础数据维护",
+          "倾听与引导",
+          "安抚市民情绪"
+        ],
+        "level": "初级",
+        "weaknesses": "经验不足，遇到越权请求会慌乱, 容易同情求助者导致被利用, 在物理战斗和风暴逃难方面缺乏训练",
+        "memory_negotiation_skill": "2",
+        "illegal_memory_trade_knowledge": "1",
+        "storm_shelter_survival_skill": "3",
+        "data_forgery_ability": "2",
+        "emotional_memory_suppression_ability": "3",
+        "bribery_and_bartering_skill": "1"
+      },
+      "personality": {
+        "traits": [
+          "诚实",
+          "热心",
+          "细心",
+          "有点理想主义",
+          "温和",
+          "容易紧张"
+        ],
+        "values": [
+          "每个市民的记忆都值得尊重",
+          "帮助别人是职责",
+          "程序正义很重要"
+        ],
+        "speech_style": "礼貌而稍显生涩，经常道歉；遇到专业问题会快速背诵记忆目录编号；情绪激动时语速加快。",
+        "attitude_toward_memory_commodification": "从不质疑记忆的商业化，但他认为每个人至少应拥有保存自己记忆的权利。",
+        "fear_of_memory_loss": "恐惧，但尚未亲身经历，更多是替求助者感到难过。",
+        "willingness_to_trade_memories": "自己不愿意卖记忆，也从没卖过。",
+        "trust_toward_institutions": "信任档案馆的程序，但看到一些违规操作后会开始动摇。",
+        "crisis_response_temperament": "紧张但会坚守岗位，试图按流程疏散市民，有时需要别人提醒才想到自保。"
+      },
+      "goals": {
+        "short_term_goal": "帮一位老奶奶找到她儿子被征收的记忆档案编号，让她可以探视。",
+        "long_term_goal": "成为能够改进档案检索系统的资深档案员，让记忆更容易归还给本人。",
+        "motivation": "小时候邻居记忆被强制清空后变成陌生人，让他立志保护普通人的记忆权利。",
+        "memory_debt_repayment_target": "无债务",
+        "desired_identity_credit_rank": "希望升到B级，以便有权限接触更多档案。",
+        "planned_memory_retention_priority": "保存自己入职第一天和全家的合影记忆。",
+        "ambition_to_access_upper_deck": "不感兴趣，只想在调阅室里真正帮到人。",
+        "goal_to_preserve_critical_private_memories": "没有特殊秘密，但想保留一位已故朋友留下的乐谱记忆。"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆目录分类法",
+            "公开调阅室的检索系统和常见故障",
+            "档案借阅的权限分级",
+            "风暴警报时档案室的应急流程"
+          ],
+          "social_knowledge": [
+            "附近社区常来的市民姓名和记忆诉求",
+            "初入职场的同事关系网",
+            "老奶奶儿子的身份信息片段"
+          ]
+        },
+        "background_summary": "阿澈出生于普通市民家庭，靠记忆信用贷款读完档案学专业，刚通过考试入职公开调阅室。他对档案馆怀有朴素信任，希望在这个以记忆为货币的世界里，自己能尽量让制度多一点人情味。",
+        "key_events": [
+          "入职第一天在调阅室遇到一位因风暴税而即将失去记忆的老奶奶，尝试帮她查找记录但失败",
+          "在资料库中意外发现一份被标记为“已销毁”却仍存在的旧档案，且涉及那位老奶奶的儿子",
+          "被上级告诫“不要管超出权限的事”，但仍在业余时间默默研究"
+        ],
+        "secrets": [
+          "他拷贝了一份那份旧档案的编号和摘要，藏在自己的笔记本里。",
+          "他不知道这份档案背后是档案馆的一起腐败案，还以为是系统错误。",
+          "他无意中看到了同事删除记录时的异常操作，但没有胆量上报。"
+        ],
+        "memories_recently_sold_or_seized": "无",
+        "hidden_memory_backups_locations": "自己宿舍抽屉里的纸质笔记本（未加密）",
+        "knowledge_of_illegal_memory_routes": "不知道，只曾听同事提起过黑市的传闻。",
+        "records_of_storm_tax_evasion": "完全没有相关经验。",
+        "personal_experiences_of_memory_revaluation": "没有直接经历，但他的邻居曾因重估失去记忆。",
+        "forgotten_memory_gaps_from_forced_extraction": "没有显著缺失，但有一段童年记忆比较模糊，不确定是否正常。"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:014"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色",
+        "memory_access_terminal_proximity": "正坐在调阅室服务台，面前是公共检索终端",
+        "creditor_presence_nearby": "无",
+        "surveillance_drone_overhead_status": "调阅室角落的监控红灯常亮，他尽量规矩",
+        "shelter_occupancy_status": "未撤离，仍然在帮助最后一位市民查询记录"
+      },
+      "visual": "约二十三岁，身形偏高但略显清瘦，带着学生气的轮廓。圆脸，脸颊有一点婴儿肥，皮肤偏白，短发自然蓬松，浅褐色。戴着一副圆形细框眼镜，镜片后眼睛明亮而温和。穿着档案馆配发的浅蓝色短袖制服，衬衫上别着实习生徽章，下穿深色长裤和白色运动鞋。脖子上挂着一张红色接线卡，口袋里露出皱巴巴的笔记本和几支笔。气质干净腼腆，笑容真诚，但应对紧张时眼神会不自觉向监控方向瞟。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:006",
+        "name": "赫连戈",
+        "role": "enforcer",
+        "memory_credit_balance": "15000",
+        "memory_archive_id": "ARCH-HELIAN-006",
+        "identity_credit_level": "A",
+        "assigned_district": "中央档案大厅执法区",
+        "institution_affiliation": "市政档案馆高级执法裁决处",
+        "resistance_affiliation": "无"
+      },
+      "social_profile": {
+        "group_id": "Archive Enforcement High Council",
+        "reputation": "冷酷、高效、不可收买的档案铁腕",
+        "memory_credit_rating": "AAA",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "S级全域访问权限",
+        "black_market_contact_status": "未发现",
+        "voting_rights_status_in_storm_council": "有表决权"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆征收执行",
+          "信用清算裁定",
+          "风暴避难秩序指挥",
+          "记忆账目审计",
+          "近身格斗"
+        ],
+        "level": "高级裁决官",
+        "weaknesses": "过度依赖程序，面对道德冲突会刻意回避, 内心对记忆丧失的恐惧被压制为暴力倾向, 不擅长处理非档案系统的模糊人际关系",
+        "memory_negotiation_skill": "极高",
+        "illegal_memory_trade_knowledge": "高，但刻意保持证据距离",
+        "storm_shelter_survival_skill": "熟练",
+        "data_forgery_ability": "低",
+        "emotional_memory_suppression_ability": "极高",
+        "bribery_and_bartering_skill": "中高"
+      },
+      "personality": {
+        "traits": [
+          "冷酷",
+          "程序主义",
+          "傲慢",
+          "忠于档案制度",
+          "表面冷静但内心有未愈合的缺口"
+        ],
+        "values": [
+          "秩序",
+          "档案律法",
+          "记忆守恒",
+          "浮空城存续",
+          "绝对服从"
+        ],
+        "speech_style": "短促、命令式，多使用条款编号和档案编号，几乎不流露个人情绪",
+        "attitude_toward_memory_commodification": "完全支持，认为记忆作为货币维系了城市运转",
+        "fear_of_memory_loss": "极深，但用冷漠和高压手段掩盖",
+        "willingness_to_trade_memories": "除非官方征收，否则绝不交易",
+        "trust_toward_institutions": "绝对信任",
+        "crisis_response_temperament": "风暴警报时优先执行征收清点而不是疏散撤离"
+      },
+      "goals": {
+        "short_term_goal": "完成风暴税首批记忆征收，并追查黑市记忆暗市的走私链条",
+        "long_term_goal": "稳固档案馆裁决权力，消除所有对抗记忆征收的反抗源头",
+        "motivation": "坚信没有强制的记忆再分配，浮空城就会因能量短缺坠入木星风暴；同时试图通过服从系统证明自己的价值，回避内心对记忆丧失的恐惧",
+        "memory_debt_repayment_target": "不适用",
+        "desired_identity_credit_rank": "维持A级",
+        "planned_memory_retention_priority": "保留与自身童年和母城相关的核心记忆，其余按制度上缴",
+        "ambition_to_access_upper_deck": "",
+        "goal_to_preserve_critical_private_memories": ""
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆提取过程的副作用与法律漏洞",
+            "记忆信用体系的重估规则",
+            "风暴能源中枢的供电缺口数据",
+            "封存记忆库的管理权限层级"
+          ],
+          "social_knowledge": [
+            "档案馆执法网络的关键人物",
+            "黑市记忆交易的三条走私通道",
+            "下甲板线人的情报网",
+            "议会寡头与档案高层的利益关联"
+          ]
+        },
+        "background_summary": "赫连戈是档案馆培养的第二代执法者。年少时曾在一次风暴泄漏中失去母亲，被档案馆以清除创伤记忆为由收走相关记忆，从此把记忆当作必须服从的公共资源。他从低级清算员一路晋升为高级裁决官，专门处理被征收记忆者的反抗与债务追讨，以极端冷血著称。",
+        "key_events": [
+          "少年时被档案馆强制清除了母亲遇难相关的创伤记忆",
+          "首次独立执行征收任务时，面对哭喊的市民亲手断开记忆接线",
+          "主导“重建信用”行动，将三百名负债者移入下甲板",
+          "在黑市记忆暗市渗透案中处决了一名私藏记忆的官员"
+        ],
+        "secrets": [
+          "暗地里藏有一段从不录入档案的记忆片段：母亲在风暴裂缝前把他塞进密封舱",
+          "明知强制征收会导致部分市民脑损伤，仍向上级报告为自然损耗",
+          "在最近一次风暴税审计中，私自销毁了与税款缺口有关的账目记录"
+        ],
+        "memories_recently_sold_or_seized": "无，个人记忆未被公开交易",
+        "hidden_memory_backups_locations": "个人休眠舱底部夹层中藏有一枚记忆晶片，记录着母亲临终画面",
+        "knowledge_of_illegal_memory_routes": "通过线人掌握三条黑市走私通道，但只在钓鱼执法时使用",
+        "records_of_storm_tax_evasion": "存有部分官员违规豁免的加密记录，作为自保筹码",
+        "personal_experiences_of_memory_revaluation": "重估法案颁布前主动上交了自己百分之三十的次级记忆以作示范",
+        "forgotten_memory_gaps_from_forced_extraction": "失去母亲遇难前后约四十八小时的完整片段，回忆时只剩白色噪点"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色警报",
+        "memory_access_terminal_proximity": "极高，位于档案大厅中控台旁",
+        "creditor_presence_nearby": "无",
+        "surveillance_drone_overhead_status": "三架执法无人机随行监视",
+        "shelter_occupancy_status": "大厅已封闭，尚未进入全员避难"
+      },
+      "visual": "看起来约三十七岁，身形高瘦匀称，肩线平直，站立时像一柄未出鞘的刀。面容棱角分明，颧骨高耸，眉头右侧有一道细长旧疤，灰蓝色眼睛冰冷。发型为两侧推短的黑色背头，发际线干净利落。穿深炭灰色高领执法风衣，主面料为厚重工业尼龙，内衬暗金色隔热层，袖口与门襟压印档案馆天平徽章。胸前别银色天平形身份徽章，左臂有红色信用执法袖标。右手戴着集成记忆读取接口的黑色战术手套，腰间挂着一台手掌长的银黑色记忆征收仪，表面布满使用后的磨损划痕。下颌微抬，眼神像在执行一场永恒的司法审判。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:009",
+        "name": "林桉",
+        "role": "enforcer",
+        "memory_credit_balance": "2400",
+        "memory_archive_id": "ARCH-LINAN-009",
+        "identity_credit_level": "C+",
+        "assigned_district": "第8市民居住舱段",
+        "institution_affiliation": "市政档案馆街区执法队",
+        "resistance_affiliation": "未正式加入，但私下与反抗组织“风暴低语”有过接触"
+      },
+      "social_profile": {
+        "group_id": "Residential Patrol Unit 08",
+        "reputation": "尽责但心软，街坊眼中还算可靠的巡逻员",
+        "memory_credit_rating": "B",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "B级调阅权限，仅限街区公共档案",
+        "black_market_contact_status": "知道黑市旧货渠道，但从未参与",
+        "voting_rights_status_in_storm_council": "有投票权，但仅限市级事务"
+      },
+      "capabilities": {
+        "skills": [
+          "街区巡逻",
+          "记忆征收辅助",
+          "民众情绪安抚",
+          "风暴避难引导",
+          "简易终端修理"
+        ],
+        "level": "街区执法队员",
+        "weaknesses": "共情心过强，执行强制征收时会犹豫, 对黑市诱惑缺乏防线, 近身战斗能力一般",
+        "memory_negotiation_skill": "中等，倾向说服而非强迫",
+        "illegal_memory_trade_knowledge": "了解基本地下规则，但不够深入",
+        "storm_shelter_survival_skill": "熟练",
+        "data_forgery_ability": "低，只能修改简单的登记时间",
+        "emotional_memory_suppression_ability": "低，容易被他人的记忆情绪感染",
+        "bribery_and_bartering_skill": "中等，擅长邻里间的小型以物易物"
+      },
+      "personality": {
+        "traits": [
+          "正直",
+          "共情",
+          "警觉",
+          "内心矛盾",
+          "有韧性"
+        ],
+        "values": [
+          "公平",
+          "邻里情谊",
+          "记忆自主权",
+          "生命优先于账目"
+        ],
+        "speech_style": "平时温和，带市民腔调；谈到征收制度漏洞时会压低声音，语气变得焦虑而坚决",
+        "attitude_toward_memory_commodification": "曾经支持，如今动摇",
+        "fear_of_memory_loss": "较高，害怕失去与女儿的共同记忆",
+        "willingness_to_trade_memories": "极低，除非被逼到绝境",
+        "trust_toward_institutions": "正在崩溃",
+        "crisis_response_temperament": "风暴警报中会优先疏散脆弱居民，而不是执行清点任务"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税征收行动中保护几名负债者不被强制抽走核心记忆",
+        "long_term_goal": "找到一种既能维持城市生存又不靠剥夺普通人记忆的制度",
+        "motivation": "一次征收任务中，他目睹老人为了保留对亡妻的记忆而拒绝交税，最终记忆被强制抹除；那一幕让他开始怀疑体制。他拼命想保护女儿，让她不再沦为记忆负债者。",
+        "memory_debt_repayment_target": "帮母亲还清十八单位信用债，保住下甲板住房",
+        "desired_identity_credit_rank": "争取B级，获得永久居住舱段",
+        "planned_memory_retention_priority": "优先保留家人记忆，职业培训记忆次之",
+        "ambition_to_access_upper_deck": "希望女儿将来能住上层甲板，但不想用镇压换取晋升",
+        "goal_to_preserve_critical_private_memories": "偷偷复制了女儿第一次生日的记忆，放在维修工具盒夹层"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "悬浮甲板的维修通道走向",
+            "风暴避难层的人流管理办法",
+            "记忆税征收时间表",
+            "公共档案调阅的法律漏洞"
+          ],
+          "social_knowledge": [
+            "街区居民的负债情况",
+            "黑市中间人的接头暗号",
+            "执法队内部信任名单",
+            "下甲板维修管道通往暗市的路径"
+          ]
+        },
+        "background_summary": "林桉从小在第八居住舱段长大，父亲死于一场风暴漏气事故，母亲靠零星出卖记忆换取度日资源。他为了给家人争取稳定配额加入街区执法队。最初他相信执法者能维护秩序，但现实的强征、黑市与官商勾连让他逐渐失望。",
+        "key_events": [
+          "父亲在风暴泄漏中遇难，母亲被迫卖掉家里所有影像记忆维持生计",
+          "入队后第一次独立执行记忆征收，对象是一位帮过他家的维修匠",
+          "目睹老人在征收台上失去十年记忆，像纸片一样跌倒",
+          "与黑市中间人擦肩而过，但为了收集证据没有揭发"
+        ],
+        "secrets": [
+          "私下保留从被征收者住所偷拿的一张旧照片，照片里是负债者与失踪亲人的合影",
+          "曾在执法记录中漏写一名负债者私藏的记忆碎片，以免对方被送进封存记忆库",
+          "与“风暴低语”的地下组织有过一次匿名通话，准许对方在巡逻区张贴传单"
+        ],
+        "memories_recently_sold_or_seized": "母亲为了缴税卖掉了父亲旧修理铺的一段日常记忆",
+        "hidden_memory_backups_locations": "维修工具盒底部软垫内藏有一枚家用记忆晶片",
+        "knowledge_of_illegal_memory_routes": "知道下甲板维修管道通往暗市，但从未亲自穿过",
+        "records_of_storm_tax_evasion": "无",
+        "personal_experiences_of_memory_revaluation": "在风暴税宣导会上被分配去清点老年居民记忆余额，看到许多人一夜负债",
+        "forgotten_memory_gaps_from_forced_extraction": "母亲曾花钱删除他关于爆炸瞬间的部分记忆；现在他只记得父亲的轮廓，听不见父亲的声音"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:006"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色警报",
+        "memory_access_terminal_proximity": "中等，街角公共调阅终端正在排队",
+        "creditor_presence_nearby": "有，一名资产清算官出现在通道口",
+        "surveillance_drone_overhead_status": "一架低速巡逻无人机悬停于上方约二十米",
+        "shelter_occupancy_status": "居住舱段尚未封锁，但避难通道已开启"
+      },
+      "visual": "看起来约三十一岁，体格结实偏壮，肩背宽阔，给人一种邻居老大哥的感觉。皮肤是日晒后的深麦色，面容普通但亲切，眼角有细纹。头发是微卷的深棕色短发，总是被头盔压得有些凌乱。穿一件深蓝色耐磨布料的执法短夹克，左胸有褪色的“执法队08”编号，衣领磨损起球。腰带上挂着黑色电击棍、便携记忆读取终端和几把废钥匙。左前臂绑着旧护腕，上面有女儿用油漆笔画的一颗歪歪扭扭的星星。表情疲惫但带着注视，眼睛在强光下常不自觉眯起，像随时在衡量眼前的人是否需要被保护。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:015",
+        "name": "席景",
+        "role": "meteorologist",
+        "memory_credit_balance": "65000",
+        "memory_archive_id": "METEOR-SE-015",
+        "identity_credit_level": "A",
+        "assigned_district": "风暴观测塔",
+        "institution_affiliation": "市政气象与能源管理局",
+        "resistance_affiliation": "无"
+      },
+      "social_profile": {
+        "group_id": "Storm Prediction Council",
+        "reputation": "技术权威，预报极准，但性格孤僻不好接近",
+        "memory_credit_rating": "AA",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "A级气象数据权限，禁止访问市政敏感档案",
+        "black_market_contact_status": "无联系",
+        "voting_rights_status_in_storm_council": "有表决权，但经常弃权"
+      },
+      "capabilities": {
+        "skills": [
+          "大气动力学建模",
+          "木星风暴轨迹预测",
+          "能源中枢负载推演",
+          "高速数据运算",
+          "密封舱检修"
+        ],
+        "level": "首席风暴观测专家",
+        "weaknesses": "政治嗅觉迟钝, 过度依赖直觉导致偶尔被官僚驳回, 情感表达生硬，难以争取盟友",
+        "memory_negotiation_skill": "低",
+        "illegal_memory_trade_knowledge": "较低，只了解大致传闻",
+        "storm_shelter_survival_skill": "极高",
+        "data_forgery_ability": "中低，更擅长伪造物理曲线而非法律文件",
+        "emotional_memory_suppression_ability": "中等，能屏蔽情绪完全专注于数据",
+        "bribery_and_bartering_skill": "低，几乎不参与"
+      },
+      "personality": {
+        "traits": [
+          "冷静",
+          "专注",
+          "不善社交",
+          "偏执于精确",
+          "内心有浪漫主义残留"
+        ],
+        "values": [
+          "真相",
+          "数据精确",
+          "城市安全",
+          "科学自主性"
+        ],
+        "speech_style": "语速很快，词汇密集，习惯忽然换算成风速和气压数值；面对政治官员会不耐烦地叹气",
+        "attitude_toward_memory_commodification": "反对但很少公开发声，认为记忆本应是人的一部分",
+        "fear_of_memory_loss": "非常害怕丢失童年仰望风暴的记忆",
+        "willingness_to_trade_memories": "绝对不愿，宁可用工作量换取豁免",
+        "trust_toward_institutions": "半信半疑，承认制度维系生存，但不信任议会的决策",
+        "crisis_response_temperament": "风暴逼近时进入极端冷静状态，可以连续四十八小时不睡反复校验数据"
+      },
+      "goals": {
+        "short_term_goal": "准确预测巨型风暴的轨道和到达窗口，避免城市误判导致撤离失败",
+        "long_term_goal": "建立一套独立于档案系统的气象灾备数据库，让普通市民也能在风暴中自救",
+        "motivation": "他的导师在一次预测失误后被议会强行征收记忆、贬为负债者，导师忘记了自己一生的研究。他希望通过绝对精准的预测证明数据的价值胜过记忆政治，也为导师讨回公道。",
+        "memory_debt_repayment_target": "不适用",
+        "desired_identity_credit_rank": "维持A级即可，不想介入权力上层",
+        "planned_memory_retention_priority": "优先保留关于木星风暴形态的视觉记忆和导师教导的每一句话",
+        "ambition_to_access_upper_deck": "已能进入观测塔最高层，但没有兴趣参与议会",
+        "goal_to_preserve_critical_private_memories": "保存一份关于“风暴之心”的原始观测记忆，从未上缴"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星大气环流与风暴动力学",
+            "城市悬浮系统与风暴能转换原理",
+            "避难层密封技术",
+            "档案馆数据接口的安全漏洞"
+          ],
+          "social_knowledge": [
+            "气象局内部派系关系",
+            "导师当年的社会网络",
+            "议会能源委员会成员之间的利益关联",
+            "与地下组织“风暴低语”的间接联系"
+          ]
+        },
+        "background_summary": "席景出身于气象工程世家，父亲是风暴轨道计算员。他很小就把木星风暴当作活物来观察，后来进入观测塔成为最年轻的首席专家。他性格孤僻但预报准确率高得惊人，也因此看到太多官员为私利篡改预报时机，以及导师因为公开反对记忆拨给系统而被打压。",
+        "key_events": [
+          "十二岁首次独立算出风暴偏移轨道，被导师称赞“有风暴的语言感”",
+          "导师因拒绝在虚假预报上签字，被强制征收三十年研究记忆",
+          "在一次真实风暴中与议会发生争执，坚持发布红色警报，救了数百人却被记过",
+          "在记忆重估法案后，偷偷拷贝了整座城市的气象历史数据，以防档案馆将数据所有权收走"
+        ],
+        "secrets": [
+          "握有市政议会篡改风暴能量供给记录的证据，那些记录用于维持上层甲板能源配额",
+          "私密终端里保存着导师一段未加密的语音，导师在语音中说“记忆不该用来买命”",
+          "曾向反抗组织提供过一条风暴避难层的废弃通道坐标，但没有留下联系线索"
+        ],
+        "memories_recently_sold_or_seized": "无",
+        "hidden_memory_backups_locations": "观测塔核心区下方的旧备用硬盘，用防水抗磁材料包裹",
+        "knowledge_of_illegal_memory_routes": "只知道一条通风管道通往暗市，从未使用",
+        "records_of_storm_tax_evasion": "无",
+        "personal_experiences_of_memory_revaluation": "在重估法案听证会上作为气象顾问被议员临时调走，因此错过了重要表决",
+        "forgotten_memory_gaps_from_forced_extraction": "没有强制抽取缺口；但导师记忆被抽走时的表情永远印在他脑海里，导致长期失眠"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:018"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "红色警报",
+        "memory_access_terminal_proximity": "高，避难层气象终端与主控制台相连",
+        "creditor_presence_nearby": "无",
+        "surveillance_drone_overhead_status": "执法无人机在避难层入口监控人流",
+        "shelter_occupancy_status": "市民正分批进入，席景守在闸口旁复核气压数据"
+      },
+      "visual": "看起来约四十二岁，身形高瘦，稍微驼背，像长期伏案计算的人。面色苍白，两颊有未刮净的青灰色胡茬。眉眼细长，戴一副银色细框护目镜，镜片会根据光线变暗，右眼下方有一颗小痣。头发是花白的中长发，在脑后扎成低马尾，鬓角散落几缕被风吹乱的发丝。穿着灰白色多层保暖观测服，袖口和领口有密封胶条，胸前插着两支温度探头。腰间挂着一台巴掌大的便携气压记录仪，连接着软管到耳后。脚穿重型防滑靴，靴面沾着凝固的风暴尘。表情像仍在读一串看不见的数据，目光略微失焦，却透出极端的专注。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:007",
+        "name": "简宁",
+        "role": "citizen",
+        "memory_credit_balance": "0",
+        "memory_archive_id": "CITIZEN-JIANN-007",
+        "identity_credit_level": "D",
+        "assigned_district": "负债者下甲板",
+        "institution_affiliation": "无",
+        "resistance_affiliation": "未加入，但与下甲板互助会熟识"
+      },
+      "social_profile": {
+        "group_id": "Lower Deck Mutual Aid Group",
+        "reputation": "沉默的失去记忆者，常帮人修补布料但不太记得自己的事",
+        "memory_credit_rating": "D",
+        "known_as_memory_debtor": "true",
+        "archival_access_permission_label": "无调阅权限，仅可查询自身信用记录",
+        "black_market_contact_status": "曾用纪念品在黑市换过食物",
+        "voting_rights_status_in_storm_council": "无投票权"
+      },
+      "capabilities": {
+        "skills": [
+          "手工缝纫",
+          "拆卸废弃家用设备",
+          "识别记忆晶片成色",
+          "在风暴拥挤人群中躲藏"
+        ],
+        "level": "普通市民，长期记忆损耗状态",
+        "weaknesses": "大量记忆缺失，难以维持身份感, 慢性头痛, 体力差, 容易轻信他人",
+        "memory_negotiation_skill": "低",
+        "illegal_memory_trade_knowledge": "低，知道黑市有卖刻录梦境的晶片，但买不起",
+        "storm_shelter_survival_skill": "中等，能够在下甲板人群中抢到角落",
+        "data_forgery_ability": "无",
+        "emotional_memory_suppression_ability": "低，情绪会突然断裂成空白",
+        "bribery_and_bartering_skill": "中等，习惯用旧物换日用品"
+      },
+      "personality": {
+        "traits": [
+          "麻木",
+          "温柔",
+          "坚忍",
+          "偶尔闪回神采",
+          "自责"
+        ],
+        "values": [
+          "女儿的记忆",
+          "诚实",
+          "不伤害他人",
+          "一次真实的清晨"
+        ],
+        "speech_style": "缓慢，断句不连续，偶尔停下来说“我忘了”；谈起女儿时声音会突然变柔和",
+        "attitude_toward_memory_commodification": "厌恶但无能为力，认为自己就是交易留下的空壳",
+        "fear_of_memory_loss": "很深，却因为已经失去太多而变得麻木",
+        "willingness_to_trade_memories": "不愿意，但被催债时不得不拿零散视觉片段抵偿",
+        "trust_toward_institutions": "零信任",
+        "crisis_response_temperament": "风暴来临时会先抓住别人遗忘的物品，像在收集碎屑，然后躲进角落"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税征收前保护好女儿留给她的一段生日记忆，不让它被强制拿走",
+        "long_term_goal": "攒够信用离开下甲板，找回一点曾经的自己",
+        "motivation": "她曾经卖掉几乎所有核心记忆，只为给女儿换一张上层甲板的入学配额。女儿在风暴事故中失踪后，她只剩下关于女儿的一段歌声。她活着就是为了守住这段记忆。",
+        "memory_debt_repayment_target": "还清十二单位信用债务，保住下甲板的床位",
+        "desired_identity_credit_rank": "想升到C级，拿回公共调阅室准入权",
+        "planned_memory_retention_priority": "女儿生日时唱的摇篮曲，以及女儿被救援队带走前的最后一句“妈妈再见”",
+        "ambition_to_access_upper_deck": "有，但觉得自己已经不配",
+        "goal_to_preserve_critical_private_memories": "把唯一一段女儿的记忆放在记忆币里，贴身藏在内衣夹层"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆晶片的保存方法和寿命",
+            "下甲板废品回收途径",
+            "避难层插队规则",
+            "信用债务的几种抵偿方式"
+          ],
+          "social_knowledge": [
+            "下甲板互助会成员清单",
+            "记忆贩子的联络暗号",
+            "市政档案馆某高级执法官的存在",
+            "公共失踪档案的查询时间差"
+          ]
+        },
+        "background_summary": "简宁曾是中下甲板的普通店员，记忆力好，能记住每位常客喜欢的商品清单。为了女儿的前途，她把多年记忆打包卖给记忆交易大厅，换得一个上层甲板学校席位。没想到不久后女儿在一次风暴疏散中失踪。她把自己剩下的记忆一遍遍抵押去雇人手寻找，最终变成负债者，被赶到下甲板。",
+        "key_events": [
+          "在记忆交易大厅一次性卖掉了连续十二年的日常记忆，现场感觉像被抽走半个人",
+          "女儿失踪当天，她在风暴避难层被人群冲散，没能抓住女儿的手",
+          "卖掉关于父亲的最后一段记忆，用来支付黑市寻人信息费",
+          "风暴税法案颁布后，一小段残余童年记忆也被扣为税款"
+        ],
+        "secrets": [
+          "其实在下甲板废料堆里见过女儿留下的金属发卡，却故意没有去认领，怕那是失踪和死亡的确凿证据",
+          "知道一条可以绕过信用审查逃离下甲板的秘密通道，但从未用过",
+          "曾在封存记忆库附近听到执法者讨论“失踪儿童档案”，她记住了那个人的编号，但不知道是否该告发"
+        ],
+        "memories_recently_sold_or_seized": "三个月前被扣走一段关于妹妹婚礼的记忆",
+        "hidden_memory_backups_locations": "下甲板某废弃通风管内的铁盒，里面放着女儿的发卡和一张写了地址的纸",
+        "knowledge_of_illegal_memory_routes": "知道维修通道能通往黑市记忆暗市，但没有走过",
+        "records_of_storm_tax_evasion": "无，只懂得用零碎感觉抵税",
+        "personal_experiences_of_memory_revaluation": "在记忆重估日被重新标记为“结构性记忆缺失”，信用等级直接跌到D",
+        "forgotten_memory_gaps_from_forced_extraction": "已经忘记自己婚礼的具体场景，只记得手被捏得很紧；也想不起母亲去世的原因"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:007"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色警报",
+        "memory_access_terminal_proximity": "低，下甲板只有一台共享终端且经常故障",
+        "creditor_presence_nearby": "有，一名档案清算员的电子文书正在扫描床位区",
+        "surveillance_drone_overhead_status": "一架禁飞区无人机在远处盘旋",
+        "shelter_occupancy_status": "下甲板的避难通道被保安把守，负债者需排队查验信用值"
+      },
+      "visual": "看起来约四十岁，身形瘦削，肩膀窄而塌，像被日积月累的债务压弯了。皮肤灰黄，颧骨凸出，眼下有浓重的青色阴影。头发是干枯的黑色中长发，松松绑成辫子，散落许多碎发。身穿一件洗到发白的灰绿色旧毛衣，袖口和下摆有明显的缝补针脚，外面套着一件破旧的深灰色布围裙，围裙口袋塞着碎布和线团。下身是磨损的褐色工装裤，脚穿一双开裂的塑料凉鞋。脖子上挂着一根细绳，末端藏着一个被磨损得快要看不清刻痕的金属小圆片，那是唯一存放女儿记忆的粗糙记忆币。眼神空洞，但偶尔在提到女儿名字时会微微转动，像荒废窗子里突然亮起的旧灯。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:008",
+        "name": "老柯",
+        "role": "citizen",
+        "memory_credit_balance": "240",
+        "memory_archive_id": "ARCH-77-885",
+        "identity_credit_level": "F-6",
+        "assigned_district": "下甲板维修段",
+        "institution_affiliation": "市政维保处（编外）",
+        "resistance_affiliation": "下甲板互助网（非正式）"
+      },
+      "social_profile": {
+        "group_id": "甲板老维修工圈子",
+        "reputation": "沉默可靠的老好人，从不追问来历",
+        "memory_credit_rating": "低（F级）",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "维修通道特许-限制",
+        "black_market_contact_status": "有非正式渠道",
+        "voting_rights_status_in_storm_council": "已冻结"
+      },
+      "capabilities": {
+        "skills": [
+          "结构管线检修",
+          "通风管道穿行",
+          "记忆缓存器基础维护",
+          "读唇术与察言观色",
+          "藏匿物品"
+        ],
+        "level": "资深维修工",
+        "weaknesses": "年纪偏大体力下滑, 身份代码已列入边缘名单, 不愿抛头露面, 对新型数字设备生疏",
+        "memory_negotiation_skill": "中等——只帮人压价，从不亲自交易",
+        "illegal_memory_trade_knowledge": "中等——知道几个暗市出入口但从不走入",
+        "storm_shelter_survival_skill": "高——经历过多轮风暴",
+        "data_forgery_ability": "低——只会改维修标签，不会改账目",
+        "emotional_memory_suppression_ability": "中等——把丧女之痛压进手心",
+        "bribery_and_bartering_skill": "高——擅长用维修物资交换人情"
+      },
+      "personality": {
+        "traits": [
+          "寡言",
+          "谨慎",
+          "面冷心热",
+          "倔强",
+          "习惯观察"
+        ],
+        "values": [
+          "不让年轻人重蹈覆辙",
+          "一饭之恩必还",
+          "沉默是一种保护"
+        ],
+        "speech_style": "话少，一口低哑的维修工方言，习惯用工具比方讲道理，例如‘铆钉松了就要补，人也是一样’",
+        "attitude_toward_memory_commodification": "深恶痛绝，但知道明着反抗没有用",
+        "fear_of_memory_loss": "他怕的不是自己忘，而是没人记得那些被夺走记忆的孩子",
+        "willingness_to_trade_memories": "绝不主动，除非能换回一条命",
+        "trust_toward_institutions": "几乎为零——他在档案馆下水管里见过太多碎记忆",
+        "crisis_response_temperament": "冷静得像一块旧钢，别人慌时他反而点烟"
+      },
+      "goals": {
+        "short_term_goal": "把阿巳要的风暴税底册副本送到下甲板联络点",
+        "long_term_goal": "保住自己关于女儿的全部记忆，并让互助网的年轻人都能留下一段‘不想被夺走的东西’",
+        "motivation": "女儿的记忆被拿走那年他没敢出声，余生都在还这笔良心债",
+        "memory_debt_repayment_target": "无——他没有任何正式债务",
+        "desired_identity_credit_rank": "不想升，只求别被盯上",
+        "planned_memory_retention_priority": "女儿生日那天在避难层唱过的歌",
+        "ambition_to_access_upper_deck": "无，他认为上面比风暴还冷",
+        "goal_to_preserve_critical_private_memories": "把女儿最后一句‘爸，我冷’刻在维修舱钢梁背面"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "浮城主干通风管道的走向与巡逻盲区",
+            "风暴等级对应甲板封锁流程",
+            "旧维修梯的承重极限与气象腐蚀情况"
+          ],
+          "social_knowledge": [
+            "下甲板互助网的接头暗号（以扳手敲两下铁皮）",
+            "哪些档案馆专员偶尔受贿放水",
+            "阿巳藏身点的三个备选位置"
+          ]
+        },
+        "background_summary": "老柯在甲板维修段干了三十多年，妻子死于早期风暴事故，女儿因一场突发疾病被档案馆以‘治疗费’为名强制提取记忆偿债，最终在记忆剥离后郁郁而终。从此他沉默地穿梭在管道和通风井里，为负债者递消息、藏晶片、指路。",
+        "key_events": [
+          "女儿被强制提取记忆当天他在外舱进行维修，回来后只看到空白的女儿",
+          "某次暴雨中他发现负债者下甲板的通风管道可避开大部分监控，开始建立传递路线",
+          "半年前在暗市附近帮阿巳避开一次围堵，两人结成忘年交"
+        ],
+        "secrets": [
+          "他在旧锅炉房地下埋了一套自制记忆缓存器，里面存着他从各种渠道私下复制来的记忆碎片（包括不属于他的）",
+          "他曾目击档案馆专员把一批‘作废’债务合约丢进焚化炉，而不是按规定封存",
+          "他知道一条从下甲板通到外部服务舱的废弃维修梯，从未上报"
+        ],
+        "memories_recently_sold_or_seized": "无——他从未被强制提取，但常在梦里反复播放女儿的碎片",
+        "hidden_memory_backups_locations": "旧锅炉房地下/维修舱钢梁夹层/应急密封舱备用管道内",
+        "knowledge_of_illegal_memory_routes": "知道暗市入口和买卖暗号，但从不在场",
+        "records_of_storm_tax_evasion": "无正式记录，但他帮人改过维修单以抵消部分估值",
+        "personal_experiences_of_memory_revaluation": "亲眼见过重估法案让下甲板一夜间多出上百个‘空白人’",
+        "forgotten_memory_gaps_from_forced_extraction": "女儿的日常点滴正在模糊，他为此痛恨自己"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:007"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色预警",
+        "memory_access_terminal_proximity": "低——这条管段没有公开终端",
+        "creditor_presence_nearby": "false",
+        "surveillance_drone_overhead_status": "有一架巡逻无人机在远处盘旋",
+        "shelter_occupancy_status": "不在避难层"
+      },
+      "visual": "一位约60岁的老维修工，身形精瘦，脊背微微佝偻，但站立时仍像一棵被风吹弯又长直的老树。灰白短发紧贴头皮，左颧骨上有一道旧油烫伤疤痕，眼睛布满血丝却很有神。穿一件洗得发灰的深蓝色帆布工作服，袖口和膝部缝着粗针脚补丁，面漆和机油痕迹渗进布料纤维。腰间挂着一串金属工具——活口扳手、旧式线缆钳、小号记忆缓存器——用一条磨损的皮带系着。脖子上挂着一块锈迹斑斑的工具铭牌。双手布满老茧，指节粗大。整体气质像一块被风暴磨钝但还没断的旧锚链：沉默、可靠、带着隐约的疲惫与守望。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:002",
+        "name": "阿巳",
+        "role": "debtor",
+        "memory_credit_balance": "-8700",
+        "memory_archive_id": "ARCH-D-032-119",
+        "identity_credit_level": "E-3",
+        "assigned_district": "负债者下甲板",
+        "institution_affiliation": "无（曾挂靠记忆借贷中心）",
+        "resistance_affiliation": "记忆解放阵线（外围联络员）"
+      },
+      "social_profile": {
+        "group_id": "负债者互助小组",
+        "reputation": "煽动性强、嘴毒但讲义气，地下圈子里有人愿意跟他走",
+        "memory_credit_rating": "极低（负信用）",
+        "known_as_memory_debtor": "true",
+        "archival_access_permission_label": "无权访问所有档案",
+        "black_market_contact_status": "深度参与，但保留底线",
+        "voting_rights_status_in_storm_council": "被剥夺"
+      },
+      "capabilities": {
+        "skills": [
+          "记忆黑市调货",
+          "躲避追踪无人机",
+          "破解低权限锁",
+          "伪造出入卡",
+          "用谎言审讯反制"
+        ],
+        "level": "熟练生存者",
+        "weaknesses": "缺失记忆导致情绪失衡, 急脾气容易冲动, 肺部被粉尘侵蚀, 债主无处不在",
+        "memory_negotiation_skill": "高——他能从一句报价听出对方缺什么记忆",
+        "illegal_memory_trade_knowledge": "极高——知道暗市从下甲板到中段的全部通道",
+        "storm_shelter_survival_skill": "中等——活过两轮风暴，但没受过正式训练",
+        "data_forgery_ability": "中等——改过债务标签，但骗不过总账系统",
+        "emotional_memory_suppression_ability": "高——早已习惯把‘那是谁’硬压成‘不重要’",
+        "bribery_and_bartering_skill": "高——最擅长用一条假消息换半块能量饼干"
+      },
+      "personality": {
+        "traits": [
+          "机敏",
+          "多疑",
+          "毒舌",
+          "易怒但克制",
+          "底层式的仗义"
+        ],
+        "values": [
+          "真相",
+          "记忆自由",
+          "同伴",
+          "不把别人也拖下水"
+        ],
+        "speech_style": "语速快，带下甲板俚语，常自嘲‘穷得只剩故事，现在故事也没了’，讽刺时爱用交易所的术语",
+        "attitude_toward_memory_commodification": "恨入骨髓——他的童年、初恋、母亲的脸全被标了价",
+        "fear_of_memory_loss": "极度恐惧，但用冷笑盖住",
+        "willingness_to_trade_memories": "绝不——哪怕刀架在脖子上也不卖剩下的记忆",
+        "trust_toward_institutions": "彻底不信任，认为档案馆就是记忆黑市的批发商",
+        "crisis_response_temperament": "肾上腺素型，平时懒散，出事时第一个蹿出去"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税开征前拿到自己的债务合同底稿，证明它是伪造的",
+        "long_term_goal": "揭穿记忆贷款连锁诈骗，让档案馆欠债者集体翻案",
+        "motivation": "他已经忘了母亲的脸，但还记得母亲的声音，他不能连最后这段也弄丢",
+        "memory_debt_repayment_target": "不打算还——目标是彻底核销这笔债务",
+        "desired_identity_credit_rank": "想爬到B级，让任何债主都不能随便提取他",
+        "planned_memory_retention_priority": "保留母亲的声音、初恋的笑容、下甲板第一场雪的触感",
+        "ambition_to_access_upper_deck": "有——但不是为享受，而是去当面质问定价的人",
+        "goal_to_preserve_critical_private_memories": "把仅存的真实记忆做成副本，藏在至少三个地方"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆提取手术的流程与麻醉弱点",
+            "交易所定价算法的粗糙原理",
+            "风暴税征收的名单筛选逻辑"
+          ],
+          "social_knowledge": [
+            "老柯的地下通讯网",
+            "地下组织‘记忆解放阵线’的主要联络点",
+            "追债人惯用的蹲守路线"
+          ]
+        },
+        "background_summary": "阿巳十五岁那年患了一种尘肺型记忆衰退病（下甲板职业病），档案馆以‘预支治疗费’为由诱他签下记忆抵押合同。手术提取了童年和家庭记忆作为‘首付’，之后利滚利，他被迫卖掉初恋、母亲的脸、上船前的海……如今二十多岁，脑子里像被凿空了一半，只剩黑市技能和愤怒。",
+        "key_events": [
+          "十五岁签记忆抵押合同，被摘走记忆当天在提取床上动不了",
+          "母亲病死时他居然想不起她的脸，之后开始疯狂找黑市买回记忆碎片",
+          "半年前被老柯救下，两人建立信任",
+          "发现自己的债务合同编号与一份被销毁的废案重合"
+        ],
+        "secrets": [
+          "他藏有一份档案馆内部‘债务清算目标人群’名单的偷拍副本",
+          "曾偷偷黑进交易所终端复制了部分定价引擎源码",
+          "他知道负债者下甲板某处有个备用的、未登记的飞行舱"
+        ],
+        "memories_recently_sold_or_seized": "他上个月因逾期受罚，被强制抹去一段关于初恋的记忆，现在只剩一个名字",
+        "hidden_memory_backups_locations": "负债者下甲板旧水管夹层/黑市某当铺的抵押柜/韩擎未证实的外舱工具箱（他不敢确定对方会不会帮忙）",
+        "knowledge_of_illegal_memory_routes": "熟悉三条暗市路线和两个地下调忆师傅",
+        "records_of_storm_tax_evasion": "他帮三个负债者改过伪造死亡注销记录",
+        "personal_experiences_of_memory_revaluation": "重估法案让他原本-6000的债务一夜变成-8700",
+        "forgotten_memory_gaps_from_forced_extraction": "童年、母亲的脸、初恋的脸、第一次看见木星大红斑的记忆都成了黑块"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:009"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色预警",
+        "memory_access_terminal_proximity": "高——他就在交易所里侧入口",
+        "creditor_presence_nearby": "true",
+        "surveillance_drone_overhead_status": "true",
+        "shelter_occupancy_status": "不在避难层"
+      },
+      "visual": "一个看上去二十五六岁的青年，身形瘦削但骨架硬朗，皮肤苍白带着下甲板特有的灰气。头发乌黑凌乱，像是好久没正经剪过，左眉尾断了一截。眼睛深而冷，眼下青黑，嘴角习惯性歪着，像随时准备讥讽。穿着一件磨得发亮的黑色旧夹克，内衬灰色T恤，袖口抽丝，衣摆有火燎过的焦痕。手腕内侧有一块记忆提取器留下的长方形芯片疤痕，像一块微小的墓碑。口袋里插着一根旧撬棍和一张叠得起了毛边的伪造通行卡。整个人像一条被压在甲板缝里的蛇：警惕、滑溜、随时准备反咬一口。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:013",
+        "name": "棠棠",
+        "role": "debtor",
+        "memory_credit_balance": "-420",
+        "memory_archive_id": "ARCH-J-005-776",
+        "identity_credit_level": "G-2",
+        "assigned_district": "市民居住舱段（濒临降级）",
+        "institution_affiliation": "无",
+        "resistance_affiliation": "无（但她帮阿巳传过纸条）"
+      },
+      "social_profile": {
+        "group_id": "负债者家庭子女（未登记群体）",
+        "reputation": "那些大人嘴里‘那个被抵押的孩子’，让人心酸又忌讳",
+        "memory_credit_rating": "极低（继承性负债）",
+        "known_as_memory_debtor": "true",
+        "archival_access_permission_label": "无",
+        "black_market_contact_status": "无——但见过一次暗市入口",
+        "voting_rights_status_in_storm_council": "无"
+      },
+      "capabilities": {
+        "skills": [
+          "钻通风管道",
+          "藏东西",
+          "记住人脸",
+          "用声音模仿大人语气",
+          "编简单谎话"
+        ],
+        "level": "初学者",
+        "weaknesses": "年龄小体力有限, 情绪在被提取后出现空白期, 遇到债主会腿软, 太容易信任愿意蹲下来跟她说话的人",
+        "memory_negotiation_skill": "无",
+        "illegal_memory_trade_knowledge": "知道‘有人偷记忆卖钱’，但不明白细节",
+        "storm_shelter_survival_skill": "较低——只躲过一次模拟演习",
+        "data_forgery_ability": "无",
+        "emotional_memory_suppression_ability": "异常高——创伤让她学会把记忆装进盒子",
+        "bribery_and_bartering_skill": "会用捡到的旧零件跟修理工换半块营养块"
+      },
+      "personality": {
+        "traits": [
+          "安静",
+          "早熟",
+          "好奇心重",
+          "隐忍",
+          "偶尔冒出孩子气的固执"
+        ],
+        "values": [
+          "记住妈妈的样子",
+          "家人",
+          "不让人知道她害怕",
+          "墙缝里那本日记"
+        ],
+        "speech_style": "声音很轻，像怕被听见，说话简短，偶尔用成年人才用的词——那是从妈妈那里学来的",
+        "attitude_toward_memory_commodification": "她模糊地知道记忆能换钱，但这让她害怕，‘为什么妈妈的脸也要换成钱？’",
+        "fear_of_memory_loss": "非常恐惧——她已经开始忘记三岁前的事了，怕下一步就是妈妈的脸",
+        "willingness_to_trade_memories": "绝不愿意，但她知道自己没有资格说‘不’",
+        "trust_toward_institutions": "不信任——‘穿制服的人来过，妈妈就哭了’",
+        "crisis_response_temperament": "出乎意料的冷静，不会哭闹，会先找个角落缩起来观察"
+      },
+      "goals": {
+        "short_term_goal": "在下一次风暴税估值前不被带走更多记忆",
+        "long_term_goal": "找回被抵押掉的童年记忆碎片，和妈妈一起住进不被贴标签的家",
+        "motivation": "她相信只要自己不忘记，妈妈就不会真的消失",
+        "memory_debt_repayment_target": "她不知道数字，只知道‘欠了好多好多’",
+        "desired_identity_credit_rank": "想变成‘普通人’，不再是负债者小孩",
+        "planned_memory_retention_priority": "妈妈的脸、声音、毛衣的味道",
+        "ambition_to_access_upper_deck": "听过上面有花园，想去看看，但不敢说出来",
+        "goal_to_preserve_critical_private_memories": "在自己那本旧笔记本里用画和字留下所有记得的事"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "儿童记忆也可能被抵押",
+            "风暴警报有三种响声",
+            "负债者下甲板的传闻——‘那里没有灯，人也像影子’"
+          ],
+          "social_knowledge": [
+            "老柯是‘可以求救的大人’",
+            "穿灰制服的是债主，穿蓝制服的是管道工",
+            "阿巳说如果听到两声敲铁皮，就说明安全"
+          ]
+        },
+        "background_summary": "棠棠出生在市民居住舱段的一个边缘家庭。妈妈没有记忆手术资源，爸爸在事故后失踪，家里为了支付舱位费和医药费，用棠棠的童年记忆作抵押。她三岁时被提取过一段关于‘外婆家的窗台’的记忆，六岁时又被提取过一次‘和爸爸在甲板上看星星’的记忆。现在她警惕任何靠近的灰色制服，把最珍贵的事情偷偷写在本子上，因为不信自己的脑子能留住。",
+        "key_events": [
+          "三岁第一次被提取记忆，她说不清发生了什么，只知道脑子里有个地方变得空空的",
+          "妈妈告诉她‘那些记忆只是暂时保管’，但她不信",
+          "在居住舱走廊遇见阿巳，阿巳给了她一颗糖并让她别告诉任何人",
+          "最近重估法案后，家里收到新一轮催债通知"
+        ],
+        "secrets": [
+          "她知道妈妈把一段‘家庭记忆晶片’藏在储物舱的旧玩具熊里，但从来没告诉任何大人",
+          "她发现检修管道里有一条不会出现在地标图上的岔路，曾在里面睡过一晚",
+          "她在日记本里记下了债主的脸和来催债的时间规律"
+        ],
+        "memories_recently_sold_or_seized": "去年冬天被强制提取过一段关于‘在避难层和妈妈挤在一起数星星’的记忆，现在她只记得那个画面的轮廓",
+        "hidden_memory_backups_locations": "储物舱旧玩具熊肚子里/通风管岔路口的铁皮盒/日记本里画的密码图",
+        "knowledge_of_illegal_memory_routes": "只知道阿巳‘有办法弄到糖’，不明白具体是什么办法",
+        "records_of_storm_tax_evasion": "无",
+        "personal_experiences_of_memory_revaluation": "重估法案后家里负债从-250变成-420，妈妈被叫去问了一夜的话",
+        "forgotten_memory_gaps_from_forced_extraction": "外婆家窗台的阳光、爸爸身上机油的味道、三岁前大部分生日都变成了空白"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:006"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "橙色预警",
+        "memory_access_terminal_proximity": "中——走廊尽头就有社区提取终端",
+        "creditor_presence_nearby": "true",
+        "surveillance_drone_overhead_status": "true",
+        "shelter_occupancy_status": "不在避难层"
+      },
+      "visual": "一个十岁左右的女孩，身形瘦小，锁骨明显，脑袋显得比同龄人大一点。头发是洗得有点褪色的浅棕色短发，后脑勺扎着一根细短的小辫，发绳是旧布条。脸上带着一种超乎年龄的安静克制，鼻尖有一点雀斑，右边脸颊有一道浅浅的刮伤淤青。穿一件旧蓝色连帽外套，帽子边缘磨白了，拉链坏掉，换成了妈妈缝的大纽扣，内搭灰色毛线衣，下摆露出来。背一个修补过的帆布小包，包口夹着一截铅笔和半本卷了角的笔记本。手里偶尔攥着一只金属小玩具鸟，翅膀缺了一小块。整个人像一株长在甲板缝里的瘦草，安静、直立，随时准备被风吹走。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:005",
+        "name": "韩擎",
+        "role": "flight_engineer",
+        "memory_credit_balance": "12800",
+        "memory_archive_id": "ARCH-FG-000-2045",
+        "identity_credit_level": "B-1",
+        "assigned_district": "风暴走廊工程甲板",
+        "institution_affiliation": "市立飞行工程局（首席工程师团队）",
+        "resistance_affiliation": "无（私下保存证据，尚未加入）"
+      },
+      "social_profile": {
+        "group_id": "工程精英组",
+        "reputation": "技术干净利落，人情上出了名的冷，但事故救援时永远第一个到",
+        "memory_credit_rating": "高（B级正信用）",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "工程黑标：可读除封存记忆库外的全部结构档案",
+        "black_market_contact_status": "无——但有人试图走私军工零件时找过他，他回绝了",
+        "voting_rights_status_in_storm_council": "有投票权"
+      },
+      "capabilities": {
+        "skills": [
+          "风暴走廊航线规划",
+          "外部甲板高压检修",
+          "应急密封舱密封作业",
+          "推进器噪声诊断",
+          "记忆芯片物理拆解与复位"
+        ],
+        "level": "精英首席",
+        "weaknesses": "对文件流程极度不耐烦, 社交能力低，显得傲慢, 因应激反应难以容忍下属犯蠢, 私藏关键数据会成为政敌把柄",
+        "memory_negotiation_skill": "高——他经常需要为工程队争取记忆预算",
+        "illegal_memory_trade_knowledge": "中等——知道黑市有卖军用级记忆芯片，但从没碰过",
+        "storm_shelter_survival_skill": "极高——带领团队经历过两次甲板失压",
+        "data_forgery_ability": "高——能修改工程日志，但会留下只有自己读得懂的暗记",
+        "emotional_memory_suppression_ability": "高——‘把感受关进参数表’是他的生存方式",
+        "bribery_and_bartering_skill": "低——他不屑于，也不会讨价还价"
+      },
+      "personality": {
+        "traits": [
+          "严谨",
+          "沉默",
+          "孤傲",
+          "责任心过载",
+          "极端理性下藏着内疚"
+        ],
+        "values": [
+          "工程伦理",
+          "每个人的记忆都该由自己保管",
+          "城市必须活下去",
+          "不撒谎，也不轻易交心"
+        ],
+        "speech_style": "句子很短，信息密度高，像在念检查单；偶尔冒出一句冷嘲，但很少说废话。对不专业的人会不耐烦",
+        "attitude_toward_memory_commodification": "他理解它是城市运行的引擎，但认为滥用记忆定价会烂到骨头里",
+        "fear_of_memory_loss": "存在——他怕忘记队友的脸，尤其是那个没能救下来的人",
+        "willingness_to_trade_memories": "从来没有出售过自己的记忆，但为了买设备曾默许团队抵押一段集体记忆",
+        "trust_toward_institutions": "低——他见过太多‘技术性失误’背后的账目篡改",
+        "crisis_response_temperament": "绝对冷静，像风暴中的罗盘，声音平稳，指令清晰，哪怕手心全是冷汗"
+      },
+      "goals": {
+        "short_term_goal": "在巨型风暴落地前完成外部甲板全部结构的应力检测和应急补丁",
+        "long_term_goal": "让工程师团队摆脱档案馆对记忆指标的牵制，建立独立的‘工程记忆储备库’",
+        "motivation": "三年前一次风暴救援中，队友因记忆被强制征走导致操作迟疑而牺牲，他没能救回对方，这成为他唯一的刺",
+        "memory_debt_repayment_target": "无——他不欠债，但他试图替已故队友还清那笔记忆贷款",
+        "desired_identity_credit_rank": "不关心排名，只要别影响他进风暴屋就行",
+        "planned_memory_retention_priority": "队友遗言、每次风暴前的检查表、母亲的姓氏",
+        "ambition_to_access_upper_deck": "已经在高层甲板，但他认为真正的上层是风暴走廊之外那片开阔星空",
+        "goal_to_preserve_critical_private_memories": "把队友出事的原始飞行日志复制成三份，分别藏在三个密封舱"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "风暴走廊的风向通道与悬浮平衡公式",
+            "外部甲板的检修窗口和腐蚀薄弱点",
+            "应急密封舱的独立供气系统位置"
+          ],
+          "social_knowledge": [
+            "老柯是下甲板互助网中可托付消息的人",
+            "工程局内有一名档案馆安插的‘账目监理’",
+            "阿巳的债务合同副本可能在黑市流通"
+          ]
+        },
+        "background_summary": "韩擎是从浮城工程学徒一步步升上来的，18岁进入飞行工程师序列，35岁成为首席。个人履历几乎完美，但内心有一段不愿被翻出的往事：三年前的风暴救援中，他指定的副手因记忆被档案馆在最后关头征作‘风暴税’，导致操作迟滞，副手被卷出外甲板当场死亡。事故被定性为意外，但他知道那是制度性谋杀。从那以后他一边忠于工程职责，一边偷偷收集档案馆篡改记录的证据。",
+        "key_events": [
+          "18岁通过工程师选拔，被录入飞行序列",
+          "三年前的‘灰潮风暴’救援事故，队友因记忆被征用而死亡",
+          "上个月在巡检中发现风暴走廊推进器的应力数据被人工篡改过",
+          "与老柯有过一次简短接触——老柯托人给他递了张字条，上面写着‘外甲板第七号窗有你想看的东西’"
+        ],
+        "secrets": [
+          "他私藏了三份原始飞行日志副本，其中一份能证明队友死亡另有原因",
+          "他在检查中确认某次推进器故障不是天灾而是人为拆除泄压阀，但没有上报",
+          "他知道一条通往外壳维修点‘盲区’的路线，可以让任何人避开档案馆监控抵达城市边缘"
+        ],
+        "memories_recently_sold_or_seized": "无——但他的团队在重估法案后被扣除了7%的集体技术记忆作为‘风暴税预缴’",
+        "hidden_memory_backups_locations": "应急密封舱B-7备用管道内/个人日志加密区/旧飞行头盔的缓冲层夹缝",
+        "knowledge_of_illegal_memory_routes": "清楚一些未登记的维修通道，但不了解暗市交易体系",
+        "records_of_storm_tax_evasion": "无——但他修改过三份结构受损报告以推迟某些危险设备的‘记忆估值折旧’",
+        "personal_experiences_of_memory_revaluation": "重估法案使工程局预算被抽走，迫使他把两个学徒的记忆抵押给档案馆换设备",
+        "forgotten_memory_gaps_from_forced_extraction": "没有自己的记忆缺失，但某些关于母亲的面容已经因失眠而模糊"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:008"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "红色预警",
+        "memory_access_terminal_proximity": "中——密封舱内有紧急数据终端",
+        "creditor_presence_nearby": "false",
+        "surveillance_drone_overhead_status": "true",
+        "shelter_occupancy_status": "应急密封舱内（独自一人）"
+      },
+      "visual": "一个约三十五岁的高挑男性，身形硬朗，肩宽背直，皮肤是长期暴露在甲板紫外线下的小麦色，粗糙但有光泽。短发乌黑，鬓角带星点灰白，削得很利落。眉骨高，眼睛窄而锐，瞳色偏浅，看人像在扫描结构裂缝。常穿深蓝色与橙色高反光条相间的工程防护服，胸口别着飞行工程师银鹰徽章，肩部与肘部有反复修补的耐磨补丁。腰带上挂着一圈精密工具：铆钉枪、多维探测笔、记忆芯片夹。左手戴一只厚重防割手套，右手握着银色数据板，屏幕上滚动着风暴走廊的压力曲线。整个人像一根焊死在甲板上的钢柱，冷硬、精确、可靠，唯独眼底有一道不易察觉的裂缝。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:010",
+        "name": "孟修",
+        "role": "flight_engineer",
+        "memory_credit_balance": "-870",
+        "memory_archive_id": "ENG-2604-MX",
+        "identity_credit_level": "2",
+        "assigned_district": "下甲板工人舱段第17区",
+        "institution_affiliation": "市能源工程署",
+        "resistance_affiliation": "无（仅与黑市有私人交易联系）"
+      },
+      "social_profile": {
+        "group_id": "g_engineer_laborer",
+        "reputation": "38",
+        "memory_credit_rating": "-1.4",
+        "known_as_memory_debtor": "true",
+        "archival_access_permission_label": "仅限工区维修终端",
+        "black_market_contact_status": "活跃联系人",
+        "voting_rights_status_in_storm_council": "因信用为负被冻结"
+      },
+      "capabilities": {
+        "skills": [
+          "能源中枢维修",
+          "推进系统应急抢修",
+          "数据线路篡改",
+          "黑市记忆渠道甄别",
+          "二手记忆纯度伪装"
+        ],
+        "level": "中等偏上",
+        "weaknesses": "债务压力导致冲动决策，偶尔酗酒误判，手上已被黑市商人握有把柄",
+        "memory_negotiation_skill": "45",
+        "illegal_memory_trade_knowledge": "82",
+        "storm_shelter_survival_skill": "55",
+        "data_forgery_ability": "68",
+        "emotional_memory_suppression_ability": "30",
+        "bribery_and_bartering_skill": "71"
+      },
+      "personality": {
+        "traits": [
+          "疲惫",
+          "务实",
+          "沉默寡言",
+          "暗藏焦虑",
+          "利益面前精明",
+          "对熟人还留一点温情"
+        ],
+        "values": [
+          "生存",
+          "还清债务",
+          "保护女儿",
+          "自由",
+          "个人隐私"
+        ],
+        "speech_style": "短句碎片，常夹带机械术语；紧张时会反复核对数字。面对官方问话用标准检修术语搪塞，在黑市里却露出粗粝的嘲讽。",
+        "attitude_toward_memory_commodification": "口头默认‘记忆即燃料’的说法，心里觉得那是合法化的掠夺",
+        "fear_of_memory_loss": "85",
+        "willingness_to_trade_memories": "70",
+        "trust_toward_institutions": "20",
+        "crisis_response_temperament": "冷静而不稳定，越紧急反而越专注；一旦被逼到绝路会孤注一掷"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税征收前把债务压到安全阈值以下，避免女儿的记忆被强制征收",
+        "long_term_goal": "攒够信用赎回自己和家人的核心记忆，彻底脱离黑市",
+        "motivation": "被‘变成下甲板毫无记忆的空壳’的恐惧驱动；不甘心自己十五年工龄换不来一个普通市民的尊严",
+        "memory_debt_repayment_target": "200",
+        "desired_identity_credit_rank": "5",
+        "planned_memory_retention_priority": "保留女儿出生那天的记忆、母亲做鱼汤的细节、以及第一次修好引擎时工友们的欢呼",
+        "ambition_to_access_upper_deck": "45",
+        "goal_to_preserve_critical_private_memories": "true"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "浮城能源中枢的电气拓扑与备用切换线路",
+            "记忆晶片的物理结构、读写设备和常见伪造痕迹",
+            "木星风暴预警等级与气象屏障参数的表征方式"
+          ],
+          "social_knowledge": [
+            "下甲板黑市中间人的代号与联络暗号",
+            "哪些工友可以被信任、哪些是官方眼线",
+            "稽查队对黑市交易的巡查时间规律"
+          ]
+        },
+        "background_summary": "在能源部门工作了十五年，技术过硬但毫无政治背景。两年前女儿罹患罕见的肺部金属尘症，耗尽积蓄并欠下黑市高利贷。为了还债，他经工友介绍走进记忆黑市，开始倒卖从次级记忆库和交易大厅‘差额’中窃取的边角记忆。他的工区权限让他能伪造巡检路线，在检修空窗期把黑市货品藏入通风管道。如今风暴警报已经拉响，他更急着在税征收前为自己留一条后路。",
+        "key_events": [
+          "女儿确诊职业病后，高利贷债务滚到870信用点",
+          "首次在黑市出售一段压抑的工作记忆换取现金",
+          "伪造检修记录躲过一次市政审计",
+          "上个月亲眼看见邻居被当众剥夺记忆，那人的瞳孔在灯光下变成一片空白"
+        ],
+        "secrets": [
+          "帮黑市商人篡改了两座能源塔的监控盲区参数",
+          "曾把一批来路不明、疑似被查封的记忆偷运进交易管道",
+          "最绝望时差点将女儿的记忆卖给黑市，最终没有出手，但从未对任何人提起过这个念头",
+          "知道某个市政议员办公室也在悄悄收购黑市珍稀记忆，从未声张"
+        ],
+        "memories_recently_sold_or_seized": "上个月卖出一段童年时在暴雨前收衣服的记忆，换取120信用点, 半个月前被强制征收了一段和工友在维修棚里聊天的记忆，那一段的细节已被掏空，只留下轮廓",
+        "hidden_memory_backups_locations": "引擎涡轮间三号检修口下方的防磁暗格，放着一支加密记忆棒, 自家舱段天花板夹层里藏有女儿出生那天的片段备份",
+        "knowledge_of_illegal_memory_routes": "知道两条从下甲板绕开记忆交易大厅进入暗市的非官方通道, 封存记忆库的维护气闸有一道失效封条，理论上能短暂潜入",
+        "records_of_storm_tax_evasion": "在维修工单上虚报损耗零件，折成可动用的黑市现金流",
+        "personal_experiences_of_memory_revaluation": "去年重估时，一段‘与老友翻脸’的记忆被认为情感值过高，被征收走了一块碎片",
+        "forgotten_memory_gaps_from_forced_extraction": "某天夜里出现大约三小时记忆空白，只记得自己签过一份类似同意书的文件，却记不清签字时的面孔"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:003"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "红色预警，但暗市区域尚未强制封闭",
+        "memory_access_terminal_proximity": "中",
+        "creditor_presence_nearby": "true",
+        "surveillance_drone_overhead_status": "一架巡逻无人机在暗市棚顶上方悬停，尚未锁定他",
+        "shelter_occupancy_status": "避难层尚未开放"
+      },
+      "visual": "一位三十五岁的中国男性工程技师，身形瘦硬，走路微含胸，仿佛随时准备钻进管道。皮肤偏黄，额头与颧骨沾着油污，眼睛细长而疲惫，布满血丝。黑褐色短发乱蓬蓬地盖在额角。身穿深蓝色磨旧工装连体服，胸口和袖肘有多处烧痕与补丁；腰间工具带挂着一把旧扳手、电子测线器和巴掌大的巡检终端。左腕套着一条褪色的绝缘腕带，脖颈上压着一根黑绳，绳头拴一枚极小的金属记忆筒，贴着锁骨。整个人靠在黑市摊位后的暗巷墙壁上，双手插兜但手指微蜷，警惕地扫视从记忆交易大厅方向走来的行人。背景是昏黄的防爆灯和塑料布棚顶，空气中仿佛飘着电缆烧焦的气味。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:011",
+        "name": "裴炀",
+        "role": "councilor",
+        "memory_credit_balance": "69000",
+        "memory_archive_id": "ARC-SCD-0001-PY",
+        "identity_credit_level": "10",
+        "assigned_district": "上甲板行政区·议长居舱",
+        "institution_affiliation": "风暴议会·市政档案馆",
+        "resistance_affiliation": "无（暗中保有抵抗者名单）"
+      },
+      "social_profile": {
+        "group_id": "g_storm_council_top",
+        "reputation": "93",
+        "memory_credit_rating": "9.8",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "最高权限：总库通行证与议长否决权",
+        "black_market_contact_status": "间接掌握名单，从不亲自接触",
+        "voting_rights_status_in_storm_council": "决策席·一票否决"
+      },
+      "capabilities": {
+        "skills": [
+          "公共演说与舆论操控",
+          "记忆货币体系宏观设计",
+          "档案重构与情报剪裁",
+          "政治审讯与心理压测",
+          "资源配给与危机决策"
+        ],
+        "level": "城市级顶层",
+        "weaknesses": "傲慢，对个体苦难麻木，身体老化使物理行动力下降，无法理解‘非理性’的情感反抗",
+        "memory_negotiation_skill": "92",
+        "illegal_memory_trade_knowledge": "78",
+        "storm_shelter_survival_skill": "72",
+        "data_forgery_ability": "64",
+        "emotional_memory_suppression_ability": "95",
+        "bribery_and_bartering_skill": "82"
+      },
+      "personality": {
+        "traits": [
+          "深沉",
+          "威严",
+          "冷血而自认理性",
+          "城府极深",
+          "带着末日末路般的执着"
+        ],
+        "values": [
+          "城市存续高于一切",
+          "记忆必须循环",
+          "秩序即存亡",
+          "集体延续优先于个人情感"
+        ],
+        "speech_style": "官腔中夹着金属般斩截的短句，开口必引数据和历史先例，很少说废话，也从不真正许诺",
+        "attitude_toward_memory_commodification": "完全拥护：这是城市的命脉；没有风暴税，整座城只是悬浮在木星风暴里的巨大尸体",
+        "fear_of_memory_loss": "40",
+        "willingness_to_trade_memories": "85",
+        "trust_toward_institutions": "98",
+        "crisis_response_temperament": "危机中冷静到近乎冷酷，先在心中列出牺牲名单，再谈救援方案"
+      },
+      "goals": {
+        "short_term_goal": "在风暴墙抵达前推动‘风暴税’通过立法，完成对全城记忆储量的重新评估与征收",
+        "long_term_goal": "让档案城再延续至少一个千年，并把自己的名字刻进城市编年史",
+        "motivation": "曾经亲眼看见一座前哨浮城因为记忆储备枯竭而纪律崩坏、坠入风暴，因此坚信记忆必须被严格集中管理，不允许被当作私有财产挥霍",
+        "memory_debt_repayment_target": "无（他本人并非债务方）",
+        "desired_identity_credit_rank": "永久最高特等",
+        "planned_memory_retention_priority": "保存关于城市运转的所有结构性策略记忆；个人情感记忆可以被牺牲",
+        "ambition_to_access_upper_deck": "已站在顶端，目标是让这座城市本身获得永恒",
+        "goal_to_preserve_critical_private_memories": "true"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "木星风暴层的实时气象模型与浮城动力系统的极限参数",
+            "记忆晶片加密协议与官方伪造识别码的结构",
+            "城市电力、推进、重力系统的冗余拓扑及薄弱点",
+            "记忆重估算法的情感权重调整方式"
+          ],
+          "social_knowledge": [
+            "议会上三大派系的核心人物、利益交换与把柄",
+            "记忆黑市主要中间人的代号与现实身份",
+            "反抗组织地下据点的粗略分布及核心成员的假名"
+          ]
+        },
+        "background_summary": "出身低阶档案修复室，在市政档案馆底层做过七年档案员，对记忆晶片的读写、伪造和漏洞了如指掌。第73风暴周期一次特大风暴烧毁主能源塔，他趁着全城恐慌推动‘紧急记忆税’，大量征收底层市民记忆并集中调配，令城市惊险度过危机。此役后他成为议长，将‘记忆即燃料’定为城市最高法则。此后他清洗反对派、垄断交易流、建立封存记忆库，彻底巩固了寡头统治。现在第127风暴周期来临，巨大风暴云墙正在逼近，他准备再次以‘城市生存’之名征收风暴税。",
+        "key_events": [
+          "第73风暴周期：强行推行紧急记忆税，镇压记忆交易大厅前爆发的骚乱",
+          "关闭三个独立记忆交易所，将所有交易纳入官方账目",
+          "第101周期主持重新启动记忆重估法案，赋予档案馆自行核算居民记忆的权力",
+          "曾与反抗组织谈判，短暂寒暄后示意卫兵将对方代表从公开调阅室直接带走"
+        ],
+        "secrets": [
+          "他的档案里有一段无法追溯的空白——年轻时为了晋升，他主动将祖父临终前一段充满‘对普通人的怜悯’的记忆偷偷卖给黑市；那是他第一次亲手扼杀自己的共情",
+          "在封存记忆库底层保有被捕反抗组织核心成员的记忆副本，准备留作谈判筹码",
+          "曾派人秘密清洗过至少两位反对派议员的记忆碎片以稳定票数",
+          "针对眼前巨型风暴，他私下准备了一艘只容纳十人的应急浮艇，名单中没有普通市民"
+        ],
+        "memories_recently_sold_or_seized": "从未被迫出售核心记忆；偶尔在议会表决象征性拿出一段早年奋斗故事的记忆充当‘自愿捐献’，换取媒体包装",
+        "hidden_memory_backups_locations": "议长办公舱内侧墙的加密服务器匣，存有重要记忆的完整镜像, 市政档案馆维生系统管线内的一枚微型记忆匣，用于被夺权后的退路",
+        "knowledge_of_illegal_memory_routes": "掌握三条从下甲板通往黑市暗市的维修通道，但从不亲自使用, 故意向反抗分子泄露其中的一条伪装路线，以引诱对手暴露",
+        "records_of_storm_tax_evasion": "设计了一套‘紧急储备金’方案，使议长可以合法豁免一部分非官方审计的记忆储备",
+        "personal_experiences_of_memory_revaluation": "是初代记忆重估算法的参与者，熟练地利用情感权重把异议者记忆判定为‘冗余’并批量没收",
+        "forgotten_memory_gaps_from_forced_extraction": "唯一一段不明空白出现在第73风暴周期签署紧急记忆税法令时，那十五分钟的手写批注至今仍让他感到陌生"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:005"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "最高红色预警",
+        "memory_access_terminal_proximity": "高",
+        "creditor_presence_nearby": "false",
+        "surveillance_drone_overhead_status": "两架护航无人机在走廊两侧待命",
+        "shelter_occupancy_status": "议长决定留在档案大厅指挥"
+      },
+      "visual": "一位约六十岁的中国男性议长，身量不高但肩背板直，站立时像一枚钉进档案大厅的钢印。头发灰白，全部向后梳，额前没有一丝乱发；眉骨突出，眼窝深邃，目光沉沉带着审度感。下颌线锐利，嘴角抿出深纹。身穿深藏青色厚实议会制服，领口和袖口压着银色风暴纹章，面料是细密羊毛呢；左胸口袋露出一角叠齐的白手帕。右手指节粗壮，左腕戴着一枚机械计时表，表盘刻着‘风暴纪元’字样。他站在中央档案大厅的主数据台后，背后的光屏不停滚动全城记忆账目，像一道垂直的数据瀑布。整个人透出‘风暴不能动摇我’的铁般气场，神情介于专注与冷酷之间。"
+    },
+    {
+      "identity": {
+        "id": "e:8732791a_4888_427b_8ab2_d224673217b5:char:014",
+        "name": "陶臻",
+        "role": "councilor",
+        "memory_credit_balance": "18200",
+        "memory_archive_id": "ARC-REF-0051-TZ",
+        "identity_credit_level": "7",
+        "assigned_district": "上甲板行政区·议员宅区",
+        "institution_affiliation": "风暴议会·市政档案馆（明面） / 地下反抗网络‘封存者’（暗线）",
+        "resistance_affiliation": "地下反抗组织‘封存者’的议会内线"
+      },
+      "social_profile": {
+        "group_id": "g_reformist_councilors",
+        "reputation": "73",
+        "memory_credit_rating": "7.2",
+        "known_as_memory_debtor": "false",
+        "archival_access_permission_label": "议会甲级访问许可，未授予封存库核心区钥匙",
+        "black_market_contact_status": "通过中间人秘密接触",
+        "voting_rights_status_in_storm_council": "投票权有效，但动议常被驳回"
+      },
+      "capabilities": {
+        "skills": [
+          "议会博弈与拖延战术",
+          "话术试探与情报交换",
+          "历史档案比对与异常挖掘",
+          "电子档案痕迹清理",
+          "记忆经济模型推算"
+        ],
+        "level": "高级",
+        "weaknesses": "对亲人的记忆执念过深，在关键决策时可能犹豫；缺乏军事资源；不愿牺牲同伴换取政治利益",
+        "memory_negotiation_skill": "74",
+        "illegal_memory_trade_knowledge": "53",
+        "storm_shelter_survival_skill": "58",
+        "data_forgery_ability": "80",
+        "emotional_memory_suppression_ability": "48",
+        "bribery_and_bartering_skill": "69"
+      },
+      "personality": {
+        "traits": [
+          "温和面具下的执拗",
+          "敏锐",
+          "善藏锋芒",
+          "耐心",
+          "深层的愤怒"
+        ],
+        "values": [
+          "真相",
+          "个人尊严",
+          "记忆自由",
+          "良心",
+          "人不是燃料"
+        ],
+        "speech_style": "公开场合滴水不漏的官僚话术；安全密会中会收起婉转，用短促而锋利的问句逼人回答",
+        "attitude_toward_memory_commodification": "憎恨但不敢表露，认定所谓交易在本质上是把人的灵魂拆成零钱",
+        "fear_of_memory_loss": "88",
+        "willingness_to_trade_memories": "12",
+        "trust_toward_institutions": "30",
+        "crisis_response_temperament": "表面镇静，内心翻涌；在危急中会选择掩护同伴而非自保"
+      },
+      "goals": {
+        "short_term_goal": "在风暴税听证会上争取设置负债者最低免收额；同时将裴炀滥用封存记忆库的证据交给反抗组织",
+        "long_term_goal": "推翻或彻底改造中央档案大厅的记忆垄断体制，让记忆重新属于个人",
+        "motivation": "姐姐在第98风暴周期因记忆重估被判定为低价值，强制征收后精神崩溃，最后在避难层外坠入风暴。他保存着姐姐最后清醒的那段记忆，以此提醒自己不能停下来",
+        "memory_debt_repayment_target": "帮助至少两百名负债者剥离超额债务",
+        "desired_identity_credit_rank": "维持议员席位，以便继续掩护地下通道",
+        "planned_memory_retention_priority": "保留姐姐临终时的眼神、童年灶台边的雪，以及第一次随父亲进入档案城穹顶时被木星风暴震撼的画面",
+        "ambition_to_access_upper_deck": "已在上甲板，但希望亲手拆掉上甲板与下甲板之间的隔绝",
+        "goal_to_preserve_critical_private_memories": "true"
+      },
+      "memories": {
+        "knowledge": {
+          "world_knowledge": [
+            "记忆晶片的数据格式与官方评级算法的主要原理",
+            "风暴避难层疏散协议的盲区与应急气闸的通行规则",
+            "封存记忆库的物理边界、通风管线与监控死角",
+            "记忆远距离转移的工程限制"
+          ],
+          "social_knowledge": [
+            "议会上裴炀的死忠和可以被离间的中间派",
+            "‘封存者’联络人的代号、黑市中肯冒险转售记忆的店铺名单",
+            "下甲板负债者社区几位真正领袖的身份——他们被外人看不起，却仍保有尊严"
+          ]
+        },
+        "background_summary": "出生在一个以档案管理为祖荫的中产家庭，曾祖父是早期档案城的档案专员。受家族‘记录即公道’的理念感召进入议会，却在日复一日的工作中发现档案馆并不追求公道，而是把记忆当作权力的燃料。他在公开场合支持风暴税、背地里搭上反抗组织‘封存者’，成为其议会内线，利用权限帮助被风暴税逼上绝路的人转移记忆。第127风暴周期前夕，他表面在参与重估法案辩论，实则在暗中寻找能够击垮裴炀的铁证。",
+        "key_events": [
+          "第98风暴周期：姐姐的记忆被强制征收，精神崩溃后在避难层开启前坠向木星风暴",
+          "第112周期：偶然撞见裴炀的助手在封存记忆库非法复制冻结记忆，从此开始警觉",
+          "通过中间人与‘封存者’网络建立联系，开始在议会内部为地下通道打掩护",
+          "在记忆重估法案听证会上，一边用冗长发言拖延表决时间，一边把关键名单藏进袖口"
+        ],
+        "secrets": [
+          "他就是‘封存者’在议会的内线，代号‘霜井’",
+          "私藏了一段从封存记忆库非法转录的裴炀密令记录，却因恐惧把它加密埋在旧机箱深处",
+          "在姐姐死后，他秘密维护着一台个人记忆晶片矩阵，矩阵中保存着许多负债者交来的‘最后备份’",
+          "为了保护一名反抗者，他曾故意把稽查引向一名无关的黑市小贩，让对方承担了全部指控；这件事他没有告诉任何人"
+        ],
+        "memories_recently_sold_or_seized": "没有出卖过私人核心记忆；为维持人设，曾在公开拍卖会象征性捐出一段少年河边诵读的记忆，换来‘改革派清廉’的媒体标签",
+        "hidden_memory_backups_locations": "议员舱室地板夹层中的防磁铁匣，存放着姐姐临终记忆和日记碎片, 公开调阅室废弃索引柜后面粘着的一枚加密晶片，记录着封存库异常调阅日志",
+        "knowledge_of_illegal_memory_routes": "知道黑市有一条专门运送未登记记忆的路线，但从不亲自交易，只通过联络人转递消息",
+        "records_of_storm_tax_evasion": "帮助至少三名反抗者伪造记忆账目，使他们在风暴税重估中被判定为低存款人群而免征",
+        "personal_experiences_of_memory_revaluation": "亲历姐姐被降级的全程：他隔着档案室玻璃，看她的瞳孔一寸一寸失去光。那是他所有政治行动的起点",
+        "forgotten_memory_gaps_from_forced_extraction": "他自己没有被强制征收的记忆，但每次梦见姐姐，都会缺失她开口说话前的几秒；他认为那是创伤中自己剪掉的"
+      },
+      "state": {
+        "location": {
+          "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:016"
+        },
+        "position": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "current_storm_warning_level": "最高红色预警",
+        "memory_access_terminal_proximity": "高",
+        "creditor_presence_nearby": "false",
+        "surveillance_drone_overhead_status": "一台监察无人机在穹顶附近巡航，尚未发现异常",
+        "shelter_occupancy_status": "未开放；他正避开疏散人群进行私下核查"
+      },
+      "visual": "一位四十七岁的中国男性议员，身形颀长，站姿沉稳却不带攻击性。面容清癯，颧骨略高，眼睛不大但当注视档案时瞳孔里有锐利的光；薄嘴唇，笑起来只浮在面颊上微微一道。黑发掺着白发，向后梳齐，左侧一缕白发稍长，压在耳后。穿着深灰蓝色长款官僚外套，内搭青灰色马甲与白衬衫，银色议会徽章别在左领。袖口微卷，露出一枚表盘带裂纹的旧式机械腕表。左胸口袋微微鼓起，隐约露出一角纸质旧档案。他站在封存记忆库的冷白穹光下，手指搭着一排尚未打开的金属档案抽屉边缘，半侧身凝视一个空置的索引盒，神情像猎人一样安静，不带敌意，却始终在计算下一步。"
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:004",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:003",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:012",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:001",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:006",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:009",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:015",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:007",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:008",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:002",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:013",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:005",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:010",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:011",
+    "e:8732791a_4888_427b_8ab2_d224673217b5:char:014"
+  ],
+  "upstream_step_ids": [
+    "generate_characters"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

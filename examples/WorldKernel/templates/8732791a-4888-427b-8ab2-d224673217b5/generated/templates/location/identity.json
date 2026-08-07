@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "description",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "archive_designation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "construction_storm_cycle",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "administrative_district",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "function_tags",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_event_markers",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

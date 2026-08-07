@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "primary_memory_function",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "core_memory_asset_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "target_memory_demographic",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_mission_cover",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "actual_operative_mandate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "council_policy_alignment",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

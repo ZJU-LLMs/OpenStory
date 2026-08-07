@@ -12,6 +12,7 @@ class VisualSlot(BaseModel):
     blend_margin_px: int
     z_index: int
     expected_projection: str
+    entrance_port: dict[str, Any] = Field(default_factory=dict)
 
 
 class VisualBackgroundAsset(BaseModel):
@@ -43,7 +44,15 @@ class VisualPatchAsset(BaseModel):
     path: str = ""
     url: str = ""
     status: str = "missing"
+    bounds_px: dict[str, int] = Field(default_factory=dict)
+    logical_bounds_px: dict[str, int] = Field(default_factory=dict)
+    prompt_path: str = ""
+    metadata_path: str = ""
+    provider: str = ""
+    model: str = ""
+    asset_version: str = ""
     z_index: int = 0
+    error: str = ""
 
 
 class VisualDecoration(BaseModel):
@@ -58,10 +67,21 @@ class VisualDecoration(BaseModel):
 
 
 class VisualRouteLayer(BaseModel):
-    status: str = "ready"
+    status: str = "placeholder"
     source: str = "spatial_blueprint.road_tiles"
-    z_index: int = 30
+    z_index: int = 150
     style: dict[str, Any] = Field(default_factory=dict)
+    path: str = ""
+    url: str = ""
+    width_px: int = 0
+    height_px: int = 0
+    atlas_path: str = ""
+    prompt_path: str = ""
+    metadata_path: str = ""
+    provider: str = ""
+    model: str = ""
+    asset_version: str = ""
+    error: str = ""
 
 
 class VisualLocationPlaceholderLayer(BaseModel):

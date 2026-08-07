@@ -1,0 +1,24 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+memory_network_position:
+  type: str
+  option: true
+governing_body_affiliation_level:
+  type: str
+  option: true
+resistance_membership_status:
+  type: str
+  option: true
+memory_debtor_creditor_relations:
+  type: str
+  option: true
+archival_access_clearance:
+  type: str
+  option: true
+black_market_memory_contact_rating:
+  type: str
+  option: true

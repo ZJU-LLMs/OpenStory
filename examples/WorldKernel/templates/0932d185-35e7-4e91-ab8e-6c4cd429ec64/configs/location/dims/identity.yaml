@@ -1,0 +1,27 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+memory_reserve_capacity:
+  type: str
+  option: true
+institutional_affiliation:
+  type: str
+  option: true
+historical_memory_epoch:
+  type: str
+  option: true
+functional_subtype:
+  type: str
+  option: true
+symbolic_significance:
+  type: str
+  option: true
+unique_memory_artifact:
+  type: str
+  option: true

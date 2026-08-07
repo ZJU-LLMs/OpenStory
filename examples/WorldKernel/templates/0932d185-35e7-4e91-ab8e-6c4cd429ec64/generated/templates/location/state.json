@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_reserve_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "operational_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "structural_integrity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_protocol_active",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupation_ratio",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "last_memory_audit_date",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

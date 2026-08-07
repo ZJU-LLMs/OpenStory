@@ -1,0 +1,25 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+persona_integrity_percent:
+  type: str
+  option: true
+memory_loss_level:
+  type: str
+  option: true
+attitude_towards_memory_trade:
+  type: str
+  option: true
+emotional_memory_retention:
+  type: str
+  option: true
+suspicion_of_authority:
+  type: str
+  option: true
+desire_for_memory_restoration:
+  type: str
+  option: true

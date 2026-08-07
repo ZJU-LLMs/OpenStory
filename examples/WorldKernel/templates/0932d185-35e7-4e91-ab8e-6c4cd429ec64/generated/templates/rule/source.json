@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legislative_origin",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enactment_epoch",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "assent_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "constitutional_relation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "classified_provisions",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "external_influences",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

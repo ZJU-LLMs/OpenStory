@@ -1,0 +1,25 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+memory_extraction_tolerance:
+  type: str
+  option: true
+memory_forgery_skill:
+  type: str
+  option: true
+memory_empathy_ability:
+  type: str
+  option: true
+memory_preservation_capacity:
+  type: str
+  option: true
+storm_survival_training:
+  type: str
+  option: true
+forged_memory_detection_skill:
+  type: str
+  option: true

@@ -134,7 +134,7 @@ class ExecutionDAGCompiler:
     def _max_batch_size(target_entity_type: str) -> int:
         """Per-entity-type batch size caps to prevent LLM output truncation."""
         caps = {
-            "character": 3,
+            "character": 4,
             "location": 4,
         }
         return caps.get(target_entity_type, 10)

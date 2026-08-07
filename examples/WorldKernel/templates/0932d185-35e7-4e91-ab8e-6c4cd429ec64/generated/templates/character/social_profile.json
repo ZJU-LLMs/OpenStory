@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_network_position",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "governing_body_affiliation_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_membership_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_debtor_creditor_relations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archival_access_clearance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_market_memory_contact_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_debt_repayment_target",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "desired_identity_credit_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "planned_memory_retention_priority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ambition_to_access_upper_deck",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "goal_to_preserve_critical_private_memories",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

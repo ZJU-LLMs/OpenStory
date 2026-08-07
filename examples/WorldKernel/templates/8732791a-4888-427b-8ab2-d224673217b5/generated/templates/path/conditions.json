@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_toll_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "credit_rating_threshold",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_alert_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_protocol_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "inspection_requirements",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_market_access_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

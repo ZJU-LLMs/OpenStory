@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "path_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_official",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_monitored",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "maintenance_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_restricted",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_secret",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

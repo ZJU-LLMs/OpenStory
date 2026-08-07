@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "underground_resistance_contact_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "citizen_trust_index",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "law_enforcement_support_coefficient",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cross_institution_treaty_obligations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rival_archive_faction_relations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_shelter_sharing_pacts",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_memory_confiscation_notoriety",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

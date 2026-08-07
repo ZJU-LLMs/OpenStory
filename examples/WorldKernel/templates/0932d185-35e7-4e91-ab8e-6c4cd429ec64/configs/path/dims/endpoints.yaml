@@ -1,0 +1,24 @@
+dim_name: EndpointsDim
+from_id:
+  type: str
+  ref: location
+to_id:
+  type: str
+  ref: location
+bidirectional:
+  type: bool
+length_km:
+  type: str
+  option: true
+travel_time_min:
+  type: str
+  option: true
+credit_requirement_at_start:
+  type: str
+  option: true
+credit_requirement_at_end:
+  type: str
+  option: true
+connection_type:
+  type: str
+  option: true

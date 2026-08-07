@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "cannot_access_restricted_archive_terminals",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_sell_memories_outside_official_exchange",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_hide_memory_debt_from_credit_scanner",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_enter_upper_deck_without_credit_clearance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_reveal_memory_content_during_official_audit",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "taboo_against_discussing_stolen_memories",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

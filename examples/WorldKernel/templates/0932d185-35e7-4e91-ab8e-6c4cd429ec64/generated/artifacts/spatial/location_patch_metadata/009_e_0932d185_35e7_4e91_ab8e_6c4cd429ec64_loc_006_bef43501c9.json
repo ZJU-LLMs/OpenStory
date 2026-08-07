@@ -1,0 +1,84 @@
+{
+  "status": "ready",
+  "generation_strategy": "local_context_road_free_full_patch_v4",
+  "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+  "logical_bounds_px": {
+    "x": 1056,
+    "y": 704,
+    "w": 240,
+    "h": 176
+  },
+  "render_bounds_px": {
+    "x": 920,
+    "y": 536,
+    "w": 512,
+    "h": 512
+  },
+  "asset_version": "aeedb8bbc8c9a161",
+  "target_size": {
+    "width": 512,
+    "height": 512
+  },
+  "request_size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "request_scale": 2,
+  "native_context_size": {
+    "width": 512,
+    "height": 512
+  },
+  "context_crop_px": {
+    "x": 920,
+    "y": 536,
+    "w": 512,
+    "h": 512
+  },
+  "slot_in_context_px": {
+    "x": 136,
+    "y": 168,
+    "w": 240,
+    "h": 176
+  },
+  "entrance_port": {
+    "side": "south",
+    "offset_tiles": 7,
+    "width_tiles": 1,
+    "entry_depth_tiles": 1,
+    "tile_size_px": 16,
+    "grid_point": {
+      "x": 73,
+      "y": 54
+    }
+  },
+  "road_free_context": true,
+  "entrance_guidance": "coordinate_only",
+  "road_reference_pixels_cleaned": 125696,
+  "protected_context_validation": {
+    "protected_pixels": 879616,
+    "changed_pixels": 879204,
+    "changed_ratio": 0.9995316137951106,
+    "structural_changed_pixels": 147774,
+    "structural_change_ratio": 0.16799830835273574,
+    "mean_max_channel_delta": 19.06774206017171,
+    "exact_preservation": false,
+    "provider_mask_behavior": "context_redraw",
+    "within_guideline": true,
+    "passed": true,
+    "validation_mode": "diagnostic_only"
+  },
+  "final_extracted_size": {
+    "width": 512,
+    "height": 512
+  },
+  "postprocess": "integer_nearest_downscale_keep_full_local_context",
+  "final_background_protection": "full generated road-free local context retained",
+  "model": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible_edit",
+    "size": "1024x1024",
+    "image_url": ""
+  },
+  "context_source": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\artifacts\\spatial\\background.png"
+}

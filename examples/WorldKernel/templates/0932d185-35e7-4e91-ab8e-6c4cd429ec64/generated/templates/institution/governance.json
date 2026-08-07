@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "voting_weight_by_memory_holdings",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "internal_committee_structure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_audit_cycle",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "succession_rule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "crisis_directive_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_conflict_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "violation_punishment_mechanism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

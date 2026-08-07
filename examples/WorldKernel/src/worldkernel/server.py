@@ -85,6 +85,12 @@ class ParseRequest(BaseModel):
     input: str
 
 
+class VisualGenerateRequest(BaseModel):
+    generate_background: bool = True
+    generate_location_patches: bool | None = None
+    reuse_existing_spatial: bool = True
+
+
 @app.post("/api/stage1/parse")
 async def parse(req: ParseRequest):
     session = await run_stage1(req.input, constraints=_constraints)
@@ -119,7 +125,24 @@ async def get_session_file(session_id: str, path: str):
     if file_path.suffix == ".yaml":
         import yaml
         return yaml.safe_load(file_path.read_text(encoding="utf-8"))
-    return json.loads(file_path.read_text(encoding="utf-8"))
+    data = json.loads(file_path.read_text(encoding="utf-8"))
+    if path.replace("\\", "/").endswith("generated/artifacts/spatial/visual_layout_manifest.json"):
+        data = _hydrate_visual_manifest_response(data, file_path.parent)
+    return data
+
+
+def _hydrate_visual_manifest_response(data: object, spatial_root: Path) -> object:
+    if not isinstance(data, dict):
+        return data
+    try:
+        from worldkernel.architect.visual.location_patches import hydrate_existing_location_patches
+        from worldkernel.architect.visual.models import VisualLayoutManifest
+
+        manifest = VisualLayoutManifest.model_validate(data)
+        hydrate_existing_location_patches(manifest, spatial_root)
+        return manifest.model_dump(mode="json")
+    except Exception:
+        return data
 
 
 @app.post("/api/stage2/generate/{session_id}")
@@ -177,7 +200,7 @@ async def stage2_generate(session_id: str):
 @app.post("/api/spatial/generate/{session_id}")
 async def spatial_generate(session_id: str):
     """Standalone spatial generation from disk-based semantic artifacts."""
-    semantic_root = TEMPLATES_DIR / session_id / "generated" / "artifacts"
+    semantic_root = _resolve_session_semantic_root(session_id)
     if not semantic_root.exists():
         raise HTTPException(status_code=404, detail="semantic artifacts not found; run Stage2 first")
 
@@ -211,6 +234,15 @@ async def spatial_generate(session_id: str):
             output_root=spatial_output_root,
             model_config_path=CONFIGS_DIR / "image_models.yaml",
             generate_background=config.rendering.ai_art_enabled,
+            generate_location_patches=(
+                config.rendering.ai_art_enabled
+                and config.rendering.location_patches_enabled
+            ),
+            generate_road_texture=(
+                config.rendering.ai_art_enabled
+                and config.rendering.road_texture_enabled
+            ),
+            semantic_locations=[location.raw for location in build_input.locations],
         )
         result.blueprint.visual = visual_manifest.model_dump(mode="json")
         save_spatial_blueprint(result.blueprint, spatial_output_root)
@@ -257,6 +289,78 @@ def _load_session_world_background(session_id: str) -> dict:
         return data if isinstance(data, dict) else {}
     except json.JSONDecodeError:
         return {}
+
+
+def _resolve_session_semantic_root(session_id: str) -> Path:
+    artifacts_root = TEMPLATES_DIR / session_id / "generated" / "artifacts"
+    semantic_root = artifacts_root / "semantic"
+    if (semantic_root / "metadata" / "semantic_manifest.json").exists():
+        return semantic_root
+    return artifacts_root
+
+
+@app.post("/api/visual/generate/{session_id}")
+async def visual_generate(session_id: str, req: VisualGenerateRequest | None = None):
+    """Regenerate image assets from an existing semantic template.
+
+    This test channel skips Stage1 and semantic generation. It reuses the saved
+    spatial blueprint by default, and only rebuilds spatial data when no
+    blueprint exists or reuse_existing_spatial is false.
+    """
+    session_dir = TEMPLATES_DIR / session_id
+    if not session_dir.exists():
+        raise HTTPException(status_code=404, detail="session not found")
+
+    request = req or VisualGenerateRequest()
+    from worldkernel.architect.visual.regenerate import regenerate_visual_from_template
+
+    try:
+        result = regenerate_visual_from_template(
+            template_root=session_dir,
+            config_path=CONFIGS_DIR / "architect.yaml",
+            image_model_config_path=CONFIGS_DIR / "image_models.yaml",
+            generate_background=request.generate_background,
+            generate_location_patches=request.generate_location_patches,
+            reuse_existing_spatial=request.reuse_existing_spatial,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+    blueprint = result.blueprint
+    return {
+        "world_id": result.world_id,
+        "template_root": result.template_root,
+        "semantic_root": result.semantic_root,
+        "spatial_output_root": result.spatial_output_root,
+        "spatial_source": result.spatial_source,
+        "semantic": result.semantic_counts,
+        "spatial": {
+            "grid": {
+                "width": blueprint.grid.width,
+                "height": blueprint.grid.height,
+                "tile_size": blueprint.grid.tile_size,
+            },
+            "regions": [r.model_dump(mode="json") for r in blueprint.regions],
+            "routes": [
+                {
+                    "path_edge_id": r.path_edge_id,
+                    "from_location_id": r.from_location_id,
+                    "to_location_id": r.to_location_id,
+                    "centerline": [{"x": t.x, "y": t.y} for t in r.centerline],
+                    "movement_cost": r.movement_cost,
+                    "access_tags": r.access_tags,
+                }
+                for r in blueprint.routes
+            ],
+            "road_tiles": [{"x": t.x, "y": t.y} for t in blueprint.road_tiles],
+            "spawn_points": [sp.model_dump(mode="json") for sp in blueprint.spawn_points],
+            "visual": blueprint.visual,
+            "validation": result.validation,
+        },
+        "counts": result.spatial_counts,
+    }
 
 
 @app.post("/api/stage2/run/{session_id}")

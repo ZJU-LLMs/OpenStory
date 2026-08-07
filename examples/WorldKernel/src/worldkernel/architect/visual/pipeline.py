@@ -13,8 +13,16 @@ from worldkernel.architect.visual.control import (
     validate_protected_regions,
 )
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
+from worldkernel.architect.visual.location_patches import (
+    generate_location_patches as generate_location_patch_assets,
+    hydrate_existing_location_patches,
+)
 from worldkernel.architect.visual.models import VisualLayoutManifest
 from worldkernel.architect.visual.prompt import compose_background_prompt
+from worldkernel.architect.visual.road_texture import (
+    generate_road_texture_assets,
+    hydrate_existing_road_texture,
+)
 from worldkernel.llm.config_loader import load_model_config_by_capability
 
 logger = logging.getLogger(__name__)
@@ -27,6 +35,9 @@ def run_visual_pipeline(
     output_root: str | Path,
     model_config_path: str | Path,
     generate_background: bool = False,
+    generate_location_patches: bool = False,
+    generate_road_texture: bool = False,
+    semantic_locations: list[Any] | None = None,
 ) -> VisualLayoutManifest:
     root = Path(output_root)
     root.mkdir(parents=True, exist_ok=True)
@@ -50,6 +61,7 @@ def run_visual_pipeline(
     manifest.background.prompt_path = str(prompt_path)
     manifest.background.metadata_path = str(metadata_path)
 
+    metadata_payload: dict[str, Any] = dict(control_metadata)
     if generate_background:
         try:
             generation_metadata = _generate_background(
@@ -63,19 +75,104 @@ def run_visual_pipeline(
             manifest.background.path = str(root / "background.png")
             manifest.background.url = "background.png"
             manifest.background.generation_strategy = generation_metadata["generation_strategy"]
-            _write_json(metadata_path, {**control_metadata, **generation_metadata})
+            metadata_payload.update(generation_metadata)
         except Exception as exc:  # Stage2 remains usable with deterministic coordinate layers.
             logger.warning("Visual background generation skipped/failed: %s", exc)
             manifest.background.status = "failed"
             manifest.background.error = str(exc)
-            _write_json(metadata_path, {**control_metadata, "status": "failed", "error": str(exc)})
+            metadata_payload.update({"status": "failed", "error": str(exc)})
     else:
-        manifest.background.status = "prompt_ready"
-        _write_json(
-            metadata_path,
-            {**control_metadata, "status": "prompt_ready", "image_generation": "disabled"},
-        )
+        existing_background_path = root / "background.png"
+        if existing_background_path.exists():
+            existing_metadata = _read_json(metadata_path)
+            existing_composite = existing_metadata.get("composite")
+            if not isinstance(existing_composite, dict):
+                existing_composite = {}
+            existing_layers = existing_composite.get("composited_layers")
+            if not isinstance(existing_layers, list):
+                existing_layers = ["route_layer", "location_placeholder_layer"]
+            manifest.background.status = "ready"
+            manifest.background.path = str(existing_background_path)
+            manifest.background.url = "background.png"
+            manifest.background.generation_strategy = "existing_background_reuse"
+            manifest.background.composited_layers = [str(layer) for layer in existing_layers]
+            metadata_payload.update({
+                "status": "ready",
+                "image_generation": "reused_existing_background",
+                "composite": existing_composite,
+            })
+        else:
+            manifest.background.status = "prompt_ready"
+            metadata_payload.update({
+                "status": "prompt_ready",
+                "image_generation": "disabled",
+            })
 
+    if generate_location_patches:
+        _write_json(manifest_path, manifest.model_dump(mode="json"))
+        try:
+            background_reference_path = root / "background.png"
+            if not background_reference_path.exists():
+                raise RuntimeError(
+                    "Location patch generation requires an existing background.png "
+                    "or generate_background=true"
+                )
+            patch_metadata = generate_location_patch_assets(
+                blueprint=blueprint,
+                manifest=manifest,
+                world_background=world_background,
+                semantic_locations=semantic_locations or [],
+                root=root,
+                model_config_path=model_config_path,
+                background_reference_path=background_reference_path,
+                progress_manifest_path=manifest_path,
+            )
+            metadata_payload["location_patches"] = patch_metadata
+            manifest.provenance["location_patch_generation"] = patch_metadata
+        except Exception as patch_exc:
+            logger.warning("Location patch generation skipped/failed: %s", patch_exc)
+            metadata_payload["location_patches"] = {
+                "status": "failed",
+                "error": str(patch_exc),
+            }
+            manifest.provenance["location_patch_generation"] = metadata_payload["location_patches"]
+            hydrated_metadata = hydrate_existing_location_patches(manifest, root)
+            metadata_payload["existing_location_patches"] = hydrated_metadata
+            manifest.provenance["existing_location_patches"] = hydrated_metadata
+    else:
+        hydrated_metadata = hydrate_existing_location_patches(manifest, root)
+        if hydrated_metadata["ready_patch_count"] > 0:
+            metadata_payload["existing_location_patches"] = hydrated_metadata
+            manifest.provenance["existing_location_patches"] = hydrated_metadata
+
+    if generate_road_texture:
+        try:
+            road_metadata = generate_road_texture_assets(
+                blueprint=blueprint,
+                manifest=manifest,
+                world_background=world_background,
+                root=root,
+                model_config_path=model_config_path,
+            )
+            metadata_payload["road_texture"] = road_metadata
+            manifest.provenance["road_texture_generation"] = road_metadata
+        except Exception as road_exc:
+            logger.warning("Road texture generation skipped/failed: %s", road_exc)
+            manifest.route_layer.status = "placeholder"
+            manifest.route_layer.error = str(road_exc)
+            road_metadata = {"status": "failed", "error": str(road_exc)}
+            metadata_payload["road_texture"] = road_metadata
+            manifest.provenance["road_texture_generation"] = road_metadata
+            existing_road = hydrate_existing_road_texture(manifest, root)
+            if existing_road["status"] == "ready":
+                metadata_payload["existing_road_texture"] = existing_road
+    else:
+        existing_road = hydrate_existing_road_texture(manifest, root)
+        if existing_road["status"] == "ready":
+            metadata_payload["existing_road_texture"] = existing_road
+            manifest.provenance["existing_road_texture"] = existing_road
+
+    _write_json(metadata_path, metadata_payload)
     _write_json(manifest_path, manifest.model_dump(mode="json"))
     return manifest
 
@@ -133,14 +230,13 @@ def _generate_background(
         root / "background.png",
         target_size=(target_width, target_height),
         blueprint=blueprint,
-        route_style=manifest.route_layer.style,
         placeholder_style=manifest.location_placeholder_layer.style,
     )
-    manifest.background.composited_layers = ["route_layer", "location_placeholder_layer"]
+    manifest.background.composited_layers = ["location_placeholder_layer"]
     safe_model_metadata = {key: value for key, value in model_metadata.items() if key != "raw_result"}
     return {
         "status": "ready",
-        "generation_strategy": "single_hard_mask_edit",
+        "generation_strategy": "single_hard_mask_edit_clean_reservations_v2",
         "requested_target_size": {"width": target_width, "height": target_height},
         "model": safe_model_metadata,
         "mask_validation": mask_validation,

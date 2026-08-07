@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "background_summary",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "key_events",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "world_knowledge",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_knowledge",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "secrets",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "total_memory_storage_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_integrity_ratio",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "sealed_memory_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_trade_history_entries",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forgotten_loved_ones_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "stolen_memory_identification_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

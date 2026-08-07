@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "step_id": "generate_locations",
+      "generator_type": "location_generator",
+      "target_entity_type": "location",
+      "batch_size": 8,
+      "priority": 1,
+      "description": "生成所有地点实体，包括市政档案馆、记忆交易所、居民住区、风暴避难所、能源中枢、交通闸口、公共广场和维修甲板。"
+    },
+    {
+      "step_id": "generate_paths",
+      "generator_type": "path_generator",
+      "target_entity_type": "path",
+      "batch_size": 5,
+      "priority": 2,
+      "description": "生成地点之间的路径、通道、桥梁和闸门，建立浮空城市内部的空间连接网络。"
+    },
+    {
+      "step_id": "generate_characters",
+      "generator_type": "character_generator",
+      "target_entity_type": "character",
+      "batch_size": 6,
+      "priority": 3,
+      "description": "生成所有角色实体，涵盖记忆贩子、档案保管员、秩序执法者、风暴气象观测员、普通市民、记忆负债者、飞行工程师和市政议员。"
+    },
+    {
+      "step_id": "generate_relations",
+      "generator_type": "relation_generator",
+      "target_entity_type": "relation",
+      "batch_size": 8,
+      "priority": 4,
+      "description": "生成角色之间的关系，包括记忆交易关系、债务关系、执法关系、权力从属和地下结盟关系。"
+    }
+  ]
+}

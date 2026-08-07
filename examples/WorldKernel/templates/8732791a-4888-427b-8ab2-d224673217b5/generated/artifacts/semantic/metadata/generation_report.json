@@ -1,0 +1,68 @@
+{
+  "world_id": "8732791a-4888-427b-8ab2-d224673217b5",
+  "success": true,
+  "source_ids": [
+    "primary"
+  ],
+  "execution_order": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "completed_steps": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "failed_step_id": null,
+  "warnings": [
+    "batch 1 review (score=4.38): 发现 2 个问题并已自动修正",
+    "batch 2/5 failed: Failed to parse JSON: [\n  {\n    \"identity\": {\n      \"id\": \"e:8732791,\n      \"name\": \"记忆鉴定室\",\n      \"type\": \"memory_exchange\",\n      \"description\": \"位于记忆交易所区核心腹地的官方鉴定场所，所有流入和流出官方交易的记忆存储介质都必须在此接受纯度、情感值与稀缺性评估。鉴定室被设计成一座具有仲裁威严的...",
+    "batch 3/5 failed: Failed to parse JSON: [\n  {\n    \"identity\": {\n      \"id\": \"e:8732791,\n      \"name\": \"风暴避难层\",\n      \"type\": \"storm_shelter\",\n      \"description\": \"位于浮空城最底层的环形避难甲板，是巨型风暴云墙逼近时全城居民唯一可去的保命空间。外层覆盖记忆金属隔热板，内壁嵌满密封闸门编号与蓝色应急灯带。风暴警报拉响...",
+    "consolidated retry: 8 seeds missing, retrying as one batch",
+    "batch 6 review (score=4.5): 发现 3 个问题并已自动修正",
+    "review (score=4.7): 封存记忆库（loc:016）只有单向进入路径（pth_002），没有离开路径，导致该地点成为死路，人员无法返回，应改为双向或增加返回路径。; 黑市记忆暗市（loc:003）只有离开路径（pth_008、pth_009），没有任何进入路径，导致从城市其他区域无法进入黑市，应将至少一条路径改为双向（例如pth_008暗市偷渡管道）。"
+  ],
+  "errors": [],
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 18,
+    "character_profile": 15,
+    "path_edge": 26,
+    "relation_edge": 23
+  },
+  "timestamp": "2026-08-06T11:41:40.106237+00:00",
+  "debug_files": {},
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "8732791a-4888-427b-8ab2-d224673217b5",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5"
+    }
+  }
+}

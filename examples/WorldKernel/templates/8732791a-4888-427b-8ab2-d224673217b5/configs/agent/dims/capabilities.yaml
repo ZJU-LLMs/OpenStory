@@ -1,0 +1,25 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+memory_negotiation_skill:
+  type: str
+  option: true
+illegal_memory_trade_knowledge:
+  type: str
+  option: true
+storm_shelter_survival_skill:
+  type: str
+  option: true
+data_forgery_ability:
+  type: str
+  option: true
+emotional_memory_suppression_ability:
+  type: str
+  option: true
+bribery_and_bartering_skill:
+  type: str
+  option: true

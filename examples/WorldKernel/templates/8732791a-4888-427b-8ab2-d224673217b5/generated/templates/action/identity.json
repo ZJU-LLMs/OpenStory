@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "category",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "actor_credit_grade",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "actor_memory_reserve",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "actor_faction_affiliation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "actor_authority_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "actor_storm_exposure_zone",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

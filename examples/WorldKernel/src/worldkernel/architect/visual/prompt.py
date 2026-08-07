@@ -72,7 +72,6 @@ def _world_context(world_background: dict[str, Any], profile: dict[str, Any]) ->
         f"标签：{_join(world_background.get('tags') or [])}",
         f"时代与文化：{profile.get('era_style', '')}",
         f"颜色：{_join(profile.get('color_palette') or [])}",
-        f"光照：{profile.get('lighting_weather', '')}",
         f"氛围：{profile.get('atmosphere', '')}",
     ]
     return "；".join(value for value in values if value.split("：", 1)[-1].strip(" /"))

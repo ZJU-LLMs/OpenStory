@@ -1,0 +1,861 @@
+{
+  "artifact_type": "path_edge",
+  "items": [
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:007",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:010",
+        "bidirectional": true,
+        "length_km": "0.4",
+        "travel_time_min": "6",
+        "credit_requirement_at_start": "10",
+        "credit_requirement_at_end": "10",
+        "connection_type": "skybridge"
+      },
+      "conditions": {
+        "access_level": "registered_citizen",
+        "danger_level": "low",
+        "required_items": "citizen_identity_chip",
+        "credit_threshold": "20",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "5",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:006",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+        "bidirectional": true,
+        "length_km": "1.1",
+        "travel_time_min": "4",
+        "credit_requirement_at_start": "20",
+        "credit_requirement_at_end": "20",
+        "connection_type": "maglev_tube"
+      },
+      "conditions": {
+        "access_level": "registered_citizen",
+        "danger_level": "low",
+        "required_items": "citizen_identity_chip",
+        "credit_threshold": "50",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "8",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:010",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:017",
+        "bidirectional": false,
+        "length_km": "8.2",
+        "travel_time_min": "12",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "500",
+        "connection_type": "armored_elevator"
+      },
+      "conditions": {
+        "access_level": "archive_enforcer",
+        "danger_level": "high",
+        "required_items": "archive_clearance_token, hazmat_suit",
+        "credit_threshold": "500",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:008",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+        "bidirectional": true,
+        "length_km": "1.8",
+        "travel_time_min": "15",
+        "credit_requirement_at_start": "5",
+        "credit_requirement_at_end": "5",
+        "connection_type": "pedestrian_way"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "low",
+        "required_items": "",
+        "credit_threshold": "10",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "2",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:009",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+        "bidirectional": true,
+        "length_km": "2.3",
+        "travel_time_min": "5",
+        "credit_requirement_at_start": "100",
+        "credit_requirement_at_end": "100",
+        "connection_type": "maglev_tube"
+      },
+      "conditions": {
+        "access_level": "council_staff",
+        "danger_level": "low",
+        "required_items": "council_pass",
+        "credit_threshold": "200",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "20",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:023",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:018",
+        "bidirectional": true,
+        "length_km": "0.2",
+        "travel_time_min": "3",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "hidden_elevator"
+      },
+      "conditions": {
+        "access_level": "council_member",
+        "danger_level": "medium",
+        "required_items": "biometric_override_key",
+        "credit_threshold": "1000",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:017",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:009",
+        "bidirectional": true,
+        "length_km": "3.4",
+        "travel_time_min": "8",
+        "credit_requirement_at_start": "30",
+        "credit_requirement_at_end": "30",
+        "connection_type": "elevated_rail"
+      },
+      "conditions": {
+        "access_level": "registered_citizen",
+        "danger_level": "medium",
+        "required_items": "storm_weather_permit",
+        "credit_threshold": "80",
+        "requires_id_card": "true",
+        "storm_protocol_active": "true",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "15",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:024",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:019",
+        "bidirectional": true,
+        "length_km": "12.6",
+        "travel_time_min": "20",
+        "credit_requirement_at_start": "200",
+        "credit_requirement_at_end": "200",
+        "connection_type": "maintenance_shaft"
+      },
+      "conditions": {
+        "access_level": "energy_engineer",
+        "danger_level": "high",
+        "required_items": "energy_clearance_card, thermal_suit",
+        "credit_threshold": "400",
+        "requires_id_card": "true",
+        "storm_protocol_active": "true",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "50",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:003",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:019",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:002",
+        "bidirectional": true,
+        "length_km": "5.1",
+        "travel_time_min": "14",
+        "credit_requirement_at_start": "50",
+        "credit_requirement_at_end": "50",
+        "connection_type": "pressurized_conduit"
+      },
+      "conditions": {
+        "access_level": "maintenance_worker",
+        "danger_level": "high",
+        "required_items": "life_support_pass, oxygen_gear",
+        "credit_threshold": "150",
+        "requires_id_card": "true",
+        "storm_protocol_active": "true",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "10",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:001",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:001",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:002",
+        "bidirectional": true,
+        "length_km": "3.9",
+        "travel_time_min": "30",
+        "credit_requirement_at_start": "10",
+        "credit_requirement_at_end": "10",
+        "connection_type": "maintenance_catwalk"
+      },
+      "conditions": {
+        "access_level": "city_worker",
+        "danger_level": "high",
+        "required_items": "harness, storm_suit",
+        "credit_threshold": "30",
+        "requires_id_card": "true",
+        "storm_protocol_active": "true",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:002",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:001",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:009",
+        "bidirectional": true,
+        "length_km": "7.2",
+        "travel_time_min": "25",
+        "credit_requirement_at_start": "20",
+        "credit_requirement_at_end": "20",
+        "connection_type": "cableway"
+      },
+      "conditions": {
+        "access_level": "observation_authorized",
+        "danger_level": "high",
+        "required_items": "weather_research_pass",
+        "credit_threshold": "60",
+        "requires_id_card": "true",
+        "storm_protocol_active": "true",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "5",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:020",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+        "bidirectional": true,
+        "length_km": "0.9",
+        "travel_time_min": "4",
+        "credit_requirement_at_start": "10",
+        "credit_requirement_at_end": "10",
+        "connection_type": "underground_walkway"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "low",
+        "required_items": "",
+        "credit_threshold": "10",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "2",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:019",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:013",
+        "bidirectional": true,
+        "length_km": "2.6",
+        "travel_time_min": "7",
+        "credit_requirement_at_start": "15",
+        "credit_requirement_at_end": "15",
+        "connection_type": "suspended_rail"
+      },
+      "conditions": {
+        "access_level": "registered_citizen",
+        "danger_level": "low",
+        "required_items": "transit_card",
+        "credit_threshold": "30",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "6",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:013",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+        "bidirectional": true,
+        "length_km": "4.7",
+        "travel_time_min": "16",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "cargo_rail"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "medium",
+        "required_items": "transit_card",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "3",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:021",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+        "bidirectional": true,
+        "length_km": "6.8",
+        "travel_time_min": "18",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "cargo_tram"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "medium",
+        "required_items": "",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "4",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:014",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+        "bidirectional": true,
+        "length_km": "0.8",
+        "travel_time_min": "8",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "pedestrian_bridge"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "medium",
+        "required_items": "",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:015",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+        "bidirectional": true,
+        "length_km": "1.3",
+        "travel_time_min": "12",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "mooring_boardwalk"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "high",
+        "required_items": "",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:011",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:005",
+        "bidirectional": false,
+        "length_km": "2.2",
+        "travel_time_min": "5",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "100",
+        "connection_type": "sealed_pipeline"
+      },
+      "conditions": {
+        "access_level": "debt_contractor",
+        "danger_level": "medium",
+        "required_items": "reservoir_access_key",
+        "credit_threshold": "0",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:012",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:005",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+        "bidirectional": true,
+        "length_km": "3.0",
+        "travel_time_min": "9",
+        "credit_requirement_at_start": "50",
+        "credit_requirement_at_end": "50",
+        "connection_type": "pressurized_memory_pipe"
+      },
+      "conditions": {
+        "access_level": "exchange_authorized",
+        "danger_level": "medium",
+        "required_items": "exchange_clearance_token",
+        "credit_threshold": "150",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "20",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:005",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:003",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+        "bidirectional": true,
+        "length_km": "1.7",
+        "travel_time_min": "15",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "ventilation_shaft"
+      },
+      "conditions": {
+        "access_level": "black_market_guest",
+        "danger_level": "high",
+        "required_items": "password_fragment",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:004",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:003",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+        "bidirectional": true,
+        "length_km": "2.9",
+        "travel_time_min": "25",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "crawlspace"
+      },
+      "conditions": {
+        "access_level": "black_market_guide",
+        "danger_level": "extreme",
+        "required_items": "guide_marker, filter_mask",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:018",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:010",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:011",
+        "bidirectional": false,
+        "length_km": "0.15",
+        "travel_time_min": "3",
+        "credit_requirement_at_start": "20",
+        "credit_requirement_at_end": "20",
+        "connection_type": "hospital_elevator"
+      },
+      "conditions": {
+        "access_level": "medical_patient",
+        "danger_level": "low",
+        "required_items": "hospital_bracelet",
+        "credit_threshold": "30",
+        "requires_id_card": "true",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "false",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "true"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:016",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+        "bidirectional": true,
+        "length_km": "0.6",
+        "travel_time_min": "5",
+        "credit_requirement_at_start": "10",
+        "credit_requirement_at_end": "10",
+        "connection_type": "glass_skyway"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "low",
+        "required_items": "",
+        "credit_threshold": "15",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "3",
+        "curfew_restricted": "false"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:022",
+        "name": "",
+        "type": "",
+        "path_type": "",
+        "is_official": "",
+        "is_monitored": "",
+        "maintenance_status": "",
+        "is_restricted": "",
+        "is_secret": ""
+      },
+      "endpoints": {
+        "from_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+        "to_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:014",
+        "bidirectional": true,
+        "length_km": "0.3",
+        "travel_time_min": "4",
+        "credit_requirement_at_start": "0",
+        "credit_requirement_at_end": "0",
+        "connection_type": "stone_path"
+      },
+      "conditions": {
+        "access_level": "public",
+        "danger_level": "low",
+        "required_items": "",
+        "credit_threshold": "0",
+        "requires_id_card": "false",
+        "storm_protocol_active": "false",
+        "memory_device_allowed": "true",
+        "toll_cost_memories": "0",
+        "curfew_restricted": "false"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:007",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:006",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:010",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:008",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:009",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:023",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:017",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:024",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:003",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:001",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:002",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:020",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:019",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:013",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:021",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:014",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:015",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:011",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:012",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:005",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:004",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:018",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:016",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:path:022"
+  ],
+  "upstream_step_ids": [
+    "generate_paths"
+  ],
+  "warnings": [
+    "review (score=4.86): 路径 p024（雷底货梯）的 access_level 被标记为“开放”，但连接的风暴汲取核心是城市存亡关键设施，应改为“限制”并同步 is_restricted。; 大红斑观测台声称向公众开放有限观景，但现有路径 p019/p020 均为限制级，缺少公共可达通道；需新增一条从公共区域（如子午线交通枢纽）到观测台的开放路径。",
+    "graph: Too many paths: 29 (expected 19-28)",
+    "graph validation passed after retry"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

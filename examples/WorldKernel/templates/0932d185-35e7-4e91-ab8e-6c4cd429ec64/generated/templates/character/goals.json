@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "target_memory_to_restore",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "desired_memory_assets",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_debt_clearance_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "planned_resistance_action",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archival_access_objective",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_window_exploitation_plan",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

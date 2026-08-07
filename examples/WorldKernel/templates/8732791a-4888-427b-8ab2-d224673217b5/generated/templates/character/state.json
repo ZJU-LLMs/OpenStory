@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "location_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "position_x",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "position_y",
+      "type": "float",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_storm_warning_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_access_terminal_proximity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "creditor_presence_nearby",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_drone_overhead_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shelter_occupancy_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

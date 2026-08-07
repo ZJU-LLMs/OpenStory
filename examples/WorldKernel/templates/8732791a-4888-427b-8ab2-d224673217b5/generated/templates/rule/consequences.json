@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "credit_score_deduction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_seizure_ratio",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_interest_rate",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_rank_degradation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shelter_restriction_degree",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "compliance_bonus_credits",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

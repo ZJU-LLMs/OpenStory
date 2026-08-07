@@ -1,0 +1,574 @@
+{
+  "primary": "dystopian_city",
+  "secondary": "memory_economy",
+  "confidence": 0.92,
+  "tags": [
+    "记忆通货",
+    "浮空城市",
+    "木星风暴",
+    "近未来",
+    "反乌托邦",
+    "档案社会",
+    "极端环境",
+    "社会控制"
+  ],
+  "world_name": "风暴档案城",
+  "world_origin_summary": "原创反乌托邦世界：人类在木星永恒风暴上空建立浮空档案城，将记忆提取为可交易、可存储、可剥夺的货币，维系城市运转与秩序。",
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "第127个风暴周期，记忆重估法案颁布日",
+    "trigger_event": "市政档案馆宣布对全城居民记忆储量进行重新估值，并拟征收“风暴税”以度过即将到来的巨型风暴",
+    "year": "2147",
+    "narrative_context": "巨型风暴云墙正逼近城市轨道，居民在恐慌中涌向交易所，试图在记忆被强行征收前保住珍贵的个人记忆。"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来浮空都市与档案管理美学：飞艇、磁悬浮舱、气密门、大型通风管道、档案塔与电子屏幕，整体呈蒸汽朋克与赛博朋克结合、但用明亮像素画呈现",
+    "color_palette": [
+      "风暴云灰紫",
+      "记忆荧光青",
+      "档案纸米白",
+      "管道暖铜",
+      "防护装甲蓝"
+    ],
+    "lighting_weather": "",
+    "material_texture": [
+      "大色块金属甲板",
+      "磨砂漆面管道",
+      "网格防滑平台",
+      "半透明记忆胶囊玻璃",
+      "风化胶合板墙面",
+      "亮面信息屏"
+    ],
+    "environmental_motifs": [
+      "悬臂式瞭望塔",
+      "风力集气风车",
+      "磁悬浮穿梭舱",
+      "记忆输送管道与阀门",
+      "档案集装箱吊臂",
+      "电子公告牌",
+      "气密闸门",
+      "风暴警示灯塔",
+      "植绒储气罐",
+      "缆线桥"
+    ],
+    "atmosphere": "秩序压抑但不失生活气息，带着气压声与档案纸味的无菌感，以及灾变前的紧张",
+    "edge_blending_style": "柔和像素羽化的地形边缘、云气散逸过渡与城市甲板间的自然遮挡，方便地点贴片无缝拼合",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理",
+      "不要低角度风暴云海透视"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "municipal_archive",
+      "type_name": "市政档案馆",
+      "description": "城市的心脏，存放所有记忆档案的巨型数据塔，控制记忆的存取与定价。",
+      "common_fields": [
+        "storage_capacity",
+        "access_level",
+        "archivist",
+        "valuation_index"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "grand_archive_vault",
+          "name": "大档案馆",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.95,
+          "generation_priority": 1,
+          "role_in_world": "城市记忆存储与评估的中心，也是权力阶级控制记忆通货的枢纽。"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_exchange",
+      "type_name": "记忆交易所",
+      "description": "记忆交易发生的公开市场，居民在此购买、出售或抵押记忆。",
+      "common_fields": [
+        "market_hours",
+        "broker_id",
+        "memory_spot_price",
+        "security_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "gossamer_bourse",
+          "name": "微光记忆交易所",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "记忆通货流动的主动脉，城市经济活力的源泉。"
+        }
+      ]
+    },
+    {
+      "type_id": "residential_block",
+      "type_name": "居民住区",
+      "description": "居民生活区，按记忆财富分层分配，贫富差距体现在居住高度和密封性上。",
+      "common_fields": [
+        "tier",
+        "population",
+        "life_support",
+        "storm_shielding"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "lower_sector_hab",
+          "name": "下环居住舱",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "普通居民和债务人聚居的拥挤住宅，记忆贫瘠者的栖息地。"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_shelter",
+      "type_name": "风暴避难所",
+      "description": "用于躲避木星风暴的强化避难设施，位于城市甲板之下的密封舱体。",
+      "common_fields": [
+        "capacity",
+        "seal_level",
+        "supply_days",
+        "location_depth"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "deep_vault_shelters",
+          "name": "深舱避难所",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "风暴侵袭时居民唯一的安全去处，也是社会矛盾激化时的争夺目标。"
+        }
+      ]
+    },
+    {
+      "type_id": "energy_hub",
+      "type_name": "能源中枢",
+      "description": "收集风暴气流动能转化为城市能源的核心设施，保障浮空系统运行。",
+      "common_fields": [
+        "output_capacity",
+        "fuel_type",
+        "maintenance_status"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "tempest_spire_plant",
+          "name": "风暴尖塔发电站",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "维系城市悬浮和生命维持系统的能源心脏，一旦停摆城市将坠入风暴。"
+        }
+      ]
+    },
+    {
+      "type_id": "transit_gate",
+      "type_name": "交通闸口",
+      "description": "连接城市各区块的磁悬浮交通出入口，也是出入城检查点。",
+      "common_fields": [
+        "routes",
+        "traffic_flow",
+        "security_check"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "aerodock_west_gate",
+          "name": "西船坞闸口",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "人员与物资进出城市的关卡，巡逻队在此征收记忆过路费。"
+        }
+      ]
+    },
+    {
+      "type_id": "civic_plaza",
+      "type_name": "公共广场",
+      "description": "城市居民的公共广场，用于集会、公告和节庆，也是监控最密集的公共空间。",
+      "common_fields": [
+        "capacity",
+        "broadcast_screen",
+        "surveillance_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "archive_sunken_plaza",
+          "name": "回响下沉广场",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "承载城市记忆的公共象征，官方宣扬记忆储蓄美德的地方。"
+        }
+      ]
+    },
+    {
+      "type_id": "maintenance_deck",
+      "type_name": "维修甲板",
+      "description": "维修人员检修城市外壳和飞行器的作业平台，布满管道与脚手架。",
+      "common_fields": [
+        "work_order",
+        "hazard_level",
+        "equipment"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "underbelly_spider_deck",
+          "name": "城腹蜘蛛甲板",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "灰色交易和秘密接头频繁的底层维修区，远离档案馆的视线。"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "memory_broker",
+      "type_name": "记忆贩子",
+      "description": "在合法与黑市边缘游走的记忆中间商，掌握行情和客户秘密。",
+      "common_fields": [
+        "license",
+        "reputation",
+        "client_list",
+        "liquid_memory"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "kess_amberlight",
+          "name": "凯斯·安珀莱特",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "城市最大的地下记忆商人，暗中操纵记忆价格并囤积稀有记忆。"
+        }
+      ]
+    },
+    {
+      "type_id": "archivist_keeper",
+      "type_name": "档案保管员",
+      "description": "负责管理档案塔记忆库、维护存储设备和执行存取规则的职员，拥有极高权限。",
+      "common_fields": [
+        "clearance_level",
+        "archives_section",
+        "neutrality"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "elm_vanta",
+          "name": "埃尔姆·凡塔",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "主管市民记忆库的资深档案员，在职责与良心间挣扎。"
+        }
+      ]
+    },
+    {
+      "type_id": "enforcer_officer",
+      "type_name": "秩序执法者",
+      "description": "城市安保力量，执行记忆税和配额，搜缴走私记忆，维持公共秩序。",
+      "common_fields": [
+        "squad",
+        "rank",
+        "violence_index",
+        "bribe_tolerance"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "marcus_avel",
+          "name": "马库斯·阿维尔",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "街头执法队长，以严厉手段执行记忆征缴，但私下同情穷困者。"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_meteorologist",
+      "type_name": "风暴气象观测员",
+      "description": "监测木星风暴动态、预测风暴路径的高级技术人员，是城市安全的关键人物。",
+      "common_fields": [
+        "forecast_skill",
+        "storm_prediction",
+        "alarm_level"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "yuna_rey",
+          "name": "尤娜·蕾",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "首席风暴预报员，发布的警报决定整座城市的生死走向。"
+        }
+      ]
+    },
+    {
+      "type_id": "colonial_citizen",
+      "type_name": "普通市民",
+      "description": "普通城市居民，拥有少量记忆储蓄，靠出卖劳动和记忆碎片维持生活。",
+      "common_fields": [
+        "memory_savings",
+        "occupation",
+        "residential_tier",
+        "loyalty"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "ludo_harq",
+          "name": "卢多·哈尔克",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "下环区的管道修理工，勉强维持正常生活，却因风暴税面临记忆清零。"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_indebted",
+      "type_name": "记忆负债者",
+      "description": "因债务或犯罪被掏空记忆的人，在社会底层挣扎，失去身份与情感积累，常被歧视。",
+      "common_fields": [
+        "debt_amount",
+        "remaining_memories",
+        "status"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "ferro_blank",
+          "name": "费罗·布兰克",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "失去大半记忆的负债者，偶然发现自己残留着关键的城市秘密。"
+        }
+      ]
+    },
+    {
+      "type_id": "flight_engineer",
+      "type_name": "飞行工程师",
+      "description": "维护城市浮空系统、推进器和飞艇的技术工匠，熟悉城市骨架每一根梁。",
+      "common_fields": [
+        "specialty",
+        "shift",
+        "danger_tolerance"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "sable_korrin",
+          "name": "萨贝尔·科林",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "负责城市稳定翼的女工程师，在维修中发现城市动力系统遭到人为破坏。"
+        }
+      ]
+    },
+    {
+      "type_id": "official_senator",
+      "type_name": "市政议员",
+      "description": "城市议会的议员，制定记忆法律，与档案馆及财团关系密切，维持表面上的民主。",
+      "common_fields": [
+        "faction",
+        "memory_wealth",
+        "constituency"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "voss_irandu",
+          "name": "沃斯·伊兰杜",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "主张提高风暴税和大规模征收记忆的强硬议员，实际希望借此巩固权力。"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "memory_currency_law",
+      "type_name": "记忆通货法",
+      "description": "确立记忆为唯一法定货币的法律框架，规定记忆的提取、计价和交易的通用标准。",
+      "common_fields": [
+        "legal_framework",
+        "exchange_rate",
+        "fraud_penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "lumen_standard",
+          "name": "流明记忆标准",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.95,
+          "generation_priority": 1,
+          "role_in_world": "城市经济的基础，一切债权债务和商品价值都以记忆当量计。"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_deposit_regulation",
+      "type_name": "记忆存取规则",
+      "description": "规范居民入档、取档、转让记忆的过程，并保护（或限制）公民记忆的产权。",
+      "common_fields": [
+        "withdrawal_limit",
+        "storage_fee",
+        "heir_rules"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "vault_access_charter",
+          "name": "档案存取宪章",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "界定居民对自己记忆的所有权和对档案馆的权力，是压迫与反抗的焦点。"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_taxation",
+      "type_name": "记忆征收规则",
+      "description": "城市以公共安全、风暴防御为由按月征收记忆税，税基由档案馆估值决定。",
+      "common_fields": [
+        "tax_rate",
+        "exemption",
+        "enforcement_agency"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "storm_tithe",
+          "name": "风暴什一税",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "每年巨型风暴前征收的强制性记忆税，是压垮底层居民的主要规则。"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_evacuation_protocol",
+      "type_name": "风暴应急规程",
+      "description": "风暴警报发出后，市民按居住层级进入指定避难舱，并需在入口处临时缴纳安全记忆费。",
+      "common_fields": [
+        "alarm_level",
+        "shelter_priority",
+        "lockdown_duration"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "red_sky_lockdown",
+          "name": "红烛宵禁令",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "在风暴红色警报下强制全城进入封闭状态，违者将被永久抹除记忆。"
+        }
+      ]
+    },
+    {
+      "type_id": "access_certification",
+      "type_name": "档案准入制度",
+      "description": "规定谁可以进入档案馆内层与记忆库，权限由记忆储量和社会地位决定。",
+      "common_fields": [
+        "clearance_tier",
+        "rights",
+        "escort_required"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "vault_clearance_badge",
+          "name": "高库通行徽章",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "将市民划分为可信任与不可信任阶层，形成档案核心区的门禁壁垒。"
+        }
+      ]
+    },
+    {
+      "type_id": "identity_credit_system",
+      "type_name": "身份信用体系",
+      "description": "居民的记忆净值决定其法律身份等级和生存权利，负债者将丧失部分公民权。",
+      "common_fields": [
+        "credit_score",
+        "civil_status",
+        "appeal_rights"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "mnemonic_credit_ledger",
+          "name": "记忆信用账本",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "将人的价值数字化，记忆净值归零者会被定义为“无人格”，任人处置。"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "planetary_storm_environment",
+      "name": "木星风暴环境",
+      "description": "城市必须持续维持在木星风暴层中的悬浮高度，任何推进或防护系统故障都会导致城市解体坠入风暴。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "memory_conservation_law",
+      "name": "记忆守恒定律",
+      "description": "个人记忆被提取后不可凭空生成，只能转移、存储或湮灭，因此记忆总量有限，是真正稀缺的资源。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "floating_city_autonomy",
+      "name": "浮城自治",
+      "description": "城市与外界星际社会隔绝，无法获得大规模外部救援，必须依靠自身记忆经济与工程能力维持存续。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "mnemonic_biopolitics",
+      "name": "记忆政治",
+      "description": "记忆储量决定社会地位，高记忆者拥有更多权力，而记忆可以被强力征用，形成档案馆与议会寡头共同主导的等级结构。",
+      "scope": "global"
+    }
+  ]
+}

@@ -1,9 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw
 
 from worldkernel.architect.spatial.models import SpatialBlueprint
 from worldkernel.architect.visual.models import VisualLayoutManifest
@@ -180,7 +181,6 @@ def finalize_generated_background(
     *,
     target_size: tuple[int, int],
     blueprint: SpatialBlueprint,
-    route_style: dict[str, Any],
     placeholder_style: dict[str, Any],
 ) -> dict[str, Any]:
     generated_path = Path(generated_path)
@@ -191,8 +191,8 @@ def finalize_generated_background(
         raise ValueError(f"Generated image size {original_size} does not match target size {target_size}")
 
     tile = int(blueprint.grid.tile_size)
+    cleaned_road_pixels = clean_road_reserved_pixels(generated, blueprint, tile)
     draw = ImageDraw.Draw(generated, "RGBA")
-    _draw_route_placeholders(draw, blueprint, tile, route_style)
     _draw_location_placeholders(draw, blueprint, tile, placeholder_style)
 
     output = Path(output_path)
@@ -202,32 +202,109 @@ def finalize_generated_background(
         "input_size": {"width": original_size[0], "height": original_size[1]},
         "output_size": {"width": target_size[0], "height": target_size[1]},
         "resized": False,
-        "postprocessing": "none",
-        "protected_region_composite": "stage2_coordinate_overlays",
-        "composited_layers": ["route_layer", "location_placeholder_layer"],
+        "postprocessing": "road_reservation_ground_fill",
+        "protected_region_composite": "location_placeholder_only",
+        "composited_layers": ["location_placeholder_layer"],
+        "route_placeholder_composited": False,
+        "road_reserved_pixels_cleaned": cleaned_road_pixels,
         "route_tile_count": len(blueprint.road_tiles),
         "location_placeholder_count": len(blueprint.regions),
     }
 
 
-def _draw_route_placeholders(
-    draw: ImageDraw.ImageDraw,
+def clean_road_reserved_pixels(
+    image: Image.Image,
     blueprint: SpatialBlueprint,
     tile: int,
-    style: dict[str, Any],
-) -> None:
-    base = _parse_color(style.get("base_color"), (185, 157, 92, 255), force_opaque=True)
-    edge = _parse_color(style.get("edge_color"), (143, 119, 68, 255), force_opaque=True)
-    highlight = _parse_color(style.get("highlight_color"), (210, 187, 117, 255), force_opaque=True)
-    inset = max(1, tile // 8)
-    for point in blueprint.road_tiles:
-        x0 = int(point.x * tile)
-        y0 = int(point.y * tile)
-        x1 = int((point.x + 1) * tile) - 1
-        y1 = int((point.y + 1) * tile) - 1
-        box = (x0, y0, x1, y1)
-        draw.rectangle(box, fill=base, outline=edge, width=inset)
-        draw.line((x0 + inset, y0 + inset, x1 - inset, y0 + inset), fill=highlight, width=inset)
+) -> int:
+    road_tiles = {(int(point.x), int(point.y)) for point in blueprint.road_tiles}
+    location_tiles: set[tuple[int, int]] = set()
+    for region in blueprint.regions:
+        bounds = region.bounds or {}
+        x0 = int(bounds.get("x", 0))
+        y0 = int(bounds.get("y", 0))
+        width = max(0, int(bounds.get("w", 0)))
+        height = max(0, int(bounds.get("h", 0)))
+        location_tiles.update(
+            (x, y)
+            for y in range(y0, y0 + height)
+            for x in range(x0, x0 + width)
+        )
+
+    source = image.convert("RGB")
+    draw = ImageDraw.Draw(image, "RGBA")
+    blocked_tiles = road_tiles | location_tiles
+    cleaned_pixels = 0
+    for x, y in road_tiles:
+        color = _sample_nearby_ground_color(
+            source,
+            x=x,
+            y=y,
+            tile=tile,
+            blocked_tiles=blocked_tiles,
+            grid_size=(blueprint.grid.width, blueprint.grid.height),
+        )
+        x0, y0 = x * tile, y * tile
+        draw.rectangle(
+            (x0, y0, x0 + tile - 1, y0 + tile - 1),
+            fill=color + (255,),
+        )
+        cleaned_pixels += tile * tile
+    return cleaned_pixels
+
+
+def _sample_nearby_ground_color(
+    image: Image.Image,
+    *,
+    x: int,
+    y: int,
+    tile: int,
+    blocked_tiles: set[tuple[int, int]],
+    grid_size: tuple[int, int],
+) -> tuple[int, int, int]:
+    grid_width, grid_height = grid_size
+    candidates: list[tuple[int, int]] = []
+    for radius in range(1, max(grid_width, grid_height) + 1):
+        ring: list[tuple[int, int]] = []
+        for offset in range(-radius, radius + 1):
+            ring.extend(
+                [
+                    (x + offset, y - radius),
+                    (x + offset, y + radius),
+                    (x - radius, y + offset),
+                    (x + radius, y + offset),
+                ]
+            )
+        candidates = [
+            point
+            for point in dict.fromkeys(ring)
+            if 0 <= point[0] < grid_width
+            and 0 <= point[1] < grid_height
+            and point not in blocked_tiles
+        ]
+        if candidates:
+            break
+    if not candidates:
+        return EDITABLE_BASE_COLOR
+
+    samples: list[tuple[int, int, int]] = []
+    for tile_x, tile_y in candidates:
+        crop = image.crop(
+            (
+                tile_x * tile,
+                tile_y * tile,
+                (tile_x + 1) * tile,
+                (tile_y + 1) * tile,
+            )
+        )
+        pixels = (
+            crop.get_flattened_data()
+            if hasattr(crop, "get_flattened_data")
+            else crop.getdata()
+        )
+        samples.extend(pixels)
+    quantized = [tuple((channel // 16) * 16 for channel in pixel[:3]) for pixel in samples]
+    return Counter(quantized).most_common(1)[0][0]
 
 
 def _draw_location_placeholders(
@@ -350,71 +427,6 @@ def _render_road_mask(
     return mask
 
 
-def _render_layout_preview(
-    blueprint: SpatialBlueprint,
-    width: int,
-    height: int,
-    tile: int,
-) -> Image.Image:
-    image = Image.new("RGB", (width, height), "#171b2b")
-    draw = ImageDraw.Draw(image, "RGBA")
-    grid_color = (100, 118, 155, 28)
-    for x in range(0, width + 1, tile):
-        draw.line((x, 0, x, height), fill=grid_color, width=1)
-    for y in range(0, height + 1, tile):
-        draw.line((0, y, width, y), fill=grid_color, width=1)
-
-    for point in blueprint.road_tiles:
-        draw.rectangle(
-            (point.x * tile, point.y * tile, (point.x + 1) * tile, (point.y + 1) * tile),
-            fill=(112, 218, 246, 190),
-        )
-
-    font = _load_font(max(12, tile))
-    for index, region in enumerate(blueprint.regions):
-        bounds = region.bounds or {}
-        x0 = int(bounds.get("x", 0) * tile)
-        y0 = int(bounds.get("y", 0) * tile)
-        x1 = int((bounds.get("x", 0) + bounds.get("w", 0)) * tile)
-        y1 = int((bounds.get("y", 0) + bounds.get("h", 0)) * tile)
-        fill = (68, 76, 105, 210) if index % 3 else (126, 58, 70, 210)
-        draw.rectangle((x0, y0, x1, y1), fill=fill, outline=(224, 231, 246, 190), width=max(1, tile // 8))
-        label = region.name or region.location_id
-        _draw_centered_label(draw, (x0, y0, x1, y1), label, font)
-        entrance = region.entrance or {}
-        ex = int((entrance.get("x", 0) + 0.5) * tile)
-        ey = int((entrance.get("y", 0) + 0.5) * tile)
-        radius = max(3, tile // 3)
-        draw.ellipse((ex - radius, ey - radius, ex + radius, ey + radius), fill=(255, 196, 40, 255))
-    return image
-
-
-def _load_font(size: int) -> ImageFont.ImageFont:
-    for path in (
-        Path("C:/Windows/Fonts/msyh.ttc"),
-        Path("C:/Windows/Fonts/simhei.ttf"),
-        Path("C:/Windows/Fonts/arial.ttf"),
-    ):
-        if path.exists():
-            return ImageFont.truetype(str(path), size=size)
-    return ImageFont.load_default()
-
-
-def _draw_centered_label(
-    draw: ImageDraw.ImageDraw,
-    bounds: tuple[int, int, int, int],
-    text: str,
-    font: ImageFont.ImageFont,
-) -> None:
-    x0, y0, x1, y1 = bounds
-    max_width = max(8, x1 - x0 - 8)
-    label = text
-    while len(label) > 2 and draw.textbbox((0, 0), label, font=font)[2] > max_width:
-        label = label[:-2] + "…"
-    text_box = draw.textbbox((0, 0), label, font=font)
-    x = x0 + (x1 - x0 - (text_box[2] - text_box[0])) / 2
-    y = y0 + (y1 - y0 - (text_box[3] - text_box[1])) / 2
-    draw.text((x, y), label, font=font, fill=(245, 247, 252, 255))
 
 
 def _clamp_box(box: tuple[int, int, int, int], width: int, height: int) -> tuple[int, int, int, int]:

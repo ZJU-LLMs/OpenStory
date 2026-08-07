@@ -1,0 +1,15 @@
+{
+  "patch_path": "examples\\WorldKernel\\tests\\_road_cleanup_effect_test\\location_patches\\001_e_8732791a_4888_427b_8ab2_d224673217b5_loc_016_86595e9868.png",
+  "patch_bounds": {
+    "x": 1448,
+    "y": 0,
+    "w": 512,
+    "h": 512
+  },
+  "exact_temporary_color_counts": {
+    "(143, 119, 68)": 0,
+    "(210, 187, 117)": 0,
+    "(185, 157, 92)": 0,
+    "(184, 184, 184)": 0
+  }
+}

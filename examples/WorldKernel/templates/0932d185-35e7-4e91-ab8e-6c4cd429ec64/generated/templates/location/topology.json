@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_network_zone",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_exposure_side",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "transport_hub_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "vertical_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "adjacent_memory_district",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_escape_route_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

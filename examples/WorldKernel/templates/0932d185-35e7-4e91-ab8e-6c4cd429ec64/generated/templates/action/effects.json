@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "on_actor",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_target",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_environment",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_delta",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "personality_integrity_delta",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "credit_score_delta",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_standing_delta",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

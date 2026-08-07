@@ -1,8 +1,0 @@
-{
-  "dimensions": [
-    "identity",
-    "preconditions",
-    "effects",
-    "costs"
-  ]
-}

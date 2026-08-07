@@ -1,0 +1,86 @@
+{
+  "status": "ready",
+  "generation_strategy": "local_context_full_patch_v3",
+  "location_id": "e:8732791a_4888_427b_8ab2_d224673217b5:loc:014",
+  "logical_bounds_px": {
+    "x": 416,
+    "y": 1312,
+    "w": 240,
+    "h": 176
+  },
+  "render_bounds_px": {
+    "x": 280,
+    "y": 1088,
+    "w": 512,
+    "h": 512
+  },
+  "target_size": {
+    "width": 512,
+    "height": 512
+  },
+  "request_size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "request_scale": 2,
+  "native_context_size": {
+    "width": 512,
+    "height": 512
+  },
+  "context_crop_px": {
+    "x": 280,
+    "y": 1088,
+    "w": 512,
+    "h": 512
+  },
+  "slot_in_context_px": {
+    "x": 136,
+    "y": 224,
+    "w": 240,
+    "h": 176
+  },
+  "entrance_port": {
+    "side": "south",
+    "offset_tiles": 7,
+    "width_tiles": 1,
+    "entry_depth_tiles": 1,
+    "tile_size_px": 16,
+    "grid_point": {
+      "x": 33,
+      "y": 92
+    }
+  },
+  "entrance_corridor_px": {
+    "x": 248,
+    "y": 384,
+    "w": 16,
+    "h": 16
+  },
+  "protected_context_validation": {
+    "protected_pixels": 880640,
+    "changed_pixels": 875397,
+    "changed_ratio": 0.9940463753633721,
+    "structural_changed_pixels": 154654,
+    "structural_change_ratio": 0.17561546148255813,
+    "mean_max_channel_delta": 18.412837254723836,
+    "exact_preservation": false,
+    "provider_mask_behavior": "context_redraw",
+    "within_guideline": true,
+    "passed": true,
+    "validation_mode": "diagnostic_only"
+  },
+  "final_extracted_size": {
+    "width": 512,
+    "height": 512
+  },
+  "postprocess": "integer_nearest_downscale_keep_full_local_context",
+  "final_background_protection": "full generated local context retained; exact entry corridor restored",
+  "model": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible_edit",
+    "size": "1024x1024",
+    "image_url": ""
+  },
+  "context_source": "E:\\OpenStory\\examples\\WorldKernel\\templates\\8732791a-4888-427b-8ab2-d224673217b5\\generated\\artifacts\\spatial\\background.png"
+}
