@@ -1,0 +1,25 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+courage_level:
+  type: str
+  option: true
+prejudice_toward_muggleborns:
+  type: str
+  option: true
+defiance_willingness:
+  type: str
+  option: true
+trust_in_authority:
+  type: str
+  option: true
+emotional_resilience:
+  type: str
+  option: true
+moral_ambiguity:
+  type: str
+  option: true

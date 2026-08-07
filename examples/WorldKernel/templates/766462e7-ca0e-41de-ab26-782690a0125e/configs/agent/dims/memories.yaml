@@ -1,0 +1,30 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+traumatic_memories:
+  type: str
+  option: true
+first_war_experiences:
+  type: str
+  option: true
+witnessed_deaths:
+  type: str
+  option: true
+false_memories:
+  type: str
+  option: true
+suppressed_memories:
+  type: str
+  option: true
+prophetic_visions:
+  type: str
+  option: true

@@ -1,0 +1,28 @@
+dim_name: StateDim
+location:
+  location_id:
+    type: str
+    ref: location
+position:
+  x:
+    type: float
+  y:
+    type: float
+current_health:
+  type: str
+  option: true
+magic_reserves:
+  type: str
+  option: true
+emotional_stability:
+  type: str
+  option: true
+captivity_status:
+  type: str
+  option: true
+disguise_active:
+  type: str
+  option: true
+surveillance_level:
+  type: str
+  option: true

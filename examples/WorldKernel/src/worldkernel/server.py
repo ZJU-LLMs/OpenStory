@@ -87,7 +87,7 @@ class ParseRequest(BaseModel):
 
 class VisualGenerateRequest(BaseModel):
     generate_background: bool = True
-    generate_location_patches: bool | None = None
+    generate_location_layer: bool | None = None
     reuse_existing_spatial: bool = True
 
 
@@ -135,11 +135,11 @@ def _hydrate_visual_manifest_response(data: object, spatial_root: Path) -> objec
     if not isinstance(data, dict):
         return data
     try:
-        from worldkernel.architect.visual.location_patches import hydrate_existing_location_patches
+        from worldkernel.architect.visual.location_layer import hydrate_existing_location_layer
         from worldkernel.architect.visual.models import VisualLayoutManifest
 
         manifest = VisualLayoutManifest.model_validate(data)
-        hydrate_existing_location_patches(manifest, spatial_root)
+        hydrate_existing_location_layer(manifest, spatial_root)
         return manifest.model_dump(mode="json")
     except Exception:
         return data
@@ -234,9 +234,9 @@ async def spatial_generate(session_id: str):
             output_root=spatial_output_root,
             model_config_path=CONFIGS_DIR / "image_models.yaml",
             generate_background=config.rendering.ai_art_enabled,
-            generate_location_patches=(
+            generate_location_layer=(
                 config.rendering.ai_art_enabled
-                and config.rendering.location_patches_enabled
+                and config.rendering.location_layer_enabled
             ),
             generate_road_texture=(
                 config.rendering.ai_art_enabled
@@ -320,7 +320,7 @@ async def visual_generate(session_id: str, req: VisualGenerateRequest | None = N
             config_path=CONFIGS_DIR / "architect.yaml",
             image_model_config_path=CONFIGS_DIR / "image_models.yaml",
             generate_background=request.generate_background,
-            generate_location_patches=request.generate_location_patches,
+            generate_location_layer=request.generate_location_layer,
             reuse_existing_spatial=request.reuse_existing_spatial,
         )
     except FileNotFoundError as exc:

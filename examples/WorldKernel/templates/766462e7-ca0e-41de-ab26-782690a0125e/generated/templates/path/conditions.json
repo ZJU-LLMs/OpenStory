@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "password_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_lock_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "surveillance_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trap_or_alarm",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "contract_or_oath_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

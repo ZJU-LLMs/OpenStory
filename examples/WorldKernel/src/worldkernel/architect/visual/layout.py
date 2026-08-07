@@ -7,6 +7,7 @@ from worldkernel.architect.spatial.models import SpatialBlueprint
 from worldkernel.architect.visual.models import (
     VisualBackgroundAsset,
     VisualLayoutManifest,
+    VisualLocationLayer,
     VisualLocationPlaceholderLayer,
     VisualRouteLayer,
     VisualSlot,
@@ -63,9 +64,17 @@ def build_visual_layout_manifest(
         prompt_path=str(root / "background_prompt.json") if output_root else "background_prompt.json",
         metadata_path=str(root / "background_metadata.json") if output_root else "background_metadata.json",
         control_image_path=str(root / "generation_edit_base.png") if output_root else "generation_edit_base.png",
-        mask_path=str(root / "generation_edit_mask.png") if output_root else "generation_edit_mask.png",
+        mask_path=(
+            str(root / "generation_edit_mask.png")
+            if output_root
+            else "generation_edit_mask.png"
+        ),
         edit_base_path=str(root / "generation_edit_base.png") if output_root else "generation_edit_base.png",
-        edit_mask_path=str(root / "generation_edit_mask.png") if output_root else "generation_edit_mask.png",
+        edit_mask_path=(
+            str(root / "generation_edit_mask.png")
+            if output_root
+            else "generation_edit_mask.png"
+        ),
         target_size={"width": canvas["width_px"], "height": canvas["height_px"]},
     )
     return VisualLayoutManifest(
@@ -105,12 +114,29 @@ def build_visual_layout_manifest(
                 "label_color": "#f4f6fb",
             },
         ),
+        location_layer=VisualLocationLayer(
+            status="missing",
+            z_index=100,
+            width_px=canvas["width_px"],
+            height_px=canvas["height_px"],
+            path=str(root / "location_layer.png") if output_root else "location_layer.png",
+            url="location_layer.png",
+            prompt_dir=(
+                str(root / "location_batch_prompts")
+                if output_root
+                else "location_batch_prompts"
+            ),
+            metadata_path=(
+                str(root / "location_layer_metadata.json")
+                if output_root
+                else "location_layer_metadata.json"
+            ),
+        ),
         decorations=[],
-        location_patches=[],
         asset_contract={
             "layer_order": [
                 "background.png",
-                "location_patches",
+                "location_layer.png",
                 "route_layer",
                 "location_placeholder_layer",
                 "agents",
@@ -133,7 +159,7 @@ def build_visual_layout_manifest(
         provenance={
             "source": "spatial_blueprint",
             "slot_count": len(slots),
-            "location_patch_generation": "optional",
+            "location_layer_generation": "optional",
             "layout_control": "full_size_edit_base_with_hard_mask",
             "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved",
         },

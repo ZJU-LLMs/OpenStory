@@ -1,0 +1,8 @@
+{
+  "output": "E:\\OpenStory\\examples\\WorldKernel\\tests\\_location_inverse_mask_real_test_v5\\location_attempt_1_v6.png",
+  "elapsed_seconds": 89.6,
+  "provider": "OpenAIProvider",
+  "model": "gpt-image-2",
+  "api_style": "openai_compatible_edit",
+  "size": "2560x1600"
+}

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -13,9 +15,9 @@ from worldkernel.architect.visual.control import (
     validate_protected_regions,
 )
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
-from worldkernel.architect.visual.location_patches import (
-    generate_location_patches as generate_location_patch_assets,
-    hydrate_existing_location_patches,
+from worldkernel.architect.visual.location_layer import (
+    generate_location_layer as generate_location_layer_asset,
+    hydrate_existing_location_layer,
 )
 from worldkernel.architect.visual.models import VisualLayoutManifest
 from worldkernel.architect.visual.prompt import compose_background_prompt
@@ -35,9 +37,11 @@ def run_visual_pipeline(
     output_root: str | Path,
     model_config_path: str | Path,
     generate_background: bool = False,
-    generate_location_patches: bool = False,
+    generate_location_layer: bool = False,
     generate_road_texture: bool = False,
     semantic_locations: list[Any] | None = None,
+    force_location_regeneration: bool = False,
+    location_debug_artifact_root: str | Path | None = None,
 ) -> VisualLayoutManifest:
     root = Path(output_root)
     root.mkdir(parents=True, exist_ok=True)
@@ -74,6 +78,7 @@ def run_visual_pipeline(
             manifest.background.status = "ready"
             manifest.background.path = str(root / "background.png")
             manifest.background.url = "background.png"
+            manifest.background.asset_version = _asset_version(root / "background.png")
             manifest.background.generation_strategy = generation_metadata["generation_strategy"]
             metadata_payload.update(generation_metadata)
         except Exception as exc:  # Stage2 remains usable with deterministic coordinate layers.
@@ -90,10 +95,11 @@ def run_visual_pipeline(
                 existing_composite = {}
             existing_layers = existing_composite.get("composited_layers")
             if not isinstance(existing_layers, list):
-                existing_layers = ["route_layer", "location_placeholder_layer"]
+                existing_layers = []
             manifest.background.status = "ready"
             manifest.background.path = str(existing_background_path)
             manifest.background.url = "background.png"
+            manifest.background.asset_version = _asset_version(existing_background_path)
             manifest.background.generation_strategy = "existing_background_reuse"
             manifest.background.composited_layers = [str(layer) for layer in existing_layers]
             metadata_payload.update({
@@ -108,16 +114,16 @@ def run_visual_pipeline(
                 "image_generation": "disabled",
             })
 
-    if generate_location_patches:
+    if generate_location_layer:
         _write_json(manifest_path, manifest.model_dump(mode="json"))
         try:
             background_reference_path = root / "background.png"
             if not background_reference_path.exists():
                 raise RuntimeError(
-                    "Location patch generation requires an existing background.png "
+                    "Location map generation requires an existing background.png "
                     "or generate_background=true"
                 )
-            patch_metadata = generate_location_patch_assets(
+            layer_metadata = generate_location_layer_asset(
                 blueprint=blueprint,
                 manifest=manifest,
                 world_background=world_background,
@@ -126,24 +132,33 @@ def run_visual_pipeline(
                 model_config_path=model_config_path,
                 background_reference_path=background_reference_path,
                 progress_manifest_path=manifest_path,
+                force_regenerate=force_location_regeneration,
+                debug_artifact_root=location_debug_artifact_root,
             )
-            metadata_payload["location_patches"] = patch_metadata
-            manifest.provenance["location_patch_generation"] = patch_metadata
+            metadata_payload["location_layer"] = layer_metadata
+            manifest.provenance["location_layer_generation"] = layer_metadata
         except Exception as patch_exc:
-            logger.warning("Location patch generation skipped/failed: %s", patch_exc)
-            metadata_payload["location_patches"] = {
+            logger.warning("Location layer generation skipped/failed: %s", patch_exc)
+            manifest.location_layer.status = "failed"
+            manifest.location_layer.evaluation_status = "failed"
+            manifest.location_layer.error = str(patch_exc)
+            manifest.location_layer.path = ""
+            manifest.location_layer.url = ""
+            manifest.location_layer.completed_location_ids = []
+            manifest.location_layer.failed_location_ids = [
+                str(slot.location_id) for slot in manifest.slots
+            ]
+            metadata_payload["location_layer"] = {
                 "status": "failed",
+                "evaluation_status": "failed",
                 "error": str(patch_exc),
             }
-            manifest.provenance["location_patch_generation"] = metadata_payload["location_patches"]
-            hydrated_metadata = hydrate_existing_location_patches(manifest, root)
-            metadata_payload["existing_location_patches"] = hydrated_metadata
-            manifest.provenance["existing_location_patches"] = hydrated_metadata
+            manifest.provenance["location_layer_generation"] = metadata_payload["location_layer"]
     else:
-        hydrated_metadata = hydrate_existing_location_patches(manifest, root)
-        if hydrated_metadata["ready_patch_count"] > 0:
-            metadata_payload["existing_location_patches"] = hydrated_metadata
-            manifest.provenance["existing_location_patches"] = hydrated_metadata
+        hydrated_layer = hydrate_existing_location_layer(manifest, root)
+        if hydrated_layer["status"] != "missing":
+            metadata_payload["existing_location_layer"] = hydrated_layer
+            manifest.provenance["existing_location_layer"] = hydrated_layer
 
     if generate_road_texture:
         try:
@@ -193,6 +208,7 @@ def _generate_background(
     target_height = int(manifest.canvas["height_px"])
     target_size = f"{target_width}x{target_height}"
     raw_path = root / "background_raw.png"
+    mask_restored_path = root / "background_mask_restored.png"
     edit_base_path = root / "generation_edit_base.png"
     edit_mask_path = root / "generation_edit_mask.png"
     _validate_image_size(edit_base_path, (target_width, target_height), "Edit base")
@@ -218,28 +234,32 @@ def _generate_background(
         mask_path=edit_mask_path,
         style_reference_paths=reference_paths,
     )
+    shutil.copyfile(raw_path, mask_restored_path)
     mask_validation = validate_protected_regions(
         edit_base_path,
-        raw_path,
+        mask_restored_path,
         edit_mask_path,
         expected_size=(target_width, target_height),
         blueprint=blueprint,
+        fail_on_excessive_change=False,
     )
     composite_metadata = finalize_generated_background(
-        raw_path,
+        mask_restored_path,
         root / "background.png",
         target_size=(target_width, target_height),
         blueprint=blueprint,
         placeholder_style=manifest.location_placeholder_layer.style,
     )
-    manifest.background.composited_layers = ["location_placeholder_layer"]
+    manifest.background.composited_layers = []
     safe_model_metadata = {key: value for key, value in model_metadata.items() if key != "raw_result"}
     return {
         "status": "ready",
-        "generation_strategy": "single_hard_mask_edit_clean_reservations_v2",
+        "generation_strategy": "full_canvas_hard_mask_sparse_background_edit_v7",
         "requested_target_size": {"width": target_width, "height": target_height},
         "model": safe_model_metadata,
         "mask_validation": mask_validation,
+        "raw_model_output_path": str(raw_path),
+        "mask_restored_path": str(mask_restored_path),
         "composite": composite_metadata,
         "attempt_failures": [],
         "style_reference": style_reference_path.name if style_reference_path is not None else None,
@@ -248,8 +268,9 @@ def _generate_background(
 
 def _reference_image_instruction(*, has_style_reference: bool) -> str:
     instruction = (
-        "\n\n输入图顺序：第一张图是与输出完全同尺寸的地图编辑底板，并配有硬蒙版。"
+        "\n\n输入图片顺序：第一张图是与输出完全同尺寸的地图编辑底板，并配有 RGBA 硬蒙版。"
         "深色区域允许重新绘制，中灰色矩形是地点保留区，浅灰色狭长区域是道路保留区。"
+        "必须严格保持所有灰色保留区的原始坐标、形状和尺寸。"
     )
     if has_style_reference:
         instruction += (
@@ -281,6 +302,24 @@ def _validate_image_size(path: Path, expected: tuple[int, int], label: str) -> N
         raise ValueError(f"{label} image size {actual} does not match Stage2 canvas size {expected}")
 
 
+def _read_json(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _asset_version(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()[:16]

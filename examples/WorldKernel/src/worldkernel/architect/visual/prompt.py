@@ -19,8 +19,9 @@ def compose_background_prompt(
     manifest: VisualLayoutManifest,
 ) -> dict[str, Any]:
     profile = dict(world_background.get("visual_profile") or {})
-    motifs = _join(profile.get("environmental_motifs") or [])
+    motifs = _join((profile.get("environmental_motifs") or [])[:6])
     slot_count = len(manifest.slots)
+    clearance_tiles = max(1, int(manifest.canvas.get("visual_clearance_tiles") or 0))
     slot_instruction = (
         f"底板中共有 {slot_count} 个中灰色地点保留区。所有保留区都已由硬蒙版锁定，必须在整体构图中逐一避开。"
         if slot_count
@@ -28,15 +29,25 @@ def compose_background_prompt(
     )
     prompt_lines = [
         "请把第一张输入底板编辑成符合当前世界设定的完整地图背景，只重新绘制深色可编辑区域。",
-        "中灰色矩形是未来地点图像的精确保留区，浅灰色狭长区域是未来道路图像的精确保留区。灰色区域不是建筑、平台或地形，不得修改、移动、缩放、复制或另画一套，也不要沿灰色区域增加外轮廓、描边、阴影、光晕或底座。",
+        "图中灰色矩形是未来地点图像的精确保留区，浅灰色狭长区域是未来道路图像的精确保留区。灰色区域不是建筑、平台或地形，不得修改、移动、缩放、复制或另画一套，也不要沿灰色区域增加外轮廓、描边、阴影、光晕或底座。",
         slot_instruction,
-        "所有建筑、设施、树木、桥梁、围墙、车辆和大型装饰都必须完整落在深色可编辑区域内，不得跨入灰色保留区，也不要紧贴保留区边缘安排大型主体。保留区附近优先使用开阔地表、水面或低矮铺装形成自然过渡。",
-        "在可编辑区域安排适量、完整、符合时代和文化的建筑、公共设施、交通元素、生活器具与景观风物。装饰疏密有致，允许保留较大开阔区域，不要为了填满画面而增加主体。",
+        (
+            "所有建筑、设施、树木、桥梁、围墙、车辆和大型装饰都必须完整落在深色可编辑区域内，不得跨入灰色保留区。"
+            f"每个灰色地点矩形外侧至少保留约 {clearance_tiles} 个网格宽的连续地表、水面或低矮铺装；这个净空带仍属于可编辑背景，不得画成新的框。"
+            "大型主体的屋顶、墙体、底座、树冠、阴影和附属结构都必须与灰色区域完全分离，宁可少画，也不要截断。"
+        ),
+        (
+            "背景采用低到中等风物密度。大型建筑和大型设施只作少量、彼此分散的完整点缀；"
+            "开阔地表、水面和低矮铺装的面积必须明显多于大型主体与装饰。"
+            "中小型风物也要成组留白，不要连续铺满，不要为了填满画面而增加主体。"
+        ),
         f"固定全局画风（最高优先级）：{FIXED_PIXEL_ART_STYLE}",
         f"世界设定：{_world_context(world_background, profile)}",
     ]
     if motifs:
-        prompt_lines.append(f"世界通用风物参考：{motifs}")
+        prompt_lines.append(
+            f"世界通用风物候选：{motifs}。这些只是题材候选，不要求逐项画出；按低密度选择少量最合适的完整元素。"
+        )
     prompt_lines.extend(
         [
             "使用严格垂直向下的正交俯视视角。不要绘制道路、通行路线、具体地点主体、人物、可读文字、地点名称、地图标签或界面元素。",
@@ -72,6 +83,7 @@ def _world_context(world_background: dict[str, Any], profile: dict[str, Any]) ->
         f"标签：{_join(world_background.get('tags') or [])}",
         f"时代与文化：{profile.get('era_style', '')}",
         f"颜色：{_join(profile.get('color_palette') or [])}",
+        f"光照：{profile.get('lighting_weather', '')}",
         f"氛围：{profile.get('atmosphere', '')}",
     ]
     return "；".join(value for value in values if value.split("：", 1)[-1].strip(" /"))

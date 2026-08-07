@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "from_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "to_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "bidirectional",
+      "type": "bool",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_appearance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "exit_appearance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "connecting_region",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "passage_visibility",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dynamic_nature",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

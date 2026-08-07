@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "structural_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupying_faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enchantment_state",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "inventory_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

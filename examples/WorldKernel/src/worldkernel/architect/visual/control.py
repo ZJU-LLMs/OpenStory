@@ -24,7 +24,7 @@ def render_layout_control_assets(
     root.mkdir(parents=True, exist_ok=True)
     width = int(manifest.canvas["width_px"])
     height = int(manifest.canvas["height_px"])
-    tile = int(manifest.canvas["tile_size"])
+    tile = int(blueprint.grid.tile_size)
     location_mask = _render_location_mask(blueprint, width, height, tile)
     road_mask = _render_road_mask(blueprint, width, height, tile)
     protection = ImageChops.lighter(location_mask, road_mask)
@@ -33,19 +33,21 @@ def render_layout_control_assets(
 
     edit_base_path = root / "generation_edit_base.png"
     edit_mask_path = root / "generation_edit_mask.png"
+    stale_guide_path = root / "generation_layout_guide.png"
     edit_base.save(edit_base_path, format="PNG")
     edit_mask.save(edit_mask_path, format="PNG")
-
-    protected_pixels = width * height - protection.histogram()[0]
-    location_pixels = width * height - location_mask.histogram()[0]
+    stale_guide_path.unlink(missing_ok=True)
+    location_pixels = location_mask.histogram()[255]
+    road_pixels = road_mask.histogram()[255]
     expected_location_pixels = _expected_location_pixels(blueprint, width, height, tile)
     if location_pixels != expected_location_pixels:
         raise ValueError(
             "Location mask coverage does not match the exact region bounds: "
             f"expected {expected_location_pixels} pixels, got {location_pixels}"
         )
-    expected_road_pixels = len({(point.x, point.y) for point in blueprint.road_tiles}) * tile * tile
-    road_pixels = width * height - road_mask.histogram()[0]
+    expected_road_pixels = (
+        len({(int(point.x), int(point.y)) for point in blueprint.road_tiles}) * tile * tile
+    )
     if road_pixels != expected_road_pixels:
         raise ValueError(
             "Road mask coverage does not match the unique road tiles: "
@@ -57,13 +59,14 @@ def render_layout_control_assets(
         "edit_mask_path": str(edit_mask_path),
         "mask_path": str(edit_mask_path),
         "target_size": {"width": width, "height": height},
-        "protected_pixels": protected_pixels,
-        "editable_pixels": width * height - protected_pixels,
+        "protected_pixels": protection.histogram()[255],
+        "editable_pixels": width * height - protection.histogram()[255],
         "location_region_count": len(blueprint.regions),
         "location_pixels": location_pixels,
-        "road_tile_count": len({(point.x, point.y) for point in blueprint.road_tiles}),
+        "road_tile_count": len({(int(point.x), int(point.y)) for point in blueprint.road_tiles}),
         "road_pixels": road_pixels,
         "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved",
+        "stage2_layout_used": True,
         "visual_clearance_tiles": int(manifest.canvas.get("visual_clearance_tiles") or 0),
     }
 
@@ -78,6 +81,7 @@ def validate_protected_regions(
     channel_tolerance: int = 8,
     max_location_changed_ratio: float = 0.5,
     max_road_changed_ratio: float = 0.9,
+    fail_on_excessive_change: bool = True,
 ) -> dict[str, Any]:
     with Image.open(input_path) as input_image:
         source = input_image.convert("RGB")
@@ -101,6 +105,7 @@ def validate_protected_regions(
             "channel_tolerance": channel_tolerance,
             "max_location_changed_ratio": max_location_changed_ratio,
             "max_road_changed_ratio": max_road_changed_ratio,
+            "fail_on_excessive_change": fail_on_excessive_change,
             "restored_pixels": 0,
             "exact_preservation_after_restore": True,
             "passed": True,
@@ -154,6 +159,7 @@ def validate_protected_regions(
         "road_changed_ratio": road_changed_ratio,
         "max_location_changed_ratio": max_location_changed_ratio,
         "max_road_changed_ratio": max_road_changed_ratio,
+        "fail_on_excessive_change": fail_on_excessive_change,
         "restored_pixels": changed_pixels,
         "exact_preservation_after_restore": True,
         "passed": (
@@ -161,7 +167,10 @@ def validate_protected_regions(
             and road_changed_ratio <= max_road_changed_ratio
         ),
     }
-    if not result["passed"]:
+    restored = generated.copy()
+    restored.paste(source, mask=protection)
+    restored.save(generated_path, format="PNG")
+    if not result["passed"] and fail_on_excessive_change:
         raise RuntimeError(
             "Image edit provider ignored one or more hard-mask regions: "
             f"worst location change {worst_location_ratio:.2%} "
@@ -169,9 +178,6 @@ def validate_protected_regions(
             f"(allowed {max_road_changed_ratio:.2%})"
         )
 
-    restored = generated.copy()
-    restored.paste(source, mask=protection)
-    restored.save(generated_path, format="PNG")
     return result
 
 
@@ -190,11 +196,6 @@ def finalize_generated_background(
     if original_size != target_size:
         raise ValueError(f"Generated image size {original_size} does not match target size {target_size}")
 
-    tile = int(blueprint.grid.tile_size)
-    cleaned_road_pixels = clean_road_reserved_pixels(generated, blueprint, tile)
-    draw = ImageDraw.Draw(generated, "RGBA")
-    _draw_location_placeholders(draw, blueprint, tile, placeholder_style)
-
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
     generated.convert("RGB").save(output, format="PNG")
@@ -202,13 +203,14 @@ def finalize_generated_background(
         "input_size": {"width": original_size[0], "height": original_size[1]},
         "output_size": {"width": target_size[0], "height": target_size[1]},
         "resized": False,
-        "postprocessing": "road_reservation_ground_fill",
-        "protected_region_composite": "location_placeholder_only",
-        "composited_layers": ["location_placeholder_layer"],
+        "postprocessing": "none",
+        "protected_region_composite": "none",
+        "composited_layers": [],
         "route_placeholder_composited": False,
-        "road_reserved_pixels_cleaned": cleaned_road_pixels,
+        "road_reserved_pixels_cleaned": 0,
+        "location_reserved_pixels_postprocessed": False,
         "route_tile_count": len(blueprint.road_tiles),
-        "location_placeholder_count": len(blueprint.regions),
+        "location_placeholder_count": 0,
     }
 
 
@@ -218,31 +220,51 @@ def clean_road_reserved_pixels(
     tile: int,
 ) -> int:
     road_tiles = {(int(point.x), int(point.y)) for point in blueprint.road_tiles}
-    location_tiles: set[tuple[int, int]] = set()
+    location_tiles = _location_tiles(blueprint)
+    return _fill_reserved_tiles_with_nearby_ground(
+        image,
+        tiles=road_tiles,
+        blocked_tiles=road_tiles | location_tiles,
+        tile=tile,
+        grid_size=(blueprint.grid.width, blueprint.grid.height),
+    )
+
+
+def _location_tiles(blueprint: SpatialBlueprint) -> set[tuple[int, int]]:
+    tiles: set[tuple[int, int]] = set()
     for region in blueprint.regions:
         bounds = region.bounds or {}
         x0 = int(bounds.get("x", 0))
         y0 = int(bounds.get("y", 0))
         width = max(0, int(bounds.get("w", 0)))
         height = max(0, int(bounds.get("h", 0)))
-        location_tiles.update(
+        tiles.update(
             (x, y)
             for y in range(y0, y0 + height)
             for x in range(x0, x0 + width)
         )
+    return tiles
 
+
+def _fill_reserved_tiles_with_nearby_ground(
+    image: Image.Image,
+    *,
+    tiles: set[tuple[int, int]],
+    blocked_tiles: set[tuple[int, int]],
+    tile: int,
+    grid_size: tuple[int, int],
+) -> int:
     source = image.convert("RGB")
     draw = ImageDraw.Draw(image, "RGBA")
-    blocked_tiles = road_tiles | location_tiles
     cleaned_pixels = 0
-    for x, y in road_tiles:
+    for x, y in tiles:
         color = _sample_nearby_ground_color(
             source,
             x=x,
             y=y,
             tile=tile,
             blocked_tiles=blocked_tiles,
-            grid_size=(blueprint.grid.width, blueprint.grid.height),
+            grid_size=grid_size,
         )
         x0, y0 = x * tile, y * tile
         draw.rectangle(
@@ -303,8 +325,19 @@ def _sample_nearby_ground_color(
             else crop.getdata()
         )
         samples.extend(pixels)
+    return _dominant_ground_color(samples)
+
+
+def _dominant_ground_color(samples: list[tuple[int, int, int]]) -> tuple[int, int, int]:
     quantized = [tuple((channel // 16) * 16 for channel in pixel[:3]) for pixel in samples]
-    return Counter(quantized).most_common(1)[0][0]
+    reserved = {
+        tuple((channel // 16) * 16 for channel in LOCATION_RESERVED_COLOR),
+        tuple((channel // 16) * 16 for channel in ROAD_RESERVED_COLOR),
+    }
+    for color, _count in Counter(quantized).most_common():
+        if color not in reserved:
+            return color
+    return EDITABLE_BASE_COLOR
 
 
 def _draw_location_placeholders(

@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "enforcer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mechanism",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "detectability",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "enforcer_faction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "detection_mechanism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "password_or_signal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "curfew_application",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "covert_enforcement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enforcement_severity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

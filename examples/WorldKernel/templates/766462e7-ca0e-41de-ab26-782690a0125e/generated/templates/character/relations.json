@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "alliance_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "familial_ties",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mentorship_bonds",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "romantic_links",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rivalries",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_allegiances",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

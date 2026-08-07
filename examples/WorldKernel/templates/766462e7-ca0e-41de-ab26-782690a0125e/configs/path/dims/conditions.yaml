@@ -1,0 +1,25 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+password_required:
+  type: str
+  option: true
+time_restriction:
+  type: str
+  option: true
+magical_lock_type:
+  type: str
+  option: true
+surveillance_status:
+  type: str
+  option: true
+trap_or_alarm:
+  type: str
+  option: true
+contract_or_oath_required:
+  type: str
+  option: true

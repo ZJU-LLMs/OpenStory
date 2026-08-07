@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "members",
+      "type": "list_str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "roles",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_criteria",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "house_ghosts",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "portraits_as_members",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "death_eater_infiltrators",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_elf_workforce",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "centaur_and_forest_creatures_in_pact",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dumbledores_army_operatives",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

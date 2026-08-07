@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "unbreakable_vow",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "imperius_curse",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dark_mark_bond",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "curfew_restrictions",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forbidden_magic_restrictions",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "obligation_to_death_eaters",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

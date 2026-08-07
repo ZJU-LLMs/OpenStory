@@ -1,0 +1,19 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+structural_condition:
+  type: str
+  option: true
+occupying_faction:
+  type: str
+  option: true
+enchantment_state:
+  type: str
+  option: true
+inventory_capacity:
+  type: str
+  option: true

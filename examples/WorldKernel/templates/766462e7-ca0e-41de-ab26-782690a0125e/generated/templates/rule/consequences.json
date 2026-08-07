@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "punishment_severity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "discriminatory_application",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reward_priveleges",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_points_impact",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_penalty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_ostracism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

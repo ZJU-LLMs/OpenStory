@@ -1,0 +1,609 @@
+{
+  "status": "ready",
+  "generation_strategy": "full_canvas_single_pass_location_map_v3",
+  "layer_mode": "full_canvas_replacement",
+  "single_pass": true,
+  "mask_commit": false,
+  "canvas_size": {
+    "width": 2560,
+    "height": 1600
+  },
+  "request_size_source": "visual_layout_manifest.canvas",
+  "resize_or_crop": false,
+  "background_source": "examples\\WorldKernel\\templates\\0932d185-35e7-4e91-ab8e-6c4cd429ec64\\generated\\artifacts\\spatial\\background.png",
+  "prompt_path": "examples\\WorldKernel\\tests\\_location_full_map_v3_test\\location_batch_prompts\\full_map.json",
+  "location_count": 20,
+  "ready_location_count": 20,
+  "failed_location_count": 0,
+  "completed_location_ids": [
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:013",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:003",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:005",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:001",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:017",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:009",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:011",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:002",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:010",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:014",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:018",
+    "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:019"
+  ],
+  "failed_location_ids": [],
+  "locations": [
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1200,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 89,
+          "y": 13
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9848325011135335,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:013",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 2160,
+        "y": 160,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 149,
+          "y": 15
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9911855029655157,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:003",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 416,
+        "y": 336,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 31
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9887240077830134,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1536,
+        "y": 352,
+        "w": 352,
+        "h": 256
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 11,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 107,
+          "y": 37
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9893189008057671,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:005",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 992,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 69,
+          "y": 35
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9695712309820194,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 752,
+        "y": 432,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 51,
+          "y": 32
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9811396148006074,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 2016,
+        "y": 432,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 133,
+          "y": 37
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9525751928171227,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:001",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 416,
+        "y": 656,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 51
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.986918911315845,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1056,
+        "y": 704,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 73,
+          "y": 54
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9918184588695876,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1456,
+        "y": 736,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 95,
+          "y": 51
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9629984815791577,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 800,
+        "y": 752,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 54,
+          "y": 52
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9904898905138656,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1712,
+        "y": 800,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 114,
+          "y": 60
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9711653421478303,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:017",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 2144,
+        "y": 816,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 141,
+          "y": 61
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9764399746817638,
+        "marker_remaining_ratio": 0.0002737975723281494,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:009",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 656,
+        "y": 992,
+        "w": 352,
+        "h": 256
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 11,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 52,
+          "y": 77
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9741625423000188,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:011",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 288,
+        "y": 1008,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 25,
+          "y": 73
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9872939962960359,
+        "marker_remaining_ratio": 9.126585744267945e-05,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:002",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1168,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 87,
+          "y": 70
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9750099631947863,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:010",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1920,
+        "y": 1104,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 127,
+          "y": 79
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9583421243875565,
+        "marker_remaining_ratio": 0.00036506342977093986,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:014",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1504,
+        "y": 1280,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 101,
+          "y": 90
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9661485805377781,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:018",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 144,
+        "y": 1296,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 16,
+          "y": 91
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9780809714700986,
+        "marker_remaining_ratio": 0.0,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    },
+    {
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:019",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1120,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 77,
+          "y": 92
+        }
+      },
+      "diagnostics": {
+        "passed": true,
+        "content_change_ratio": 0.9224511803455471,
+        "marker_remaining_ratio": 0.0002737975723281494,
+        "minimum_content_change_ratio": 0.02,
+        "maximum_marker_remaining_ratio": 0.1
+      }
+    }
+  ],
+  "model": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible_edit"
+  },
+  "asset_version": "ccedd3010c66b94a"
+}

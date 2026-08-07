@@ -1,0 +1,19 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+password_policy:
+  type: str
+  option: true
+surveillance_intensity:
+  type: str
+  option: true
+magical_warding:
+  type: str
+  option: true
+creature_access:
+  type: str
+  option: true

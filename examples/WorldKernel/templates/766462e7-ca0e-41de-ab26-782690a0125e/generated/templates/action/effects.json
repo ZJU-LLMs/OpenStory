@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "on_actor",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_target",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "on_environment",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "spell_trace",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magical_signature",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defensive_trigger",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dark_charm_detection",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "loyalty_shift",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "curse_side_effect",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_modification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "status_on_school_regulations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

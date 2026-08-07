@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "voldemort_regime_influence_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "order_of_the_phoenix_support_contacts",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ministry_corruption_ties",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "hogwarts_legacy_and_alumni_network",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "propaganda_perception_in_wizarding_world",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "durmstrang_and_beauxbatons_relations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

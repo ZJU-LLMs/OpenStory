@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "primary_magic_discipline",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "combat_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dark_arts_proficiency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defensive_magic_proficiency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occlumency_proficiency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "animagus_form",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

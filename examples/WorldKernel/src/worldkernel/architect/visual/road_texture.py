@@ -82,7 +82,7 @@ def generate_road_texture_assets(
         {
             "generation_strategy": GENERATION_STRATEGY,
             "atlas_size": {"width": ROAD_ATLAS_SIZE[0], "height": ROAD_ATLAS_SIZE[1]},
-            "source": "background.png + location_patches in manifest order",
+            "source": "background.png + location_layer.png",
             "road_geometry_source": "spatial_blueprint.road_tiles",
         }
     )
@@ -219,21 +219,20 @@ def compose_map_reference(
         raise ValueError(
             f"Road style reference size {image.size} does not match canvas {canvas_size}"
         )
-    for patch in manifest.location_patches:
-        if patch.status != "ready" or not patch.url:
-            continue
-        patch_path = Path(patch.path) if patch.path else root / patch.url
-        if not patch_path.is_file():
-            patch_path = root / patch.url
-        with Image.open(patch_path) as patch_image:
-            rendered = patch_image.convert("RGB")
-        bounds = patch.bounds_px
-        expected = (int(bounds.get("w") or 0), int(bounds.get("h") or 0))
-        if rendered.size != expected:
-            raise ValueError(
-                f"Location patch {patch.location_id} size {rendered.size} does not match {expected}"
-            )
-        image.paste(rendered, (int(bounds.get("x") or 0), int(bounds.get("y") or 0)))
+    location_layer = manifest.location_layer
+    if location_layer.status in {"ready", "partial"} and location_layer.url:
+        layer_path = Path(location_layer.path) if location_layer.path else root / location_layer.url
+        if not layer_path.is_file():
+            layer_path = root / location_layer.url
+        if layer_path.is_file():
+            with Image.open(layer_path) as layer_image:
+                rendered_layer = layer_image.convert("RGBA")
+            if rendered_layer.size != canvas_size:
+                raise ValueError(
+                    f"Location layer size {rendered_layer.size} does not match {canvas_size}"
+                )
+            return Image.alpha_composite(image.convert("RGBA"), rendered_layer).convert("RGB")
+
     return image
 
 

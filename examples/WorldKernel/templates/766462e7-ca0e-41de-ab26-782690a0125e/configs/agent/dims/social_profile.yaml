@@ -1,0 +1,24 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+social_standing:
+  type: str
+  option: true
+public_perception:
+  type: str
+  option: true
+connection_to_order_of_phoenix:
+  type: str
+  option: true
+connection_to_death_eaters:
+  type: str
+  option: true
+membership_in_dumbledores_army:
+  type: str
+  option: true
+membership_in_inquisitorial_squad:
+  type: str
+  option: true

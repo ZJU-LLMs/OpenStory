@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "step_id": "generate_locations",
+      "generator_type": "location_generator",
+      "target_entity_type": "location",
+      "batch_size": 8,
+      "priority": 1,
+      "description": "生成所有地点实体，覆盖教学、公共、宿舍、户外、功能、禁地与交通七类空间。"
+    },
+    {
+      "step_id": "generate_paths",
+      "generator_type": "path_generator",
+      "target_entity_type": "path",
+      "batch_size": 5,
+      "priority": 2,
+      "description": "生成地点之间的走廊、楼梯、密道与户外路径，确保空间连通性与叙事可达性。"
+    },
+    {
+      "step_id": "generate_characters",
+      "generator_type": "character_generator",
+      "target_entity_type": "character",
+      "batch_size": 6,
+      "priority": 3,
+      "description": "生成所有角色实体，按学生、教职工、食死徒管控者、后勤服务和幽灵生物分组。"
+    },
+    {
+      "step_id": "generate_relations",
+      "generator_type": "relation_generator",
+      "target_entity_type": "relation",
+      "batch_size": 8,
+      "priority": 4,
+      "description": "生成角色之间的关系网络，包括师生、同院、敌对、秘密效忠与情感纽带。"
+    }
+  ]
+}

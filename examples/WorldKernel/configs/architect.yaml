@@ -45,7 +45,7 @@ spatial_generation:
     export_preview_png: true
     background_mode: "simple_tile"
     ai_art_enabled: true
-    location_patches_enabled: true
+    location_layer_enabled: true
     road_texture_enabled: true
     visual_mode: "composited_full_map"
 

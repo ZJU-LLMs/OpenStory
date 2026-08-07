@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "scope",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rule_type",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "institutional_context",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "publicity_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "corruption_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_precedent",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

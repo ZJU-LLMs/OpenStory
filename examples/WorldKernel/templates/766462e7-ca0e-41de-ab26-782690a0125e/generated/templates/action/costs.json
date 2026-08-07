@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "magical_energy_drain",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "concentration_requirement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "physical_exhaustion",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reputation_change",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "detention_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_points_loss",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "death_eater_attention",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "unforgivable_consequence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

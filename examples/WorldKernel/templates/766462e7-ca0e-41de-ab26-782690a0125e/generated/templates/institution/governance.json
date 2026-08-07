@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "headmaster_security_measures",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "carrows_discipline_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ministry_oversight_instruments",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "house_point_system_manipulation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "password_rotation_schedule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emergency_headmaster_decrees",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

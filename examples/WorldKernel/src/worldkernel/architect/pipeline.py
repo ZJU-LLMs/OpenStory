@@ -180,9 +180,9 @@ async def run_stage2(
                 output_root=visual_root,
                 model_config_path=model_config_path,
                 generate_background=spatial_config.rendering.ai_art_enabled,
-                generate_location_patches=(
+                generate_location_layer=(
                     spatial_config.rendering.ai_art_enabled
-                    and spatial_config.rendering.location_patches_enabled
+                    and spatial_config.rendering.location_layer_enabled
                 ),
                 generate_road_texture=(
                     spatial_config.rendering.ai_art_enabled

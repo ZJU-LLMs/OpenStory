@@ -1,0 +1,24 @@
+dim_name: EndpointsDim
+from_id:
+  type: str
+  ref: location
+to_id:
+  type: str
+  ref: location
+bidirectional:
+  type: bool
+entrance_appearance:
+  type: str
+  option: true
+exit_appearance:
+  type: str
+  option: true
+connecting_region:
+  type: str
+  option: true
+passage_visibility:
+  type: str
+  option: true
+dynamic_nature:
+  type: str
+  option: true

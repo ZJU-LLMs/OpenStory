@@ -1,0 +1,445 @@
+{
+  "prompt": "直接编辑这张 2560×1600 的完整游戏地图。\n请求蒙版的透明区域是本次允许生成地点的范围，包含地点主体、外侧一格自然融合带和入口连接格。请让完整地点收在这些区域内。\n蒙版保护的道路区域由后续图层绘制，本次不要改造道路布局，也不要主动新增道路。\n图中每个带青色边框和编号的矩形都必须生成一个地点，编号与下方清单一一对应。地点数量以图中矩形为准，不得遗漏。\n彻底替换所有临时编号、青色边框和深色占位块。每个占位块改造成一个完整、可辨认的地点，不保留空框。\n以占位块为地点中心和主要占地范围。允许墙体、台阶、平台边缘等自然结构少量延伸，但不得与其他地点重叠。\n这是一次完整地图编辑，不需要输出透明贴片。所有地点必须完整收尾，不得出现半栋建筑、半间房、截断墙体或只画局部设备。\n严格正交俯视。室内地点画成无屋顶、可进入的 2D RPG 剖面房间；室外地点画成同投影的开放场景。\n延续输入地图的像素簇大小、轮廓宽度、色板、材质和光照，使地点与背景成为同一张连续游戏地图。\n在指定入口边缘留下畅通门口或开放缺口。道路由后续图层绘制，本次不要新增道路。\n每个地点用少量完整标志物表达功能，保留清晰可行走区域，不堆满细碎装饰。\n不生成人物、地点名称、可读标签、UI、水印或新的占位框。\n世界设定：木星记忆档案城；原创设定，一座悬浮于木星风暴之上的城市，所有记忆被转化为可交易货币并构成严苛社会秩序。；dystopian_city；scifi_floating_city\n统一视觉规范：art_style=原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面；明确禁止后期像素化滤镜感、抗锯齿、柔焦、模糊、抖色、点描、颗粒、散点高光和随机纹理噪声；camera_projection=严格正交俯视，接近垂直向下的 2D 地图视角；era_style=近未来深空殖民风格，带有复古未来主义与市井经营气息的漂浮都市，建筑由模块化舱体、白色充气膜结构与金属桁架构成；color_palette=风暴橙、档案白、电光青、深空蓝紫、气膜银灰、记忆琥珀；material_texture=大面积平坦甲板、半透明气膜壁板、磨砂玻璃穹顶、低纹理银灰金属、整齐的合成石材地砖、简化的能源导管与散热格栅；atmosphere=orderly, surreal, commercial, confined, storm-wrapped, totalitarian\n地点清单：\n1. 子午线交通枢纽，类型：transport_hub；入口：右边第 6 格，宽 1 格；形象：无屋顶俯视RPG开放场景，矩形站台大厅，地面铺浅棕色仿石地砖，中央嵌一条宽约八米的半透明蓝色磁悬浮轨道，纵向贯穿大厅，两端延伸至穹顶出口。大厅两侧是双层候车平台，低层磨砂玻璃护栏，高层深灰金属格栅走道\n2. 七号功绩穹顶，类型：residential_dome；入口：右边第 6 格，宽 1 格；形象：无屋顶的俯视RPG开放场景：七号功绩穹顶整体为圆形居住区，一条环形主干道分隔内环公共广场与外环住宅环带。地面是浅暖灰色渗水砖，中央广场为放射状铺装，外侧住宅楼呈低层弧形排列，每栋入口有同样式遮阳门廊。\n3. 黑市记忆廊，类型：memory_market；入口：下边第 8 格，宽 1 格；形象：无屋顶的剖面房间，俯视投影。整体为狭长折线形地下巷道，宽度从2米到5米不等，地面由深色金属板与混凝土拼接，部分区域覆盖格栅盖板。边界是排列紧密的临时货架和半隔断，货架由记忆存储罐和旧电缆构成，墙身露出\n4. 记忆交易所，类型：memory_market；入口：下边第 12 格，宽 1 格；形象：无屋顶的剖面房间，俯视投影。整体为大型矩形交易大厅，中央有一个圆形交易台，四周环绕环形走道和记忆终端柜台，地面是深灰色金属网格板，镶嵌着发光的蓝色分隔线；北侧和南侧各有一个出入口。墙体由浅灰色记忆合金\n5. 抵押记忆水库，类型：debt_recollection_district；入口：下边第 8 格，宽 1 格；形象：无屋顶的室内剖面房间，圆形仓库，中央为巨大的圆柱形记忆储罐队列，周围环绕一圈走廊。地面为网格状金属地板，墙体为厚重混凝土加钢架，主色为蓝灰色，储罐内液体泛着淡紫色荧光。标志性陈设包括：多个人高的透明圆\n6. 眩晕驳船港，类型：transport_hub；入口：下边第 5 格，宽 1 格；形象：无屋顶俯视RPG开放场景，L形栈桥码头，地面铺深灰色带防滑凹槽的钢板，边缘焊一排黑色系缆柱，主色为铜锈绿与暗棕。栈桥尽头设三个浮式驳船泊位，泊位由浮筒连接，浮筒顶面装有橙色警示灯。靠陆一侧有一座低矮候\n7. 负债拾忆区，类型：debt_recollection_district；入口：下边第 8 格，宽 1 格；形象：开放场景，俯视投影，负债拾忆区位于城市下层甲板。地面为暗褐色钢板，边缘堆积旧集装箱和粗大管线，主色为锈红与暗黄。中央矗立一座圆筒形拾忆塔，塔顶延伸出多根导线连接到周围排列的固定躺椅上，躺椅成环状散布。\n8. 长风瞭望台，类型：storm_observation_platform；入口：下边第 8 格，宽 1 格；形象：无屋顶的RPG剖面房间，小型方形哨站约五步见方，地面为深色金属格栅板。北侧整面墙嵌一台风速监测主机，多条管线沿墙根汇入；角落一座独立警报控制台，台面亮着三排橙色警示灯。南侧墙边设一张简易工作凳与小型储\n9. 负债者四零穹顶，类型：residential_dome；入口：下边第 8 格，宽 1 格；形象：无屋顶的俯视RPG开放场景：负债者四零穹顶呈不规则多边形，平面由杂乱拼连的舱室与中央露天井组成，可分辨出三条主过道从中心向边界辐射。地面是深灰防滑金属板，部分覆盖深褐色旧漆；边界墙体为拼接式旧板材，颜\n10. 记忆交换广场，类型：public_memory_plaza；入口：下边第 5 格，宽 1 格；形象：无屋顶的俯视RPG开放场景，记忆交换广场为大型圆形露天场地，地面由浅灰和深灰石板拼成同心圆环，圆心处一座约四层高的记忆计价塔，塔身四面嵌竖向蓝紫色全息汇率条，塔基环绕一圈可坐人的台阶。东侧并列三座白色\n11. 执政尖塔，类型：ruling_spire；入口：下边第 5 格，宽 1 格；形象：无屋顶的剖面房间，俯视投影。整体为圆形塔楼尖端议事厅的横切面，由内向外分为三圈：中央圆形深坑为记忆熔炉，中圈环绕着阶梯式委员桌，外圈是公众旁听席。地面是打磨光亮的白色石材，嵌着金色分界线；边界墙体为白\n12. 中央记忆档案馆，类型：memory_archive；入口：下边第 8 格，宽 1 格；形象：无屋顶的RPG剖面房间：中央记忆档案馆主结算大厅呈圆形，平面为同心圆结构，外环是折返排队通道与12个记忆收纳柜台，中环是环形水槽状记忆存储管线，大厅中央矗立一座八角形结算晶柱。地面是浅灰白色复合金属板\n13. 危险记忆封印库，类型：memory_archive；入口：下边第 8 格，宽 1 格；形象：无屋顶的RPG剖面房间：危险记忆封印库呈纵向矩形大厅，分成三列并排的筒形封印井，中央为贯穿全厅的主通道。地面是深灰哑光金属格栅，墙体为厚重银灰色记忆合金板，主色为银白与暗红。标志性陈设：每个封印井顶部\n14. 大红斑观测台，类型：storm_observation_platform；入口：下边第 12 格，宽 1 格；形象：无屋顶的RPG剖面房间，大红斑观测台呈半圆形平面，弧形外墙朝向木星方向，墙体上半部为整面透明弧形观景壁，壁外可见暗红色风暴云团。地面铺深灰色金属板，夹杂淡蓝色导光线。中心一组圆形观测操作台，台面四角各\n15. 记忆康复病房，类型：memory_clinic；入口：下边第 8 格，宽 1 格；形象：无屋顶的室内剖面房间，长条形病房，两侧各一排病床。地面灰色磨砂金属，墙体浅绿色涂料，主色为灰绿色。标志性陈设包括：每张床旁竖立的记忆闪回屏幕，屏幕显示雪花点和残缺片段；两张床共用一个输液塔；病房中央的\n16. 大气过滤厂，类型：energy_life_support；入口：右边第 6 格，宽 1 格；形象：无屋顶俯视RPG剖面室内房间，长方形生产车间，地面铺灰色渗水格栅砖，四周墙壁为浅灰水泥喷涂，南北各开一道气密门。主材质是磨砂钢与混凝土，主色是灰绿和乳白。四角各有一座直径约两米的圆柱形絮凝过滤器，深绿\n17. 海马记忆诊所，类型：memory_clinic；入口：下边第 8 格，宽 1 格；形象：无屋顶的室内剖面房间，平面为长方形大厅，大门朝南，北侧为手术提取区。地面是白色带防滑纹的金属板，墙体为浅灰色复合板，主色为蓝白基调。标志性陈设包括：三台记忆提取仪，银灰色主机连接头戴式电极头盔；一座透\n18. 遗忘者之柱，类型：public_memory_plaza；入口：下边第 8 格，宽 1 格；形象：无屋顶的俯视RPG开放场景，矩形小型纪念广场，地面铺深灰色细纹石板，四周以低矮黑色铁栏围拢，西北和东南各开一处豁口做通道。中心竖立七根高低错落的黑色石柱，柱体表面光滑无字，底部环绕一圈浅灰碎石带，几束\n19. 尖塔密档室，类型：ruling_spire；入口：下边第 8 格，宽 1 格；形象：无屋顶的剖面房间，俯视投影。整体为狭长矩形密室，入口位于短边，两侧墙壁内嵌蜂窝状档案柜，尽头是核心壁龛。地面是深色抛光岩板，带着暗金色细纹；边界为致密的银灰色记忆屏蔽合金，无多余装饰，每隔一段有发光的\n20. 风暴汲取核心，类型：energy_life_support；入口：下边第 8 格，宽 1 格；形象：无屋顶俯视RPG剖面室内房间，整体为对称方形控制舱，中央下挖圆形反应井，井面为深灰铁黑格栅板。井中心矗立一座棱柱形能量锚塔，塔身由铁黑与青铜机械件拼接，底部嵌着一圈蓝色循环光槽，塔顶伸出四条粗能量导管",
+  "negative_prompt": "半栋建筑，半间房，截断墙体，截断屋顶，地点遗漏，地点互相重叠，地点合并，保留编号，保留青色边框，占位方块，道路，黄色道路块，人物，地点名称，可读文字，地图标签，UI，水印，平视，斜俯视，透视摄影，独立卡片，复杂细碎纹理，噪点，模糊",
+  "generation_strategy": "full_canvas_location_map_inverse_mask_visual_review_v5",
+  "canvas_size": {
+    "width": 2560,
+    "height": 1600
+  },
+  "locations": [
+    {
+      "number": 1,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:012",
+      "bounds_px": {
+        "x": 1200,
+        "y": 128,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 89,
+          "y": 13
+        }
+      }
+    },
+    {
+      "number": 2,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:013",
+      "bounds_px": {
+        "x": 2160,
+        "y": 160,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 149,
+          "y": 15
+        }
+      }
+    },
+    {
+      "number": 3,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:003",
+      "bounds_px": {
+        "x": 416,
+        "y": 336,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 31
+        }
+      }
+    },
+    {
+      "number": 4,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:008",
+      "bounds_px": {
+        "x": 1536,
+        "y": 352,
+        "w": 352,
+        "h": 256
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 11,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 107,
+          "y": 37
+        }
+      }
+    },
+    {
+      "number": 5,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:005",
+      "bounds_px": {
+        "x": 992,
+        "y": 400,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 69,
+          "y": 35
+        }
+      }
+    },
+    {
+      "number": 6,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:020",
+      "bounds_px": {
+        "x": 752,
+        "y": 432,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 51,
+          "y": 32
+        }
+      }
+    },
+    {
+      "number": 7,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:007",
+      "bounds_px": {
+        "x": 2016,
+        "y": 432,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 133,
+          "y": 37
+        }
+      }
+    },
+    {
+      "number": 8,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:001",
+      "bounds_px": {
+        "x": 416,
+        "y": 656,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 51
+        }
+      }
+    },
+    {
+      "number": 9,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:006",
+      "bounds_px": {
+        "x": 1056,
+        "y": 704,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 73,
+          "y": 54
+        }
+      }
+    },
+    {
+      "number": 10,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:015",
+      "bounds_px": {
+        "x": 1456,
+        "y": 736,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 95,
+          "y": 51
+        }
+      }
+    },
+    {
+      "number": 11,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:016",
+      "bounds_px": {
+        "x": 800,
+        "y": 752,
+        "w": 128,
+        "h": 96
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 4,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 54,
+          "y": 52
+        }
+      }
+    },
+    {
+      "number": 12,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:004",
+      "bounds_px": {
+        "x": 1712,
+        "y": 800,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 114,
+          "y": 60
+        }
+      }
+    },
+    {
+      "number": 13,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:017",
+      "bounds_px": {
+        "x": 2144,
+        "y": 816,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 141,
+          "y": 61
+        }
+      }
+    },
+    {
+      "number": 14,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:009",
+      "bounds_px": {
+        "x": 656,
+        "y": 992,
+        "w": 352,
+        "h": 256
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 11,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 52,
+          "y": 77
+        }
+      }
+    },
+    {
+      "number": 15,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:011",
+      "bounds_px": {
+        "x": 288,
+        "y": 1008,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 25,
+          "y": 73
+        }
+      }
+    },
+    {
+      "number": 16,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:002",
+      "bounds_px": {
+        "x": 1168,
+        "y": 1040,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 87,
+          "y": 70
+        }
+      }
+    },
+    {
+      "number": 17,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:010",
+      "bounds_px": {
+        "x": 1920,
+        "y": 1104,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 127,
+          "y": 79
+        }
+      }
+    },
+    {
+      "number": 18,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:014",
+      "bounds_px": {
+        "x": 1504,
+        "y": 1280,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 101,
+          "y": 90
+        }
+      }
+    },
+    {
+      "number": 19,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:018",
+      "bounds_px": {
+        "x": 144,
+        "y": 1296,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 16,
+          "y": 91
+        }
+      }
+    },
+    {
+      "number": 20,
+      "location_id": "e:0932d185_35e7_4e91_ab8e_6c4cd429ec64:loc:019",
+      "bounds_px": {
+        "x": 1120,
+        "y": 1312,
+        "w": 240,
+        "h": 176
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 7,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 77,
+          "y": 92
+        }
+      }
+    }
+  ],
+  "initial_edit_mask": {
+    "mode": "inverse_location_mask",
+    "semantics": "transparent_pixels_editable_opaque_pixels_protected",
+    "expansion_tiles": 1,
+    "location_count": 20,
+    "editable_pixels": 1078528,
+    "protected_pixels": 3017472,
+    "protected_road_pixels": 115200,
+    "entrance_connector_tile_count": 20,
+    "canvas_size": {
+      "width": 2560,
+      "height": 1600
+    }
+  }
+}

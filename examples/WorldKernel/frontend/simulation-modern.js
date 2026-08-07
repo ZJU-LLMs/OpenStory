@@ -25,7 +25,8 @@
   let visualBackgroundSrc = '';
   let visualRoadLayerImage = null;
   let visualRoadLayerSrc = '';
-  let visualLocationPatchImages = new Map();
+  let visualLocationLayerImage = null;
+  let visualLocationLayerSrc = '';
   let visualAssetErrors = new Map();
   let visualLayoutManifest = null;
   let visualManifestPollTimer = null;
@@ -285,8 +286,17 @@
   function prepareVisualAssets() {
     const visual = getActiveVisualManifest();
     const background = visual?.background || {};
+    const backgroundFallbackVersion = [
+      background.model || 'background',
+      background.width_px || visual?.canvas?.width_px || 0,
+      background.height_px || visual?.canvas?.height_px || 0,
+      background.generation_strategy || '',
+    ].join('-');
     const backgroundSrc = background.url && background.status === 'ready'
-      ? resolveVisualUrl(background.url)
+      ? resolveVersionedVisualUrl(
+          background.url,
+          background.asset_version || backgroundFallbackVersion
+        )
       : '';
     if (backgroundSrc && backgroundSrc !== visualBackgroundSrc) {
       visualBackgroundSrc = backgroundSrc;
@@ -343,60 +353,49 @@
       visualAssetErrors.delete('route-layer');
     }
 
-    const readyPatchIds = new Set();
-    for (const patch of visual?.location_patches || []) {
-      if (!patch?.url || patch.status !== 'ready' || !patch.location_id) continue;
-      const key = String(patch.location_id);
-      const bounds = patch.bounds_px || {};
-      const fallbackVersion = [
-        patch.model || 'image',
-        bounds.x || 0,
-        bounds.y || 0,
-        bounds.w || 0,
-        bounds.h || 0,
-      ].join('-');
-      const src = resolveVersionedVisualUrl(
-        patch.url,
-        patch.asset_version || fallbackVersion
-      );
-      readyPatchIds.add(key);
-      const existing = visualLocationPatchImages.get(key);
-      if (existing?.src === src) {
-        existing.patch = patch;
-        continue;
-      }
-      const image = new Image();
-      image.onload = () => {
-        const expectedWidth = Number(patch.bounds_px?.w || 0);
-        const expectedHeight = Number(patch.bounds_px?.h || 0);
+    const locationLayer = visual?.location_layer || {};
+    const locationFallbackVersion = [
+      locationLayer.model || 'locations',
+      locationLayer.width_px || 0,
+      locationLayer.height_px || 0,
+      (locationLayer.completed_location_ids || []).length,
+    ].join('-');
+    const locationLayerSrc = locationLayer.url && ['ready', 'partial'].includes(locationLayer.status)
+      ? resolveVersionedVisualUrl(
+          locationLayer.url,
+          locationLayer.asset_version || locationFallbackVersion
+        )
+      : '';
+    if (locationLayerSrc && locationLayerSrc !== visualLocationLayerSrc) {
+      visualLocationLayerSrc = locationLayerSrc;
+      visualLocationLayerImage = new Image();
+      visualLocationLayerImage.onload = () => {
+        const expectedWidth = Number(locationLayer.width_px || visual?.canvas?.width_px || 0);
+        const expectedHeight = Number(locationLayer.height_px || visual?.canvas?.height_px || 0);
         if (
-          expectedWidth <= 0 || expectedHeight <= 0 ||
-          image.naturalWidth !== expectedWidth || image.naturalHeight !== expectedHeight
+          visualLocationLayerImage.naturalWidth !== expectedWidth ||
+          visualLocationLayerImage.naturalHeight !== expectedHeight
         ) {
-          visualLocationPatchImages.delete(key);
           reportVisualAssetError(
-            key,
-            `地点贴片尺寸错误：${image.naturalWidth}x${image.naturalHeight}，应为 ${expectedWidth}x${expectedHeight}`
+            'location-layer',
+            `地点图层尺寸错误：${visualLocationLayerImage.naturalWidth}x${visualLocationLayerImage.naturalHeight}，应为 ${expectedWidth}x${expectedHeight}`
           );
-          renderMap();
-          return;
+          visualLocationLayerImage = null;
+        } else {
+          visualAssetErrors.delete('location-layer');
         }
-        visualAssetErrors.delete(key);
         renderMap();
       };
-      image.onerror = () => {
-        visualLocationPatchImages.delete(key);
-        reportVisualAssetError(key, `地点贴片加载失败：${src}`);
+      visualLocationLayerImage.onerror = () => {
+        reportVisualAssetError('location-layer', `地点图层加载失败：${locationLayerSrc}`);
+        visualLocationLayerImage = null;
         renderMap();
       };
-      image.src = src;
-      visualLocationPatchImages.set(key, { patch, image, src });
-    }
-    for (const key of visualLocationPatchImages.keys()) {
-      if (!readyPatchIds.has(key)) {
-        visualLocationPatchImages.delete(key);
-        visualAssetErrors.delete(key);
-      }
+      visualLocationLayerImage.src = locationLayerSrc;
+    } else if (!locationLayerSrc) {
+      visualLocationLayerSrc = '';
+      visualLocationLayerImage = null;
+      visualAssetErrors.delete('location-layer');
     }
   }
 
@@ -436,22 +435,20 @@
   function buildVisualPatchStateKey(visual) {
     const background = visual?.background || {};
     const routeLayer = visual?.route_layer || {};
-    const patchKey = (visual?.location_patches || [])
-      .map((patch) => [
-        patch.location_id || '',
-        patch.status || '',
-        patch.url || '',
-        patch.asset_version || '',
-        JSON.stringify(patch.bounds_px || {}),
-      ].join(':'))
-      .join('|');
+    const locationLayer = visual?.location_layer || {};
     return [
       background.status || '',
       background.url || '',
+      background.asset_version || '',
+      background.generation_strategy || '',
+      (background.composited_layers || []).join(','),
       routeLayer.status || '',
       routeLayer.url || '',
       routeLayer.asset_version || '',
-      patchKey,
+      locationLayer.status || '',
+      locationLayer.url || '',
+      locationLayer.asset_version || '',
+      (locationLayer.completed_location_ids || []).join(','),
     ].join('|');
   }
 
@@ -492,14 +489,14 @@
     const hasGeneratedRoadLayer = Boolean(
       visualRoadLayerImage?.complete && visualRoadLayerImage.naturalWidth > 0
     );
-    drawLocationPatches();
+    drawLocationLayer();
     if (hasGeneratedRoadLayer) {
       drawRoadTextureLayer();
     } else if (!compositedLayers.has('route_layer')) {
       drawRoutes(routes, roadTiles, regions);
     }
     for (const region of regions) {
-      const hasPatch = hasReadyLocationPatch(region);
+      const hasPatch = hasReadyLocationVisual(region);
       drawRegion(
         region,
         selectedEntity?.type === 'location' && selectedEntity.id === region.location_id,
@@ -555,32 +552,21 @@
     }
   }
 
-  function drawLocationPatches() {
-    const patches = getActiveVisualManifest()?.location_patches || [];
-    for (const patch of patches) {
-      if (patch?.status !== 'ready' || !patch.location_id) continue;
-      const entry = visualLocationPatchImages.get(String(patch.location_id));
-      const image = entry?.image;
-      if (!image?.complete || image.naturalWidth <= 0) continue;
-      const b = patch.bounds_px || {};
-      const left = Number(b.x || 0);
-      const top = Number(b.y || 0);
-      const width = Number(b.w || 0);
-      const height = Number(b.h || 0);
-      if (image.naturalWidth !== width || image.naturalHeight !== height) continue;
-      ctx.drawImage(image, left, top);
-    }
+  function drawLocationLayer() {
+    if (!visualLocationLayerImage?.complete || visualLocationLayerImage.naturalWidth <= 0) return;
+    if (
+      visualLocationLayerImage.naturalWidth !== canvas.width ||
+      visualLocationLayerImage.naturalHeight !== canvas.height
+    ) return;
+    ctx.drawImage(visualLocationLayerImage, 0, 0);
   }
 
-  function hasReadyLocationPatch(region) {
-    const entry = visualLocationPatchImages.get(String(region.location_id));
-    const image = entry?.image;
-    const b = entry?.patch?.bounds_px || {};
-    return Boolean(
-      image?.complete && image.naturalWidth > 0 &&
-      image.naturalWidth === Number(b.w || 0) &&
-      image.naturalHeight === Number(b.h || 0)
-    );
+  function hasReadyLocationVisual(region) {
+    if (!visualLocationLayerImage?.complete || visualLocationLayerImage.naturalWidth <= 0) {
+      return false;
+    }
+    const completed = getActiveVisualManifest()?.location_layer?.completed_location_ids || [];
+    return completed.includes(String(region.location_id));
   }
 
   function drawRoadTextureLayer() {

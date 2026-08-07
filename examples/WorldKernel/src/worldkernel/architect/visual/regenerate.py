@@ -36,9 +36,11 @@ def regenerate_visual_from_template(
     config_path: str | Path,
     image_model_config_path: str | Path,
     generate_background: bool = True,
-    generate_location_patches: bool | None = None,
+    generate_location_layer: bool | None = None,
     generate_road_texture: bool | None = None,
     reuse_existing_spatial: bool = True,
+    force_visual_regeneration: bool = False,
+    visual_debug_root: str | Path | None = None,
 ) -> VisualRegenerationResult:
     """Regenerate visual assets from already saved Stage2 semantic artifacts.
 
@@ -63,10 +65,10 @@ def regenerate_visual_from_template(
     spatial_output_root.mkdir(parents=True, exist_ok=True)
 
     spatial_config = load_spatial_generation_config(config_path)
-    if generate_location_patches is None:
-        generate_location_patches = (
+    if generate_location_layer is None:
+        generate_location_layer = (
             spatial_config.rendering.ai_art_enabled
-            and spatial_config.rendering.location_patches_enabled
+            and spatial_config.rendering.location_layer_enabled
         )
     if generate_road_texture is None:
         generate_road_texture = (
@@ -105,9 +107,15 @@ def regenerate_visual_from_template(
         output_root=spatial_output_root,
         model_config_path=image_model_config_path,
         generate_background=generate_background,
-        generate_location_patches=bool(generate_location_patches),
+        generate_location_layer=bool(generate_location_layer),
         generate_road_texture=bool(generate_road_texture),
         semantic_locations=list(foundation.locations),
+        force_location_regeneration=force_visual_regeneration,
+        location_debug_artifact_root=(
+            Path(visual_debug_root) / "location_attempts"
+            if visual_debug_root is not None
+            else None
+        ),
     )
     blueprint.visual = visual_manifest.model_dump(mode="json")
     save_spatial_blueprint(blueprint, spatial_output_root)
@@ -118,15 +126,6 @@ def regenerate_visual_from_template(
         "characters": len(foundation.characters),
         "relations": len(foundation.relation_graph),
     }
-    ready_patches = [
-        patch for patch in visual_manifest.location_patches
-        if patch.status == "ready" and patch.path
-    ]
-    failed_patches = [
-        patch for patch in visual_manifest.location_patches
-        if patch.status == "failed"
-    ]
-
     return VisualRegenerationResult(
         world_id=world_id,
         template_root=str(template_path),
@@ -139,9 +138,9 @@ def regenerate_visual_from_template(
             "routes": len(blueprint.routes),
             "road_tiles": len(blueprint.road_tiles),
             "spawn_points": len(blueprint.spawn_points),
-            "location_patches": len(visual_manifest.location_patches),
-            "ready_location_patches": len(ready_patches),
-            "failed_location_patches": len(failed_patches),
+            "location_layer_ready": int(visual_manifest.location_layer.status == "ready"),
+            "ready_locations": len(visual_manifest.location_layer.completed_location_ids),
+            "failed_locations": len(visual_manifest.location_layer.failed_location_ids),
             "road_texture_ready": int(visual_manifest.route_layer.status == "ready"),
         },
         validation=validation_payload,

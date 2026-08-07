@@ -35,23 +35,33 @@ class VisualBackgroundAsset(BaseModel):
     road_mask_path: str = ""
     target_size: dict[str, int] = Field(default_factory=dict)
     generation_strategy: str = ""
+    asset_version: str = ""
     composited_layers: list[str] = Field(default_factory=list)
     error: str = ""
 
 
-class VisualPatchAsset(BaseModel):
-    location_id: str
+class VisualLocationLayer(BaseModel):
+    status: str = "missing"
+    source: str = "full_canvas_visual_review"
+    z_index: int = 100
     path: str = ""
     url: str = ""
-    status: str = "missing"
-    bounds_px: dict[str, int] = Field(default_factory=dict)
-    logical_bounds_px: dict[str, int] = Field(default_factory=dict)
-    prompt_path: str = ""
+    width_px: int = 0
+    height_px: int = 0
+    prompt_dir: str = ""
     metadata_path: str = ""
     provider: str = ""
     model: str = ""
     asset_version: str = ""
-    z_index: int = 0
+    generation_strategy: str = ""
+    completed_location_ids: list[str] = Field(default_factory=list)
+    failed_location_ids: list[str] = Field(default_factory=list)
+    evaluation_status: str = "missing"
+    evaluation_model: str = ""
+    evaluation_report_path: str = ""
+    attempt_count: int = 0
+    selected_attempt: int = 0
+    alignment_score: float = 0.0
     error: str = ""
 
 
@@ -101,6 +111,6 @@ class VisualLayoutManifest(BaseModel):
     route_layer: VisualRouteLayer = Field(default_factory=VisualRouteLayer)
     location_placeholder_layer: VisualLocationPlaceholderLayer = Field(default_factory=VisualLocationPlaceholderLayer)
     decorations: list[VisualDecoration] = Field(default_factory=list)
-    location_patches: list[VisualPatchAsset] = Field(default_factory=list)
+    location_layer: VisualLocationLayer = Field(default_factory=VisualLocationLayer)
     asset_contract: dict[str, Any] = Field(default_factory=dict)
     provenance: dict[str, Any] = Field(default_factory=dict)

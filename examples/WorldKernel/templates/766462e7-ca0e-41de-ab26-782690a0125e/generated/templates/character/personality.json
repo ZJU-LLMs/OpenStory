@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "courage_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "prejudice_toward_muggleborns",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "defiance_willingness",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_in_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "emotional_resilience",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_ambiguity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}
