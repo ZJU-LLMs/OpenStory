@@ -238,10 +238,6 @@ async def spatial_generate(session_id: str):
                 config.rendering.ai_art_enabled
                 and config.rendering.location_layer_enabled
             ),
-            generate_road_texture=(
-                config.rendering.ai_art_enabled
-                and config.rendering.road_texture_enabled
-            ),
             semantic_locations=[location.raw for location in build_input.locations],
         )
         result.blueprint.visual = visual_manifest.model_dump(mode="json")

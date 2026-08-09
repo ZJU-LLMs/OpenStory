@@ -59,7 +59,6 @@
     "layer_order": [
       "background.png",
       "location_layer.png",
-      "route_layer",
       "location_placeholder_layer",
       "agents",
       "selection_tooltip_debug_grid"

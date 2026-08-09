@@ -29,13 +29,13 @@ class VisualValidationPreviewTests(unittest.TestCase):
             manifest = self._write_assets(root, blueprint)
             background_before = (root / "background.png").read_bytes()
             location_before = (root / "location_layer.png").read_bytes()
-            road_before = (root / "road_layer.png").read_bytes()
 
             preview_path = root / "debug" / "preview.png"
             report = render_visual_validation_preview(
                 blueprint=blueprint,
                 spatial_root=root,
                 output_path=preview_path,
+                required_layers={"background", "locations", "roads"},
             )
 
             self.assertTrue(report["passed"])
@@ -46,7 +46,6 @@ class VisualValidationPreviewTests(unittest.TestCase):
             self.assertFalse(report["formal_assets_modified_by_preview"])
             self.assertEqual((root / "background.png").read_bytes(), background_before)
             self.assertEqual((root / "location_layer.png").read_bytes(), location_before)
-            self.assertEqual((root / "road_layer.png").read_bytes(), road_before)
 
             with Image.open(preview_path) as preview:
                 self.assertEqual(preview.size, (24, 16))
@@ -93,16 +92,14 @@ class VisualValidationPreviewTests(unittest.TestCase):
         manifest.background.path = str(root / "background.png")
         manifest.location_layer.status = "ready"
         manifest.location_layer.path = str(root / "location_layer.png")
-        manifest.route_layer.status = "ready"
-        manifest.route_layer.path = str(root / "road_layer.png")
+        manifest.route_layer.status = "integrated"
+        manifest.location_layer.includes_roads = True
 
         Image.new("RGB", (24, 16), (20, 40, 80)).save(root / "background.png")
         location = Image.new("RGBA", (24, 16), (0, 0, 0, 0))
+        ImageDraw.Draw(location).rectangle((4, 4, 15, 7), fill=(210, 180, 80, 255))
         ImageDraw.Draw(location).rectangle((16, 4, 19, 11), fill=(40, 150, 80, 255))
         location.save(root / "location_layer.png")
-        road = Image.new("RGBA", (24, 16), (0, 0, 0, 0))
-        ImageDraw.Draw(road).rectangle((4, 4, 15, 7), fill=(210, 180, 80, 255))
-        road.save(root / "road_layer.png")
         (root / "visual_layout_manifest.json").write_text(
             json.dumps(manifest.model_dump(mode="json"), ensure_ascii=False, indent=2),
             encoding="utf-8",

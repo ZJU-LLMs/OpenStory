@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "institution_security_clearance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "registration_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_data_access_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "institutional_legacy_code",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_zone_affiliation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "data_sovereignty_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "classification_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+{
+  "primary": "dystopian_city",
+  "secondary": "sci-fi_city",
+  "confidence": 0.94,
+  "tags": [
+    "科幻未来",
+    "记忆交易",
+    "漂浮城市",
+    "木星风暴",
+    "反乌托邦",
+    "身份危机",
+    "社会秩序",
+    "原创"
+  ],
+  "world_name": "木星记忆档案城",
+  "world_origin_summary": "原创科幻世界：一座悬浮于木星永恒风暴之上的城市，居民以出售和交易记忆为货币，城市秩序由记忆档案局与债务体系维系，身份与自我在记忆的流动中变得脆弱而可操纵。",
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "档案城新周期第1473日黎明",
+    "trigger_event": "市民凯恩·沃思的完整记忆被强制拍卖，用于偿还城市基础设施维护债务",
+    "year": "新周期历1473年",
+    "narrative_context": "城市刚经历一次风暴停歇期，记忆市场重新开市，底层居民面临新一轮记忆征收，记忆债务与身份认同的冲突即将爆发"
+  },
+  "visual_profile": {
+    "art_style": "俯视角手工卡通像素风世界地图，原生低分辨率 tile/sprite 像素美术语言，经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型，整体明亮、可爱、整洁，低纹理密度，画面清晰干净，具备轻松冒险与模拟经营游戏的视觉气质",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角，可拼贴的像素 RPG 地图空地视角",
+    "era_style": "近未来的太空殖民时代风格，结合机械工程感、信息档案美学与温暖的家居化公共空间，城市居民穿着带有数据接口的模块化服装",
+    "color_palette": [
+      "风暴铅灰",
+      "防护罩青蓝",
+      "档案纸象牙白",
+      "记忆光斑琥珀橙",
+      "机械锈红",
+      "电路板绿",
+      "天空隧道紫"
+    ],
+    "lighting_weather": "",
+    "material_texture": [
+      "大块铆接金属板",
+      "半透明能量护罩质感",
+      "低纹理风化合金地面",
+      "发光信息条与数据光带",
+      "仿生生态墙的柔性材质",
+      "陶瓷质感的公共设施外壳",
+      "粗糙磁力锚与缆绳编织纹理"
+    ],
+    "environmental_motifs": [
+      "悬浮在风暴云海上的圆盘状城市平台",
+      "中央记忆塔与周围放射状排列的居住环",
+      "悬挂式胶囊舱与磁力轨道",
+      "街道两侧的记忆交易亭与档案扫描柱",
+      "防风暴透明穹顶与支撑拱架",
+      "飘浮的广告光屏与信息灯塔",
+      "公共记忆净化喷泉",
+      "大型齿轮状风力稳定器",
+      "居民楼顶的信号天线阵列",
+      "圆形广场上的记忆储罐雕塑"
+    ],
+    "atmosphere": "bright, orderly, suppressed, nostalgic, subtly unsettling, hopeful yet melancholy",
+    "edge_blending_style": "柔和像素羽化的地形边缘、云际过渡与自然遮挡，城市平台与风暴背景之间用渐变的像素雾带衔接，便于后续叠加地点贴片",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理",
+      "不要风暴中的人造闪电细节",
+      "不要宇宙真空背景"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "memory_exchange_zone",
+      "type_name": "记忆交易区",
+      "description": "城市中最繁忙的公共市集，市民在这里出售、购买和拍卖自己的记忆片段，交易以标准记忆单位结算",
+      "common_fields": [
+        "currency_rate",
+        "memory_tax_rate",
+        "trading_hours",
+        "security_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "central_memory_bazaar",
+          "name": "中央记忆市集",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "全城记忆交易的核心枢纽，决定记忆价位与市民命运"
+        }
+      ]
+    },
+    {
+      "type_id": "archive_facility",
+      "type_name": "档案存储设施",
+      "description": "存储、编码和检索被交易记忆的巨型数据中心，是城市记忆经济的基础设施",
+      "common_fields": [
+        "storage_capacity",
+        "access_level",
+        "indexer_status",
+        "preservation_quality"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "memory_archive_tower",
+          "name": "记忆档案塔",
+          "importance": "core",
+          "source_type": "canonical",
+          "confidence": 0.98,
+          "generation_priority": 1,
+          "role_in_world": "全城记忆的物理载体，记忆档案局的权力中枢"
+        }
+      ]
+    },
+    {
+      "type_id": "residential_block",
+      "type_name": "居民住宅区",
+      "description": "按市民记忆净值分层的居住环带，每个家庭根据记忆贡献获得居住面积和能源配额",
+      "common_fields": [
+        "housing_level",
+        "memory_net_worth",
+        "resident_count",
+        "energy_allowance"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "bottom_ring_habitat",
+          "name": "底层环带居住舱",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.88,
+          "generation_priority": 2,
+          "role_in_world": "承载失去大量记忆的底层居民，是债务循环与身份危机的温床"
+        }
+      ]
+    },
+    {
+      "type_id": "governance_headquarters",
+      "type_name": "市政管理中枢",
+      "description": "记忆档案局、秩序维护部门和行政法院所在的高层建筑，负责执行记忆税收与债务清偿法规",
+      "common_fields": [
+        "authority_level",
+        "surveillance_coverage",
+        "policy_zone"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "order_hall",
+          "name": "秩序大礼堂",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 1,
+          "role_in_world": "城市统治者颁布记忆政策和审判债务者的场所"
+        }
+      ]
+    },
+    {
+      "type_id": "public_service_space",
+      "type_name": "公共服务与疗愈空间",
+      "description": "为市民提供记忆体检、心理恢复、身份重建和免费咨询的公共设施，同时也是社会稳定的调节阀",
+      "common_fields": [
+        "service_type",
+        "capacity",
+        "therapist_count",
+        "memory_rehab_program"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "identity_clinic",
+          "name": "身份疗愈诊所",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.82,
+          "generation_priority": 2,
+          "role_in_world": "因记忆缺失而迷失自我的市民寻求帮助的最后港湾"
+        }
+      ]
+    },
+    {
+      "type_id": "transit_hub",
+      "type_name": "交通枢纽",
+      "description": "城市层环之间、平台边缘哨站之间的通行节点，通过磁力轨道和胶囊舱连接各个功能区",
+      "common_fields": [
+        "traffic_volume",
+        "destinations",
+        "maintenance_status",
+        "checkpoint_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "storm_dock",
+          "name": "风暴港",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "连接城区与外侧观测站、物资停靠的唯一交通节点"
+        }
+      ]
+    },
+    {
+      "type_id": "entertainment_district",
+      "type_name": "娱乐与消费场所",
+      "description": "市民用记忆余额购买梦境演出、虚拟体验和怀旧景观的区域，用以逃避现实或回味被出售的记忆",
+      "common_fields": [
+        "admission_cost",
+        "experience_type",
+        "crowd_level",
+        "licensing"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "dreamyard",
+          "name": "梦幻庭院",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 3,
+          "role_in_world": "市民享受记忆娱乐的目的地，也是黑市记忆交易的中转点"
+        }
+      ]
+    },
+    {
+      "type_id": "frontier_research_post",
+      "type_name": "边缘研究站",
+      "description": "悬于城市平台下方、直接接触木星风暴的科研基地，负责研究风暴数据、感应器维护与稀有记忆矿物采集",
+      "common_fields": [
+        "research_project",
+        "storm_exposure",
+        "crew_list",
+        "supply_route"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "stormwatch_lab",
+          "name": "风暴守望实验室",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 3,
+          "role_in_world": "提供给科学者与反抗组织接触外部信息的边缘地带"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "memory_archivist",
+      "type_name": "记忆档案管理员",
+      "description": "负责城市记忆的编码、存储和保险库管理，是记忆经济的执行者，也可能成为记忆真相的操纵者",
+      "common_fields": [
+        "clearance_level",
+        "archived_memories_count",
+        "loyalty_faction",
+        "ethical_stance"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "ierin_voss",
+          "name": "伊琳·沃斯",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "记忆档案塔的首席管理员，保管着城市最高机密，暗中质疑记忆交易的合理性"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_debtor",
+      "type_name": "记忆债务人",
+      "description": "身负大量记忆债的底层市民，被强制分期扣除记忆，逐渐失去过往、技能与人格完整性",
+      "common_fields": [
+        "debt_amount",
+        "remaining_memories",
+        "family_links",
+        "debt_term"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "caine_werth",
+          "name": "凯恩·沃思",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.92,
+          "generation_priority": 1,
+          "role_in_world": "开场即被拍卖全部记忆的普通维修工，他的反抗将点燃全城对记忆债务体系的不满"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_trader",
+      "type_name": "记忆商人",
+      "description": "经营记忆收购与转卖的中间商，精于评估记忆价值和操纵市场，是城市中财富与信息流动的关键角色",
+      "common_fields": [
+        "license_id",
+        "portfolio_size",
+        "reputation",
+        "black_market_ties"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "myra_solan",
+          "name": "米拉·索兰",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 2,
+          "role_in_world": "中央市集最具影响力的记忆商，游走于灰色地带，掌握珍贵记忆的流通脉络"
+        }
+      ]
+    },
+    {
+      "type_id": "order_enforcer",
+      "type_name": "秩序执法官",
+      "description": "记忆档案局下属的执法者，负责追查盗卖记忆、强制记忆征收和镇压债务暴动，装备记忆扫描仪器",
+      "common_fields": [
+        "rank",
+        "enforcement_zone",
+        "memory_scan_power",
+        "obedience_index"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "overseer_draven",
+          "name": "监察官德雷文",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "秩序大礼堂的最高执法者，坚信记忆债务体系是城市存续的唯一道路"
+        }
+      ]
+    },
+    {
+      "type_id": "identity_refugee",
+      "type_name": "身份迷失者",
+      "description": "因记忆被大量出售或强制剥离而丧失自我同一性的市民，在疗愈机构间流浪，被视为城市边缘人",
+      "common_fields": [
+        "retained_memory_percentage",
+        "identity_fragments",
+        "recovery_stage",
+        "origin_zone"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "asher_toll",
+          "name": "阿舍·托尔",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.86,
+          "generation_priority": 3,
+          "role_in_world": "曾肩负市政技术的工程师，记忆被拍卖后沦为身份残缺者，却残存着关键城市图纸的记忆碎片"
+        }
+      ]
+    },
+    {
+      "type_id": "stormlighter_resistance",
+      "type_name": "风暴之光反抗者",
+      "description": "暗中组织市民反抗记忆债务体制的地下抵抗者，试图打破记忆档案局对城市和身份的控制",
+      "common_fields": [
+        "cell_name",
+        "recruitment_count",
+        "hideout_location",
+        "radicalism"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "novel_quinn",
+          "name": "诺维尔·奎恩",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.87,
+          "generation_priority": 2,
+          "role_in_world": "隐藏身份的记忆解毒师，秘密修复被剥离记忆的受害者并组织反抗网"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "memory_currency_law",
+      "type_name": "记忆货币法",
+      "description": "规定记忆是城市唯一合法货币，所有商品和服务以标准记忆单位计价，任何实物货币和私人账本均属违法",
+      "common_fields": [
+        "exchange_rate",
+        "standard_unit",
+        "legal_tender_type",
+        "counterfeit_penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "memory_standard_act",
+          "name": "记忆本位法",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.92,
+          "generation_priority": 1,
+          "role_in_world": "确立记忆交易体系为城市经济根基的根本法律"
+        }
+      ]
+    },
+    {
+      "type_id": "debt_servitude_rule",
+      "type_name": "记忆债务劳役制度",
+      "description": "市民若无法偿还记忆贷款，则由记忆档案局直接征收记忆份额，直到债务清零或人格彻底瓦解",
+      "common_fields": [
+        "debt_formula",
+        "forfeiture_rate",
+        "minimum_livable_memory",
+        "appeal_process"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "forced_memory_seizure",
+          "name": "强制记忆征收令",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.9,
+          "generation_priority": 1,
+          "role_in_world": "让债务体系能够吞噬市民身份的核心执行规则"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_quality_control",
+      "type_name": "记忆质量管控",
+      "description": "对出售和存储的记忆进行质量评级，包括真实度、情感强度和稀缺性，禁止出售伪造记忆或窃取他人记忆",
+      "common_fields": [
+        "grading_scale",
+        "authentication_method",
+        "forgery_detection",
+        "qualification_requirements"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "authenticity_certification",
+          "name": "记忆溯源认证",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.86,
+          "generation_priority": 2,
+          "role_in_world": "维护记忆市场信心和真实性的评级制度，也催生了黑市记忆造假"
+        }
+      ]
+    },
+    {
+      "type_id": "citizenship_rights_rule",
+      "type_name": "身份资格法",
+      "description": "市民资格与个人记忆存量挂钩：记忆净值低于阈值的居民将失去选举权、居住权和治疗权，并被视为无身份者",
+      "common_fields": [
+        "citizenship_threshold",
+        "rights_matrix",
+        "reinstatement_method",
+        "disenfranchisement_penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "identity_lien_statute",
+          "name": "身份抵押条例",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.89,
+          "generation_priority": 1,
+          "role_in_world": "确保市民主动配合记忆交易的社会契约，也是最残酷的人性压制工具"
+        }
+      ]
+    },
+    {
+      "type_id": "archival_oversight_rule",
+      "type_name": "档案保密与监管规则",
+      "description": "规定记忆档案局对存储记忆的使用权限、调阅流程和销毁程序，表面为保护私人记忆，实则赋予档案局无上权力",
+      "common_fields": [
+        "access_permission",
+        "secrecy_level",
+        "retention_period",
+        "violation_penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "archive_seal_protocol",
+          "name": "档案封存协议",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.85,
+          "generation_priority": 2,
+          "role_in_world": "名义上保护市民隐私，实际上掩盖档案局操控记忆的黑暗内部协议"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_safety_code",
+      "type_name": "风暴安全守则",
+      "description": "针对木星风暴扰动的城市防护法规，规定风暴警戒期间记忆市场停止交易、交通限行、居民进入防暴掩体",
+      "common_fields": [
+        "storm_alert_level",
+        "evacuation_order",
+        "shelter_assignment",
+        "emergency_powers"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "storm_suspension_order",
+          "name": "风暴晴空禁市令",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.82,
+          "generation_priority": 3,
+          "role_in_world": "风暴间歇期开放、警戒期封闭的市场管理规则，也是城市运行节奏的标尺"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "floating_city_integrity",
+      "name": "城市悬浮与风暴隔离",
+      "description": "城市依靠城市核心的引力抑制器与巨大悬浮穹顶浮于木星风暴之上，任何核心动力或防护系统的故障都将导致城市坠入风暴，因此所有重大决策都必须优先保证城市物理存续",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "memory_as_sole_currency",
+      "name": "记忆即货币",
+      "description": "记忆是城市唯一可流通的硬通货，价值依据情感强度和稀缺度折算。没有记忆就没有购买力、社会地位乃至身份，任何拥有财富但无记忆的人都会被排斥出城市体系",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "memory_debt_bondage",
+      "name": "记忆债务终身绑定",
+      "description": "市民因出生、教育、医疗和住房而背负的记忆债务，终生难以还清。债务由记忆档案局单方面估值和征收，无法拒绝，也不存在破产制度，导致底层民众不断被剥夺自我",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "identity_archival_surveillance",
+      "name": "身份档案监控",
+      "description": "每个人从出生起就被记录核心记忆档案，城市可随时调阅、对比和验证任何人的记忆真伪。个人的过去被档案局官方定义，反抗或伪造记忆等同于背叛城市",
+      "scope": "faction"
+    }
+  ]
+}

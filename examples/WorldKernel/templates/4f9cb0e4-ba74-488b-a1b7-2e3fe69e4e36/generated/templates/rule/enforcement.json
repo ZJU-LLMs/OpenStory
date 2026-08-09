@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "name": "enforcer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mechanism",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "detectability",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_audit_schedule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "traceability_of_memory_fingerprints",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debtor_compliance_monitoring",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mandatory_identity_archive_sync",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anonymous_memory_trade_surveillance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_period_enforcement_exceptions",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "detachable_memory_seal_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rehabilitation_program_deligence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

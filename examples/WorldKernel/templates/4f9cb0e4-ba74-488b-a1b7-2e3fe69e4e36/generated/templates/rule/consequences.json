@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_confiscation_quota",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_labor_hours_calculation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_downgrade_penalty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_credit_repayment_bonus",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archival_access_restriction_period",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "mandatory_psychic_reintegration_fee",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_safety_compliance_discount",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "permanent_memory_loss_for_recidivism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

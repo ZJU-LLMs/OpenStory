@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "enacted_by_memory_archive_bureau",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ratified_by_trade_oversight_committee",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "derived_from_memory_currency_law",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_public_memory_consensus",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "approved_by_storm_safety_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "amendable_by_identity_qualification_act",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recognition_of_contraband_memory_prizes",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "valid_only_under_storm_warning_levels",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

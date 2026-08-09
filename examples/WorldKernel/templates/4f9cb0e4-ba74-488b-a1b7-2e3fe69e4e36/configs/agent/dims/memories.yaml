@@ -1,0 +1,36 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+forgotten_memory_fragments:
+  type: str
+  option: true
+memory_ownership_claims:
+  type: str
+  option: true
+traded_memory_inventory:
+  type: str
+  option: true
+illegal_memory_bootlegs:
+  type: str
+  option: true
+archive_modification_records:
+  type: str
+  option: true
+authentic_memory_certificates:
+  type: str
+  option: true
+traumatic_storm_memories:
+  type: str
+  option: true
+identity_overwrite_incidents:
+  type: str
+  option: true

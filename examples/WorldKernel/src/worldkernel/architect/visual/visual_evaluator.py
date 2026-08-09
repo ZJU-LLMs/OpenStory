@@ -12,8 +12,11 @@ from typing import Any, Literal
 from PIL import Image, ImageDraw, ImageFont
 from pydantic import BaseModel, Field, ValidationError
 
+from worldkernel.architect.spatial.models import SpatialBlueprint
+
 
 SEVERE_STATUSES = {"major_shift", "missing", "incomplete", "merged"}
+CRITICAL_LOCATION_STATUSES = {"missing", "merged"}
 STATUS_SCORES = {
     "ok": 100,
     "minor_shift": 75,
@@ -24,6 +27,15 @@ STATUS_SCORES = {
     "marker_remaining": 20,
 }
 HARD_CONFIDENCE = 0.75
+ROAD_SEVERE_STATUSES = {"major_shift", "missing", "disconnected"}
+ROAD_STATUS_SCORES = {
+    "ok": 100,
+    "minor_shift": 75,
+    "major_shift": 30,
+    "missing": 0,
+    "disconnected": 15,
+    "marker_remaining": 20,
+}
 
 
 class LocationVisualEvaluation(BaseModel):
@@ -50,9 +62,27 @@ class LocationVisualEvaluation(BaseModel):
     retry_instruction: str = ""
 
 
+class RoadVisualEvaluation(BaseModel):
+    status: Literal[
+        "ok",
+        "minor_shift",
+        "major_shift",
+        "missing",
+        "disconnected",
+        "marker_remaining",
+    ]
+    confidence: float = Field(ge=0.0, le=1.0)
+    estimated_coverage_ratio: float = Field(default=0.0, ge=0.0, le=1.0)
+    connected_location_ratio: float = Field(default=0.0, ge=0.0, le=1.0)
+    continuous: bool = False
+    reason: str = ""
+    retry_instruction: str = ""
+
+
 class VisualEvaluationReport(BaseModel):
     summary: str = ""
     locations: list[LocationVisualEvaluation]
+    roads: RoadVisualEvaluation
 
 
 class VisualEvaluationError(RuntimeError):
@@ -85,11 +115,13 @@ class VisualEvaluator:
         overview_path: str | Path,
         details_path: str | Path,
         items: list[dict[str, Any]],
+        blueprint: SpatialBlueprint,
         attempt: int,
         local_warnings: dict[str, list[str]] | None = None,
     ) -> dict[str, Any]:
         prompt = compose_evaluation_prompt(
             items=items,
+            blueprint=blueprint,
             attempt=attempt,
             local_warnings=local_warnings or {},
         )
@@ -121,6 +153,7 @@ class VisualEvaluator:
             "endpoint": self.endpoint,
             "summary": report.summary,
             "locations": [item.model_dump(mode="json") for item in report.locations],
+            "roads": report.roads.model_dump(mode="json"),
             "decision": decision,
             "format_repaired": repaired,
             "usage": raw.get("usage") if isinstance(raw.get("usage"), dict) else {},
@@ -166,12 +199,16 @@ def render_review_assets(
     *,
     candidate: Image.Image,
     items: list[dict[str, Any]],
+    blueprint: SpatialBlueprint | None = None,
     overview_path: str | Path,
     details_path: str | Path,
 ) -> None:
     overview = candidate.convert("RGB").copy()
     draw = ImageDraw.Draw(overview)
     font = _font(28)
+    if blueprint is not None:
+        _draw_road_review_overlay(overview, blueprint)
+        draw = ImageDraw.Draw(overview)
     for item in items:
         slot = item["slot"]
         bounds = slot.bounds_px
@@ -225,14 +262,21 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
             item.center_position == "outside" or item.estimated_overlap_ratio < 0.50
         ):
             effective_status = "major_shift"
-        hard_failure = effective_status in SEVERE_STATUSES and item.confidence >= HARD_CONFIDENCE
+        critical_incident = effective_status in CRITICAL_LOCATION_STATUSES
+        hard_failure = critical_incident or (
+            effective_status in SEVERE_STATUSES and item.confidence >= HARD_CONFIDENCE
+        )
         warning = (
             effective_status != "ok"
             or item.semantic_match != "yes"
             or item.entrance_alignment not in {"ok", "uncertain"}
         ) and not hard_failure
         score = STATUS_SCORES[effective_status]
-        if effective_status in SEVERE_STATUSES and item.confidence < HARD_CONFIDENCE:
+        if (
+            effective_status in SEVERE_STATUSES
+            and item.confidence < HARD_CONFIDENCE
+            and not critical_incident
+        ):
             score = 60
         if item.entrance_alignment == "blocked":
             score -= 5
@@ -244,6 +288,7 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
                 "location_id": item.location_id,
                 "number": item.number,
                 "hard_failure": hard_failure,
+                "critical_incident": critical_incident,
                 "warning": warning,
                 "score": score,
                 "status": effective_status,
@@ -252,24 +297,55 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
             }
         )
     hard_ids = [item["location_id"] for item in locations if item["hard_failure"]]
+    critical_ids = [item["location_id"] for item in locations if item["critical_incident"]]
     warning_ids = [item["location_id"] for item in locations if item["warning"]]
     ok_count = sum(1 for item in locations if item["status"] == "ok")
     allowed_warnings = max(2, math.ceil(len(locations) * 0.15))
     scores = [int(item["score"]) for item in locations]
     average = sum(scores) / len(scores) if scores else 0.0
     minimum = min(scores) if scores else 0
-    passed = not hard_ids and len(warning_ids) <= allowed_warnings
+    road_status = report.roads.status
+    if road_status == "ok" and not report.roads.continuous:
+        road_status = "disconnected"
+    elif road_status == "minor_shift" and (
+        report.roads.estimated_coverage_ratio < 0.70
+        or report.roads.connected_location_ratio < 0.70
+    ):
+        road_status = "major_shift"
+    road_hard_failure = (
+        road_status in ROAD_SEVERE_STATUSES
+        and report.roads.confidence >= HARD_CONFIDENCE
+    )
+    road_warning = road_status != "ok" and not road_hard_failure
+    road_score = ROAD_STATUS_SCORES[road_status]
+    if road_status in ROAD_SEVERE_STATUSES and report.roads.confidence < HARD_CONFIDENCE:
+        road_score = 60
+    total_warning_count = len(warning_ids) + int(road_warning)
+    total_hard_failure_count = len(hard_ids) + int(road_hard_failure)
+    passed = (
+        not hard_ids
+        and not road_hard_failure
+        and total_warning_count <= allowed_warnings
+    )
+    combined_alignment = average * 0.85 + road_score * 0.15
     return {
         "passed": passed,
         "hard_failure_location_ids": hard_ids,
+        "critical_incident_location_ids": critical_ids,
+        "critical_incident_count": len(critical_ids),
         "warning_location_ids": warning_ids,
-        "hard_failure_count": len(hard_ids),
-        "warning_count": len(warning_ids),
+        "hard_failure_count": total_hard_failure_count,
+        "warning_count": total_warning_count,
         "allowed_warning_count": allowed_warnings,
         "ok_count": ok_count,
         "minimum_location_score": minimum,
         "average_location_score": round(average, 2),
-        "alignment_score": round(average, 2),
+        "road_hard_failure": road_hard_failure,
+        "road_warning": road_warning,
+        "road_status": road_status,
+        "road_score": road_score,
+        "road": report.roads.model_dump(mode="json"),
+        "alignment_score": round(combined_alignment, 2),
         "locations": locations,
     }
 
@@ -277,6 +353,7 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
 def compose_evaluation_prompt(
     *,
     items: list[dict[str, Any]],
+    blueprint: SpatialBlueprint,
     attempt: int,
     local_warnings: dict[str, list[str]],
 ) -> str:
@@ -309,17 +386,30 @@ def compose_evaluation_prompt(
                 "retry_instruction": "需要重试时给出简短修正指令",
             }
         ],
+        "roads": {
+            "status": "ok|minor_shift|major_shift|missing|disconnected|marker_remaining",
+            "confidence": 0.9,
+            "estimated_coverage_ratio": 0.85,
+            "connected_location_ratio": 0.9,
+            "continuous": True,
+            "reason": "简短理由",
+            "retry_instruction": "需要重试时给出简短修正指令",
+        },
     }
     return "\n".join(
         [
             f"你是2D游戏地图空间对齐评价员。当前是第 {attempt} 个候选。",
             "第一张图是完整地图，第二张图是相同地点的局部放大图集。",
             "红框表示后端规定的地点期望区域，不是墙体或UI；红色编号与地点清单一一对应。",
-            "橙色点是入口格，蓝色短线是道路接近方向。只评价地点是否遗漏、严重偏移、截断或互相合并。",
+            "橙色点是入口格，蓝色半透明走廊和中心线表示后端规定的全部道路位置。",
+            "除地点完整性外，还要评价生成道路是否沿蓝色走廊连续出现、是否严重偏移、是否漏掉主要路段，以及是否连接绝大多数地点入口。",
             "允许墙体、平台、屋檐和自然边缘向红框外延伸一格或单边15%，不要追求逐像素重合。",
             "主体中心在框外或主体与框重叠不足50%才评为major_shift；完整且中心仍在框内的少量外扩评为minor_shift。",
+            "地点缺失missing或两个地点合并merged属于重大事故：一旦确认必须按该状态报告，不得因置信度较低而降级。",
             "公园、庭院、广场等低密度地点不能仅因内部空旷评为missing。入口和语义问题只需记录，不要单独升级为严重偏移。",
+            "道路允许边缘自然起伏和少量装饰，不要求逐像素重合。覆盖主要走廊且连接至少70%地点可评为minor_shift；覆盖不足50%、大段断裂、整体错位或缺失才是严重问题。",
             "必须逐一评价清单中的所有地点，number和location_id必须原样返回，不得遗漏或增加地点。",
+            f"道路基准共有 {len({(int(point.x), int(point.y)) for point in blueprint.road_tiles})} 个格子、{len(blueprint.routes)} 条逻辑路线。",
             "只输出一个JSON对象，不要Markdown代码块，不要解释文字。JSON结构示例：",
             json.dumps(schema, ensure_ascii=False),
             "地点清单：",
@@ -338,7 +428,7 @@ def compose_repair_prompt(content: str, items: list[dict[str, Any]], error: str)
             "把下面的视觉评价内容修复为合法JSON。不要重新评价图片，不要添加或删除地点。",
             f"必须包含这些地点：{json.dumps(expected, ensure_ascii=False)}",
             f"校验错误：{error[:500]}",
-            "只输出包含summary和locations的JSON对象，不要Markdown。",
+            "只输出包含summary、locations和roads的JSON对象，不要Markdown。roads必须保留原评价中的道路结论。",
             "原始内容：",
             content[:12000],
         ]
@@ -422,6 +512,28 @@ def _draw_entrance_marker(draw: ImageDraw.ImageDraw, port: dict[str, Any]) -> No
         fill=(0, 210, 255),
         width=max(3, tile_size // 4),
     )
+
+
+def _draw_road_review_overlay(image: Image.Image, blueprint: SpatialBlueprint) -> None:
+    tile_size = max(1, int(blueprint.grid.tile_size))
+    overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay, "RGBA")
+    for point in {(int(point.x), int(point.y)) for point in blueprint.road_tiles}:
+        x = point[0] * tile_size
+        y = point[1] * tile_size
+        draw.rectangle(
+            (x, y, x + tile_size - 1, y + tile_size - 1),
+            fill=(0, 185, 255, 58),
+        )
+    width = max(3, tile_size // 4)
+    for route in blueprint.routes:
+        points = [
+            (int((point.x + 0.5) * tile_size), int((point.y + 0.5) * tile_size))
+            for point in route.centerline
+        ]
+        if len(points) >= 2:
+            draw.line(points, fill=(0, 225, 255, 230), width=width)
+    image.paste(Image.alpha_composite(image.convert("RGBA"), overlay).convert("RGB"))
 
 
 def _message_content(response: dict[str, Any]) -> str:

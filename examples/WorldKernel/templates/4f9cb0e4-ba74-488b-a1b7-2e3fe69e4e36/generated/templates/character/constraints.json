@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "cannot_hold_memory_without_license",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_access_restricted_archives",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_sell_stolen_memories_legally",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_reveal_black_market_contacts",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_violate_debt_labor_schedule",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_alter_archive_without_authorization",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cannot_exchange_identity_memories_illegally",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

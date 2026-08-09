@@ -1,18 +1,22 @@
 {
   "status": "ready",
-  "generation_strategy": "full_canvas_location_map_inverse_mask_visual_review_v6",
-  "layer_mode": "full_canvas_replacement",
+  "generation_strategy": "full_canvas_location_and_road_inverse_mask_visual_review_v7",
+  "layer_mode": "full_canvas_locations_and_roads_replacement",
+  "includes_roads": true,
+  "road_geometry_source": "spatial_blueprint.road_tiles",
   "single_pass": false,
   "mask_commit": false,
   "initial_request_mask_used": true,
   "initial_request_mask": {
-    "mode": "inverse_location_mask",
+    "mode": "inverse_location_and_road_mask",
     "semantics": "transparent_pixels_editable_opaque_pixels_protected",
     "expansion_tiles": 1,
     "location_count": 20,
-    "editable_pixels": 1042176,
-    "protected_pixels": 3053824,
-    "protected_road_pixels": 111872,
+    "editable_pixels": 1154048,
+    "protected_pixels": 2941952,
+    "road_tile_count": 487,
+    "editable_road_pixels": 124672,
+    "protected_road_pixels": 0,
     "entrance_connector_tile_count": 20,
     "canvas_size": {
       "width": 2560,
@@ -56,8 +60,8 @@
   "evaluation_status": "passed",
   "evaluation_model": "qwen3.7-plus",
   "evaluation_report_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\766462e7-ca0e-41de-ab26-782690a0125e\\generated\\artifacts\\spatial\\location_alignment_report.json",
-  "attempt_count": 2,
-  "selected_attempt": 2,
+  "attempt_count": 1,
+  "selected_attempt": 1,
   "alignment_score": 100.0,
   "locations": [
     {
@@ -83,9 +87,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9992967156621422,
-          "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "content_change_ratio": 0.9995077009634995,
+          "marker_remaining_ratio": 0.0011554015020219799,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -99,9 +103,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "right",
+          "direction": "none",
           "merged_with": [],
-          "reason": "框体完美覆盖室内区域，入口与道路对齐准确。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -139,9 +143,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9925451860187073,
+          "content_change_ratio": 0.9982417891553556,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -155,9 +159,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "right",
+          "direction": "none",
           "merged_with": [],
-          "reason": "框体完整包含喷泉庭院，边缘留有余量，对齐良好。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -195,9 +199,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9946315962210188,
+          "content_change_ratio": 0.9948894671449,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -211,9 +215,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "right",
+          "direction": "none",
           "merged_with": [],
-          "reason": "框体准确覆盖教室/会议室区域，无偏移。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -251,7 +255,7 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9949832383899477,
+          "content_change_ratio": 0.9944909393534472,
           "marker_remaining_ratio": 0.0,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
@@ -267,9 +271,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "圆形竞技场区域覆盖完整，入口位于下方正中。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -307,9 +311,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9999765571887381,
+          "content_change_ratio": 0.999695243453595,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -323,9 +327,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "水域及码头区域框选准确，包含主要互动点。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -363,9 +367,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9948191387111143,
+          "content_change_ratio": 0.9997655718873807,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -379,9 +383,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "小型室内房间覆盖完整，入口对齐无误。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -419,9 +423,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9916309163794922,
+          "content_change_ratio": 0.9848793867360573,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -435,9 +439,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "图书馆/书房区域框选精准。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -475,7 +479,7 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9982886747778794,
+          "content_change_ratio": 0.9943737252971376,
           "marker_remaining_ratio": 0.0,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
@@ -491,9 +495,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "圆形大厅覆盖完整，中心图案在框内。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -531,7 +535,7 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9996249150198092,
+          "content_change_ratio": 0.9982417891553556,
           "marker_remaining_ratio": 0.0,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
@@ -547,9 +551,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "运动场/竞技场区域完整包含，入口对齐。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -587,9 +591,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9986637597580702,
+          "content_change_ratio": 0.9986872025693321,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -603,9 +607,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "长桌会议室区域覆盖准确。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -643,9 +647,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9992263872283564,
-          "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "content_change_ratio": 0.9991560587945706,
+          "marker_remaining_ratio": 0.0017331022530329143,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -659,9 +663,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "宿舍/走廊区域框选完整。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -699,9 +703,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.999038844738261,
+          "content_change_ratio": 0.9958037367841152,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -715,9 +719,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "树林/庭院区域覆盖完整，符合低密度地点标准。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -755,9 +759,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.995522423048972,
+          "content_change_ratio": 0.9614365754741309,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -771,9 +775,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "餐厅/大厅区域框选准确。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -811,8 +815,8 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9926389572637551,
-          "marker_remaining_ratio": 0.0,
+          "content_change_ratio": 0.993295355979089,
+          "marker_remaining_ratio": 0.00014442518775270585,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
@@ -827,9 +831,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "圆形议事厅区域覆盖完整。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -867,9 +871,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.995850622406639,
+          "content_change_ratio": 0.9965304639332349,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -883,9 +887,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "石质走廊/遗迹区域框选准确。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -923,9 +927,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9996718006423331,
+          "content_change_ratio": 0.9999062287549523,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -939,9 +943,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "壁炉休息室区域覆盖完整。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -979,7 +983,7 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9936066490849517,
+          "content_change_ratio": 0.9997602493406856,
           "marker_remaining_ratio": 0.0,
           "marker_pixel_count": 2257,
           "minimum_content_change_ratio": 0.02,
@@ -995,9 +999,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "牢房/储藏室区域框选准确。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -1035,7 +1039,7 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9989450734932133,
+          "content_change_ratio": 0.9977260473075932,
           "marker_remaining_ratio": 0.0,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
@@ -1051,9 +1055,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "圆形红色地毯大厅覆盖完整。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -1091,9 +1095,9 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9982886747778794,
+          "content_change_ratio": 0.9997421290761188,
           "marker_remaining_ratio": 0.0,
-          "marker_pixel_count": 0,
+          "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
         },
@@ -1107,9 +1111,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "楼梯间区域框选准确，包含主要结构。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -1147,8 +1151,8 @@
       "diagnostics": {
         "local": {
           "passed": true,
-          "content_change_ratio": 0.9952645521250908,
-          "marker_remaining_ratio": 0.0,
+          "content_change_ratio": 0.9962491501980918,
+          "marker_remaining_ratio": 0.0015886770652802085,
           "marker_pixel_count": 6924,
           "minimum_content_change_ratio": 0.02,
           "maximum_marker_remaining_ratio": 0.2
@@ -1163,9 +1167,9 @@
           "complete": true,
           "semantic_match": "yes",
           "entrance_alignment": "ok",
-          "direction": "bottom",
+          "direction": "none",
           "merged_with": [],
-          "reason": "星图大厅区域覆盖完整，入口对齐。",
+          "reason": "地点完整，红框对齐精准，道路连接正常。",
           "retry_instruction": ""
         },
         "decision": {
@@ -1188,9 +1192,11 @@
   },
   "evaluation": {
     "status": "passed",
-    "attempt_count": 2,
-    "selected_attempt": 2,
-    "selection_reason": "第 2 个候选通过全部本地检查和视觉评价"
+    "attempt_count": 1,
+    "selected_attempt": 1,
+    "selection_reason": "第 1 个候选通过全部本地检查和视觉评价"
   },
-  "asset_version": "2b621b53d67ad9cf"
+  "asset_version": "77b5626e7f9698c3",
+  "debug_artifact_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\766462e7-ca0e-41de-ab26-782690a0125e\\generated\\debug\\visual_validation\\intermediates\\location_attempts",
+  "debug_artifacts_retained": true
 }

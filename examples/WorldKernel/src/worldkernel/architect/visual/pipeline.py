@@ -4,6 +4,7 @@ import hashlib
 import json
 import logging
 import shutil
+import time
 from pathlib import Path
 from typing import Any
 
@@ -21,13 +22,12 @@ from worldkernel.architect.visual.location_layer import (
 )
 from worldkernel.architect.visual.models import VisualLayoutManifest
 from worldkernel.architect.visual.prompt import compose_background_prompt
-from worldkernel.architect.visual.road_texture import (
-    generate_road_texture_assets,
-    hydrate_existing_road_texture,
-)
 from worldkernel.llm.config_loader import load_model_config_by_capability
 
 logger = logging.getLogger(__name__)
+
+BACKGROUND_TRANSPORT_MAX_ATTEMPTS = 2
+BACKGROUND_TRANSPORT_RETRY_SECONDS = 2.0
 
 
 def run_visual_pipeline(
@@ -38,7 +38,6 @@ def run_visual_pipeline(
     model_config_path: str | Path,
     generate_background: bool = False,
     generate_location_layer: bool = False,
-    generate_road_texture: bool = False,
     semantic_locations: list[Any] | None = None,
     force_location_regeneration: bool = False,
     location_debug_artifact_root: str | Path | None = None,
@@ -160,32 +159,21 @@ def run_visual_pipeline(
             metadata_payload["existing_location_layer"] = hydrated_layer
             manifest.provenance["existing_location_layer"] = hydrated_layer
 
-    if generate_road_texture:
-        try:
-            road_metadata = generate_road_texture_assets(
-                blueprint=blueprint,
-                manifest=manifest,
-                world_background=world_background,
-                root=root,
-                model_config_path=model_config_path,
-            )
-            metadata_payload["road_texture"] = road_metadata
-            manifest.provenance["road_texture_generation"] = road_metadata
-        except Exception as road_exc:
-            logger.warning("Road texture generation skipped/failed: %s", road_exc)
-            manifest.route_layer.status = "placeholder"
-            manifest.route_layer.error = str(road_exc)
-            road_metadata = {"status": "failed", "error": str(road_exc)}
-            metadata_payload["road_texture"] = road_metadata
-            manifest.provenance["road_texture_generation"] = road_metadata
-            existing_road = hydrate_existing_road_texture(manifest, root)
-            if existing_road["status"] == "ready":
-                metadata_payload["existing_road_texture"] = existing_road
-    else:
-        existing_road = hydrate_existing_road_texture(manifest, root)
-        if existing_road["status"] == "ready":
-            metadata_payload["existing_road_texture"] = existing_road
-            manifest.provenance["existing_road_texture"] = existing_road
+    manifest.route_layer.status = "integrated"
+    manifest.route_layer.path = ""
+    manifest.route_layer.url = ""
+    manifest.route_layer.atlas_path = ""
+    manifest.route_layer.prompt_path = ""
+    manifest.route_layer.metadata_path = ""
+    for legacy_name in ("road_atlas.png", "road_layer.png", "road_prompt.json", "road_metadata.json"):
+        (root / legacy_name).unlink(missing_ok=True)
+    metadata_payload["road_rendering"] = {
+        "status": "integrated" if manifest.location_layer.status in {"ready", "partial"} else "pending",
+        "source": "spatial_blueprint.road_tiles",
+        "asset": "location_layer.png",
+        "independent_texture_generation": False,
+    }
+    manifest.provenance["road_rendering"] = metadata_payload["road_rendering"]
 
     _write_json(metadata_path, metadata_payload)
     _write_json(manifest_path, manifest.model_dump(mode="json"))
@@ -225,15 +213,45 @@ def _generate_background(
     )
     _write_json(root / "background_prompt.json", prompt_payload)
 
-    model_metadata = client.generate(
-        prompt_payload["prompt"],
-        raw_path,
-        negative_prompt=prompt_payload.get("negative_prompt", ""),
-        size=target_size,
-        input_image_path=edit_base_path,
-        mask_path=edit_mask_path,
-        style_reference_paths=reference_paths,
-    )
+    attempt_failures: list[str] = []
+    model_metadata: dict[str, Any] | None = None
+    for transport_attempt in range(1, BACKGROUND_TRANSPORT_MAX_ATTEMPTS + 1):
+        try:
+            generated_metadata = client.generate(
+                prompt_payload["prompt"],
+                raw_path,
+                negative_prompt=prompt_payload.get("negative_prompt", ""),
+                size=target_size,
+                input_image_path=edit_base_path,
+                mask_path=edit_mask_path,
+                style_reference_paths=reference_paths,
+            )
+            model_metadata = {
+                **generated_metadata,
+                "transport_attempt_count": transport_attempt,
+                "transport_failures": list(attempt_failures),
+            }
+            break
+        except Exception as exc:
+            message = str(exc)
+            attempt_failures.append(message)
+            if (
+                transport_attempt >= BACKGROUND_TRANSPORT_MAX_ATTEMPTS
+                or not _is_transient_image_error(message)
+            ):
+                raise RuntimeError(
+                    "Background image generation failed after "
+                    f"{transport_attempt} transport attempt(s): {message}"
+                ) from exc
+            logger.warning(
+                "Transient background image error on attempt %s/%s: %s",
+                transport_attempt,
+                BACKGROUND_TRANSPORT_MAX_ATTEMPTS,
+                message,
+            )
+            time.sleep(BACKGROUND_TRANSPORT_RETRY_SECONDS)
+    if model_metadata is None:
+        raise RuntimeError("Background image generation exhausted transport attempts")
     shutil.copyfile(raw_path, mask_restored_path)
     mask_validation = validate_protected_regions(
         edit_base_path,
@@ -261,9 +279,27 @@ def _generate_background(
         "raw_model_output_path": str(raw_path),
         "mask_restored_path": str(mask_restored_path),
         "composite": composite_metadata,
-        "attempt_failures": [],
+        "attempt_failures": attempt_failures,
         "style_reference": style_reference_path.name if style_reference_path is not None else None,
     }
+
+
+def _is_transient_image_error(message: str) -> bool:
+    text = message.lower()
+    return any(
+        token in text
+        for token in (
+            "http 429",
+            "http 502",
+            "http 503",
+            "http 504",
+            "timed out",
+            "timeout",
+            "connection reset",
+            "remote end closed",
+            "temporarily unavailable",
+        )
+    )
 
 
 def _reference_image_instruction(*, has_style_reference: bool) -> str:

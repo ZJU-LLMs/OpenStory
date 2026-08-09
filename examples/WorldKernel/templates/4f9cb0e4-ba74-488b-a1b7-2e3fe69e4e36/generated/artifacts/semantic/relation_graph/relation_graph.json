@@ -1,0 +1,327 @@
+{
+  "artifact_type": "relation_edge",
+  "items": [
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:001",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:001",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:002",
+        "type": "档案同侪",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:002",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:001",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:003",
+        "type": "档案同侪",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:004",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:002",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "type": "档案监管",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:007",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:003",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "type": "档案监管",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:005",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:002",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:013",
+        "type": "交易授权",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:006",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:002",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "秩序对立",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:008",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:003",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:007",
+        "type": "职权协作",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:003",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:001",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:006",
+        "type": "情报联络",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:009",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:005",
+        "type": "债务共契",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:011",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "抗债同盟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:010",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:010",
+        "type": "底层共济",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:012",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:005",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:006",
+        "type": "暗巷邻里",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:022",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:009",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:005",
+        "type": "秘密庇护",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:014",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:006",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:012",
+        "type": "黑市伙伴",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:015",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:006",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:014",
+        "type": "线报协作",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:019",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:008",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:007",
+        "type": "执法同侪",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:020",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:008",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:009",
+        "type": "执法同侪",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:021",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:008",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "秩序对立",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:016",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:007",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "type": "威压支配",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:017",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:007",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:006",
+        "type": "情报支配",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:018",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:007",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "追缉关系",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:024",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:009",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "暗线同谋",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:023",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:009",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:014",
+        "type": "暗线同谋",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:025",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:010",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:011",
+        "type": "失忆同病",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:013",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:005",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:011",
+        "type": "邻里照料",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:029",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:013",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:012",
+        "type": "同业对手",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:028",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:013",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:004",
+        "type": "记忆交易",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:026",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:012",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:014",
+        "type": "黑市伙伴",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:027",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:012",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "type": "暗资同盟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:031",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:015",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:014",
+        "type": "反抗同袍",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:030",
+        "from_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:014",
+        "to_id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:char:011",
+        "type": "赝造庇护",
+        "direction": "单向"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:001",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:002",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:004",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:007",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:005",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:006",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:008",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:003",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:009",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:011",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:010",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:012",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:022",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:014",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:015",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:019",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:020",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:021",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:016",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:017",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:018",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:024",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:023",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:025",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:013",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:029",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:028",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:026",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:027",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:031",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:rel:030"
+  ],
+  "upstream_step_ids": [
+    "generate_relations"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

@@ -12,7 +12,6 @@ from worldkernel.architect.visual.models import (
 from worldkernel.architect.visual.pipeline import run_visual_pipeline
 from worldkernel.architect.visual.location_layer import generate_location_layer
 from worldkernel.architect.visual.prompt import compose_background_prompt
-from worldkernel.architect.visual.road_texture import generate_road_texture_assets
 from worldkernel.architect.visual.validation_preview import render_visual_validation_preview
 
 __all__ = [
@@ -28,7 +27,6 @@ __all__ = [
     "build_visual_layout_manifest",
     "compose_background_prompt",
     "generate_location_layer",
-    "generate_road_texture_assets",
     "run_visual_pipeline",
     "render_visual_validation_preview",
 ]

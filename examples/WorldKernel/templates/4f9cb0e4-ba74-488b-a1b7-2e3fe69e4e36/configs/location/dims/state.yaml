@@ -1,0 +1,22 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+memory_storage_capacity_used:
+  type: str
+  option: true
+debt_maintenance_status:
+  type: str
+  option: true
+storm_damage_level:
+  type: str
+  option: true
+current_occupancy_ratio:
+  type: str
+  option: true
+memory_transaction_volume_today:
+  type: str
+  option: true

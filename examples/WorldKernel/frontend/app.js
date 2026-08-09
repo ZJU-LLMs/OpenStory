@@ -220,6 +220,15 @@ function showResult(session, stage2) {
   const semantic = stage2.semantic || {};
   const spatial = stage2.spatial || {};
   const validation = spatial.validation || {};
+  const locationVisual = spatial.visual?.location_layer || {};
+  const visualStatus = locationVisual.status || 'missing';
+  const visualMessage = visualStatus === 'ready'
+    ? '地点与道路视觉: 已生成并通过评价'
+    : visualStatus === 'partial'
+      ? `地点与道路视觉: 部分通过${locationVisual.error ? ` (${locationVisual.error})` : ''}`
+      : visualStatus === 'failed'
+        ? `地点与道路视觉: 生成失败 (${locationVisual.error || '未提供错误信息'})`
+        : '地点与道路视觉: 尚未生成';
 
   section.style.display = 'block';
   document.getElementById('sessionId').textContent = `session: ${session.session_id}`;
@@ -228,6 +237,7 @@ function showResult(session, stage2) {
     `语义数据: ${semantic.location_count || 0} 个地点, ${semantic.path_count || 0} 条路径, ${semantic.character_count || 0} 个角色`,
     `空间地图: ${(spatial.regions || []).length} 个区域, ${(spatial.routes || []).length} 条路线`,
     `地图校验: ${validation.passed ? '通过' : '未通过'}`,
+    visualMessage,
   ].join('\n');
 
   const viewerBtn = document.getElementById('jump-to-viewer-btn');

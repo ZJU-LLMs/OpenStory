@@ -14,8 +14,8 @@ C:\Users\ASUS\.conda\envs\openstory\python.exe examples/WorldKernel/validate_vis
 Every run regenerates:
 
 1. `background.png`
-2. `location_layer.png`
-3. `road_atlas.png` and `road_layer.png`
+2. `location_layer.png`, containing both locations and Stage2-aligned roads
+3. Qwen location-and-road alignment evaluation and correction attempts
 4. A debug-only visual validation preview
 
 The saved Stage2 spatial blueprint is always reused. The accepted location layer
@@ -46,6 +46,7 @@ loaded by the frontend. It is a copy of the composed map with these overlays:
 
 The JSON report also verifies that manifest slot IDs and pixel bounds match the
 saved Stage2 regions and that all generated layers use the original canvas size.
-The run summary indexes every background, location, evaluator, road, and preview
-artifact. Location candidate images, masks, evaluator overviews, and evaluator
-detail sheets are retained for every attempt.
+The run summary indexes every background, combined location-and-road, evaluator,
+and preview artifact. Candidate images, masks, evaluator overviews, and evaluator
+detail sheets are retained for every attempt. Independent road atlases and road
+layers are no longer generated or loaded by the frontend.

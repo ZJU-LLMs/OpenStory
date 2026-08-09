@@ -1,0 +1,28 @@
+dim_name: PersonalityDim
+traits:
+  type: list_str
+values:
+  type: list_str
+speech_style:
+  type: str
+attitude_towards_debt:
+  type: str
+  option: true
+trust_in_memory_system:
+  type: str
+  option: true
+risk_tolerance_in_memory_trading:
+  type: str
+  option: true
+empathy_for_identity_loss:
+  type: str
+  option: true
+desire_for_authentic_self:
+  type: str
+  option: true
+resistance_tendency:
+  type: str
+  option: true
+compliance_with_archive_rules:
+  type: str
+  option: true

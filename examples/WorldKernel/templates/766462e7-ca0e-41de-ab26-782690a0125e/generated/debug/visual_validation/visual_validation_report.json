@@ -25,9 +25,9 @@
       "included_in_preview": true
     },
     {
-      "name": "road_layer",
-      "status": "ready",
-      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\766462e7-ca0e-41de-ab26-782690a0125e\\generated\\artifacts\\spatial\\road_layer.png",
+      "name": "roads_in_location_layer",
+      "status": "integrated",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\766462e7-ca0e-41de-ab26-782690a0125e\\generated\\artifacts\\spatial\\location_layer.png",
       "exists": true,
       "included_in_preview": true
     }

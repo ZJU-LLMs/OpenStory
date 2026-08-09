@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "minimum_memory_asset_credit",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "security_clearance_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_alert_access_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_identity_certification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_labor_pass_requirement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

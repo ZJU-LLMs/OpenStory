@@ -62,6 +62,7 @@ class VisualLocationLayer(BaseModel):
     attempt_count: int = 0
     selected_attempt: int = 0
     alignment_score: float = 0.0
+    includes_roads: bool = False
     error: str = ""
 
 

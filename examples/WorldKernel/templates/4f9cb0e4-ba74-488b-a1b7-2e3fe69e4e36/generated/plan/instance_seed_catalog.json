@@ -1,0 +1,309 @@
+{
+  "session_id": "4f9cb0e4-ba74-488b-a1b7-2e3fe69e4e36",
+  "instance_seeds": {
+    "location": [
+      {
+        "seed_id": "memory_exchange_plaza",
+        "name": "记忆交换广场",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 1,
+        "role_in_world": "城市最核心的记忆公开交易场所，市民在此出售或购买记忆以维持生存。",
+        "archetype_id": "memory_trade_zone"
+      },
+      {
+        "seed_id": "black_memory_bazaar",
+        "name": "暗影记忆黑市",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.92,
+        "generation_priority": 1,
+        "role_in_world": "非法窃取、伪造和禁售记忆的地下市场，是反抗组织与犯罪势力的交汇点。",
+        "archetype_id": "memory_trade_zone"
+      },
+      {
+        "seed_id": "memory_auction_house",
+        "name": "记忆拍卖行",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "上层阶级以高价竞拍稀有记忆的场所，体现记忆商品化后的阶层鸿沟。",
+        "archetype_id": "memory_trade_zone"
+      },
+      {
+        "seed_id": "central_memory_archive",
+        "name": "中央记忆档案馆",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.96,
+        "generation_priority": 1,
+        "role_in_world": "全城记忆数据存储与调阅的绝对枢纽，掌握身份与历史的终极真相。",
+        "archetype_id": "archive_facility"
+      },
+      {
+        "seed_id": "restricted_vault_depths",
+        "name": "密档深库",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.88,
+        "generation_priority": 2,
+        "role_in_world": "存放被冻结、封禁或禁忌记忆的深层禁区，隐藏着政权不愿公开的秘密。",
+        "archetype_id": "archive_facility"
+      },
+      {
+        "seed_id": "debtor_tower_residences",
+        "name": "债务者塔楼",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.94,
+        "generation_priority": 1,
+        "role_in_world": "记忆债务人集中居住的塔楼，环境受监控，居民以劳役偿还记忆债务。",
+        "archetype_id": "residential_area"
+      },
+      {
+        "seed_id": "memory_middle_blocks",
+        "name": "记忆中产街区",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 3,
+        "role_in_world": "普通市民的居住区，展现依靠记忆收支维系的典型城市生活。",
+        "archetype_id": "residential_area"
+      },
+      {
+        "seed_id": "memory_archive_hq",
+        "name": "记忆档案局总部",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.97,
+        "generation_priority": 1,
+        "role_in_world": "制定和执行记忆货币政策、管理全城记忆账目的权力最高中枢。",
+        "archetype_id": "municipal_hub"
+      },
+      {
+        "seed_id": "order_enforcement_command",
+        "name": "秩序执法司令部",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "指挥执法官追捕记忆逃犯、镇压暴乱的武装核心，维护债务秩序。",
+        "archetype_id": "municipal_hub"
+      },
+      {
+        "seed_id": "memory_recovery_clinic",
+        "name": "记忆疗愈所",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.89,
+        "generation_priority": 2,
+        "role_in_world": "为记忆创伤和紊乱者提供治疗，但暗中也承担记忆清洗与改造服务。",
+        "archetype_id": "public_service"
+      },
+      {
+        "seed_id": "identity_reset_station",
+        "name": "身份重置站",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.86,
+        "generation_priority": 3,
+        "role_in_world": "为记忆破产者抹除旧身份并分配新身份的空间，象征自我的可替换性。",
+        "archetype_id": "public_service"
+      },
+      {
+        "seed_id": "storm_haven_dock",
+        "name": "风暴港",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.91,
+        "generation_priority": 2,
+        "role_in_world": "悬浮城市与外界连通的唯一航空港，受木星风暴严密保护与封锁。",
+        "archetype_id": "transport_hub"
+      },
+      {
+        "seed_id": "suspended_rail_terminus",
+        "name": "悬浮轨道枢纽",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.87,
+        "generation_priority": 3,
+        "role_in_world": "连接城市各区的磁悬浮列车中心，人员与记忆货物在此流通。",
+        "archetype_id": "transport_hub"
+      },
+      {
+        "seed_id": "memory_theater_plex",
+        "name": "记忆剧场群",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.88,
+        "generation_priority": 2,
+        "role_in_world": "出售沉浸式体验记忆的娱乐场所，让人短暂逃避现实，也推动记忆消费。",
+        "archetype_id": "entertainment_space"
+      },
+      {
+        "seed_id": "storm_eye_observatory",
+        "name": "风暴眼观测站",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.84,
+        "generation_priority": 3,
+        "role_in_world": "边缘科研哨站，研究木星风暴现象，可能隐藏着城市起源与外界真相。",
+        "archetype_id": "research_outpost"
+      }
+    ],
+    "character": [
+      {
+        "seed_id": "archivist_elara_vance",
+        "name": "艾拉·凡斯",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.93,
+        "generation_priority": 1,
+        "role_in_world": "记忆档案局高级管理员，掌握核心档案权限，在体制与良知间挣扎，可能成为关键内应。",
+        "archetype_id": "memory_archivist"
+      },
+      {
+        "seed_id": "archivist_mira_thorne",
+        "name": "米拉·索恩",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "档案局底层质检员，负责销毁不合格记忆，暗中收集官员秘密并输送给反抗者。",
+        "archetype_id": "memory_archivist"
+      },
+      {
+        "seed_id": "archivist_dan_luo",
+        "name": "陆旦",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 3,
+        "role_in_world": "档案局数字监管员，负责审计记忆交易流水，偶然发现系统重大漏洞。",
+        "archetype_id": "memory_archivist"
+      },
+      {
+        "seed_id": "debtor_jason_marrow",
+        "name": "杰森·马洛",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.92,
+        "generation_priority": 1,
+        "role_in_world": "背负巨额记忆债务的市民，被迫出售童年记忆，经历自我崩塌与挣扎。",
+        "archetype_id": "memory_debtor"
+      },
+      {
+        "seed_id": "debtor_lina_frost",
+        "name": "莉娜·弗罗斯特",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.89,
+        "generation_priority": 2,
+        "role_in_world": "失去珍贵记忆的债务劳役者，在强制劳动中苦苦追寻自己丢失的身份片段。",
+        "archetype_id": "memory_debtor"
+      },
+      {
+        "seed_id": "debtor_old_ken",
+        "name": "老肯",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.83,
+        "generation_priority": 3,
+        "role_in_world": "长期逃避债务追捕的边缘人，在暗巷中传递消息，成为城市地下情报节点。",
+        "archetype_id": "memory_debtor"
+      },
+      {
+        "seed_id": "merchant_vera_gold",
+        "name": "薇拉·金",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "合法记忆交易所的商业大亨，精于评估记忆价值，暗中与记忆黑市保持交易。",
+        "archetype_id": "memory_merchant"
+      },
+      {
+        "seed_id": "merchant_thorne_black",
+        "name": "索恩·布莱克",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.88,
+        "generation_priority": 2,
+        "role_in_world": "黑市记忆贩子，贩卖窃取和伪造的记忆，是非法记忆流通的关键中间人。",
+        "archetype_id": "memory_merchant"
+      },
+      {
+        "seed_id": "enforcer_marcus_gray",
+        "name": "马库斯·格雷",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.91,
+        "generation_priority": 1,
+        "role_in_world": "秩序执法官队长，严格执行记忆债务法，逐渐发现制度背后的黑暗真相。",
+        "archetype_id": "order_enforcer"
+      },
+      {
+        "seed_id": "enforcer_sylvie_kane",
+        "name": "西尔维·凯恩",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.89,
+        "generation_priority": 2,
+        "role_in_world": "执法司令部秘密侦探，表面追查身份迷失者，实际是反抗组织安插的内应。",
+        "archetype_id": "order_enforcer"
+      },
+      {
+        "seed_id": "enforcer_bren",
+        "name": "布伦",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.84,
+        "generation_priority": 3,
+        "role_in_world": "特别行动组组长，冷酷无情，专职追捕记忆逃犯和镇压反抗活动。",
+        "archetype_id": "order_enforcer"
+      },
+      {
+        "seed_id": "lost_amelia_voss",
+        "name": "阿梅利亚·沃斯",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.86,
+        "generation_priority": 2,
+        "role_in_world": "身份档案被秘密篡改的市民，失去原有记忆，执着寻找自己真实过去的线索。",
+        "archetype_id": "identity_lost"
+      },
+      {
+        "seed_id": "lost_kaden_ross",
+        "name": "凯登·罗斯",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.82,
+        "generation_priority": 3,
+        "role_in_world": "在一次记忆交易后被清空自我记忆的流浪者，沦为城市中被遗忘的符号。",
+        "archetype_id": "identity_lost"
+      },
+      {
+        "seed_id": "rebel_nadia_sol",
+        "name": "娜迪亚·索尔",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.92,
+        "generation_priority": 1,
+        "role_in_world": "风暴之光反抗组织领袖，立志推翻记忆债务制度，号召市民夺回自己的记忆。",
+        "archetype_id": "stormlight_rebel"
+      },
+      {
+        "seed_id": "rebel_finn_cole",
+        "name": "芬·科尔",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.88,
+        "generation_priority": 2,
+        "role_in_world": "反抗组织的技术专家，擅长入侵档案系统、伪造记忆记录，是行动的关键支持者。",
+        "archetype_id": "stormlight_rebel"
+      }
+    ]
+  }
+}

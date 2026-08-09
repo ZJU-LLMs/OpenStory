@@ -59,20 +59,12 @@ def render_visual_validation_preview(
         )
     )
 
-    road_path = _asset_path(root, manifest.route_layer.path, "road_layer.png")
-    road_enabled = manifest.route_layer.status == "ready"
-    road_included = False
-    if road_enabled:
-        road = _load_optional_layer(road_path, canvas_size, "road_layer", issues)
-        if road is not None:
-            composite = Image.alpha_composite(composite, road)
-            road_included = True
     layers.append(
         _layer_record(
-            "road_layer",
-            manifest.route_layer.status,
-            road_path,
-            road_included,
+            "roads_in_location_layer",
+            "integrated" if manifest.location_layer.includes_roads else "missing",
+            location_path,
+            location_included and manifest.location_layer.includes_roads,
         )
     )
 
@@ -210,12 +202,17 @@ def _validate_required_layer_statuses(
     statuses = {
         "background": manifest.background.status,
         "locations": manifest.location_layer.status,
-        "roads": manifest.route_layer.status,
+        "roads": (
+            "integrated"
+            if manifest.location_layer.includes_roads
+            and manifest.location_layer.status in {"ready", "partial"}
+            else "missing"
+        ),
     }
     accepted = {
         "background": {"ready"},
         "locations": {"ready", "partial"},
-        "roads": {"ready"},
+        "roads": {"integrated"},
     }
     for layer in sorted(required_layers):
         status = statuses.get(layer, "missing")

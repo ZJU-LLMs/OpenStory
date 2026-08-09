@@ -23,8 +23,6 @@
   let spatialBaseUrl = '';
   let visualBackgroundImage = null;
   let visualBackgroundSrc = '';
-  let visualRoadLayerImage = null;
-  let visualRoadLayerSrc = '';
   let visualLocationLayerImage = null;
   let visualLocationLayerSrc = '';
   let visualAssetErrors = new Map();
@@ -309,50 +307,6 @@
       visualBackgroundImage = null;
     }
 
-    const routeLayer = visual?.route_layer || {};
-    const routeFallbackVersion = [
-      routeLayer.model || 'road',
-      routeLayer.width_px || 0,
-      routeLayer.height_px || 0,
-    ].join('-');
-    const routeLayerSrc = routeLayer.url && routeLayer.status === 'ready'
-      ? resolveVersionedVisualUrl(
-          routeLayer.url,
-          routeLayer.asset_version || routeFallbackVersion
-        )
-      : '';
-    if (routeLayerSrc && routeLayerSrc !== visualRoadLayerSrc) {
-      visualRoadLayerSrc = routeLayerSrc;
-      visualRoadLayerImage = new Image();
-      visualRoadLayerImage.onload = () => {
-        const expectedWidth = Number(routeLayer.width_px || visual?.canvas?.width_px || 0);
-        const expectedHeight = Number(routeLayer.height_px || visual?.canvas?.height_px || 0);
-        if (
-          visualRoadLayerImage.naturalWidth !== expectedWidth ||
-          visualRoadLayerImage.naturalHeight !== expectedHeight
-        ) {
-          reportVisualAssetError(
-            'route-layer',
-            `道路图层尺寸错误：${visualRoadLayerImage.naturalWidth}x${visualRoadLayerImage.naturalHeight}，应为 ${expectedWidth}x${expectedHeight}`
-          );
-          visualRoadLayerImage = null;
-        } else {
-          visualAssetErrors.delete('route-layer');
-        }
-        renderMap();
-      };
-      visualRoadLayerImage.onerror = () => {
-        reportVisualAssetError('route-layer', `道路图层加载失败：${routeLayerSrc}`);
-        visualRoadLayerImage = null;
-        renderMap();
-      };
-      visualRoadLayerImage.src = routeLayerSrc;
-    } else if (!routeLayerSrc) {
-      visualRoadLayerSrc = '';
-      visualRoadLayerImage = null;
-      visualAssetErrors.delete('route-layer');
-    }
-
     const locationLayer = visual?.location_layer || {};
     const locationFallbackVersion = [
       locationLayer.model || 'locations',
@@ -434,7 +388,6 @@
 
   function buildVisualPatchStateKey(visual) {
     const background = visual?.background || {};
-    const routeLayer = visual?.route_layer || {};
     const locationLayer = visual?.location_layer || {};
     return [
       background.status || '',
@@ -442,9 +395,6 @@
       background.asset_version || '',
       background.generation_strategy || '',
       (background.composited_layers || []).join(','),
-      routeLayer.status || '',
-      routeLayer.url || '',
-      routeLayer.asset_version || '',
       locationLayer.status || '',
       locationLayer.url || '',
       locationLayer.asset_version || '',
@@ -486,13 +436,11 @@
     ctx.imageSmoothingEnabled = false;
     drawMapBase(grid);
 
-    const hasGeneratedRoadLayer = Boolean(
-      visualRoadLayerImage?.complete && visualRoadLayerImage.naturalWidth > 0
-    );
     drawLocationLayer();
-    if (hasGeneratedRoadLayer) {
-      drawRoadTextureLayer();
-    } else if (!compositedLayers.has('route_layer')) {
+    const locationIncludesRoads = Boolean(
+      visualLocationLayerImage?.complete && visual?.location_layer?.includes_roads
+    );
+    if (!locationIncludesRoads && !compositedLayers.has('route_layer')) {
       drawRoutes(routes, roadTiles, regions);
     }
     for (const region of regions) {
@@ -567,15 +515,6 @@
     }
     const completed = getActiveVisualManifest()?.location_layer?.completed_location_ids || [];
     return completed.includes(String(region.location_id));
-  }
-
-  function drawRoadTextureLayer() {
-    if (!visualRoadLayerImage?.complete || visualRoadLayerImage.naturalWidth <= 0) return;
-    if (
-      visualRoadLayerImage.naturalWidth !== canvas.width ||
-      visualRoadLayerImage.naturalHeight !== canvas.height
-    ) return;
-    ctx.drawImage(visualRoadLayerImage, 0, 0);
   }
 
   function drawRegion(region, selected, precomposited) {

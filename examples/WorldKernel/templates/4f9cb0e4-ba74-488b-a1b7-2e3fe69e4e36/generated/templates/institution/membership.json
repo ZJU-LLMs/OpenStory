@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "members",
+      "type": "list_str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "roles",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_criteria",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_asset_threshold",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "loyalty_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_status_policy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_implant_required",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recruitment_source",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "internal_rank_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "faction_affiliation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

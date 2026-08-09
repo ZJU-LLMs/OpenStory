@@ -184,10 +184,6 @@ async def run_stage2(
                     spatial_config.rendering.ai_art_enabled
                     and spatial_config.rendering.location_layer_enabled
                 ),
-                generate_road_texture=(
-                    spatial_config.rendering.ai_art_enabled
-                    and spatial_config.rendering.road_texture_enabled
-                ),
                 semantic_locations=list(foundation.locations),
             )
             spatial_result.blueprint.visual = visual_manifest.model_dump(mode="json")

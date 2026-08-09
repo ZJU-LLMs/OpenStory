@@ -8,9 +8,11 @@ from unittest.mock import patch
 
 from PIL import Image
 
+from worldkernel.architect.spatial.models import BlueprintGrid, SpatialBlueprint
 from worldkernel.architect.visual.models import VisualSlot
 from worldkernel.architect.visual.visual_evaluator import (
     LocationVisualEvaluation,
+    RoadVisualEvaluation,
     VisualEvaluator,
     VisualEvaluationReport,
     decide_evaluation,
@@ -53,6 +55,7 @@ class VisualEvaluatorTests(unittest.TestCase):
         payload = {
             "summary": "正常",
             "locations": [self._evaluation(index, item["slot"].location_id).model_dump(mode="json") for index, item in enumerate(items, start=1)],
+            "roads": self._road_evaluation().model_dump(mode="json"),
         }
         report = parse_evaluation_report(
             "说明文字\n```json\n" + json.dumps(payload, ensure_ascii=False) + "\n```",
@@ -72,12 +75,12 @@ class VisualEvaluatorTests(unittest.TestCase):
             overlap=0.49,
             center="outside",
         )
-        decision = decide_evaluation(VisualEvaluationReport(locations=[low_confidence]))
+        decision = decide_evaluation(VisualEvaluationReport(locations=[low_confidence], roads=self._road_evaluation()))
         self.assertFalse(decision["hard_failure_location_ids"])
         self.assertEqual(decision["warning_location_ids"], ["location-1"])
 
         high_confidence = low_confidence.model_copy(update={"confidence": 0.75})
-        decision = decide_evaluation(VisualEvaluationReport(locations=[high_confidence]))
+        decision = decide_evaluation(VisualEvaluationReport(locations=[high_confidence], roads=self._road_evaluation()))
         self.assertEqual(decision["hard_failure_location_ids"], ["location-1"])
 
         overlap_49 = self._evaluation(
@@ -88,11 +91,11 @@ class VisualEvaluatorTests(unittest.TestCase):
             overlap=0.49,
             center="near",
         )
-        decision = decide_evaluation(VisualEvaluationReport(locations=[overlap_49]))
+        decision = decide_evaluation(VisualEvaluationReport(locations=[overlap_49], roads=self._road_evaluation()))
         self.assertEqual(decision["locations"][0]["status"], "major_shift")
 
         overlap_50 = overlap_49.model_copy(update={"estimated_overlap_ratio": 0.50})
-        decision = decide_evaluation(VisualEvaluationReport(locations=[overlap_50]))
+        decision = decide_evaluation(VisualEvaluationReport(locations=[overlap_50], roads=self._road_evaluation()))
         self.assertEqual(decision["locations"][0]["status"], "minor_shift")
 
     def test_low_density_complete_location_is_not_rejected(self) -> None:
@@ -105,9 +108,74 @@ class VisualEvaluatorTests(unittest.TestCase):
             center="inside",
             complete=True,
         )
-        decision = decide_evaluation(VisualEvaluationReport(locations=[courtyard]))
+        decision = decide_evaluation(VisualEvaluationReport(locations=[courtyard], roads=self._road_evaluation()))
         self.assertTrue(decision["passed"])
         self.assertEqual(decision["alignment_score"], 100.0)
+
+    def test_high_confidence_disconnected_roads_trigger_retry(self) -> None:
+        location = self._evaluation(1, "location-1")
+        roads = self._road_evaluation(
+            status="disconnected",
+            confidence=0.82,
+            estimated_coverage_ratio=0.72,
+            connected_location_ratio=0.55,
+            continuous=False,
+        )
+        decision = decide_evaluation(
+            VisualEvaluationReport(locations=[location], roads=roads)
+        )
+        self.assertFalse(decision["passed"])
+        self.assertTrue(decision["road_hard_failure"])
+        self.assertEqual(decision["road_status"], "disconnected")
+
+    def test_low_confidence_minor_road_shift_remains_a_warning(self) -> None:
+        location = self._evaluation(1, "location-1")
+        roads = self._road_evaluation(
+            status="minor_shift",
+            confidence=0.6,
+            estimated_coverage_ratio=0.75,
+            connected_location_ratio=0.85,
+            continuous=True,
+        )
+        decision = decide_evaluation(
+            VisualEvaluationReport(locations=[location], roads=roads)
+        )
+        self.assertTrue(decision["passed"])
+        self.assertFalse(decision["road_hard_failure"])
+        self.assertTrue(decision["road_warning"])
+
+    def test_missing_and_merged_locations_are_critical_regardless_of_confidence(self) -> None:
+        missing = self._evaluation(
+            1,
+            "location-1",
+            status="missing",
+            confidence=0.31,
+            overlap=0.0,
+            center="uncertain",
+            complete=False,
+        )
+        merged = self._evaluation(
+            2,
+            "location-2",
+            status="merged",
+            confidence=0.42,
+            overlap=0.7,
+            center="inside",
+        )
+        decision = decide_evaluation(
+            VisualEvaluationReport(
+                locations=[missing, merged],
+                roads=self._road_evaluation(),
+            )
+        )
+        self.assertFalse(decision["passed"])
+        self.assertEqual(
+            decision["critical_incident_location_ids"],
+            ["location-1", "location-2"],
+        )
+        self.assertEqual(decision["hard_failure_count"], 2)
+        self.assertEqual(decision["locations"][0]["score"], 0)
+        self.assertEqual(decision["locations"][1]["score"], 10)
 
     def test_invalid_json_is_repaired_once(self) -> None:
         items = self._items(1)
@@ -121,6 +189,7 @@ class VisualEvaluatorTests(unittest.TestCase):
             valid_payload = {
                 "summary": "已修复",
                 "locations": [self._evaluation(1, "location-1").model_dump(mode="json")],
+                "roads": self._road_evaluation().model_dump(mode="json"),
             }
             client = VisualEvaluator(
                 {
@@ -141,6 +210,10 @@ class VisualEvaluatorTests(unittest.TestCase):
                     overview_path=overview,
                     details_path=details,
                     items=items,
+                    blueprint=SpatialBlueprint(
+                        world_id="evaluation-test",
+                        grid=BlueprintGrid(width=40, height=25, tile_size=16),
+                    ),
                     attempt=1,
                 )
             self.assertTrue(result["format_repaired"])
@@ -205,6 +278,20 @@ class VisualEvaluatorTests(unittest.TestCase):
             reason="测试",
             retry_instruction="",
         )
+
+    @staticmethod
+    def _road_evaluation(**updates: object) -> RoadVisualEvaluation:
+        payload = {
+            "status": "ok",
+            "confidence": 0.9,
+            "estimated_coverage_ratio": 0.9,
+            "connected_location_ratio": 0.9,
+            "continuous": True,
+            "reason": "道路连续",
+            "retry_instruction": "",
+        }
+        payload.update(updates)
+        return RoadVisualEvaluation(**payload)
 
 
 if __name__ == "__main__":

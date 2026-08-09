@@ -20,7 +20,7 @@ from worldkernel.architect.visual.visual_evaluator import (
 from worldkernel.llm.config_loader import load_model_config_by_capability
 
 
-GENERATION_STRATEGY = "full_canvas_location_map_inverse_mask_visual_review_v6"
+GENERATION_STRATEGY = "full_canvas_location_and_road_inverse_mask_visual_review_v7"
 MIN_CONTENT_CHANGE_RATIO = 0.02
 MIN_GLOBAL_CHANGE_RATIO = 0.005
 MIN_EDITABLE_CHANGE_RATIO = 0.005
@@ -136,6 +136,7 @@ def generate_location_layer(
     )
 
     control = background.copy()
+    _draw_road_scaffold(control, blueprint, manifest)
     initial_marker_masks: dict[str, Image.Image] = {}
     for item in items:
         slot = item["slot"]
@@ -186,6 +187,8 @@ def generate_location_layer(
                     attempt_control = best_image.convert("RGB")
                 problem_ids = _problem_location_ids(best["evaluation"])
                 marker_masks = _draw_correction_markers(attempt_control, items, problem_ids)
+                if _road_needs_correction(best["evaluation"]):
+                    _draw_road_scaffold(attempt_control, blueprint, manifest, correction=True)
                 attempt_prompt = compose_location_correction_prompt(
                     base_payload=prompt_payload,
                     items=items,
@@ -242,6 +245,7 @@ def generate_location_layer(
             render_review_assets(
                 candidate=generated,
                 items=items,
+                blueprint=blueprint,
                 overview_path=overview_path,
                 details_path=details_path,
             )
@@ -249,6 +253,7 @@ def generate_location_layer(
                 overview_path=overview_path,
                 details_path=details_path,
                 items=items,
+                blueprint=blueprint,
                 attempt=attempt,
                 local_warnings=local["warnings_by_location"],
             )
@@ -287,6 +292,7 @@ def generate_location_layer(
                 render_review_assets(
                     candidate=selected_rgba,
                     items=items,
+                    blueprint=blueprint,
                     overview_path=debug_path,
                     details_path=debug_details,
                 )
@@ -430,13 +436,15 @@ def compose_location_map_prompt(
         )
     prompt = "\n".join(
         [
-            f"在这张 {canvas_size[0]}×{canvas_size[1]} 游戏地图上，把全部青色矩形占位区改造成实际可进入的地点场景。",
+            f"在这张 {canvas_size[0]}×{canvas_size[1]} 游戏地图上，同时完成全部地点与连接道路。",
             "青框和左上角小编号只是位置索引，不是招牌、门牌或界面；必须连同占位底板一起彻底擦除，画面中不能留下编号和地点名称。",
-            "蒙版透明区允许生成地点主体、外侧一格融合边缘和入口连接处；每个地点以对应矩形为主体范围，完整收在附近，不遗漏、不合并。",
+            "青绿色狭长带表示道路的精确期望走廊，也必须彻底替换为符合世界设定的道路；不要保留控制色、方格边缘或路线标记。",
+            "蒙版透明区允许生成地点主体、外侧一格融合边缘和全部道路走廊；每个地点以对应矩形为主体范围，完整收在附近，不遗漏、不合并。",
             "每个地点都要明确画出完整边界、地面、指定入口、2至4个标志性陈设和可行走空间。不能只画名称牌、黑色面板、屋顶或单个设备。",
             "室内地点画成严格正交俯视的无屋顶2D RPG剖面房间；室外地点画成同投影的开放场景。边缘用墙体、围栏、平台或自然边界完整收尾。",
             "直接延续输入地图的像素簇、轮廓、色板、材质和光照。地点内部细节清楚但不过密，优先保证结构和陈设可辨认。",
-            "入口按清单指定边缘留出门口或开放缺口。道路稍后单独绘制，本次不要生成道路。",
+            "道路必须沿青绿色走廊连续生成，宽度大致保持一致，转角和交叉口自然连通，并在指定入口处准确接入地点。地点内部不得被道路横穿；进入矩形后的道路应自然收束为门口、台阶或室内入口。",
+            "全世界只使用一种统一且符合世界时代、文化和地表的道路视觉语言，不自行增加捷径，不移动、遗漏或切断道路。",
             "禁止人物、可读文字、标签、招牌、信息卡、UI、水印、半栋建筑、截断房间和相互重叠。",
             f"世界设定：{_world_context(world_background)}",
             f"视觉基准：{_visual_context(visual_profile)}",
@@ -446,7 +454,7 @@ def compose_location_map_prompt(
     )
     negative = (
         "名称牌，文字面板，信息卡，保留编号，保留青框，空占位块，屋顶，截断地点，"
-        "地点合并，道路，人物，UI，水印，平视，斜视，细碎噪点，模糊"
+        "地点合并，偏移道路，断路，重复道路，额外捷径，人物，UI，水印，平视，斜视，细碎噪点，模糊"
     )
     return {
         "prompt": prompt,
@@ -473,6 +481,10 @@ def compose_location_map_prompt(
             }
             for item in items
         ],
+        "roads": {
+            "source": "spatial_blueprint.road_tiles",
+            "generated_in_location_layer": True,
+        },
     }
 
 
@@ -568,15 +580,27 @@ def compose_location_correction_prompt(
         )
     correction_text = "\n".join(instructions)
     correction_text = correction_text[:2000]
+    road_result = evaluation.get("roads") if isinstance(evaluation.get("roads"), dict) else {}
+    road_instruction = ""
+    if _road_needs_correction(evaluation):
+        road_instruction = _compact_visual(
+            str(
+                road_result.get("retry_instruction")
+                or road_result.get("reason")
+                or "沿青绿色道路走廊修复道路，使全部路线连续并准确连接地点入口"
+            ),
+            max_chars=160,
+        )
     prompt = "\n".join(
         [
             f"这是第 {attempt} 次完整地图纠偏。输入图是当前最佳地点地图。",
             "只在红框和编号标出的地点附近修正问题；其他已经正确的地点应尽量保持原样。",
             "红框是后端期望区域，不是最终墙体。将对应地点主体中心放回框内，主体至少一半与框重叠。",
             "地点必须完整，不得截断、遗漏、互相合并。允许墙体、平台和屋檐向框外自然延伸一格或单边15%。",
-            "彻底移除本轮红框、编号和入口标记。不要生成道路、地点名称、人物、UI或水印。",
+            "彻底移除本轮红框、编号、入口标记和青绿色道路控制色。不要生成地点名称、人物、UI或水印。",
             "需要纠正的问题：",
             correction_text or "重新生成所有带标记地点并彻底移除控制标记。",
+            f"道路纠正：{road_instruction}" if road_instruction else "道路已通过评价，尽量保持现有道路不变。",
         ]
     )
     if attempt >= 3:
@@ -586,6 +610,7 @@ def compose_location_correction_prompt(
         "prompt": prompt,
         "correction_attempt": attempt,
         "correction_locations": simplified_locations,
+        "correction_roads": bool(road_instruction),
     }
 
 
@@ -598,6 +623,11 @@ def _problem_location_ids(evaluation: dict[str, Any]) -> set[str]:
             continue
         result.update(str(value) for value in item.get("merged_with", []) if str(value).strip())
     return result
+
+
+def _road_needs_correction(evaluation: dict[str, Any]) -> bool:
+    decision = evaluation.get("decision") if isinstance(evaluation.get("decision"), dict) else {}
+    return bool(decision.get("road_hard_failure") or decision.get("road_warning"))
 
 
 def _draw_correction_markers(
@@ -627,7 +657,7 @@ def build_initial_location_edit_mask(
     manifest: VisualLayoutManifest,
     canvas_size: tuple[int, int],
 ) -> tuple[Image.Image, dict[str, Any]]:
-    """Build the first-pass inverse mask without changing logical Stage2 bounds."""
+    """Expose Stage2 locations and roads while protecting the remaining background."""
 
     width, height = canvas_size
     tile_size = max(1, int(manifest.canvas.get("tile_size") or blueprint.grid.tile_size))
@@ -639,8 +669,6 @@ def build_initial_location_edit_mask(
         if box is not None:
             alpha_draw.rectangle(box, fill=0)
 
-    road_mask = Image.new("L", canvas_size, 0)
-    road_draw = ImageDraw.Draw(road_mask)
     road_tiles: set[tuple[int, int]] = set()
     for point in blueprint.road_tiles:
         tile = (int(point.x), int(point.y))
@@ -649,15 +677,6 @@ def build_initial_location_edit_mask(
         road_tiles.add(tile)
         box = _tile_pixel_box(tile, tile_size, canvas_size)
         if box is not None:
-            road_draw.rectangle(box, fill=255)
-            alpha_draw.rectangle(box, fill=255)
-
-    override_mask = Image.new("L", canvas_size, 0)
-    override_draw = ImageDraw.Draw(override_mask)
-    for slot in manifest.slots:
-        box = _slot_pixel_box(slot, canvas_size)
-        if box is not None:
-            override_draw.rectangle(box, fill=255)
             alpha_draw.rectangle(box, fill=0)
 
     connector_tiles: set[tuple[int, int]] = set()
@@ -666,7 +685,6 @@ def build_initial_location_edit_mask(
     for tile in connector_tiles:
         box = _tile_pixel_box(tile, tile_size, canvas_size)
         if box is not None:
-            override_draw.rectangle(box, fill=255)
             alpha_draw.rectangle(box, fill=0)
 
     for slot in manifest.slots:
@@ -677,31 +695,23 @@ def build_initial_location_edit_mask(
         if crop.histogram()[0] != crop.width * crop.height:
             raise ValueError(f"Location slot is not fully editable: {slot.location_id}")
 
-    must_protect_roads = ImageChops.subtract(road_mask, override_mask)
-    editable = ImageChops.invert(alpha)
-    unprotected_road_pixels = ImageChops.multiply(
-        must_protect_roads,
-        editable,
-    ).histogram()[255]
-    if unprotected_road_pixels:
-        raise ValueError(
-            "Location edit mask exposes road pixels outside location and entrance overrides: "
-            f"{unprotected_road_pixels}"
-        )
-
     editable_pixels = alpha.histogram()[0]
     protected_pixels = alpha.histogram()[255]
-    protected_road_pixels = ImageChops.multiply(alpha, road_mask).histogram()[255]
+    editable_road_pixels = len(
+        {tile for tile in road_tiles if _tile_pixel_box(tile, tile_size, canvas_size) is not None}
+    ) * tile_size * tile_size
     mask = Image.new("RGBA", canvas_size, (255, 255, 255, 255))
     mask.putalpha(alpha)
     metadata = {
-        "mode": "inverse_location_mask",
+        "mode": "inverse_location_and_road_mask",
         "semantics": "transparent_pixels_editable_opaque_pixels_protected",
         "expansion_tiles": INITIAL_MASK_EXPANSION_TILES,
         "location_count": len(manifest.slots),
         "editable_pixels": editable_pixels,
         "protected_pixels": protected_pixels,
-        "protected_road_pixels": protected_road_pixels,
+        "road_tile_count": len(road_tiles),
+        "editable_road_pixels": editable_road_pixels,
+        "protected_road_pixels": 0,
         "entrance_connector_tile_count": len(
             {
                 tile
@@ -831,6 +841,7 @@ def _candidate_rank(candidate: dict[str, Any]) -> tuple[float, ...]:
         float(decision["hard_failure_count"]),
         -float(decision["ok_count"]),
         float(decision["warning_count"]),
+        -float(decision.get("road_score") or 0),
         -float(decision["minimum_location_score"]),
         -float(decision["average_location_score"]),
         float(candidate["attempt"]),
@@ -919,6 +930,28 @@ def _entrance_connector_tiles(slot: VisualSlot) -> set[tuple[int, int]]:
         else:
             connectors.add((grid_x + 1, grid_y + offset))
     return connectors
+
+
+def _draw_road_scaffold(
+    image: Image.Image,
+    blueprint: SpatialBlueprint,
+    manifest: VisualLayoutManifest,
+    *,
+    correction: bool = False,
+) -> None:
+    """Mark the exact Stage2 road corridor for image editing and correction."""
+
+    tile_size = max(1, int(manifest.canvas.get("tile_size") or blueprint.grid.tile_size))
+    fill = (0, 214, 210) if correction else (54, 156, 166)
+    edge = (230, 255, 252) if correction else (22, 92, 100)
+    draw = ImageDraw.Draw(image)
+    canvas_size = image.size
+    for tile in {(int(point.x), int(point.y)) for point in blueprint.road_tiles}:
+        box = _tile_pixel_box(tile, tile_size, canvas_size)
+        if box is None:
+            continue
+        draw.rectangle(box, fill=fill)
+        draw.rectangle(box, outline=edge, width=max(1, tile_size // 8))
 
 
 def _draw_location_scaffold(image: Image.Image, slot: VisualSlot) -> None:
@@ -1078,7 +1111,9 @@ def _location_layer_metadata(
     return {
         "status": manifest.location_layer.status,
         "generation_strategy": GENERATION_STRATEGY,
-        "layer_mode": "full_canvas_replacement",
+        "layer_mode": "full_canvas_locations_and_roads_replacement",
+        "includes_roads": True,
+        "road_geometry_source": "spatial_blueprint.road_tiles",
         "single_pass": False,
         "mask_commit": False,
         "initial_request_mask_used": True,
@@ -1152,6 +1187,7 @@ def _set_location_layer_asset(
     manifest.location_layer.attempt_count = attempt_count
     manifest.location_layer.selected_attempt = selected_attempt
     manifest.location_layer.alignment_score = alignment_score
+    manifest.location_layer.includes_roads = True
     manifest.location_layer.error = ""
     manifest.location_layer.asset_version = _asset_version(layer_path)
 
@@ -1228,11 +1264,6 @@ def _validate_location_inputs(
     if set(slot_ids) != set(str(key) for key in region_index):
         raise ValueError("Visual location slots do not match Stage2 regions")
     if semantic_locations:
-        if len(semantic_locations) != len(manifest.slots):
-            raise ValueError(
-                "Semantic location count does not match Stage2 regions: "
-                f"{len(semantic_locations)} != {len(manifest.slots)}"
-            )
         missing_semantic = []
         for slot in manifest.slots:
             region = region_index.get(slot.location_id)

@@ -62,7 +62,6 @@ class SpatialRenderingConfig(BaseModel):
     background_mode: str = "simple_tile"
     ai_art_enabled: bool = False
     location_layer_enabled: bool = False
-    road_texture_enabled: bool = False
     visual_mode: Literal["composited_full_map"] = "composited_full_map"
 
 

@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_trader_reputation",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debtor_community_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archive_bureau_trust_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_cell_standing",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_market_credibility",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_credit_change_trend",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_stability_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

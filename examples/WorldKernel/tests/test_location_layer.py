@@ -138,6 +138,15 @@ class _FakeVisualEvaluator:
             "endpoint": "fake",
             "summary": "all aligned",
             "locations": locations,
+            "roads": {
+                "status": "ok",
+                "confidence": 0.95,
+                "estimated_coverage_ratio": 0.9,
+                "connected_location_ratio": 0.9,
+                "continuous": True,
+                "reason": "aligned",
+                "retry_instruction": "",
+            },
             "decision": {
                 "passed": not hard_ids,
                 "hard_failure_location_ids": hard_ids,
@@ -149,6 +158,10 @@ class _FakeVisualEvaluator:
                 "minimum_location_score": 30 if hard_ids else 100,
                 "average_location_score": 82.5 if hard_ids else 100.0,
                 "alignment_score": 82.5 if hard_ids else 100.0,
+                "road_hard_failure": False,
+                "road_warning": False,
+                "road_status": "ok",
+                "road_score": 100,
                 "locations": decisions,
             },
             "format_repaired": False,
@@ -183,7 +196,8 @@ class LocationLayerTests(unittest.TestCase):
         )
         self.assertEqual(len(payload["locations"]), 7)
         self.assertTrue(all(f"{index}｜地点 {index}｜" in payload["prompt"] for index in range(1, 8)))
-        self.assertIn("把全部青色矩形占位区改造成实际可进入的地点场景", payload["prompt"])
+        self.assertIn("同时完成全部地点与连接道路", payload["prompt"])
+        self.assertIn("道路必须沿青绿色走廊连续生成", payload["prompt"])
 
     def test_prompt_keeps_structure_and_landmarks_without_full_narrative(self) -> None:
         blueprint = self._blueprint()
@@ -255,6 +269,14 @@ class LocationLayerTests(unittest.TestCase):
                 }
                 for index, slot in enumerate(manifest.slots, start=1)
             ]
+            semantic_locations.append(
+                {
+                    "id": "semantic-only-location",
+                    "name": "未进入空间蓝图的语义地点",
+                    "location_type": "室内",
+                    "visual": "该地点不应阻塞或进入视觉生成",
+                }
+            )
             with (
                 patch(
                     "worldkernel.architect.visual.location_layer.load_model_config_by_capability",
@@ -293,11 +315,13 @@ class LocationLayerTests(unittest.TestCase):
             self.assertFalse(metadata["mask_commit"])
             self.assertTrue(metadata["initial_request_mask_used"])
             self.assertEqual(metadata["initial_request_mask"]["expansion_tiles"], 1)
-            self.assertEqual(metadata["layer_mode"], "full_canvas_replacement")
+            self.assertEqual(metadata["layer_mode"], "full_canvas_locations_and_roads_replacement")
+            self.assertTrue(metadata["includes_roads"])
             self.assertEqual(metadata["evaluation_status"], "passed")
             self.assertEqual(metadata["attempt_count"], 1)
             self.assertEqual(metadata["selected_attempt"], 1)
             self.assertEqual(len(_FakeVisualEvaluator.calls), 1)
+            self.assertEqual(_FakeVisualEvaluator.calls[0]["location_count"], 4)
             self.assertEqual(metadata["ready_location_count"], 4)
             self.assertEqual(metadata["failed_location_count"], 0)
             self.assertTrue(metadata["debug_artifacts_retained"])
@@ -428,7 +452,7 @@ class LocationLayerTests(unittest.TestCase):
                     path.rmdir()
             root.rmdir()
 
-    def test_initial_inverse_mask_handles_all_entrance_sides_and_road_priority(self) -> None:
+    def test_initial_inverse_mask_exposes_all_locations_and_roads(self) -> None:
         tile_size = 16
         regions = [
             BlueprintRegion(
@@ -490,10 +514,12 @@ class LocationLayerTests(unittest.TestCase):
         self.assertEqual(tile_alpha(2, 13), 0)
         self.assertEqual(tile_alpha(14, 13), 0)
         self.assertEqual(tile_alpha(4, 4), 0)
-        self.assertEqual(tile_alpha(7, 4), 255)
+        self.assertEqual(tile_alpha(7, 4), 0)
         self.assertEqual(metadata["location_count"], 4)
         self.assertEqual(metadata["entrance_connector_tile_count"], 4)
-        self.assertEqual(metadata["protected_road_pixels"], tile_size * tile_size)
+        self.assertEqual(metadata["protected_road_pixels"], 0)
+        self.assertEqual(metadata["road_tile_count"], len(road_tiles))
+        self.assertEqual(metadata["editable_road_pixels"], len(road_tiles) * tile_size * tile_size)
 
     def test_pipeline_does_not_publish_an_unreviewed_existing_layer_after_failure(self) -> None:
         blueprint = self._blueprint()

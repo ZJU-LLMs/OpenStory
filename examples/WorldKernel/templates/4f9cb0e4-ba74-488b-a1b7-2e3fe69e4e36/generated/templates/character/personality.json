@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "attitude_towards_debt",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trust_in_memory_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "risk_tolerance_in_memory_trading",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "empathy_for_identity_loss",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "desire_for_authentic_self",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_tendency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "compliance_with_archive_rules",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

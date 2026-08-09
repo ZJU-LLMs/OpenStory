@@ -37,7 +37,6 @@ def regenerate_visual_from_template(
     image_model_config_path: str | Path,
     generate_background: bool = True,
     generate_location_layer: bool | None = None,
-    generate_road_texture: bool | None = None,
     reuse_existing_spatial: bool = True,
     force_visual_regeneration: bool = False,
     visual_debug_root: str | Path | None = None,
@@ -70,12 +69,6 @@ def regenerate_visual_from_template(
             spatial_config.rendering.ai_art_enabled
             and spatial_config.rendering.location_layer_enabled
         )
-    if generate_road_texture is None:
-        generate_road_texture = (
-            spatial_config.rendering.ai_art_enabled
-            and spatial_config.rendering.road_texture_enabled
-        )
-
     existing_blueprint_path = spatial_output_root / "spatial_blueprint.json"
     validation_payload: dict[str, Any] = {"passed": None, "issues": []}
     if reuse_existing_spatial and existing_blueprint_path.exists():
@@ -108,7 +101,6 @@ def regenerate_visual_from_template(
         model_config_path=image_model_config_path,
         generate_background=generate_background,
         generate_location_layer=bool(generate_location_layer),
-        generate_road_texture=bool(generate_road_texture),
         semantic_locations=list(foundation.locations),
         force_location_regeneration=force_visual_regeneration,
         location_debug_artifact_root=(
@@ -141,7 +133,10 @@ def regenerate_visual_from_template(
             "location_layer_ready": int(visual_manifest.location_layer.status == "ready"),
             "ready_locations": len(visual_manifest.location_layer.completed_location_ids),
             "failed_locations": len(visual_manifest.location_layer.failed_location_ids),
-            "road_texture_ready": int(visual_manifest.route_layer.status == "ready"),
+            "roads_integrated": int(
+                visual_manifest.location_layer.includes_roads
+                and visual_manifest.location_layer.status in {"ready", "partial"}
+            ),
         },
         validation=validation_payload,
         blueprint=blueprint,

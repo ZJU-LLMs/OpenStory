@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "route_number",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_memory_value",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "administrative_district",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "traffic_purpose",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "encryption_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "monopoly_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

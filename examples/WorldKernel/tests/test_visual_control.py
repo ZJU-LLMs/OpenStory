@@ -28,6 +28,60 @@ from worldkernel.architect.visual.pipeline import _generate_background
 
 
 class VisualControlTests(unittest.TestCase):
+    def test_background_generation_retries_one_transient_failure(self) -> None:
+        blueprint = self._blueprint()
+        directory = Path(__file__).parent / f".visual-control-{uuid.uuid4().hex}"
+        directory.mkdir()
+        calls = 0
+        try:
+            manifest = build_visual_layout_manifest(blueprint, {}, directory)
+            render_layout_control_assets(blueprint, manifest, directory)
+            prompt = compose_background_prompt({}, manifest)
+
+            class FlakyImageClient:
+                def __init__(self, _cfg):
+                    pass
+
+                def generate(self, _prompt, output_path, **kwargs):
+                    nonlocal calls
+                    calls += 1
+                    if calls == 1:
+                        raise RuntimeError("Image API HTTP 502: temporary gateway failure")
+                    width, height = (int(value) for value in kwargs["size"].split("x"))
+                    Image.new("RGB", (width, height), (40, 80, 120)).save(output_path)
+                    return {"provider": "fake", "model": "fake-image"}
+
+            with (
+                patch(
+                    "worldkernel.architect.visual.pipeline.load_model_config_by_capability",
+                    return_value={"name": "fake", "model": "fake-image"},
+                ),
+                patch(
+                    "worldkernel.architect.visual.pipeline.ImageGenerationClient",
+                    FlakyImageClient,
+                ),
+                patch("worldkernel.architect.visual.pipeline.time.sleep"),
+            ):
+                metadata = _generate_background(
+                    blueprint=blueprint,
+                    manifest=manifest,
+                    prompt_payload=prompt,
+                    root=directory,
+                    model_config_path=directory / "unused.yaml",
+                )
+
+            self.assertEqual(calls, 2)
+            self.assertEqual(metadata["model"]["transport_attempt_count"], 2)
+            self.assertEqual(len(metadata["attempt_failures"]), 1)
+            self.assertTrue((directory / "background.png").exists())
+        finally:
+            for path in sorted(directory.rglob("*"), reverse=True):
+                if path.is_file():
+                    path.unlink(missing_ok=True)
+                elif path.is_dir():
+                    path.rmdir()
+            directory.rmdir()
+
     def test_background_pipeline_retains_untouched_model_output(self) -> None:
         blueprint = self._blueprint()
         directory = Path(__file__).parent / f".visual-control-{uuid.uuid4().hex}"

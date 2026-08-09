@@ -1,0 +1,31 @@
+dim_name: CapabilitiesDim
+skills:
+  type: list_str
+level:
+  type: str
+weaknesses:
+  type: str
+memory_extraction_skill:
+  type: str
+  option: true
+memory_synthesis_skill:
+  type: str
+  option: true
+memory_forgery_skill:
+  type: str
+  option: true
+debt_negotiation_skill:
+  type: str
+  option: true
+archive_system_hacking_ability:
+  type: str
+  option: true
+storm_survival_training:
+  type: str
+  option: true
+memory_resistance_ability:
+  type: str
+  option: true
+identity_reconstruction_skill:
+  type: str
+  option: true

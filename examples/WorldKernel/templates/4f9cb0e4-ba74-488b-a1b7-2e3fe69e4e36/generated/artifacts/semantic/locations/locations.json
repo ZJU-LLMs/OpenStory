@@ -1,0 +1,546 @@
+{
+  "artifact_type": "location_profile",
+  "items": [
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:007",
+        "name": "记忆交换广场",
+        "type": "memory_trade_zone",
+        "description": "悬浮于木星风暴穹顶边缘的圆形露天广场，也是全城最核心的公开记忆交易场所。风暴停歇期结束后，广场重新开市，下层市民排成长队用记忆碎片偿还债务，也有人试图用一段往事换一次喘息。广场地面铺设的数万片金属格板下方嵌有青色导光线，实时滚动交易流水；中央记忆含量柱在夜幕降临时会亮起琥珀色光。记忆交换委员会轮值主事艾德琳每日清晨站在东入口，她认得每一个长期以记忆抵债的常客。",
+        "memory_archive_sector_code": "TRD-07-MEM",
+        "facility_function_type": "public_memory_exchange_plaza",
+        "administrative_district": "旧城区·下环交易带",
+        "historical_memory_event_id": "event:cycle1473_reopening",
+        "storm_exposure_zone": "中低暴露区（穹顶边缘）"
+      },
+      "access": {
+        "permissions": "全体市民与持临时身份卡的外访者开放；进入需通过身份记忆核验；负债达到征收线的市民可进入但交易所得会被自动抵扣。",
+        "access_level": "public",
+        "access_conditions": "在入口光闸处比对身份档案中的核心记忆特征；禁止携带未加密记忆罐；风暴预警达到三级时自动清场。",
+        "minimum_memory_asset_credit": "0",
+        "security_clearance_level": "无",
+        "storm_alert_access_status": "预警三级时关闭",
+        "required_identity_certification": "是",
+        "debt_labor_pass_requirement": "持债务劳役通行证者可在广场东区申请低额交易，不可参与竞价"
+      },
+      "state": {
+        "current_state": "风暴停歇后重新开市，早市交易缓慢恢复，中央记忆含量柱刷新速度略慢于往常。",
+        "ownership": "公有；由记忆档案局授权记忆交换委员会运营，摊位经营权按日竞标。",
+        "capacity": 3200,
+        "memory_storage_capacity_used": "72",
+        "debt_maintenance_status": "最近一次债务征收后地面光路已巡检完毕，设备无故障。",
+        "storm_damage_level": "轻微（上次风暴吹落两盏投影灯，已修复）",
+        "current_occupancy_ratio": "0.65",
+        "memory_transaction_volume_today": "1843"
+      },
+      "visual": "无屋顶的开放广场俯视场景，整体为同心圆构造，外圈环绕一圈半人高的深灰色金属护栏，栏外是翻涌的木星风暴云层。中央一块圆形记忆交换平台，外圈环绕三层可走动的摊位环。地面是浅灰色金属栅格板，以暖白和琥珀色嵌线分隔摊位。主色为灰银、琥珀橙和暗青色。标志性陈设包括：中央圆台上立着一台环形记忆读取机，顶盖透出蓝白光；摊位间穿插着四五个半透明记忆储量柱，柱内悬浮淡金色光点；广场东南角有一座封闭式记忆提取舱室，银色外壳带磁吸门；地面埋设青色导光线，在金属地面上形成放射状纹路。装饰密度中等偏疏，摊位之间留有至少两人并行的行走通道，中央圆台四周留出一整圈疏散空地。照明来自广场四角的冷白投影塔和摊位顶棚的琥珀灯，整体光线均匀无死角。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:001",
+        "name": "暗影记忆黑市",
+        "type": "memory_trade_zone",
+        "description": "躲藏在废弃管线层与老排水系统交汇处的非法记忆交易巢穴，需由熟客穿过三道伪门才能抵达。这里流通着档案局明令禁止的记忆：从活人身上剥离的违禁片段、伪造的社会身份记忆、来自风暴遇难者尸体的临终记忆。交易无凭证、无退款，买卖双方各自提防着执法队的突袭。",
+        "memory_archive_sector_code": "ILL-SUB-01",
+        "facility_function_type": "underground_illegal_memory_market",
+        "administrative_district": "下城区·废弃管线层",
+        "historical_memory_event_id": "event:black_market_origin_unknown",
+        "storm_exposure_zone": "完全隔离区（城市底层防护壳内）"
+      },
+      "access": {
+        "permissions": "仅限持有暗语接头信物或黑市会员标记的人进入；档案局执法队无搜查令不得进入，但实际执法时时常直接突袭。",
+        "access_level": "restricted_illegal",
+        "access_conditions": "从旧水泵房后的气闸进入，门口有记忆探针检查来者是否佩戴跟踪器；需要当场报出一段当周暗语；禁止携带任何档案局配发设备。",
+        "minimum_memory_asset_credit": "不核查，但交易需预付至少一段可验证的记忆",
+        "security_clearance_level": "无（需要犯罪信用推荐）",
+        "storm_alert_access_status": "风暴警报期间内部封闭，入口伪装增强",
+        "required_identity_certification": "否（严禁出示真实身份）",
+        "debt_labor_pass_requirement": "债务劳役者必须由黑市担保人带入，否则可能被反手卖给执法队"
+      },
+      "state": {
+        "current_state": "活跃；风暴停歇期使巡逻频率降低，今晚地下交易量骤增。",
+        "ownership": "由多个记忆贩子团伙共管，名义话事人为索恩·布莱克。",
+        "capacity": 350,
+        "memory_storage_capacity_used": "60",
+        "debt_maintenance_status": "不适用；黑市自建渠道维护管线与照明。",
+        "storm_damage_level": "低，管道壁渗水但主体结构稳定",
+        "current_occupancy_ratio": "0.85",
+        "memory_transaction_volume_today": "547"
+      },
+      "visual": "无屋顶的室内剖面房间俯视场景，暗巷式黑市开在废弃管线层中。平面呈狭长L形，入口在西南角一段向下的金属楼梯，出口是东北角低矮气闸。地面为深铁锈色防滑钢板，两侧堆叠集装箱与隔板形成密排摊格。主色为炭黑、铁锈红和污浊青绿。标志性陈设包括：L形拐角处有一张长条形记忆拆解台，台面上装有脉冲探针和四只记忆罐；沿墙排着三个可加密的金属箱柜，柜门有重型旋栓；中部一个用荧光绿帘子围出的记忆伪造隔间，内见晶片烧录架；西北角有一个废弃的冷却塔底座，被改造成暗货仓储位；通道正上方悬着一排低矮的紫光灯管，光线仅照亮摊格内壁。装饰密度高但沿主通道保留一条约一米五宽的可行走路线，摊位边界用发红光的细线标出。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:006",
+        "name": "记忆拍卖行",
+        "type": "memory_trade_zone",
+        "description": "位于穹顶宜居层外缘的高端记忆拍卖场，只接待持有足够资产记忆的买家。每场竞拍的记忆标的都经过档案局鉴定：政客在密室中的一句承诺、飞行队在风暴中的最后通讯、失传菜谱的味觉印记。这里是记忆商品化最赤裸的舞台，也是上城阶层炫耀身份与权力的地方。",
+        "memory_archive_sector_code": "AUC-L2-06",
+        "facility_function_type": "licensed_high_end_memory_auction_house",
+        "administrative_district": "上城区·云冠环",
+        "historical_memory_event_id": "event:cycle1469_mayor_memory_auction",
+        "storm_exposure_zone": "低暴露区（穹顶内部）"
+      },
+      "access": {
+        "permissions": "仅限受邀嘉宾、资产记忆净值达到门槛的登记买家，以及持有执照的记忆商人；档案局审计员可列席观察席。",
+        "access_level": "members_only_elite",
+        "access_conditions": "入场时需通过身份记忆验证，并将个人记忆资产信用扫描绑定到竞拍席；禁止携带未登记记忆载体，防止私下换货。",
+        "minimum_memory_asset_credit": "1200",
+        "security_clearance_level": "上城区通行证（3级）",
+        "storm_alert_access_status": "风暴警报不直接关闭，但会优先中止拍卖并进入地下防护层",
+        "required_identity_certification": "是",
+        "debt_labor_pass_requirement": "不适用；债务劳役者绝对禁止入场"
+      },
+      "state": {
+        "current_state": "晚间拍卖会前准备工作进行中，展示柱正在载入三件高价值记忆标的；大厅座位席空置，清洁系统运行中。",
+        "ownership": "私人企业；业主为薇拉·金，受档案局定期审计。",
+        "capacity": 600,
+        "memory_storage_capacity_used": "15",
+        "debt_maintenance_status": "无债务问题，审计状态正常",
+        "storm_damage_level": "无",
+        "current_occupancy_ratio": "0.1",
+        "memory_transaction_volume_today": "0"
+      },
+      "visual": "无屋顶的室内剖面房间俯视场景，记忆拍卖行主厅。平面为半圆形剧场，地面自前向后的台阶式座椅卡座面向南侧舞台，但俯视下表现为半环层叠的座位带。地面铺设暖灰近白的大理石纹金属板，座椅为深蓝色软包，饰有金色包边。主色为象牙白、深蓝和金色。标志性陈设包括：南侧主舞台上立着一台银白色记忆展示柱，柱头悬浮一枚发光记忆球体；舞台背后是一面弧形记忆投影墙，墙体嵌入六块深色光电屏；观众席中央有一道从舞台延伸到后排的主走道，走道两侧每隔三排设有一个金色报价终端台；大厅四角悬垂水滴状水晶声场装置。装饰密度高但克制，走道宽约三米直通双开大门，两侧座位区排列整齐。照明为舞台上的冷白追光与顶棚暖金水晶灯混合，形成中央亮、四周暖暗的对比。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:002",
+        "name": "中央记忆档案馆",
+        "type": "archive_facility",
+        "description": "城市记忆体系的物理心脏，保存着自城市诞生以来所有市民从出生到死亡的核心记忆副本，以及每一笔记忆债务的原始账目。深色合金筒仓内部是大厅与通往深层数据库的垂直电梯核心，只有局级权限者才能进入库区。传闻最底层存放着被称为“城之记忆”的初代创建者记忆，是整个城市的身份锚点。档案局局长维罗妮卡·黑斯廷斯亲自执掌底层密钥。",
+        "memory_archive_sector_code": "ARC-HUB-00",
+        "facility_function_type": "central_memory_archive_and_identity_registry",
+        "administrative_district": "档案馆区·记忆中枢",
+        "historical_memory_event_id": "event:cycle0_city_origin_memory",
+        "storm_exposure_zone": "核心防护区（城市中心）"
+      },
+      "access": {
+        "permissions": "档案局管理者、授权调阅员和持有效调阅令的市民可进入；普通市民只能在大厅服务窗口申请，不能深入库区。",
+        "access_level": "central_restricted",
+        "access_conditions": "进入大厅需身份档案匹配基础指纹和核心记忆片段；进入库区需要局级安全许可，且全程由记忆审计员陪同；重罪或债务高违约者禁止进入。",
+        "minimum_memory_asset_credit": "不适用；以行政权限和调阅令为准",
+        "security_clearance_level": "5级（库区）",
+        "storm_alert_access_status": "任何风暴警报下保持运行，并进入全封闭锁死状态",
+        "required_identity_certification": "是，必须为在档市民身份",
+        "debt_labor_pass_requirement": "持债务劳役证人员只能进行保洁与搬运，不得接触任何记忆载体"
+      },
+      "state": {
+        "current_state": "新周期第1473日，一场关于基础设施维护债务的强制拍卖刚从这里签发执行令，大厅内档案查询队列比平时长两倍。",
+        "ownership": "记忆档案局（城市官方）",
+        "capacity": 800,
+        "memory_storage_capacity_used": "92",
+        "debt_maintenance_status": "核心服务器满负荷，冷却系统在三次风暴后需要扩容维护",
+        "storm_damage_level": "轻微；外墙一处隔热板松动，已列入检修",
+        "current_occupancy_ratio": "0.7",
+        "memory_transaction_volume_today": "2145"
+      },
+      "visual": "无屋顶的室内剖面房间俯视场景，中央记忆档案馆接待与调阅层。平面为矩形纵深大厅，入口在北墙，查询台在南端。地面为防静电灰蓝地砖，墙体是银色铝蜂窝板与纵向光柱交替排列。主色为银白、冷蓝和墨黑。标志性陈设包括：大厅正中立有一道贯通上下层的透明记忆井，井内可见螺旋上升的橙红色记忆光流；围绕记忆井排列三行共四列的记忆检索终端台，终端台各立一人高透明档案柱，柱内浮着橙红色记忆碎片；东侧一整面墙是密集档案柜列，柜列之间由自动轨道隔出窄道；西墙嵌入两个环形记忆读取舱，舱门呈半透明，内部灯带发出蓝绿色光；南北通道尽头有一道安检光闸门框，门框上方设一枚深色监控球体。装饰密度中等，中央记忆井周围留有明显行走通道，东西两侧柜列通道宽约一米，纵向主通道宽约三米。照明为顶部嵌入式冷白灯阵，局部辅以档案柜边缘的冰蓝色灯带，整体明亮冷静。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:012",
+        "name": "密档深库",
+        "type": "archive_facility",
+        "description": "位于记忆档案局地下最深处的禁区，专门存放被冻结、封禁或禁忌的记忆。这些记忆通常涉及政权不愿公开的历史事件、身份实验或叛逃者的核心记忆。外层是厚重的合金气密门，内部恒温恒湿，以独立的记忆冻结柱保存，任何调取都需要高级管理员双重认证。这里的气氛压抑而肃穆，连空气都仿佛凝固。",
+        "memory_archive_sector_code": "SECTOR-Ω-DEEP",
+        "facility_function_type": "memory_quarantine_vault",
+        "administrative_district": "中央档案区-地下七层",
+        "historical_memory_event_id": "event:memory-riot-containment",
+        "storm_exposure_zone": "core_central_stable"
+      },
+      "access": {
+        "permissions": "仅限记忆档案局高级管理员及经档案局最高会议特别批准的人员；禁止债务劳役者、记忆商人及任何外部人员进入",
+        "access_level": "Level-5（绝密）",
+        "access_conditions": "需同时通过虹膜、记忆特征与生物基因三重验证，并由至少两名高级管理员相互授权开启；访问记录将被永久封存",
+        "minimum_memory_asset_credit": "100000",
+        "security_clearance_level": "S-Ω",
+        "storm_alert_access_status": "不受风暴停歇期影响，始终全封闭运转",
+        "required_identity_certification": "必须提供未经篡改的原始身份记忆链并现场验证",
+        "debt_labor_pass_requirement": "不接受任何债务劳役通行证"
+      },
+      "state": {
+        "current_state": "封闭待命，内部时间冻结，记忆冻结柱全部处于低温休眠状态，例行安全巡视每小时进行一次",
+        "ownership": "记忆档案局",
+        "capacity": 5000,
+        "memory_storage_capacity_used": "0.85",
+        "debt_maintenance_status": "系统自维护运行中，无外部介入",
+        "storm_damage_level": "无",
+        "current_occupancy_ratio": "0.02",
+        "memory_transaction_volume_today": "0"
+      },
+      "visual": "无屋顶的室内剖面RPG场景：长方形地库，中央走廊贯通全室，两侧对称排列着五排记忆冻结柱。地面为深灰色金属网格板，墙壁为暗黑色合金板，主色为炭灰和冷蓝。标志性陈设包括：中央高耸的圆柱形记忆冻结柱（内悬冰蓝色记忆光团）、侧墙嵌入式保险柜门（带荧光编号）、天花板滑轨上的自动监测机器人、入口处两扇重型气密门（红线警示灯），以及角落的红色紧急封存按钮。装饰密度低，空间空旷冷寂。照明为冷白色荧光灯带，在冻结柱上反射出淡蓝光晕。可行走空间为中央走廊和两侧通道，宽度足够两人并排通过。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:003",
+        "name": "债务者塔楼",
+        "type": "residential_area",
+        "description": "一座高耸的环形塔楼，城市记忆债务人被集中关押在统一的劳役住宅中。每个房间都装有监控装置，居民白天组成劳役队被派往城市各设施强制工作，以微薄的劳动折算扣还记忆债务。塔楼内弥漫着麻木与疲惫，公共区域的屏幕上不断滚动债务数值和催缴警示。这里是城市底层最真实的切片，也是反抗情绪缓慢发酵的温床。",
+        "memory_archive_sector_code": "RES-DEBT-2",
+        "facility_function_type": "debtor_housing_complex",
+        "administrative_district": "外环债务区-第七塔",
+        "historical_memory_event_id": "event:debt-resettlement-decree-1321",
+        "storm_exposure_zone": "intermediate_ring"
+      },
+      "access": {
+        "permissions": "仅限登记债务人、持债务管理令的执法官和档案局派出的劳役监管员；普通市民不得进入",
+        "access_level": "Level-1（限制）",
+        "access_conditions": "居民须佩戴债务人身份手环，每日早晚两次点名，离开塔楼需领取临时劳役通行证；访客一律禁止",
+        "minimum_memory_asset_credit": "0",
+        "security_clearance_level": "L-1",
+        "storm_alert_access_status": "风暴警报时所有出入口强制封闭，禁止出入",
+        "required_identity_certification": "必须扫描手环并匹配记忆档案中的债务记录",
+        "debt_labor_pass_requirement": "所有成年居民必须持有有效的劳役排班表，且无当日缺勤记录"
+      },
+      "state": {
+        "current_state": "人员满额，公共区域全天候监控，劳役排班系统正在高负荷运转，部分走廊照明闪烁",
+        "ownership": "记忆档案局代管",
+        "capacity": 2000,
+        "memory_storage_capacity_used": "",
+        "debt_maintenance_status": "持续征收中，本周已强制扣缴三批劳作记忆",
+        "storm_damage_level": "轻度风暴磨损",
+        "current_occupancy_ratio": "0.98",
+        "memory_transaction_volume_today": "0"
+      },
+      "visual": "无屋顶的室内剖面RPG场景：环形塔楼的其中一层平面，中央为圆形天井，四周是环形走廊，房间沿外墙排列。地面为拼接式耐压板材，墙壁为灰褐色混凝土质感，主色为灰褐与暗橙。标志性陈设包括：中央天井处的透明监控塔（内置多块闪烁监视屏）、走廊上的自动记忆扣缴机（屏幕显示债务扣款）、每户门口配备的身份识别终端、悬挂在空中的大型劳役排班显示屏，以及天井底部可见的探照灯。装饰密度低，陈设简单实用，管线裸露。照明昏暗，以橙色应急灯和冷白荧光灯混合。可行走空间为环形走廊和通向楼梯间的通道，走廊宽度可容三人并排，但到处设有监控盲区警示条。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:008",
+        "name": "记忆中产街区",
+        "type": "residential_area",
+        "description": "普通市民的成片住宅区，整齐的联排建筑围绕小型社区广场展开。这里的居民依靠每月出售少量日常记忆来支付房贷和消费，同时保留着足够维持身份的核心部分。街区气氛平和，交易亭里流动着日常记忆交易，孩子们在广场上奔跑，身份扫描仪在路灯上无声闪烁——一切看似安稳，实则每笔交易都被档案局记录在册。",
+        "memory_archive_sector_code": "RES-STD-3",
+        "facility_function_type": "middle_class_housing",
+        "administrative_district": "中环居民区-第三街",
+        "historical_memory_event_id": "event:memory-standard-valuation-1402",
+        "storm_exposure_zone": "inner_ring_stable"
+      },
+      "access": {
+        "permissions": "持有有效身份记忆卡及本地居住许可的市民；访客需由居民担保并登记",
+        "access_level": "Level-2（公开受限）",
+        "access_conditions": "进入街区需通过路口身份扫描，外来访客需在治安终端登记并在两小时内离开",
+        "minimum_memory_asset_credit": "500",
+        "security_clearance_level": "L-2",
+        "storm_alert_access_status": "风暴停歇期正常开放，非停歇期需有通行证",
+        "required_identity_certification": "需提供连续六个月未被冻结的记忆记录以证明身份连续性",
+        "debt_labor_pass_requirement": "不适用，不接纳债务劳役人员"
+      },
+      "state": {
+        "current_state": "日常生活运转中，广场市集和记忆交易亭正在营业，整体平静有序",
+        "ownership": "私人产权（由房产记忆债权背书）",
+        "capacity": 800,
+        "memory_storage_capacity_used": "",
+        "debt_maintenance_status": "正常还贷，逾期率低于1%",
+        "storm_damage_level": "无",
+        "current_occupancy_ratio": "0.9",
+        "memory_transaction_volume_today": "320"
+      },
+      "visual": "开放场景俯视RPG地图：规整的网格状街区，三条横向街道与两条纵向街道交错，两侧排列三层联排住宅，街道中央交汇处为小型圆形广场。地面为浅灰色合成石板，主色为米白和浅蓝。标志性陈设包括：中央广场的脑波造型记忆喷泉、街角的透明记忆交易亭（墙面上滚动价格牌）、每栋住宅门口的记忆信箱（带有蓝色光带）、路灯柱上悬挂的身份扫描仪，以及广场边缘的空中轨道车站入口。装饰密度中等，街道设有长椅和行道盆栽。照明为暖白色路灯，广场周围一圈环形灯带。可行走空间为街道和广场区域，建筑入口留有台阶通道，主干道足够两辆小型巡逻车并行。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:005",
+        "name": "记忆档案局总部",
+        "type": "municipal_hub",
+        "description": "悬浮城市最高的权力中枢，一座巨型锥形建筑，统管全城记忆货币的发行、估值、征用和销毁。建筑内部以圆形大厅为中心，各部门层叠环绕，记忆账本全息柱从底层直通穹顶，实时显示全城记忆交易流水。这里是城市决策的诞生地，也是许多秘密的藏匿处。身份在这里被定义，记忆在这里被量化，而规则只服务维持城市不坠入风暴的最高优先。",
+        "memory_archive_sector_code": "HQ-CENTRAL",
+        "facility_function_type": "government_memory_bank",
+        "administrative_district": "中央穹顶区",
+        "historical_memory_event_id": "event:city-charter-signing-0001",
+        "storm_exposure_zone": "core_central_most_stable"
+      },
+      "access": {
+        "permissions": "档案局高级官员、授权管理员、依法传唤的证人及经最高议会授权的特别特派员；其他人员禁止入内",
+        "access_level": "Level-6（最高权限）",
+        "access_conditions": "进入需通过虹膜、记忆链、声纹及身体轮廓四项生物验证，再由当日带班主管审批；任何访问都自动记录在案并同步至议会",
+        "minimum_memory_asset_credit": "10000",
+        "security_clearance_level": "S-1",
+        "storm_alert_access_status": "核心区域全天候防护，不受风暴影响，紧急状态下自动进入全封闭模式",
+        "required_identity_certification": "必须提供原始出生记忆记录并现场比对，禁止任何形式的代验或替身",
+        "debt_labor_pass_requirement": "不适用，债务劳役者永远禁止踏入总部"
+      },
+      "state": {
+        "current_state": "全城中控运转中，记忆账目实时更新，各部门正在处理风暴停歇期后的市场重估与新一轮记忆征收指令",
+        "ownership": "记忆档案局",
+        "capacity": 20000,
+        "memory_storage_capacity_used": "0.92",
+        "debt_maintenance_status": "系统全自动巡检正常，备份服务器轮换维护中",
+        "storm_damage_level": "无",
+        "current_occupancy_ratio": "0.8",
+        "memory_transaction_volume_today": "428000"
+      },
+      "visual": "无屋顶的室内剖面RPG场景：宏伟的多层穹顶建筑内部，中央为直径约二十米的圆形大厅，四周环绕多层环形走廊，多道辐射状通道连接不同部门。地面为抛光黑色石材，墙壁为白色记忆存积板，主色为白、黑与金色。标志性陈设包括：中央直通穹顶的记忆账本全息柱（柱内流动金色记忆数据流）、环形柜台后的记忆存取终端、沿上层轨道飞驰的档案传输胶囊、墙壁上镶嵌的城市记忆汇率巨型显示屏，以及主入口处巨大的城市徽章浮雕。装饰密度高但井然有序，人群在闸机间流动。照明明亮均匀，顶灯呈冷白，局部用金色点缀。可行走空间为大厅中央圆形区域及环廊，通道宽度宽敞，但多处设有验证闸机，行人只能依序通过。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:011",
+        "name": "秩序执法司令部",
+        "type": "municipal_hub",
+        "description": "位于档案城行政核心区的武装中枢，是秩序执法官的总部。建筑外壁覆盖深灰色装甲板，顶部悬挂巨大的记忆债务徽章。内部设有战术指挥大厅、记忆债务追缉登记处、临时拘押室和武器库。司令部直接受记忆档案局授权，拥有调动执法官、执行现场征忆和镇压暴乱的最高权限。每当风暴间歇期结束，这里便会发出新一轮记忆征收令。",
+        "memory_archive_sector_code": "ADM-ORD-01",
+        "facility_function_type": "武装执法指挥中心",
+        "administrative_district": "行政核心区",
+        "historical_memory_event_id": "新周期0931年‘记忆税暴动’镇压行动指挥地",
+        "storm_exposure_zone": "低暴露区（穹顶内层）"
+      },
+      "access": {
+        "permissions": "仅限于记忆档案局高级官员、秩序执法官及持有临时授权令的特定承包商进入；普通市民禁止入内，违者以叛城罪论处。",
+        "access_level": "最高机密（Level 5）",
+        "access_conditions": "需通过虹膜与记忆印记双重验证，并由值班高级执法官书面批准。进入武器库和记忆追缉数据库需额外档案局密令。",
+        "minimum_memory_asset_credit": "无（不开放市民申请）",
+        "security_clearance_level": "S级",
+        "storm_alert_access_status": "风暴警戒期间维持全功能运行，所有入口锁定，内层防御穹顶升起",
+        "required_identity_certification": "记忆档案局认证的执法官身份芯片与原始记忆片段比对一致",
+        "debt_labor_pass_requirement": "不适用"
+      },
+      "state": {
+        "current_state": "全员高度戒备，刚刚发出新一轮债务征收令，追捕名单已下达到各执法分队。",
+        "ownership": "记忆档案局直属武装机构",
+        "capacity": 500,
+        "memory_storage_capacity_used": "证据库占用78%",
+        "debt_maintenance_status": "正常，债务系统运行稳定",
+        "storm_damage_level": "无损伤",
+        "current_occupancy_ratio": "基础值85%",
+        "memory_transaction_volume_today": "追缉相关记忆调取247次"
+      },
+      "visual": "无屋顶的RPG剖面房间，俯视显示秩序执法司令部一层指挥大厅。整体为长方形平面，入口在左侧，右侧为武器库隔间，下侧为临时拘押室。地面铺设深灰色金属装甲板，墙体为带铆钉的暗钢合金，主色为黑、灰与警示橙。房间中央设置一张大型环形战术指挥桌，桌面嵌有发光城市全息投影，周围分布四把黑色指挥椅。左上角靠墙立着三块拼接的记忆追缉显示屏，显示红色和琥珀色光斑。左下角设有一台记忆债务终端机，带扫描槽和触碰屏。右侧武器库门口有双扇加厚滑门，上方亮着黄色警示灯。室内照明以冷白荧光顶灯为主，战术桌上投射蓝色全息光，整体光线偏冷锐。装饰密度低，房间内侧留出绕中央桌一圈的宽行走通道。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:009",
+        "name": "记忆疗愈所",
+        "type": "public_service",
+        "description": "档案城唯一的官方记忆医疗机构，表面为市民提供创伤记忆疏导、记忆紊乱治疗和记忆修复，实际设有隐蔽的记忆清洗层和记忆改造手术室。疗愈所临近半银拱门和下城居住区，入口装饰着白色波浪纹样的记忆波纹标识。大厅的候诊区常年弥漫着淡蓝色消毒雾气，走廊深处有记忆档案局直接监管的加密治疗单元。不少欠下高额记忆债务的市民被送来‘自愿’接受记忆摘除，以替代债务清算。",
+        "memory_archive_sector_code": "MED-RH-03",
+        "facility_function_type": "医疗与记忆处置复合机构",
+        "administrative_district": "半银拱门区",
+        "historical_memory_event_id": "无公开记录",
+        "storm_exposure_zone": "低暴露区（城市中层）"
+      },
+      "access": {
+        "permissions": "市民可申请公开治疗项目，但深层记忆清洗和记忆改造仅限记忆档案局指定的债务劳役者与特别许可对象使用。",
+        "access_level": "公开治疗区Level 2；深层处置区Level 4",
+        "access_conditions": "公开门诊需医疗预约和基础记忆健康评估；深层区域需档案局书面授权并扣抵押记忆资产；手术期间禁止家属探视。",
+        "minimum_memory_asset_credit": "公开治疗无门槛，深层项目需3000记忆信用点押金",
+        "security_clearance_level": "医师及档案局联络员C级，深层手术主刀医师A级",
+        "storm_alert_access_status": "风暴警戒时急诊关闭，仅保留维持生命支持的地下避难层",
+        "required_identity_certification": "患者需出示身份证章，深层项目需记忆档案局认证的‘干预许可密令’",
+        "debt_labor_pass_requirement": "债务劳役者可凭劳役派遣单优先进入强制治疗通道"
+      },
+      "state": {
+        "current_state": "白天正常门诊，夜间地下记忆清洗层运作繁忙，已接受三批债务劳役者的记忆处置订单。",
+        "ownership": "记忆档案局与市政医疗委员会合资运营",
+        "capacity": 200,
+        "memory_storage_capacity_used": "治疗记忆库使用61%",
+        "debt_maintenance_status": "建筑维护由记忆债务专项拨款，当前无欠费",
+        "storm_damage_level": "轻微，外立面有风暴刮擦痕迹",
+        "current_occupancy_ratio": "日间候诊率70%",
+        "memory_transaction_volume_today": "公开诊疗处理记忆读取132次，深层清洗/改造11例（系统内被标记为‘医疗处置’）"
+      },
+      "visual": "无屋顶的RPG剖面房间，俯视显示记忆疗愈所的地面诊疗层。整体为方形平面，入口位于下侧双开门，候诊区布置在左半部分，右半部分隔离出三个透明隔间，靠上墙为手术室入口。地面铺浅灰白色防滑地胶，墙体为弧形白色复合材料，镶嵌淡蓝色记忆波纹灯带，主色为白、浅蓝和淡青色。中央区域设置一个贝壳形记忆疏导座椅，椅面贴合人的背部，旁边立着一台记忆投影仪，投出悬浮的人体头部轮廓。左下角候诊区摆放三把白色候诊椅和一个深蓝色记忆健康咨询台。右侧隔间内各放一张休息床，床头连接着一台读取记忆波形的银白色终端机。靠上墙的手术室门为银色推拉门，门框上方有一盏暗红色待机灯。照明为均匀的暖白顶灯，记忆投影仪处泛着浅蓝色光，整体氛围安静但偏冷。装饰稀疏，家具之间留有宽松的行走通道。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:004",
+        "name": "身份重置站",
+        "type": "public_service",
+        "description": "设立在城市边缘旧仓库区的政府服务设施，负责为记忆破产者执行身份清零与重新编码。整座站体是一栋低矮的银灰色预制建筑，内部仅有登记柜台、意识重置舱和等待区三部分，一次只能同时处理四人。重置过程需要缴出全部剩余记忆碎片，随后由系统中随机分配一个全新的市民编号和预设人格模板。每天清晨，这里都会排起沉默的队伍，等待放弃曾经的身份。",
+        "memory_archive_sector_code": "EDGE-RST-09",
+        "facility_function_type": "身份重置与市民编号分配站",
+        "administrative_district": "边缘旧仓库区",
+        "historical_memory_event_id": "新周期1349年‘清零法案’生效纪念点",
+        "storm_exposure_zone": "高暴露区（边缘甲板）"
+      },
+      "access": {
+        "permissions": "对债务蒸发、户籍被注销或自愿申请身份重置的市民开放；执法机关可强制押送目标对象办理。",
+        "access_level": "Level 1（公开但需预约）",
+        "access_conditions": "需出示记忆破产判定书或强制执行令，并签署终身放弃旧身份同意书。重置后七天内禁止离开城市底层缓冲区。",
+        "minimum_memory_asset_credit": "无（重置前需清零所有记忆资产）",
+        "security_clearance_level": "无",
+        "storm_alert_access_status": "风暴警戒期间关闭，待命等待城市核心调度",
+        "required_identity_certification": "需携带旧身份芯片（可被注销）",
+        "debt_labor_pass_requirement": "允许债务劳役者使用紧急重置通道"
+      },
+      "state": {
+        "current_state": "今日已处理12起身份重置，等待区仍有约20人排号；系统显示新身份池剩余配额不足1/3。",
+        "ownership": "记忆档案局城市登记处直接管理",
+        "capacity": 4,
+        "memory_storage_capacity_used": "重置回收记忆临时仓库占用92%",
+        "debt_maintenance_status": "设备陈旧，常出现初始化中断",
+        "storm_damage_level": "外墙轻微凹陷，一门卷帘门无法闭合",
+        "current_occupancy_ratio": "等待区满载，处理单元占用率100%",
+        "memory_transaction_volume_today": "回收记忆碎片48份，发放新身份编号13个"
+      },
+      "visual": "无屋顶的RPG剖面房间，俯视显示身份重置站内部。整体为窄长矩形平面，入口在左侧卷帘门，右侧尽头并排设置四台银灰色重置舱，前侧为黑色登记柜台。地面是磨损的浅灰色水泥，墙体为银色金属波纹板和深青色隔板，主色为银灰、白与暗青。重置舱为蛋形胶囊，舱门半透明，内部发暗淡蓝光，每台舱旁连接一台身份编号写入机。中央等待区摆着两排背靠背的黑色塑料座椅，地面画出白色排队线。左上角靠墙有一台旧式叫号显示屏，红色数字不断跳动。装饰极少，空间显得空旷冷清，行走通道从入口直通重置舱前，宽度约两人并行。照明是几盏裸露的荧光灯管，发出冷白色光，重置舱蓝光与荧光混在一起，让整个空间泛着一层冷淡的色调。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:014",
+        "name": "风暴港",
+        "type": "transport_hub",
+        "description": "悬浮城市最底部伸出的一处巨大环形航空码头，也是与外界相连的唯一咽喉。风暴港被三层电磁屏障和重型围护骨架包裹，向外延伸出十六条着陆臂，供穿行木星风暴的运输舰和信使舱停靠。港口内部同时容纳海关检查、记忆检疫和入境身份验证大厅。由于长时间承受风暴震动，港口内壁布满抗压加强筋，地面常覆有一层薄薄的灰白色气凝胶碎屑。每当风暴停歇期开启，港口塔台会释放一批等待已久的离城航班，也接收来自其他漂浮聚居区的记忆货物。",
+        "memory_archive_sector_code": "PRT-ST-05",
+        "facility_function_type": "星际航空港与贸易关卡",
+        "administrative_district": "底层外环区",
+        "historical_memory_event_id": "新周期021年城市完工后首次对外开放",
+        "storm_exposure_zone": "风暴直接侵蚀区（最外层穹顶下）"
+      },
+      "access": {
+        "permissions": "持有有效离城许可、外交信物或运输合约的市民与外来者可以使用；未获许可者擅自靠近即被防御炮塔锁定。",
+        "access_level": "Level 3（出入境通道需审查）",
+        "access_conditions": "须在起飞前六小时接受记忆资产冻结和身份芯片扫描；货物与记忆批次需通过档案局检疫。风暴等级超过七级时港口自动封闭。",
+        "minimum_memory_asset_credit": "离城通行税需缴纳5000记忆信用点或等价记忆片段",
+        "security_clearance_level": "港口工作人员B级，管制塔台A级",
+        "storm_alert_access_status": "风暴季时港口处于一级封锁状态，外层屏障启动脉冲防护，起飞舱口全部闭锁",
+        "required_identity_certification": "需要‘离城通行证’与身份芯片双验证，并采集当前记忆快照留存",
+        "debt_labor_pass_requirement": "债务劳役者不得通过正常渠道离城；若被派遣执行港口维护，只能在维修通道活动"
+      },
+      "state": {
+        "current_state": "风暴停歇期内，港口正高频运转，已放行3艘运输舰和22艘信使舱；下一次风暴预计在40小时后抵达，塔台已发布橙色预警。",
+        "ownership": "城市交通管理局与记忆档案局联合管辖",
+        "capacity": 800,
+        "memory_storage_capacity_used": "临时记忆货物仓储占用64%",
+        "debt_maintenance_status": "结构维护基金充足，债务状态正常",
+        "storm_damage_level": "北侧第二着陆臂有浅层冲击裂纹，正在修补",
+        "current_occupancy_ratio": "货运区82%，客运区46%",
+        "memory_transaction_volume_today": "出入境记忆验证1734次，记忆货物吞吐量约4.2万标准单位"
+      },
+      "visual": "俯视投影的开放场景，显示风暴港全貌。整个港口呈半圆形平台，向外伸出十六条细长着陆臂，末端各有圆形停机坪。三条着陆臂上停着灰黑色运输舰，其中一艘的连接管道插向平台边缘，信使舱蜷缩在停机坪角落。平台内侧弧段是一排低矮的港口航站楼，楼体银灰色，顶部竖着细高的指挥塔台，塔身有一圈红色防撞灯。地面铺厚重的深色防爆甲板，中心以白色与黄色标线划出货运分割线和人员通道，主色为深灰、银白和警告黄。标志性陈设包括：一座四层高的半透明指挥塔台，两座巨型货柜起重机，一台正在扫描入境信使舱的记忆检疫门架，以及北侧边缘被围栏圈起的维修区，里面停着一辆橙色的牵引车。场景空旷，除建筑和停靠飞行器外没有多余杂物，人员能沿着标线从航站楼走到每一条着陆臂的停机坪，行走空间充足。照明来自塔台投射的白色探照灯，以及停机坪上低矮的蓝色边界灯，整个场景被冷白和警示色笼罩。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:015",
+        "name": "悬浮轨道枢纽",
+        "type": "transport_hub",
+        "description": "高耸的环形穹顶大厅内，四条磁悬浮线路呈十字形汇聚于中央枢纽。银白色列车每隔数分钟到发一班，将市民和密封在防磁记忆罐中的记忆货物送往城市各区。大厅的主色调是金属灰与警示蓝，信息柱上循环滚动着班次、货物交接与债务征收日程。这里是城市最繁忙也最普通的交通节点，人流如潮，却没有人会在这里停留。",
+        "memory_archive_sector_code": "MA-TR-015",
+        "facility_function_type": "transportation_hub",
+        "administrative_district": "中枢联络区",
+        "historical_memory_event_id": "",
+        "storm_exposure_zone": "低暴露区（核心屏蔽带）"
+      },
+      "access": {
+        "permissions": "所有持有效身份档案的市民可使用客运区；记忆货物转运区仅对记忆档案局授权的运输员和持有货物转运许可的商户开放",
+        "access_level": "public（客运区）／restricted（货物转运区）",
+        "access_conditions": "身份档案通过闸机验证；货物运输需出示当日转运许可码",
+        "minimum_memory_asset_credit": "0",
+        "security_clearance_level": "",
+        "storm_alert_access_status": "风暴二级预警时开往边缘区的线路停运；一级预警时全枢纽封闭",
+        "required_identity_certification": "true",
+        "debt_labor_pass_requirement": "债务劳役者需出示当日劳役通行证，否则无法通过闸机"
+      },
+      "state": {
+        "current_state": "风暴停歇期后恢复运营，正值早高峰与货物班列发车时段，站内人流密集但秩序正常",
+        "ownership": "城市公共设施局",
+        "capacity": 8000,
+        "memory_storage_capacity_used": "0.65",
+        "debt_maintenance_status": "设施维护正常，维护费用已由城市基础设施债务基金划拨",
+        "storm_damage_level": "",
+        "current_occupancy_ratio": "0.7",
+        "memory_transaction_volume_today": "320"
+      },
+      "visual": "开放场景俯视投影，环形车站建筑群。整体平面呈四向放射结构，中央为圆形枢纽大厅，四条磁悬浮轨道沿东西南北方向延伸出画面，轨道基座为浅灰色混凝土与金属梁混合结构。地面是深灰色导电合金地板，拼接缝中透出蓝色光带，构成引导行走的路线指示。主材质为拉丝金属和防滑合金板，主色调为冷灰蓝。标志性陈设：①中央枢纽服务塔——一座高耸的发光信息柱，表面环绕着环状全息指示屏；②记忆货物胶囊运输带——一条沿轨道平行延伸的封闭传送通道，内置半透明胶囊容器；③出站闸机阵列——八组并排的自助身份认证闸机，顶部亮着蓝色指示灯；④悬挂式磁悬浮车体——入站的银色流线型车体停在轨道上。装饰密度中等偏低，以功能性设施为主，无冗余装饰。照明以冷白色顶光和地面蓝色光带为主，色调偏冷。可行走空间为闸机外的大片候车区和沿轨道两侧的站台通道，视野开阔，通道宽度约可容纳四列行人并行。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:010",
+        "name": "记忆剧场群",
+        "type": "entertainment_space",
+        "description": "城市记忆消费的娱乐心脏，由五个大小不一的穹顶剧场组成，出售经过剪辑和增强的他人记忆体验。顾客支付记忆信用点后，通过神经接驳器进入一段数小时的沉浸式'人生切片'——经历一段不属于自己的童年、恋情或冒险。剧场群外围环绕着记忆罐自动贩卖亭与情绪转换站，主街上全息广告轮播着本周热门体验片段。对于背负债务的底层市民，这里是短暂逃避自我的豪华囚笼；对于记忆失窃者，这里则是充满危险诱惑的陷阱。剧场群的运营由商业集团掌控，但实际控制权一直与记忆交易所和黑市保持着暧昧的联系。",
+        "memory_archive_sector_code": "MA-EN-010",
+        "facility_function_type": "immersive_entertainment_complex",
+        "administrative_district": "记忆娱乐区",
+        "historical_memory_event_id": "ME-1472",
+        "storm_exposure_zone": "中低暴露区"
+      },
+      "access": {
+        "permissions": "需持有效身份档案且无重大债务违约记录，并支付相应记忆价值作为入场费",
+        "access_level": "paid_public",
+        "access_conditions": "入场时从个人记忆账户中扣除足额记忆价值；若记忆资产不足，可用自身核心记忆现场折抵",
+        "minimum_memory_asset_credit": "500",
+        "security_clearance_level": "",
+        "storm_alert_access_status": "风暴二级预警时暂停感应体验；一级预警时临时闭馆并疏散观众",
+        "required_identity_certification": "true",
+        "debt_labor_pass_requirement": ""
+      },
+      "state": {
+        "current_state": "风暴停歇期后重新开张，客流回升，热门剧目《他人的一生》当日场次已售罄，其余剧目有序售票",
+        "ownership": "记忆剧场集团",
+        "capacity": 3000,
+        "memory_storage_capacity_used": "0.4",
+        "debt_maintenance_status": "商业设施正常运营，维护费用通过门票收入覆盖",
+        "storm_damage_level": "",
+        "current_occupancy_ratio": "0.5",
+        "memory_transaction_volume_today": "860"
+      },
+      "visual": "开放场景俯视投影，剧场群整体呈扇形展开的半开放式建筑群，由五个大小不等的圆顶演出馆和一条贯穿主街组成。主街以中央喷泉塔为中心向两侧放射。地面是深紫色和紫铜色拼接的合成石材，镶嵌着发光的记忆回路纹样，纹样边缘柔和。各演出馆为半透明白色复合膜材质的圆形穹顶，在俯视角度下呈不同亮度的光圈。标志性陈设：①中央记忆喷泉塔——在俯视图中表现为圆形发光基座，基座外圈向外扩散液态记忆光雾形成的彩色光环；②剧场入口检票柱——每个圆顶馆门口立着的发光棱柱，柱身显示当前演出记忆片段的概要字幕；③记忆罐贩卖亭——排成一排的霓虹色箱体，出售封装好的记忆体验罐，亭顶亮着暖黄色灯牌；④休息廊道——环绕中央喷泉塔的弧形座椅区，座位之间有小型记忆回收终端机；⑤全息剧目广告牌——位于主街尽头的双面发光板，播放记忆演出预告。装饰密度中等，主要视觉重心在穹顶光色和喷泉光雾。照明为暖橙色地面灯与霓虹紫/蓝的穹顶光混合，氛围迷离而温暖。可行走空间是主街、休息廊道和各穹顶馆之间的环廊通道，主街宽度宽敞，各馆之间留有疏散通道。"
+    },
+    {
+      "identity": {
+        "id": "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:013",
+        "name": "风暴眼观测站",
+        "type": "research_outpost",
+        "description": "探出穹顶边缘的悬臂型科研站，像一根刺入风暴云层的触须。站内中央走道两侧排列着风暴传感器阵列与气象投影台，为城市的风暴预警提供基础数据。观测站长期只有少量科研人员值班，日常安静且孤单。但在底层加密档案室中，保存着比城市官方历史更古老的记录——某些研究者相信，那些数据中隐藏着城市起源与外界世界的真相。",
+        "memory_archive_sector_code": "MA-RS-013",
+        "facility_function_type": "scientific_research_outpost",
+        "administrative_district": "边缘科研区",
+        "historical_memory_event_id": "ME-0001",
+        "storm_exposure_zone": "高暴露区（穹顶边缘悬臂结构）"
+      },
+      "access": {
+        "permissions": "仅限档案局科研部授权人员、评级在4级及以上的科研人员以及获得特殊许可的外部专家进入",
+        "access_level": "高度受限（需4级安全许可）",
+        "access_conditions": "进入闸门时需完成虹膜与记忆指纹双因素核验，并由站内负责人现场确认；非授权人员严禁入内",
+        "minimum_memory_asset_credit": "0",
+        "security_clearance_level": "4",
+        "storm_alert_access_status": "风暴预警升至一级时强制关闭并全员撤离；二级预警时停止外出作业",
+        "required_identity_certification": "true",
+        "debt_labor_pass_requirement": ""
+      },
+      "state": {
+        "current_state": "风暴停歇期后进入设备检修与校准时态，部分外层传感器阵列在风暴中受损，观测数据暂时降为低精度模式",
+        "ownership": "记忆档案局科研部",
+        "capacity": 120,
+        "memory_storage_capacity_used": "0.9",
+        "debt_maintenance_status": "检修费用已纳入城市科研预算，但经费拨付延迟，部分维修组件缺货",
+        "storm_damage_level": "中等（外层探针传感器阵列轻度受损）",
+        "current_occupancy_ratio": "0.25",
+        "memory_transaction_volume_today": "0"
+      },
+      "visual": "开放场景俯视投影，观测站为一条伸出城市穹顶边缘的窄长形科研平台，整体呈楔形探出，像一根刺入风暴云海的触角。平台一端通过密封窄桥连接城市主体，另一端逐渐收窄并悬空；在俯视图中，平台伸出穹顶边缘后，周边被翻涌的木星风暴云环绕。地面是冷灰色金属格栅板，边缘有红色警示边界线和白色行进标线。主材质为防锈蚀合金板和高强度玻璃复合材质，主色调为冷灰、黑与警示红。标志性陈设：①中央球体观测舱——位于平台前端，半透明球状弧顶，内部露出环形数据屏幕和观测设备剪影；②风暴探针塔架——平台两侧伸出的小型折叠式探针收纳塔，金属框架外露，有红色/白色相间的警示涂装；③数据存储舱——位于平台中段的黑色箱体阵列，顶部亮着规律闪烁的蓝色状态灯；④窄桥密封闸门——连接城市主体端的厚重双层密封门，门框上嵌着密封状态指示条；⑤气象数据柱——平台中轴线上一根孤立的银色立柱，柱身密集排列着风速传感翼片。装饰密度极低，所有设备均为功能性，无任何装饰元素。照明为冷白色工作灯带和红色警示灯，照明覆盖范围集中在设备附近，空旷区域光线较暗。可行走空间包括平台中央的主通道、观测舱内部环形走道和各探针塔间的维修步道，通道宽度较窄，仅容两至三人并行。"
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:007",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:001",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:006",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:002",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:012",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:003",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:008",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:005",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:011",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:009",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:004",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:014",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:015",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:010",
+    "e:4f9cb0e4_ba74_488b_a1b7_2e3fe69e4e36:loc:013"
+  ],
+  "upstream_step_ids": [
+    "generate_locations"
+  ],
+  "warnings": [
+    "batch 1 review (score=4.75): 发现 2 个问题并已自动修正",
+    "batch 2 review (score=4.5): 发现 1 个问题并已自动修正",
+    "batch 4 review (score=4.38): 发现 3 个问题并已自动修正"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

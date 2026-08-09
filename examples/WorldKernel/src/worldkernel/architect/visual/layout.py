@@ -85,15 +85,15 @@ def build_visual_layout_manifest(
         slots=slots,
         background=background,
         route_layer=VisualRouteLayer(
-            status="placeholder",
+            status="integrated",
             z_index=150,
             width_px=canvas["width_px"],
             height_px=canvas["height_px"],
-            path=str(root / "road_layer.png") if output_root else "road_layer.png",
-            url="road_layer.png",
-            atlas_path=str(root / "road_atlas.png") if output_root else "road_atlas.png",
-            prompt_path=str(root / "road_prompt.json") if output_root else "road_prompt.json",
-            metadata_path=str(root / "road_metadata.json") if output_root else "road_metadata.json",
+            path="",
+            url="",
+            atlas_path="",
+            prompt_path="",
+            metadata_path="",
             style={
                 "kind": "pixel_ground_path",
                 "base_color": "#b99d5c",
@@ -131,13 +131,13 @@ def build_visual_layout_manifest(
                 if output_root
                 else "location_layer_metadata.json"
             ),
+            includes_roads=True,
         ),
         decorations=[],
         asset_contract={
             "layer_order": [
                 "background.png",
                 "location_layer.png",
-                "route_layer",
                 "location_placeholder_layer",
                 "agents",
                 "selection_tooltip_debug_grid",
@@ -159,7 +159,8 @@ def build_visual_layout_manifest(
         provenance={
             "source": "spatial_blueprint",
             "slot_count": len(slots),
-            "location_layer_generation": "optional",
+            "location_layer_generation": "optional_locations_and_roads",
+            "road_rendering": "integrated_into_location_layer",
             "layout_control": "full_size_edit_base_with_hard_mask",
             "mask_semantics": "transparent_pixels_editable_opaque_pixels_preserved",
         },

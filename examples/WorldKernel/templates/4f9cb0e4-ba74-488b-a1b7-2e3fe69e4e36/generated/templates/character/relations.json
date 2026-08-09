@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "creditor_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debtor_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_trading_partner_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archive_supervisor_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "resistance_contact_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_fraud_victim_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_witness_ids",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

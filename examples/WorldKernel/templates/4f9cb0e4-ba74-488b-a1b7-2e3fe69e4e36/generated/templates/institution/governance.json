@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_review_board",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_audit_frequency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rule_enforcement_strictness",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "internal_faction_count",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "corruption_index",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "transparency_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "succession_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}
