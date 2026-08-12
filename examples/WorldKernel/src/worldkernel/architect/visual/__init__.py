@@ -2,6 +2,9 @@ from worldkernel.architect.visual.client import AliyunWanImageClient, ImageGener
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
 from worldkernel.architect.visual.models import (
     VisualBackgroundAsset,
+    VisualCharacterAsset,
+    VisualCharacterAtlasBatch,
+    VisualCharacterLayer,
     VisualDecoration,
     VisualLayoutManifest,
     VisualLocationLayer,
@@ -18,6 +21,9 @@ __all__ = [
     "AliyunWanImageClient",
     "ImageGenerationClient",
     "VisualBackgroundAsset",
+    "VisualCharacterAsset",
+    "VisualCharacterAtlasBatch",
+    "VisualCharacterLayer",
     "VisualDecoration",
     "VisualLayoutManifest",
     "VisualLocationLayer",

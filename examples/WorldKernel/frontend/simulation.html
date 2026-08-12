@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-store" />
   <title>OpenStory WorldKernel Simulation</title>
-  <link rel="stylesheet" href="simulation-modern.css?v=20260711-7" />
-  <link rel="stylesheet" href="book-ui.css?v=20260712-polish5" />
+  <link rel="stylesheet" href="simulation-modern.css?v=20260812-task-label1" />
+  <link rel="stylesheet" href="book-ui.css?v=20260812-task-label1" />
 </head>
 <body class="sim-page">
   <main class="shell" aria-label="OpenStory WorldKernel 模拟界面">
@@ -32,52 +32,31 @@
           <span class="nav-icon nav-character" aria-hidden="true"></span>
           <span>角色总览</span>
         </button>
+        <div class="nav-tick-status" aria-label="当前 Tick 轮数">
+          <span class="nav-icon nav-tick" aria-hidden="true"></span>
+          <span class="nav-tick-copy"><small>Tick</small><strong id="tickValue">0</strong></span>
+        </div>
       </nav>
+
+      <div class="world-name-plaque" aria-label="当前世界">
+        <span>当前世界</span>
+        <strong id="worldName">正在载入...</strong>
+      </div>
     </header>
 
     <div class="error" id="errorBox"></div>
 
     <section class="book-spread">
-      <section class="world-panel" aria-labelledby="mapTitle">
-        <div class="map-heading">
-          <div class="map-heading-copy">
-            <div class="panel-kicker">World View</div>
-            <h2 id="mapTitle">世界地图</h2>
-            <div class="map-summary">
-              <span class="status-light" id="runtimeLight" aria-hidden="true"></span>
-              <span id="mapInfo">正在载入地图...</span>
-            </div>
-          </div>
-          <div class="map-heading-actions">
-            <aside class="runtime-card" aria-label="运行状态">
-              <div class="runtime-readout"><span class="runtime-state-dot" aria-hidden="true"></span><span class="runtime-copy"><strong>运行状态</strong><span id="runtimeStatus">等待运行状态...</span></span></div>
-              <div class="stat-grid">
-                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>Tick</small><strong id="tickValue">0</strong></span></div>
-                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>角色</small><strong id="agentCount">0</strong></span></div>
-                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>地点</small><strong id="locationCount">0</strong></span></div>
-                <div class="stat"><span class="stat-icon" aria-hidden="true"></span><span class="stat-copy"><small>路线</small><strong id="routeCount">0</strong></span></div>
-              </div>
-            </aside>
-            <div class="map-tools" aria-label="地图视图控制">
-              <button id="zoomOutBtn" type="button" aria-label="缩小地图" title="缩小地图">−</button>
-              <button id="resetViewBtn" type="button" aria-label="复位地图" title="复位地图"><span aria-hidden="true"></span></button>
-              <button id="zoomInBtn" type="button" aria-label="放大地图" title="放大地图">+</button>
-            </div>
-          </div>
-        </div>
-
+      <section class="world-panel" aria-label="世界地图">
         <div class="map-stage">
           <div class="map-wrap">
-            <canvas id="mapCanvas" aria-label="可交互世界地图"></canvas>
+            <div class="map-surface" id="mapSurface">
+              <canvas id="mapCanvas" aria-label="可交互世界地图"></canvas>
+              <div class="map-agent-layer" id="mapAgentLayer"></div>
+            </div>
           </div>
         </div>
 
-        <div class="map-footer" aria-label="地图图例">
-          <span><i class="legend-dot location"></i>地点区域</span>
-          <span><i class="legend-dot route"></i>路径网络</span>
-          <span><i class="legend-dot agent"></i>角色单位</span>
-          <span><i class="legend-dot selected"></i>当前选中</span>
-        </div>
       </section>
 
     </section>
@@ -105,6 +84,6 @@
     </article>
   </div>
 
-  <script src="simulation-modern.js?v=20260712-polish7"></script>
+  <script src="simulation-modern.js?v=20260812-task-label1"></script>
 </body>
 </html>

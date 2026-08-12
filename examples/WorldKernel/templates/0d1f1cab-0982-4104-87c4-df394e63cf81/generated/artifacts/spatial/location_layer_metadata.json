@@ -1,0 +1,593 @@
+{
+  "status": "ready",
+  "generation_strategy": "full_canvas_location_and_road_inverse_mask_visual_review_v7",
+  "layer_mode": "full_canvas_locations_and_roads_replacement",
+  "includes_roads": true,
+  "road_geometry_source": "spatial_blueprint.road_tiles",
+  "single_pass": false,
+  "mask_commit": false,
+  "initial_request_mask_used": true,
+  "initial_request_mask": {
+    "mode": "inverse_location_and_road_mask",
+    "semantics": "transparent_pixels_editable_opaque_pixels_protected",
+    "expansion_tiles": 1,
+    "location_count": 9,
+    "editable_pixels": 612608,
+    "protected_pixels": 1746688,
+    "road_tile_count": 199,
+    "editable_road_pixels": 50944,
+    "protected_road_pixels": 0,
+    "entrance_connector_tile_count": 9,
+    "canvas_size": {
+      "width": 2048,
+      "height": 1152
+    }
+  },
+  "canvas_size": {
+    "width": 2048,
+    "height": 1152
+  },
+  "request_size_source": "visual_layout_manifest.canvas",
+  "resize_or_crop": false,
+  "background_source": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background.png",
+  "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_batch_prompts\\full_map.json",
+  "location_count": 9,
+  "ready_location_count": 9,
+  "failed_location_count": 0,
+  "completed_location_ids": [
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004"
+  ],
+  "failed_location_ids": [],
+  "evaluation_status": "passed",
+  "evaluation_model": "qwen3.7-plus",
+  "evaluation_report_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_alignment_report.json",
+  "attempt_count": 1,
+  "selected_attempt": 1,
+  "alignment_score": 100.0,
+  "locations": [
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 432,
+        "y": 96,
+        "w": 192,
+        "h": 160
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 38,
+          "y": 11
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9538506098542142,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 5169,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 1,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+          "number": 1,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 912,
+        "y": 96,
+        "w": 192,
+        "h": 160
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 5,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 68,
+          "y": 11
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9735139832008496,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 5169,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 2,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+          "number": 2,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1392,
+        "y": 128,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 6,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 103,
+          "y": 14
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.902746376430587,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 3,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+          "number": 3,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 400,
+        "y": 384,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 6,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 41,
+          "y": 30
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9478942110521058,
+          "marker_remaining_ratio": 0.00025338907893068807,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 4,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+          "number": 4,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 832,
+        "y": 384,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 8,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 60,
+          "y": 36
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9531170583802163,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 5,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+          "number": 5,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1264,
+        "y": 464,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "east",
+        "offset_tiles": 6,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 95,
+          "y": 35
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9446868920553131,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 6,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+          "number": 6,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 400,
+        "y": 720,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 8,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 33,
+          "y": 57
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9726939726939727,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 7,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+          "number": 7,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 960,
+        "y": 800,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 8,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 68,
+          "y": 62
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.9640009113693324,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 8,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+          "number": 8,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    },
+    {
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+      "status": "ready",
+      "logical_bounds_px": {
+        "x": 1392,
+        "y": 800,
+        "w": 272,
+        "h": 208
+      },
+      "entrance_port": {
+        "side": "south",
+        "offset_tiles": 8,
+        "width_tiles": 1,
+        "entry_depth_tiles": 1,
+        "tile_size_px": 16,
+        "grid_point": {
+          "x": 95,
+          "y": 62
+        }
+      },
+      "diagnostics": {
+        "local": {
+          "passed": true,
+          "content_change_ratio": 0.988555304344778,
+          "marker_remaining_ratio": 0.0,
+          "marker_pixel_count": 7893,
+          "minimum_content_change_ratio": 0.02,
+          "maximum_marker_remaining_ratio": 0.2
+        },
+        "visual_evaluation": {
+          "number": 9,
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+          "status": "ok",
+          "confidence": 0.95,
+          "estimated_overlap_ratio": 0.9,
+          "center_position": "inside",
+          "complete": true,
+          "semantic_match": "yes",
+          "entrance_alignment": "ok",
+          "direction": "none",
+          "merged_with": [],
+          "reason": "地点主体完整位于红框内，中心重合度高，入口与道路连接正常。",
+          "retry_instruction": ""
+        },
+        "decision": {
+          "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+          "number": 9,
+          "hard_failure": false,
+          "critical_incident": false,
+          "fully_displaced": false,
+          "warning": false,
+          "score": 100,
+          "status": "ok",
+          "reported_status": "ok",
+          "confidence": 0.95
+        }
+      }
+    }
+  ],
+  "model": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible_edit"
+  },
+  "evaluation": {
+    "status": "passed",
+    "attempt_count": 1,
+    "selected_attempt": 1,
+    "selection_reason": "第 1 个候选通过全部本地检查和视觉评价"
+  },
+  "asset_version": "f79a0b7e7355f040",
+  "debug_artifact_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\intermediates\\location_attempts",
+  "debug_artifacts_retained": true
+}

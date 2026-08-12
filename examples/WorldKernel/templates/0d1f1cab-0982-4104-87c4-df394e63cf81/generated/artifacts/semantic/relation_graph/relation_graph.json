@@ -1,0 +1,237 @@
+{
+  "artifact_type": "relation_edge",
+  "items": [
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:015",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:009",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:002",
+        "type": "档案统属",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:016",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:009",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:006",
+        "type": "锚定协同",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:017",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:009",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:014",
+        "type": "馆市掣肘",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:001",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:002",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:007",
+        "type": "档案同契",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:020",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:014",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:004",
+        "type": "商契共营",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:022",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:014",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "资本共谋",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:005",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "黑市同道",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:010",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:006",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:007",
+        "type": "身份裁量",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:004",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:007",
+        "type": "记忆售契",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:011",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:007",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:011",
+        "type": "底层共契",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:007",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:005",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:011",
+        "type": "秩序凝视",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:012",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:008",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:001",
+        "type": "信使师承",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:008",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:005",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:012",
+        "type": "秩序同链",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:006",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:005",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "追猎羁绊",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:018",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:012",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "黑白死线",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:014",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:008",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:013",
+        "type": "风暴双径",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:013",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:008",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:004",
+        "type": "传讯纽带",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:019",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:013",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "暗线通联",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:009",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:006",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:003",
+        "type": "鉴衡对立",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:003",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:003",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:010",
+        "type": "暗闸勾连",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:002",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:003",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:004",
+        "type": "灰色门路",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:021",
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:014",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:char:006",
+        "type": "权势角力",
+        "direction": "双向"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:015",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:016",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:017",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:001",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:020",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:022",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:005",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:010",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:004",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:011",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:007",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:012",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:008",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:006",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:018",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:014",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:013",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:019",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:009",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:003",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:002",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:rel:021"
+  ],
+  "upstream_step_ids": [
+    "generate_relations"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

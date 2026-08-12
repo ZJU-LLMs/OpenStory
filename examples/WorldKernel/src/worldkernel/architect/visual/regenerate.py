@@ -37,6 +37,8 @@ def regenerate_visual_from_template(
     image_model_config_path: str | Path,
     generate_background: bool = True,
     generate_location_layer: bool | None = None,
+    generate_characters: bool | None = None,
+    force_character_batch_ids: list[str] | None = None,
     reuse_existing_spatial: bool = True,
     force_visual_regeneration: bool = False,
     visual_debug_root: str | Path | None = None,
@@ -68,6 +70,22 @@ def regenerate_visual_from_template(
         generate_location_layer = (
             spatial_config.rendering.ai_art_enabled
             and spatial_config.rendering.location_layer_enabled
+        )
+    if generate_characters is None:
+        generate_characters = (
+            spatial_config.rendering.ai_art_enabled
+            and spatial_config.rendering.character_atlas_enabled
+        )
+    if force_character_batch_ids:
+        from worldkernel.architect.visual.character_atlas import (
+            validate_character_batch_selection,
+        )
+
+        validate_character_batch_selection(
+            semantic_characters=list(foundation.characters),
+            character_root=spatial_output_root / "characters",
+            max_batch_size=spatial_config.rendering.characters_per_atlas,
+            force_batch_ids=force_character_batch_ids,
         )
     existing_blueprint_path = spatial_output_root / "spatial_blueprint.json"
     validation_payload: dict[str, Any] = {"passed": None, "issues": []}
@@ -102,6 +120,15 @@ def regenerate_visual_from_template(
         generate_background=generate_background,
         generate_location_layer=bool(generate_location_layer),
         semantic_locations=list(foundation.locations),
+        semantic_characters=list(foundation.characters),
+        generate_character_layer=bool(generate_characters),
+        character_batch_size=spatial_config.rendering.characters_per_atlas,
+        character_key_colors=spatial_config.rendering.character_key_colors,
+        character_transparent_threshold=(
+            spatial_config.rendering.character_transparent_threshold
+        ),
+        character_opaque_threshold=spatial_config.rendering.character_opaque_threshold,
+        force_character_batch_ids=force_character_batch_ids,
         force_location_regeneration=force_visual_regeneration,
         location_debug_artifact_root=(
             Path(visual_debug_root) / "location_attempts"
@@ -136,6 +163,22 @@ def regenerate_visual_from_template(
             "roads_integrated": int(
                 visual_manifest.location_layer.includes_roads
                 and visual_manifest.location_layer.status in {"ready", "partial"}
+            ),
+            "character_count": visual_manifest.character_layer.character_count,
+            "eligible_character_count": (
+                visual_manifest.character_layer.eligible_character_count
+            ),
+            "planned_character_batches": (
+                visual_manifest.character_layer.planned_batch_count
+            ),
+            "generated_character_batches": (
+                visual_manifest.character_layer.generated_batch_count
+            ),
+            "reused_character_batches": (
+                visual_manifest.character_layer.reused_batch_count
+            ),
+            "estimated_character_image_calls": (
+                visual_manifest.character_layer.estimated_image_calls
             ),
         },
         validation=validation_payload,

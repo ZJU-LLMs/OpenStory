@@ -1,0 +1,520 @@
+{
+  "primary": "sky_city",
+  "secondary": "dystopian_city",
+  "confidence": 0.92,
+  "tags": [
+    "浮空城市",
+    "记忆交易",
+    "木星风暴",
+    "近未来",
+    "赛博朋克",
+    "社会秩序"
+  ],
+  "world_name": "风暴记忆档案城",
+  "world_origin_summary": "原创近未来科幻世界，一座悬浮于木星风暴层上方的浮空城市，以记忆为通货，通过记忆档案库维系社会秩序与个体身份；记忆既是财富，也是权力，更是存在的证明。",
+  "scope": "city",
+  "simulation_start": {
+    "time_point": "风暴纪149年，风季初的第一个记忆大集市开市日",
+    "trigger_event": "记忆档案库检测到一次未授权的深层写入，可能威胁到所有市民的身份锚定记录",
+    "year": "风暴纪149年",
+    "narrative_context": "城市正准备庆祝新的风暴季节和记忆交易年度，却突然陷入身份信任危机。"
+  },
+  "visual_profile": {
+    "art_style": "原生低分辨率手工 tile/sprite 像素美术、经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润且容易辨认的卡通造型、明亮整洁的模拟经营游戏画面",
+    "camera_projection": "严格正交俯视，接近垂直向下的 2D 地图视角",
+    "era_style": "近未来的风暴浮空都市文化，带有复古科幻与档案管理美学，整体干净、明快，强调秩序与功能性",
+    "color_palette": [
+      "风暴紫罗兰",
+      "琥珀云层橙",
+      "档案白",
+      "机械灰蓝",
+      "能量青",
+      "暖黄警示色"
+    ],
+    "lighting_weather": "",
+    "material_texture": [
+      "大块拼接金属板",
+      "低纹理合成石材",
+      "气凝胶透明罩",
+      "磨砂白色复合材料",
+      "覆层织物与缆绳",
+      "发光管道与散热片"
+    ],
+    "environmental_motifs": [
+      "浮空平台边缘的防护栏与风向旗",
+      "记忆档案筒状的塔式建筑",
+      "交易亭与弧形遮篷",
+      "系泊塔与浮空艇缆绳",
+      "垂直起降平台",
+      "公共信息投影柱",
+      "散热翅片与风道格栅",
+      "云层观测仪与风暴预警灯"
+    ],
+    "atmosphere": "孤悬于风暴之上的紧张感、高度秩序化的记忆交易氛围、身份名存实亡的疏离与猜疑、机械运转的冷静与安静",
+    "edge_blending_style": "柔和像素羽化的地形边缘、墙体与地面间的自然遮挡、云层与平台边界的软性过渡，便于后续地点贴片拼接",
+    "negative_visual_constraints": [
+      "不要人物",
+      "不要肖像",
+      "不要可读文字",
+      "不要标签",
+      "不要界面图标",
+      "不要地点名",
+      "不要具体室内细节",
+      "不要等距透视",
+      "不要斜俯视场景插画",
+      "不要写实材质",
+      "不要高频微小纹理"
+    ]
+  },
+  "location_archetypes": [
+    {
+      "type_id": "memory_vault",
+      "type_name": "记忆档案库区",
+      "description": "存储全城居民与组织记忆数据的高安全等级设施，是城市记忆经济的心脏。",
+      "common_fields": [
+        "archivist_id",
+        "security_level",
+        "capacity",
+        "access_level",
+        "memory_count"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "central_memory_archive",
+          "name": "核心记忆档案馆",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 1.0,
+          "generation_priority": 1,
+          "role_in_world": "全城记忆数据的存储与校验中心，也是城市身份体系的根基"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_market",
+      "type_name": "记忆交易市场",
+      "description": "进行记忆买卖、拍卖、兑换的公开交易空间，城市经济的引擎。",
+      "common_fields": [
+        "merchant_count",
+        "transaction_volume",
+        "tax_rate",
+        "security_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "grand_memory_bazaar",
+          "name": "循环记忆大集市",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.95,
+          "generation_priority": 2,
+          "role_in_world": "全城最大的合法记忆交易市场，决定每日记忆汇率"
+        }
+      ]
+    },
+    {
+      "type_id": "residential_enclave",
+      "type_name": "居民居住区",
+      "description": "市民的居住空间，按照记忆净值划分生活品质，也是家庭与个人回忆的存放地。",
+      "common_fields": [
+        "population",
+        "class_level",
+        "memory_wealth_range",
+        "common_amenities"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "hanging_terraces",
+          "name": "层叠悬浮平台住宅",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 3,
+          "role_in_world": "普通市民居住的平台层，反映了城市阶层分化"
+        }
+      ]
+    },
+    {
+      "type_id": "administration_center",
+      "type_name": "市政管理中枢",
+      "description": "制定与执行城市法规、登记记忆交易、维护身份档案的政府机构群。",
+      "common_fields": [
+        "governance_type",
+        "departments",
+        "security_level",
+        "public_hours"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "identity_registration_hub",
+          "name": "身份登记枢核环",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.92,
+          "generation_priority": 2,
+          "role_in_world": "市民进行身份锚定认证与纠纷仲裁的核心行政场所"
+        }
+      ]
+    },
+    {
+      "type_id": "transit_port",
+      "type_name": "浮空交通泊港",
+      "description": "连接城市内外、物资运输与人员流动的空港和系泊设施。",
+      "common_fields": [
+        "routes",
+        "traffic_volume",
+        "docking_capacity",
+        "custom_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "storm_bastion_docks",
+          "name": "风暴堡垒系泊岸",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 3,
+          "role_in_world": "唯一允许外部浮空艇停靠的大型泊港，守卫城市边界"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_shield_outpost",
+      "type_name": "风暴防护哨站",
+      "description": "位于城市边缘的护盾维护与风暴观测设施，保障城市在木星风暴中存活。",
+      "common_fields": [
+        "shield_status",
+        "storm_intensity",
+        "maintenance_crew",
+        "warning_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "nameless_ward_watch",
+          "name": "无名风向瞭望台",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 4,
+          "role_in_world": "监测风暴动向并维护北向护盾的哨站"
+        }
+      ]
+    },
+    {
+      "type_id": "public_plaza",
+      "type_name": "公共广场",
+      "description": "承载公告发布、集会、哀悼与庆祝等公共活动的露天空间。",
+      "common_fields": [
+        "capacity",
+        "decoration_level",
+        "event_frequency",
+        "surveillance_level"
+      ],
+      "candidate_location_seeds": [
+        {
+          "seed_id": "lexicon_square",
+          "name": "词汇契约广场",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 5,
+          "role_in_world": "市民获取政策通告和参与公开仪式的中心广场"
+        }
+      ]
+    }
+  ],
+  "character_archetypes": [
+    {
+      "type_id": "memory_archivist",
+      "type_name": "记忆档案管理员",
+      "description": "负责记忆数据的录入、保存、校验与修复，掌握城市最敏感的信息。",
+      "common_fields": [
+        "clearance_level",
+        "vault_access",
+        "specialization",
+        "years_of_service"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "archon_veiss",
+          "name": "档案官维斯",
+          "importance": "core",
+          "source_type": "original",
+          "confidence": 0.88,
+          "generation_priority": 2,
+          "role_in_world": "核心档案库的首席管理员，发现记忆被篡改的关键人物"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_merchant",
+      "type_name": "记忆交易商",
+      "description": "在市场和黑市之间买卖记忆的中间人，影响记忆汇率与城市经济走向。",
+      "common_fields": [
+        "net_worth",
+        "license_status",
+        "trade_specialty",
+        "influence"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "vivaam",
+          "name": "维瓦姆",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.85,
+          "generation_priority": 3,
+          "role_in_world": "游走于合法与灰色地带的著名记忆贩，掌握大量都市流言"
+        }
+      ]
+    },
+    {
+      "type_id": "civil_resident",
+      "type_name": "普通市民",
+      "description": "依靠出售或出租记忆维持生计的城市居民，身份锚定依赖自身记忆库存。",
+      "common_fields": [
+        "memory_balance",
+        "identity_anchor",
+        "occupation",
+        "social_network"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "orlen",
+          "name": "奥尔伦",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.9,
+          "generation_priority": 4,
+          "role_in_world": "在记忆市场打零工的市民，因记忆被过度抽取而面临身份危机"
+        }
+      ]
+    },
+    {
+      "type_id": "city_enforcer",
+      "type_name": "秩序守卫",
+      "description": "维护城市法规和交易安全的武装人员，负责打击黑市记忆交易。",
+      "common_fields": [
+        "rank",
+        "patrol_area",
+        "equipment",
+        "loyalty"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "warden_saren",
+          "name": "守望者萨伦",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.86,
+          "generation_priority": 2,
+          "role_in_world": "负责市场治安的资深守卫，对记忆交易黑幕心知肚明却选择沉默"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_courier",
+      "type_name": "风暴信使",
+      "description": "驾驶小型浮空艇深入风暴边缘，回收散逸记忆碎片或执行外勤任务的高风险职业。",
+      "common_fields": [
+        "flight_license",
+        "storm_resistance",
+        "last_route",
+        "contract_status"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "mira",
+          "name": "米拉",
+          "importance": "major",
+          "source_type": "original",
+          "confidence": 0.84,
+          "generation_priority": 3,
+          "role_in_world": "最有经验的风暴信使，在风暴中带回了揭示政权阴谋的记忆碎片"
+        }
+      ]
+    },
+    {
+      "type_id": "identity_officer",
+      "type_name": "身份鉴定官",
+      "description": "在市政机构中负责验证市民记忆的真实性和身份锚定的合法性的官员。",
+      "common_fields": [
+        "jurisdiction",
+        "verification_tools",
+        "corruption_level",
+        "appointment_source"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "assessor_kiw",
+          "name": "鉴定官基乌",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.8,
+          "generation_priority": 5,
+          "role_in_world": "身份登记处的普通官员，在一次鉴定中发现了大规模伪造记忆的线索"
+        }
+      ]
+    },
+    {
+      "type_id": "black_market_dealer",
+      "type_name": "黑市记忆贩",
+      "description": "从事非法记忆交易的地下商人，交易内容可能涉及他人隐私或身份盗窃。",
+      "common_fields": [
+        "codename",
+        "grid_network",
+        "specialties",
+        "risk_level"
+      ],
+      "candidate_character_seeds": [
+        {
+          "seed_id": "proxy",
+          "name": "代理人普洛克西",
+          "importance": "minor",
+          "source_type": "original",
+          "confidence": 0.75,
+          "generation_priority": 5,
+          "role_in_world": "隐藏在暗区的记忆伪造联络人，是身份危机的源头之一"
+        }
+      ]
+    }
+  ],
+  "rule_archetypes": [
+    {
+      "type_id": "memory_transaction_rule",
+      "type_name": "记忆交易规则",
+      "description": "所有合法记忆交易必须在官方市场进行，并抽取一定比例作为城市运转税。",
+      "common_fields": [
+        "tax_rate",
+        "minimum_trade_amount",
+        "license_required",
+        "official_platform"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "memory_tithe",
+          "name": "记忆什一税",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.9,
+          "generation_priority": 2,
+          "role_in_world": "维持城市财政的基础规则，也是普通市民记忆流失的主要原因"
+        }
+      ]
+    },
+    {
+      "type_id": "identity_anchor_rule",
+      "type_name": "身份锚定规则",
+      "description": "每个市民必须至少保留一段独属的核心记忆作为身份锚定物，失去锚定即丧失社会身份。",
+      "common_fields": [
+        "anchor_memory_type",
+        "verification_period",
+        "renewal_cost",
+        "penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "anchor_mandate",
+          "name": "锚记忆强制令",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.92,
+          "generation_priority": 1,
+          "role_in_world": "维系个人存在与城市秩序的根本法律之一"
+        }
+      ]
+    },
+    {
+      "type_id": "archive_access_rule",
+      "type_name": "档案库准入规则",
+      "description": "不同等级的记忆档案库区域对应不同权限，越权访问将受到记忆抹除等处罚。",
+      "common_fields": [
+        "clearance_levels",
+        "access_records",
+        "escort_required",
+        "penalty"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "vault_clearance_protocol",
+          "name": "库区权限协议",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.88,
+          "generation_priority": 3,
+          "role_in_world": "保护核心记忆数据不被篡改或盗取的安全机制"
+        }
+      ]
+    },
+    {
+      "type_id": "storm_safety_rule",
+      "type_name": "风暴警戒规则",
+      "description": "当风暴强度达到红色预警级别，所有浮空交通和记忆交易暂停，市民必须进入庇护空间。",
+      "common_fields": [
+        "warning_levels",
+        "lockdown_trigger",
+        "evacuation_routes",
+        "exception_permits"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "red_storm_lockdown",
+          "name": "红风暴封锁令",
+          "importance": "major",
+          "source_type": "inferred",
+          "confidence": 0.9,
+          "generation_priority": 4,
+          "role_in_world": "城市在极端风暴中存活的基本安全规范"
+        }
+      ]
+    },
+    {
+      "type_id": "memory_authenticity_rule",
+      "type_name": "记忆真实性规则",
+      "description": "所有用于交易的记忆必须经过官方鉴定认证，伪造、篡改或出售虚假记忆属重罪。",
+      "common_fields": [
+        "verification_method",
+        "authenticity_stamp",
+        "counterfeit_penalty",
+        "dispute_procedure"
+      ],
+      "candidate_rule_seeds": [
+        {
+          "seed_id": "truth_stamp_requirement",
+          "name": "真实印记要求",
+          "importance": "core",
+          "source_type": "inferred",
+          "confidence": 0.87,
+          "generation_priority": 2,
+          "role_in_world": "保障记忆市场中标的可信度，压制黑市伪造行为"
+        }
+      ]
+    }
+  ],
+  "world_constraints": [
+    {
+      "constraint_id": "memory_as_currency",
+      "name": "记忆通货基础",
+      "description": "城市中所有商品、服务与权力均以记忆为等价物进行交换，没有记忆就无法购买任何物资。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "storm_anchor_physics",
+      "name": "风暴锚定物理",
+      "description": "城市依靠中央反重力锚柱和外围风暴护盾悬浮于木星风暴层，任何核心故障都会导致城市坠入大气深渊，因此城市必须持续消耗记忆能量来维持运行。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "identity_from_memory",
+      "name": "记忆定义身份",
+      "description": "一个人的社会存在完全由被验证的记忆构成；记忆被抹除或交易后，相应的人格片段和权利也随之转移或消失。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "scarce_living_resources",
+      "name": "浮空城资源稀缺",
+      "description": "城市无法自给自足，空气、水、食物等基础资源依赖风暴采集和外部贸易，资源分配由记忆市场决定，造成高度阶层分化。",
+      "scope": "global"
+    }
+  ]
+}

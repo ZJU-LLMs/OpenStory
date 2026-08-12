@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "required_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "storm_warning_phase",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_clearance_token",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_verification_code",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anchor_integrity_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "trade_license_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "audit_trail_visibility",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

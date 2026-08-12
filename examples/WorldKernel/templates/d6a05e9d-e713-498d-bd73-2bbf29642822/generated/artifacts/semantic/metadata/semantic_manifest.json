@@ -1,0 +1,71 @@
+{
+  "world_id": "d6a05e9d-e713-498d-bd73-2bbf29642822",
+  "source_ids": [
+    "primary"
+  ],
+  "schema_version": "stage2-semantic-v1",
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 15,
+    "character_profile": 15,
+    "path_edge": 21,
+    "relation_edge": 32
+  },
+  "constraints": [
+    {
+      "constraint_id": "mandate_of_heaven",
+      "name": "天庭统御三界",
+      "description": "玉帝为三界共主，神仙皆有仙职品级，一切神魔须受天庭管辖。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "cycle_of_fate",
+      "name": "生死有命与因果报应",
+      "description": "三界众生皆在生死簿中，寿命由地府支配，逆天改命也将招致更大因果。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "mortal_immortal_boundary",
+      "name": "仙凡有别",
+      "description": "神仙常居于天界，人间凡俗与天庭分隔，凡人不经神允不可升天。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "law_of_power",
+      "name": "神通法力决定实力",
+      "description": "在法术神通的世界里，道行深浅和宝物强弱直接确定人物在冲突中的位置。",
+      "scope": "global"
+    }
+  ],
+  "timestamp": "2026-08-12T17:19:36.569451+00:00",
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "d6a05e9d-e713-498d-bd73-2bbf29642822",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822"
+    }
+  }
+}

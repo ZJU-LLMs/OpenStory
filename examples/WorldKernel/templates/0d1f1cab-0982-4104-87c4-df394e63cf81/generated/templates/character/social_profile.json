@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "group_id",
+      "type": "str",
+      "required": true,
+      "ref": "institution"
+    },
+    {
+      "name": "reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_credit_score",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "social_stratum",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "black_market_standing",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "civic_trust_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "patron_client_links",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

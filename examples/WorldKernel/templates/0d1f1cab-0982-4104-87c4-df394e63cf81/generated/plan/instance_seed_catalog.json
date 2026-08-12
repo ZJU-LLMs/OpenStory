@@ -1,0 +1,299 @@
+{
+  "session_id": "0d1f1cab-0982-4104-87c4-df394e63cf81",
+  "instance_seeds": {
+    "location": [
+      {
+        "seed_id": "central_memory_vault",
+        "name": "中央记忆档案库",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 1,
+        "role_in_world": "全城记忆存储与身份锚定的核心设施，掌握着每个人的存在证明。",
+        "archetype_id": "memory_archive_district"
+      },
+      {
+        "seed_id": "fragmented_memory_repository",
+        "name": "碎片记忆分类库",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "存放无法匹配到主人的失落记忆碎片，是寻找人物过往的重要线索来源。",
+        "archetype_id": "memory_archive_district"
+      },
+      {
+        "seed_id": "restricted_memory_depot",
+        "name": "禁限记忆库",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.8,
+        "generation_priority": 3,
+        "role_in_world": "封存危险、被查禁或具有颠覆性的记忆，是各方势力试图渗透的禁区。",
+        "archetype_id": "memory_archive_district"
+      },
+      {
+        "seed_id": "grand_memory_exchange",
+        "name": "记忆交易所",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 1,
+        "role_in_world": "合法记忆定价、拍卖与交换的中心，决定记忆通货的经济命脉。",
+        "archetype_id": "memory_trading_market"
+      },
+      {
+        "seed_id": "memory_bazaar",
+        "name": "记忆黑市",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "非法与灰色记忆交易的温床，是底层市民和黑市贩的生存空间。",
+        "archetype_id": "memory_trading_market"
+      },
+      {
+        "seed_id": "memory_debtor_quarters",
+        "name": "记忆负债者城寨",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "因记忆耗尽或欠债而沦为社会底层的市民聚居区，展现记忆经济的残酷底层。",
+        "archetype_id": "residential_district"
+      },
+      {
+        "seed_id": "pillar_habitation_blocks",
+        "name": "柱民居住塔",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "普通市民日常居住的浮空塔楼，维持城市基本劳动力生活。",
+        "archetype_id": "residential_district"
+      },
+      {
+        "seed_id": "administrator_residence_ring",
+        "name": "管理者环邸",
+        "importance": "minor",
+        "source_type": "original",
+        "confidence": 0.8,
+        "generation_priority": 3,
+        "role_in_world": "上层管理人员与记忆富商居住的高空环带，象征社会阶层隔离。",
+        "archetype_id": "residential_district"
+      },
+      {
+        "seed_id": "city_hall_of_memories",
+        "name": "记忆市政厅",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.95,
+        "generation_priority": 1,
+        "role_in_world": "城市治理中枢，发布记忆法规并统筹记忆档案库与秩序守卫。",
+        "archetype_id": "municipal_management_hub"
+      },
+      {
+        "seed_id": "identity_verification_bureau",
+        "name": "身份鉴定局",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 2,
+        "role_in_world": "检验记忆真伪、签发身份锚定的权威机构，是控制公民身份的关键节点。",
+        "archetype_id": "municipal_management_hub"
+      },
+      {
+        "seed_id": "cloudfall_skyport",
+        "name": "云落空港",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "连接浮空城与外部世界的正规交通口岸，控制人流和记忆货物往来。",
+        "archetype_id": "transit_air_harbor"
+      },
+      {
+        "seed_id": "smuggler_anchor_deck",
+        "name": "走私锚层",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.75,
+        "generation_priority": 3,
+        "role_in_world": "隐藏在空港下方的非法停泊点，是偷渡者和走私记忆的通道。",
+        "archetype_id": "transit_air_harbor"
+      },
+      {
+        "seed_id": "jupiter_eye_observatory",
+        "name": "木星之眼瞭望哨",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "监测木星风暴动向并发出预警的第一道防线，关系到全城存亡。",
+        "archetype_id": "storm_protection_outpost"
+      },
+      {
+        "seed_id": "stormbreak_barrier_station",
+        "name": "破风屏障站",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "维持城市外侧风暴防护罩的节点，守护浮空城免受风暴撕碎。",
+        "archetype_id": "storm_protection_outpost"
+      },
+      {
+        "seed_id": "memory_plaza_of_echoes",
+        "name": "回声记忆广场",
+        "importance": "major",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "市民公开集会、公示记忆与举行记忆处刑的公共场所，是社会情绪释放处。",
+        "archetype_id": "public_plaza"
+      }
+    ],
+    "character": [
+      {
+        "seed_id": "curator_elara_voss",
+        "name": "记忆馆主伊莱拉·沃斯",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "掌控中央记忆档案库钥匙的最高管理者，在维护秩序与掩盖真相之间挣扎。",
+        "archetype_id": "memory_archive_administrator"
+      },
+      {
+        "seed_id": "archivist_ren_kael",
+        "name": "档案员雷恩·凯尔",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 2,
+        "role_in_world": "负责碎片记忆分类并意外发现足以颠覆身份体系的秘密。",
+        "archetype_id": "memory_archive_administrator"
+      },
+      {
+        "seed_id": "trade_magnate_sorin_quest",
+        "name": "记忆巨贾索林·奎斯特",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "垄断顶级记忆资源并操纵城市记忆市场的富豪，是经济权力的化身。",
+        "archetype_id": "memory_trader"
+      },
+      {
+        "seed_id": "broker_mira_vale",
+        "name": "记忆掮客米拉·维尔",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.85,
+        "generation_priority": 2,
+        "role_in_world": "在各阶层间牵线搭桥，合法与灰色记忆交易都离不开的中介。",
+        "archetype_id": "memory_trader"
+      },
+      {
+        "seed_id": "citizen_ida_lowe",
+        "name": "市民艾达·洛",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 1,
+        "role_in_world": "失去关键记忆后努力找回自我的普通市民，以市民视角展现记忆身份困境。",
+        "archetype_id": "ordinary_citizen"
+      },
+      {
+        "seed_id": "dockworker_pavlo_ness",
+        "name": "码头工人帕夫洛·内斯",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 2,
+        "role_in_world": "以出卖日常记忆换取生计的底层劳动者，见证记忆交易的代价。",
+        "archetype_id": "ordinary_citizen"
+      },
+      {
+        "seed_id": "apprentice_lyra_hene",
+        "name": "学徒莱拉·赫恩",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.75,
+        "generation_priority": 3,
+        "role_in_world": "在档案库与市场之间跑腿的学徒，连接起不同阶层的线索人物。",
+        "archetype_id": "ordinary_citizen"
+      },
+      {
+        "seed_id": "captain_dario_vane",
+        "name": "秩序守卫长达里奥·文",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "忠实执行记忆法规的守卫队长，但在镇压中逐渐动摇对体制的信任。",
+        "archetype_id": "order_guard"
+      },
+      {
+        "seed_id": "guard_overseer_nash",
+        "name": "守卫监察员纳什",
+        "importance": "major",
+        "source_type": "inferred",
+        "confidence": 0.8,
+        "generation_priority": 2,
+        "role_in_world": "负责镇压黑市与暴动的冷酷执行者，是秩序机器正常运转的齿轮。",
+        "archetype_id": "order_guard"
+      },
+      {
+        "seed_id": "courier_zephyr_kae",
+        "name": "风暴信使泽菲尔·凯",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.9,
+        "generation_priority": 1,
+        "role_in_world": "穿行于风暴边缘传递信息的传奇信使，掌握着外界与浮空城之间的秘密通道。",
+        "archetype_id": "storm_messenger"
+      },
+      {
+        "seed_id": "runner_jonas_umbra",
+        "name": "信使乔纳斯·安布拉",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.75,
+        "generation_priority": 3,
+        "role_in_world": "替黑市传递情报的双面信使，在合法与非法世界间走钢丝。",
+        "archetype_id": "storm_messenger"
+      },
+      {
+        "seed_id": "chief_assessor_fennia_rayne",
+        "name": "首席身份鉴定官芬妮娅·雷恩",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.88,
+        "generation_priority": 1,
+        "role_in_world": "判断记忆真伪并签发身份凭证的最高权威，手握公民资格生杀大权。",
+        "archetype_id": "identity_assessor"
+      },
+      {
+        "seed_id": "assessor_otton_grie",
+        "name": "身份鉴定官奥顿·格里",
+        "importance": "minor",
+        "source_type": "inferred",
+        "confidence": 0.75,
+        "generation_priority": 3,
+        "role_in_world": "在身份鉴定中留下灰色漏洞的腐败官员，为黑市伪造身份提供后门。",
+        "archetype_id": "identity_assessor"
+      },
+      {
+        "seed_id": "dealer_nox_velle",
+        "name": "黑市记忆贩诺克斯·维尔",
+        "importance": "core",
+        "source_type": "original",
+        "confidence": 0.85,
+        "generation_priority": 1,
+        "role_in_world": "贩卖禁忌记忆、伪造身份锚定的黑市头目，挑战城市既有秩序。",
+        "archetype_id": "black_market_memory_dealer"
+      }
+    ]
+  }
+}

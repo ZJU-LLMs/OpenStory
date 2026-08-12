@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import json
+import mimetypes
 import re
 import time
 import urllib.error
@@ -48,7 +49,7 @@ class ImageGenerationClient:
         prompt: str,
         output_path: str | Path,
         *,
-        size: str,
+        size: str | None = None,
         negative_prompt: str = "",
         input_image_path: str | Path | None = None,
         mask_path: str | Path | None = None,
@@ -57,9 +58,13 @@ class ImageGenerationClient:
         if not self.api_key:
             raise RuntimeError("Image generation api_key is empty")
         api_style = self._api_style()
+        if api_style == "openai_compatible" and size is not None:
+            self._validate_openai_request(size)
         if input_image_path is not None:
             if api_style != "openai_compatible":
                 raise RuntimeError("Reference image generation requires an OpenAI-compatible image API")
+            if size is None:
+                raise RuntimeError("Reference image generation requires an explicit size")
             return self._generate_openai_edit(
                 prompt,
                 Path(output_path),
@@ -71,6 +76,8 @@ class ImageGenerationClient:
             )
         if style_reference_paths:
             raise RuntimeError("Style references require an input image for image editing")
+        if api_style != "openai_compatible" and size is None:
+            raise RuntimeError(f"Image generation api_style={api_style} requires an explicit size")
         if api_style == "aliyun_maas_multimodal":
             return self._generate_maas_multimodal(
                 prompt,
@@ -94,7 +101,7 @@ class ImageGenerationClient:
                     prompt,
                     Path(output_path),
                     negative_prompt=negative_prompt,
-                    size=self._format_size(size, separator="x"),
+                    size=self._format_size(size, separator="x") if size is not None else None,
                 )
             except Exception as exc:
                 failures.append(str(exc))
@@ -113,7 +120,7 @@ class ImageGenerationClient:
                 prompt,
                 Path(output_path),
                 negative_prompt=negative_prompt,
-                size=self._format_size(size, separator="x"),
+                size=self._format_size(size, separator="x") if size is not None else None,
             )
 
         return self._generate_dashscope_async(
@@ -129,7 +136,7 @@ class ImageGenerationClient:
         output_path: Path,
         *,
         negative_prompt: str,
-        size: str,
+        size: str | None,
     ) -> dict[str, Any]:
         task_id = self._submit(
             prompt,
@@ -164,6 +171,23 @@ class ImageGenerationClient:
     def _format_size(self, requested: str, *, separator: str) -> str:
         value = re.sub(r"\s*[*xX]\s*", separator, str(requested).strip())
         return value
+
+    def _validate_openai_request(self, requested_size: str) -> None:
+        match = re.fullmatch(r"\s*(\d+)\s*[*xX]\s*(\d+)\s*", str(requested_size))
+        if match is None:
+            raise RuntimeError(f"Invalid gpt-image-2 size: {requested_size!r}")
+        width, height = (int(value) for value in match.groups())
+        pixels = width * height
+        if width > 3840 or height > 3840:
+            raise RuntimeError("gpt-image-2 image dimensions cannot exceed 3840 pixels")
+        if width % 16 or height % 16:
+            raise RuntimeError("gpt-image-2 image dimensions must be multiples of 16")
+        if pixels < 655_360 or pixels > 8_294_400:
+            raise RuntimeError(
+                "gpt-image-2 total pixels must be between 655360 and 8294400"
+            )
+        if max(width, height) / min(width, height) > 3:
+            raise RuntimeError("gpt-image-2 aspect ratio cannot exceed 3:1")
 
     def _generate_maas_multimodal(
         self,
@@ -256,15 +280,12 @@ class ImageGenerationClient:
         full_prompt = prompt
         if negative_prompt:
             full_prompt = f"{prompt}\n\n负向要求：{negative_prompt}"
-        payload = {
+        payload: dict[str, Any] = {
             "model": self.model,
             "prompt": full_prompt,
-            "size": size,
-            "n": int(self.config.get("n") or 1),
         }
-        response_format = str(self.config.get("response_format") or "").strip()
-        if response_format:
-            payload["response_format"] = response_format
+        if size is not None:
+            payload["size"] = size
         result = self._request_json("POST", url, payload)
         data = result.get("data") or []
         if not data or not isinstance(data[0], dict):
@@ -285,7 +306,7 @@ class ImageGenerationClient:
             "provider": self.config.get("name") or "ImageGenerationProvider",
             "model": self.model,
             "api_style": "openai_compatible",
-            "size": size,
+            "size": size or "",
             "image_url": image_url,
             "raw_result": result,
         }
@@ -315,7 +336,6 @@ class ImageGenerationClient:
             "model": self.model,
             "prompt": full_prompt,
             "size": size,
-            "n": str(int(self.config.get("n") or 1)),
         }
         files = [("image", input_image_path)]
         files.extend(("image", path) for path in style_reference_paths)
@@ -411,6 +431,7 @@ class ImageGenerationClient:
         body = json.dumps(payload).encode("utf-8") if payload is not None else None
         headers = {
             "Authorization": f"Bearer {self.api_key}",
+            "Accept": "*/*",
             "Content-Type": "application/json",
         }
         headers.update(extra_headers or {})
@@ -441,12 +462,13 @@ class ImageGenerationClient:
                 ]
             )
         for name, path in files:
+            content_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
             chunks.extend(
                 [
                     f"--{boundary}\r\n".encode("ascii"),
                     (
                         f'Content-Disposition: form-data; name="{name}"; filename="{path.name}"\r\n'
-                        "Content-Type: image/png\r\n\r\n"
+                        f"Content-Type: {content_type}\r\n\r\n"
                     ).encode("utf-8"),
                     path.read_bytes(),
                     b"\r\n",
@@ -458,6 +480,7 @@ class ImageGenerationClient:
             data=b"".join(chunks),
             headers={
                 "Authorization": f"Bearer {self.api_key}",
+                "Accept": "*/*",
                 "Content-Type": f"multipart/form-data; boundary={boundary}",
             },
             method=method,

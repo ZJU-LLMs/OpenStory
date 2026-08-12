@@ -185,6 +185,19 @@ async def run_stage2(
                     and spatial_config.rendering.location_layer_enabled
                 ),
                 semantic_locations=list(foundation.locations),
+                semantic_characters=list(foundation.characters),
+                generate_character_layer=(
+                    spatial_config.rendering.ai_art_enabled
+                    and spatial_config.rendering.character_atlas_enabled
+                ),
+                character_batch_size=spatial_config.rendering.characters_per_atlas,
+                character_key_colors=spatial_config.rendering.character_key_colors,
+                character_transparent_threshold=(
+                    spatial_config.rendering.character_transparent_threshold
+                ),
+                character_opaque_threshold=(
+                    spatial_config.rendering.character_opaque_threshold
+                ),
             )
             spatial_result.blueprint.visual = visual_manifest.model_dump(mode="json")
         except Exception as exc:

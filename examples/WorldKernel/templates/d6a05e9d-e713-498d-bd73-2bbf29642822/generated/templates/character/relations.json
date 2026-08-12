@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "allies",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "rivals",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "attitude_summary",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

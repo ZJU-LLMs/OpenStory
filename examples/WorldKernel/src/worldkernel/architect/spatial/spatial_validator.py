@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from collections import deque
 
 from worldkernel.architect.spatial.config import SpatialGenerationConfig
 from worldkernel.architect.spatial.graph_algorithms import bfs_components
@@ -46,8 +47,9 @@ class StructuralValidator:
         self._check_collision_grid(config, artifact, issues)
         self._check_route_tiles_walkable(artifact, issues)
         self._check_route_endpoint_match(artifact, issues)
-        self._check_semantic_path_coverage(build_input, artifact, issues)
-        self._check_connectivity(artifact, issues)
+        self._check_semantic_path_coverage(build_input, artifact, config, issues)
+        self._check_connectivity(artifact, config, issues)
+        self._check_walkable_entrance_connectivity(artifact, config, issues)
         self._check_no_reference_breaks(artifact, issues)
 
         passed = not any(i.severity == "error" for i in issues)
@@ -56,7 +58,7 @@ class StructuralValidator:
             passed=passed,
             issues=issues,
             provenance={
-                "checks_run": 9,
+                "checks_run": 10,
                 "errors": sum(1 for i in issues if i.severity == "error"),
                 "warnings": sum(1 for i in issues if i.severity == "warning"),
             },
@@ -299,6 +301,7 @@ class StructuralValidator:
         self,
         build_input: SpatialBuildInput,
         artifact: CanonicalSpatialArtifact,
+        config: SpatialGenerationConfig,
         issues: list[ValidationIssue],
     ) -> None:
         routed_ids = {r.path_edge_id for r in artifact.routes}
@@ -306,7 +309,11 @@ class StructuralValidator:
             if path.path_id not in routed_ids:
                 issues.append(ValidationIssue(
                     code="path_not_routed",
-                    severity="warning",
+                    severity=(
+                        "error"
+                        if config.validation.require_path_edges_routable
+                        else "warning"
+                    ),
                     message=f"semantic path {path.path_id!r} has no corresponding route",
                     affected_id=path.path_id,
                 ))
@@ -314,49 +321,89 @@ class StructuralValidator:
     def _check_connectivity(
         self,
         artifact: CanonicalSpatialArtifact,
+        config: SpatialGenerationConfig,
         issues: list[ValidationIssue],
     ) -> None:
-        # Build adjacency from routes
-        adj: dict[str, set[str]] = {}
+        # Seed every region so isolated locations are not omitted by the graph
+        # traversal. Spatial connectivity is geometric and therefore undirected;
+        # route direction remains a separate movement/access concern.
+        adj: dict[str, set[str]] = {
+            region.location_id: set() for region in artifact.regions
+        }
         for route in artifact.routes:
             adj.setdefault(route.from_location_id, set()).add(route.to_location_id)
-            if route.bidirectional:
-                adj.setdefault(route.to_location_id, set()).add(route.from_location_id)
+            adj.setdefault(route.to_location_id, set()).add(route.from_location_id)
 
-        region_ids = {r.location_id for r in artifact.regions}
         components = bfs_components(adj)
 
-        # Check if all non-hidden regions are in the same component
-        non_hidden = {
-            r.location_id for r in artifact.regions
-            if "hidden" not in r.tags
-        }
-        if non_hidden and len(components) > 1:
-            # Find which component each non-hidden location is in
-            comp_map: dict[str, int] = {}
-            for idx, comp in enumerate(components):
-                for nid in comp:
-                    comp_map[nid] = idx
-            reachable_comps = {comp_map[nid] for nid in non_hidden if nid in comp_map}
-            if len(reachable_comps) > 1:
-                issues.append(ValidationIssue(
-                    code="disconnected_non_hidden",
-                    severity="warning",
-                    message=(
-                        f"non-hidden locations span {len(reachable_comps)} disconnected components"
-                    ),
-                ))
+        severity = (
+            "error" if config.validation.require_all_locations_reachable else "warning"
+        )
+        if len(components) > 1:
+            issues.append(ValidationIssue(
+                code="disconnected_locations",
+                severity=severity,
+                message=f"locations span {len(components)} disconnected components: {components}",
+            ))
 
         # Check for regions with no routes at all
-        routed_locs = set(adj.keys())
         for region in artifact.regions:
-            if region.location_id not in routed_locs and "hidden" not in region.tags:
+            if len(artifact.regions) > 1 and not adj[region.location_id]:
                 issues.append(ValidationIssue(
                     code="isolated_region",
-                    severity="warning",
+                    severity=severity,
                     message=f"region {region.location_id!r} has no routes",
                     affected_id=region.location_id,
                 ))
+
+    def _check_walkable_entrance_connectivity(
+        self,
+        artifact: CanonicalSpatialArtifact,
+        config: SpatialGenerationConfig,
+        issues: list[ValidationIssue],
+    ) -> None:
+        """Ensure every placed entrance belongs to one walkable tile component."""
+        if len(artifact.regions) <= 1:
+            return
+        grid = artifact.collision_grid
+        if not grid or not grid[0]:
+            issues.append(ValidationIssue(
+                code="walkable_grid_missing",
+                severity="error",
+                message="cannot verify location connectivity without a collision grid",
+            ))
+            return
+
+        first = artifact.regions[0]
+        start = (first.entrance_x, first.entrance_y)
+        width = len(grid[0])
+        height = len(grid)
+        visited: set[tuple[int, int]] = set()
+        queue = deque([start])
+        while queue:
+            x, y = queue.popleft()
+            if (x, y) in visited or not (0 <= x < width and 0 <= y < height):
+                continue
+            if grid[y][x] != 1:
+                continue
+            visited.add((x, y))
+            queue.extend(((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)))
+
+        unreachable = [
+            region.location_id
+            for region in artifact.regions
+            if (region.entrance_x, region.entrance_y) not in visited
+        ]
+        if unreachable:
+            issues.append(ValidationIssue(
+                code="unreachable_region_entrance",
+                severity=(
+                    "error"
+                    if config.validation.require_all_locations_reachable
+                    else "warning"
+                ),
+                message=f"region entrances are not in one walkable component: {unreachable}",
+            ))
 
     def _check_no_reference_breaks(
         self,

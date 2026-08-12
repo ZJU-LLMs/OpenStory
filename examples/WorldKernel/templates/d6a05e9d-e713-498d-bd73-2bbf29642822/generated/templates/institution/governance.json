@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy_basis",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "supreme_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "bureaucratic_levels",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "enforcement_body",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

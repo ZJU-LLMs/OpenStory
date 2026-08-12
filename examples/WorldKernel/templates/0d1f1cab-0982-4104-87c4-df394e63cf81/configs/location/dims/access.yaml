@@ -1,0 +1,25 @@
+dim_name: AccessDim
+permissions:
+  type: str
+access_level:
+  type: str
+access_conditions:
+  type: str
+identity_verification_required:
+  type: str
+  option: true
+memory_collateral_required:
+  type: str
+  option: true
+approval_chain:
+  type: str
+  option: true
+secrecy_tier:
+  type: str
+  option: true
+black_market_penetration:
+  type: str
+  option: true
+visitation_quota:
+  type: str
+  option: true

@@ -27,6 +27,7 @@ STATUS_SCORES = {
     "marker_remaining": 20,
 }
 HARD_CONFIDENCE = 0.75
+FULL_DISPLACEMENT_OVERLAP = 0.20
 ROAD_SEVERE_STATUSES = {"major_shift", "missing", "disconnected"}
 ROAD_STATUS_SCORES = {
     "ok": 100,
@@ -262,7 +263,14 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
             item.center_position == "outside" or item.estimated_overlap_ratio < 0.50
         ):
             effective_status = "major_shift"
-        critical_incident = effective_status in CRITICAL_LOCATION_STATUSES
+        fully_displaced = (
+            effective_status == "major_shift"
+            and item.center_position == "outside"
+            and item.estimated_overlap_ratio < FULL_DISPLACEMENT_OVERLAP
+        )
+        critical_incident = (
+            effective_status in CRITICAL_LOCATION_STATUSES or fully_displaced
+        )
         hard_failure = critical_incident or (
             effective_status in SEVERE_STATUSES and item.confidence >= HARD_CONFIDENCE
         )
@@ -289,6 +297,7 @@ def decide_evaluation(report: VisualEvaluationReport) -> dict[str, Any]:
                 "number": item.number,
                 "hard_failure": hard_failure,
                 "critical_incident": critical_incident,
+                "fully_displaced": fully_displaced,
                 "warning": warning,
                 "score": score,
                 "status": effective_status,
@@ -405,6 +414,11 @@ def compose_evaluation_prompt(
             "除地点完整性外，还要评价生成道路是否沿蓝色走廊连续出现、是否严重偏移、是否漏掉主要路段，以及是否连接绝大多数地点入口。",
             "允许墙体、平台、屋檐和自然边缘向红框外延伸一格或单边15%，不要追求逐像素重合。",
             "主体中心在框外或主体与框重叠不足50%才评为major_shift；完整且中心仍在框内的少量外扩评为minor_shift。",
+            (
+                "如果规定红框内漏掉该地点，而对应地点主体完整出现在其他位置，必须评为major_shift，"
+                "center_position填outside，estimated_overlap_ratio按原红框的实际重叠填写；"
+                "重叠低于20%属于必须重试的完全错位重大事故。"
+            ),
             "地点缺失missing或两个地点合并merged属于重大事故：一旦确认必须按该状态报告，不得因置信度较低而降级。",
             "公园、庭院、广场等低密度地点不能仅因内部空旷评为missing。入口和语义问题只需记录，不要单独升级为严重偏移。",
             "道路允许边缘自然起伏和少量装饰，不要求逐像素重合。覆盖主要走廊且连接至少70%地点可评为minor_shift；覆盖不足50%、大段断裂、整体错位或缺失才是严重问题。",

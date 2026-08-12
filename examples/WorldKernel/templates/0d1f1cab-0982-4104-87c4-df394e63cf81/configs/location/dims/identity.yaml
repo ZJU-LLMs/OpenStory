@@ -1,0 +1,24 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+memory_flow_role:
+  type: str
+  option: true
+storm_exposure_level:
+  type: str
+  option: true
+security_zone:
+  type: str
+  option: true
+district_function:
+  type: str
+  option: true
+narrative_event_entry:
+  type: str
+  option: true

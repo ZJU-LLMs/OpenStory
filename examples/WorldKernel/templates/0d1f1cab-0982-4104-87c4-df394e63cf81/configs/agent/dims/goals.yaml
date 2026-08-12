@@ -1,0 +1,22 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+target_memory_acquisition_list:
+  type: str
+  option: true
+desired_social_standing:
+  type: str
+  option: true
+debt_repayment_target_amount:
+  type: str
+  option: true
+identity_recovery_priority:
+  type: str
+  option: true
+political_ambition_level:
+  type: str
+  option: true

@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "connected_to",
+      "type": "list_str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "parent_id",
+      "type": "str",
+      "required": true,
+      "ref": "location"
+    },
+    {
+      "name": "layer",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entrance_type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "elevation_relative_to_storm_core",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "magnetic_transit_links",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_shelter_routes",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "vertical_district_layer",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "administrative_mapping",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "traffic_hub_density",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

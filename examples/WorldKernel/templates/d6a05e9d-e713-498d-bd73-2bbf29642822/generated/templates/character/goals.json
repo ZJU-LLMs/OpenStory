@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "current_quest",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "desired_boon",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "conflict_source",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

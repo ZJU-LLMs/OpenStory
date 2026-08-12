@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "danger_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "guard_entities",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "time_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "special_condition_desc",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "access_restricted_by",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

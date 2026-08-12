@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "binding_decrees",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cosmic_laws",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "oath_binding",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

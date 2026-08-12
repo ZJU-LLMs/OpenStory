@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "identity_anchor_code",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_asset_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legal_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "civic_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "registry_identification",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

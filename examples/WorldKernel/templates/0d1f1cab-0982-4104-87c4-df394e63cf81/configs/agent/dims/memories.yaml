@@ -1,0 +1,27 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+tradable_memory_inventory:
+  type: str
+  option: true
+memory_gap_manifestations:
+  type: str
+  option: true
+implanted_memory_indicators:
+  type: str
+  option: true
+stolen_memory_records:
+  type: str
+  option: true
+memory_authenticity_flags:
+  type: str
+  option: true

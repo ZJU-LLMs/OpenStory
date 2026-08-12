@@ -25,14 +25,6 @@ _IMPORTANCE_PRIORITY: dict[str, int] = {
     "minor": 3,
 }
 
-# Spiral search directions: 8 directions per radius
-_DIRECTIONS: list[tuple[int, int]] = [
-    (-1, -1), (-1, 0), (-1, 1),
-    (0, -1), (0, 1),
-    (1, -1), (1, 0), (1, 1),
-]
-
-
 class RegionPacker:
     """Places non-overlapping rectangles around location center points."""
 
@@ -47,7 +39,8 @@ class RegionPacker:
         margin = canvas.margin_tiles
         grid_w = canvas.grid_width
         grid_h = canvas.grid_height
-        min_gap = max(0, config.layout.min_region_gap, canvas.corridor_width + 1)
+        hard_gap = max(1, canvas.corridor_width + 1)
+        min_gap = max(0, config.layout.min_region_gap, hard_gap)
         preferred_gap = max(min_gap, config.layout.preferred_region_gap)
         edge_comfort_margin = max(
             margin,
@@ -138,9 +131,42 @@ class RegionPacker:
             placed_rects[nid] = (region.x, region.y, region.width, region.height)
             placed_approaches[nid] = self._approach_point(region)
 
+        used_centered_fallback = False
+        effective_min_gap = min_gap
+        if len(placed) != len(sorted_ids):
+            centered = self._pack_centered_fallback(
+                sorted_ids,
+                layout_map,
+                loc_facts,
+                margin,
+                grid_w,
+                grid_h,
+                min_gap,
+                hard_gap,
+                min_w,
+                min_h,
+                max_w,
+                max_h,
+            )
+            if centered is not None:
+                placed, effective_min_gap = centered
+                placed_rects = {
+                    region.location_id: (region.x, region.y, region.width, region.height)
+                    for region in placed
+                }
+                used_centered_fallback = True
+                warnings.append(SpatialInputWarning(
+                    code="centered_repack_used",
+                    message=(
+                        "constraint placement left locations unplaced; "
+                        "repacked every location around the canvas center"
+                    ),
+                    source="region_packer",
+                ))
+
         placed = [
             self._repair_entrance_after_packing(
-                region, placed_rects, grid_w, grid_h, margin, min_gap,
+                region, placed_rects, grid_w, grid_h, margin, effective_min_gap,
             )
             for region in placed
         ]
@@ -154,12 +180,164 @@ class RegionPacker:
                 "placed_count": len(placed),
                 "failed_count": len(sorted_ids) - len(placed),
                 "margin_tiles": margin,
-                "min_region_gap": min_gap,
+                "min_region_gap": effective_min_gap,
                 "preferred_region_gap": preferred_gap,
+                "centered_repack_used": used_centered_fallback,
                 "near_edge_count": self._near_edge_count(placed, grid_w, grid_h, edge_comfort_margin),
                 "avg_nearest_region_gap": self._avg_nearest_region_gap(placed),
             },
         )
+
+    def _pack_centered_fallback(
+        self,
+        sorted_ids: list[str],
+        layout_map: dict[str, LocationLayout],
+        loc_facts: dict[str, LocationSpatialFact],
+        margin: int,
+        grid_w: int,
+        grid_h: int,
+        min_gap: int,
+        hard_gap: int,
+        min_w: int,
+        min_h: int,
+        max_w: int,
+        max_h: int,
+    ) -> tuple[list[SpatialRegion], int] | None:
+        """Retry all regions around the center while preserving FR directions.
+
+        The search is exhaustive over valid top-left positions, but candidate
+        scores follow each location's force-layout direction. Stable jitter and
+        row/column alignment penalties avoid a shelf-like visual result.
+        """
+        canvas_cx = grid_w / 2.0
+        canvas_cy = grid_h / 2.0
+
+        def _attempt(
+            force_min_size: bool,
+            gap: int,
+            compression: float,
+            ordered_ids: list[str],
+        ) -> list[SpatialRegion] | None:
+            result: list[SpatialRegion] = []
+            placed_rects: dict[str, tuple[int, int, int, int]] = {}
+            placed_centers: list[tuple[float, float]] = []
+            for nid in ordered_ids:
+                fact = loc_facts.get(nid)
+                importance = fact.importance if fact else ""
+                if force_min_size:
+                    width, height = min_w, min_h
+                else:
+                    width, height = self._estimate_size(
+                        importance, min_w, min_h, max_w, max_h,
+                    )
+
+                layout = layout_map[nid]
+                seed = sum((index + 1) * ord(char) for index, char in enumerate(nid))
+                jitter_span = max(2, min(6, gap))
+                jitter_x = seed % (jitter_span * 2 + 1) - jitter_span
+                jitter_y = (seed // 17) % (jitter_span * 2 + 1) - jitter_span
+                target_cx = (
+                    canvas_cx
+                    + (layout.center_x - canvas_cx) * compression
+                    + jitter_x
+                )
+                target_cy = (
+                    canvas_cy
+                    + (layout.center_y - canvas_cy) * compression
+                    + jitter_y
+                )
+
+                candidates: list[tuple[float, int, int]] = []
+                max_x = grid_w - margin - width
+                max_y = grid_h - margin - height
+                for y in range(margin, max_y + 1):
+                    for x in range(margin, max_x + 1):
+                        if not self._is_valid(
+                            x, y, width, height, margin, grid_w, grid_h,
+                            placed_rects, gap,
+                        ):
+                            continue
+                        center_x = x + width / 2.0
+                        center_y = y + height / 2.0
+                        score = math.hypot(center_x - target_cx, center_y - target_cy)
+                        for existing_x, existing_y in placed_centers:
+                            x_alignment = abs(center_x - existing_x)
+                            y_alignment = abs(center_y - existing_y)
+                            if x_alignment < 4:
+                                score += (4 - x_alignment) * 2.5
+                            if y_alignment < 4:
+                                score += (4 - y_alignment) * 2.5
+                        candidates.append((score, y, x))
+
+                if not candidates:
+                    return None
+
+                _, y, x = min(candidates)
+
+                result.append(SpatialRegion(
+                    location_id=nid,
+                    name=fact.name if fact else nid,
+                    layer_id=layout_map[nid].layer_id,
+                    x=x,
+                    y=y,
+                    width=width,
+                    height=height,
+                    entrance_x=x + width // 2,
+                    entrance_y=y + height - 1,
+                    tags=list(fact.tags) if fact else [],
+                ))
+                placed_rects[nid] = (x, y, width, height)
+                placed_centers.append((x + width / 2.0, y + height / 2.0))
+            return self._center_packed_regions(result, margin, grid_w, grid_h)
+
+        center_first = sorted(
+            sorted_ids,
+            key=lambda nid: (
+                math.hypot(
+                    layout_map[nid].center_x - canvas_cx,
+                    layout_map[nid].center_y - canvas_cy,
+                ),
+                sorted_ids.index(nid),
+            ),
+        )
+        attempts = [
+            (False, min_gap, 0.76, sorted_ids),
+            (True, min_gap, 0.76, sorted_ids),
+            (True, hard_gap, 0.82, sorted_ids),
+            (True, hard_gap, 0.68, center_first),
+        ]
+        for force_min_size, gap, compression, ordered_ids in attempts:
+            packed = _attempt(force_min_size, gap, compression, ordered_ids)
+            if packed is not None:
+                return packed, gap
+        return None
+
+    @staticmethod
+    def _center_packed_regions(
+        regions: list[SpatialRegion],
+        margin: int,
+        grid_w: int,
+        grid_h: int,
+    ) -> list[SpatialRegion]:
+        if not regions:
+            return []
+        left = min(region.x for region in regions)
+        top = min(region.y for region in regions)
+        right = max(region.x + region.width for region in regions)
+        bottom = max(region.y + region.height for region in regions)
+        shift_x = round(grid_w / 2.0 - (left + right) / 2.0)
+        shift_y = round(grid_h / 2.0 - (top + bottom) / 2.0)
+        shift_x = max(margin - left, min(grid_w - margin - right, shift_x))
+        shift_y = max(margin - top, min(grid_h - margin - bottom, shift_y))
+        return [
+            region.model_copy(update={
+                "x": region.x + shift_x,
+                "y": region.y + shift_y,
+                "entrance_x": region.entrance_x + shift_x,
+                "entrance_y": region.entrance_y + shift_y,
+            })
+            for region in regions
+        ]
 
     # ------------------------------------------------------------------
     # Size estimation
@@ -218,7 +396,7 @@ class RegionPacker:
             ):
                 return
             if not self._keeps_existing_approaches_clear(
-                cx, cy, w, h, placed_approaches, min_gap,
+                cx, cy, w, h, placed_approaches,
             ):
                 return
             if not self._preserves_all_approaches(
@@ -235,7 +413,16 @@ class RegionPacker:
         attempts = 0
         _try_candidate(anchor_x, anchor_y, attempts)
         for radius in range(1, max(grid_w, grid_h)):
-            for dx, dy in _DIRECTIONS:
+            # Visit the complete Chebyshev ring. The previous implementation
+            # checked only eight rays per radius and could report failure while
+            # large valid areas between those rays remained unexplored.
+            ring = [
+                *((dx, -radius) for dx in range(-radius, radius + 1)),
+                *((dx, radius) for dx in range(-radius, radius + 1)),
+                *((-radius, dy) for dy in range(-radius + 1, radius)),
+                *((radius, dy) for dy in range(-radius + 1, radius)),
+            ]
+            for dx, dy in ring:
                 if attempts >= max_attempts:
                     break
                 attempts += 1
@@ -295,7 +482,6 @@ class RegionPacker:
         w: int,
         h: int,
         placed_approaches: dict[str, tuple[int, int]],
-        min_gap: int,
     ) -> bool:
         """Ensure a new rectangle does not occupy any existing entrance approach tile.
 
@@ -305,7 +491,7 @@ class RegionPacker:
         """
         candidate = (x, y, w, h)
         for ax, ay in placed_approaches.values():
-            if cls._point_too_close_to_rect(ax, ay, candidate, min_gap):
+            if cls._point_too_close_to_rect(ax, ay, candidate, 0):
                 return False
         return True
 

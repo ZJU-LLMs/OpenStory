@@ -1,0 +1,11 @@
+{
+  "mode": "generation",
+  "endpoint": "http://129.226.155.245:8090/v1/images/generations",
+  "model": "gpt-image-2",
+  "prompt": "A single red circle centered on a plain white background. 输出图片画布必须严格保持为 1024x1024 像素。",
+  "requested_size": "1024x1024",
+  "quality": "high",
+  "output_format": "png",
+  "response_format": "b64_json",
+  "api_key": "<redacted>"
+}

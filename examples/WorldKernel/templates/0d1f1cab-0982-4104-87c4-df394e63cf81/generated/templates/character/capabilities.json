@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "skills",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "weaknesses",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_appraisal_skill",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_manipulation_resistance",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_tolerance_threshold",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "anchor_verification_proficiency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blackmail_protocol_knowledge",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

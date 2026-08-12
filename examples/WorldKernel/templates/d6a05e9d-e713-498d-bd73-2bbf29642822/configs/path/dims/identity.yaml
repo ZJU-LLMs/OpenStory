@@ -1,0 +1,19 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+path_kind:
+  type: str
+  option: true
+landscape_desc:
+  type: str
+  option: true
+is_hidden:
+  type: bool
+  option: true
+spiritual_aura:
+  type: str
+  option: true

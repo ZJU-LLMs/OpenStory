@@ -1,0 +1,21 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+memory_credit_score:
+  type: str
+  option: true
+social_stratum:
+  type: str
+  option: true
+black_market_standing:
+  type: str
+  option: true
+civic_trust_level:
+  type: str
+  option: true
+patron_client_links:
+  type: str
+  option: true

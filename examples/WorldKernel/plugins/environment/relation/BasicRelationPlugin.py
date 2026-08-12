@@ -43,3 +43,52 @@ class BasicRelationPlugin(RelationPlugin):
             if relation.get("source") == target and relation.get("target") == source:
                 return relation
         return None
+
+    async def apply_relation_delta(
+        self,
+        source: str,
+        target: str,
+        delta: int,
+        reason: str = "",
+        event_id: str = "",
+    ) -> dict[str, Any]:
+        """Apply a bounded numeric relationship change without replacing world lore."""
+        if not source or not target or source == target:
+            return {"applied": False, "reason": "invalid relation endpoints"}
+        try:
+            parsed_delta = int(delta)
+        except (TypeError, ValueError):
+            return {"applied": False, "reason": "delta must be an integer"}
+        if parsed_delta < -100 or parsed_delta > 100:
+            return {"applied": False, "reason": "delta outside [-100, 100]"}
+
+        relation = await self.get_relation_between(source, target)
+        if relation is None:
+            return {"applied": False, "reason": "relation not found"}
+        properties = relation.setdefault("properties", {})
+        try:
+            previous = int(properties.get("strength_score", 0) or 0)
+        except (TypeError, ValueError):
+            previous = 0
+        current = max(-100, min(100, previous + parsed_delta))
+        properties["strength_score"] = current
+        history = properties.setdefault("effect_history", [])
+        history.append(
+            {
+                "event_id": str(event_id or ""),
+                "delta": parsed_delta,
+                "before": previous,
+                "after": current,
+                "reason": str(reason or "")[:240],
+            }
+        )
+        del history[:-100]
+        return {
+            "applied": True,
+            "type": "relation_delta",
+            "source": source,
+            "target": target,
+            "before": previous,
+            "after": current,
+            "delta": parsed_delta,
+        }

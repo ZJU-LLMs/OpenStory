@@ -1,0 +1,70 @@
+{
+  "world_id": "d6a05e9d-e713-498d-bd73-2bbf29642822",
+  "success": true,
+  "source_ids": [
+    "primary"
+  ],
+  "execution_order": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "completed_steps": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "failed_step_id": null,
+  "warnings": [
+    "batch 1 review (score=4.75): 发现 1 个问题并已自动修正",
+    "batch 2 review (score=4.75): 发现 3 个问题并已自动修正",
+    "batch 3: review step failed (LLM returned empty response. model=deepseek-v4-flash, prompt_preview='## 世界背景\\n\\n- 世界名称：西游记·大闹天宫\\n- 来源与主题：衍生自古典名著《西游记》前七回，以孙悟空学成神通、闯龙宫闹地府、受招安后大闹天宫为主线，展现神话时代人与神、妖与天的冲突。\\n- 主要类'...)",
+    "batch 4 review (score=3.88): 发现 3 个问题并已自动修正",
+    "batch 1 review (score=4.25): 发现 2 个问题并已自动修正",
+    "batch 2 review (score=4.75): 发现 2 个问题并已自动修正",
+    "review (score=3.86): 天界子图（南天门、凌霄宝殿、齐天府、蟠桃园、瑶池、兜率宫、丹房）与凡间/幽冥/龙宫子图之间没有任何路径连接，整图不连通；南天门作为天界正门缺少通往凡间的通道。; 路径004的访问条件未明确允许有神通护体的生魂（如孙悟空）通行，与特殊条件描述存在轻微矛盾。",
+    "review (score=4.75): 第12条关系将玉帝与王母的关系标为“帝后”，但按《西游记》原典，王母娘娘并非玉帝之妻，而是天庭女仙之尊、蟠桃会主人；改为“君臣”并调整方向更符合世界设定。; 第22条关系将孙悟空与巨灵神标为“劲敌”，但巨灵神只是天庭先锋且实力有限，并非孙悟空的强劲对手；改为“对头”更准确。"
+  ],
+  "errors": [],
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 15,
+    "character_profile": 15,
+    "path_edge": 21,
+    "relation_edge": 32
+  },
+  "timestamp": "2026-08-12T17:19:36.570450+00:00",
+  "debug_files": {},
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "d6a05e9d-e713-498d-bd73-2bbf29642822",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\d6a05e9d-e713-498d-bd73-2bbf29642822"
+    }
+  }
+}

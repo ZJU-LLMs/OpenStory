@@ -1,22 +1,22 @@
 {
   "schema_version": "stage3-agentkernel-adapter-v1",
-  "world_id": "4015552a-6ef8-430d-932a-14920db4b3c3",
-  "source_session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\4015552a-6ef8-430d-932a-14920db4b3c3",
+  "world_id": "ca9c6527-b2f0-4725-a74d-88a5a17ade24",
+  "source_session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\ca9c6527-b2f0-4725-a74d-88a5a17ade24",
   "counts": {
     "characters": 15,
-    "locations": 20,
-    "paths": 28,
-    "relations": 37,
+    "locations": 15,
+    "paths": 0,
+    "relations": 24,
     "spawn_points": 15
   },
-  "warnings": [],
+  "warnings": [
+    "Stage3 omitted semantic path topology; frontend movement uses spatial blueprint routes"
+  ],
   "data_paths": {
     "agent_profiles": "data/agents/profiles.jsonl",
     "agent_states": "data/agents/states.jsonl",
     "agents_relation": "data/relations/relations.jsonl",
-    "map_agents": "data/map/agents.jsonl",
     "map_locations": "data/map/locations.json",
-    "map_paths": "data/map/paths.json",
     "world_background": "data/world/background.json"
   }
 }

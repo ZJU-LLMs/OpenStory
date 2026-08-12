@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "relation_ids",
+      "type": "list_str",
+      "required": true,
+      "ref": "relation"
+    },
+    {
+      "name": "memory_debt_obligations",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shared_memory_link_partners",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_guarantor_id",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "betrayal_tension_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "information_supply_chain",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

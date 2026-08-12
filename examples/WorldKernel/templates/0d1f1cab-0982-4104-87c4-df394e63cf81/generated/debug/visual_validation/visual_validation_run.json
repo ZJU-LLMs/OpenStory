@@ -1,0 +1,47 @@
+{
+  "world_id": "0d1f1cab-0982-4104-87c4-df394e63cf81",
+  "template_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81",
+  "spatial_source": "existing_spatial_blueprint",
+  "generated": {
+    "background": true,
+    "locations": true,
+    "roads": "integrated_into_location_layer",
+    "force": true
+  },
+  "spatial_counts": {
+    "regions": 9,
+    "routes": 9,
+    "road_tiles": 199,
+    "spawn_points": 14,
+    "location_layer_ready": 1,
+    "ready_locations": 9,
+    "failed_locations": 0,
+    "roads_integrated": 1,
+    "character_count": 14,
+    "eligible_character_count": 14,
+    "planned_character_batches": 3,
+    "generated_character_batches": 0,
+    "reused_character_batches": 3,
+    "estimated_character_image_calls": 0
+  },
+  "preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_preview.png",
+  "report_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_report.json",
+  "validation_passed": true,
+  "issues": [],
+  "artifacts": {
+    "background_raw": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background_raw.png",
+    "background_mask_restored": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background_mask_restored.png",
+    "background": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background.png",
+    "background_prompt": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background_prompt.json",
+    "background_metadata": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background_metadata.json",
+    "location_layer": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_layer.png",
+    "location_metadata": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_layer_metadata.json",
+    "location_evaluation": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_alignment_report.json",
+    "location_prompts": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_batch_prompts",
+    "location_attempts": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\intermediates\\location_attempts",
+    "roads": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_layer.png",
+    "validation_preview": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_preview.png",
+    "validation_report": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_report.json"
+  },
+  "run_summary_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_run.json"
+}

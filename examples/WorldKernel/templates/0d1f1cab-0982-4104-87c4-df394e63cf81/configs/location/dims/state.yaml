@@ -1,0 +1,25 @@
+dim_name: StateDim
+current_state:
+  type: str
+ownership:
+  type: str
+capacity:
+  type: int
+structural_integrity:
+  type: str
+  option: true
+shield_status:
+  type: str
+  option: true
+energy_supply_level:
+  type: str
+  option: true
+maintenance_urgency:
+  type: str
+  option: true
+storm_readiness:
+  type: str
+  option: true
+occupancy_pressure:
+  type: str
+  option: true

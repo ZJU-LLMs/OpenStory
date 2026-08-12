@@ -1,0 +1,72 @@
+{
+  "world_id": "0d1f1cab-0982-4104-87c4-df394e63cf81",
+  "success": true,
+  "source_ids": [
+    "primary"
+  ],
+  "execution_order": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "completed_steps": [
+    "generate_characters",
+    "generate_locations",
+    "generate_paths",
+    "generate_relations"
+  ],
+  "failed_step_id": null,
+  "warnings": [
+    "batch 1 review (score=4.63): 发现 2 个问题并已自动修正",
+    "batch 2 review (score=4.6): 发现 1 个问题并已自动修正",
+    "batch 4: review step failed (LLM returned empty response. model=deepseek-v4-flash, prompt_preview='## 世界背景\\n\\n- 世界名称：风暴记忆档案城\\n- 来源与主题：原创近未来科幻世界，一座悬浮于木星风暴层上方的浮空城市，以记忆为通货，通过记忆档案库维系社会秩序与个体身份；记忆既是财富，也是权力，更是'...)",
+    "batch 4: item '奥顿·格里' matched by positional fallback",
+    "batch 4: item '诺克斯·维尔' matched by positional fallback",
+    "batch 1 review (score=4.9): 发现 3 个问题并已自动修正",
+    "batch 2 review (score=4.6): 发现 1 个问题并已自动修正",
+    "batch 3/4 failed: Failed to parse JSON: [\n  {\n    \"identity\": {\n      \"id\": \"e:0,\n      \"name\": \"记忆市政厅\",\n      \"type\": \"municipal_management_hub\",\n      \"description\": \"城市的最高行政与法令中枢。所有记忆法规、身份等级制度和任务分配均由此发出，中央记忆档案库与秩序守卫在此进行日常协调和调度。市政厅内的圆顶会议厅...",
+    "consolidated retry: 4 seeds missing, retrying as one batch",
+    "review (score=4.86): 路径10（失落记忆归档专线）的 identity 和 conditions 字段中包含了 schema 未定义的 memory_transfer_capacity，需删除。"
+  ],
+  "errors": [],
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 15,
+    "character_profile": 14,
+    "path_edge": 23,
+    "relation_edge": 22
+  },
+  "timestamp": "2026-08-10T13:59:57.897507+00:00",
+  "debug_files": {},
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "0d1f1cab-0982-4104-87c4-df394e63cf81",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81"
+    }
+  }
+}

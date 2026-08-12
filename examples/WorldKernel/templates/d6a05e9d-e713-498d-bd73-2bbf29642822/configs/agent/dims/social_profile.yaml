@@ -1,0 +1,15 @@
+dim_name: SocialProfileDim
+group_id:
+  type: str
+  ref: institution
+reputation:
+  type: str
+faction_position:
+  type: str
+  option: true
+public_image:
+  type: str
+  option: true
+notoriety_level:
+  type: int
+  option: true

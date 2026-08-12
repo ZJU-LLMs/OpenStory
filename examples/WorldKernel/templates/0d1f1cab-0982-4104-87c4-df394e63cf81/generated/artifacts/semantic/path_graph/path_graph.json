@@ -1,0 +1,916 @@
+{
+  "artifact_type": "path_edge",
+  "items": [
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:003",
+        "name": "螺旋记忆中轴通道",
+        "type": "垂直导管",
+        "path_kind": "核心记忆传输管道",
+        "material_structure": "密布记忆导管的半透明螺旋管壁",
+        "maintenance_status": "正常",
+        "memory_flow_role": "全城记忆枢纽连接",
+        "signage_system": "荧光符号与记忆强度指示条",
+        "historical_layer": "风暴纪初建时铺设"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "档案库南厅闸口",
+        "connection_mode": "垂直+水平混合",
+        "memory_transfer_capacity": "高",
+        "emergency_bypass_route": "",
+        "port_security_level": "2级"
+      },
+      "conditions": {
+        "access_level": "官方人员及持证市民",
+        "danger_level": "安全",
+        "required_items": "身份锚定徽章",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-ARCH-CIV-02",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "5单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:005",
+        "name": "记忆集市干线",
+        "type": "空中长廊",
+        "path_kind": "公共商业通道",
+        "material_structure": "轻质合金与气压密封玻璃罩",
+        "maintenance_status": "良好",
+        "memory_flow_role": "记忆商品输送和交易人流",
+        "signage_system": "全息标牌与记忆价格滚动条",
+        "historical_layer": "风暴纪122年扩建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "交易所北侧记忆核验门",
+        "connection_mode": "水平廊桥",
+        "memory_transfer_capacity": "极高",
+        "emergency_bypass_route": "",
+        "port_security_level": "2级"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "抽查",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "1单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:007",
+        "name": "深层封禁竖井",
+        "type": "垂直管制电梯",
+        "path_kind": "禁区专用通道",
+        "material_structure": "厚重铅合金井壁，内置三重记忆锁",
+        "maintenance_status": "严密监控",
+        "memory_flow_role": "禁限记忆存取与转储",
+        "signage_system": "无标识，仅有暗码",
+        "historical_layer": "风暴纪90年秘密增建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:013",
+        "bidirectional": false,
+        "terminal_gate_type": "",
+        "traffic_control_point": "档案库底层B2门禁",
+        "connection_mode": "垂直向下单行通道",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "存在但需管理员双授权",
+        "port_security_level": "5级"
+      },
+      "conditions": {
+        "access_level": "档案库最高权限管理员",
+        "danger_level": "危险",
+        "required_items": "紫级权限徽章、虹膜记忆码",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-CORE-FORBIDDEN-001",
+        "memory_debt_check": "强制",
+        "contraband_memory_scan": "全面扫描",
+        "vibration_dampening_status": "失效",
+        "wind_force_rating": "N/A",
+        "temperature_tolerance": "耐高温",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:006",
+        "name": "回声记忆步道",
+        "type": "露天广场连接桥",
+        "path_kind": "市民公共通道",
+        "material_structure": "旧记忆归档砖与钢化玻璃混合",
+        "maintenance_status": "定期翻新",
+        "memory_flow_role": "市民日常通行和记忆播放",
+        "signage_system": "地砖LED记忆索引",
+        "historical_layer": "风暴纪35年铺设"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:011",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "档案库正门广场",
+        "connection_mode": "水平桥接",
+        "memory_transfer_capacity": "中",
+        "emergency_bypass_route": "",
+        "port_security_level": "2级"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:009",
+        "name": "市政认证连廊",
+        "type": "行政走廊",
+        "path_kind": "官方政务通道",
+        "material_structure": "大理石纹理合成板材与防记忆窃取涂层",
+        "maintenance_status": "良好",
+        "memory_flow_role": "身份认证文件与档案流转",
+        "signage_system": "电子铭牌与方向灯带",
+        "historical_layer": "风暴纪60年建成"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "市政厅东翼闸口",
+        "connection_mode": "封闭式平桥",
+        "memory_transfer_capacity": "中高",
+        "emergency_bypass_route": "",
+        "port_security_level": "3级"
+      },
+      "conditions": {
+        "access_level": "市政职员及授权公民",
+        "danger_level": "安全",
+        "required_items": "政务通行卡",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-MUNI-IDENT-03",
+        "memory_debt_check": "抽查",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "2单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:008",
+        "name": "法规-交易管道",
+        "type": "记忆数据廊",
+        "path_kind": "政策与经济连接",
+        "material_structure": "半透明记忆晶体管道",
+        "maintenance_status": "稳定",
+        "memory_flow_role": "记忆币流通和法规指令传达",
+        "signage_system": "政策全息投影",
+        "historical_layer": "风暴纪102年重建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "交易所西侧验证岗",
+        "connection_mode": "高架封闭廊道",
+        "memory_transfer_capacity": "高",
+        "emergency_bypass_route": "",
+        "port_security_level": "3级"
+      },
+      "conditions": {
+        "access_level": "交易许可市民",
+        "danger_level": "低",
+        "required_items": "记忆账户芯片",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "强制",
+        "contraband_memory_scan": "随机",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "3单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:015",
+        "name": "鉴定前检验道",
+        "type": "安检通道",
+        "path_kind": "事前验证走廊",
+        "material_structure": "防爆玻璃与记忆探针阵列",
+        "maintenance_status": "良好",
+        "memory_flow_role": "记忆待验品运输与人员通行",
+        "signage_system": "红蓝双色状态灯",
+        "historical_layer": "风暴纪75年增设"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "交易所南侧鉴定排队区",
+        "connection_mode": "低层穿梭隧道",
+        "memory_transfer_capacity": "中",
+        "emergency_bypass_route": "",
+        "port_security_level": "3级"
+      },
+      "conditions": {
+        "access_level": "持有交易凭证",
+        "danger_level": "低",
+        "required_items": "待鉴定记忆容器",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "全面",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费（含于鉴定费）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:016",
+        "name": "广场记忆播映桥",
+        "type": "开放式天桥",
+        "path_kind": "公共传播通道",
+        "material_structure": "耐蚀合金与记忆投影网",
+        "maintenance_status": "周期性维护",
+        "memory_flow_role": "公开记忆播放与交易人流",
+        "signage_system": "巨型全息屏导航",
+        "historical_layer": "风暴纪10年原址重建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:011",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "交易所东出口",
+        "connection_mode": "露天廊桥",
+        "memory_transfer_capacity": "极高",
+        "emergency_bypass_route": "",
+        "port_security_level": "1级"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "低",
+        "toll_memory_cost": "免费"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:017",
+        "name": "市民核验小巷",
+        "type": "步行通道",
+        "path_kind": "社区支路",
+        "material_structure": "碎石与再生板路面",
+        "maintenance_status": "一般",
+        "memory_flow_role": "身份更新前往鉴定局的人流",
+        "signage_system": "涂鸦指示箭头",
+        "historical_layer": "风暴纪48年自然形成"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:011",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "回声广场西北角",
+        "connection_mode": "地面步行路",
+        "memory_transfer_capacity": "中低",
+        "emergency_bypass_route": "",
+        "port_security_level": "1级"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "安全",
+        "required_items": "无",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-PUBLIC-ID-CHECK",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:004",
+        "name": "失落记忆归档专线",
+        "type": "传输带通道",
+        "path_kind": "档案归类链路",
+        "material_structure": "气动管与传送轨道",
+        "maintenance_status": "高效",
+        "memory_flow_role": "无主记忆碎片输送",
+        "signage_system": "档案编号流水灯",
+        "historical_layer": "风暴纪126年自动化改造"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "分类库北端输送口",
+        "connection_mode": "地下传送管",
+        "memory_transfer_capacity": "高",
+        "emergency_bypass_route": "",
+        "port_security_level": "2级"
+      },
+      "conditions": {
+        "access_level": "档案库员工及自动化系统",
+        "danger_level": "安全",
+        "required_items": "档案库工作牌",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费（单位内部）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:014",
+        "name": "风暴采集维护道",
+        "type": "外墙检修通道",
+        "path_kind": "工业维护走廊",
+        "material_structure": "防锈格栅板与钢索护栏",
+        "maintenance_status": "需频繁检修",
+        "memory_flow_role": "采集设备维护人员通行",
+        "signage_system": "黄黑色警示标",
+        "historical_layer": "与破风屏障站同期建造"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:015",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "分类库外墙闸门",
+        "connection_mode": "外部悬臂栈道",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "有（通往屏障站检修入口）",
+        "port_security_level": "4级"
+      },
+      "conditions": {
+        "access_level": "持证维护工",
+        "danger_level": "危险",
+        "required_items": "风暴防护服、氧气面罩",
+        "storm_clearance_threshold": "风暴强度等级低于4级",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "可抗12级风",
+        "temperature_tolerance": "-40°C~60°C",
+        "visibility_obscurance_factor": "高，常被氦氢雾遮挡",
+        "toll_memory_cost": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:018",
+        "name": "外缘气象巡查轨",
+        "type": "高速轨道车",
+        "path_kind": "军事化巡逻线路",
+        "material_structure": "磁悬浮轨道与锚固钢梁",
+        "maintenance_status": "战备状态",
+        "memory_flow_role": "哨站人员与气象数据传递",
+        "signage_system": "军标编号与气象码",
+        "historical_layer": "风暴纪133年加固"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:015",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "瞭望哨站台",
+        "connection_mode": "沿城墙外壁轨道",
+        "memory_transfer_capacity": "低（数据为主）",
+        "emergency_bypass_route": "有紧急爬行吊舱",
+        "port_security_level": "5级"
+      },
+      "conditions": {
+        "access_level": "军方与气象局成员",
+        "danger_level": "高危",
+        "required_items": "军籍记忆徽章、抗压护甲",
+        "storm_clearance_threshold": "风暴强度等级低于2级",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "可抗15级",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "极高，依赖雷达导航",
+        "toll_memory_cost": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:012",
+        "name": "空港暗舱通道",
+        "type": "隐蔽楼梯间",
+        "path_kind": "非法连接路径",
+        "material_structure": "锈蚀铁梯与波纹板",
+        "maintenance_status": "私力维护",
+        "memory_flow_role": "走私货物与非法记忆流通",
+        "signage_system": "无标识，油漆箭头",
+        "historical_layer": "走私者自行开凿"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:014",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "空港底层废弃货梯井",
+        "connection_mode": "垂直+爬行通道",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "",
+        "port_security_level": "非法通道"
+      },
+      "conditions": {
+        "access_level": "仅限知情者",
+        "danger_level": "高",
+        "required_items": "人工密码或黑市信物",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "无（非法绕开）",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "几乎无光",
+        "toll_memory_cost": "10单位/次（给蛇头）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:011",
+        "name": "工人通勤索道",
+        "type": "空中缆车",
+        "path_kind": "劳动者公共交通",
+        "material_structure": "钢缆悬挂吊舱",
+        "maintenance_status": "中",
+        "memory_flow_role": "通勤记忆支付与劳动力流动",
+        "signage_system": "简单编号与时刻表",
+        "historical_layer": "风暴纪80年响应劳工需求建立"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:012",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "空港南广场站",
+        "connection_mode": "空中索道",
+        "memory_transfer_capacity": "中高",
+        "emergency_bypass_route": "",
+        "port_security_level": "1级"
+      },
+      "conditions": {
+        "access_level": "开放",
+        "danger_level": "低",
+        "required_items": "通勤记忆卡",
+        "storm_clearance_threshold": "风暴强度等级低于6级",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "抗风8级",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "0.5单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:022",
+        "name": "底层社区连接廊",
+        "type": "有顶步行街",
+        "path_kind": "贫民区公共道路",
+        "material_structure": "再生复合材料顶棚与旧集装箱墙",
+        "maintenance_status": "破损较多",
+        "memory_flow_role": "社区人员流动和黑市补给",
+        "signage_system": "自制霓虹灯指示",
+        "historical_layer": "风暴纪110年由居民自发搭建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:012",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:010",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "柱民塔底层大门",
+        "connection_mode": "平面通道",
+        "memory_transfer_capacity": "中低",
+        "emergency_bypass_route": "",
+        "port_security_level": "1级"
+      },
+      "conditions": {
+        "access_level": "开放（但需通过记忆负债检查）",
+        "danger_level": "中等",
+        "required_items": "基本记忆印记",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "强制",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:019",
+        "name": "黑市-城寨捷径",
+        "type": "废墟穿行路",
+        "path_kind": "灰色地带通道",
+        "material_structure": "倒塌支架与塑料布搭成的隧道",
+        "maintenance_status": "由黑市维护",
+        "memory_flow_role": "黑市商品流入城寨，壮劳力流出",
+        "signage_system": "粉笔符号",
+        "historical_layer": "城寨扩张时挤出的缝隙"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:010",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "黑市南侧铁皮门",
+        "connection_mode": "地面断裂带路线",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "",
+        "port_security_level": "3级"
+      },
+      "conditions": {
+        "access_level": "黑市熟客或城寨居民",
+        "danger_level": "高",
+        "required_items": "无固定要求，但入城寨需记忆抵押",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "黑市自设扫描阵",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "2单位或等价物"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:021",
+        "name": "走私龙骨暗廊",
+        "type": "船坞夹缝通道",
+        "path_kind": "走私航线",
+        "material_structure": "废弃船体骨架拼焊的狭窄通道",
+        "maintenance_status": "走私团伙经营",
+        "memory_flow_role": "走私记忆与禁品转运",
+        "signage_system": "红外信标",
+        "historical_layer": "走私网络黄金期扩建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:014",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "黑市地下室传送口",
+        "connection_mode": "垂直爬升+横向穿越",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "水密隔舱应急口",
+        "port_security_level": "5级"
+      },
+      "conditions": {
+        "access_level": "走私者与黑市VIP",
+        "danger_level": "极高",
+        "required_items": "武装保镖、干扰器",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "无（设有反扫描装置）",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "完全黑暗",
+        "toll_memory_cost": "20单位/批次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:020",
+        "name": "禁库渗透裂隙",
+        "type": "地下裂隙",
+        "path_kind": "非法入侵路径",
+        "material_structure": "天然岩层缝隙与人工凿洞",
+        "maintenance_status": "不稳定",
+        "memory_flow_role": "从禁限记忆库向黑市泄密",
+        "signage_system": "无",
+        "historical_layer": "风暴纪140年未被发现"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:013",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+        "bidirectional": false,
+        "terminal_gate_type": "",
+        "traffic_control_point": "隐藏活板门",
+        "connection_mode": "单向逃逸通道",
+        "memory_transfer_capacity": "极低",
+        "emergency_bypass_route": "",
+        "port_security_level": "6级（绝密渗透点）"
+      },
+      "conditions": {
+        "access_level": "仅限渗透者/内鬼",
+        "danger_level": "极度危险",
+        "required_items": "破膜器、记忆伪装面具",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "无（绕行身份系统）",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "未知，可能出现结界",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "秘密代价（通常为自身记忆片段）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:002",
+        "name": "管理层高架快轨",
+        "type": "磁悬浮轨",
+        "path_kind": "特权通勤线",
+        "material_structure": "全封闭流线型磁轨舱",
+        "maintenance_status": "顶级",
+        "memory_flow_role": "管理层人员与敏感记忆数据流转",
+        "signage_system": "暗金色鹰徽",
+        "historical_layer": "风暴纪55年专建"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "环邸私轨站",
+        "connection_mode": "高速磁浮隧道",
+        "memory_transfer_capacity": "高",
+        "emergency_bypass_route": "",
+        "port_security_level": "4级"
+      },
+      "conditions": {
+        "access_level": "城市高管或记忆财富≥百万单位",
+        "danger_level": "安全",
+        "required_items": "白金身份徽章",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-ELITE-GOV-001",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "50单位/次"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:001",
+        "name": "权贵记忆直通管",
+        "type": "私家传送舱",
+        "path_kind": "高层专用连接通道",
+        "material_structure": "奢华记忆合金管，内嵌记忆舒适氛场",
+        "maintenance_status": "一级维护",
+        "memory_flow_role": "管理层访问档案库的快速通道",
+        "signage_system": "低调的云纹灯",
+        "historical_layer": "风暴纪99年加密升级"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "环邸暗门、档案库顶层入口",
+        "connection_mode": "倾斜高速电梯",
+        "memory_transfer_capacity": "中",
+        "emergency_bypass_route": "",
+        "port_security_level": "5级"
+      },
+      "conditions": {
+        "access_level": "核心管理委员会投票授权",
+        "danger_level": "低",
+        "required_items": "双重生物记忆锁",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "VA-CORE-EXEC-002",
+        "memory_debt_check": "免责",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "100单位/次（公账）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:010",
+        "name": "空港气象预警桥",
+        "type": "加固悬臂通道",
+        "path_kind": "防御外缘路线",
+        "material_structure": "双重复合甲板与液压缓冲支架",
+        "maintenance_status": "完好",
+        "memory_flow_role": "预警数据与巡逻人员前往瞭望哨",
+        "signage_system": "闪烁警灯",
+        "historical_layer": "风暴纪45年建造，多次加固"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "空港西侧气象闸",
+        "connection_mode": "沿护盾边缘的悬臂桥",
+        "memory_transfer_capacity": "中低",
+        "emergency_bypass_route": "紧急脱离舱",
+        "port_security_level": "4级"
+      },
+      "conditions": {
+        "access_level": "空港与气象局工作人员",
+        "danger_level": "较高",
+        "required_items": "抗压服、系留索",
+        "storm_clearance_threshold": "风暴强度等级低于3级",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "抗12级",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "中高",
+        "toll_memory_cost": ""
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:013",
+        "name": "空港护盾补给线",
+        "type": "舱内输送轨",
+        "path_kind": "工业补给通道",
+        "material_structure": "履带输送机与铁架",
+        "maintenance_status": "中等",
+        "memory_flow_role": "把记忆能量电池和维修件送至屏障站",
+        "signage_system": "绿漆箭头",
+        "historical_layer": "风暴纪25年扩展"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:015",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "空港货运码头东端",
+        "connection_mode": "沿外墙内侧运输轨道",
+        "memory_transfer_capacity": "高（物资）",
+        "emergency_bypass_route": "",
+        "port_security_level": "3级"
+      },
+      "conditions": {
+        "access_level": "供应链员工/军人",
+        "danger_level": "中等",
+        "required_items": "安全帽、记忆能量隔离手套",
+        "storm_clearance_threshold": "风暴强度等级低于5级",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "",
+        "wind_force_rating": "内部通道抗风N/A",
+        "temperature_tolerance": "",
+        "visibility_obscurance_factor": "",
+        "toll_memory_cost": "免费（单位物流）"
+      }
+    },
+    {
+      "identity": {
+        "id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:023",
+        "name": "城寨下水潜道",
+        "type": "排水暗渠",
+        "path_kind": "底层逃避路线",
+        "material_structure": "混凝土管道与积存的风暴冷凝水",
+        "maintenance_status": "荒废但可使用",
+        "memory_flow_role": "负债者逃亡或走私小型货物",
+        "signage_system": "无",
+        "historical_layer": "城市早期排水系统遗留"
+      },
+      "endpoints": {
+        "from_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:010",
+        "to_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:014",
+        "bidirectional": true,
+        "terminal_gate_type": "",
+        "traffic_control_point": "城寨东侧排水口",
+        "connection_mode": "水下/半水下路径",
+        "memory_transfer_capacity": "低",
+        "emergency_bypass_route": "有（通往走私锚层检修井）",
+        "port_security_level": "2级"
+      },
+      "conditions": {
+        "access_level": "熟悉下水道的人",
+        "danger_level": "极高",
+        "required_items": "防水服、防毒面具、照明棒",
+        "storm_clearance_threshold": "",
+        "identity_verification_code": "",
+        "memory_debt_check": "",
+        "contraband_memory_scan": "",
+        "vibration_dampening_status": "无",
+        "wind_force_rating": "",
+        "temperature_tolerance": "仅耐低温",
+        "visibility_obscurance_factor": "完全黑暗",
+        "toll_memory_cost": "1单位/人（如果有向导）"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:003",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:005",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:007",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:006",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:009",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:008",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:015",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:016",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:017",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:004",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:014",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:018",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:012",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:011",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:022",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:019",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:021",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:020",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:002",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:001",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:010",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:013",
+    "e:0d1f1cab_0982_4104_87c4_df394e63cf81:path:023"
+  ],
+  "upstream_step_ids": [
+    "generate_paths"
+  ],
+  "warnings": [
+    "review (score=4.86): 路径10（失落记忆归档专线）的 identity 和 conditions 字段中包含了 schema 未定义的 memory_transfer_capacity，需删除。"
+  ],
+  "provenance": {
+    "result_count": 1
+  }
+}

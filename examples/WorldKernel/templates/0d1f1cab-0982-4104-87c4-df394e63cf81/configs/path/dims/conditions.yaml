@@ -1,0 +1,34 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+storm_clearance_threshold:
+  type: str
+  option: true
+identity_verification_code:
+  type: str
+  option: true
+memory_debt_check:
+  type: str
+  option: true
+contraband_memory_scan:
+  type: str
+  option: true
+vibration_dampening_status:
+  type: str
+  option: true
+wind_force_rating:
+  type: str
+  option: true
+temperature_tolerance:
+  type: str
+  option: true
+visibility_obscurance_factor:
+  type: str
+  option: true
+toll_memory_cost:
+  type: str
+  option: true

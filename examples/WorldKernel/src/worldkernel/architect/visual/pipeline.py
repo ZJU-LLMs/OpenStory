@@ -16,6 +16,7 @@ from worldkernel.architect.visual.control import (
     validate_protected_regions,
 )
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
+from worldkernel.architect.visual.image_size import normalize_generated_image_size
 from worldkernel.architect.visual.location_layer import (
     generate_location_layer as generate_location_layer_asset,
     hydrate_existing_location_layer,
@@ -39,6 +40,13 @@ def run_visual_pipeline(
     generate_background: bool = False,
     generate_location_layer: bool = False,
     semantic_locations: list[Any] | None = None,
+    semantic_characters: list[Any] | None = None,
+    generate_character_layer: bool = False,
+    character_batch_size: int = 6,
+    character_key_colors: list[str] | None = None,
+    character_transparent_threshold: int = 24,
+    character_opaque_threshold: int = 96,
+    force_character_batch_ids: list[str] | None = None,
     force_location_regeneration: bool = False,
     location_debug_artifact_root: str | Path | None = None,
 ) -> VisualLayoutManifest:
@@ -49,6 +57,19 @@ def run_visual_pipeline(
         blueprint=blueprint,
         world_background=world_background,
         output_root=root,
+    )
+    from worldkernel.architect.visual.character_atlas import (
+        hydrate_existing_character_layer,
+    )
+
+    hydrate_existing_character_layer(
+        manifest,
+        root,
+        candidate_layers=[
+            blueprint.visual.get("character_layer")
+            if isinstance(blueprint.visual, dict)
+            else None
+        ],
     )
     control_metadata = render_layout_control_assets(blueprint, manifest, root)
     manifest.background.control_image_path = control_metadata["control_image_path"]
@@ -175,6 +196,40 @@ def run_visual_pipeline(
     }
     manifest.provenance["road_rendering"] = metadata_payload["road_rendering"]
 
+    if semantic_characters is not None:
+        from worldkernel.architect.visual.character_atlas import (
+            InvalidCharacterBatchSelection,
+            run_character_atlas_pipeline,
+        )
+
+        try:
+            character_metadata = run_character_atlas_pipeline(
+                manifest=manifest,
+                semantic_characters=semantic_characters,
+                root=root,
+                model_config_path=model_config_path,
+                generate=generate_character_layer,
+                max_batch_size=character_batch_size,
+                key_colors=character_key_colors,
+                transparent_threshold=character_transparent_threshold,
+                opaque_threshold=character_opaque_threshold,
+                force_batch_ids=force_character_batch_ids,
+                progress_manifest_path=manifest_path,
+            )
+            metadata_payload["character_layer"] = character_metadata
+            manifest.provenance["character_layer_generation"] = character_metadata
+        except InvalidCharacterBatchSelection:
+            raise
+        except Exception as exc:
+            logger.warning("Character atlas generation skipped/failed: %s", exc)
+            manifest.character_layer.status = "failed"
+            manifest.character_layer.error = str(exc)
+            metadata_payload["character_layer"] = {
+                "status": "failed",
+                "error": str(exc),
+            }
+            manifest.provenance["character_layer_generation"] = metadata_payload["character_layer"]
+
     _write_json(metadata_path, metadata_payload)
     _write_json(manifest_path, manifest.model_dump(mode="json"))
     return manifest
@@ -252,6 +307,12 @@ def _generate_background(
             time.sleep(BACKGROUND_TRANSPORT_RETRY_SECONDS)
     if model_metadata is None:
         raise RuntimeError("Background image generation exhausted transport attempts")
+    size_normalization = normalize_generated_image_size(
+        raw_path,
+        (target_width, target_height),
+        original_output_path=root / "background_model_output.png",
+    )
+    model_metadata["size_normalization"] = size_normalization
     shutil.copyfile(raw_path, mask_restored_path)
     mask_validation = validate_protected_regions(
         edit_base_path,
@@ -275,6 +336,7 @@ def _generate_background(
         "generation_strategy": "full_canvas_hard_mask_sparse_background_edit_v7",
         "requested_target_size": {"width": target_width, "height": target_height},
         "model": safe_model_metadata,
+        "size_normalization": size_normalization,
         "mask_validation": mask_validation,
         "raw_model_output_path": str(raw_path),
         "mask_restored_path": str(mask_restored_path),
@@ -303,17 +365,12 @@ def _is_transient_image_error(message: str) -> bool:
 
 
 def _reference_image_instruction(*, has_style_reference: bool) -> str:
-    instruction = (
-        "\n\n输入图片顺序：第一张图是与输出完全同尺寸的地图编辑底板，并配有 RGBA 硬蒙版。"
-        "深色区域允许重新绘制，中灰色矩形是地点保留区，浅灰色狭长区域是道路保留区。"
-        "必须严格保持所有灰色保留区的原始坐标、形状和尺寸。"
-    )
     if has_style_reference:
-        instruction += (
-            "第二张图只用于参考较大像素簇、有限色阶、硬边轮廓和简化卡通造型，"
+        return (
+            "\n\n第二张输入图仅用作画风参考：提取其中较大像素簇、有限色阶、硬边轮廓和简化卡通造型，"
             "不要复制其中的具体建筑、车辆、人物或文字。"
         )
-    return instruction
+    return ""
 
 
 def _resolve_style_reference_path(cfg: dict[str, Any], model_config_path: Path) -> Path | None:

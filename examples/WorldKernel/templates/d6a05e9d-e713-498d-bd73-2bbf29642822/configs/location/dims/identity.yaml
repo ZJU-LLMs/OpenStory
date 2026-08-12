@@ -1,0 +1,21 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+description:
+  type: str
+celestial_domain:
+  type: str
+  option: true
+affiliation:
+  type: str
+  option: true
+mythological_significance:
+  type: str
+  option: true
+spiritual_level:
+  type: str
+  option: true

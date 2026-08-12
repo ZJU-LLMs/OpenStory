@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_archive_access_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "institutional_branch_code",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_black_market_aligned",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_visibility",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

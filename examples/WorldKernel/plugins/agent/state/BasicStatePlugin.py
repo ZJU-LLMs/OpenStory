@@ -8,7 +8,7 @@ from __future__ import annotations
 import copy
 import sys
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, Optional
 
 PROJECT_PATH = Path(__file__).resolve().parents[3]
 if str(PROJECT_PATH) not in sys.path:
@@ -22,6 +22,10 @@ from agentkernel_distributed.mas.agent.base.plugin_base import StatePlugin
 from agentkernel_distributed.toolkit.logger import get_logger
 
 logger = get_logger(__name__)
+
+_MAX_EVENTS = 500
+_MAX_RECENT_EVENTS = 120
+_MAX_LONG_TERM_MEMORIES = 200
 
 
 class BasicStatePlugin(StatePlugin):
@@ -44,6 +48,7 @@ class BasicStatePlugin(StatePlugin):
         self.state_data.setdefault("short_term_memory", {})
         self.state_data.setdefault("long_term_memory", [])
         self.state_data.setdefault("dialogues", {})
+        self.state_data.setdefault("event_log", {})
         self.state_data.setdefault("is_active", True)
         self.state_data.setdefault("inactive_reason", "")
         self.state_data.setdefault("hourly_plans", {})
@@ -59,6 +64,8 @@ class BasicStatePlugin(StatePlugin):
         self.state_data.setdefault("mood", "")
         self.state_data.setdefault("status", "")
         self.state_data.setdefault("active_goal", None)
+        self.state_data.setdefault("pending_user_action", None)
+        self.state_data.setdefault("replanned_tick", None)
         self.state_data.setdefault("memory", {})
 
     async def init(self) -> None:
@@ -107,10 +114,17 @@ class BasicStatePlugin(StatePlugin):
         if self.agent_id == "Unknown":
             return
         effective_tick = self.current_tick if tick is None else tick
-        self.state_data.setdefault("short_term_memory", {})[effective_tick] = memory
-        self.state_data.setdefault("memory", {}).setdefault("recent_events", []).append(
+        memories = self.state_data.setdefault("short_term_memory", {})
+        existing = memories.get(effective_tick)
+        if existing:
+            memories[effective_tick] = f"{existing}\n{memory}"
+        else:
+            memories[effective_tick] = memory
+        recent = self.state_data.setdefault("memory", {}).setdefault("recent_events", [])
+        recent.append(
             {"tick": effective_tick, "content": memory}
         )
+        del recent[:-_MAX_RECENT_EVENTS]
 
     async def get_short_term_memory(self) -> list:
         memories = self.state_data.get("short_term_memory", {})
@@ -128,12 +142,16 @@ class BasicStatePlugin(StatePlugin):
     async def add_long_term_memory(self, memory: str) -> None:
         if self.agent_id == "Unknown":
             return
-        self.state_data.setdefault("long_term_memory", []).append(
+        long_term = self.state_data.setdefault("long_term_memory", [])
+        long_term.append(
             {"tick": self.current_tick, "content": memory}
         )
-        self.state_data.setdefault("memory", {}).setdefault("reflection_summaries", []).append(
+        del long_term[:-_MAX_LONG_TERM_MEMORIES]
+        reflections = self.state_data.setdefault("memory", {}).setdefault("reflection_summaries", [])
+        reflections.append(
             {"tick": self.current_tick, "content": memory}
         )
+        del reflections[:-_MAX_LONG_TERM_MEMORIES]
 
     async def get_long_term_memory(self) -> list:
         return self.state_data.get("long_term_memory", [])
@@ -145,16 +163,83 @@ class BasicStatePlugin(StatePlugin):
     async def add_dialogue(self, tick: int, history: list) -> None:
         if self.agent_id == "Unknown":
             return
-        self.state_data.setdefault("dialogues", {})[tick] = history
+        dialogues = self.state_data.setdefault("dialogues", {})
+        existing = dialogues.get(tick) or dialogues.get(str(tick)) or []
+        if isinstance(existing, list):
+            dialogues[int(tick)] = [*existing, *copy.deepcopy(history)]
+        else:
+            dialogues[int(tick)] = copy.deepcopy(history)
 
     async def get_dialogues(self) -> dict:
         return self.state_data.get("dialogues", {})
+
+    # ── Events (per tick) ────────────────────────────────────────────────────
+    async def add_event(self, tick: int, event: Dict[str, Any]) -> None:
+        """Store the resolved outcome of a plan separately from the plan itself."""
+        if self.agent_id == "Unknown":
+            return
+        normalized = copy.deepcopy(event or {})
+        normalized["tick"] = int(tick)
+        events = self.state_data.setdefault("event_log", {})
+        if isinstance(events, list):
+            migrated: dict[int, list[dict[str, Any]]] = {}
+            for index, item in enumerate(events):
+                if isinstance(item, dict):
+                    migrated.setdefault(int(item.get("tick", index)), []).append(copy.deepcopy(item))
+            events = migrated
+            self.state_data["event_log"] = events
+        elif not isinstance(events, dict):
+            events = {}
+            self.state_data["event_log"] = events
+        tick_key = int(tick)
+        current = events.get(tick_key, events.get(str(tick_key)))
+        if isinstance(current, list):
+            bucket = current
+        elif isinstance(current, dict):
+            bucket = [current]
+        else:
+            bucket = []
+        event_id = normalized.get("event_id")
+        if not event_id or all(item.get("event_id") != event_id for item in bucket if isinstance(item, dict)):
+            bucket.append(normalized)
+        events[tick_key] = bucket
+        self._trim_event_log(events)
+
+    async def get_event_log(self) -> list[Dict[str, Any]]:
+        events = self.state_data.get("event_log", {})
+        if isinstance(events, list):
+            return copy.deepcopy(events)
+        if not isinstance(events, dict):
+            return []
+        flattened: list[Dict[str, Any]] = []
+        for tick in sorted(events.keys(), key=lambda value: int(value)):
+            bucket = events[tick]
+            if isinstance(bucket, dict):
+                flattened.append(copy.deepcopy(bucket))
+            elif isinstance(bucket, list):
+                flattened.extend(copy.deepcopy(item) for item in bucket if isinstance(item, dict))
+        return flattened[-_MAX_EVENTS:]
+
+    @staticmethod
+    def _trim_event_log(events: dict) -> None:
+        ordered = sorted(events.keys(), key=lambda value: int(value))
+        total = sum(len(value) if isinstance(value, list) else 1 for value in events.values())
+        while total > _MAX_EVENTS and ordered:
+            oldest = ordered.pop(0)
+            removed = events.pop(oldest, [])
+            total -= len(removed) if isinstance(removed, list) else 1
 
     # ── Activity status ─────────────────────────────────────────────
     async def set_active_status(self, is_active: bool, reason: str = "") -> None:
         self.state_data["is_active"] = is_active
         if reason:
             self.state_data["inactive_reason"] = reason
+        elif is_active:
+            self.state_data["inactive_reason"] = ""
+        if not is_active:
+            self.state_data["current_plan"] = None
+            self.state_data["current_action"] = None
+            self.state_data["occupied_by"] = None
 
     async def is_active(self) -> bool:
         return bool(self.state_data.get("is_active", True))
@@ -187,5 +272,13 @@ class BasicStatePlugin(StatePlugin):
                 self.state_data["short_term_memory"] = {
                     item["tick"]: item["content"] for item in value if isinstance(item, dict)
                 }
+            elif key == "event_log" and isinstance(value, list):
+                restored: dict[int, list[dict[str, Any]]] = {}
+                for index, item in enumerate(value):
+                    if not isinstance(item, dict):
+                        continue
+                    tick = int(item.get("tick", index))
+                    restored.setdefault(tick, []).append(copy.deepcopy(item))
+                self.state_data["event_log"] = restored
             else:
                 self.state_data[key] = copy.deepcopy(value)

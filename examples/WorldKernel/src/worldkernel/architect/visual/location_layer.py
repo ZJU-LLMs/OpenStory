@@ -11,6 +11,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 from worldkernel.architect.spatial.models import SpatialBlueprint
 from worldkernel.architect.visual.client import ImageGenerationClient
+from worldkernel.architect.visual.image_size import normalize_generated_image_size
 from worldkernel.architect.visual.models import VisualLayoutManifest, VisualSlot
 from worldkernel.architect.visual.visual_evaluator import (
     VisualEvaluationError,
@@ -217,6 +218,15 @@ def generate_location_layer(
                 input_path=input_path,
                 mask_path=request_mask_path,
             )
+            model_output_path = attempt_root / f"{prefix}_{attempt}_model_output.png"
+            size_normalization = normalize_generated_image_size(
+                candidate_path,
+                canvas_size,
+                original_output_path=model_output_path,
+            )
+            model_metadata["size_normalization"] = size_normalization
+            if size_normalization["normalized"] and debug_root is None:
+                temporary_paths.append(model_output_path)
             _validate_image_size(candidate_path, canvas_size, f"Location candidate {attempt}")
             with Image.open(candidate_path) as generated_image:
                 generated = generated_image.convert("RGB")
@@ -440,9 +450,10 @@ def compose_location_map_prompt(
             "青框和左上角小编号只是位置索引，不是招牌、门牌或界面；必须连同占位底板一起彻底擦除，画面中不能留下编号和地点名称。",
             "青绿色狭长带表示道路的精确期望走廊，也必须彻底替换为符合世界设定的道路；不要保留控制色、方格边缘或路线标记。",
             "蒙版透明区允许生成地点主体、外侧一格融合边缘和全部道路走廊；每个地点以对应矩形为主体范围，完整收在附近，不遗漏、不合并。",
-            "每个地点都要明确画出完整边界、地面、指定入口、2至4个标志性陈设和可行走空间。不能只画名称牌、黑色面板、屋顶或单个设备。",
+            "每个地点都要明确画出完整边界、大片连续地面、指定入口、2至4个尺寸较大且容易辨认的标志性陈设和宽松可行走空间。不能只画名称牌、黑色面板、屋顶或单个设备。",
             "室内地点画成严格正交俯视的无屋顶2D RPG剖面房间；室外地点画成同投影的开放场景。边缘用墙体、围栏、平台或自然边界完整收尾。",
-            "直接延续输入地图的像素簇、轮廓、色板、材质和光照。地点内部细节清楚但不过密，优先保证结构和陈设可辨认。",
+            "直接延续输入地图的像素颗粒尺度、硬边轮廓、有限色板、平整填色和块状光影。地点内部以完整功能分区和少量大物件表达语义，不用密集小物件或细碎纹理堆砌细节。",
+            "保持清晰的2D RPG卡通像素地图语言：统一的大像素簇、二至四档材质色阶、干净轮廓和明确留白；不要生成写实材质、高频噪点或像素化后的高分辨率插画。",
             "道路必须沿青绿色走廊连续生成，宽度大致保持一致，转角和交叉口自然连通，并在指定入口处准确接入地点。地点内部不得被道路横穿；进入矩形后的道路应自然收束为门口、台阶或室内入口。",
             "全世界只使用一种统一且符合世界时代、文化和地表的道路视觉语言，不自行增加捷径，不移动、遗漏或切断道路。",
             "禁止人物、可读文字、标签、招牌、信息卡、UI、水印、半栋建筑、截断房间和相互重叠。",
@@ -450,11 +461,17 @@ def compose_location_map_prompt(
             f"视觉基准：{_visual_context(visual_profile)}",
             "地点清单（名称只用于理解语义，不得画进图中）：",
             *location_lines,
+            (
+                f"最终输出图片的物理画布必须严格保持为 {canvas_size[0]}×{canvas_size[1]} 像素，"
+                "不得缩小、放大、裁剪、扩边或改成近似尺寸。"
+            ),
         ]
     )
     negative = (
         "名称牌，文字面板，信息卡，保留编号，保留青框，空占位块，屋顶，截断地点，"
-        "地点合并，偏移道路，断路，重复道路，额外捷径，人物，UI，水印，平视，斜视，细碎噪点，模糊"
+        "地点合并，偏移道路，断路，重复道路，额外捷径，人物，UI，水印，平视，斜视，"
+        "照片质感，写实材质，高细节插画，后期像素化滤镜，密集微型方格，逐格纹理，重复图块图案，"
+        "马赛克噪声，碎片化色块，密集小物件，密集砖缝，随机斑点，抖色，点描，柔焦，模糊，平滑渐变"
     )
     return {
         "prompt": prompt,
@@ -605,6 +622,12 @@ def compose_location_correction_prompt(
     )
     if attempt >= 3:
         prompt += "\n第三次纠偏只遵循名称、类型、入口和完整性要求，不增加复杂叙事细节。"
+    prompt += (
+        "\n最终输出图片的物理画布必须严格保持为 "
+        f"{int((base_payload.get('canvas_size') or {}).get('width') or 0)}×"
+        f"{int((base_payload.get('canvas_size') or {}).get('height') or 0)} 像素，"
+        "不得缩小、放大、裁剪、扩边或改成近似尺寸。"
+    )
     return {
         **base_payload,
         "prompt": prompt,
@@ -1120,7 +1143,10 @@ def _location_layer_metadata(
         "initial_request_mask": initial_mask_metadata,
         "canvas_size": {"width": canvas_size[0], "height": canvas_size[1]},
         "request_size_source": "visual_layout_manifest.canvas",
-        "resize_or_crop": False,
+        "resize_or_crop": bool(
+            (model_metadata.get("size_normalization") or {}).get("normalized")
+        ),
+        "size_normalization": model_metadata.get("size_normalization") or {},
         "background_source": str(reference_path),
         "prompt_path": str(prompt_path),
         "location_count": len(manifest.slots),

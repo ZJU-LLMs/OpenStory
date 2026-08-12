@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "assets",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "territory",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_vault_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "protective_energy_shield_rating",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "transport_network_links",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "sensitive_memory_holdings",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

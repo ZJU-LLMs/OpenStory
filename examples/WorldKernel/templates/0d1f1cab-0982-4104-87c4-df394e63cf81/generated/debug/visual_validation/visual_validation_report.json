@@ -1,0 +1,186 @@
+{
+  "world_id": "0d1f1cab-0982-4104-87c4-df394e63cf81",
+  "coordinate_source": "spatial_blueprint.json",
+  "canvas": {
+    "width_px": 2048,
+    "height_px": 1152,
+    "tile_size": 16
+  },
+  "preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\debug\\visual_validation\\visual_validation_preview.png",
+  "formal_assets_modified_by_preview": false,
+  "frontend_manifest_reference_added": false,
+  "layers": [
+    {
+      "name": "background",
+      "status": "ready",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\background.png",
+      "exists": true,
+      "included_in_preview": true
+    },
+    {
+      "name": "location_layer",
+      "status": "ready",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_layer.png",
+      "exists": true,
+      "included_in_preview": true
+    },
+    {
+      "name": "roads_in_location_layer",
+      "status": "integrated",
+      "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0d1f1cab-0982-4104-87c4-df394e63cf81\\generated\\artifacts\\spatial\\location_layer.png",
+      "exists": true,
+      "included_in_preview": true
+    }
+  ],
+  "spatial_counts": {
+    "regions": 9,
+    "routes": 9,
+    "road_tiles": 199
+  },
+  "overlay": {
+    "location_bounds": "red",
+    "location_number": "red_box_white_text",
+    "entrance": "orange",
+    "road_tiles": "cyan_translucent",
+    "route_centerline": "cyan"
+  },
+  "location_index": [
+    {
+      "number": 1,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:001",
+      "name": "管理者环邸",
+      "bounds": {
+        "x": 25,
+        "y": 24,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 41,
+        "y": 30
+      }
+    },
+    {
+      "number": 2,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:002",
+      "name": "中央记忆档案库",
+      "bounds": {
+        "x": 52,
+        "y": 24,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 60,
+        "y": 36
+      }
+    },
+    {
+      "number": 3,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:003",
+      "name": "记忆市政厅",
+      "bounds": {
+        "x": 79,
+        "y": 29,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 95,
+        "y": 35
+      }
+    },
+    {
+      "number": 4,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:004",
+      "name": "云落空港",
+      "bounds": {
+        "x": 87,
+        "y": 50,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 95,
+        "y": 62
+      }
+    },
+    {
+      "number": 5,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:005",
+      "name": "碎片记忆分类库",
+      "bounds": {
+        "x": 60,
+        "y": 50,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 68,
+        "y": 62
+      }
+    },
+    {
+      "number": 6,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:006",
+      "name": "记忆交易所",
+      "bounds": {
+        "x": 25,
+        "y": 45,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 33,
+        "y": 57
+      }
+    },
+    {
+      "number": 7,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:007",
+      "name": "身份鉴定局",
+      "bounds": {
+        "x": 27,
+        "y": 6,
+        "w": 12,
+        "h": 10
+      },
+      "entrance": {
+        "x": 38,
+        "y": 11
+      }
+    },
+    {
+      "number": 8,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:008",
+      "name": "木星之眼瞭望哨",
+      "bounds": {
+        "x": 87,
+        "y": 8,
+        "w": 17,
+        "h": 13
+      },
+      "entrance": {
+        "x": 103,
+        "y": 14
+      }
+    },
+    {
+      "number": 9,
+      "location_id": "e:0d1f1cab_0982_4104_87c4_df394e63cf81:loc:009",
+      "name": "记忆黑市",
+      "bounds": {
+        "x": 57,
+        "y": 6,
+        "w": 12,
+        "h": 10
+      },
+      "entrance": {
+        "x": 68,
+        "y": 11
+      }
+    }
+  ],
+  "passed": true,
+  "issues": []
+}

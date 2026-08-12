@@ -9,9 +9,11 @@ from worldkernel.stage1.types import (
     EntityTemplate,
     GenerationPlan,
     IntentResult,
+    TemplateGenerationResult,
     VisualProfile,
     WorldTemplate,
 )
+from worldkernel.presentation import build_stage1_manifest
 from worldkernel.stage1.world_spec import SessionInfo
 from worldkernel.constraints import GenerationConstraints, load_generation_constraints
 from worldkernel.stage1.generation_planner import plan_generation
@@ -54,7 +56,8 @@ async def run_stage1(
         raise Stage1Error("generation_planner", e) from e
 
     try:
-        templates: dict[str, EntityTemplate] = await generate_templates(intent, world_type, plan)
+        template_result: TemplateGenerationResult = await generate_templates(intent, world_type, plan)
+        templates = template_result.templates
     except Exception as e:
         raise Stage1Error("ontology_selector", e) from e
 
@@ -64,6 +67,7 @@ async def run_stage1(
     _save_entity_configs(out_dir / "configs", templates)
     _generate_pydantic_models(out_dir / "models", out_dir / "configs")
     _save_schema_manifest(out_dir / "models")
+    build_stage1_manifest(out_dir, template_result.presentation_fields)
     _save_artifact_manifest(out_dir, session.session_id)
 
     return session

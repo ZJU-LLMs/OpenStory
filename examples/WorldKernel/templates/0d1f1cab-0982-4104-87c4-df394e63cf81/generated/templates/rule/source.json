@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "authority",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "legitimacy",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "issuing_institution",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "foundation_document",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "amendment_history",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "veto_mechanism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "external_influence",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "ratification_quorum",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -183,7 +183,9 @@ class BasicPlanPlugin(PlanPlugin):
 4. location 必须从可用地点卡的 name 中选择。
 5. target 若不是其他角色名，填“自己”或“无”。
 6. 大多数时段应是角色自己的活动，少数高重要度时段可以互动。
-7. action 使用中文短句，importance 为 1 到 10。
+7. action 是“计划意图”，要写角色想推进什么、确认什么或改变什么，不要预先写成已经发生的结果。
+8. 相邻时段应承接角色记忆和前一时段可能产生的变化，避免 12 个彼此孤立或重复的动作。
+9. action 使用中文短句，importance 为 1 到 10。
 """
         response = await self.model.chat(prompt)
         plans_data = self._parse_plan_json(str(response or ""))
@@ -228,7 +230,7 @@ class BasicPlanPlugin(PlanPlugin):
 【可用地点卡】
 {self._format_location_cards(location_cards)}
 
-要求：只返回 JSON 数组；time 只能覆盖 {start_hour} 到 11；location 必须来自可用地点卡 name。
+要求：只返回 JSON 数组；time 只能覆盖 {start_hour} 到 11；location 必须来自可用地点卡 name；action 只写尚待执行的计划意图，不把预期结果当成事实；新的计划必须回应近期事件与重规划原因。
 """
         response = await self.model.chat(prompt)
         replanned = self._normalize_plans(self._parse_plan_json(str(response or "")), allowed_names, start_hour=start_hour)

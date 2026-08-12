@@ -102,6 +102,58 @@ class VisualLocationPlaceholderLayer(BaseModel):
     style: dict[str, Any] = Field(default_factory=dict)
 
 
+class VisualCharacterAsset(BaseModel):
+    character_id: str
+    name: str = ""
+    batch_id: str
+    slot_index: int
+    status: str = "pending"
+    source_rect: dict[str, int] = Field(default_factory=dict)
+    content_rect: dict[str, int] = Field(default_factory=dict)
+    portrait_rect: dict[str, int] = Field(default_factory=dict)
+    error: str = ""
+
+
+class VisualCharacterAtlasBatch(BaseModel):
+    batch_id: str
+    status: str = "pending"
+    character_count: int = 0
+    layout: dict[str, int] = Field(default_factory=dict)
+    size: dict[str, int] = Field(default_factory=dict)
+    path: str = ""
+    url: str = ""
+    prompt_path: str = ""
+    metadata_path: str = ""
+    preview_path: str = ""
+    provider: str = ""
+    model: str = ""
+    asset_version: str = ""
+    signature: str = ""
+    key_color: str = "#00ff00"
+    error: str = ""
+
+
+class VisualCharacterLayer(BaseModel):
+    status: str = "missing"
+    source: str = "semantic.characters.visual"
+    generation_strategy: str = "dynamic_plain_generation_character_atlas_v1"
+    provider: str = ""
+    model: str = ""
+    max_batch_size: int = 6
+    character_count: int = 0
+    eligible_character_count: int = 0
+    planned_batch_count: int = 0
+    generated_batch_count: int = 0
+    reused_batch_count: int = 0
+    estimated_image_calls: int = 0
+    atlases: list[VisualCharacterAtlasBatch] = Field(default_factory=list)
+    characters: list[VisualCharacterAsset] = Field(default_factory=list)
+    missing_visual_ids: list[str] = Field(default_factory=list)
+    failed_character_ids: list[str] = Field(default_factory=list)
+    needs_review_character_ids: list[str] = Field(default_factory=list)
+    error: str = ""
+
+
 class VisualLayoutManifest(BaseModel):
     world_id: str
     canvas: dict[str, int]
@@ -113,5 +165,6 @@ class VisualLayoutManifest(BaseModel):
     location_placeholder_layer: VisualLocationPlaceholderLayer = Field(default_factory=VisualLocationPlaceholderLayer)
     decorations: list[VisualDecoration] = Field(default_factory=list)
     location_layer: VisualLocationLayer = Field(default_factory=VisualLocationLayer)
+    character_layer: VisualCharacterLayer = Field(default_factory=VisualCharacterLayer)
     asset_contract: dict[str, Any] = Field(default_factory=dict)
     provenance: dict[str, Any] = Field(default_factory=dict)

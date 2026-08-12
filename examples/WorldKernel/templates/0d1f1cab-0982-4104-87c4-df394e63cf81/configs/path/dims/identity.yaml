@@ -1,0 +1,25 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+type:
+  type: str
+path_kind:
+  type: str
+  option: true
+material_structure:
+  type: str
+  option: true
+maintenance_status:
+  type: str
+  option: true
+memory_flow_role:
+  type: str
+  option: true
+signage_system:
+  type: str
+  option: true
+historical_layer:
+  type: str
+  option: true

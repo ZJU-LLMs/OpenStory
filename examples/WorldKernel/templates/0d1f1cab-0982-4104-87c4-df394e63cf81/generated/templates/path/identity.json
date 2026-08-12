@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "path_kind",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "material_structure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "maintenance_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_flow_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "signage_system",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "historical_layer",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

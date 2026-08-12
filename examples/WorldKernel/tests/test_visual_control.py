@@ -24,7 +24,10 @@ from worldkernel.architect.visual.control import (
 )
 from worldkernel.architect.visual.prompt import compose_background_prompt
 from worldkernel.architect.visual.layout import build_visual_layout_manifest
-from worldkernel.architect.visual.pipeline import _generate_background
+from worldkernel.architect.visual.pipeline import (
+    _generate_background,
+    _reference_image_instruction,
+)
 
 
 class VisualControlTests(unittest.TestCase):
@@ -37,6 +40,14 @@ class VisualControlTests(unittest.TestCase):
             manifest = build_visual_layout_manifest(blueprint, {}, directory)
             render_layout_control_assets(blueprint, manifest, directory)
             prompt = compose_background_prompt({}, manifest)
+            self.assertIn("24×16 像素", prompt["prompt"])
+            self.assertIn("不得缩小、放大、裁剪、扩边", prompt["prompt"])
+            self.assertTrue(
+                prompt["prompt"].endswith(
+                    "最终输出图片的物理画布必须严格保持为 24×16 像素，"
+                    "不得缩小、放大、裁剪、扩边或改成近似尺寸。"
+                )
+            )
 
             class FlakyImageClient:
                 def __init__(self, _cfg):
@@ -140,6 +151,60 @@ class VisualControlTests(unittest.TestCase):
                     path.rmdir()
             directory.rmdir()
 
+    def test_background_normalizes_model_size_before_mask_validation(self) -> None:
+        blueprint = self._blueprint()
+        directory = Path(__file__).parent / f".visual-control-{uuid.uuid4().hex}"
+        directory.mkdir()
+        try:
+            manifest = build_visual_layout_manifest(blueprint, {}, directory)
+            render_layout_control_assets(blueprint, manifest, directory)
+            prompt = compose_background_prompt({}, manifest)
+
+            class WrongSizeImageClient:
+                def __init__(self, _cfg):
+                    pass
+
+                def generate(self, _prompt, output_path, **_kwargs):
+                    Image.new("RGB", (12, 8), (220, 20, 20)).save(output_path)
+                    return {"provider": "fake", "model": "fake-image"}
+
+            with (
+                patch(
+                    "worldkernel.architect.visual.pipeline.load_model_config_by_capability",
+                    return_value={"name": "fake", "model": "fake-image"},
+                ),
+                patch(
+                    "worldkernel.architect.visual.pipeline.ImageGenerationClient",
+                    WrongSizeImageClient,
+                ),
+            ):
+                metadata = _generate_background(
+                    blueprint=blueprint,
+                    manifest=manifest,
+                    prompt_payload=prompt,
+                    root=directory,
+                    model_config_path=directory / "unused.yaml",
+                )
+
+            with Image.open(directory / "background_model_output.png") as original:
+                self.assertEqual(original.size, (12, 8))
+            with Image.open(directory / "background_raw.png") as normalized:
+                self.assertEqual(normalized.size, (24, 16))
+            with Image.open(directory / "background.png") as published:
+                self.assertEqual(published.size, (24, 16))
+            self.assertTrue(metadata["size_normalization"]["normalized"])
+            self.assertEqual(
+                metadata["size_normalization"]["resampling"],
+                "nearest_neighbor",
+            )
+        finally:
+            for path in sorted(directory.rglob("*"), reverse=True):
+                if path.is_file():
+                    path.unlink(missing_ok=True)
+                elif path.is_dir():
+                    path.rmdir()
+            directory.rmdir()
+
     def test_background_prompt_requires_sparse_clearance_without_expanding_slots(self) -> None:
         manifest = SimpleNamespace(
             canvas={"width_px": 24, "height_px": 16, "visual_clearance_tiles": 2},
@@ -162,6 +227,19 @@ class VisualControlTests(unittest.TestCase):
         self.assertIn("不要求逐项画出", prompt)
         self.assertIn("风物5", prompt)
         self.assertNotIn("风物6", prompt)
+        self.assertIn("大片连续地表", prompt)
+        self.assertIn("不要逐格添加纹理", prompt)
+        self.assertIn("重复图块图案", payload["negative_prompt"])
+        self.assertEqual(prompt.count("24×16 像素"), 2)
+        self.assertNotIn("修改灰色保留区", payload["negative_prompt"])
+        self.assertNotIn("大型主体紧贴保留区边界", payload["negative_prompt"])
+        self.assertIn("建筑藏在保留区下方", payload["negative_prompt"])
+
+    def test_background_prompt_does_not_repeat_base_and_mask_instructions(self) -> None:
+        self.assertEqual(_reference_image_instruction(has_style_reference=False), "")
+        style_instruction = _reference_image_instruction(has_style_reference=True)
+        self.assertIn("第二张输入图仅用作画风参考", style_instruction)
+        self.assertNotIn("深色区域允许重新绘制", style_instruction)
 
     def test_control_uses_reserved_base_and_submitted_hard_mask(self) -> None:
         blueprint = self._blueprint()

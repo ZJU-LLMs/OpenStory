@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_debt_incurred",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "consciousness_units_spent",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "faction_reputation_loss",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "credibility_anchor_damage",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "archive_audit_flag",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_exposure_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

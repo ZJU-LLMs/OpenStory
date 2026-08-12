@@ -44,9 +44,7 @@ def build_agentkernel_project(
             "agent_profiles": "data/agents/profiles.jsonl",
             "agent_states": "data/agents/states.jsonl",
             "agents_relation": "data/relations/relations.jsonl",
-            "map_agents": "data/map/agents.jsonl",
             "map_locations": "data/map/locations.json",
-            "map_paths": "data/map/paths.json",
             "world_background": "data/world/background.json",
         },
     }
@@ -165,8 +163,17 @@ def _read_artifact_items(semantic_root: Path, artifact_files: dict[str, str], ke
 
 def _transform_patch(patch: InitialWorldPatch) -> dict[str, Any]:
     warnings: list[str] = []
-    location_rows, location_id_to_name = _transform_locations(patch.locations, patch.spatial)
-    path_rows = _transform_paths(patch.paths, patch.spatial, location_id_to_name, warnings)
+    location_rows, location_id_to_name = _transform_locations(
+        patch.locations, patch.spatial, warnings
+    )
+    # Stage3 reasons over semantic locations and their access rules. Route
+    # topology and raster centerlines belong to the presentation client, which
+    # reads the spatial blueprint directly.
+    path_rows: list[dict[str, Any]] = []
+    if patch.paths:
+        warnings.append(
+            "Stage3 omitted semantic path topology; frontend movement uses spatial blueprint routes"
+        )
     profiles, states, agent_positions, character_id_to_agent = _transform_characters(
         patch.characters,
         patch.spatial,
@@ -189,6 +196,7 @@ def _transform_patch(patch: InitialWorldPatch) -> dict[str, Any]:
 def _transform_locations(
     raw_locations: list[dict[str, Any]],
     spatial: dict[str, Any],
+    warnings: list[str],
 ) -> tuple[list[dict[str, Any]], dict[str, str]]:
     region_by_id = {r.get("location_id"): r for r in spatial.get("regions", []) if r.get("location_id")}
     rows: list[dict[str, Any]] = []
@@ -201,6 +209,21 @@ def _transform_locations(
         location_id = str(identity.get("id") or "")
         name = str(identity.get("name") or location_id)
         region = region_by_id.get(location_id, {})
+        bounds = region.get("bounds") or {}
+        entrance = region.get("entrance") or {}
+        if not (
+            region
+            and isinstance(bounds, dict)
+            and float(bounds.get("w", 0) or 0) > 0
+            and float(bounds.get("h", 0) or 0) > 0
+            and isinstance(entrance, dict)
+            and "x" in entrance
+            and "y" in entrance
+        ):
+            warnings.append(
+                f"skipped semantic-only location {location_id or name!r}: not placed in spatial blueprint"
+            )
+            continue
         tags = [t for t in [identity.get("type"), access.get("access_level"), state.get("ownership")] if t]
         row = {
             "id": location_id,
@@ -230,8 +253,6 @@ def _transform_locations(
             "symbolic_meaning": identity.get("symbolic_meaning", ""),
             "key_plot_events": identity.get("key_plot_events", ""),
             "literary_imagery": identity.get("literary_imagery", ""),
-            "bounds": region.get("bounds", {}),
-            "entrance": region.get("entrance", {}),
             "raw": raw,
         }
         rows.append(row)
@@ -260,6 +281,9 @@ def _transform_paths(
             warnings.append(f"skipped path {path_id}: endpoint not found")
             continue
         route = route_by_id.get(path_id, {})
+        if not route or not route.get("centerline"):
+            warnings.append(f"skipped semantic-only path {path_id}: not rasterized in spatial blueprint")
+            continue
         rows.append(
             {
                 "id": path_id,
@@ -357,17 +381,22 @@ def _transform_characters(
                 "current_plan_note": None,
                 "current_action": None,
                 "occupied_by": None,
+                "pending_user_action": None,
+                "replanned_tick": None,
                 "short_term_memory": {},
                 "long_term_memory": [
                     {"tick": 0, "content": item}
                     for item in _coerce_string_list(memories.get("key_events", []))
                 ],
                 "dialogues": {},
+                "event_log": {},
                 "replan_log": [],
                 "long_task_adj_log": [],
                 "location_id": location_id,
                 "current_location": current_location,
-                "position": position,
+                # Pixel/grid position is presentation-only. The frontend gets
+                # spawn anchors and route geometry from the spatial blueprint.
+                "position": None,
                 "memory": {
                     "background_summary": memories.get("background_summary", ""),
                     "key_events": _coerce_string_list(memories.get("key_events", [])),

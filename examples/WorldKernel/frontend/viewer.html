@@ -382,21 +382,24 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `<img src="${avatarUrl}" alt="档案图片"><h3>${name}</h3>`;
-                card.onclick = () => openModal(name, item);
+                card.onclick = () => openModal(name, item, type);
                 grid.appendChild(card);
             });
         }
 
-        function openModal(title, dataObj) {
+        function openModal(title, dataObj, type) {
             elements.modalTitle.innerText = title;
-            elements.modalBody.innerHTML = formatJSON(dataObj);
+            const hiddenKeys = type === 'character'
+                ? new Set(['id', 'wk_entity_id', 'entity_id', 'agent_id', 'character_id'])
+                : new Set();
+            elements.modalBody.innerHTML = formatJSON(dataObj, hiddenKeys);
             elements.modal.classList.add('active');
         }
 
         function closeModal() { elements.modal.classList.remove('active'); }
         elements.modal.addEventListener('click', (e) => { if(e.target === elements.modal) closeModal(); });
 
-        function formatJSON(obj) {
+        function formatJSON(obj, hiddenKeys = new Set()) {
             if (typeof obj !== 'object' || obj === null) {
                 let displayVal = obj;
                 if (obj === "true" || obj === true) displayVal = "是";
@@ -405,10 +408,11 @@
             }
             if (Array.isArray(obj)) {
                 if(obj.length === 0) return '<span class="data-val">无</span>';
-                return `<div class="data-indent">` + obj.map(item => `<div>- ${formatJSON(item)}</div>`).join('') + `</div>`;
+                return `<div class="data-indent">` + obj.map(item => `<div>- ${formatJSON(item, hiddenKeys)}</div>`).join('') + `</div>`;
             }
             let html = '<div class="data-indent">';
             for (let key in obj) {
+                if(hiddenKeys.has(key)) continue;
                 if(key === 'id' && typeof obj[key] === 'string' && obj[key].startsWith('e:')) continue;
                 if(key === 'location_id' && typeof obj[key] === 'string' && obj[key].startsWith('e:')) continue;
                 
@@ -417,7 +421,7 @@
                     displayKey = key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
                 }
                 
-                html += `<div><span class="data-key">${displayKey}:</span> ${formatJSON(obj[key])}</div>`;
+                html += `<div><span class="data-key">${displayKey}:</span> ${formatJSON(obj[key], hiddenKeys)}</div>`;
             }
             html += '</div>';
             return html;

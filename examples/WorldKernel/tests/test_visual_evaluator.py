@@ -177,6 +177,29 @@ class VisualEvaluatorTests(unittest.TestCase):
         self.assertEqual(decision["locations"][0]["score"], 0)
         self.assertEqual(decision["locations"][1]["score"], 10)
 
+    def test_fully_displaced_location_is_critical_regardless_of_confidence(self) -> None:
+        displaced = self._evaluation(
+            1,
+            "location-1",
+            status="major_shift",
+            confidence=0.28,
+            overlap=0.05,
+            center="outside",
+            complete=True,
+        )
+
+        decision = decide_evaluation(
+            VisualEvaluationReport(
+                locations=[displaced],
+                roads=self._road_evaluation(),
+            )
+        )
+
+        self.assertFalse(decision["passed"])
+        self.assertEqual(decision["hard_failure_location_ids"], ["location-1"])
+        self.assertEqual(decision["critical_incident_location_ids"], ["location-1"])
+        self.assertTrue(decision["locations"][0]["fully_displaced"])
+
     def test_invalid_json_is_repaired_once(self) -> None:
         items = self._items(1)
         root = Path(__file__).parent / f".visual-evaluator-repair-{uuid.uuid4().hex}"

@@ -18,6 +18,7 @@ from worldkernel.architect.visual.layout import build_visual_layout_manifest
 from worldkernel.architect.visual.location_layer import (
     _draw_location_marker,
     build_initial_location_edit_mask,
+    compose_location_correction_prompt,
     compose_location_map_prompt,
     generate_location_layer,
 )
@@ -28,6 +29,7 @@ class _FakeImageClient:
     calls: list[dict[str, object]] = []
     attempt_count = 0
     failures_remaining = 0
+    model_output_size: tuple[int, int] | None = None
 
     def __init__(self, config: dict[str, object]):
         self.config = config
@@ -57,6 +59,8 @@ class _FakeImageClient:
                 mask_mode = mask_image.mode
         with Image.open(input_image_path) as source_image:
             result = ImageOps.invert(source_image.convert("RGB"))
+        if type(self).model_output_size is not None:
+            result = result.resize(type(self).model_output_size, Image.Resampling.NEAREST)
         result.save(output_path, format="PNG")
         self.calls.append(
             {
@@ -174,6 +178,7 @@ class LocationLayerTests(unittest.TestCase):
         _FakeImageClient.calls = []
         _FakeImageClient.attempt_count = 0
         _FakeImageClient.failures_remaining = 0
+        _FakeImageClient.model_output_size = None
         _FakeVisualEvaluator.calls = []
         _FakeVisualEvaluator.pass_on_attempt = 1
 
@@ -194,10 +199,38 @@ class LocationLayerTests(unittest.TestCase):
             items=items,
             canvas_size=(640, 400),
         )
+        self.assertIn("640×400 像素", payload["prompt"])
+        self.assertIn("不得缩小、放大、裁剪、扩边", payload["prompt"])
         self.assertEqual(len(payload["locations"]), 7)
         self.assertTrue(all(f"{index}｜地点 {index}｜" in payload["prompt"] for index in range(1, 8)))
         self.assertIn("同时完成全部地点与连接道路", payload["prompt"])
         self.assertIn("道路必须沿青绿色走廊连续生成", payload["prompt"])
+        self.assertIn("尺寸较大且容易辨认的标志性陈设", payload["prompt"])
+        self.assertIn("不用密集小物件或细碎纹理", payload["prompt"])
+        self.assertIn("重复图块图案", payload["negative_prompt"])
+        self.assertTrue(
+            payload["prompt"].endswith(
+                "最终输出图片的物理画布必须严格保持为 640×400 像素，"
+                "不得缩小、放大、裁剪、扩边或改成近似尺寸。"
+            )
+        )
+
+    def test_correction_prompt_repeats_physical_canvas_size(self) -> None:
+        payload = compose_location_correction_prompt(
+            base_payload={"canvas_size": {"width": 640, "height": 400}},
+            items=[],
+            evaluation={},
+            attempt=2,
+        )
+
+        self.assertIn("640×400 像素", payload["prompt"])
+        self.assertIn("不得缩小、放大、裁剪、扩边", payload["prompt"])
+        self.assertTrue(
+            payload["prompt"].endswith(
+                "最终输出图片的物理画布必须严格保持为 640×400 像素，"
+                "不得缩小、放大、裁剪、扩边或改成近似尺寸。"
+            )
+        )
 
     def test_prompt_keeps_structure_and_landmarks_without_full_narrative(self) -> None:
         blueprint = self._blueprint()
@@ -345,6 +378,67 @@ class LocationLayerTests(unittest.TestCase):
             self.assertEqual(saved_manifest["location_layer"]["status"], "ready")
         finally:
             for path in sorted(root.rglob("*"), key=lambda item: len(item.parts), reverse=True):
+                if path.is_file():
+                    path.unlink(missing_ok=True)
+                elif path.is_dir():
+                    path.rmdir()
+            root.rmdir()
+
+    def test_generation_normalizes_candidate_before_visual_review(self) -> None:
+        blueprint = self._blueprint()
+        manifest = build_visual_layout_manifest(blueprint, {}, None)
+        root = Path(__file__).parent / f".location-layer-{uuid.uuid4().hex}"
+        root.mkdir()
+        try:
+            background_path = root / "background.png"
+            debug_root = root / "debug" / "location_attempts"
+            Image.new("RGB", (640, 400), (48, 80, 64)).save(background_path)
+            semantic_locations = [
+                {
+                    "id": slot.location_id,
+                    "name": f"地点 {index}",
+                    "location_type": "室内",
+                    "visual": "完整的无屋顶像素房间",
+                }
+                for index, slot in enumerate(manifest.slots, start=1)
+            ]
+            _FakeImageClient.model_output_size = (320, 200)
+            with (
+                patch(
+                    "worldkernel.architect.visual.location_layer.load_model_config_by_capability",
+                    return_value={"name": "fake", "model": "fake-image-2"},
+                ),
+                patch(
+                    "worldkernel.architect.visual.location_layer.ImageGenerationClient",
+                    _FakeImageClient,
+                ),
+                patch(
+                    "worldkernel.architect.visual.location_layer.VisualEvaluator",
+                    _FakeVisualEvaluator,
+                ),
+            ):
+                metadata = generate_location_layer(
+                    blueprint=blueprint,
+                    manifest=manifest,
+                    world_background={"world_name": "测试世界"},
+                    semantic_locations=semantic_locations,
+                    root=root,
+                    model_config_path=root / "unused.yaml",
+                    background_reference_path=background_path,
+                    debug_artifact_root=debug_root,
+                )
+
+            with Image.open(debug_root / "location_attempt_1_model_output.png") as original:
+                self.assertEqual(original.size, (320, 200))
+            with Image.open(debug_root / "location_attempt_1.png") as normalized:
+                self.assertEqual(normalized.size, (640, 400))
+            with Image.open(root / "location_layer.png") as layer:
+                self.assertEqual(layer.size, (640, 400))
+            self.assertTrue(metadata["resize_or_crop"])
+            self.assertTrue(metadata["size_normalization"]["normalized"])
+            self.assertEqual(len(_FakeVisualEvaluator.calls), 1)
+        finally:
+            for path in sorted(root.rglob("*"), reverse=True):
                 if path.is_file():
                     path.unlink(missing_ok=True)
                 elif path.is_dir():

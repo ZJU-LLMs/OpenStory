@@ -1,7 +1,6 @@
 """Reflect plugin: summarizes memory, checks survival, adjusts/replans tasks.
 
-Generic port of story_of_the_stone's BasicReflectPlugin — the life-status and
-adjustment prompts no longer reference 红楼梦; they rely on generic memory text.
+Generic reflection driven by structured WorldKernel events and memory.
 """
 
 from __future__ import annotations
@@ -38,20 +37,25 @@ class BasicReflectPlugin(ReflectPlugin):
         logger.info("[%s][N/A] BasicReflectPlugin initialization completed", self.agent_id)
 
     async def execute(self, current_tick: int) -> None:
-        if await self._check_life_status_lightweight(current_tick):
+        state = self._component.agent.get_component("state").get_plugin()
+        if not await state.is_active():
             return
 
+        events = [
+            event
+            for event in await state.get_event_log()
+            if int(event.get("tick", -1)) == int(current_tick)
+        ]
+
         current_hour = current_tick % 12
-        if current_hour < 11:
-            should, reason = await self._should_replan(current_tick)
+        if current_hour < 11 and await state.get_state("replanned_tick") != current_tick:
+            should, reason = await self._should_replan(current_tick, events)
             if should:
                 await self._replan_remaining(current_tick, reason)
 
         if (current_tick + 1) % 12 == 0:
             try:
                 await self._summarize_short_term_memory(current_tick)
-                if await self._check_life_status(current_tick):
-                    return
                 await self._check_long_task_completion(current_tick)
                 await self._adjust_long_task(current_tick)
             except Exception as exc:  # noqa: BLE001
@@ -121,83 +125,6 @@ class BasicReflectPlugin(ReflectPlugin):
             await state.add_long_term_memory(f"[已完成任务] {summary}")
             await state.set_long_task(None)
 
-    # ── Life status ─────────────────────────────────────────────────
-    async def _check_life_status_lightweight(self, current_tick: int) -> bool:
-        if not self.model:
-            return False
-        state = self._component.agent.get_component("state").get_plugin()
-        short = await state.get_short_term_memory()
-        if not short:
-            return False
-        recent = short[-5:] if len(short) > 5 else short
-        memories_text = "\n".join(f"- {m.get('tick', '?')}: {m.get('content', m)}" for m in recent)
-        return await self._evaluate_life_status(current_tick, memories_text, state)
-
-    async def _check_life_status(self, current_tick: int) -> bool:
-        if not self.model:
-            return False
-        state = self._component.agent.get_component("state").get_plugin()
-        short = await state.get_short_term_memory()
-        long = await state.get_long_term_memory()
-        if not short and not long:
-            return False
-        ctx = ""
-        if short:
-            ctx += "近期记忆：\n" + "\n".join(f"- {m.get('content', m)}" for m in short) + "\n"
-        if long:
-            ctx += "历史记忆：\n" + "\n".join(f"- {m['content']}" for m in long)
-        return await self._evaluate_life_status(current_tick, ctx, state)
-
-    async def _evaluate_life_status(self, current_tick: int, memories_text: str, state) -> bool:
-        prompt = f"""你是一个智能体生存状态分析助手。请根据以下记忆判断角色当前是否处于"无法继续参与后续行动"的状态。
-
-这些状态包括但不限于：
-1. 死亡（自杀、被杀、病死、遇害等）
-2. 完全消失/失踪
-3. 永久离开/远走且不再回来
-4. 被长期囚禁/拘留
-5. 记忆中出现 [END] 标记表示离场
-
-当前角色：{self.agent_id}
-
-记忆：
-{memories_text}
-
-[判断规则]：
-1. 若记忆明确提到"{self.agent_id}死了/被杀/遇害/离世"，必须判定为"已离场"
-2. 若提到某人"杀了{self.agent_id}"，必须判定为"已离场"
-3. 若角色仍在场（仅休息、受伤未死、情绪低落），判定为"活跃"
-4. 只有明确发生离场事件时才判定为"已离场"
-5. 返回格式：判断结果 | 离场原因（包含核心因果，如"因为..."）
-6. 必须使用中文
-
-返回示例：已离场 | 角色因卷入冲突而身亡
-返回示例：活跃 |
-
-请分析并返回："""
-        result = (await self.model.chat(prompt)).strip()
-        if "活跃" in result or "Active" in result:
-            return False
-        if "已离场" in result or "Departed" in result:
-            parts = result.split("|")
-            reason = parts[1].strip() if len(parts) > 1 else "发生不可逆的离场事件"
-            await state.set_active_status(False, reason)
-            await state.add_long_term_memory(f"[最终结局] {reason}")
-            await self._broadcast_departure(reason)
-            return True
-        return False
-
-    async def _broadcast_departure(self, reason: str) -> None:
-        try:
-            controller = self._component.agent.controller
-            all_ids = await controller.get_all_agent_ids()
-            msg = f"[噩耗] {self.agent_id} 已离场。原因：{reason}"
-            for tid in all_ids:
-                if tid != self.agent_id:
-                    await controller.run_agent_method(tid, "state", "add_long_term_memory", msg)
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("[%s] Failed to broadcast departure: %s", self.agent_id, exc)
-
     # ── Long task adjustment ────────────────────────────────────────
     async def _adjust_long_task(self, current_tick: int) -> None:
         state = self._component.agent.get_component("state").get_plugin()
@@ -235,22 +162,28 @@ class BasicReflectPlugin(ReflectPlugin):
         await state.add_long_task_adjustment(tick=current_tick, from_day=current_day + 1)
 
     # ── Replan ──────────────────────────────────────────────────────
-    async def _should_replan(self, current_tick: int) -> Tuple[bool, str]:
+    async def _should_replan(
+        self, current_tick: int, events: list[dict]
+    ) -> Tuple[bool, str]:
         if not self.model:
             return (False, "no model")
         state = self._component.agent.get_component("state").get_plugin()
         long_task = await state.get_long_task()
         if not long_task:
             return (False, "无长期任务")
-        short = await state.get_short_term_memory()
-        if not short:
-            return (False, "无短期记忆")
-        last = short[-1].get("content", str(short[-1]))
+        if not events:
+            return (False, "本时段无结构化事件")
+        event_context = "\n".join(
+            f"- {event.get('type', 'event')}: {event.get('summary', '')}; "
+            f"效果={event.get('effect_results', [])}"
+            for event in events
+        )
         current_hour = current_tick % 12
         prompt = f"""你是计划评估助手。请根据上一时段事件判断是否需要重新规划剩余时间。
 
 当前长期任务：{long_task}
-上一时段事件：{last}
+本时段已发生事件：
+{event_context}
 当前时段：第{current_hour}个时段
 
 判断标准：
@@ -270,6 +203,8 @@ class BasicReflectPlugin(ReflectPlugin):
     async def _replan_remaining(self, current_tick: int, reason: str) -> None:
         try:
             state = self._component.agent.get_component("state").get_plugin()
+            if await state.get_state("replanned_tick") == current_tick:
+                return
             profile = self._component.agent.get_component("profile").get_plugin().get_agent_profile()
             long_task = await state.get_long_task()
             current_hour = current_tick % 12
@@ -285,5 +220,6 @@ class BasicReflectPlugin(ReflectPlugin):
             await state.add_replan_event(
                 tick=current_tick, reason=reason, day=current_day, from_hour=current_hour + 1
             )
+            await state.set_state("replanned_tick", current_tick)
         except Exception as exc:  # noqa: BLE001
             logger.error("[%s][%s] Error replanning: %s", self.agent_id, current_tick, exc)

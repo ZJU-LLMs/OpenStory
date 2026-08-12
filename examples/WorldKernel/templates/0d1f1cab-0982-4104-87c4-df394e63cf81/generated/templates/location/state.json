@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "structural_integrity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "shield_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_supply_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "maintenance_urgency",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_readiness",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "occupancy_pressure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

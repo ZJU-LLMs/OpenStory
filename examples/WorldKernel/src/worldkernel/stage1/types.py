@@ -192,9 +192,21 @@ class FieldDef(BaseModel):
     ref: str = ""            # 引用的实体类型，如 "location" | "relation"
 
 
+class FieldPresentationDef(BaseModel):
+    """Frontend-only metadata kept out of generated inference schemas."""
+
+    label_zh: str = ""
+    player_visible: bool = True
+
+
 class TemplateDimension(BaseModel):
     fields: list[FieldDef] = []
 
 
 class EntityTemplate(BaseModel):
     dimensions: dict[str, TemplateDimension] = {}
+
+
+class TemplateGenerationResult(BaseModel):
+    templates: dict[str, EntityTemplate] = {}
+    presentation_fields: dict[str, FieldPresentationDef] = {}

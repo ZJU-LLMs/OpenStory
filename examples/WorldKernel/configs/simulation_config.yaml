@@ -15,7 +15,5 @@ data:
   agent_profiles: "data/agents/profiles.jsonl"
   agent_states: "data/agents/states.jsonl"
   agents_relation: "data/relations/relations.jsonl"
-  map_agents: "data/map/agents.jsonl"
   map_locations: "data/map/locations.json"
-  map_paths: "data/map/paths.json"
   world_background: "data/world/background.json"

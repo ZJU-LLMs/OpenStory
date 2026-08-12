@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "black_market_standoff",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "dispatcher_privileges",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "market_oversight_role",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_officer_oversight",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}
