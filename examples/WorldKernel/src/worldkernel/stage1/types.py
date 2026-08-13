@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 
 class WorldOrigin(BaseModel):
@@ -98,6 +98,28 @@ class SimulationStart(BaseModel):
 
 # ── 世界模版 ──────────────────────────────────────────────────────────
 
+class VisualProfile(BaseModel):
+    art_style: str = ""
+    camera_projection: str = ""
+    era_style: str = ""
+    color_palette: list[str] = []
+    lighting_weather: str = ""
+    material_texture: list[str] = []
+    environmental_motifs: list[str] = []
+    atmosphere: str = ""
+    edge_blending_style: str = ""
+    negative_visual_constraints: list[str] = []
+
+    @field_validator("color_palette", "material_texture", "environmental_motifs", "negative_visual_constraints", mode="before")
+    @classmethod
+    def _coerce_list(cls, value):
+        if value is None or value == "":
+            return []
+        if isinstance(value, list):
+            return [str(item) for item in value if item is not None and str(item)]
+        return [part.strip() for part in str(value).split(",") if part.strip()]
+
+
 class WorldTemplate(BaseModel):
     primary: str
     secondary: str | None = None
@@ -108,6 +130,7 @@ class WorldTemplate(BaseModel):
     world_origin_summary: str = ""
     scope: str = ""
     simulation_start: SimulationStart = SimulationStart()
+    visual_profile: VisualProfile = VisualProfile()
 
     location_archetypes: list[LocationArchetype] = []
     character_archetypes: list[CharacterArchetype] = []
@@ -169,9 +192,21 @@ class FieldDef(BaseModel):
     ref: str = ""            # 引用的实体类型，如 "location" | "relation"
 
 
+class FieldPresentationDef(BaseModel):
+    """Frontend-only metadata kept out of generated inference schemas."""
+
+    label_zh: str = ""
+    player_visible: bool = True
+
+
 class TemplateDimension(BaseModel):
     fields: list[FieldDef] = []
 
 
 class EntityTemplate(BaseModel):
     dimensions: dict[str, TemplateDimension] = {}
+
+
+class TemplateGenerationResult(BaseModel):
+    templates: dict[str, EntityTemplate] = {}
+    presentation_fields: dict[str, FieldPresentationDef] = {}

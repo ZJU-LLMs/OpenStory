@@ -3,15 +3,18 @@ from __future__ import annotations
 from contextlib import asynccontextmanager
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import FileResponse
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from worldkernel.constraints import load_generation_constraints
 from worldkernel.llm import client as llm_client
+from worldkernel.presentation import PresentationService
 from worldkernel.stage1.pipeline import Stage1Error, run_stage1
 from worldkernel.stage3.runtime import Stage3RuntimeManager
 from worldkernel.stage3.sessions import list_stage3_ready_session_summaries
@@ -23,6 +26,7 @@ FRONTEND_DIR = BASE_DIR / "frontend"
 
 _constraints = None
 _stage3_runtime = Stage3RuntimeManager(BASE_DIR)
+_presentation_service = PresentationService()
 
 
 @asynccontextmanager
@@ -34,6 +38,7 @@ async def lifespan(app: FastAPI):
     try:
         yield
     finally:
+        await _presentation_service.close()
         await _stage3_runtime.stop(shutdown_ray=True)
 
 
@@ -84,6 +89,20 @@ class ParseRequest(BaseModel):
     input: str
 
 
+class VisualGenerateRequest(BaseModel):
+    generate_background: bool = True
+    generate_location_layer: bool | None = None
+    generate_characters: bool | None = None
+    force_character_batch_ids: list[str] = Field(default_factory=list)
+    reuse_existing_spatial: bool = True
+
+
+class CharacterVisualDevGenerateRequest(BaseModel):
+    """Development-only controls for regenerating selected character atlases."""
+
+    force_character_batch_ids: list[str] = Field(default_factory=list)
+
+
 @app.post("/api/stage1/parse")
 async def parse(req: ParseRequest):
     session = await run_stage1(req.input, constraints=_constraints)
@@ -94,6 +113,25 @@ async def parse(req: ParseRequest):
 async def list_stage3_ready_sessions():
     """List local sessions that already have the artifacts needed to enter Stage3."""
     return {"sessions": list_stage3_ready_session_summaries(TEMPLATES_DIR)}
+
+
+@app.get("/api/presentation/{session_id}/field-labels")
+async def get_presentation_field_labels(session_id: str, locale: str = "zh-CN"):
+    """Return frontend-only labels; missing historical labels are filled in the background."""
+    session_dir = TEMPLATES_DIR / session_id
+    if not session_dir.exists():
+        raise HTTPException(status_code=404, detail="session not found")
+    runtime_state = None
+    if _stage3_runtime.session_id == session_id:
+        runtime_state = _stage3_runtime.state()
+    try:
+        return await _presentation_service.get_manifest(
+            session_dir,
+            locale=locale,
+            runtime_state=runtime_state,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
 
 
 @app.get("/api/stage1/session/{session_id}")
@@ -111,12 +149,35 @@ async def get_session(session_id: str):
 @app.get("/api/stage1/session/{session_id}/{path:path}")
 async def get_session_file(session_id: str, path: str):
     file_path = TEMPLATES_DIR / session_id / path
-    if not file_path.exists() or file_path.suffix not in (".json", ".yaml"):
+    if not file_path.exists() or file_path.suffix not in (".json", ".yaml", ".png"):
         raise HTTPException(status_code=404, detail="file not found")
+    if file_path.suffix == ".png":
+        return FileResponse(file_path, media_type="image/png")
     if file_path.suffix == ".yaml":
         import yaml
         return yaml.safe_load(file_path.read_text(encoding="utf-8"))
-    return json.loads(file_path.read_text(encoding="utf-8"))
+    data = json.loads(file_path.read_text(encoding="utf-8"))
+    if path.replace("\\", "/").endswith("generated/artifacts/spatial/visual_layout_manifest.json"):
+        data = _hydrate_visual_manifest_response(data, file_path.parent)
+    return data
+
+
+def _hydrate_visual_manifest_response(data: object, spatial_root: Path) -> object:
+    if not isinstance(data, dict):
+        return data
+    try:
+        from worldkernel.architect.visual.character_atlas import (
+            hydrate_existing_character_layer,
+        )
+        from worldkernel.architect.visual.location_layer import hydrate_existing_location_layer
+        from worldkernel.architect.visual.models import VisualLayoutManifest
+
+        manifest = VisualLayoutManifest.model_validate(data)
+        hydrate_existing_location_layer(manifest, spatial_root)
+        hydrate_existing_character_layer(manifest, spatial_root)
+        return manifest.model_dump(mode="json")
+    except Exception:
+        return data
 
 
 @app.post("/api/stage2/generate/{session_id}")
@@ -174,7 +235,7 @@ async def stage2_generate(session_id: str):
 @app.post("/api/spatial/generate/{session_id}")
 async def spatial_generate(session_id: str):
     """Standalone spatial generation from disk-based semantic artifacts."""
-    semantic_root = TEMPLATES_DIR / session_id / "generated" / "artifacts"
+    semantic_root = _resolve_session_semantic_root(session_id)
     if not semantic_root.exists():
         raise HTTPException(status_code=404, detail="semantic artifacts not found; run Stage2 first")
 
@@ -195,6 +256,47 @@ async def spatial_generate(session_id: str):
 
     pipeline = SpatialPipeline(config)
     result = pipeline.run(build_input)
+    spatial_output_root = TEMPLATES_DIR / session_id / "generated" / "artifacts" / "spatial"
+    world_background = _load_session_world_background(session_id)
+    from worldkernel.architect.semantic.repository import SemanticArtifactRepository
+
+    semantic_repository = SemanticArtifactRepository(
+        world_id=session_id,
+        root=semantic_root,
+    )
+    semantic_characters = semantic_repository.load_characters()
+
+    try:
+        from worldkernel.architect.pipeline import save_spatial_blueprint
+        from worldkernel.architect.visual import run_visual_pipeline
+
+        visual_manifest = run_visual_pipeline(
+            blueprint=result.blueprint,
+            world_background=world_background,
+            output_root=spatial_output_root,
+            model_config_path=CONFIGS_DIR / "image_models.yaml",
+            generate_background=config.rendering.ai_art_enabled,
+            generate_location_layer=(
+                config.rendering.ai_art_enabled
+                and config.rendering.location_layer_enabled
+            ),
+            semantic_locations=[location.raw for location in build_input.locations],
+            semantic_characters=semantic_characters,
+            generate_character_layer=(
+                config.rendering.ai_art_enabled
+                and config.rendering.character_atlas_enabled
+            ),
+            character_batch_size=config.rendering.characters_per_atlas,
+            character_key_colors=config.rendering.character_key_colors,
+            character_transparent_threshold=(
+                config.rendering.character_transparent_threshold
+            ),
+            character_opaque_threshold=config.rendering.character_opaque_threshold,
+        )
+        result.blueprint.visual = visual_manifest.model_dump(mode="json")
+        save_spatial_blueprint(result.blueprint, spatial_output_root)
+    except Exception as exc:
+        result.blueprint.visual = {"status": "failed", "error": str(exc)}
 
     validation = result.validation.report
 
@@ -219,9 +321,184 @@ async def spatial_generate(session_id: str):
         ],
         "road_tiles": [{"x": t.x, "y": t.y} for t in result.blueprint.road_tiles],
         "spawn_points": [sp.model_dump(mode="json") for sp in result.blueprint.spawn_points],
+        "visual": result.blueprint.visual,
         "validation": {
             "passed": validation.passed,
             "issues": [i.model_dump(mode="json") for i in validation.issues],
+        },
+    }
+
+
+def _load_session_world_background(session_id: str) -> dict:
+    path = TEMPLATES_DIR / session_id / "generated" / "plan" / "world_background.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except json.JSONDecodeError:
+        return {}
+
+
+def _resolve_session_semantic_root(session_id: str) -> Path:
+    artifacts_root = TEMPLATES_DIR / session_id / "generated" / "artifacts"
+    semantic_root = artifacts_root / "semantic"
+    if (semantic_root / "metadata" / "semantic_manifest.json").exists():
+        return semantic_root
+    return artifacts_root
+
+
+@app.post("/api/visual/generate/{session_id}")
+async def visual_generate(session_id: str, req: VisualGenerateRequest | None = None):
+    """Regenerate image assets from an existing semantic template.
+
+    This test channel skips Stage1 and semantic generation. It reuses the saved
+    spatial blueprint by default, and only rebuilds spatial data when no
+    blueprint exists or reuse_existing_spatial is false.
+    """
+    session_dir = TEMPLATES_DIR / session_id
+    if not session_dir.exists():
+        raise HTTPException(status_code=404, detail="session not found")
+
+    request = req or VisualGenerateRequest()
+    from worldkernel.architect.visual.regenerate import regenerate_visual_from_template
+
+    try:
+        result = regenerate_visual_from_template(
+            template_root=session_dir,
+            config_path=CONFIGS_DIR / "architect.yaml",
+            image_model_config_path=CONFIGS_DIR / "image_models.yaml",
+            generate_background=request.generate_background,
+            generate_location_layer=request.generate_location_layer,
+            generate_characters=request.generate_characters,
+            force_character_batch_ids=request.force_character_batch_ids,
+            reuse_existing_spatial=request.reuse_existing_spatial,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+    blueprint = result.blueprint
+    return {
+        "world_id": result.world_id,
+        "template_root": result.template_root,
+        "semantic_root": result.semantic_root,
+        "spatial_output_root": result.spatial_output_root,
+        "spatial_source": result.spatial_source,
+        "semantic": result.semantic_counts,
+        "spatial": {
+            "grid": {
+                "width": blueprint.grid.width,
+                "height": blueprint.grid.height,
+                "tile_size": blueprint.grid.tile_size,
+            },
+            "regions": [r.model_dump(mode="json") for r in blueprint.regions],
+            "routes": [
+                {
+                    "path_edge_id": r.path_edge_id,
+                    "from_location_id": r.from_location_id,
+                    "to_location_id": r.to_location_id,
+                    "centerline": [{"x": t.x, "y": t.y} for t in r.centerline],
+                    "movement_cost": r.movement_cost,
+                    "access_tags": r.access_tags,
+                }
+                for r in blueprint.routes
+            ],
+            "road_tiles": [{"x": t.x, "y": t.y} for t in blueprint.road_tiles],
+            "spawn_points": [sp.model_dump(mode="json") for sp in blueprint.spawn_points],
+            "visual": blueprint.visual,
+            "validation": result.validation,
+        },
+        "counts": result.spatial_counts,
+    }
+
+
+@app.post("/api/dev/visual/characters/{session_id}", tags=["development"])
+async def dev_generate_character_visuals(
+    session_id: str,
+    req: CharacterVisualDevGenerateRequest | None = None,
+):
+    """Generate only character atlases from an existing completed template.
+
+    This temporary development path skips Stage1, semantic generation, spatial
+    generation, the map background, and the location layer. It requires and
+    reuses the template's saved spatial blueprint so the generated assets can
+    be inspected immediately in the existing simulation frontend.
+    """
+    session_dir = TEMPLATES_DIR / session_id
+    if not session_dir.exists():
+        raise HTTPException(status_code=404, detail="session not found")
+
+    spatial_root = session_dir / "generated" / "artifacts" / "spatial"
+    spatial_blueprint_path = spatial_root / "spatial_blueprint.json"
+    if not spatial_blueprint_path.exists():
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                "existing spatial blueprint not found; generate the map first so "
+                "the character-only development path can reuse it"
+            ),
+        )
+
+    request = req or CharacterVisualDevGenerateRequest()
+    from worldkernel.architect.visual.regenerate import regenerate_visual_from_template
+
+    try:
+        result = regenerate_visual_from_template(
+            template_root=session_dir,
+            config_path=CONFIGS_DIR / "architect.yaml",
+            image_model_config_path=CONFIGS_DIR / "image_models.yaml",
+            generate_background=False,
+            generate_location_layer=False,
+            generate_characters=True,
+            force_character_batch_ids=request.force_character_batch_ids,
+            reuse_existing_spatial=True,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+    encoded_session_id = quote(session_id, safe="")
+    manifest_url = (
+        f"/api/stage1/session/{encoded_session_id}/generated/artifacts/spatial/"
+        "visual_layout_manifest.json"
+    )
+    frontend_url = f"/simulation.html?session_id={encoded_session_id}"
+    character_layer = result.blueprint.visual.get("character_layer", {})
+
+    return {
+        "session_id": session_id,
+        "world_id": result.world_id,
+        "template_root": result.template_root,
+        "semantic_root": result.semantic_root,
+        "character_output_root": str(Path(result.spatial_output_root) / "characters"),
+        "spatial_source": result.spatial_source,
+        "manifest_url": manifest_url,
+        "frontend_url": frontend_url,
+        "character_layer": character_layer,
+        "counts": {
+            "character_count": result.spatial_counts.get("character_count", 0),
+            "eligible_character_count": result.spatial_counts.get(
+                "eligible_character_count", 0
+            ),
+            "planned_batch_count": result.spatial_counts.get(
+                "planned_character_batches", 0
+            ),
+            "generated_batch_count": result.spatial_counts.get(
+                "generated_character_batches", 0
+            ),
+            "reused_batch_count": result.spatial_counts.get(
+                "reused_character_batches", 0
+            ),
+            "estimated_image_calls": result.spatial_counts.get(
+                "estimated_character_image_calls", 0
+            ),
         },
     }
 
@@ -277,6 +554,7 @@ async def stage2_run(session_id: str):
             ],
             "road_tiles": [{"x": t.x, "y": t.y} for t in spatial.blueprint.road_tiles],
             "spawn_points": [sp.model_dump(mode="json") for sp in spatial.blueprint.spawn_points],
+            "visual": spatial.blueprint.visual,
             "validation": {
                 "passed": validation.passed,
                 "issues": [i.model_dump(mode="json") for i in validation.issues],
@@ -315,6 +593,12 @@ class Stage3RuntimeStartRequest(BaseModel):
     max_ticks: int = 100
 
 
+class Stage3NextActionRequest(BaseModel):
+    action: str = Field(min_length=1, max_length=300)
+    target: str | None = None
+    location: str = Field(min_length=1)
+
+
 @app.post("/api/stage3/runtime/start/{session_id}")
 async def stage3_runtime_start(session_id: str, req: Stage3RuntimeStartRequest | None = None):
     """Start the single active Stage3 Agent-Kernel runtime for a completed session."""
@@ -335,6 +619,22 @@ async def stage3_runtime_tick():
         return await _stage3_runtime.tick()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/api/stage3/runtime/agents/{agent_id}/next-action")
+async def stage3_runtime_next_action(agent_id: str, req: Stage3NextActionRequest):
+    """Queue one highest-priority action for the agent's next tick."""
+    try:
+        return await _stage3_runtime.set_next_action(
+            agent_id=agent_id,
+            action=req.action,
+            target=req.target,
+            location=req.location,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except RuntimeError as exc:
+        raise HTTPException(status_code=409, detail=str(exc))
 
 
 @app.get("/api/stage3/runtime/state")

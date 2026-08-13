@@ -1,4 +1,4 @@
-"""Move action: relocate an agent to a target location via the space plugin."""
+"""Move action: update an agent's logical location after access validation."""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ def _result(method: str, ok: bool, message: str, data: dict[str, Any] | None = N
 
 
 class BasicMovePlugin(OtherActionsPlugin):
-    """Validates target accessibility and updates the agent's location."""
+    """Validates destination access without reasoning over map route geometry."""
 
     def __init__(self, redis: Any = None) -> None:
         super().__init__()
@@ -47,7 +47,7 @@ class BasicMovePlugin(OtherActionsPlugin):
             return _result("move_to", False, "controller unavailable")
 
         profile = await self.controller.run_agent_method(agent_id, "profile", "get_agent_profile")
-        current_location_id = await self.controller.run_agent_method(
+        from_location_id = await self.controller.run_agent_method(
             agent_id, "state", "get_state", "location_id"
         )
         can_enter = await self.controller.run_environment("space", "can_agent_enter", profile, location)
@@ -55,24 +55,19 @@ class BasicMovePlugin(OtherActionsPlugin):
             return _result("move_to", False, can_enter.get("reason", "location is not accessible"))
 
         target_location_id = can_enter.get("location_id")
-        route = await self.controller.run_environment(
-            "space", "find_route", current_location_id, target_location_id
-        )
-
-        position = await self.controller.run_environment(
+        await self.controller.run_environment(
             "space", "update_agent_location", agent_id, target_location_id
         )
         await self.controller.run_agent_method(agent_id, "state", "set_state", "location_id", target_location_id)
         await self.controller.run_agent_method(
             agent_id, "state", "set_state", "current_location", can_enter.get("location_name")
         )
-        await self.controller.run_agent_method(agent_id, "state", "set_state", "position", position)
         return _result(
             "move_to", True, "move completed",
             {
+                "from_location_id": from_location_id,
                 "location_id": target_location_id,
                 "location": can_enter.get("location_name"),
-                "position": position,
-                "route": route,
+                "route_resolution": "frontend",
             },
         )

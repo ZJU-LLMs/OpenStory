@@ -2,7 +2,7 @@
 # 0 = unlimited
 
 generation_constraints:
-  max_locations: 20
+  max_locations: 15
   max_characters: 15
 
 # Spatial generation config
@@ -11,11 +11,11 @@ spatial_generation:
   output_subdir: "stage2/spatial"
 
   canvas:
-    grid_width: 160
-    grid_height: 100
+    grid_width: 128
+    grid_height: 72
     tile_size: 16
     margin_tiles: 6
-    default_region_min_size: [8, 6]
+    default_region_min_size: [12, 8]
     default_region_max_size: [22, 16]
     corridor_width: 3
 
@@ -31,7 +31,7 @@ spatial_generation:
     default_layer_id: "ground"
     min_region_gap: 6
     preferred_region_gap: 10
-    edge_comfort_margin: 12
+    edge_comfort_margin: 5
     candidate_limit: 96
 
   routing:
@@ -44,7 +44,14 @@ spatial_generation:
     export_tiled_json: true
     export_preview_png: true
     background_mode: "simple_tile"
-    ai_art_enabled: false
+    ai_art_enabled: true
+    location_layer_enabled: true
+    character_atlas_enabled: true
+    characters_per_atlas: 3
+    character_key_colors: ["#00ff00", "#00ffff"]
+    character_transparent_threshold: 24
+    character_opaque_threshold: 96
+    visual_mode: "composited_full_map"
 
   validation:
     require_all_locations_reachable: true

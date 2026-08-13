@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "mission",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "founding_reason",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "core_jurisdiction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "cosmic_duty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "founding_myth",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

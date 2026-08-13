@@ -9,8 +9,11 @@ from worldkernel.stage1.types import (
     EntityTemplate,
     GenerationPlan,
     IntentResult,
+    TemplateGenerationResult,
+    VisualProfile,
     WorldTemplate,
 )
+from worldkernel.presentation import build_stage1_manifest
 from worldkernel.stage1.world_spec import SessionInfo
 from worldkernel.constraints import GenerationConstraints, load_generation_constraints
 from worldkernel.stage1.generation_planner import plan_generation
@@ -53,7 +56,8 @@ async def run_stage1(
         raise Stage1Error("generation_planner", e) from e
 
     try:
-        templates: dict[str, EntityTemplate] = await generate_templates(intent, world_type, plan)
+        template_result: TemplateGenerationResult = await generate_templates(intent, world_type, plan)
+        templates = template_result.templates
     except Exception as e:
         raise Stage1Error("ontology_selector", e) from e
 
@@ -63,6 +67,7 @@ async def run_stage1(
     _save_entity_configs(out_dir / "configs", templates)
     _generate_pydantic_models(out_dir / "models", out_dir / "configs")
     _save_schema_manifest(out_dir / "models")
+    build_stage1_manifest(out_dir, template_result.presentation_fields)
     _save_artifact_manifest(out_dir, session.session_id)
 
     return session
@@ -114,9 +119,68 @@ def _save_plan(plan_dir: Path, plan: GenerationPlan, world_type: WorldTemplate, 
         "tags": world_type.tags,
         "scope": world_type.scope,
         "simulation_start": world_type.simulation_start.model_dump(),
+        "visual_profile": _build_visual_profile(world_type).model_dump(),
         "world_constraints": [c.model_dump() for c in world_type.world_constraints],
     }
     _save_json(plan_dir / "world_background.json", bg)
+
+
+def _build_visual_profile(world_type: WorldTemplate) -> VisualProfile:
+    """Build a world-level visual contract without location-specific facts."""
+    profile = world_type.visual_profile
+    if any((
+        profile.art_style,
+        profile.camera_projection,
+        profile.era_style,
+        profile.color_palette,
+        profile.lighting_weather,
+        profile.material_texture,
+        profile.environmental_motifs,
+        profile.atmosphere,
+        profile.edge_blending_style,
+        profile.negative_visual_constraints,
+    )):
+        return profile
+
+    tags = ", ".join(world_type.tags)
+    summary = world_type.world_origin_summary or world_type.primary or "生成的世界"
+    atmosphere = f"{summary}；标签：{tags}" if tags else summary
+    return VisualProfile(
+        art_style="俯视角手工卡通像素风世界地图，原生低分辨率 tile/sprite 像素美术语言，经过设计的大像素簇、统一深色像素轮廓、平整填色、硬边块状阴影、二到四档明确色阶、简化圆润造型，整体明亮、可爱、整洁",
+        camera_projection="严格正交俯视，接近垂直向下的 2D 地图视角",
+        era_style=f"{world_type.primary or '世界'} / {world_type.secondary or '通用'}",
+        color_palette=[
+            "符合世界题材的明亮像素地图底色",
+            "从叙事氛围中提取的清晰强调色",
+            "便于识别建筑、设施和景观的干净过渡色",
+        ],
+        lighting_weather="明亮、均匀、可读的全局光照，使用柔和短阴影，不使用写实或戏剧化聚光",
+        material_texture=[
+            "低纹理密度的大色块地表",
+            "符合时代的建筑、设施、交通工具和公共景观材质",
+        ],
+        environmental_motifs=[
+            "根据世界时代与文明形态生成通用建筑、公共设施、交通元素、街景陈设和景观装饰",
+            "文明世界不能只生成森林、水体、岩石和草地",
+        ],
+        atmosphere=atmosphere,
+        edge_blending_style="简洁像素块边缘与少量柔和过渡，便于后续地点素材融合",
+        negative_visual_constraints=[
+            "不要人物",
+            "不要肖像",
+            "不要可读文字",
+            "不要标签",
+            "不要界面图标",
+            "不要地点名",
+            "不要具体室内细节",
+            "不要等距透视",
+            "不要斜俯视场景插画",
+            "不要写实材质",
+            "不要复杂高频微小纹理",
+            "不要后期像素化滤镜感、抗锯齿、柔焦或模糊",
+            "不要抖色、点描、颗粒、散点高光或随机纹理噪声",
+        ],
+    )
 
 
 def _save_templates(templates_dir: Path, templates: dict[str, EntityTemplate]) -> None:
@@ -172,6 +236,12 @@ dimensions:
     state:
       type: StateDim
       path: dims/state.yaml
+
+  # Visual prompt used directly by downstream image generation
+  visual:
+    visual:
+      type: str
+      path: dims/visual.yaml
 """
 
 _LOCATION_YAML_TEMPLATE = """\
@@ -202,6 +272,12 @@ dimensions:
     state:
       type: StateDim
       path: dims/state.yaml
+
+  # Visual prompt used directly by downstream image generation
+  visual:
+    visual:
+      type: str
+      path: dims/visual.yaml
 """
 
 _PATH_YAML_TEMPLATE = """\
@@ -266,6 +342,7 @@ _ENTITY_CONFIGS: list[dict] = [
         "main_file": "agent.yaml",
         "dims": ["identity", "social_profile", "capabilities",
                  "personality", "goals", "memories", "state"],
+        "scalar_dims": ["visual"],
     },
     {
         "dir_name": "location",
@@ -273,6 +350,7 @@ _ENTITY_CONFIGS: list[dict] = [
         "template": _LOCATION_YAML_TEMPLATE,
         "main_file": "location.yaml",
         "dims": ["identity", "access", "state"],
+        "scalar_dims": ["visual"],
     },
     {
         "dir_name": "path",
@@ -360,7 +438,7 @@ def _save_entity_configs(configs_dir: Path, templates: dict[str, EntityTemplate]
         dims_dir = ent_cfg_dir / "dims"
         dims_dir.mkdir(parents=True, exist_ok=True)
 
-        for dim_name in cfg["dims"]:
+        for dim_name in cfg["dims"] + cfg.get("scalar_dims", []):
             dim_data = entity_template.dimensions.get(dim_name)
             if not dim_data:
                 continue
@@ -412,6 +490,7 @@ def _generate_pydantic_models(models_dir: Path, configs_dir: Path) -> None:
         ]
 
         dim_classes: list[tuple[str, str]] = []
+        scalar_fields: list[tuple[str, dict]] = []
 
         for dim_name in cfg["dims"]:
             dim_file = dims_dir / f"{dim_name}.yaml"
@@ -464,9 +543,26 @@ def _generate_pydantic_models(models_dir: Path, configs_dir: Path) -> None:
 
             dim_classes.append((dim_class_name, dim_name))
 
+        for dim_name in cfg.get("scalar_dims", []):
+            dim_file = dims_dir / f"{dim_name}.yaml"
+            if not dim_file.exists():
+                continue
+            dim_data = yaml.safe_load(dim_file.read_text(encoding="utf-8"))
+            for fname, fval in dim_data.items():
+                if fname == "dim_name":
+                    continue
+                if isinstance(fval, dict) and "type" in fval:
+                    scalar_fields.append((fname, fval))
+
         lines.append(f"class {model_class_name}(BaseModel):")
         for dim_class_name, dim_field_name in dim_classes:
             lines.append(f"    {dim_field_name}: {dim_class_name} = {dim_class_name}()")
+        for fname, fval in scalar_fields:
+            ftype = fval.get("type", "str")
+            py_type, default = _PY_TYPE_MAP.get(ftype, ("str", '""'))
+            comment = "  # world-specific" if fval.get("option") else ""
+            safe_fname = _sanitize_identifier(fname)
+            lines.append(f"    {safe_fname}: {py_type} = {default}{comment}")
         lines.append("")
 
         model_file = models_dir / f"{cfg['dir_name']}_model.py"

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "entry_token",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "guardians",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "restriction_level",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "alignment_requirement",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

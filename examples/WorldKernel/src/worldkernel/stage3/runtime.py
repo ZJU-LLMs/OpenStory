@@ -47,6 +47,7 @@ class Stage3RuntimeManager:
         self.system: Any = None
         self.current_tick: int = 0
         self.last_agents_data: dict[str, Any] = {}
+        self.last_locations_data: list[dict[str, Any]] = []
         self.started: bool = False
         self._lock = asyncio.Lock()
         self._stop_requested: bool = False
@@ -89,7 +90,10 @@ class Stage3RuntimeManager:
             self.session_root = session_path
             self.adapter_result = adapter_result.model_dump(mode="json")
             self.current_tick = await self.system.run("timer", "get_tick")
-            self.last_agents_data = await self.pod_manager.collect_agents_data.remote()
+            self.last_agents_data, self.last_locations_data = await asyncio.gather(
+                self.pod_manager.collect_agents_data.remote(),
+                self.pod_manager.collect_locations_data.remote(),
+            )
             self.started = True
             return self.state()
 
@@ -115,20 +119,78 @@ class Stage3RuntimeManager:
             await self.system.run("timer", "add_tick", duration_seconds=duration)
 
             self.current_tick = current_tick
-            self.last_agents_data = await self.pod_manager.collect_agents_data.remote()
+            self.last_agents_data, self.last_locations_data = await asyncio.gather(
+                self.pod_manager.collect_agents_data.remote(),
+                self.pod_manager.collect_locations_data.remote(),
+            )
             return self.state(extra={"duration_seconds": duration})
 
     def state(self, extra: dict[str, Any] | None = None) -> dict[str, Any]:
+        agents = self._normalize_agents(self.last_agents_data)
         payload = {
             "started": self.started,
             "session_id": self.session_id,
             "current_tick": self.current_tick,
-            "agents": self._normalize_agents(self.last_agents_data),
+            "agents": agents,
+            "locations": self._normalize_locations(self.last_locations_data),
+            "events": self._dedupe_events(agents),
             "adapter": self.adapter_result,
         }
         if extra:
             payload.update(extra)
         return payload
+
+    async def set_next_action(
+        self,
+        agent_id: str,
+        action: str,
+        target: str | None,
+        location: str,
+    ) -> dict[str, Any]:
+        async with self._lock:
+            if not self.started or not self.pod_manager:
+                raise RuntimeError("Stage3 runtime is not started")
+            agent_ids = set((self.last_agents_data or {}).keys())
+            if agent_id not in agent_ids:
+                raise ValueError("agent not found")
+            if target and target not in agent_ids:
+                raise ValueError("target agent not found")
+            normalized_action = " ".join(str(action or "").split()).strip()
+            if not normalized_action:
+                raise ValueError("action must not be empty")
+            if len(normalized_action) > 300:
+                raise ValueError("action is too long")
+
+            # Adapter locations are already the semantic/spatial intersection.
+            # Do not reload bounds or entrances here: Stage3 validates only the
+            # logical destination, while the frontend resolves display routes.
+            location_ids: set[str] = set()
+            location_names: dict[str, str] = {}
+            for item in self.last_locations_data or []:
+                if not isinstance(item, dict):
+                    continue
+                location_id = str(item.get("id") or "")
+                location_name = str(item.get("name") or "")
+                if location_id:
+                    location_ids.add(location_id)
+                    if location_name:
+                        location_names[location_name] = location_id
+            resolved_location = location_names.get(location, location)
+            if resolved_location not in location_ids:
+                raise ValueError("location is not available in the current simulation")
+
+            payload = {
+                "action": normalized_action,
+                "target": target or None,
+                "location": resolved_location,
+                "importance": 10,
+                "submitted_tick": self.current_tick,
+            }
+            accepted = await self.pod_manager.set_pending_user_action.remote(agent_id, payload)
+            if not accepted:
+                raise RuntimeError("failed to store pending user action")
+            self.last_agents_data.setdefault(agent_id, {})["pending_user_action"] = payload
+            return {"accepted": True, "agent_id": agent_id, "pending_user_action": payload}
 
     async def stop(self, shutdown_ray: bool = True) -> dict[str, Any]:
         self._stop_requested = True
@@ -160,6 +222,7 @@ class Stage3RuntimeManager:
         self.started = False
         self.current_tick = 0
         self.last_agents_data = {}
+        self.last_locations_data = []
         self._stop_requested = False
         return self.state()
 
@@ -192,10 +255,43 @@ class Stage3RuntimeManager:
                     "current_plan": data.get("current_plan"),
                     "current_action": data.get("current_action"),
                     "current_plan_note": data.get("current_plan_note"),
+                    "occupied_by": data.get("occupied_by"),
+                    "event_log": data.get("event_log") or [],
+                    "dialogues": data.get("dialogues") or {},
                     "short_term_memory": data.get("short_term_memory") or [],
                     "long_term_memory": data.get("long_term_memory") or [],
                     "is_active": data.get("is_active", True),
                     "inactive_reason": data.get("inactive_reason", ""),
+                    "mood": data.get("mood", ""),
+                    "status": data.get("status", ""),
+                    "active_goal": data.get("active_goal"),
+                    "pending_user_action": data.get("pending_user_action"),
                 }
             )
         return agents
+
+    @staticmethod
+    def _normalize_locations(raw_locations: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
+        return [dict(location) for location in (raw_locations or []) if isinstance(location, dict)]
+
+    @staticmethod
+    def _dedupe_events(agents: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        unique: dict[str, dict[str, Any]] = {}
+        for agent in agents:
+            for event in agent.get("event_log") or []:
+                if not isinstance(event, dict):
+                    continue
+                event_id = str(event.get("event_id") or "")
+                if not event_id:
+                    event_id = "legacy:" + "|".join(
+                        [
+                            str(event.get("tick", "")),
+                            str(event.get("initiator") or (event.get("participants") or [""])[0]),
+                            str(event.get("summary", "")),
+                        ]
+                    )
+                unique.setdefault(event_id, event)
+        return sorted(
+            unique.values(),
+            key=lambda event: (int(event.get("tick", 0) or 0), str(event.get("event_id", ""))),
+        )

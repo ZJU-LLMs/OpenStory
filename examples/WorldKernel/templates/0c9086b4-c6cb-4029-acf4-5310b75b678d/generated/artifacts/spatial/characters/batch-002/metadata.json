@@ -1,0 +1,203 @@
+{
+  "signature": "5375844c6b557a820e212964",
+  "batch": {
+    "batch_id": "batch-002",
+    "status": "ready",
+    "character_count": 3,
+    "layout": {
+      "columns": 3,
+      "rows": 1
+    },
+    "size": {
+      "width": 1720,
+      "height": 914
+    },
+    "path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifacts\\spatial\\characters\\batch-002\\atlas.png",
+    "url": "characters/batch-002/atlas.png",
+    "prompt_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifacts\\spatial\\characters\\batch-002\\prompt.json",
+    "metadata_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifacts\\spatial\\characters\\batch-002\\metadata.json",
+    "preview_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifacts\\spatial\\characters\\batch-002\\review_preview.png",
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "asset_version": "0bbe261300f447b8",
+    "signature": "5375844c6b557a820e212964",
+    "key_color": "#00ff00",
+    "error": ""
+  },
+  "characters": [
+    {
+      "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+      "name": "伊德里斯·奎尔",
+      "batch_id": "batch-002",
+      "slot_index": 0,
+      "status": "ready",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 573,
+        "h": 914
+      },
+      "content_rect": {
+        "x": 157,
+        "y": 22,
+        "w": 364,
+        "h": 875
+      },
+      "portrait_rect": {
+        "x": 157,
+        "y": 22,
+        "w": 364,
+        "h": 402
+      },
+      "error": ""
+    },
+    {
+      "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:005",
+      "name": "朱诺·凯德",
+      "batch_id": "batch-002",
+      "slot_index": 1,
+      "status": "ready",
+      "source_rect": {
+        "x": 573,
+        "y": 0,
+        "w": 574,
+        "h": 914
+      },
+      "content_rect": {
+        "x": 699,
+        "y": 30,
+        "w": 318,
+        "h": 866
+      },
+      "portrait_rect": {
+        "x": 699,
+        "y": 30,
+        "w": 318,
+        "h": 398
+      },
+      "error": ""
+    },
+    {
+      "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:006",
+      "name": "凯斯特雷尔·莫尔",
+      "batch_id": "batch-002",
+      "slot_index": 2,
+      "status": "ready",
+      "source_rect": {
+        "x": 1147,
+        "y": 0,
+        "w": 573,
+        "h": 914
+      },
+      "content_rect": {
+        "x": 1183,
+        "y": 15,
+        "w": 353,
+        "h": 882
+      },
+      "portrait_rect": {
+        "x": 1183,
+        "y": 15,
+        "w": 353,
+        "h": 405
+      },
+      "error": ""
+    }
+  ],
+  "generation": {
+    "provider": "OpenAIProvider",
+    "model": "gpt-image-2",
+    "api_style": "openai_compatible",
+    "size": "",
+    "image_url": "",
+    "transport_attempt_count": 1,
+    "transport_failures": []
+  },
+  "postprocess_version": "character-atlas-cutout-v11-preserve-native-alpha",
+  "postprocessing": {
+    "status": "ready",
+    "expected_size": {
+      "width": 1024,
+      "height": 1024
+    },
+    "source_size": {
+      "width": 1720,
+      "height": 914
+    },
+    "output_size": {
+      "width": 1720,
+      "height": 914
+    },
+    "size_adjusted": true,
+    "aspect_ratio_changed": true,
+    "x_boundaries": [
+      0,
+      573,
+      1147,
+      1720
+    ],
+    "y_boundaries": [
+      0,
+      914
+    ],
+    "characters": [
+      {
+        "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+        "status": "ready",
+        "issues": [
+          "model_output_size_differs"
+        ],
+        "source_rect": {
+          "x": 0,
+          "y": 0,
+          "w": 573,
+          "h": 914
+        },
+        "content_rect": {
+          "x": 157,
+          "y": 22,
+          "w": 364,
+          "h": 875
+        }
+      },
+      {
+        "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:005",
+        "status": "ready",
+        "issues": [
+          "model_output_size_differs"
+        ],
+        "source_rect": {
+          "x": 573,
+          "y": 0,
+          "w": 574,
+          "h": 914
+        },
+        "content_rect": {
+          "x": 699,
+          "y": 30,
+          "w": 318,
+          "h": 866
+        }
+      },
+      {
+        "character_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:006",
+        "status": "ready",
+        "issues": [
+          "model_output_size_differs"
+        ],
+        "source_rect": {
+          "x": 1147,
+          "y": 0,
+          "w": 573,
+          "h": 914
+        },
+        "content_rect": {
+          "x": 1183,
+          "y": 15,
+          "w": 353,
+          "h": 882
+        }
+      }
+    ]
+  }
+}

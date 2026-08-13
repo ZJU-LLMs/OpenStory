@@ -88,6 +88,16 @@ class BasicStateComponent(StateComponent):
             return {}
         return await self._plugin.get_dialogues()
 
+    async def add_event(self, tick: int, event: Dict[str, Any]) -> None:
+        if not self._plugin:
+            return
+        await self._plugin.add_event(tick, event)
+
+    async def get_event_log(self) -> List[Dict[str, Any]]:
+        if not self._plugin:
+            return []
+        return await self._plugin.get_event_log()
+
     async def set_active_status(self, is_active: bool, reason: str = "") -> None:
         if not self._plugin:
             return

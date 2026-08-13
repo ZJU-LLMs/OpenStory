@@ -1,0 +1,12 @@
+{
+  "name": "openstory-worldkernel-frontend",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "preview": "vite --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

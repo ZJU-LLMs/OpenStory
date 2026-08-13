@@ -18,7 +18,7 @@ _SYSTEM = (
 )
 
 _NESTED_KEYS = {"location_archetypes", "character_archetypes", "rule_archetypes",
-                "world_constraints", "simulation_start"}
+                "world_constraints", "simulation_start", "visual_profile"}
 
 
 async def build_world_template(intent: IntentResult) -> WorldTemplate:

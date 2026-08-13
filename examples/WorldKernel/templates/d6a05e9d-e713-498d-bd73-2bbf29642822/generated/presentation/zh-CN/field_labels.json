@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "locale": "zh-CN",
+  "revision": 1,
+  "status": "pending",
+  "unresolved_count": 3,
+  "fields": {
+    "character.capabilities": {
+      "label": "能力",
+      "visible": true
+    },
+    "character.capabilities.ability_origin": {
+      "label": "能力来源",
+      "visible": true
+    },
+    "character.capabilities.combat_rating": {
+      "label": "战力评级",
+      "visible": true
+    },
+    "character.capabilities.level": {
+      "label": "水平",
+      "visible": true
+    },
+    "character.capabilities.magic_treasures": {
+      "label": "随身法宝",
+      "visible": true
+    },
+    "character.capabilities.skills": {
+      "label": "技能",
+      "visible": true
+    },
+    "character.capabilities.weaknesses": {
+      "label": "弱点",
+      "visible": true
+    },
+    "character.goals": {
+      "label": "目标与动机",
+      "visible": true
+    },
+    "character.goals.conflict_source": {
+      "label": "冲突根源",
+      "visible": true
+    },
+    "character.goals.current_quest": {
+      "label": "当前任务",
+      "visible": true
+    },
+    "character.goals.desired_boon": {
+      "label": "渴望之物",
+      "visible": true
+    },
+    "character.goals.long_term_goal": {
+      "label": "长期目标",
+      "visible": true
+    },
+    "character.goals.motivation": {
+      "label": "动机",
+      "visible": true
+    },
+    "character.goals.short_term_goal": {
+      "label": "短期目标",
+      "visible": true
+    },
+    "character.identity": {
+      "label": "身份信息",
+      "visible": true
+    },
+    "character.identity.celestial_rank": {
+      "label": "仙阶官位",
+      "visible": true
+    },
+    "character.identity.faction": {
+      "label": "所属阵营",
+      "visible": true
+    },
+    "character.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "character.identity.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "character.identity.role": {
+      "label": "身份",
+      "visible": true
+    },
+    "character.identity.species": {
+      "label": "种族",
+      "visible": true
+    },
+    "character.memories": {
+      "label": "记忆",
+      "visible": true
+    },
+    "character.memories.background_summary": {
+      "label": "背景摘要",
+      "visible": true
+    },
+    "character.memories.key_events": {
+      "label": "关键事件",
+      "visible": true
+    },
+    "character.memories.knowledge.social_knowledge": {
+      "label": "社会知识",
+      "visible": true
+    },
+    "character.memories.knowledge.world_knowledge": {
+      "label": "世界知识",
+      "visible": true
+    },
+    "character.memories.known_secrets": {
+      "label": "掌握秘辛",
+      "visible": true
+    },
+    "character.memories.offense_history": {
+      "label": "前科记录",
+      "visible": true
+    },
+    "character.memories.secrets": {
+      "label": "秘密",
+      "visible": true
+    },
+    "character.memories.war_deeds": {
+      "label": "显赫战绩",
+      "visible": true
+    },
+    "character.personality": {
+      "label": "性格",
+      "visible": true
+    },
+    "character.personality.aspiration": {
+      "label": "生平追求",
+      "visible": true
+    },
+    "character.personality.attitude_toward_authority": {
+      "label": "权威态度",
+      "visible": true
+    },
+    "character.personality.fatal_flaw": {
+      "label": "致命弱点",
+      "visible": true
+    },
+    "character.personality.speech_style": {
+      "label": "说话风格",
+      "visible": true
+    },
+    "character.personality.traits": {
+      "label": "特质",
+      "visible": true
+    },
+    "character.personality.values": {
+      "label": "价值观",
+      "visible": true
+    },
+    "character.social_profile": {
+      "label": "社会关系",
+      "visible": true
+    },
+    "character.social_profile.faction_position": {
+      "label": "派系职务",
+      "visible": true
+    },
+    "character.social_profile.group_id": {
+      "label": "所属群体",
+      "visible": false
+    },
+    "character.social_profile.notoriety_level": {
+      "label": "恶名值",
+      "visible": true
+    },
+    "character.social_profile.public_image": {
+      "label": "公众形象",
+      "visible": true
+    },
+    "character.social_profile.reputation": {
+      "label": "声望",
+      "visible": true
+    },
+    "character.state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "character.state.current_status": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "character.state.energy_level": {
+      "label": "法力精力",
+      "visible": true
+    },
+    "character.state.is_restrained": {
+      "label": "是否被束缚",
+      "visible": true
+    },
+    "character.state.location.location_id": {
+      "label": "地点标识",
+      "visible": false
+    },
+    "character.state.position.x": {
+      "label": "横坐标",
+      "visible": true
+    },
+    "character.state.position.y": {
+      "label": "纵坐标",
+      "visible": true
+    },
+    "character.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "character.visual.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "location.access": {
+      "label": "访问规则",
+      "visible": true
+    },
+    "location.access.access_conditions": {
+      "label": "进入条件",
+      "visible": true
+    },
+    "location.access.access_level": {
+      "label": "访问等级",
+      "visible": true
+    },
+    "location.access.alignment_requirement": {
+      "label": "阵营要求",
+      "visible": true
+    },
+    "location.access.entry_token": {
+      "label": "进入凭证",
+      "visible": true
+    },
+    "location.access.guardians": {
+      "label": "守卫力量",
+      "visible": true
+    },
+    "location.access.permissions": {
+      "label": "权限",
+      "visible": true
+    },
+    "location.access.restriction_level": {
+      "label": "禁入程度",
+      "visible": true
+    },
+    "location.identity": {
+      "label": "身份信息",
+      "visible": true
+    },
+    "location.identity.affiliation": {
+      "label": "归属势力",
+      "visible": true
+    },
+    "location.identity.celestial_domain": {
+      "label": "所属界域",
+      "visible": true
+    },
+    "location.identity.description": {
+      "label": "描述",
+      "visible": true
+    },
+    "location.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "location.identity.mythological_significance": {
+      "label": "神话地位",
+      "visible": true
+    },
+    "location.identity.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "location.identity.spiritual_level": {
+      "label": "仙灵等级",
+      "visible": true
+    },
+    "location.identity.type": {
+      "label": "类型",
+      "visible": true
+    },
+    "location.state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "location.state.capacity": {
+      "label": "容量",
+      "visible": true
+    },
+    "location.state.celestial_weather": {
+      "label": "天象状态",
+      "visible": true
+    },
+    "location.state.current_event": {
+      "label": "当前事件",
+      "visible": true
+    },
+    "location.state.current_state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "location.state.danger_level": {
+      "label": "危险等级",
+      "visible": true
+    },
+    "location.state.ownership": {
+      "label": "归属",
+      "visible": true
+    },
+    "location.state.spiritual_energy": {
+      "label": "灵气浓度",
+      "visible": true
+    },
+    "location.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "location.visual.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "world.primary": {
+      "label": "主要世界类型",
+      "visible": true
+    },
+    "world.scope": {
+      "label": "世界规模",
+      "visible": true
+    },
+    "world.secondary": {
+      "label": "次要世界类型",
+      "visible": true
+    },
+    "world.simulation_start": {
+      "label": "模拟起点",
+      "visible": true
+    },
+    "world.simulation_start.narrative_context": {
+      "label": "",
+      "visible": true
+    },
+    "world.simulation_start.time_point": {
+      "label": "起始时间",
+      "visible": true
+    },
+    "world.simulation_start.trigger_event": {
+      "label": "触发事件",
+      "visible": true
+    },
+    "world.simulation_start.year": {
+      "label": "",
+      "visible": true
+    },
+    "world.tags": {
+      "label": "标签",
+      "visible": true
+    },
+    "world.visual_profile": {
+      "label": "视觉设定",
+      "visible": false
+    },
+    "world.visual_profile.art_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.atmosphere": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.camera_projection": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.color_palette": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.edge_blending_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.environmental_motifs": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.era_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.lighting_weather": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.material_texture": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.negative_visual_constraints": {
+      "label": "",
+      "visible": false
+    },
+    "world.world_constraints": {
+      "label": "世界约束",
+      "visible": true
+    },
+    "world.world_constraints[].constraint_id": {
+      "label": "",
+      "visible": true
+    },
+    "world.world_constraints[].description": {
+      "label": "描述",
+      "visible": true
+    },
+    "world.world_constraints[].name": {
+      "label": "名称",
+      "visible": true
+    },
+    "world.world_constraints[].scope": {
+      "label": "世界规模",
+      "visible": true
+    },
+    "world.world_name": {
+      "label": "世界名称",
+      "visible": true
+    },
+    "world.world_origin_summary": {
+      "label": "世界背景摘要",
+      "visible": true
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_tax_amount",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_cost",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reputation_cost",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "data_exposure_risk",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

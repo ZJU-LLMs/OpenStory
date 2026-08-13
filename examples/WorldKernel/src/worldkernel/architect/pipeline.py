@@ -161,10 +161,48 @@ async def run_stage2(
     logger.info("Running spatial pipeline")
     spatial_result = SpatialPipeline(spatial_config).run(build_input)
 
-    # 10. Optionally save spatial blueprint
+    # 10. Optionally run the visual layer and save spatial blueprint
     spatial_output_root = ""
     if save_spatial:
         sp_root = Path(output_root) / "spatial" if output_root else None
+        visual_root = sp_root or _default_spatial_output_root(foundation.world_id)
+        try:
+            from worldkernel.architect.visual import run_visual_pipeline
+
+            model_config_path = (
+                Path(config_path).parent / "image_models.yaml"
+                if config_path
+                else Path(__file__).resolve().parents[3] / "configs" / "image_models.yaml"
+            )
+            visual_manifest = run_visual_pipeline(
+                blueprint=spatial_result.blueprint,
+                world_background=context.world_background.model_dump(mode="json"),
+                output_root=visual_root,
+                model_config_path=model_config_path,
+                generate_background=spatial_config.rendering.ai_art_enabled,
+                generate_location_layer=(
+                    spatial_config.rendering.ai_art_enabled
+                    and spatial_config.rendering.location_layer_enabled
+                ),
+                semantic_locations=list(foundation.locations),
+                semantic_characters=list(foundation.characters),
+                generate_character_layer=(
+                    spatial_config.rendering.ai_art_enabled
+                    and spatial_config.rendering.character_atlas_enabled
+                ),
+                character_batch_size=spatial_config.rendering.characters_per_atlas,
+                character_key_colors=spatial_config.rendering.character_key_colors,
+                character_transparent_threshold=(
+                    spatial_config.rendering.character_transparent_threshold
+                ),
+                character_opaque_threshold=(
+                    spatial_config.rendering.character_opaque_threshold
+                ),
+            )
+            spatial_result.blueprint.visual = visual_manifest.model_dump(mode="json")
+        except Exception as exc:
+            logger.warning("Visual layer failed; saving spatial blueprint without generated art: %s", exc)
+            spatial_result.blueprint.visual = {"status": "failed", "error": str(exc)}
         saved = save_spatial_blueprint(
             blueprint=spatial_result.blueprint,
             output_root=sp_root,

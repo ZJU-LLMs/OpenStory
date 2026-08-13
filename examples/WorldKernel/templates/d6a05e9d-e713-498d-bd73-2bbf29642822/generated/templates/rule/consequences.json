@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "name": "penalties",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "rewards_for_compliance",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "historical_cases",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "symbolic_penalty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "compliance_bonus",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -50,11 +50,6 @@ class StateDim(BaseModel):
     position_y: float = 0.0
 
 
-class VisualDim(BaseModel):
-    visual_description: str = ""
-    visual_prompt: str = ""
-
-
 class SocialProfileDim(BaseModel):
     group_id: str = ""
     reputation: str = ""
@@ -82,7 +77,7 @@ class AgentEntity(BaseModel):
     goals: GoalsDim = GoalsDim()
     constraints: ConstraintsDim = ConstraintsDim()
     state: StateDim = StateDim()
-    visual: VisualDim = VisualDim()
+    visual: str = ""
     social_profile: SocialProfileDim = SocialProfileDim()
     memories: MemoriesDim = MemoriesDim()
     relations: RelationsDim = RelationsDim()

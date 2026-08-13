@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "traits",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "values",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "speech_style",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "attitude_toward_authority",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fatal_flaw",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "aspiration",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

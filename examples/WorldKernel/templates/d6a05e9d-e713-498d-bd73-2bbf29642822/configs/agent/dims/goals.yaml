@@ -1,0 +1,16 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+current_quest:
+  type: str
+  option: true
+desired_boon:
+  type: str
+  option: true
+conflict_source:
+  type: str
+  option: true

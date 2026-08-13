@@ -1,0 +1,26 @@
+- name: OpenAIProvider
+  model: gpt-image-2
+  api_key: 
+  base_url: http://129.226.155.245:8090/v1/images
+  image_endpoint: http://129.226.155.245:8090/v1/images/generations
+  edit_endpoint: http://129.226.155.245:8090/v1/images/edits
+  api_style: openai_compatible
+  # Let GPT Image use its defaults. This compatibility gateway is unreliable
+  # with optional output controls, so omit quality/output_format/response_format.
+  request_timeout_seconds: 600
+  capabilities:
+  - image_generation
+
+- name: AliyunQwenVisualEvaluator
+  model: qwen3.7-plus
+  api_key: 
+  base_url: https://llm-6d0hhufqcmtnvysf.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+  chat_endpoint: https://llm-6d0hhufqcmtnvysf.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/chat/completions
+  api_style: openai_compatible
+  enabled: true
+  max_candidates: 3
+  request_timeout_seconds: 180
+  enable_thinking: false
+  max_tokens: 6000
+  capabilities:
+  - vision_evaluation

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "short_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "long_term_goal",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "motivation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_wealth_goal",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_repayment_goal",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "missing_memory_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "status_goal",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

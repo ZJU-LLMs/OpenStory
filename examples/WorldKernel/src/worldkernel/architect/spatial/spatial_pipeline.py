@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-from pathlib import Path
 from typing import Any
 
 from pydantic import BaseModel, Field
@@ -88,6 +87,20 @@ class SpatialPipeline:
             "  -> passed=%s, issues=%d",
             validation.report.passed, len(validation.report.issues),
         )
+
+        # A disconnected or otherwise invalid map must never be published as a
+        # usable blueprint. Callers can retry with a different layout seed or a
+        # larger canvas, but Stage3 must not consume a failed spatial artifact.
+        if not validation.report.passed:
+            errors = [
+                issue.message
+                for issue in validation.report.issues
+                if issue.severity == "error"
+            ]
+            raise RuntimeError(
+                "Spatial generation failed structural validation: "
+                + "; ".join(errors)
+            )
 
         # Phase G: Blueprint export
         logger.info("Phase G: SpatialBlueprintExporter")

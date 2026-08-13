@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "type",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "camp",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "celestial_rank",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "myth_symbol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

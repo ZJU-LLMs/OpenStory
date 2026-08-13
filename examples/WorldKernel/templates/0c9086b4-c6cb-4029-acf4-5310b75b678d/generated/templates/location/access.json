@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "permissions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_level",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "access_conditions",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "storm_emergency_access",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_tax_exempt",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "required_memory_clearance",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_access_available",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

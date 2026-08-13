@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "time",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "resources",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "social_cost",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "mana_consumption",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "moral_penalty",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "fame_change",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "recovery_time",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "risk_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

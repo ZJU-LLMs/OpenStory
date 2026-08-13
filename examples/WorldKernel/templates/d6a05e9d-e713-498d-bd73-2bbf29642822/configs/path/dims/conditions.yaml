@@ -1,0 +1,19 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+guard_entities:
+  type: list_str
+  option: true
+time_restriction:
+  type: str
+  option: true
+special_condition_desc:
+  type: str
+  option: true
+access_restricted_by:
+  type: str
+  option: true

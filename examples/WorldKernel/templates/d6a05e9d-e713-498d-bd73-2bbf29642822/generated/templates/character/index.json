@@ -1,0 +1,14 @@
+{
+  "dimensions": [
+    "identity",
+    "personality",
+    "capabilities",
+    "goals",
+    "constraints",
+    "state",
+    "visual",
+    "social_profile",
+    "memories",
+    "relations"
+  ]
+}

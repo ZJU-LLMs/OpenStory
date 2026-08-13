@@ -1,0 +1,25 @@
+dim_name: ConditionsDim
+access_level:
+  type: str
+danger_level:
+  type: str
+required_items:
+  type: str
+requires_memory_toll:
+  type: float
+  option: true
+storm_rating:
+  type: int
+  option: true
+identity_scan:
+  type: bool
+  option: true
+patrol_interval:
+  type: str
+  option: true
+isolation_mode:
+  type: str
+  option: true
+black_market_route:
+  type: bool
+  option: true

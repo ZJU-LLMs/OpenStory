@@ -1,4 +1,4 @@
-"""Space environment plugin: locations, paths, agent positions, and access checks."""
+"""Semantic location environment for Stage3 inference and access checks."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from agentkernel_distributed.mas.environment.base.plugin_base import SpacePlugin
 
 
 class BasicSpacePlugin(SpacePlugin):
-    """Spatial model backed by Stage3-generated locations, paths, and spawns."""
+    """Location model without raster geometry or route-topology reasoning."""
 
     def __init__(
         self,
@@ -27,8 +27,15 @@ class BasicSpacePlugin(SpacePlugin):
         agents: list[dict[str, Any]] | dict[str, Any] | None = None,
     ) -> None:
         super().__init__()
-        self.locations = list(locations.values()) if isinstance(locations, dict) else list(locations or [])
-        self.paths = list(paths.values()) if isinstance(paths, dict) else list(paths or [])
+        raw_locations = list(locations.values()) if isinstance(locations, dict) else list(locations or [])
+        self.locations = [
+            location
+            for location in raw_locations
+            if isinstance(location, dict) and location.get("id")
+        ]
+        # Kept only as a constructor compatibility argument for older configs.
+        # Stage3 deliberately does not load or reason over route topology.
+        self.paths: list[dict[str, Any]] = []
         agent_rows = list(agents.values()) if isinstance(agents, dict) else list(agents or [])
         self.location_by_id = {str(loc.get("id")): loc for loc in self.locations if loc.get("id")}
         self.location_by_name = {str(loc.get("name")): loc for loc in self.locations if loc.get("name")}
@@ -83,7 +90,7 @@ class BasicSpacePlugin(SpacePlugin):
     ) -> dict[str, Any]:
         location = await self.get_location_profile(location_id_or_name)
         if not location:
-            return {"allowed": False, "reason": "location not found"}
+            return {"allowed": False, "reason": "location is not available in the current simulation"}
 
         access = location.get("access", {})
         state = location.get("state", {})
@@ -117,16 +124,9 @@ class BasicSpacePlugin(SpacePlugin):
         }
 
     async def find_route(self, from_location_id: str, to_location_id: str) -> dict[str, Any] | None:
-        if not from_location_id or not to_location_id:
-            return None
-        if from_location_id == to_location_id:
+        """Deprecated compatibility hook; route finding is a frontend concern."""
+        if from_location_id == to_location_id and from_location_id in self.location_by_id:
             return {"same_location": True}
-        for path in self.paths:
-            if path.get("from_location_id") == from_location_id and path.get("to_location_id") == to_location_id:
-                return path
-            if path.get("bidirectional", True):
-                if path.get("from_location_id") == to_location_id and path.get("to_location_id") == from_location_id:
-                    return path
         return None
 
     async def get_agent_position(self, agent_id: str) -> list[int] | None:
@@ -136,17 +136,13 @@ class BasicSpacePlugin(SpacePlugin):
     async def update_agent_position(self, agent_id: str, position: list[int]) -> None:
         self.agent_positions.setdefault(agent_id, {})["position"] = position
 
-    async def update_agent_location(self, agent_id: str, location_id: str) -> list[int]:
-        location = self.location_by_id.get(location_id) or {}
-        entrance = location.get("entrance") or {}
-        position = [int(entrance.get("x", 0)), int(entrance.get("y", 0))]
-        self.agent_positions[agent_id] = {
-            "id": agent_id,
-            "location_id": location_id,
-            "location": location.get("name", ""),
-            "position": position,
-        }
-        return position
+    async def update_agent_location(self, agent_id: str, location_id: str) -> None:
+        location = self.location_by_id.get(location_id)
+        if not location:
+            raise ValueError("cannot move an agent to a location outside the simulation")
+        entry = self.agent_positions.setdefault(agent_id, {"id": agent_id})
+        entry["location_id"] = location_id
+        entry["location"] = location.get("name", "")
 
     async def get_all_positions(self) -> dict[str, list[int]]:
         return {

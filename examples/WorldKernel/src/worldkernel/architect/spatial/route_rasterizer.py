@@ -69,32 +69,17 @@ class RouteRasterizer:
                 grid[region.entrance_y][region.entrance_x] = walkable
                 road_grid[region.entrance_y][region.entrance_x] = _ROAD_ENTRANCE
 
-        # 5. Build adjacency for connectivity check
-        adj: dict[str, set[str]] = {}
-        path_map: dict[tuple[str, str], PathSpatialFact] = {}
-        for path in build_input.paths:
-            adj.setdefault(path.from_location_id, set()).add(path.to_location_id)
-            if path.bidirectional:
-                adj.setdefault(path.to_location_id, set()).add(path.from_location_id)
-            edge_key = self._edge_key(path.from_location_id, path.to_location_id)
-            path_map[edge_key] = path
-
-        # 6. Fail immediately if no semantic paths
+        # 5. A missing semantic graph must not create an isolated spatial map.
+        # The final connectivity graph is built from routes that were actually
+        # rasterized, not from the intended semantic edges.
         if not build_input.paths:
             warnings.append(SpatialInputWarning(
                 code="no_semantic_paths",
-                message="No semantic path edges found; cannot generate routes",
+                message="No semantic path edges found; spatial connectivity will be repaired",
                 source="route_rasterizer",
             ))
-            return RouteRasterizationResult(
-                routes=[],
-                road_tiles=[],
-                collision_grid=grid,
-                warnings=warnings,
-                provenance={"algorithm": "orthogonal_astar", "error": "no_semantic_paths"},
-            )
 
-        # 7. Route each semantic path edge
+        # 6. Route each semantic path edge
         routes: list[SpatialRoute] = []
         routed_edges: set[tuple[str, str]] = set()
 
@@ -143,15 +128,29 @@ class RouteRasterizer:
             routes.append(route)
             routed_edges.add(edge_key)
 
-        # 7. Check for disconnected components and add synthetic routes
-        components = bfs_components(adj)
-        if len(components) > 1:
-            synth_routes, synth_warnings = self._add_synthetic_routes(
-                components, region_map, grid, grid_w, grid_h, corridor_w,
-                walkable, road_grid, build_input,
-            )
-            routes.extend(synth_routes)
-            warnings.extend(synth_warnings)
+        # 7. Repair the graph formed by successfully rasterized routes. Seed
+        # every placed location so route-less regions remain visible as
+        # singleton components. Physical connectivity is undirected even when
+        # a semantic path later restricts movement direction.
+        actual_adj: dict[str, set[str]] = {location_id: set() for location_id in region_map}
+        for route in routes:
+            actual_adj[route.from_location_id].add(route.to_location_id)
+            actual_adj[route.to_location_id].add(route.from_location_id)
+
+        synth_routes, synth_warnings = self._repair_connectivity(
+            actual_adj,
+            layout_plan.synthetic_edges,
+            region_map,
+            grid,
+            grid_w,
+            grid_h,
+            corridor_w,
+            walkable,
+            road_grid,
+        )
+        routes.extend(synth_routes)
+        warnings.extend(synth_warnings)
+        final_components = bfs_components(actual_adj)
 
         road_tiles = self._collect_road_tiles(road_grid)
 
@@ -167,7 +166,7 @@ class RouteRasterizer:
                 "road_tile_count": len(road_tiles),
                 "route_tile_total": sum(len(r.route_tiles) for r in routes),
                 "synthetic_routes": sum(1 for r in routes if r.route_type == "synthetic"),
-                "component_count": len(components),
+                "component_count": len(final_components),
             },
         )
 
@@ -315,73 +314,108 @@ class RouteRasterizer:
     # Synthetic routes for disconnected components
     # ------------------------------------------------------------------
 
-    def _add_synthetic_routes(
+    def _repair_connectivity(
         self,
-        components: list[list[str]],
+        actual_adj: dict[str, set[str]],
+        preferred_edges: list[tuple[str, str]],
         region_map: dict[str, SpatialRegion],
         grid: list[list[int]],
         grid_w: int, grid_h: int,
         corridor_w: int,
         walkable: int,
         road_grid: list[list[int]],
-        build_input: SpatialBuildInput,
     ) -> tuple[list[SpatialRoute], list[SpatialInputWarning]]:
-        """Add synthetic routes between disconnected components."""
+        """Connect every placed region using routes that really rasterize.
+
+        Layout-time synthetic edges are tried first. If they are unavailable or
+        no longer connect different components, the nearest pair of entrances
+        across all components is attempted. A failure is left as a warning here
+        and becomes a hard validation error before blueprint export.
+        """
         routes: list[SpatialRoute] = []
         warnings: list[SpatialInputWarning] = []
 
-        # Build component representatives (highest degree node)
-        adj: dict[str, set[str]] = {}
-        for path in build_input.paths:
-            adj.setdefault(path.from_location_id, set()).add(path.to_location_id)
-            adj.setdefault(path.to_location_id, set()).add(path.from_location_id)
+        preferred = {
+            self._edge_key(a, b)
+            for a, b in preferred_edges
+            if a in region_map and b in region_map and a != b
+        }
 
-        def _pick_rep(comp: list[str]) -> str:
-            return max(comp, key=lambda nid: len(adj.get(nid, set())))
+        while True:
+            components = bfs_components(actual_adj)
+            if len(components) <= 1:
+                break
 
-        reps = [_pick_rep(c) for c in components]
+            component_index = {
+                location_id: index
+                for index, component in enumerate(components)
+                for location_id in component
+            }
+            candidates: list[tuple[int, int, str, str]] = []
+            seen: set[tuple[str, str]] = set()
+            location_ids = sorted(region_map)
+            for index, from_id in enumerate(location_ids):
+                for to_id in location_ids[index + 1:]:
+                    if component_index[from_id] == component_index[to_id]:
+                        continue
+                    edge_key = self._edge_key(from_id, to_id)
+                    if edge_key in seen:
+                        continue
+                    seen.add(edge_key)
+                    from_region = region_map[from_id]
+                    to_region = region_map[to_id]
+                    distance = (
+                        abs(from_region.entrance_x - to_region.entrance_x)
+                        + abs(from_region.entrance_y - to_region.entrance_y)
+                    )
+                    candidates.append(
+                        (0 if edge_key in preferred else 1, distance, from_id, to_id)
+                    )
 
-        # Connect each component to the next
-        for i in range(len(reps) - 1):
-            from_id = reps[i]
-            to_id = reps[i + 1]
-            from_region = region_map.get(from_id)
-            to_region = region_map.get(to_id)
+            connected = False
+            for _priority, _distance, from_id, to_id in sorted(candidates):
+                route = self._route_single(
+                    f"synthetic_{from_id}_{to_id}",
+                    from_id,
+                    to_id,
+                    region_map[from_id],
+                    region_map[to_id],
+                    grid,
+                    road_grid,
+                    grid_w,
+                    grid_h,
+                    corridor_w,
+                    walkable,
+                    bidirectional=True,
+                    is_secret=False,
+                    secret_cost_mult=1.0,
+                )
+                if route is None:
+                    continue
 
-            if from_region is None or to_region is None:
-                continue
-
-            route = self._route_single(
-                f"synthetic_{from_id}_{to_id}",
-                from_id, to_id,
-                from_region, to_region,
-                grid, road_grid, grid_w, grid_h, corridor_w, walkable,
-                bidirectional=True,
-                is_secret=False,
-                secret_cost_mult=1.0,
-            )
-
-            if route is not None:
                 route = route.model_copy(update={"route_type": "synthetic"})
                 routes.append(route)
+                actual_adj[from_id].add(to_id)
+                actual_adj[to_id].add(from_id)
                 warnings.append(SpatialInputWarning(
                     code="synthetic_route_added",
                     message=(
-                        f"Added synthetic route between disconnected components: "
+                        "Added spatial connectivity route between components: "
                         f"{from_id!r} -> {to_id!r}"
                     ),
                     source="route_rasterizer",
                     item_id=route.path_edge_id,
                 ))
-            else:
+                connected = True
+                break
+
+            if not connected:
                 warnings.append(SpatialInputWarning(
                     code="synthetic_route_failed",
-                    message=(
-                        f"Could not create synthetic route between "
-                        f"{from_id!r} and {to_id!r}"
-                    ),
+                    message=f"Could not connect spatial components: {components}",
                     source="route_rasterizer",
                 ))
+                break
 
         return routes, warnings
 

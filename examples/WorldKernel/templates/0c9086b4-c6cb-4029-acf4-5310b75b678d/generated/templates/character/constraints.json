@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "forbidden_actions",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "taboos",
+      "type": "list_str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_privacy_restriction",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_binding_restriction",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "debt_ceiling",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "legal_permission_tags",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

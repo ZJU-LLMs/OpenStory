@@ -1,0 +1,247 @@
+{
+  "artifact_type": "relation_edge",
+  "items": [
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:020",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:014",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:015",
+        "type": "记忆税委任",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:019",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:014",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:012",
+        "type": "执政同衔",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:002",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:002",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:011",
+        "type": "卷宗共辖",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:004",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:003",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:005",
+        "type": "黑市契盟",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:005",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:009",
+        "type": "能量塔共守",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:008",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:007",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+        "type": "风暴协测",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:017",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:014",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:002",
+        "type": "系统共治",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:022",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:015",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:006",
+        "type": "稽查领属",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:023",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:015",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "type": "身份盯梢",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:006",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:006",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:001",
+        "type": "旧档追踪",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:015",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:003",
+        "type": "记忆负债",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:011",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:010",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:003",
+        "type": "记忆契约",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:013",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:010",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:008",
+        "type": "街区共契",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:012",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:010",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+        "type": "反税共义",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:009",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:007",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "type": "记忆样本监护",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:014",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:011",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "type": "身份索源",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:016",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:014",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:001",
+        "type": "档案除籍",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:003",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:002",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "type": "档案持有",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:021",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:015",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:005",
+        "type": "黑市暗查",
+        "direction": "单向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:001",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:001",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:013",
+        "type": "身份残响",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:007",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:006",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:002",
+        "type": "档案密线",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:018",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:014",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:004",
+        "type": "能量税争",
+        "direction": "双向"
+      }
+    },
+    {
+      "edge": {
+        "id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:010",
+        "from_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:008",
+        "to_id": "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:char:002",
+        "type": "身份托存",
+        "direction": "单向"
+      }
+    }
+  ],
+  "source_ids": [
+    "primary"
+  ],
+  "produced_refs": [
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:020",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:019",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:002",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:004",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:005",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:008",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:017",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:022",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:023",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:006",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:015",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:011",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:013",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:012",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:009",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:014",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:016",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:003",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:021",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:001",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:007",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:018",
+    "e:0c9086b4_c6cb_4029_acf4_5310b75b678d:rel:010"
+  ],
+  "upstream_step_ids": [
+    "generate_relations"
+  ],
+  "warnings": [],
+  "provenance": {
+    "result_count": 1
+  }
+}

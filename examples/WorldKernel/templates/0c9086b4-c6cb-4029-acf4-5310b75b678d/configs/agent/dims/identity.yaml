@@ -1,0 +1,25 @@
+dim_name: IdentityDim
+id:
+  type: str
+name:
+  type: str
+role:
+  type: str
+memory_asset_value:
+  type: float
+  option: true
+memory_debt:
+  type: float
+  option: true
+identity_archive_id:
+  type: str
+  option: true
+memory_tax_status:
+  type: str
+  option: true
+is_amnesiac:
+  type: bool
+  option: true
+memory_integrity:
+  type: float
+  option: true

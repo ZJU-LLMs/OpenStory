@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "category",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "action_category",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "lineage",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "domain",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "forbidden_by_heaven",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

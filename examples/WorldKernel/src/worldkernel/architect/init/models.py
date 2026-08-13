@@ -15,6 +15,7 @@ class WorldBackgroundArtifact(BaseModel):
     tags: list[str] = Field(default_factory=list)
     scope: str = ""
     simulation_start: dict[str, Any] = Field(default_factory=dict)
+    visual_profile: dict[str, Any] = Field(default_factory=dict)
     world_constraints: list[dict[str, Any]] = Field(default_factory=list)
     provenance: dict[str, Any] = Field(default_factory=dict)
 
@@ -78,6 +79,7 @@ class WorldTemplateArtifact(BaseModel):
     world_origin_summary: str = ""
     scope: str = ""
     simulation_start: dict[str, Any] = Field(default_factory=dict)
+    visual_profile: dict[str, Any] = Field(default_factory=dict)
     location_archetypes: list[dict[str, Any]] = Field(default_factory=list)
     character_archetypes: list[dict[str, Any]] = Field(default_factory=list)
     rule_archetypes: list[dict[str, Any]] = Field(default_factory=list)

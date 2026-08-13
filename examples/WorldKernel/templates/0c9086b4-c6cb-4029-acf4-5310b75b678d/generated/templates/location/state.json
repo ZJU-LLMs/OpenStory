@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "current_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "ownership",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "capacity",
+      "type": "int",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "structural_integrity",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_exposure",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_reserve_volume",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "operational_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

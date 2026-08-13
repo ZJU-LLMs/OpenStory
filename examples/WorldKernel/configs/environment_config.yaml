@@ -8,5 +8,3 @@ components:
     plugin:
       BasicSpacePlugin:
         locations: map_locations
-        paths: map_paths
-        agents: map_agents

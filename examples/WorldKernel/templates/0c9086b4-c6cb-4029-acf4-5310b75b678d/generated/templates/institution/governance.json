@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "leader",
+      "type": "str",
+      "required": true,
+      "ref": "character"
+    },
+    {
+      "name": "rules",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "decision_process",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_audit_cycle",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "disciplinary_mechanism",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "reform_pressure_index",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "decision_override_protocol",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_emergency_authority",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

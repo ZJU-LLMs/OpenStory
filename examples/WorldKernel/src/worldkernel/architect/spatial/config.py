@@ -11,7 +11,10 @@ from pydantic import BaseModel, Field, model_validator
 
 logger = logging.getLogger(__name__)
 
-_DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[3] / "configs" / "architect.yaml"
+# ``config.py`` lives at ``src/worldkernel/architect/spatial``.  The example's
+# canonical configuration is under ``examples/WorldKernel/configs`` rather
+# than under ``src/configs``.
+_DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[4] / "configs" / "architect.yaml"
 
 
 class SpatialCanvasConfig(BaseModel):
@@ -61,6 +64,26 @@ class SpatialRenderingConfig(BaseModel):
     export_preview_png: bool = True
     background_mode: str = "simple_tile"
     ai_art_enabled: bool = False
+    location_layer_enabled: bool = False
+    character_atlas_enabled: bool = True
+    characters_per_atlas: int = Field(default=6, ge=1, le=6)
+    character_key_colors: list[str] = Field(
+        default_factory=lambda: ["#00ff00", "#ff00ff", "#00ffff"]
+    )
+    character_transparent_threshold: int = Field(default=24, ge=0, le=255)
+    character_opaque_threshold: int = Field(default=96, ge=1, le=441)
+    visual_mode: Literal["composited_full_map"] = "composited_full_map"
+
+    @model_validator(mode="after")
+    def _check_character_atlas(self) -> SpatialRenderingConfig:
+        if self.character_opaque_threshold <= self.character_transparent_threshold:
+            raise ValueError(
+                "rendering.character_opaque_threshold must exceed "
+                "character_transparent_threshold"
+            )
+        if not self.character_key_colors:
+            raise ValueError("rendering.character_key_colors must not be empty")
+        return self
 
 
 class SpatialValidationConfig(BaseModel):
