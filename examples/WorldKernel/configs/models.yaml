@@ -1,6 +1,6 @@
 - name: OpenAIProvider
   model: deepseek-v4-flash
-  api_key: sk-fbb96f61ce674b2f9b93820277c22a47
+  api_key: 
   base_url: https://api.deepseek.com
   capabilities:
   - chat
