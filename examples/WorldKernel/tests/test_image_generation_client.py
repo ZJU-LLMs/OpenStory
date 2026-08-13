@@ -33,7 +33,6 @@ class ImageGenerationClientTests(unittest.TestCase):
             client._generate_openai_compatible(
                 "prompt",
                 Path("ignored.png"),
-                negative_prompt="",
                 size="1024x1024",
             )
 
@@ -84,7 +83,6 @@ class ImageGenerationClientTests(unittest.TestCase):
                 input_image_path=Path("input.jpg"),
                 mask_path=None,
                 style_reference_paths=[],
-                negative_prompt="",
                 size="1024x1024",
             )
 

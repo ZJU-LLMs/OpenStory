@@ -50,7 +50,6 @@ class ImageGenerationClient:
         output_path: str | Path,
         *,
         size: str | None = None,
-        negative_prompt: str = "",
         input_image_path: str | Path | None = None,
         mask_path: str | Path | None = None,
         style_reference_paths: list[str | Path] | None = None,
@@ -71,7 +70,6 @@ class ImageGenerationClient:
                 input_image_path=Path(input_image_path),
                 mask_path=Path(mask_path) if mask_path else None,
                 style_reference_paths=[Path(path) for path in style_reference_paths or []],
-                negative_prompt=negative_prompt,
                 size=self._format_size(size, separator="x"),
             )
         if style_reference_paths:
@@ -82,7 +80,6 @@ class ImageGenerationClient:
             return self._generate_maas_multimodal(
                 prompt,
                 Path(output_path),
-                negative_prompt=negative_prompt,
                 size=self._format_size(size, separator="*"),
             )
         if api_style == "auto":
@@ -91,7 +88,6 @@ class ImageGenerationClient:
                 return self._generate_maas_multimodal(
                     prompt,
                     Path(output_path),
-                    negative_prompt=negative_prompt,
                     size=self._format_size(size, separator="*"),
                 )
             except Exception as exc:
@@ -100,7 +96,6 @@ class ImageGenerationClient:
                 return self._generate_openai_compatible(
                     prompt,
                     Path(output_path),
-                    negative_prompt=negative_prompt,
                     size=self._format_size(size, separator="x") if size is not None else None,
                 )
             except Exception as exc:
@@ -109,7 +104,6 @@ class ImageGenerationClient:
                 return self._generate_dashscope_async(
                     prompt,
                     Path(output_path),
-                    negative_prompt=negative_prompt,
                     size=self._format_size(size, separator="*"),
                 )
             except Exception as exc:
@@ -119,14 +113,12 @@ class ImageGenerationClient:
             return self._generate_openai_compatible(
                 prompt,
                 Path(output_path),
-                negative_prompt=negative_prompt,
                 size=self._format_size(size, separator="x") if size is not None else None,
             )
 
         return self._generate_dashscope_async(
             prompt,
             Path(output_path),
-            negative_prompt=negative_prompt,
             size=self._format_size(size, separator="*"),
         )
 
@@ -135,14 +127,9 @@ class ImageGenerationClient:
         prompt: str,
         output_path: Path,
         *,
-        negative_prompt: str,
         size: str | None,
     ) -> dict[str, Any]:
-        task_id = self._submit(
-            prompt,
-            negative_prompt=negative_prompt,
-            size=size,
-        )
+        task_id = self._submit(prompt, size=size)
         result = self._wait(task_id)
         image_url = self._extract_image_url(result)
         if not image_url:
@@ -194,13 +181,9 @@ class ImageGenerationClient:
         prompt: str,
         output_path: Path,
         *,
-        negative_prompt: str,
         size: str,
     ) -> dict[str, Any]:
         url = self._maas_generation_url()
-        full_prompt = prompt
-        if negative_prompt:
-            full_prompt = f"{prompt}\n\n负向要求：{negative_prompt}"
         parameters: dict[str, Any] = {
             "size": size,
             "n": int(self.config.get("n") or 1),
@@ -215,7 +198,7 @@ class ImageGenerationClient:
                 "messages": [
                     {
                         "role": "user",
-                        "content": [{"text": full_prompt}],
+                        "content": [{"text": prompt}],
                     }
                 ]
             },
@@ -273,16 +256,12 @@ class ImageGenerationClient:
         prompt: str,
         output_path: Path,
         *,
-        negative_prompt: str,
         size: str,
     ) -> dict[str, Any]:
         url = self._openai_generation_url()
-        full_prompt = prompt
-        if negative_prompt:
-            full_prompt = f"{prompt}\n\n负向要求：{negative_prompt}"
         payload: dict[str, Any] = {
             "model": self.model,
-            "prompt": full_prompt,
+            "prompt": prompt,
         }
         if size is not None:
             payload["size"] = size
@@ -319,7 +298,6 @@ class ImageGenerationClient:
         input_image_path: Path,
         mask_path: Path | None,
         style_reference_paths: list[Path],
-        negative_prompt: str,
         size: str,
     ) -> dict[str, Any]:
         if not input_image_path.exists():
@@ -329,12 +307,9 @@ class ImageGenerationClient:
         for path in style_reference_paths:
             if not path.exists():
                 raise RuntimeError(f"Style reference does not exist: {path}")
-        full_prompt = prompt
-        if negative_prompt:
-            full_prompt = f"{prompt}\n\n负向要求：{negative_prompt}"
         fields = {
             "model": self.model,
-            "prompt": full_prompt,
+            "prompt": prompt,
             "size": size,
         }
         files = [("image", input_image_path)]
@@ -386,15 +361,12 @@ class ImageGenerationClient:
             raise RuntimeError(f"OpenAI-compatible image API returned no image: {result}")
         return image_url
 
-    def _submit(self, prompt: str, *, negative_prompt: str, size: str) -> str:
+    def _submit(self, prompt: str, *, size: str) -> str:
         payload = {
             "model": self.model,
             "input": {"prompt": prompt},
             "parameters": {"size": size, "n": 1},
         }
-        if negative_prompt:
-            payload["input"]["negative_prompt"] = negative_prompt
-
         data = self._request_json(
             "POST",
             f"{self.base_url}{self.task_endpoint}",

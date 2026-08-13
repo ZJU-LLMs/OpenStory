@@ -212,7 +212,6 @@ def generate_location_layer(
             model_metadata = _generate_location_candidate(
                 client=client,
                 prompt=attempt_prompt["prompt"],
-                negative_prompt=attempt_prompt["negative_prompt"],
                 candidate_path=candidate_path,
                 size=f"{canvas_size[0]}x{canvas_size[1]}",
                 input_path=input_path,
@@ -467,15 +466,8 @@ def compose_location_map_prompt(
             ),
         ]
     )
-    negative = (
-        "名称牌，文字面板，信息卡，保留编号，保留青框，空占位块，屋顶，截断地点，"
-        "地点合并，偏移道路，断路，重复道路，额外捷径，人物，UI，水印，平视，斜视，"
-        "照片质感，写实材质，高细节插画，后期像素化滤镜，密集微型方格，逐格纹理，重复图块图案，"
-        "马赛克噪声，碎片化色块，密集小物件，密集砖缝，随机斑点，抖色，点描，柔焦，模糊，平滑渐变"
-    )
     return {
         "prompt": prompt,
-        "negative_prompt": negative,
         "prompt_role": "location_full_map_edit",
         "background_prompt_reused": False,
         "generation_strategy": GENERATION_STRATEGY,
@@ -509,7 +501,6 @@ def _generate_location_candidate(
     *,
     client: ImageGenerationClient,
     prompt: str,
-    negative_prompt: str,
     candidate_path: Path,
     size: str,
     input_path: Path,
@@ -521,7 +512,6 @@ def _generate_location_candidate(
             metadata = client.generate(
                 prompt,
                 candidate_path,
-                negative_prompt=negative_prompt,
                 size=size,
                 input_image_path=input_path,
                 mask_path=mask_path,

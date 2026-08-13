@@ -33,4 +33,5 @@
 **重要：本批次有 {{seed_count}} 个种子，你必须输出恰好 {{seed_count}} 个地点对象的 JSON 数组。不可遗漏任何种子。**
 输出一个 JSON 数组，每个元素对应一个地点种子。
 每个种子已有预分配的 id（见种子列表），生成时 identity.id 必须严格使用该预分配 id。
+`identity.importance` 必须逐字复制对应种子的 `importance`，值只能是 `core`、`major` 或 `minor`，不得自行推断或改写。
 请特别注意审核反馈中提到的问题，针对性改进。

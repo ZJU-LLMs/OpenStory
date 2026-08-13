@@ -42,7 +42,6 @@ class CharacterAtlasTests(unittest.TestCase):
                     client=FlakyClient(),
                     prompt="same prompt",
                     output_path=root / "atlas_raw.png",
-                    negative_prompt="same negative prompt",
                 )
             self.assertEqual(calls, [("same prompt", False)] * 2)
             self.assertEqual(metadata["transport_attempt_count"], 2)
@@ -66,7 +65,6 @@ class CharacterAtlasTests(unittest.TestCase):
                     client=InvalidRequestClient(),
                     prompt="prompt",
                     output_path=Path("unused.png"),
-                    negative_prompt="negative",
                 )
         self.assertEqual(calls, 2)
         sleep.assert_called_once()

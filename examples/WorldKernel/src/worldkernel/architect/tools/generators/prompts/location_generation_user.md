@@ -34,6 +34,7 @@
 **重要：本批次有 {{seed_count}} 个种子，你必须输出恰好 {{seed_count}} 个地点对象的 JSON 数组。不可遗漏任何种子。生成的地点必须是种子列表中的地点**
 输出一个 JSON 数组，每个元素对应一个地点种子。
 每个种子已有预分配的 id（见种子列表），生成时 identity.id 必须严格使用该预分配 id。
+`identity.importance` 必须逐字复制对应种子的 `importance`，值只能是 `core`、`major` 或 `minor`；不得依据描述、容量或访问等级重新推断。
 根据种子的 archetype_id、importance、role_in_world 填充各维度字段。
 世界特有字段应结合世界背景知识合理填写。
 core 级别的种子应有更丰富详细的描述，minor 级别可以相对简洁。
@@ -46,6 +47,7 @@ core 级别的种子应有更丰富详细的描述，minor 级别可以相对简
       "id": "e:world_name:loc:001",
       "name": "地点名称",
       "type": "archetype_id",
+      "importance": "core",
       "description": "详细描述...",
       ...
     }},

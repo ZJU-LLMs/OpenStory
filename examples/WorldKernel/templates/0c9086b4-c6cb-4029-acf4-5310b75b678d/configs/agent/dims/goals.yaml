@@ -1,0 +1,19 @@
+dim_name: GoalsDim
+short_term_goal:
+  type: str
+long_term_goal:
+  type: str
+motivation:
+  type: str
+memory_wealth_goal:
+  type: float
+  option: true
+debt_repayment_goal:
+  type: float
+  option: true
+missing_memory_goal:
+  type: str
+  option: true
+status_goal:
+  type: str
+  option: true

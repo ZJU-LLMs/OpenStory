@@ -1,0 +1,27 @@
+dim_name: MemoriesDim
+knowledge:
+  world_knowledge:
+    type: list_str
+  social_knowledge:
+    type: list_str
+background_summary:
+  type: str
+key_events:
+  type: list_str
+secrets:
+  type: list_str
+archive_id:
+  type: str
+  option: true
+memory_quality_index:
+  type: float
+  option: true
+missing_memory_segments:
+  type: list_str
+  option: true
+has_forged_memories:
+  type: bool
+  option: true
+memory_fragments:
+  type: int
+  option: true

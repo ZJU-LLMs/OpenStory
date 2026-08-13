@@ -1,0 +1,22 @@
+dim_name: StateDim
+location:
+  location_id:
+    type: str
+    ref: location
+position:
+  x:
+    type: float
+  y:
+    type: float
+current_memory_state:
+  type: str
+  option: true
+current_storm_alert:
+  type: str
+  option: true
+current_debt_status:
+  type: str
+  option: true
+in_safe_zone:
+  type: bool
+  option: true

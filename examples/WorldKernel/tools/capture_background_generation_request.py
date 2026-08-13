@@ -155,7 +155,6 @@ def main() -> int:
             result = client.generate(
                 prompt_payload["prompt"],
                 generated_image_path,
-                negative_prompt=prompt_payload.get("negative_prompt", ""),
                 size=f"{width}x{height}",
                 input_image_path=input_image,
                 mask_path=edit_mask,

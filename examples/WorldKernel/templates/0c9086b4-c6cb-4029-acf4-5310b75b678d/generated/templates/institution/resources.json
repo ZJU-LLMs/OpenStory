@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "assets",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "territory",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_database_capacity",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "data_retention_years",
+      "type": "int",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "levitation_tech_level",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "energy_quota_share",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_safety_redundancy",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "world_id": "0c9086b4-c6cb-4029-acf4-5310b75b678d",
+  "source_ids": [
+    "primary"
+  ],
+  "schema_version": "stage2-semantic-v1",
+  "artifact_files": {
+    "location_profile": "locations\\locations.json",
+    "character_profile": "characters\\characters.json",
+    "path_edge": "path_graph\\path_graph.json",
+    "relation_edge": "relation_graph\\relation_graph.json"
+  },
+  "counts": {
+    "location_profile": 15,
+    "character_profile": 15,
+    "path_edge": 19,
+    "relation_edge": 23
+  },
+  "constraints": [
+    {
+      "constraint_id": "memory_singularity",
+      "name": "记忆伦理唯一通货",
+      "description": "记忆是可提取、可转移和可伪造的唯一价值全息物，没有任何实体货币或贵金属能够替代其地位，因此控制记忆就等于控制城市的经济命脉。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "storm_energy_sustenance",
+      "name": "风暴能量存续律",
+      "description": "城市必须持续从木星风暴中采集能量以维持悬浮推进和生态系统，一旦能量采集中断或风暴异常消退，城市将失去漂浮支撑而坠毁。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "archival_identity_linkage",
+      "name": "档案身份绑定原则",
+      "description": "公民身份和记忆档案深度绑定，档案库中的记录就是法律上的自我；失去记忆或档案被篡改意味着身份被废除，甚至无法被社会承认。",
+      "scope": "global"
+    },
+    {
+      "constraint_id": "institutional_memory_monopoly",
+      "name": "机构记忆垄断",
+      "description": "记忆的采集、存储、交换和销毁都必须经过官方机构授权，任何绕过系统的大规模记忆转移都被视为颠覆行为，可能触发城市安全部门的强制介入。",
+      "scope": "location"
+    }
+  ],
+  "timestamp": "2026-08-12T19:28:22.649708+00:00",
+  "provenance": {
+    "stage1_inputs": {
+      "source": "stage1.pipeline",
+      "source_id": "primary",
+      "world_id": "0c9086b4-c6cb-4029-acf4-5310b75b678d",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d"
+    },
+    "world_background": {
+      "source": "stage1.pipeline",
+      "artifact": "world_background",
+      "world_background_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\world_background.json",
+      "execution_plan_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\execution_plan.json",
+      "seed_catalog_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\plan\\instance_seed_catalog.json",
+      "world_template_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\world_template.json",
+      "schema_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\models\\schema_manifest.json",
+      "artifact_manifest_path": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d\\generated\\artifact_manifest.json",
+      "session_root": "E:\\OpenStory\\examples\\WorldKernel\\templates\\0c9086b4-c6cb-4029-acf4-5310b75b678d"
+    }
+  }
+}

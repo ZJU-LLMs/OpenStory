@@ -275,7 +275,6 @@ def _generate_background(
             generated_metadata = client.generate(
                 prompt_payload["prompt"],
                 raw_path,
-                negative_prompt=prompt_payload.get("negative_prompt", ""),
                 size=target_size,
                 input_image_path=edit_base_path,
                 mask_path=edit_mask_path,

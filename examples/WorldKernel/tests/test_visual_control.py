@@ -229,11 +229,7 @@ class VisualControlTests(unittest.TestCase):
         self.assertNotIn("风物6", prompt)
         self.assertIn("大片连续地表", prompt)
         self.assertIn("不要逐格添加纹理", prompt)
-        self.assertIn("重复图块图案", payload["negative_prompt"])
         self.assertEqual(prompt.count("24×16 像素"), 2)
-        self.assertNotIn("修改灰色保留区", payload["negative_prompt"])
-        self.assertNotIn("大型主体紧贴保留区边界", payload["negative_prompt"])
-        self.assertIn("建筑藏在保留区下方", payload["negative_prompt"])
 
     def test_background_prompt_does_not_repeat_base_and_mask_instructions(self) -> None:
         self.assertEqual(_reference_image_instruction(has_style_reference=False), "")

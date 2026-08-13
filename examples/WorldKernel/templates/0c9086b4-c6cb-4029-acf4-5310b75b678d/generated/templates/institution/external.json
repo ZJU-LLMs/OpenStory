@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "relations_to_others",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "public_reputation",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_market_share",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "blackmarket_links",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "public_trust_score",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "alliance_network",
+      "type": "list_str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "secret_operations",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

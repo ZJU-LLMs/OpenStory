@@ -1,6 +1,0 @@
-{
-  "status": "failed",
-  "error_type": "RuntimeError",
-  "error": "Image API HTTP 502 at http://129.226.155.245:8090/v1/images/edits: ",
-  "request_was_captured": true
-}

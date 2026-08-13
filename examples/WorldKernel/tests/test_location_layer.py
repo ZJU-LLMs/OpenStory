@@ -40,7 +40,6 @@ class _FakeImageClient:
         output_path: str | Path,
         *,
         size: str,
-        negative_prompt: str = "",
         input_image_path: str | Path | None = None,
         mask_path: str | Path | None = None,
         **_: object,
@@ -207,7 +206,6 @@ class LocationLayerTests(unittest.TestCase):
         self.assertIn("道路必须沿青绿色走廊连续生成", payload["prompt"])
         self.assertIn("尺寸较大且容易辨认的标志性陈设", payload["prompt"])
         self.assertIn("不用密集小物件或细碎纹理", payload["prompt"])
-        self.assertIn("重复图块图案", payload["negative_prompt"])
         self.assertTrue(
             payload["prompt"].endswith(
                 "最终输出图片的物理画布必须严格保持为 640×400 像素，"

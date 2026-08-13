@@ -56,7 +56,7 @@ _FIXED_DIMENSIONS: dict[str, dict[str, list[FieldDef]]] = {
     },
     "location": {
         # ── Profile（地图节点属性）──────────────────────────────────
-        "identity":  [_f("id"), _f("name"), _f("type"), _f("description")],
+        "identity":  [_f("id"), _f("name"), _f("type"), _f("importance"), _f("description")],
         "access":    [_f("permissions"), _f("access_level"), _f("access_conditions")],
         "state":     [_f("current_state"), _f("ownership"), _f("capacity", "int")],
         "visual":    [_f("visual")],

@@ -94,7 +94,6 @@ def generate_road_texture_assets(
         model_metadata = client.generate(
             prompt_payload["prompt"],
             atlas_path,
-            negative_prompt=prompt_payload["negative_prompt"],
             size=f"{ROAD_ATLAS_SIZE[0]}x{ROAD_ATLAS_SIZE[1]}",
             input_image_path=input_path,
             mask_path=mask_path,
@@ -197,12 +196,7 @@ def compose_road_texture_prompt(
             f"视觉规范：{'；'.join(str(item) for item in profile_parts if str(item or '').strip())}",
         ]
     )
-    negative = (
-        "素材图集，样张合集，九宫格，分格贴图，拼贴，多种道路材质，分隔线，道路布局，路线图，"
-        "转角模板，十字路口模板，建筑，房间，人物，车辆，道具，路牌，文字，"
-        "标志，UI，水印，平视，斜俯视，透视，地平线，中心构图，复杂噪点，细碎纹理，写实摄影，模糊"
-    )
-    return {"prompt": prompt, "negative_prompt": negative}
+    return {"prompt": prompt}
 
 
 def compose_map_reference(

@@ -1,0 +1,969 @@
+{
+  "schema_version": 1,
+  "locale": "zh-CN",
+  "revision": 3,
+  "status": "ready",
+  "unresolved_count": 0,
+  "fields": {
+    "character.capabilities": {
+      "label": "能力",
+      "visible": true
+    },
+    "character.capabilities.illegal_tech_familiarity": {
+      "label": "黑市技术熟悉度",
+      "visible": true
+    },
+    "character.capabilities.level": {
+      "label": "水平",
+      "visible": true
+    },
+    "character.capabilities.memory_appraisal_precision": {
+      "label": "记忆鉴定精度",
+      "visible": true
+    },
+    "character.capabilities.memory_clearance_level": {
+      "label": "记忆权限等级",
+      "visible": true
+    },
+    "character.capabilities.negotiation_power": {
+      "label": "议价能力",
+      "visible": true
+    },
+    "character.capabilities.skills": {
+      "label": "技能",
+      "visible": true
+    },
+    "character.capabilities.storm_survival_training": {
+      "label": "风暴生存训练等级",
+      "visible": true
+    },
+    "character.capabilities.weaknesses": {
+      "label": "弱点",
+      "visible": true
+    },
+    "character.goals": {
+      "label": "目标与动机",
+      "visible": true
+    },
+    "character.goals.debt_repayment_goal": {
+      "label": "计划偿还债务",
+      "visible": true
+    },
+    "character.goals.long_term_goal": {
+      "label": "长期目标",
+      "visible": true
+    },
+    "character.goals.memory_wealth_goal": {
+      "label": "目标记忆资产",
+      "visible": true
+    },
+    "character.goals.missing_memory_goal": {
+      "label": "追寻记忆目标",
+      "visible": true
+    },
+    "character.goals.motivation": {
+      "label": "动机",
+      "visible": true
+    },
+    "character.goals.short_term_goal": {
+      "label": "短期目标",
+      "visible": true
+    },
+    "character.goals.status_goal": {
+      "label": "地位目标",
+      "visible": true
+    },
+    "character.identity": {
+      "label": "身份信息",
+      "visible": true
+    },
+    "character.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "character.identity.identity_archive_id": {
+      "label": "身份档案编号",
+      "visible": false
+    },
+    "character.identity.is_amnesiac": {
+      "label": "是否失忆者",
+      "visible": true
+    },
+    "character.identity.memory_asset_value": {
+      "label": "记忆资产总值",
+      "visible": true
+    },
+    "character.identity.memory_debt": {
+      "label": "记忆债务",
+      "visible": true
+    },
+    "character.identity.memory_integrity": {
+      "label": "记忆完整度",
+      "visible": true
+    },
+    "character.identity.memory_tax_status": {
+      "label": "记忆税状态",
+      "visible": true
+    },
+    "character.identity.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "character.identity.role": {
+      "label": "身份",
+      "visible": true
+    },
+    "character.memories": {
+      "label": "记忆",
+      "visible": true
+    },
+    "character.memories.archive_id": {
+      "label": "记忆档案编码",
+      "visible": false
+    },
+    "character.memories.background_summary": {
+      "label": "背景摘要",
+      "visible": true
+    },
+    "character.memories.has_forged_memories": {
+      "label": "是否含伪造记忆",
+      "visible": true
+    },
+    "character.memories.key_events": {
+      "label": "关键事件",
+      "visible": true
+    },
+    "character.memories.knowledge.social_knowledge": {
+      "label": "社会知识",
+      "visible": true
+    },
+    "character.memories.knowledge.world_knowledge": {
+      "label": "世界知识",
+      "visible": true
+    },
+    "character.memories.memory_fragments": {
+      "label": "记忆碎片数量",
+      "visible": true
+    },
+    "character.memories.memory_quality_index": {
+      "label": "记忆质量评分",
+      "visible": true
+    },
+    "character.memories.missing_memory_segments": {
+      "label": "缺失记忆片段",
+      "visible": true
+    },
+    "character.memories.secrets": {
+      "label": "秘密",
+      "visible": true
+    },
+    "character.personality": {
+      "label": "性格",
+      "visible": true
+    },
+    "character.personality.memory_attachment": {
+      "label": "记忆情感联结",
+      "visible": true
+    },
+    "character.personality.memory_ethics_stance": {
+      "label": "记忆伦理立场",
+      "visible": true
+    },
+    "character.personality.speech_style": {
+      "label": "说话风格",
+      "visible": true
+    },
+    "character.personality.traits": {
+      "label": "特质",
+      "visible": true
+    },
+    "character.personality.trust_tendency": {
+      "label": "信任倾向",
+      "visible": true
+    },
+    "character.personality.values": {
+      "label": "价值观",
+      "visible": true
+    },
+    "character.social_profile": {
+      "label": "社会关系",
+      "visible": true
+    },
+    "character.social_profile.faction_affiliation": {
+      "label": "所属派系",
+      "visible": true
+    },
+    "character.social_profile.group_id": {
+      "label": "所属群体",
+      "visible": false
+    },
+    "character.social_profile.memory_reputation_index": {
+      "label": "记忆信誉指数",
+      "visible": true
+    },
+    "character.social_profile.reputation": {
+      "label": "声望",
+      "visible": true
+    },
+    "character.social_profile.social_class": {
+      "label": "社会阶层",
+      "visible": true
+    },
+    "character.social_profile.wanted_level": {
+      "label": "通缉等级",
+      "visible": true
+    },
+    "character.state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "character.state.current_debt_status": {
+      "label": "当前债务状态",
+      "visible": true
+    },
+    "character.state.current_memory_state": {
+      "label": "当前记忆状态",
+      "visible": true
+    },
+    "character.state.current_storm_alert": {
+      "label": "当前风暴预警等级",
+      "visible": true
+    },
+    "character.state.in_safe_zone": {
+      "label": "是否处于安全区",
+      "visible": true
+    },
+    "character.state.location.location_id": {
+      "label": "地点标识",
+      "visible": false
+    },
+    "character.state.position.x": {
+      "label": "横坐标",
+      "visible": true
+    },
+    "character.state.position.y": {
+      "label": "纵坐标",
+      "visible": true
+    },
+    "character.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "character.visual.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "location.access": {
+      "label": "访问规则",
+      "visible": true
+    },
+    "location.access.access_conditions": {
+      "label": "进入条件",
+      "visible": true
+    },
+    "location.access.access_level": {
+      "label": "访问等级",
+      "visible": true
+    },
+    "location.access.memory_tax_exempt": {
+      "label": "记忆税豁免",
+      "visible": true
+    },
+    "location.access.permissions": {
+      "label": "权限",
+      "visible": true
+    },
+    "location.access.required_memory_clearance": {
+      "label": "所需记忆许可等级",
+      "visible": true
+    },
+    "location.access.secret_access_available": {
+      "label": "存在秘密通道",
+      "visible": true
+    },
+    "location.access.storm_emergency_access": {
+      "label": "风暴紧急准入规则",
+      "visible": true
+    },
+    "location.identity": {
+      "label": "身份信息",
+      "visible": true
+    },
+    "location.identity.description": {
+      "label": "描述",
+      "visible": true
+    },
+    "location.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "location.identity.importance": {
+      "label": "重要性",
+      "visible": true
+    },
+    "location.identity.institutional_affiliation": {
+      "label": "所属机构",
+      "visible": true
+    },
+    "location.identity.memory_function": {
+      "label": "记忆功能角色",
+      "visible": true
+    },
+    "location.identity.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "location.identity.social_stratum": {
+      "label": "社会分层",
+      "visible": true
+    },
+    "location.identity.type": {
+      "label": "类型",
+      "visible": true
+    },
+    "location.identity.unique_memory_resource": {
+      "label": "特有记忆资源",
+      "visible": true
+    },
+    "location.state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "location.state.capacity": {
+      "label": "容量",
+      "visible": true
+    },
+    "location.state.current_state": {
+      "label": "当前状态",
+      "visible": true
+    },
+    "location.state.energy_status": {
+      "label": "能源供应状态",
+      "visible": true
+    },
+    "location.state.memory_reserve_volume": {
+      "label": "可用记忆存储量",
+      "visible": true
+    },
+    "location.state.operational_status": {
+      "label": "运营状态",
+      "visible": true
+    },
+    "location.state.ownership": {
+      "label": "归属",
+      "visible": true
+    },
+    "location.state.storm_exposure": {
+      "label": "风暴暴露程度",
+      "visible": true
+    },
+    "location.state.structural_integrity": {
+      "label": "结构完整度",
+      "visible": true
+    },
+    "location.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "location.visual.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "world.primary": {
+      "label": "主要世界类型",
+      "visible": true
+    },
+    "world.scope": {
+      "label": "世界规模",
+      "visible": true
+    },
+    "world.secondary": {
+      "label": "次要世界类型",
+      "visible": true
+    },
+    "world.simulation_start": {
+      "label": "模拟起点",
+      "visible": true
+    },
+    "world.simulation_start.narrative_context": {
+      "label": "叙事背景",
+      "visible": true
+    },
+    "world.simulation_start.time_point": {
+      "label": "起始时间",
+      "visible": true
+    },
+    "world.simulation_start.trigger_event": {
+      "label": "触发事件",
+      "visible": true
+    },
+    "world.simulation_start.year": {
+      "label": "起始年份",
+      "visible": true
+    },
+    "world.tags": {
+      "label": "标签",
+      "visible": true
+    },
+    "world.visual_profile": {
+      "label": "视觉设定",
+      "visible": false
+    },
+    "world.visual_profile.art_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.atmosphere": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.camera_projection": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.color_palette": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.edge_blending_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.environmental_motifs": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.era_style": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.lighting_weather": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.material_texture": {
+      "label": "",
+      "visible": false
+    },
+    "world.visual_profile.negative_visual_constraints": {
+      "label": "",
+      "visible": false
+    },
+    "world.world_constraints": {
+      "label": "世界约束",
+      "visible": true
+    },
+    "world.world_constraints[].constraint_id": {
+      "label": "约束ID",
+      "visible": false
+    },
+    "world.world_constraints[].description": {
+      "label": "描述",
+      "visible": true
+    },
+    "world.world_constraints[].name": {
+      "label": "名称",
+      "visible": true
+    },
+    "world.world_constraints[].scope": {
+      "label": "世界规模",
+      "visible": true
+    },
+    "world.world_name": {
+      "label": "世界名称",
+      "visible": true
+    },
+    "world.world_origin_summary": {
+      "label": "世界背景摘要",
+      "visible": true
+    },
+    "character.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "character.long_term_goal": {
+      "label": "长期目标",
+      "visible": true
+    },
+    "character.memories.knowledge": {
+      "label": "知识",
+      "visible": true
+    },
+    "character.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "character.raw": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities": {
+      "label": "能力",
+      "visible": false
+    },
+    "character.raw.capabilities.illegal_tech_familiarity": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities.level": {
+      "label": "水平",
+      "visible": false
+    },
+    "character.raw.capabilities.memory_appraisal_precision": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities.memory_clearance_level": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities.negotiation_power": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities.skills": {
+      "label": "技能",
+      "visible": false
+    },
+    "character.raw.capabilities.storm_survival_training": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.capabilities.weaknesses": {
+      "label": "弱点",
+      "visible": false
+    },
+    "character.raw.goals": {
+      "label": "目标与动机",
+      "visible": false
+    },
+    "character.raw.goals.debt_repayment_goal": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.goals.long_term_goal": {
+      "label": "长期目标",
+      "visible": false
+    },
+    "character.raw.goals.memory_wealth_goal": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.goals.missing_memory_goal": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.goals.motivation": {
+      "label": "动机",
+      "visible": false
+    },
+    "character.raw.goals.short_term_goal": {
+      "label": "短期目标",
+      "visible": false
+    },
+    "character.raw.goals.status_goal": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity": {
+      "label": "身份信息",
+      "visible": false
+    },
+    "character.raw.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "character.raw.identity.identity_archive_id": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.is_amnesiac": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.memory_asset_value": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.memory_debt": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.memory_integrity": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.memory_tax_status": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.identity.name": {
+      "label": "名称",
+      "visible": false
+    },
+    "character.raw.identity.role": {
+      "label": "身份",
+      "visible": false
+    },
+    "character.raw.memories": {
+      "label": "记忆",
+      "visible": false
+    },
+    "character.raw.memories.archive_id": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.memories.background_summary": {
+      "label": "背景摘要",
+      "visible": false
+    },
+    "character.raw.memories.has_forged_memories": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.memories.key_events": {
+      "label": "关键事件",
+      "visible": false
+    },
+    "character.raw.memories.knowledge": {
+      "label": "知识",
+      "visible": false
+    },
+    "character.raw.memories.knowledge.social_knowledge": {
+      "label": "社会知识",
+      "visible": false
+    },
+    "character.raw.memories.knowledge.world_knowledge": {
+      "label": "世界知识",
+      "visible": false
+    },
+    "character.raw.memories.memory_fragments": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.memories.memory_quality_index": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.memories.missing_memory_segments": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.memories.secrets": {
+      "label": "秘密",
+      "visible": false
+    },
+    "character.raw.personality": {
+      "label": "性格",
+      "visible": false
+    },
+    "character.raw.personality.memory_attachment": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.personality.memory_ethics_stance": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.personality.speech_style": {
+      "label": "说话风格",
+      "visible": false
+    },
+    "character.raw.personality.traits": {
+      "label": "特质",
+      "visible": false
+    },
+    "character.raw.personality.trust_tendency": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.personality.values": {
+      "label": "价值观",
+      "visible": false
+    },
+    "character.raw.social_profile": {
+      "label": "社会关系",
+      "visible": false
+    },
+    "character.raw.social_profile.faction_affiliation": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.social_profile.group_id": {
+      "label": "所属群体",
+      "visible": false
+    },
+    "character.raw.social_profile.memory_reputation_index": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.social_profile.reputation": {
+      "label": "声望",
+      "visible": false
+    },
+    "character.raw.social_profile.social_class": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.social_profile.wanted_level": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.state": {
+      "label": "当前状态",
+      "visible": false
+    },
+    "character.raw.state.current_debt_status": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.state.current_memory_state": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.state.current_storm_alert": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.state.in_safe_zone": {
+      "label": "",
+      "visible": false
+    },
+    "character.raw.state.location": {
+      "label": "地点",
+      "visible": false
+    },
+    "character.raw.state.location.location_id": {
+      "label": "地点标识",
+      "visible": false
+    },
+    "character.raw.state.position": {
+      "label": "坐标",
+      "visible": false
+    },
+    "character.raw.state.position.x": {
+      "label": "横坐标",
+      "visible": false
+    },
+    "character.raw.state.position.y": {
+      "label": "纵坐标",
+      "visible": false
+    },
+    "character.raw.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "character.role": {
+      "label": "身份",
+      "visible": true
+    },
+    "character.speech_style": {
+      "label": "说话风格",
+      "visible": true
+    },
+    "character.state.location": {
+      "label": "地点",
+      "visible": true
+    },
+    "character.state.position": {
+      "label": "坐标",
+      "visible": true
+    },
+    "character.tags": {
+      "label": "标签",
+      "visible": true
+    },
+    "character.values": {
+      "label": "价值观",
+      "visible": true
+    },
+    "character.wk_entity_id": {
+      "label": "",
+      "visible": false
+    },
+    "location.access.access_scope": {
+      "label": "访问范围",
+      "visible": true
+    },
+    "location.access.gender_restriction": {
+      "label": "性别限制",
+      "visible": true
+    },
+    "location.access.special_event_access": {
+      "label": "特殊活动权限",
+      "visible": true
+    },
+    "location.access.time_restriction": {
+      "label": "时间限制",
+      "visible": true
+    },
+    "location.capacity": {
+      "label": "容量",
+      "visible": true
+    },
+    "location.description": {
+      "label": "描述",
+      "visible": true
+    },
+    "location.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "location.key_plot_events": {
+      "label": "关键事件",
+      "visible": true
+    },
+    "location.literary_imagery": {
+      "label": "文学意象",
+      "visible": true
+    },
+    "location.name": {
+      "label": "名称",
+      "visible": true
+    },
+    "location.raw": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.access": {
+      "label": "访问规则",
+      "visible": false
+    },
+    "location.raw.access.access_conditions": {
+      "label": "进入条件",
+      "visible": false
+    },
+    "location.raw.access.access_level": {
+      "label": "访问等级",
+      "visible": false
+    },
+    "location.raw.access.memory_tax_exempt": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.access.permissions": {
+      "label": "权限",
+      "visible": false
+    },
+    "location.raw.access.required_memory_clearance": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.access.secret_access_available": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.access.storm_emergency_access": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.identity": {
+      "label": "身份信息",
+      "visible": false
+    },
+    "location.raw.identity.description": {
+      "label": "描述",
+      "visible": false
+    },
+    "location.raw.identity.id": {
+      "label": "标识",
+      "visible": false
+    },
+    "location.raw.identity.importance": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.identity.institutional_affiliation": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.identity.memory_function": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.identity.name": {
+      "label": "名称",
+      "visible": false
+    },
+    "location.raw.identity.social_stratum": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.identity.type": {
+      "label": "类型",
+      "visible": false
+    },
+    "location.raw.identity.unique_memory_resource": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.state": {
+      "label": "当前状态",
+      "visible": false
+    },
+    "location.raw.state.capacity": {
+      "label": "容量",
+      "visible": false
+    },
+    "location.raw.state.current_state": {
+      "label": "当前状态",
+      "visible": false
+    },
+    "location.raw.state.energy_status": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.state.memory_reserve_volume": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.state.operational_status": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.state.ownership": {
+      "label": "归属",
+      "visible": false
+    },
+    "location.raw.state.storm_exposure": {
+      "label": "",
+      "visible": false
+    },
+    "location.raw.state.structural_integrity": {
+      "label": "结构完整性",
+      "visible": false
+    },
+    "location.raw.visual": {
+      "label": "人物形象",
+      "visible": false
+    },
+    "location.state.current_resident": {
+      "label": "当前居民",
+      "visible": true
+    },
+    "location.state.function_changed": {
+      "label": "功能变化",
+      "visible": true
+    },
+    "location.state.maintenance_condition": {
+      "label": "维护状况",
+      "visible": true
+    },
+    "location.state.seasonal_state": {
+      "label": "季节状态",
+      "visible": true
+    },
+    "location.symbolic_meaning": {
+      "label": "象征意义",
+      "visible": true
+    },
+    "location.tags": {
+      "label": "标签",
+      "visible": true
+    },
+    "location.type": {
+      "label": "类型",
+      "visible": true
+    }
+  }
+}

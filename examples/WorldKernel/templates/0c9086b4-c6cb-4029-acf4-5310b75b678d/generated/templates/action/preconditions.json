@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "name": "required_state",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_items",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "required_memory_debt_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_biometric_auth",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "requires_storm_permit",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "storm_condition",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

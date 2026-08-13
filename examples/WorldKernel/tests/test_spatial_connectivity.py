@@ -28,6 +28,7 @@ from worldkernel.architect.spatial.models import (  # noqa: E402
 from worldkernel.architect.spatial.region_packer import RegionPacker  # noqa: E402
 from worldkernel.architect.spatial.route_rasterizer import RouteRasterizer  # noqa: E402
 from worldkernel.architect.spatial.spatial_validator import StructuralValidator  # noqa: E402
+from worldkernel.stage1.ontology_selector import _FIXED_DIMENSIONS  # noqa: E402
 
 
 def test_default_spatial_config_reads_worldkernel_architect_yaml() -> None:
@@ -35,10 +36,18 @@ def test_default_spatial_config_reads_worldkernel_architect_yaml() -> None:
 
     assert config.canvas.grid_width == 128
     assert config.canvas.grid_height == 72
-    assert config.canvas.default_region_min_size == [10, 6]
+    assert config.canvas.default_region_min_size == [12, 8]
     assert config.canvas.default_region_max_size == [22, 16]
     assert config.layout.min_region_gap == 6
     assert config.layout.preferred_region_gap == 10
+
+
+def test_location_schema_keeps_seed_importance_for_spatial_sizing() -> None:
+    identity_fields = {
+        field.name for field in _FIXED_DIMENSIONS["location"]["identity"]
+    }
+
+    assert "importance" in identity_fields
 
 
 def _config() -> SpatialGenerationConfig:
@@ -180,3 +189,54 @@ def test_region_packer_centered_fallback_keeps_every_location() -> None:
     bottom = max(region.y + region.height for region in packing.regions)
     assert abs((left + right) / 2 - config.canvas.grid_width / 2) <= 1
     assert abs((top + bottom) / 2 - config.canvas.grid_height / 2) <= 1
+
+
+def test_region_packer_uses_core_major_minor_size_tiers() -> None:
+    config = SpatialGenerationConfig(
+        canvas=SpatialCanvasConfig(
+            grid_width=90,
+            grid_height=48,
+            margin_tiles=1,
+            default_region_min_size=[6, 4],
+            default_region_max_size=[14, 10],
+            corridor_width=1,
+        ),
+        layout=SpatialLayoutConfig(
+            min_region_gap=2,
+            preferred_region_gap=2,
+            edge_comfort_margin=1,
+            candidate_limit=256,
+        ),
+    )
+    build_input = SpatialBuildInput(
+        world_id="sized-world",
+        source_root=".",
+        locations=[
+            LocationSpatialFact(location_id="core", name="Core", importance="core"),
+            LocationSpatialFact(location_id="major", name="Major", importance="major"),
+            LocationSpatialFact(location_id="minor", name="Minor", importance="minor"),
+        ],
+    )
+    layout = LayoutPlan(
+        world_id=build_input.world_id,
+        grid_width=config.canvas.grid_width,
+        grid_height=config.canvas.grid_height,
+        tile_size=config.canvas.tile_size,
+        locations=[
+            LocationLayout(location_id="core", center_x=15, center_y=24),
+            LocationLayout(location_id="major", center_x=45, center_y=24),
+            LocationLayout(location_id="minor", center_x=75, center_y=24),
+        ],
+    )
+
+    packing = RegionPacker().pack(layout, build_input, config)
+    sizes = {
+        region.location_id: (region.width, region.height)
+        for region in packing.regions
+    }
+
+    assert sizes == {
+        "core": (14, 10),
+        "major": (10, 7),
+        "minor": (6, 4),
+    }

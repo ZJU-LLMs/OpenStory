@@ -537,7 +537,6 @@ def run_character_atlas_pipeline(
                 "key_color": context["key_color"],
                 "character_ids": list(context["batch"].character_ids),
                 "prompt": context["prompt"],
-                "negative_prompt": _negative_prompt(context["key_color"]),
             },
         )
         try:
@@ -545,7 +544,6 @@ def run_character_atlas_pipeline(
                 client=client,
                 prompt=context["prompt"],
                 output_path=raw_path,
-                negative_prompt=_negative_prompt(context["key_color"]),
             )
             processed = postprocess_character_atlas(
                 raw_path=raw_path,
@@ -643,7 +641,6 @@ def _generate_character_atlas_candidate(
     client: ImageGenerationClient,
     prompt: str,
     output_path: Path,
-    negative_prompt: str,
 ) -> dict[str, Any]:
     """Generate one atlas, retrying the same request once on transport errors."""
     failures: list[str] = []
@@ -652,7 +649,6 @@ def _generate_character_atlas_candidate(
             metadata = client.generate(
                 prompt,
                 output_path,
-                negative_prompt=negative_prompt,
             )
             return {
                 **metadata,
@@ -1134,14 +1130,6 @@ def _validated_key_colors(values: list[str] | None) -> list[str]:
     if not valid:
         raise ValueError("At least one character key color is required")
     return valid
-
-
-def _negative_prompt(key_color: str) -> str:
-    return (
-        "额外人物，多人同格，缺失人物，半身像，侧身，背面，裁掉头部，裁掉脚部，"
-        "跨格，场景，地面，投影，文字，数字，标签，水印，渐变背景，纹理背景，"
-        f"人物服饰或道具使用键控色 {key_color}"
-    )
 
 
 def _detect_axis_boundaries(

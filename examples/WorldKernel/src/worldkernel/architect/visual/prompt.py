@@ -63,16 +63,8 @@ def compose_background_prompt(
             ),
         ]
     )
-    negative = (
-        "布局草图，建筑藏在保留区下方，照片质感，写实光影，高细节插画，后期像素化滤镜，厚涂，复杂材质，"
-        "密集微型方格，逐格纹理，重复图块图案，马赛克噪声，碎片化色块，高频轮廓，过度锐化，"
-        "密集杂草，密集碎石，密集小花，重复小物件，逐片屋瓦，密集砖缝，随机斑点，颗粒，抖色，点描，"
-        "柔焦，模糊，平滑渐变，抗锯齿插画感，斜俯视场景插画，等距透视，天空，地平线，"
-        "不按要求输出图片尺寸，或者对图片进行缩放、裁剪、扩边或改成近似尺寸"
-    )
     return {
         "prompt": "\n".join(prompt_lines),
-        "negative_prompt": negative,
         "target_size": {
             "width": target_width,
             "height": target_height,

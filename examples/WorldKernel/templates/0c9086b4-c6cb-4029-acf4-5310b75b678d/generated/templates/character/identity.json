@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "name",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "role",
+      "type": "str",
+      "required": true,
+      "ref": ""
+    },
+    {
+      "name": "memory_asset_value",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_debt",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "identity_archive_id",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_tax_status",
+      "type": "str",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "is_amnesiac",
+      "type": "bool",
+      "required": false,
+      "ref": ""
+    },
+    {
+      "name": "memory_integrity",
+      "type": "float",
+      "required": false,
+      "ref": ""
+    }
+  ]
+}

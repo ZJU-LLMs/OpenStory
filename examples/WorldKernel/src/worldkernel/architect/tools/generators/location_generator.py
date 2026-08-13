@@ -30,6 +30,31 @@ from worldkernel.llm.client import chat_json
 
 logger = logging.getLogger(__name__)
 
+_LOCATION_IMPORTANCE_LEVELS = {"core", "major", "minor"}
+
+
+def _restore_seed_importance(
+    items: list[Any],
+    seeds: list[Any],
+    pre_allocated_ids: dict[str, str],
+) -> None:
+    """Restore spatial importance from deterministic Stage1 seed metadata."""
+    importance_by_id = {
+        pre_allocated_ids[seed.seed_id]: (
+            str(seed.importance).strip().lower()
+            if str(seed.importance).strip().lower() in _LOCATION_IMPORTANCE_LEVELS
+            else "major"
+        )
+        for seed in seeds
+        if seed.seed_id in pre_allocated_ids
+    }
+    for item in items:
+        identity = getattr(item, "identity", None)
+        entity_id = getattr(identity, "id", "") if identity is not None else ""
+        importance = importance_by_id.get(entity_id)
+        if importance is not None and identity is not None and hasattr(identity, "importance"):
+            identity.importance = importance
+
 
 def _safe_json_loads(text: str) -> Any:
     """Parse JSON with multiple fallback strategies for LLM output."""
@@ -420,6 +445,7 @@ class LocationGenerationTool(BaseStage2Tool):
 
         # --- Phase 4: Verify & fix entity IDs ---
         refs = assign_entity_ids(validated, batch, registry, "loc")
+        _restore_seed_importance(validated, batch, pre_ids)
 
         return validated, refs, warnings, review_score, retried
 
@@ -464,6 +490,7 @@ class LocationGenerationTool(BaseStage2Tool):
             warnings.append(f"batch {batch_index}: retried due to low quality score")
 
             refs = assign_entity_ids(validated, batch, registry, "loc")
+            _restore_seed_importance(validated, batch, pre_ids)
 
             return validated, refs, warnings
 
