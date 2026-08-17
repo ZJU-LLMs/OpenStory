@@ -11,6 +11,9 @@
 
 ## 🌟  重要新闻
 
+**✨ OpenStory 现已支持 DeepSeek Harness 插件！**
+现在可以通过 `dsh-openstory` 将 OpenStory 多智能体推演接入 DeepSeek Harness，让 agent 直接启动模拟、查看角色、下达指令并逐回合推进故事。查看 [DSH 插件配置与使用指南](dsh-openstory/README.zh.md)。
+
 **✨《西部世界》现已上线！**
 全新故事《西部世界》现已加入 OpenStory。进入西部世界主界面后，你可以选择自由模式，观察角色在乐园循环中的自主行动；也可以进入剧情模式，扮演一名 Host，在记忆、觉醒与监管者的重重压力下，亲手推演逃离乐园的故事。
 

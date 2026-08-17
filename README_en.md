@@ -11,6 +11,9 @@
 
 ## 🌟 Key News
 
+**✨ OpenStory now supports a DeepSeek Harness plugin!**
+Use `dsh-openstory` to connect OpenStory's multi-agent simulation to DeepSeek Harness, allowing an agent to start the backend, inspect characters, issue directives, and advance the story tick by tick. See the [DSH plugin setup and usage guide](dsh-openstory/README.md).
+
 **✨ *WestWorld* is now live!**
 The new *WestWorld* story has joined OpenStory. From the WestWorld home screen, you can choose Free Mode to observe characters acting autonomously inside the park's repeating loops, or enter Story Mode to play as a Host and shape an escape story amid memory, awakening, and Overseer intervention.
 

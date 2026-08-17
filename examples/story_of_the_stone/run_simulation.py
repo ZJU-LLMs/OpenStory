@@ -130,6 +130,7 @@ async def main():
                 "host": "localhost",
                 "port": 6379,
                 "db": 0,
+                "protocol": 2,
             },
             "static_mounts": {
                 "/frontend": os.path.join(project_path, "frontend"),
