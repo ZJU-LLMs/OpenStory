@@ -55,6 +55,9 @@ As the second official story of the OpenStory framework, the `examples/WestWorld
 ![Cover](assets/Story3.png)
 As the third official story of the OpenStory framework, `examples/WorldKernel` is not bound to a single source text. It takes one sentence of natural language and generates a runnable story world—characters, locations, paths, and rules—then launches a multi-agent simulation. You can create a world like *Journey to the West: Havoc in Heaven*, or a storm archive city that runs on traded memories. Open [http://localhost:8100/](http://localhost:8100/), describe the world you want, or resume a locally generated world and play out what happens next.
 
+## 🚀 Story 4: Coming Soon...
+![Cover](assets/Story4.png)
+
 ## 🚀 Quick Start
 
 > **📚 Looking for a more detailed guide?**

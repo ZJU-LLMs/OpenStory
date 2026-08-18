@@ -54,6 +54,9 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 ![Cover](assets/Story3.png)
 作为 OpenStory 框架的第三个官方故事，本项目中的 `examples/WorldKernel` 不再绑定单一原著，而是把一句自然语言设想，生成可以运行的故事世界。系统会拆解出角色、地点、路径与规则，再接入多智能体模拟：你可以创造「西游记·大闹天宫」，也可以生成一座靠交易记忆运转的风暴档案城。打开 [http://localhost:8100/](http://localhost:8100/) 写下你的想法，或继续本地已生成的世界，亲手推演接下来的故事。
 
+## 📖 Story 4：进行中...
+![Cover](assets/Story4.png)
+
 ## 🚀 快速开始
 
 > **📚 想要更详细的操作指南？**
