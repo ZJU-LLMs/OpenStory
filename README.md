@@ -11,7 +11,7 @@
 
 ## 🌟  重要新闻
 
-**✨ WorldKernel 现已上线！**
+**✨ Story 3《WorldKernel》现已上线！**
 现在只需一句话，就能生成属于你的可交互故事世界。无论是海底城邦、轨道集市，还是神话森林、末日列车，`examples/WorldKernel` 都会把你的设想拆解为角色、地点、路径与规则，并接入多智能体模拟。启动后打开 [http://localhost:8100/](http://localhost:8100/) 即可开始创造。
 
 **✨ OpenStory 现已支持 DeepSeek Harness 插件！**
@@ -50,8 +50,9 @@ OpenStory 是一个基于大语言模型（LLM）和 [Agent-Kernel](https://gith
 ![Cover](assets/Story2.png)
 作为 OpenStory 框架的第二个官方故事，本项目中的 `examples/WestWorld` 示例以科幻剧集《西部世界》为背景，构建了一座由多智能体共同驱动的仿真乐园。Host 会感知场景、规划行动、移动交谈并积累记忆；那些反复出现的日常、难以解释的熟悉感与他人的只言片语，也会让他们逐渐发现循环背后的真相。在这里，你既可以在自由模式中观察 Dolores、Maeve、Teddy 等角色的自主互动与命运分岔，也可以在剧情模式中扮演一名 Host，选择结盟、隐藏异常或逃离乐园，并在 Overseer 的监控与干预下亲手推演属于自己的觉醒故事。
 
-## 📖 Story 3： Coming Soon...
-![Cover](assets/Story4.png)
+## 📖 Story 3: WorldKernel（一个想法，一个世界）
+![Cover](assets/Story3.png)
+作为 OpenStory 框架的第三个官方故事，本项目中的 `examples/WorldKernel` 不再绑定单一原著，而是把一句自然语言设想，生成可以运行的故事世界。系统会拆解出角色、地点、路径与规则，再接入多智能体模拟：你可以创造「西游记·大闹天宫」，也可以生成一座靠交易记忆运转的风暴档案城。打开 [http://localhost:8100/](http://localhost:8100/) 写下你的想法，或继续本地已生成的世界，亲手推演接下来的故事。
 
 ## 🚀 快速开始
 

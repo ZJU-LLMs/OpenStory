@@ -11,7 +11,7 @@
 
 ## 🌟 Key News
 
-**✨ WorldKernel is now live!**
+**✨ Story 3 *WorldKernel* is now live!**
 Describe a world in one sentence, and OpenStory will turn it into an interactive multi-agent simulation—with characters, locations, paths, and rules. After launching the server, open [http://localhost:8100/](http://localhost:8100/) to start creating.
 
 **✨ OpenStory now supports a DeepSeek Harness plugin!**
@@ -51,8 +51,9 @@ As the first official implemented story of the OpenStory framework, the `example
 ![Cover](assets/Story2.png)
 As the second official story of the OpenStory framework, the `examples/WestWorld` example is set in the science-fiction series *Westworld* and builds a simulated theme park driven by multiple agents. Hosts perceive their surroundings, plan and carry out actions, converse, and form memories; recurring routines, unexplained familiarity, and fragments left by others gradually reveal the truth behind the loop. In Free Mode, you can observe autonomous interactions and diverging fates among characters such as Dolores, Maeve, and Teddy. In Story Mode, you play as a Host who can form alliances, conceal anomalies, or attempt to escape the park while under the Overseer's watch.
 
-## 🚀 Story 3: Coming Soon...
-![Cover](assets/Story4.png)
+## 🚀 Story 3: WorldKernel
+![Cover](assets/Story3.png)
+As the third official story of the OpenStory framework, `examples/WorldKernel` is not bound to a single source text. It takes one sentence of natural language and generates a runnable story world—characters, locations, paths, and rules—then launches a multi-agent simulation. You can create a world like *Journey to the West: Havoc in Heaven*, or a storm archive city that runs on traded memories. Open [http://localhost:8100/](http://localhost:8100/), describe the world you want, or resume a locally generated world and play out what happens next.
 
 ## 🚀 Quick Start
 
