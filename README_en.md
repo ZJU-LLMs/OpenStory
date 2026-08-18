@@ -5,11 +5,14 @@
 
 <div align="center">
 
-[简体中文](README.md) | [English](README.md)
+[简体中文](README.md) | [English](README_en.md)
 
 </div>
 
 ## 🌟 Key News
+
+**✨ WorldKernel is now live!**
+Describe a world in one sentence, and OpenStory will turn it into an interactive multi-agent simulation—with characters, locations, paths, and rules. After launching the server, open [http://localhost:8100/](http://localhost:8100/) to start creating.
 
 **✨ OpenStory now supports a DeepSeek Harness plugin!**
 Use `dsh-openstory` to connect OpenStory's multi-agent simulation to DeepSeek Harness, allowing an agent to start the backend, inspect characters, issue directives, and advance the story tick by tick. See the [DSH plugin setup and usage guide](dsh-openstory/README.md).
@@ -37,6 +40,7 @@ A brand new story mode aims to revive the Grand View Garden. You can freely give
 - **1:1 Replicated Grand View Garden Frontend**: A meticulously crafted 1:1 simulated visual interactive interface. Not only can you intuitively observe the dynamic trajectories of agents on the map, but you can also click at any time to view detailed character information, status changes, and interaction archives.
 - **Impactful Story Deduction**: Breaking away from conventional, rigid dialogues, agents will generate profound chemical reactions with each other. The system can automatically generate a deduction story full of ups and downs, brilliance, dramatic tension, and impact, based on character traits and environmental changes!
 - **Rich Plugin Mechanism & High Configurability**: Covers the complete lifecycle plugins of agents including perception, planning, execution, and reflection. It also supports flexible management of system, environment, action, and agent configurations through YAML files.
+- **One-sentence World Generation (WorldKernel)**: Describe a world in natural language, and the system generates characters, locations, paths, and rules, then launches an interactive multi-agent simulation.
 
 ## 📖 Story 1: Dream of the Red Chamber
 
@@ -48,6 +52,7 @@ As the first official implemented story of the OpenStory framework, the `example
 As the second official story of the OpenStory framework, the `examples/WestWorld` example is set in the science-fiction series *Westworld* and builds a simulated theme park driven by multiple agents. Hosts perceive their surroundings, plan and carry out actions, converse, and form memories; recurring routines, unexplained familiarity, and fragments left by others gradually reveal the truth behind the loop. In Free Mode, you can observe autonomous interactions and diverging fates among characters such as Dolores, Maeve, and Teddy. In Story Mode, you play as a Host who can form alliances, conceal anomalies, or attempt to escape the park while under the Overseer's watch.
 
 ## 🚀 Story 3: Coming Soon...
+![Cover](assets/Story4.png)
 
 ## 🚀 Quick Start
 
@@ -97,6 +102,21 @@ python -m examples.WestWorld.run_all
 Once startup completes, open the [WestWorld home screen](http://localhost:8000/frontend/index.html) and select Free Mode or Story Mode.
 
 For gameplay details and model configuration, see the [WestWorld guide](examples/WestWorld/README.md).
+
+#### WorldKernel
+
+WorldKernel uses port `8100`, so it can be started separately from *Dream of the Red Chamber* / WestWorld. Before launching, fill in a usable OpenAI-compatible model config in `examples/WorldKernel/configs/models.yaml`, or set the `WORLDKERNEL_API_KEY` environment variable. Entering a simulation still requires local Redis.
+
+```bash
+pip install -e "examples/WorldKernel"
+python -m worldkernel.server
+```
+
+Once startup completes, open the WorldKernel home screen:
+```bash
+http://localhost:8100/
+```
+Describe the world you want to generate, or resume a locally generated world and enter the simulation.
 
 ### 4. Access the Visual Interface
 ![Frontend Preview](assets/frontend.png)
