@@ -12,7 +12,7 @@
 ## 🌟  重要新闻
 
 **✨ Story 3《WorldKernel》现已上线！**
-现在只需一句话，就能生成属于你的可交互故事世界。无论是海底城邦、轨道集市，还是神话森林、末日列车，`examples/WorldKernel` 都会把你的设想拆解为角色、地点、路径与规则，并接入多智能体模拟。启动后打开 [http://localhost:8100/](http://localhost:8100/) 即可开始创造。
+现在只需一句话，就能生成属于你的可交互故事世界。无论是海底城邦、轨道集市，还是神话森林、末日列车，`examples/WorldKernel` 都会把你的设想拆解为角色、地点、路径与规则，并接入多智能体模拟。
 
 **✨ OpenStory 现已支持 DeepSeek Harness 插件！**
 现在可以通过 `dsh-openstory` 将 OpenStory 多智能体推演接入 DeepSeek Harness，让 agent 直接启动模拟、查看角色、下达指令并逐回合推进故事。查看 [DSH 插件配置与使用指南](dsh-openstory/README.zh.md)。
